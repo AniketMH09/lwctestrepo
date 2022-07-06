@@ -1,0 +1,197 @@
+<!--
+* Name: AHFC_Get_Customer_Address
+* Description: customer address screen
+* Created Date: 25-Aug-2021
+* Created By: Sagar (US 4090)
+*-->
+<aura:component    implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    <!-- Inputs -->
+    <!-- RSS 48955 Web Button Cut off Line 4 added, Line 110 updated in cmp and 13-22 in css -->
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <aura:attribute name= "strRequestType" type="String"  default="Do Not Sell" />
+    <!-- Outputs -->
+    <aura:attribute name= "strStreet" type="String" access="global" />
+    <aura:attribute name= "strCity" type="String" />
+    <aura:attribute name= "strState" type="String" />
+    <aura:attribute name= "strCountry" type="String" default="United States"/>
+    <aura:attribute name= "strPostalCode" type="String" />
+    <aura:attribute name="lstStates" type="List" />
+    <aura:attribute name="selectedState" type="String" default="None"/>
+    <!-- Others-->
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <aura:attribute name= "value" type="String" />
+    <aura:attribute name=  "disabled" type="boolean" default="true"/>
+    <aura:attribute name= "communityName" type="string" default=""/>
+    
+    <aura:attribute name=  "validCity" type="boolean" default="false"/>
+    <aura:attribute name=  "validZip" type="boolean" default="false"/>
+    <aura:attribute name=  "validAddress" type="boolean" default="false"/>
+    <aura:attribute name=  "validState" type="boolean" default="false"/>
+    
+    <lightning:navigation aura:id="navService"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div>
+        <div class="center">
+            
+            <div class="AHFC_HeaderWrap ahfc_arrowAlign">
+                <h2 class="header">
+                    <!--<lightning:icon iconName="utility:back" class="AHFC_backArrow" alternativeText="Connected" size="small"
+                                    title=""  ></lightning:icon>-->
+                    <span>{!v.strRequestType}</span>
+                </h2>
+            </div>
+            
+            
+            <div class="AHFC_DetailWrap">
+                <div class="contain-secondary">
+                    
+                    <div class="slds-grid slds-wrap AHFC_Fields_Margin">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12 aHFC_rightSpace">
+                          <div class="aHFCEmail"><span class='AHFC_ASTRIC'>*</span>{!$Label.c.CCPA_CURRENT_ADDRESS}</div>
+                          <lightning:input aura:id="inputCmp1" class ="inputField"
+                                     name="Street"
+                                     value="{!v.strStreet}"
+                                     maxlength="150"
+                                     onchange="{!c.onChange}" />   
+                        </div>
+                        
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12 aHFC_rightSpace">
+                          <div class="aHFCEmail"><span class='AHFC_ASTRIC'>*</span>{!$Label.c.CCPA_CURRENT_CITY}</div>
+                          <lightning:input  aura:id="inputCmp2" class ="inputField"
+                                     name="City"
+                                     value="{!v.strCity}"
+                                     maxlength="80"
+                                     onchange="{!c.onChange}"/> 
+                             
+                        </div>
+                        
+                    </div>
+                    
+                    
+                    <div class="slds-grid slds-wrap AHFC_Fields_Margin">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12 aHFC_rightSpace">
+                          <div class="aHFCEmail"><span class='AHFC_ASTRIC'>*</span>{!$Label.c.CCPA_CURRENT_STATE}</div>
+                          <lightning:combobox aura:id="inputCmp3" class ="inputField"
+                                        name="State"
+                                        value="{!v.strState}"
+                                        onchange="{!c.onChange}"
+                                        options="{! v.lstStates }"
+                                        placeholder="" 
+                                        />    
+                        </div>
+                         
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12 aHFC_rightSpace">
+                         <div class="aHFCEmail"><span class='AHFC_ASTRIC'>*</span>{!$Label.c.CCPA_CURRENT_ZIP}</div>
+                         <!--<lightning:input aura:id="inputCmp4" class ="inputField"
+                                     name="PostalCode"
+                                     value="{!v.strPostalCode}"
+                                     onchange="{!c.onChange}"
+                                     maxlength="10"
+                                     pattern="[0-9]{5}(-[0-9]{4})?"
+                                     messageWhenBadInput="Current Zip must be in 99999 or 99999-9999 format."
+                                     messageWhenPatternMismatch="Current Zip must be in 99999 or 99999-9999 format."
+                                     messageWhenTypeMismatch="Current Zip must be in 99999 or 99999-9999 format."
+                                     messageWhenValueMissing="Current Zip must be in 99999 or 99999-9999 format."
+                                     />   -->
+                            
+                            <lightning:input aura:id="inputCmp4" class ="inputField"
+                                     name="PostalCode"
+                                     value="{!v.strPostalCode}"
+                                     onchange="{!c.onChange}"
+                                     maxlength="10"/>  
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="action ahfc_buttons">
+                    <div>
+                      <lightning:button class="AHFC_customSecondaryButton AHFC_Mob_buttons" aura:id="back1" name="backButton1" label="{!$Label.c.CCPA_PREVIOUS}" onclick="{! c.handlePrevious }"/>
+                        
+                      <lightning:button class="AHFC_customPrimaryButton  AHFC_Mob_buttons"   aura:id="cont3" name="continue3" label="{!$Label.c.CCPA_CONTINUE}" onclick="{!c.handleContinue}"/>
+                        
+                      <lightning:button class="AHFC_customTertiaryButton AHFC_Cancle"  aura:id="cancel1" name="cancelButton1" label="{!$Label.c.CCPA_Cancel}" onclick="{! c.openModel }"/>            
+                    </div>
+                </div>
+            </div>
+            
+           <!-- <div class="slds-grid slds-grid_align-space HD_Gridlayout">
+                <div class="slds-col">
+                    <span><lightning:button class="btn default mr-sm" aura:id="cancel1" name="cancelButton1" label="{!$Label.c.CCPA_Cancel}" onclick="{! c.openModel }"/></span>
+                </div>
+                <div class="slds-col">
+                    <span><lightning:button class="btn default mr-sm" aura:id="back1" name="backButton1" label="{!$Label.c.CCPA_PREVIOUS}" onclick="{! c.handlePrevious }"/></span>
+                </div>
+                <div class="slds-col">
+                    <span><lightning:button class="{!v.disabled == true ?	'btn grey pull-right btn-continue':'btn primary pull-right btn-continue'}"
+                                            disabled="{!v.disabled == true ? 'true':'false'}" aura:id="cont3" name="continue3" label="{!$Label.c.CCPA_CONTINUE}" onclick="{!c.handleContinue}"/></span>
+                </div>
+            </div>-->
+            
+            
+        </div>  
+    </div>
+   <!-- <div class="confirm-modal">
+        <aura:if isTrue="{!v.isOpen}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!$Label.c.AHFC_Confirmation}</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <aura:unescapedHtml value ="{!$Label.c.AHFC_Cancel_CCPA}"/>
+                        
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning:button class="btn default pull-left mr-sm" aura:id="cancel2" name="cancelButton2" label="Cancel" onclick="{! c.closeModel }"/>
+                        <lightning:button class="btn primary pull-right"
+                                          aura:id="cont3" name="continue3" label="Continue" onclick="{!c.redirectToHome}"/>
+                        
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    </div>-->
+   
+   <div class="confirm-modal">
+        <aura:if isTrue="{!v.isOpen}">
+           <section
+                     role="dialog"
+                     tabindex="-1"
+                     aria-label="Meaningful description of the modal content"
+                     aria-modal="true"
+                     aria-describedby="modal-content-id-1"
+                     class="slds-modal slds-fade-in-open finance-account-edit-modal"
+                     >
+                <div class="slds-modal__container">
+                    <div class="slds-modal__content edit-modal-content ahFC_Model_Content" id="modal-content-id-1">
+                        
+                        <div class="close-icon close-icon-alignment aHFC_Close_Icon">
+                            <button onclick="{!c.closeModel}" class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse message-content-info" title="Close" > 
+                                <lightning:icon size="small" class="close-icon-color" iconName="utility:close" alternativeText="close"
+                                                title="close"></lightning:icon>
+                                <span class="slds-assistive-text">Close</span>
+                            </button> 
+                        </div>
+                        
+                        <h1 class="AHFC_ModTitle">{!$Label.c.AHFC_Confirmation}</h1>
+                        <div class="slds-m-top_medium">
+                            <p class="para-text-medium"><aura:unescapedHtml value ="{!$Label.c.AHFC_Customer_Cancel_CCPA}"/></p>
+                        </div>
+                        <div class="modal-action slds-m-top_xx-large">
+                            <button class="slds-button action-btn save-action" onclick="{!c.redirectToHome}">
+                                CONTINUE
+                            </button>
+                            <button class="slds-button action-btn cancel-action" onclick="{!c.closeModel}">
+                                CANCEL
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>  
+        </aura:if>
+    </div> 
+</aura:component>

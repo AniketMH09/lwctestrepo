@@ -1,0 +1,223 @@
+@import 'c/aHFC_dashboardTheme';
+
+/*Desktop view start*/
+
+/*a:hover {  
+    text-decoration-style: none !important;
+}*/
+/*button:focus{   
+    outline-width: 2px !important;
+    outline-style: solid !important;  
+}*/
+a, a:hover, a:active, a:visited, a:focus {
+    text-decoration:none;
+}
+
+.AHFC_PageTitleWrap {
+    margin-top: 0.7rem;
+}
+
+.AHFC_Wrapperst {
+    padding: 2rem 8rem 2rem 8rem;
+}
+
+.AHFC_PrimHead lightning-icon {
+    --lwc-colorTextIconDefault: #CC0000;
+    margin-right: 1rem;
+}
+
+.AHFC_backArrow {
+    display: inline;
+    vertical-align: super;
+}
+
+.AHFC_PrimHead p {
+    display: inline;
+    font-size: 38px;
+    font-family: 'ahfc-robotolight';
+    line-height: 1.5;
+    color: #000000;
+}
+
+.AHFC_PrimHead {
+    margin-bottom: 2rem;
+}
+
+.AHFC_SecHead{
+    margin-bottom: 30px;
+    margin-top: 0px;
+    margin-left: 41px;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+    padding-right: 0rem;
+    color: #5E6162;
+}
+
+.slds-accordion__summary-content {
+    font-size: 26px;
+    line-height: 36px;
+    color: #000000;
+    letter-spacing: 0.02rem;
+    font-family: 'ahfc-robotolight';
+    text-transform: initial;
+    font-weight: 300;
+}
+
+
+/* .AHFC_accordianWrap .AHFC_accText{
+  display:none;
+}
+.AHFC_accordianWrap .AHFC_accText.active{
+  display:block;
+} */
+
+
+/* .slds-accordion__summary-heading > button > span {
+  order: 1 !important;
+} */
+
+
+/* .ahfc_accordion .slds-accordion__summary-heading > button > lightning-primitive-icon > svg {
+  order: 2 !important;
+} */
+
+.sections-accordion .section-header {
+    margin-bottom: 0;
+}
+
+.ahfc-accordion-item {
+    border-bottom: 1px solid #D9D9D9 !important;
+    margin-bottom: 0px;
+    /* padding: 0 1rem; */
+    padding: 0 2rem 0rem 2rem;
+}
+
+.ahfc-accordion-item .slds-accordion__section {
+    --sds-c-accordion-section-spacing-block-end: 0.3rem;
+}
+
+.ahfc-text-header {
+    line-height: 49px;
+}
+
+
+/* .slds-is-open>.slds-accordion__content{
+  background
+} */
+
+
+/* .ahfc_arrows > lightning-icon >lightning-icon {
+  fill: red;
+  --sds-c-icon-color-foreground-default: red;
+} */
+
+.ahfc_parentOpen {
+    background-color: #f0f0f0;
+}
+
+.ahfc_accordionContent {
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: 0.02em;
+    color: #5E6162;
+    padding-right: 6rem;
+}
+
+.AHFC_contentStyle {
+    /* padding-bottom: 2rem; */
+}
+
+.ahfc_underline {
+    border-bottom: 1px gray solid;
+    /* width: 295px;  */
+    /* width: 32%; */
+}
+
+.ahfc_bold {
+    /* font-family: 'ahfc-robotolight'; */
+    font-family: 'ahfc-robotomedium';
+}
+
+.ahfc_belowPadding {
+    padding-bottom: 0rem;
+}
+
+.AHFC_contentStyle .ahfc_CustomPadding {
+    padding-bottom: 2rem;
+}
+
+.AHFC_contentStyle .ahfc_TopPadding {
+    padding-top: 2rem;
+}
+
+.ahfc_displayInlineBlock {
+    display: inline-block;
+}
+
+/*Desktop view end*/
+
+
+/* ADA fix start */
+
+.AHFC_removehovereffect {
+    cursor: auto;
+}
+
+
+/* ADA fix end */
+
+
+/*Mobile view start*/
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .AHFC_PrimHead p {
+        font-size: 20px;
+    }
+    .AHFC_Wrapperst {
+        padding: 0!important;
+    }
+    .AHFC_PrimHead {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        margin-bottom: 0rem;
+    }
+    .AHFC_PrimHead lightning-icon {
+        margin-right: .5rem;
+        margin-left: .8rem;
+    }
+
+    .AHFC_SecHead{
+        margin-bottom: 30px;
+        margin-top: 0px;
+        margin-left: 41px;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.03em;
+        padding-right: 0rem;
+        color: #5E6162;
+    }
+
+    .slds-accordion__summary-content {
+        font-size: 18px;
+        line-height: 21px;
+    }
+    .ahfc_accordionContent {
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.03em;
+        padding-right: 0rem;
+    }
+    .ahfc_underline {
+        /* width: 234px; */
+    }
+    .ahfc-text-header {
+        line-height: 24px;
+    }
+}
+
+
+/*Mobile view end*/
+
+
+/*------------------------------------------------------------------------------------------------------*/

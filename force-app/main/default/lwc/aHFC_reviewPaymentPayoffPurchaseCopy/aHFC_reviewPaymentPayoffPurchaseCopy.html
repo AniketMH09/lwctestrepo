@@ -1,0 +1,232 @@
+<template>
+
+  <!-- <div class="slds-grid AHFC_MobLAyout">
+        <div class="AHFC_CommunitySecHeader">
+            <div class="AHFC_LeftGridSec slds-col">
+              <p class="AHFC_SecLogostyle">
+                  <img src={hondaheadLogoUrl} alt="honda logo" width="60" height="40"
+                    class="logo1" />
+              </p>
+            </div>
+            <div class="AHFC_VehImg slds-col">
+              <img src={hondaVehImgUrl} alt="honda logo" width="60" height="40"
+                  class="logo1" />
+            </div>
+            <div class="slds-col AHFC_Vehdetail">
+              <dl class="slds-dl_inline">
+                  <dd class="slds-dl_inline__label AHFC_DetName">Jane's 2020 Civic Si Sedan </dd>
+                  <dt class="slds-dl_inline__label AHFC_Aclabel">Account #:</dt>
+                  <dd class="slds-dl_inline__detail AHFC_Aclabel">123456789 </dd>
+              </dl>
+            </div>
+        </div>
+      </div> -->
+  <div class="reviewpayment-container">
+    <h1 class="reviewpayment-title" if:false={isPaymentSuccess}>
+      Review Payment
+    </h1>
+    <div class="message-info" if:true={isPayOffSuccess}>
+      <c-a-h-f-c_message-toast type="success" label="Success" message="Your payment has been scheduled successfully!">
+      </c-a-h-f-c_message-toast>
+    </div>
+    <div class="reviewinfo-container-fluid slds-m-vertical_x-large">
+      <div class="reviewinfo-container">
+        <div class="review-section-info">
+          <div if:false={isPayOffSuccess}>
+            <div class="slds-grid slds-wrap additionalpaymentinfo-container">
+
+              <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-12 payment-info">
+                <label>{paymenttype} </label>
+
+              </div>
+              <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-12 payment-info">
+                <label>{paymenttype} AMOUNT</label>
+                <h1>{payoffamt}</h1>
+              </div>
+
+              <div class="slds-grid slds-wrap schedule-source-section slds-m-top_x-large">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 scheduled-info">
+                  <div>
+                    <label>{paymenttype} Date</label>
+                    <h1>{payoffdate}</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slds-grid slds-wrap reviewpaymentinfo-container" if:true={isPayOffSuccess}>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 payment-info">
+
+              <h4 class="ahfc-info-label ahfc-text-dark">PAYOFF AMOUNT</h4>
+
+              <!-- <label>MONTHLY PAYMENT AMOUNT</label>-->
+              <h1>$24,878</h1>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 payment-info">
+
+              <h4 class="ahfc-info-label ahfc-text-dark">PAYOFF PAYMENT CONFIRMATION #</h4>
+
+              <!-- <label>MONTHLY PAYMENT AMOUNT</label>-->
+              <h1>59955572</h1>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-show_medium paymenttype-info">
+              <label>{label.Label_EASYPAY}</label>
+            </div>
+          </div>
+
+          <div class="slds-grid slds-wrap schedule-source-section slds-m-top_x-large" if:true={isPayOffSuccess}>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 scheduled-info">
+              <div>
+                <h4 class="ahfc-info-label ahfc-text-dark">PAYOFF AUTHORIZED ON</h4>
+                <!-- <h1>{nextwithdrawldate}</h1> -->
+                <h1> Nov 05,2020
+                  <!--  <lightning-formatted-date-time
+                    value={strNextWithdrawlDate}
+                    day="2-digit"
+                    month="short"
+                    year="numeric"
+                 ></lightning-formatted-date-time> -->
+                  <!--{strNextWithdrawlDate}-->
+                </h1>
+              </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-12 source-info">
+              <h4 class="ahfc-info-label ahfc-text-dark">PAYOFF DATE</h4>
+              <div class="sources-container">
+                <h1>Nov 05,2020</h1>
+              </div>
+            </div>
+          </div>
+          <br />
+
+          <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 source-info">
+            <label class="AHFC_CardLabel">PAYMENT SOURCE</label>
+            <div class="sources-container">
+              <!--kanchi added a fix-->
+              <h1>{paymentsourcenickname}</h1>
+              <p>(
+                <span class="circle"></span>
+                <span class="circle"></span>
+                <span class="circle"></span>
+                <span class="circle"></span>
+                <span class="circle"></span>
+                <span class="circle"></span>
+                <span class="circle"></span>
+                <span class="circle"></span>
+                <span class="circle"></span>
+                &nbsp; {payoffbankaccno})
+              </p>
+
+            </div>
+          </div>
+
+          <div class="confirmation-credit-section">
+            <h4 class="ahfc-info-label ahfc-text-dark">Receiving notifications at</h4>
+
+            <template if:true={Payment_Confirmations_via_Email}>
+              <div>
+                </br>
+                <lightning-icon icon-name="utility:email" alternative-text="Connected" size="small" title="small size">
+                </lightning-icon>
+
+                <h2 class="slds-m-top_medium mail-alignment">{strCommunicationEmail}</h2>
+              </div>
+            </template>
+            <template if:true={Payment_Confirmations_via_Text}>
+              <div>
+                <lightning-icon icon-name="utility:engage" alternative-text="Connected" size="small" title="small size">
+                </lightning-icon>
+                <h3 class="slds-m-top_small mail-alignment">{strCommunicationPhone}</h3>
+              </div>
+            </template>
+            <p class="slds-m-top_x-large questions-link">
+              Questions? Contact&nbsp;
+              <a href={label.AHFC_Honda_Contact_Us_URL}>Customer Service</a>
+            </p>
+            <hr />
+            <div>Title Release Address </div>
+            <div class="slds-grid  payoff-container slds-m-bottom_x-large">
+              <div class="slds-col slds-size_1-of-1 ahfc-background-lighter payoff-info">
+                <p class="ahfc-text-grey ahfc-body-two">
+                  The address below is where your title will be sent if your state provides titles. Your title release
+                  may take approximately 2-3 weeks depending on your state.<br /><br />
+
+                  If your state provides electronic titles, visit your local DMV to obtain your title. Not sure? Read
+                  our FAQ
+                </p>
+              </div>
+            </div>
+            <div>Please confirm the address below is where you would like to receive your title:
+            </div>
+            <div>
+              <div class="slds-grid slds-wrap additionalpaymentinfo-container">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 scheduled-info">
+                  ADDRESS
+                  <p class="para-text-large slds-m-bottom_x-small address-info">
+                    <span if:true={resultData.billToAddress.addressLine1}>{resultData.billToAddress.addressLine1}</span>
+                    <span
+                      if:true={resultData.billToAddress.addressLine2}>{resultData.billToAddress.addressLine2},</span><br />
+                    <span if:true={resultData.billToAddress.city}>{resultData.billToAddress.city}</span>
+                    <span if:true={resultData.billToAddress.state}>{resultData.billToAddress.state},</span><br />
+                    <span if:true={resultData.billToAddress.zipCode}>{resultData.billToAddress.zipCode}</span>
+                  </p>
+                  <!-- ADDRESS
+                1219 Bradley Street
+                Centerton, AR
+                72719 -->
+                </div>
+
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-12 message-info"
+                  if:true={isAddressUpdatedSucess}>
+                  <c-a-h-f-c_message-toast type="success" label="Success"
+                    message="Your address was successfully updated">
+                  </c-a-h-f-c_message-toast>
+                </div>
+              </div>
+              <div class="slds-grid slds-wrap">
+                <lightning-button class="edit-btn" variant="base" label="EDIT" title="edit" onclick={editAddress}>
+                </lightning-button>
+              </div>
+            </div>
+            <template if:true={isAddressEditModalOpen}>
+              <c-a-h-f-c_finance-account-detail-edit modal-header-text={modalHeaderText} nick-name-modal={nickNameModal}
+                contact-info-modal={contactInfoModal} garage-address-modal={garageAddressModal}
+                billing-address-modal={billingAddressModal} stop-finance-modal={stopFinanceModal}
+                modal-save-text={modalBtnSave} modal-cancel-text={modalBtnCancel} result-data={resultData}
+                onmodalsave={onModalSave} onmodalclose={onModalClose} get-finance-account-num={getFinanceAccountNum}
+                is-redirected-from-pay-off=true>
+              </c-a-h-f-c_finance-account-detail-edit>
+            </template>
+          </div>
+        </div>
+        <hr />
+        <lightning-button class="slds-m-right_xx-large submit-btn" variant="destructive"
+          label="CONFIRM ADDRESS & CONTINUE TO DASHBOARD" title="CONFIRM ADDRESS & CONTINUE TO DASHBOARD"
+          onclick={navigateToDashboard}></lightning-button>
+      </div>
+      <div class="review-section" if:false={isPaymentSuccess}>
+        <div class="slds-m-vertical_xx-large paymentconfirmation-container">
+          <span> : Your {paymenttype} be credited to your account within
+            2 business days of your scheduled {paymenttype} Date. {paymenttype} made after
+            {isSandbox} cannot be edited or canceled </span>
+        </div>
+
+        <div class="slds-m-vertical_xx-large paymentconfirmation-container">
+          <span>
+            : Your {paymenttype} payment is being submitted in accordance with the
+            <a> Terms & Conditions </a>
+            of the Payment Withdrawal Authorization.
+            Please print and retain a copy of this authorization for your records.</span>
+        </div>
+
+        <div class="submit-action slds-m-top_xx-large">
+          <lightning-button class="edit-btn" variant="base" label="EDIT PAYMENT" title="edit" onclick={editPayment}>
+          </lightning-button>
+          <lightning-button class="slds-m-right_xx-large submit-btn" variant="destructive" label="SUBMIT" title="submit"
+            onclick={handleSubmitPayment}></lightning-button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</template>

@@ -1,0 +1,162 @@
+<template>
+  <template if:true={routingSpinner}>
+    <c-a-h-f-c_-spinner loading-message={spinnerWheelMessage}></c-a-h-f-c_-spinner>
+  </template>
+<div class="ahfc-background-lighter">
+    <div class="ahfc-background-lightest slds-grid AHFC_MobLAyout">
+    </div>
+    <div class="reviewpayment-container">
+        <h1 class="reviewpayment-title" if:false={isPaymentSuccess}>
+            {label.Label_ReviewPaymentLabel}
+        </h1>
+
+        <div class="reviewinfo-container-fluid slds-m-vertical_x-large">
+            <div class="reviewinfo-container">
+                <div class="success-info slds-m-bottom_xx-large" if:true={showEasyPaySuccessMsg}>
+                    <!--<img class="slds-m-right_medium" src={successIcon} width="45" height="36" alt="SuccessIcon" />
+            <h1 class="ahfc-info-large">{label.Label_PaySuccess}</h1>   -->
+                    <c-a-h-f-c_message-toast type="success" label="Success" message={label.Label_PaySuccess} show-icon="true" onclosetoast={onCloseToast} is-review-payment="true"></c-a-h-f-c_message-toast>
+                </div>
+                <!--Success starts-->
+                <div class="review-section-info reviewSubmitSection" if:true={isPaymentSuccess}>
+                    <div class="slds-grid slds-wrap reviewpaymentinfo-container">
+                        <div class="slds-col slds-size_1-of-1 ahfc-labelMobile paymenttype-info">
+                            <label>{label.Label_EASYPAY}</label>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_4-of-12 payment-info">
+                            <h4 class="ahfc-info-label ahfc-text-dark">MONTHLY PAYMENT AMOUNT</h4>
+                            <!-- <label>MONTHLY PAYMENT AMOUNT</label>-->
+                            <h1>${strAutoPaymentAmt}</h1>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_4-of-12 payment-info">
+                            <h4 class="ahfc-info-label ahfc-text-dark">PAYMENT AUTHORIZED ON</h4>
+
+                            <!-- <label>MONTHLY PAYMENT AMOUNT</label>-->
+                            <h1>{paymentAuthorizedOn}</h1>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12  slds-large-size_4-of-12 slds-show_medium paymenttype-info easyPayLarge">
+                            <label>{label.Label_EASYPAY}</label>
+                        </div>
+                    </div>
+                </div>
+                <!--Success end-->
+
+                <!--on load starts-->
+                <div class="review-section-info" if:false={isPaymentSuccess}>
+                    <div class="slds-grid slds-wrap reviewpaymentinfo-container">
+                        <div class="slds-col slds-size_1-of-1 slds-medium_4-of-12 slds-large-size_4-of-12 ahfc-labelMobile paymenttype-info">
+                            <label>{label.Label_EASYPAY}</label>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium_8-of-2  slds-medium-size_8-of-12 payment-info">
+                            <h4 class="ahfc-info-label ahfc-text-dark">{label.Label_MonthlyPayAmt}</h4>
+
+                            <!-- <label>MONTHLY PAYMENT AMOUNT</label>-->
+                            <h1>${strAutoPaymentAmt}</h1>
+                        </div>
+
+                        <div class="slds-col slds-size_1-of-1 slds-medium_1-of-2 slds-medium-size_4-of-12 slds-show_medium easyPayLarge paymenttype-info">
+                            <label>{label.Label_EASYPAY}</label>
+                        </div>
+                    </div>
+                </div>
+                <!--on load  end-->
+
+                <div class="slds-grid slds-wrap schedule-source-section slds-m-top_x-large">
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12 scheduled-info">
+
+                        <div>
+                            <template if:false={isPaymentSuccess}>
+                  <h4 class="ahfc-info-label ahfc-text-dark">{label.Label_WithdrawPayBy}</h4>
+                </template>
+                            <template if:true={isPaymentSuccess}>
+                  <h4 class="ahfc-info-label ahfc-text-dark">NEXT WITHDRAWAL DATE</h4>
+                </template>
+                            <!-- <h1>{nextwithdrawldate}</h1> -->
+                            <h1>
+                                <lightning-formatted-date-time value={strNextWithdrawlDate} day="2-digit" month="short" year="numeric"></lightning-formatted-date-time>
+                                <!--{strNextWithdrawlDate}-->
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_8-of-12 source-info">
+                        <h4 class="ahfc-info-label ahfc-text-dark">{label.Label_PaySource}</h4>
+                        <div class="sources-container">
+                            <h1>{strPaymentSource}</h1>
+                            <p>(
+                                <span class="circle"></span>
+                                <span class="circle"></span>
+                                <span class="circle"></span>
+                                <span class="circle"></span> &nbsp; {last4accnumofselpaysource})
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <hr aria-hidden="true"/>
+                <div class="review-section" if:true={CommunicationPreferences}>
+                    <div class="confirmation-credit-section">
+                        <h4 class="ahfc-info-label ahfc-text-dark">{label.Label_ReceiveNotifications}</h4>
+
+                        <template if:true={Payment_Confirmations_via_Email}>
+                <div>
+                  </br>
+                  <a href="javascript:void" tabindex="-1">
+                  <lightning-icon icon-name="utility:email" alternative-text="emailText" size="small"
+                    title="small size">
+                  </lightning-icon>
+                  </a>
+
+                  <h2 class="slds-m-top_medium mail-alignment">{strCommunicationEmail}</h2>
+                </div>
+              </template>
+                        <template if:true={Payment_Confirmations_via_Text}>
+                <div>
+                  <a href="javascript:void" tabindex="-1">
+                  <lightning-icon icon-name="utility:engage" alternative-text="phoneText" size="small"
+                    title="small size">
+                  </lightning-icon>
+                  </a>
+                  <h3 class="slds-m-top_small mail-alignment">{strCommunicationPhone}</h3>
+                </div>
+              </template>
+                        <hr aria-hidden="true"/>
+                    </div>
+                </div>
+                <div class="paymentsubmit-section" if:false={isPaymentSuccess}>
+
+                    <div class="submitted-info-section">
+                        <p>
+                            EasyPay payments scheduled for Sunday will process on Monday and be credited to your account as of the payment date. Cancellations by {cutOffTime} on the payment date will be effective immediately. </p>
+                        <br>
+                        <br>
+                        <p>By clicking on ‘Submit,’ you agree to our <span><a href={paymentWithdrawalTnCUrl} target="_blank">EasyPay Authorization</a></span>. Please print and retain a copy of this authorization for your records.</p>
+                    </div>
+                    <!-- <div class="submit-action slds-m-top_xx-large" if:false={isPaymentSuccess}>
+              <button class="AHFC_btn_submit" title="SUBMIT" onclick={handleSubmitPayment}>SUBMIT</button>
+              <button class="AHFC_btn_edit" title="edit" onclick={editPayment}>EDIT PAYMENT</button>
+            </div> -->
+                    <div class="reviewaction-container">
+                        <button class="slds-button ahfc-btn ahfc-btn-primary" onclick={handleSubmitPayment}>SUBMIT</button>
+                        <button class="slds-button ahfc-btn ahfc-btn-text" onclick={editPayment}>EDIT PAYMENT</button>
+                    </div>
+                </div>
+
+                <div class="paymentsubmit-section" if:true={isPaymentSuccess}>
+
+                    <div class="submitted-info-section">
+                        <p>
+                            Your next payment will be processed at {cutOffTime} on&nbsp;
+                            <lightning-formatted-date-time value={strNextWithdrawlDate} day="2-digit" month="short" year="numeric">
+                            </lightning-formatted-date-time>.
+                            <span> You can cancel this payment schedule at anytime in your dashboard  
+                  under <a href="javascript:void(0)" onclick={navigatetoPaymentActivityPage}> Payment Activity</a>.
+                  For questions, contact <a onclick={NavigateToContactUsPage}>Customer Service</a>.
+                </span>
+                        </p>
+                        <button class=" AHFC_NoBgButton slds-m-top_xx-large slds-show" title="CONTINUE TO DASHBOARD" onclick={navigateToDashboard}>{label.Label_ContinueToDashboard}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</template>

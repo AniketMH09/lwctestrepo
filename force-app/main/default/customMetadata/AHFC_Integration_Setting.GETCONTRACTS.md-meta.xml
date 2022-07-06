@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>GETCONTRACTS</label>
+    <protected>false</protected>
+    <values>
+        <field>Body__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Endpoint_URL__c</field>
+        <value xsi:type="xsd:string">https://ws-qa4.hondaweb.com/REST/Docufree/DownloadService/1.0/direct</value>
+    </values>
+    <values>
+        <field>Environment__c</field>
+        <value xsi:type="xsd:string">AHFC_DEV</value>
+    </values>
+    <values>
+        <field>HeaderValue__c</field>
+        <value xsi:type="xsd:string">[{&quot;key&quot;:&quot;X-Honda-wl-authorization&quot;,&quot;value&quot;:&quot;Basic c3ZjX2FoZmNfZG9jdWZyZWVfcWE6QWxhcmFtIzc3&quot;},{&quot;key&quot;:&quot;hondaHeaderType.messageId&quot;,&quot;value&quot;:&quot;teststtst&quot;},{&quot;key&quot;:&quot;Content-Type&quot;,&quot;value&quot;:&quot;application/json&quot;},{&quot;key&quot;:&quot;Accept&quot;,&quot;value&quot;:&quot;application/json&quot;}]</value>
+    </values>
+    <values>
+        <field>Method__c</field>
+        <value xsi:type="xsd:string">GET</value>
+    </values>
+    <values>
+        <field>Parameters__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Path__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Request_Timeout__c</field>
+        <value xsi:type="xsd:double">120000.0</value>
+    </values>
+    <values>
+        <field>Retry__c</field>
+        <value xsi:type="xsd:double">0.0</value>
+    </values>
+    <values>
+        <field>ServiceName__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Success_Status_Codes__c</field>
+        <value xsi:type="xsd:string">200</value>
+    </values>
+</CustomMetadata>

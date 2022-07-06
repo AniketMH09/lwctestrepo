@@ -1,0 +1,187 @@
+<!--
+* Appirio, Inc
+* Name: AHFC_Lease_Extension
+* Description: End of Lease Extension Request(T-754864)
+* Created Date: 23-Nov-2018
+* Created By: Namita Choudhary (Appirio)
+* Modified By: Naveen Pilla 
+*-->
+<aura:component  implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" controller="AHFC_Lease_Extension_Controller" access="global">
+    <!-- Inputs -->
+    <aura:attribute name = "currentMaturityDate" type = "String" /><!-- default="7/26/2018"-->
+    <aura:attribute name = "nextPaymentAmount" type = "String" default=""/>
+    <aura:attribute name = "nextPaymentAmountDecimal" type = "Decimal" default=""/>
+    <aura:attribute name = "noOfMonthsLeft" type = "Integer" />
+    <aura:attribute name=  "extensionTaxRate" type="String" />
+    <aura:attribute name=  "financeAcc" type="String"/>
+    <!-- Outputs -->
+    <aura:attribute name = "maturityDate" type = "String" />
+    <aura:attribute name = "selRequestedMonths" type = "String" />
+    <aura:attribute name = "nextMaturityDate" type = "String" />
+    <aura:attribute name=  "estimatedLETax" type="String" default=""/>
+    <!-- Others-->
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <aura:attribute name= "value" type="String" />
+    <aura:attribute name=  "disabled" type="boolean" default="true"/>
+    <aura:attribute name= "communityName" type="string" default=""/>
+    <aura:attribute name= "LeaseExtensionRequest" type ="string"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="contain">
+        <div class="center">
+            <h2 class="header">{!$Label.c.AHFC_Lease_Extension_Request}</h2>
+            
+            <div class="slds-grid_pull-padded-sm">
+                <a href="#">
+                <lightning:progressIndicator currentStep="step-1" type="path" variant="base">
+                    <lightning:progressStep label="Select Term" value="step-1"/>
+                    <aura:if isTrue="{!or($Browser.isPhone, $Browser.isTablet)}">
+                        <lightning:progressStep label="T&amp;Cs" value="step-2"/>
+                        <aura:set attribute="else">
+                            <lightning:progressStep label="Terms &amp; Conditions" value="step-2"/>
+                        </aura:set>
+                    </aura:if>
+                    
+                    <lightning:progressStep label="Review" value="step-3"/>
+                    <lightning:progressStep label="Complete" value="step-4"/>
+                </lightning:progressIndicator>
+                </a>
+            </div>
+            
+            
+            <div class="info">
+                <p>{!$Label.c.AHFC_Months_to_be_selected}</p>
+            </div>
+            
+            <div class="contain-secondary">
+                <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap row-divide">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_7-of-12">
+                        <label>{!$Label.c.AHFC_Monthly_Payment_Amount}</label>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12">
+                        <aura:if isTrue="{!v.nextPaymentAmount != ''}" >
+                            <span>${!v.nextPaymentAmountDecimal}</span>
+                        </aura:if>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap row-divide">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_7-of-12">
+                        <label >{!$Label.c.AHFC_Current_Maturity_Date}</label>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12">
+                        <aura:if isTrue="{!v.maturityDate != ''}" >
+                            <span>{!v.maturityDate}</span>
+                        </aura:if>
+                    </div> 
+                </div>
+                <div class="slds-grid slds-wrap row-divide">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_7-of-12">
+                        <div class="tooltip-label-wrap">
+                            <div class="slds-form-element">  
+                                <label class="tooltip-label">{!$Label.c.AHFC_Lease_Extension_Length}</label>
+                                <div class="slds-form-element__icon tooltip">
+                                    <img class="inline" src="{!$Resource.AHFC_UI_Kit + '/img/icons/tooltip.svg'}"/>
+                                    <div class="tooltiptext slds-popover slds-popover_tooltip slds-nubbin_bottom" role="dialog" id="help" style="position: absolute; top: -200px; left: -120px; width: 260px;" >
+                                        <aura:if isTrue="{!v.communityName == 'hondahelp'}">
+                                            <div class="slds-popover__body">
+                                                <aura:unescapedHtml value ="{!$Label.c.AHFC_Lease_Extend}"/>
+                                            </div>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.communityName == 'acurahelp'}">
+                                            <div class="slds-popover__body">
+                                                <aura:unescapedHtml value ="{!$Label.c.AHFC_Lease_End_Specialist}"/>
+                                            </div>
+                                        </aura:if>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12">
+                        <lightning:select class="selectpicker" name="sel" label="" value="{!v.selRequestedMonths}" onchange="{!c.onChangeDate}">
+                            <!--selectpicker-->
+                            <option value="">Select Term</option>
+                            <option value="1">1 month</option>
+                            <option value="2">2 months</option>
+                            <option value="3">3 months</option>
+                            <option value="4">4 months</option>
+                            <option value="5">5 months</option>
+                            <option value="6">6 months</option>
+                        </lightning:select>
+                        <img class="select-icon" src="{!$Resource.AHFC_UI_Kit + '/img/icons/select.svg'}"/>
+                    </div>                
+                </div>
+                
+                <aura:if isTrue="{!or (v.selRequestedMonths != '', v.estimatedLETax != '')}">
+                    <div class="select-results">
+                        <aura:if isTrue="{!v.selRequestedMonths != ''}">
+                            <div class="slds-grid slds-wrap maturity-date">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_7-of-12" >
+                                    <label>{!$Label.c.AHFC_Requested_Maturity_Date}</label>
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12">
+                                    <span>{!v.nextMaturityDate}</span>
+                                </div>
+                            </div>
+                        </aura:if>
+                        
+                        <aura:if isTrue="{!v.estimatedLETax != ''}">
+                            <div class="slds-grid slds-wrap maturity-date">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_7-of-12">
+                                    <div class="slds-form-element">
+                                        <label class="tooltip-label">{!$Label.c.AHFC_Estimated_Tax}</label>
+                                        <div class="slds-form-element__icon tooltip">
+                                            <img class="inline" src="{!$Resource.AHFC_UI_Kit + '/img/icons/tooltip.svg'}"/>
+                                            <div class="tooltiptext slds-popover slds-popover_tooltip slds-nubbin_bottom" role="dialog" id="help" style="position: absolute; top: -255px; left: -120px; width: 260px;">
+                                                <div class="slds-popover__body">
+                                                    <aura:unescapedHtml value ="{!$Label.c.AHFC_Final_Tax}"/>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12">
+                                    <span>${!v.estimatedLETax}</span>
+                                </div>
+                            </div>
+                        </aura:if>
+                    </div>
+                </aura:if>
+                
+            </div>
+            <div class="action slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">  
+                    <lightning:button class="btn default mr-sm" aura:id="cancel1" name="cancelButton1" label="Cancel" onclick="{! c.openModel }"/>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">  
+                    <lightning:button class="{!v.disabled == true ?	'btn grey pull-right btn-continue':'btn primary pull-right btn-continue'}"
+                                      disabled="{!v.disabled == true ? 'true':'false'}" aura:id="cont3" name="continue3" label="Continue" onclick="{!c.handleContinue}"/>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <div class="confirm-modal">
+        <aura:if isTrue="{!v.isOpen}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!$Label.c.AHFC_Confirmation}</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <aura:unescapedHtml value ="{!$Label.c.AHFC_Cancel_Lease_Extension}"/>
+                        
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning:button class="btn default pull-left mr-sm" aura:id="cancel2" name="cancelButton2" label="Cancel" onclick="{! c.closeModel }"/>
+                        <lightning:button class="btn primary pull-right"
+                                          aura:id="cont3" name="continue3" label="Continue" onclick="{!c.redirectToHome}"/>
+                        
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    </div>
+</aura:component>

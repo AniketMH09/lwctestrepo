@@ -1,0 +1,369 @@
+<template>
+    <!--Footer hre-->
+    <div class="HCC_FooterLayout">
+        <footer class="AHFCMainFooter">
+            <div class="slds-grid ContentWrap">
+                <div class="slds-grid HCC_Footercontent Leftwidth">
+                <span>
+                    <div class="Titlestyle">
+                        {labels.FinanceToolsLabel}
+                    </div>
+                </span>
+                <div class="slds-col AHFC_Col1">
+                    <div class="SubTitle"><a href="javascript:void(0)" > {labels.ApplyforPreApprovalLabel} </a></div>
+                    <div class="SubTitle"><a href="javascript:void(0)">{labels.LeaseVsFinanceLabel} </a>	</div>
+                    <div class="SubTitle"><a href="javascript:void(0)" >{labels.HondaLoyaltyBenefitsLabel} </a>	</div>
+                    <div class="SubTitle"><a href="javascript:void(0)" >{labels.AcuraLoyaltyAdvantageLabel} </a>	</div>
+                    <div class="SubTitle"><a href="javascript:void(0)" >{labels.EndofTermLabel} </a>	</div>
+                </div>
+                <div class="slds-col AHFC_Col2">
+                    <div class="SubTitle"><a href="javascript:void(0)">{labels.ProtectionofProductsLabel} </a>	</div>
+                  
+                    <div if:false = {isSubMenuOpenOffer}>
+                            <div class="SubTitle"><a href="javascript:void(0)" >Offers </a>  
+                                <lightning-icon icon-name="utility:chevrondown" alternative-text="down"  size="xx-small" title="Connected" class="AHFC_DownIconFoot"  onclick={onSubmenuOfferClick}> </lightning-icon>
+                          </div>
+                            </div>
+                            <div if:true = {isSubMenuOpenOffer}>
+                                    <div class="SubTitle AHFC_Highlight"><a href="javascript:void(0)" ><b>Offers</b> </a>  
+                                        <lightning-icon icon-name="utility:chevronup" alternative-text="down"  size="xx-small" title="Connected" class="AHFC_DownIconFoot AHFC_HighlightIcon"  onclick={onSubmenuOfferClick}> </lightning-icon>
+                                  </div>
+                            <ul class="subMenuMob sub2level sub2levelhighlight">
+                                <li><a href={labels.OffersHondaURLLabel}  target="_blank">Honda</a></li>
+                                <li><a href={labels.OffersAcuraURLLabel} target="_blank" >Acura</a></li>
+                                <li><a href={labels.OffersPowersportsURLLabel}  target="_blank">Powersports</a></li>
+                                <li><a href={labels.OffersPowerEquipmentURLLabel}  target="_blank">Power Equipment</a></li>
+                                <li><a href={labels.OffersMarineURLLabel}  target="_blank">Marine</a></li>
+
+                                </ul>
+                            </div>
+
+
+
+                            <div if:false = {isSubMenuOpenCalculator}>
+                    <div class="SubTitle "><a href="javascript:void(0)" >Calculators</a>	
+                        <lightning-icon icon-name="utility:chevrondown" alternative-text="down"  size="xx-small" title="Connected" class="AHFC_DownIconFoot" onclick={onSubmenuCalcClick}> </lightning-icon>
+                    </div>
+
+                    </div>
+                    <div if:true = {isSubMenuOpenCalculator}>
+                            <div class="SubTitle AHFC_Highlight"><a href="javascript:void(0)" >Calculators</a>	
+                                <lightning-icon icon-name="utility:chevronup" alternative-text="down"  size="xx-small" title="Connected" class="AHFC_DownIconFoot AHFC_HighlightIcon " onclick={onSubmenuCalcClick} > </lightning-icon>
+                            </div>
+                    <ul class="subMenuMob sub2level sub2levelhighlight">
+                            <li><a href={labels.CalculatorHondaNewVehiclesURLLabel} target="_blank">Honda New Vehicles</a></li>
+                            <li><a href={labels.CalculatorHondaCertifiedPreOwnedURLLabel} target="_blank">Honda Certified Pre-Owned</a></li>
+                            <li><a href={labels.CalculatorAcuraURLLabel} target="_blank">Acura</a></li>
+                            <li><a href={labels.CalculatorPowersportsURLLabel} target="_blank">Powersports</a></li>
+                            <li><a href={labels.CalculatorMarineURLLabel} target="_blank">Marine</a></li> 
+                        </ul>
+                        </div>
+                        <div if:false = {isSubMenuOpenDealer}>
+                    <div class="SubTitle"><a href="javascript:void(0)" >Locate a Dealer</a>	
+                        <lightning-icon icon-name="utility:chevrondown" alternative-text="down"  size="xx-small" title="Connected" class="AHFC_DownIconFoot"  onclick={onSubmenuDealClick}> </lightning-icon>
+                    </div>
+                </div>
+                    <div if:true = {isSubMenuOpenDealer}>
+                            <div class="SubTitle AHFC_Highlight"><a href="javascript:void(0)" >Locate a Dealer </a>	
+                                <lightning-icon icon-name="utility:chevronup" alternative-text="down"  size="xx-small" title="Connected" class="AHFC_DownIconFoot AHFC_HighlightIcon "  onclick={onSubmenuDealClick}> </lightning-icon>
+                            </div>
+                            <ul class="subMenuMob sub2level sub2levelhighlight">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                                <li><a href={labels.LocateADealerHondaURLLabel} target="_blank">Honda</a></li>
+                                <li><a href={labels.LocateADealerAcuraURLLabel} target="_blank">Acura</a></li>
+                                <li><a href={labels.LocateADealerPowersportsURLLabel} target="_blank">Powersports</a></li>
+                                <li><a href={labels.LocateADealerMarineURLLabel} target="_blank">Marine</a></li>
+                                <li><a href={labels.LocateADealerPowerEquipmentURLLabel} target="_blank">Power Equipment</a></li>                                
+                                </ul>
+                        </div>
+                  
+                </div>
+                </div>
+                <div class="slds-grid HCC_Footercontent  Rightwidth">
+                <span>
+                    <div class="Titlestyle">{labels.SUPPORTLabel}</div>
+                </span>
+                <div class="slds-col AHFC_Col1">
+                    <div class="SubTitle"><a href="javascript:void(0)" data-id="" >{labels.HelpCenterLabel} </a>	</div>
+                    <div class="SubTitle"><a href="javascript:void(0)" data-id="" >{labels.ContactUsLabel} </a>	</div>
+                    <div class="SubTitle"><a href="javascript:void(0)" data-id="" >{labels.PrintableFormsLabel} </a>	</div>
+                    <div class="SubTitle"><a href="javascript:void(0)" data-id="" >{labels.PaymentOptionsLabel} </a>	</div>
+                    <div if:false = {isSubMenuOpenProdSupport}>
+                    <div class="SubTitle"><a href="javascript:void(0)" data-id="" >Product Support </a>
+                        <lightning-icon icon-name="utility:chevrondown" alternative-text="down"  size="xx-small" title="Connected" class="AHFC_DownIconFoot" onclick={onSubmenuProdSupClick}> </lightning-icon>
+                    </div>
+                    </div>
+                    <div if:true = {isSubMenuOpenProdSupport}>
+                            <div class="SubTitle AHFC_Highlight"><a href="javascript:void(0)" data-id="" >Product Support </a>
+                                <lightning-icon icon-name="utility:chevronup" alternative-text="down"  size="xx-small" title="Connected" class="AHFC_HighlightIcon AHFC_DownIconFoot" onclick={onSubmenuProdSupClick}> </lightning-icon>
+                            </div>
+                            <ul class="subMenuMob sub2level sub2levelhighlight">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                                    <li><a href={labels.ProductSupportHondaURLLabel} target="_blank" >Honda </a></li>
+                                    <li><a href={labels.ProductSupportAcuraURLLabel} target="_blank">Acura</a></li>
+                                    <li><a href={labels.ProductSupportPowersportsURLLabel} target="_blank">Powersports</a></li>
+                                    <li><a href={labels.ProductSupportMarineURLLabel} target="_blank">Marine</a></li> 
+                                    <li><a href={labels.ProductSupportPowerRequirementURLLabel} target="_blank">Power Equipment</a></li> 
+                                </ul>
+
+                    </div>
+                </div>
+                </div>
+                <div class="slds-grid HCC_Footercontent ContactStyle AHFC_LastCol">
+                <span>
+                    <div class="Titlestyle">{labels.MyAccountLabel}</div>
+                </span>
+                <div class="slds-col AHFC_Col1">
+                    <!-- Prelogin Content -->
+                    <template if:true={isCheck}>
+                    <div class="SubTitle"> 
+                        <a href="javascript:void(0)" data-id="" >Log In</a>	                                          
+                    </div>
+                    </template>
+                    <!-- Post Login Content -->
+                   
+                    <template if:false={isCheck}>
+                            <div class="SubTitle"><a href="javascript:void(0)" > {labels.MyDashboardLabel} </a></div>
+                            <div class="SubTitle"><a href="javascript:void(0)">{labels.MakeAPaymentLabel} </a>	</div>
+                            <div class="SubTitle"><a href="javascript:void(0)" >{labels.EnrollInEasyPayLabel} </a>	</div>
+                            <div class="SubTitle"><a href="javascript:void(0)" >{labels.FinanceAccountDetailsLabel} </a>	</div>
+                            <div class="SubTitle"><a href="javascript:void(0)" >{labels.MyPaymentSourcesLabel} </a>	</div>
+            </template>
+                        </div>
+                        <template if:false={isCheck}>
+                <div class="slds-col AHFC_Col2">
+                        <div class="SubTitle"><a href="javascript:void(0)" > {labels.CommunicationPreferencesLabel} </a></div>
+                        <div class="SubTitle"><a href="javascript:void(0)">{labels.StatementsLabel} </a>	</div>
+                        <div class="SubTitle"><a href="javascript:void(0)" >{labels.CorrespondenceLabel} </a>	</div>
+                       
+                </div>
+</template>
+                </div>
+            </div>
+        </footer>
+        <template if:true={showmobile}>
+            <footer> 
+                    
+
+                    <div class="menulist " >
+                    <ul class="mainMenu">
+                            <div if:false = {isSubMenuOpenFinance}>
+                        <button class="accordion Titlestyle" onclick={onSubmenuFinanceClick} >{labels.FinanceToolsLabel}
+                                <lightning-icon icon-name="utility:chevrondown" alternative-text="down"  size="x-small" title="Connected" class="AHFC_DownIconAcc"> </lightning-icon>
+
+                        </button>
+                        </div>
+                        <div if:true = {isSubMenuOpenFinance}>
+                                <button class="accordion Titlestyle" onclick={onSubmenuFinanceClick} >{labels.FinanceToolsLabel}
+                                        <lightning-icon icon-name="utility:chevronup" alternative-text="down"  size="x-small" title="Connected" class="AHFC_DownIconAcc"> </lightning-icon>
+        
+                                </button>
+                         <div class="">
+                            <ul class="subMenuMob">
+                                <li><a href="#" >{labels.ApplyforPreApprovalLabel}</a></li>
+                                <li><a href="#">{labels.LeaseVsFinanceLabel}</a></li>
+                                <li><a href="#">{labels.HondaLoyaltyBenefitsLabel}</a></li>
+                                <li><a href="#">{labels.AcuraLoyaltyAdvantageLabel}</a></li>
+                                <li><a href="#">{labels.EndofTermLabel}</a></li>
+                                <li><a href="#">{labels.ProtectionofProductsLabel}</a></li>
+                                <div if:false = {isSubMenuOpenOffer}>
+                                <li onclick={onSubmenuOfferClick}><a >Offers  </a>
+                                    <lightning-icon icon-name="utility:chevrondown" alternative-text="down"  size="x-small" title="Connected" class="AHFC_DownIconlevel2"> </lightning-icon>
+                              
+                                </li>
+                                </div>
+                                <div if:true = {isSubMenuOpenOffer}>
+                                        <li onclick={onSubmenuOfferClick}><a>Offers</a>
+                                            <lightning-icon icon-name="utility:chevronup" alternative-text="down"  size="x-small" title="Connected"  class="AHFC_DownIconlevel2"> </lightning-icon>
+        
+                                        </li>
+                                <ul class="subMenuMob sub2level">
+                                    <li><a href={labels.OffersHondaURLLabel}  target="_blank">Honda</a></li>
+                                    <li><a href={labels.OffersAcuraURLLabel}  target="_blank">Acura</a></li>
+                                    <li><a href={labels.OffersPowersportsURLLabel}  target="_blank">Powersports</a></li>
+                                    <li><a href={labels.OffersPowerEquipmentURLLabel} target="_blank" >Power Equipment</a></li>
+                                    <li><a href={labels.OffersMarineURLLabel}  target="_blank">Marine</a></li>
+
+                                    </ul>
+                                </div>
+                                <div if:false = {isSubMenuOpenCalculator}>
+                                <li onclick={onSubmenuCalcClick}><a>Calculators</a>
+                                    <lightning-icon icon-name="utility:chevrondown" alternative-text="down"  size="x-small" title="Connected"  class="AHFC_DownIconlevel2"> </lightning-icon>
+                                </li>
+                                </div>
+                                <div if:true = {isSubMenuOpenCalculator}>
+                                        <li onclick={onSubmenuCalcClick}><a>Calculators</a>
+                                            <lightning-icon icon-name="utility:chevronup" alternative-text="down"  size="x-small" title="Connected"  class="AHFC_DownIconlevel2"> </lightning-icon>
+        
+                                        </li>
+                                <ul class="subMenuMob sub2level">
+                                    <li><a href={labels.CalculatorHondaNewVehiclesURLLabel} target="_blank">Honda New Vehicles</a></li>
+                                    <li><a href={labels.CalculatorHondaCertifiedPreOwnedURLLabel} target="_blank">Honda Certified Pre-Owned</a></li>
+                                    <li><a href={labels.CalculatorAcuraURLLabel} target="_blank">Acura</a></li>
+                                    <li><a href={labels.CalculatorPowersportsURLLabel} target="_blank">Powersports</a></li>
+                                    <li><a href={labels.CalculatorMarineURLLabel} target="_blank">Marine</a></li> 
+                                </ul>
+                                </div>
+
+                                <div if:false = {isSubMenuOpenDealer}>
+                                <li onclick={onSubmenuDealClick}><a>Locate a Dealer</a>
+                                    <lightning-icon icon-name="utility:chevrondown" alternative-text="down"  size="x-small" title="Connected"  class="AHFC_DownIconlevel2"> </lightning-icon>
+
+                                </li>
+                                </div>
+
+                                <div if:true = {isSubMenuOpenDealer}>
+                                        <li onclick={onSubmenuDealClick}><a>Locate a Dealer</a>
+                                            <lightning-icon icon-name="utility:chevronup" alternative-text="down"  size="x-small" title="Connected"  class="AHFC_DownIconlevel2"> </lightning-icon>
+        
+                                        </li>
+                                <ul class="subMenuMob sub2level AHFC_RemBordbottom">
+                                        <li><a href={labels.LocateADealerHondaURLLabel} target="_blank">Honda</a></li>
+                                        <li><a href={labels.LocateADealerAcuraURLLabel} target="_blank">Acura</a></li>
+                                        <li><a href={labels.LocateADealerPowersportsURLLabel} target="_blank">Powersports</a></li>
+                                        <li><a href={labels.LocateADealerMarineURLLabel} target="_blank">Marine</a></li> 
+                                        <li><a href={labels.LocateADealerPowerEquipmentURLLabel} target="_blank">Power Equipment</a></li>
+
+                                    </ul>
+                                </div>
+
+
+                            </ul>
+                        </div> 
+                    </div>
+                    <div if:false = {isSubMenuOpenSupport}>
+                        <button class="accordion Titlestyle" onclick={onSubmenuSupportClick}>{labels.SUPPORTLabel}
+                                <lightning-icon icon-name="utility:chevrondown" alternative-text="down"  size="x-small" title="Connected" class="AHFC_DownIconAcc"> </lightning-icon>
+
+                        </button>
+                        </div>
+                                <div if:true = {isSubMenuOpenSupport}>
+                                        <button class="accordion Titlestyle" onclick={onSubmenuSupportClick}>{labels.SUPPORTLabel}
+                                                <lightning-icon icon-name="utility:chevronup" alternative-text="down"  size="x-small" title="Connected"  class="AHFC_DownIconAcc"> </lightning-icon>
+                
+                                        </button>
+                        <div class="">
+                            <ul class="subMenuMob">
+                                <li><a href="#" >{labels.HelpCenterLabel}</a></li>
+                                <li><a href="#">{labels.ContactUsLabel}</a></li>
+                                <li><a href="#">{labels.PrintableFormsLabel}</a></li>
+                                <li><a href="#">{labels.PaymentOptionsLabel}</a></li>
+                                <div if:false = {isSubMenuOpenProdSupport}>
+                                        <li onclick={onSubmenuProdSupClick}><a>Product Support</a>
+                                            <lightning-icon icon-name="utility:chevrondown" alternative-text="down"  size="x-small" title="Connected"  class="AHFC_DownIconlevel2"> </lightning-icon>
+        
+                                        </li>
+                                        </div>
+                                        <div if:true = {isSubMenuOpenProdSupport}>
+                                                <li onclick={onSubmenuProdSupClick}><a>Product Support</a>
+                                                    <lightning-icon icon-name="utility:chevronup" alternative-text="down"  size="x-small" title="Connected"  class="AHFC_DownIconlevel2"> </lightning-icon>
+                
+                                                </li>
+                                        <ul class="subMenuMob sub2level AHFC_RemBordbottom">
+                                                <li><a href={labels.ProductSupportHondaURLLabel} target="_blank">Honda</a></li>
+                                                <li><a href={labels.ProductSupportAcuraURLLabel} target="_blank">Acura</a></li>
+                                                <li><a href={labels.ProductSupportPowersportsURLLabel} target="_blank">Powersports</a></li>
+                                                <li><a href={labels.ProductSupportMarineURLLabel} target="_blank">Marine</a></li> 
+                                                <li><a href={labels.ProductSupportPowerRequirementURLLabel} target="_blank">Power Equipment</a></li>
+        
+                                            </ul>
+                                        </div>
+                            </ul>
+                        </div>
+                        </div>
+                        <div if:false = {isSubMenuOpenMyacc}>
+
+                        <button class="accordion Titlestyle"  onclick={onSubmenuMyaccClick}>{labels.MyAccountLabel}
+                                <lightning-icon icon-name="utility:chevrondown" alternative-text="down"  size="x-small" title="Connected" class="AHFC_DownIconAcc"> </lightning-icon>
+
+                        </button>
+                        </div>
+                        <div if:true = {isSubMenuOpenMyacc}>
+                                <button class="accordion Titlestyle" onclick={onSubmenuMyaccClick} >{labels.MyAccountLabel}
+                                        <lightning-icon icon-name="utility:chevronup" alternative-text="down"  size="x-small" title="Connected" class="AHFC_DownIconAcc"> </lightning-icon>
+        
+                                </button>
+                        <div class="">
+                            <ul class=" subMenuMob">
+                                <li><a href="#" >{labels.MyDashboardLabel}</a></li>
+                                <li><a href="#">{labels.MakeAPaymentLabel}</a></li>
+                                <li><a href="#">{labels.EnrollInEasyPayLabel}</a></li>
+                                <li><a href="#">{labels.FinanceAccountDetailsLabel}</a></li>
+                                <li><a href="#">{labels.MyPaymentSourcesLabel}</a></li>
+                                <li><a href="#">{labels.CommunicationPreferencesLabel}</a></li>
+                                <li><a href="#">{labels.StatementsLabel}</a></li>
+                                <li><a href="#">{labels.CorrespondenceLabel}</a></li>
+                            </ul>
+                        </div>
+                        </div>
+                    </ul>
+                </div>
+            </footer>
+            </template>
+        <footer class="AHFC_MobMargin">
+                <div class="AHFC_FooterWrap">
+                        <div class="slds-grid AHFC_FtIconlayout AHFC_TopStyle">
+                            <div class="AHFC_BrandsTitle ">THE HONDA FAMILY OF BRANDS</div>
+                            <div class="slds-grid AHFC_MobIconWrap">
+                              <div class=" AHFC_Iconslayout   "> <a href ={labels.HondaCarLogoUrl} target="_blank"><img                
+                                src={hondacarLogoUrl}
+                                alt="Honda Car logo"
+                                 
+                                class=""                 
+                                /></a></div>
+                            <div class="AHFC_Iconslayout "> <a href={labels.HondaAcuraLogoUrl} target="_blank"> <img                
+                                src={acurawhiteLogoUrl}
+                                alt="Acura White logo"
+                                              
+                                /></a></div>
+                            <div class=" AHFC_Iconslayout "> <a href={labels.HondaBikeLogoUrl} target="_blank"><img                
+                                src={hondabikeLogoUrl}
+                                alt="Honda Bike logo"
+                                           
+                                /></a></div>
+                                <div class=" AHFC_Iconslayout  AHFC_AddRt AHFC_Addleft "> 
+                                    <a href={labels.HondaPowerEquipmentLogoUrl} target="_blank"><img                
+                                  src={hondaPowerEqLogoUrl}
+                                  alt="Honda Power Equipment logo"
+                                            
+                                  /></a></div>
+                                  <div class="AHFC_Iconslayout  AHFC_AddRt "> 
+                                      <a href={labels.HondaMarineLogoUrl} target="_blank"><img                
+                                    src={hondaMarineLogoUrl}
+                                    alt="Honda Marine logo"
+                                             
+                                    /></a></div>
+                            <div class="AHFC_Iconslayout   "> <a href={labels.HondaJetLogoUrl} target="_blank"><img                
+                                src={hondaJetLogoUrl}
+                                alt="Honda Jet logo"
+                                       
+                                /></a></div>
+                            </div>
+                            <div class="AHFC_DividerLine"></div>
+                        </div>
+            <div class="slds-grid AHFC_FtIconlayout  AHFC_BottomStyle">
+
+            <div class="slds-grid AHFC_Options">
+                    <div class="AHFC_MobTermOptions"><a href="javascript:void(0)" data-id="" >About Us</a></div>
+                    <div class="AHFC_MobTermOptions"><a href="javascript:void(0)" data-id="" >Terms & Conditions</a></div>
+                    <div class="AHFC_MobTermOptions"><a href={labels.CookieLabel} target="_blank" data-id="" >Privacy Policy</a></div>
+                    <div class="AHFC_MobTermOptions"><a href={labels.InvestorRelationsURL} target="_blank" data-id="" >Investor Relations</a></div>
+                    <div class="AHFC_MobTermOptions"><a href={labels.CareersUrl} target="_blank" data-id="" >Careers</a></div>
+                    <div class="AHFC_MobTermOptions"><a href="javascript:void(0)" data-id="" >Do Not Sell My Personal Information</a></div>
+
+                </div>
+                <div class="slds-grid AHFC_Options">
+                        <div class="slds-col AHFC_MobTerms">
+                            <div class="AHFC_CookiesStyle">
+                            <p>We use cookies to improve your experience on this site and show you personalized 
+                            advertising, To find out more, read our   </p>
+                                                         <a href={labels.CookieLabel} target="_blank">cookie policy.</a> 
+
+                        </div></div>
+                        <div class="slds-col AHFC_StyleRt AHFC_MobTerms AHFC_RemRightStyle AHFC_NoFloat"><p>©2021 American Honda Finance Corporation</p></div>
+                        
+                    </div>
+                </div>
+                </div>
+        </footer>
+    </div>
+
+</template>

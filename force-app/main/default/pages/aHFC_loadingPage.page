@@ -1,0 +1,46 @@
+<apex:page >
+<title>Loading Page</title>
+ <div style="height:300px"> </div>
+ <style>
+
+     
+     
+     
+     
+     .ahfc-text-primary
+    {
+        
+        font-family: sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 30px;
+        line-height: 40px;
+        color: #000000;
+    }
+    
+     .slds-scope .slds-spinner_brand.slds-spinner:before, .slds-scope .slds-spinner_brand.slds-spinner:after, .slds-scope .slds-spinner_brand .slds-spinner__dot-a:before, .slds-scope .slds-spinner_brand .slds-spinner__dot-b:before, .slds-scope .slds-spinner_brand .slds-spinner__dot-a:after, .slds-scope .slds-spinner_brand .slds-spinner__dot-b:after, .slds-scope .slds-spinner--brand.slds-spinner:before, .slds-scope .slds-spinner--brand.slds-spinner:after, .slds-scope .slds-spinner--brand .slds-spinner__dot-a:before, .slds-scope .slds-spinner--brand .slds-spinner__dot-b:before, .slds-scope .slds-spinner--brand .slds-spinner__dot-a:after, .slds-scope .slds-spinner--brand .slds-spinner__dot-b:after {
+    background-color: #CC0000;
+   
+}
+}
+    </style>
+    <apex:slds />
+    <div class="slds-scope">
+    
+    <apex:form id="form" style="height: 50px;">
+        <!-- SPINNER -->
+                <div id="spinner" class="slds-spinner_container slds-is-relative slds-align_absolute-center" >
+                    <div role="status" class="slds-spinner slds-spinner--large slds-spinner--brand">
+                        <div class="slds-spinner__dot-a"></div>
+                        <div class="slds-spinner__dot-b"></div>
+                    </div>
+                </div>
+        <!-- / SPINNER -->
+    </apex:form>
+             <div class="slds-text-align_center ahfc-text-primary">
+                     Please wait while we process your request
+            </div>
+    </div>
+
+    
+</apex:page>

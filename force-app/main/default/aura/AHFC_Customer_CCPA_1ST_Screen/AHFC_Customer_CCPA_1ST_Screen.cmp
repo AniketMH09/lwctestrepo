@@ -1,0 +1,129 @@
+<!--
+* Name: AHFC_Customer_CCPA_1ST_Screen
+* Description: ccpa first screen
+* Created Date: 25-Aug-2021
+* Created By: Sagar (US 4090,US 4088,US 4090)
+*
+* Modification Log
+* MOdified By - Sagar (US 13697 - change error messages) 
+
+*-->
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global" controller= "AHFC_DatePickerUIController">
+    <!-- Inputs -->
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <aura:attribute name = "instructions" type = "string"/> 
+    <aura:attribute name= "strRequestType" type="string" default=""/>
+    <aura:attribute name= "strMessage" type="string" default=""/>
+    <aura:attribute name= "strCaseNumber" type="string" default=""/>
+    <aura:attribute name = "strContactUsLink" type="string" default=""/>
+    <aura:attribute name = "strPrivacyNoticeLink" type="string" default=""/>
+    
+    <aura:attribute name="doNotSell" type="boolean" default="false"/>
+    <aura:attribute name="delteInfo" type="boolean" default="false"/>
+    <aura:attribute name="whatInfo" type="boolean" default="false"/>
+    <aura:attribute name= "ccpa_msg1" type="string" default=""/>
+    <aura:attribute name= "ccpa_msg2" type="string" default=""/>
+    
+    
+    
+    
+    <!-- Others -->
+    
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    
+    <aura:attribute name=  "value" type="String" />
+    <aura:attribute name=  "buttonDisabled" type="boolean" default="true"/>
+    
+    <lightning:navigation aura:id="navService"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="contain">
+        <div class="center">
+            
+            <div class="AHFC_HeaderWrap ahfc_arrowAlign">
+                 <h2 class="header"><span>{!v.strRequestType}</span></h2>
+            </div>
+            
+            
+            <div class="AHFC_DetailWrap">
+                <div class="info">
+                    <span class='Message_CCPA'>
+                        
+                        <aura:if isTrue="{!v.doNotSell}">
+                            {!v.ccpa_msg1}<a href='' onclick='{!c.contactUs}'>Contact Us by phone</a>.<br/><br/>If you are not a California resident, please refer to the <a href='' onclick='{!c.navigateToPrivacyPolicy}'>Privacy Notice form</a>.
+                            
+                        </aura:if>
+                        <aura:if isTrue="{!v.delteInfo}">
+                            {!v.ccpa_msg1}<a href='' onclick='{!c.contactUs}'>Contact Us by phone</a>.
+                        </aura:if>
+                        <aura:if isTrue="{!v.whatInfo}">
+                            {!v.ccpa_msg1}<a href='' onclick='{!c.contactUs}'>Contact Us by phone</a>.
+                        </aura:if>
+                        
+                    </span>
+                   
+                </div>
+                
+                <div class="AHFC_Divider"></div>
+                <div class="action ahfc_buttons">
+                    
+                    <div class="action slds-grid slds-wrap AHFC_BtnWrap">
+                        <lightning:button class="AHFC_customPrimaryButton "
+                                          aura:id="cont4" name="continue3" label="{!$Label.c.CCPA_ONLINE_REQUEST}" onclick="{!c.handleContinue}"/>
+                        <lightning:button class="AHFC_customTertiaryButton" aura:id="cancel1" name="cancelButton1" label="{!$Label.c.CCPA_Cancel}" onclick="{! c.openModel }"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+    
+    <div class="confirm-modal">
+        <aura:if isTrue="{!v.isOpen}">
+            <section
+                     role="dialog"
+                     tabindex="-1"
+                     aria-label="Meaningful description of the modal content"
+                     aria-modal="true"
+                     aria-describedby="modal-content-id-1"
+                     class="slds-modal slds-fade-in-open finance-account-edit-modal"
+                     >
+                <div class="slds-modal__container">
+                    <div class="slds-modal__content edit-modal-content ahFC_Model_Content" id="modal-content-id-1">
+                        
+                       <!-- <div class="close-icon close-icon-alignment aHFC_Close_Icon">
+                            <button onclick="{!c.closeModel}" class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse message-content-info" title="Close" > 
+                                <lightning:icon size="small" class="close-icon-color" iconName="utility:close" alternativeText="close"
+                                                title="close"></lightning:icon>
+                                <span class="slds-assistive-text">Close</span>
+                            </button> 
+                        </div>-->
+                        
+                        <h1 class="AHFC_ModTitle">{!$Label.c.AHFC_Confirmation}</h1>
+                        <div class="slds-m-top_medium">
+                            <p class="para-text-medium"><aura:unescapedHtml value ="{!$Label.c.AHFC_Customer_Cancel_CCPA}"/></p>
+                        </div>
+                       <!-- <div class="modal-action slds-m-top_xx-large">
+                            <button class="slds-button action-btn save-action" onclick="{!c.redirectToHome}">
+                                CONTINUE
+                            </button>
+                            <button class="slds-button action-btn cancel-action" onclick="{!c.closeModel}">
+                                CANCEL
+                            </button>
+                        </div>-->
+                        <div class="action ahfc_popup_buttons">
+                            <div class="action slds-grid slds-wrap AHFC_BtnWrap">
+                               <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_6-of-12 ">
+                                 <button class="slds-button slds-button_neutral AHFC_customPrimaryButton" name="continue3" onclick="{!c.redirectToHome}"  type="button"> CONTINUE </button>
+                                 <button class="slds-button slds-button_neutral AHFC_customTertiaryButton" name="cancelButton1" onclick="{!c.closeModel}" type="button"> Cancel </button>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>  
+        </aura:if>
+    </div>
+    
+</aura:component>

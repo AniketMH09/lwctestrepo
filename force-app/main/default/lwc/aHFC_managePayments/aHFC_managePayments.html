@@ -1,0 +1,47 @@
+<template>
+ 
+  <template if:true={loadingspinner}>    
+          <c-a-h-f-c_-spinner loading-message={spinnerMessage}></c-a-h-f-c_-spinner>
+  </template>
+
+<div class="ahfc-background-lighter">
+    <c-a-h-f-c_vehicleswitcher loading-message='Please wait while we process your request'>
+    </c-a-h-f-c_vehicleswitcher>
+    <div role="main" id="main-container" class="main-content">
+        <div class="managepayment-wrapper">
+            <div class="ahfc-container managepayment-container">
+                <c-a-h-f-c_page-title title={labels.PaymentActivity} show-icon="true"></c-a-h-f-c_page-title>
+                <div class="ahfc-background-lightest paymentinfo-container-fluid">
+                    <div class="payment-info-div">
+                        <div class="slds-tabs_default ">
+                            <div class="manage-payment-tabs">
+                                <ul class="slds-tabs_default__nav slds-text-title_caps" role="tablist">
+                                    <template for:each={tabItems} for:item="tab">
+                      <li key={tab.key} class={tab.headerClass} title={tab.name} role="presentation"
+                        data-tabname={tab.key} onkeypress={onTabChangeEnterKey} tabindex="0">
+                        <a class="slds-tabs_default__link" href="#" role="tab" tabindex="-1"
+                          aria-selected="true" aria-controls={tab.ariaControls} data-tabname={tab.key}
+                          id={tab.ariaLabelledby} onclick={onTabChange}>{tab.name}</a>
+                      </li>
+                    </template>
+                                </ul>
+                            </div>
+                            <template for:each={tabItems} for:item="tab">
+                  <div key={tab.key} id={tab.ariaControls} class={tab.contentClass} role="tabpanel"
+                    aria-labelledby={tab.ariaLabelledby}>
+                    <c-a-h-f-c_schedule-payments if:true={tab.isScheduledPayment}>
+                    </c-a-h-f-c_schedule-payments>
+                    <c-a-h-f-c_transaction-history if:true={tab.isTransactionHistory}> </c-a-h-f-c_transaction-history>
+                  </div>
+                </template>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</template>

@@ -1,0 +1,58 @@
+<template>
+    <div class={className}>
+      <div class="card-title-block">
+        <h3 class="card-title">{title}</h3>
+        <div class="card-icon">
+          <lightning-button-icon
+            icon-name={iconname}
+            alternative-text={iconTitle}
+            variant="bare"
+            title={iconTitle}
+            class="icon-class"
+            size="large"
+            onclick={oneditclick}
+          ></lightning-button-icon>
+        </div>
+      </div>
+      <div class="card-payment-options slds-col">
+        <!-- <p class="card-subtitle">{cardsubtitle}</p> -->
+        <p class="card-subtitle">{cardsubtitle1}<span class="circle ahfc_margin-left"></span><span class="circle"></span><span class="circle"></span><span class="circle ahfc_margin-right"></span> {cardsubtitle2}</p>
+        <div if:true={preferredpaymentsource} class="payment-options">
+          <p class="label">Preferred payment source
+            <!-- <template if:true = {paymentOptionsLength}>
+              <button class="slds-button option-length-button" onclick={onOptionsClick}>
+                {paymentOptionsLength} more
+              </button>
+            </template> -->
+          </p>
+        </div>
+      </div>
+      <div class="card-description-block">
+        <p class="card-description-text">{descriptiontext}</p>
+        <div class="card-button">
+          <template if:true={errortext}>
+            <div class="error-field">
+              <lightning-icon
+                icon-name="utility:warning"
+                size="small"
+                alternative-text="warning"
+                class="warning-icon"
+              >
+              </lightning-icon>
+              <p class="error-text">{errortext}</p>
+            </div>
+          </template>
+          <button class="slds-button card-action-button" onclick={onbuttonclick}>
+            {buttontext}
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- <template if:true = {isPaymentOptionsModalOpen}>
+      <c-a-h-f-c_preferred-payment-options
+        nickname={title}
+        labels={label}
+        onmodalclose={handleModalClose}>
+      </c-a-h-f-c_preferred-payment-options>
+    </template>  -->
+  </template>

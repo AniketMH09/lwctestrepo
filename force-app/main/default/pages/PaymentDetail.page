@@ -1,0 +1,22 @@
+<apex:page title="Payment Details" standardController="ChargentOrders__ChargentOrder__c" lightningStyleSheets="true">
+        <style>
+        
+        .pageDescription{
+            font-size: 22px;
+        }
+        
+    </style>
+    <br/><br/>
+    
+   
+    <div class="slds-scope">    
+        <div class="content">
+            <!-- <img src="/s.gif" alt="Payment" class="pageTitleIcon" title="Payment"/><h1 class="pageType">Payment<span class="titleSeparatingColon">:</span></h1><br/> -->
+        <div class="pageDescription">Confirmation # : {!ChargentOrders__ChargentOrder__c.Confirmation_Number__c}  </div>
+        <div class="pageDescription">Payment Type : {!ChargentOrders__ChargentOrder__c.RecordType.Name}  </div>
+        <div class="blank">&nbsp;</div></div>
+    
+        <apex:detail relatedList="true"  title="false" />
+    </div>
+
+</apex:page>

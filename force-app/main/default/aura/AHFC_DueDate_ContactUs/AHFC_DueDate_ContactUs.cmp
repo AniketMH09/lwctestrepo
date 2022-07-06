@@ -1,0 +1,6 @@
+<aura:component >
+	<strong>Please Contact Us</strong>
+	<p><aura:unescapedHtml value="{!$Label.c.AHFC_Contact_Us}"/></p>
+    <button class="btn default" onclick="{!c.contactUs}">Contact Us</button> 
+    
+</aura:component>

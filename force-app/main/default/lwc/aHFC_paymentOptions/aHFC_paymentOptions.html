@@ -1,0 +1,193 @@
+<template>
+  <!-- <c-a-h-f-c_vehicle-header></c-a-h-f-c_vehicle-header> --> 
+   <!-- <div class="slds-grid AHFC_MobLAyout">
+      <div class="AHFC_CommunitySecHeader">
+         <div class="AHFC_LeftGridSec slds-col">
+            <p class="AHFC_SecLogostyle">
+               <img src={hondaheadLogoUrl} alt="honda logo" width="60" height="40"
+                  class="logo1" />
+                <img src={acuraheadLogoUrl} alt="honda logo" width="60" height="40"
+                  class="logo1" /> -->
+           <!--  </p>
+         </div>
+         <div class="AHFC_VehImg slds-col">
+            <img src={hondaVehImgUrl} alt="honda logo" width="60" height="40" class="logo1" />
+         </div>
+         <div class="slds-col AHFC_Vehdetail">
+            <dl class="slds-dl_inline"> -->
+               <!-- <dd class="slds-dl_inline__label AHFC_DetName">{defaultDetails.accName}</dd> -->
+             <!--   <dt class="slds-dl_inline__label AHFC_Aclabel">Account #:</dt> -->
+               <!-- <dd class="slds-dl_inline__detail AHFC_Aclabel">
+                  {defaultDetails.accNo}
+                  </dd> -->
+          <!--   </dl>
+         </div>
+      </div>
+   </div> -->
+   <!-- <div class="slds-grid">
+      <div class="AHFC_CommunitySecHeader"> -->
+   <div role="main" id="main-container" class="main-content">
+   <div class="AHFC_Wrapperst ahfc-background-lighter">
+      <h1><div class="AHFC_PrimHead">
+         <a href="javascript:void(0);" class="AHFC_removehovereffect" tabindex="-1">
+         <lightning-icon icon-name="utility:back" alternative-text="Connected" title="back" size="small"
+            class="AHFC_backArrow"  onclick={navigateBackToDashboard}></lightning-icon>
+            </a>
+         <p>{labels.PaymentOption}</p>
+      </div></h1>
+      <div class="AHFC_HeadSubtxt">
+         <p>{labels.PaymentOptionText}
+         </p>
+      </div>
+      <div class="slds-grid slds-wrap AHFC_IconCardLayout">
+         <template if:true={isCheck}>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12 AHFC_IconCard">
+               <span>
+                  <h2><div class="AHFC_Icontitle">
+                     Online
+                  </div></h2>
+                  <div class="AHFC_InnerHeadCont">
+                     <p>Log in to your account to make free payment using your checking or savings account.
+                     </p>
+                  </div>
+                  <div class="AHFC_InnerHeadCont"><a>Login/Register</a></div>
+               </span>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12 AHFC_IconCard">
+               <span>
+                  <h2><div class="AHFC_Icontitle">
+                     EasyPay Automatic Payments                                           
+                  </div></h2>
+                  <div class="AHFC_InnerHeadCont">
+                     <p>If you need more time to make a payment, or your payment is on its way, use 
+                        the options below to let us know.
+                     </p>
+                  </div>
+                  <div class="AHFC_InnerHeadCont"><a>Login/Register</a></div>
+               </span>
+            </div>
+         </template>
+         <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12 AHFC_IconCard">
+            <span>
+               <h2><div class="AHFC_Icontitle">
+                  {labels.ByPhoneTitle}                                                      
+               </div></h2>
+               <div class="AHFC_InnerHeadCont">
+                  <p>{labels.ByPhoneText}
+                  </p>
+               </div>
+               <div class="AHFC_InnerHeadCont"><a href="javascript:void(0);" onclick={navigateToContactUS}>{labels.ByPhoneLocateRegionalOffice}</a></div> <!-- onclick navigateToContactUS added by sagar for bug fix 21682-->
+            </span>
+         </div>
+         <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12 AHFC_IconCard">
+            <span>
+               <h2><div class="AHFC_Icontitle">
+                  {labels.ByMail}
+               </div></h2>
+               <div class="AHFC_InnerHeadCont">
+                  <p>{labels.ByMailText}
+                  </p>
+               </div>
+               <div class="AHFC_InnerHeadCont"><a href="javascript:void(0);" onclick={navigateToContactUS}>{labels.ByMailPaymentAddresses}</a></div> <!-- onclick navigateToContactUS added by sagar for bug fix 21682-->
+            </span>
+         </div>
+         <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12 AHFC_IconCard">
+            <span>
+               <h2><div class="AHFC_Icontitle">
+                  {labels.ACIPayTitle}
+               </div></h2>
+               <div class="AHFC_InnerHeadCont">
+                  <p>{labels.ACIPayText} <span>{labels.ACIPayText2}</span> {labels.ACIPayText3}
+                  </p>
+               </div>
+            </span>
+            <div class="AHFC_InnerHeadCont"><a href={labels.ACIPayTermsConditionsURL} target="_blank">{labels.ACIPayTermsConditions}</a></div>
+         </div>
+         <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12 AHFC_IconCard1">
+            <span>
+               <h2><div class="AHFC_Icontitle">
+                  {labels.WesternUnionQuickCollectTitle}
+               </div></h2>
+               <div class="AHFC_InnerHeadCont">
+                  <p>{labels.WesternUnionQuickCollectText}
+                  </p>
+               </div>
+               <div class="AHFC_Linklayout"> <a href={labels.WesternUnionQuickCollectWesternunionURL} class="AHFC_WestLink" target="_blank">{labels.WesternUnionQuickCollectWesternunion}</a></div>
+               <div class="AHFC_BulletLayout">
+                  <ul>
+                     <div class="AHFC_BulletList">{labels.WesternUnionQuickCollectBottomText_1}</div>
+                     <li class="AHFC_BulletPt">
+                        {labels.WesternUnionQuickCollectBottomText_2}
+                     </li>
+                     <li class="AHFC_BulletPt">
+                        {labels.WesternUnionQuickCollectBottomText_3}
+                        <br/>
+                        <span  if:true={isHondaPayment}> {labels.WesternUnionBottomHONDAFINANCE}</span>                      
+                        <span  if:true={isAcuraPayment}> {labels.WesternUnionBottomACURAFINANCE}</span>                        
+                     </li>
+                  </ul>
+               </div>
+            </span>
+         </div>
+         <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12 AHFC_IconCard1">
+            <span>
+               <h2><div class="AHFC_Icontitle">
+                  {labels.MoneyGramTitle}
+               </div></h2>
+               <div class="AHFC_InnerHeadCont">
+                  <p>{labels.MoneyGramText}
+                  </p>
+               </div>
+               <div class="AHFC_Linklayout"> <a href={labels.MoneyGramMoneyGramURL} class="AHFC_WestLink" target="_blank">{labels.MoneyGramMoneyGram}</a></div>
+               <div class="AHFC_BulletLayout">
+                  <ul>
+                     <div class="AHFC_BulletList">{labels.MoneyGramBottomText1}</div>
+                     <li class="AHFC_BulletPt">
+                        {labels.MoneyGramBottomText2}
+                     </li>
+                     <li class="AHFC_BulletPt">
+                        {labels.MoneyGramBottomText3}
+                     </li>
+                  </ul>
+               </div>
+            </span>
+            
+
+         </div>
+            <div class="AHFC_ContainerSec">
+               <div class="card-block ahfc-background-lightest AHFC_InnerAround">
+                  <div class="slds-grid slds-wrap">
+                     <div  class="ahfc_faq_wrap">
+                        <c-a-h-f-c_dashboard-faq page-name="Payments"></c-a-h-f-c_dashboard-faq>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+         <!-- trial -->
+         <!--  <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12 AHFC_IconCard">
+            <span>
+               <div class="AHFC_Icontitle">
+                  By Phone
+                  By                                                      
+               </div>
+               <div class="AHFC_InnerHeadCont">
+                  <p>If you need more time to make a payment, or your payment is on its way, use 
+                     the options below to let us know.
+                  </p>
+               </div>
+               <div class="AHFC_InnerHeadCont"><a>Locate Regional Office</a></div>
+            </span>
+            </div>
+            -->
+         <!-- trial -->
+         
+      </div>
+      
+   </div>
+   </div>
+   <!-- </div>
+      </div> -->
+
+      
+</template>

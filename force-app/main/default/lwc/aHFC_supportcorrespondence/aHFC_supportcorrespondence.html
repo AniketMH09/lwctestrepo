@@ -1,0 +1,39 @@
+<template>
+    <template if:true={supportrequest}>
+        <div class="slds-grid slds-grid_vertical">
+            <div class="slds-col col-margings">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-3">
+                        <img src={supportLogo} alt="support logo" />
+                    </div>
+                    <div class="slds-col slds-size_2-of-3 support-tile">
+                        {labels.DashboardSupportRequestText}
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col extra-options">
+                <a href="javascript:void(0);" onclick={onTrackSupportRequestClick}
+                    class="ahfc-links ahfc-links-primary slds-text-title_caps">{labels.DashboardSupportRequestBtnLabel}</a>
+            </div>
+        </div>
+    </template>
+    <template if:true={correspondence}>
+        <div class="slds-grid slds-grid_vertical">
+            <div class="slds-col col-margings">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-3">
+                        <img src={corresponenceLogo} alt="corresondance  logo" />
+                    </div>
+                    <div class="slds-col slds-size_2-of-3 support-tile">
+                        {labels.DashboardCorrespondenceText}
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col extra-options">
+                <a href="" onclick={onCorrespondenceClick}
+                    class="ahfc-links ahfc-links-primary slds-text-title_caps">{labels.DashboardCorrespondenceBtnLabel}</a>
+            </div>
+            
+        </div>
+    </template>
+</template>

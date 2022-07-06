@@ -1,0 +1,41 @@
+<template>
+    <div class="slds-box">
+        <nav>
+          <ul class="mainMenu">
+              <li> 
+                <a class="slds-m-vertical--x-small">
+                    <img                
+                    src={hondaLogoUrl}
+                    alt="honda logo"
+                    width="60"
+                    height="40"                    
+                    />
+                  </a>
+              </li>
+              <li><a href="#" style="color:#FF0000"><b>{labels.MyAccount}</b></a></li>
+              <li><a href="#" style="color:#FF0000"><b>{labels.FINANCETOOLS}</b></a>
+               <ul class="subMenu">
+                   <li><a href="#" >{labels.ApplyforPreApproval}</a></li>
+                   <li><a href="#">{labels.LeaseVsFinance}</a></li>
+                   <li><a href="#">{labels.HondaLoyaltyBenefits}</a></li>
+                    <li><a href="#">{labels.AcuraLoyaltyAdvantage}</a></li>
+                        <li><a href="#">{labels.EndofTerm}</a></li>
+                        <li><a href="#">{labels.ProtectionofProducts}</a></li>                       
+                   </ul>
+                   </li>
+              <li><a href="#" style="color:#FF0000"><b>{labels.SUPPORT}</b></a>
+                <ul class="subMenu">
+                    <li><a href="#" >{labels.HelpCenter}</a></li>
+                    <li><a href="#">{labels.ContactUs}</a></li>
+                    <li><a href="#">{labels.PaymentOptions}</a></li>
+                     <li><a href="#">{labels.PrintableForms}</a></li>
+                                          
+                    </ul>
+                    </li>
+                    <li><a href="#" style="color:#FF0000"><b>{labels.OWNERS}</b></a></li> 
+                    <lightning-icon size="x-small" class="slds-icon slds-input__icon slds-input__icon_right slds-icon-text-default slds-text-align_right" icon-name="utility:search"></lightning-icon>                   
+          </ul>
+          
+      </nav>
+      </div>
+    </template>

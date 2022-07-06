@@ -1,0 +1,71 @@
+.THIS {
+  font-size: 16px;    
+}
+.THIS .header {
+  font-size: 28px;
+  margin-bottom: 30px;    
+}
+.THIS .info {
+  padding: 30px 30px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  background: #F6F6F6;
+}
+.THIS .info h3 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #d3d3d3;
+  padding-bottom: 10px;
+}
+.THIS .block {
+  margin-top: 30px;
+  margin-bottom: 10px;    
+}
+.THIS .action {
+  margin-top: 30px;
+  margin-bottom: 30px;    
+}
+.THIS label {
+  display: block;    
+}
+
+/* helper */
+.THIS .mb-sm {
+  margin-bottom: 10px;
+}
+.THIS .pull-right {
+  float: right;
+}
+.THIS .btn {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 7px 30px;
+  /*border-radius: 29px;*/
+  font-size: 15px;
+  border-width: 2px;
+}
+.THIS .btn.primary {
+  background: #0072CE;
+  border: 1px solid #0072CE;
+  color: #fff;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(33, 131, 221, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(33, 131, 221, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(33, 131, 221, 0);
+  }
+}
+@keyframes nextStep {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}

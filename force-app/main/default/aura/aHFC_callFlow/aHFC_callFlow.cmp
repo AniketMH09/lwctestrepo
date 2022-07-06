@@ -1,0 +1,4 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens,flexipage:availableForAllPageTypes" access="global">         
+    <c:aHFC_Help_Payments onneedHelpEvt="{!c.handleEvent}" />
+        <lightning:flow aura:id="flowData" />
+</aura:component>

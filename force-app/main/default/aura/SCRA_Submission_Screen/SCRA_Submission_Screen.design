@@ -1,0 +1,6 @@
+<design:component>
+    <design:attribute name = "strRequestType" label="Request Type" />
+    <design:attribute name= "strMessage" label="Message" />
+    <design:attribute name= "strCaseNumber" label="Case Number"/>
+    <design:attribute name= "strstate" label="State"/>
+</design:component>

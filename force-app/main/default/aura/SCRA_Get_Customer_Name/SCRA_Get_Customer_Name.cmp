@@ -1,0 +1,141 @@
+<!--
+* Name: SCRA_Get_Customer_Address
+* Description: customer address screen
+* Created Date: 16-Sept-2021
+* Created By: Mani 
+*-->
+
+<aura:component    implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    <!-- Inputs -->
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <aura:attribute name= "strRequestType" type="String"  default="Do Not Sell" />
+    <!-- Outputs -->
+    <aura:attribute name= "strFirstName" type="String" access="global" />
+    <aura:attribute name= "strLastName" type="String" />
+    <aura:attribute name= "strMiddleName" type="String" />
+    <aura:attribute name= "strSalutation" type="String" />
+    <aura:attribute name= "strSuffix" type="String" />
+    <aura:attribute name="lstsalutations" type="List" />
+    
+    <!-- Others-->
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <aura:attribute name= "value" type="String" />
+    <aura:attribute name=  "disabled" type="boolean" default="true"/>
+    <aura:attribute name= "communityName" type="string" default=""/>
+    <aura:attribute name= "LeaseExtensionRequest" type ="string"/>
+    
+    <aura:attribute name=  "validFirstName" type="boolean" default="false"/>
+    <aura:attribute name=  "validLastName" type="boolean" default="false"/>
+    <aura:attribute name=  "validMiddleName" type="boolean" default="true"/>
+    <aura:attribute name=  "validSuffix" type="boolean" default="true"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div >
+        <div class="center">
+            <div class="AHFC_HeaderWrap ahfc_arrowAlign">
+                <h2 class="header">
+                    <span>Servicemembers Civil Relief Act Request</span>
+                </h2>
+            </div>
+            
+            <div class="AHFC_DetailWrap">  
+                <div class="contain-secondary">
+                <div class="slds-grid slds-wrap AHFC_Fields_Margin">
+                    
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12 aHFC_rightSpace">
+                         <div class="aHFCEmail"><span class='AHFC_ASTRIC'>*</span>{!$Label.c.SCRA_FIRST_NAME}</div>
+                            <lightning:input aura:id="inputCmp1" class ="inputField"
+                                                name="firstname"
+                                                value="{!v.strFirstName}"
+                                                onchange="{!c.onChange}"
+                                                maxlength="80"
+                                             /> 
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12 aHFC_rightSpace">
+                        <div class="aHFCEmail">{!$Label.c.SCRA_MIDDLE_NAME}</div> 
+                            <lightning:input aura:id="field" class ="inputField"
+                                                name="middlename"
+                                                value="{!v.strMiddleName}"
+                                                required="false"
+                                                onchange="{!c.onChange}"
+                                                maxlength="80"/> 
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap AHFC_Fields_Margin">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12 aHFC_rightSpace">
+                         <div class="aHFCEmail"><span class='AHFC_ASTRIC'>*</span>{!$Label.c.SCRA_LAST_NAME}</div>
+                            <lightning:input aura:id="inputCmp2" class ="inputField"
+                                            name="lastname"
+                                            value="{!v.strLastName}"
+                                            onchange="{!c.onChange}"
+                                            maxlength="80"
+                                            /> 
+                        </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12 aHFC_rightSpace">
+                        <div class="aHFCEmail">{!$Label.c.SCRA_SUFFIX}</div>
+                            <lightning:input aura:id="field" class ="inputField"
+                                            name="suffix"
+                                            value="{!v.strSuffix}"
+                                            required="false"
+                                            onchange="{!c.onChange}"
+                                            maxlength="50"/>
+                    </div>
+                </div>
+            
+            </div>
+           <br />
+            <br />
+            
+                <div class="action ahfc_buttons">
+                    <div>
+                    <lightning:button class="AHFC_customSecondaryButton AHFC_Mob_buttons" aura:id="back1" name="backButton1" label="{!$Label.c.SCRA_PREVIOUS}" onclick="{! c.handlePrevious }"/>
+                        
+                    <lightning:button class="AHFC_customPrimaryButton  AHFC_Mob_buttons"   aura:id="cont3" name="continue3" label="{!$Label.c.SCRA_CONTINUE}" onclick="{!c.handleContinue}"/>
+                        
+                    <lightning:button class="AHFC_customTertiaryButton AHFC_Cancle"  aura:id="cancel1" name="cancelButton1" label="{!$Label.c.SCRA_Cancel}" onclick="{! c.openModel }"/>            
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+   <div class="confirm-modal">
+        <aura:if isTrue="{!v.isOpen}">
+           <section
+                     role="dialog"
+                     tabindex="-1"
+                     aria-label="Meaningful description of the modal content"
+                     aria-modal="true"
+                     aria-describedby="modal-content-id-1"
+                     class="slds-modal slds-fade-in-open finance-account-edit-modal"
+                     >
+                <div class="slds-modal__container">
+                    <div class="slds-modal__content edit-modal-content ahFC_Model_Content" id="modal-content-id-1">
+                        
+                        <div class="close-icon close-icon-alignment aHFC_Close_Icon">
+                            <button onclick="{!c.closeModel}" class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse message-content-info" title="Close" > 
+                                <lightning:icon size="small" class="close-icon-color" iconName="utility:close" alternativeText="close"
+                                                title="close"></lightning:icon>
+                                <span class="slds-assistive-text">Close</span>
+                            </button> 
+                        </div>
+                        
+                        <h1 class="AHFC_ModTitle">{!$Label.c.AHFC_Confirmation}</h1>
+                        <div class="slds-m-top_medium">
+                            <p class="para-text-medium"><aura:unescapedHtml value ="{!$Label.c.SCRA_Customer_Cancel}"/></p>
+                        </div>
+                        <div class="modal-action slds-m-top_xx-large">
+                            <button class="slds-button action-btn save-action" onclick="{!c.redirectToHome}">
+                                CONTINUE
+                            </button>
+                            <button class="slds-button action-btn cancel-action" onclick="{!c.closeModel}">
+                                CANCEL
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>  
+        </aura:if>
+    </div> 
+</aura:component>

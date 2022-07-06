@@ -1,0 +1,121 @@
+<template>
+<div class="AHFC_Wrapperst ahfc-background-lighter">
+    <div class="AHFC_PrimHead">
+        <a href="javascript:void(0);" class="AHFC_removehovereffect" tabindex="-1">
+            <lightning-icon icon-name="utility:back" alternative-text="Connected" title="go back" size="small" class="AHFC_backArrow" onclick={navigateBackToDashboard}></lightning-icon>
+        </a>
+        <p>Payment Options</p>
+    </div>
+    <div class="AHFC_HeadSubtxt">
+        <p>Pay your monthly bill your way with any of the payment options listed below.</p>
+    </div>
+    <div class="AHFC_CardWrapper">
+        <div class="slds-grid slds-wrap AHFC_IconCardLayout">
+            <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12 AHFC_IconCard">
+                <div class="AHFC_Icontitle">
+                    Online
+                </div>
+                <div class="AHFC_InnerHeadCont">
+                    <p>Log in to your account to make free payment using your checking or savings account.
+                    </p>
+                </div>
+                <div class="AHFC_InnerHeadCont"><a href={finalURL}>Login/Register</a></div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12 AHFC_IconCard">
+                <div class="AHFC_Icontitle">
+                    EasyPay Automatic Payments
+                </div>
+                <div class="AHFC_InnerHeadCont">
+                    <p>EasyPay automatically transfers funds from your checking or savings account each month to make your monthly payment.
+                    </p>
+                </div>
+                <div class="AHFC_InnerHeadCont"><a href={finalURL}>Login/Register</a></div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12 AHFC_IconCard">
+                <div class="AHFC_Icontitle">
+                    By Phone
+                </div>
+                <div class="AHFC_InnerHeadCont">
+                    <p>Make a payment any time by calling your regional office and using our free automated payment service. You must have a bank account saved to your online payment profile to use this service.</p>
+                </div>
+                <div class="AHFC_InnerHeadCont"><a href="#" onclick={navigateToContactUS}>Locate Regional Office</a></div>
+            </div>
+        </div>
+        <div class="slds-grid slds-wrap AHFC_IconCardLayout">
+            <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12 AHFC_IconCard1">
+                <div class="AHFC_Icontitle">
+                    By Mail
+                </div>
+                <div class="AHFC_InnerHeadCont">
+                    <p>Mail your payment to the address listed on your statement or click below to find your Payment Address.</p>
+                </div>
+                <div class="AHFC_InnerHeadCont"><a href="#" onclick={navigateToContactUS}>Payment Addresses</a></div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12 AHFC_IconCard1">
+                <div class="AHFC_Icontitle">
+                    ACI Pay
+                </div>
+                <div class="AHFC_InnerHeadCont">
+                    <p> Call ACI Pay at 1-800 366-8500 to make a one-time monthly payment with your Debit or ATM card. ACI Pay assesses a processing fee.</p>
+                </div>
+                <div class="AHFC_InnerHeadCont"><a href={aci_Pay_URL} target="_blank">ACI Pay Terms & Conditions</a></div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12 AHFC_IconCard1">
+                <div class="AHFC_Icontitle">
+                    Western Union Quick Collect
+                </div>
+                <div class="AHFC_InnerHeadCont">
+                    <p>Make a same day payment at a Western Union Quick Collect location. Western Union charges a fee. To find a Western Union location, and to view their full terms and conditions, click below.</p>
+                </div>
+                <div class="AHFC_Linklayout"> <a href={westrn_Un_URL} class="AHFC_WestLink" target="_blank">westernunion.com</a></div>
+                <div class="AHFC_BulletLayout">
+                    <ul>
+                        <div class="AHFC_BulletList">For this payment you will need:</div>
+                        <li class="AHFC_BulletPt">
+                            Your Finance Account Number
+                        </li>
+                        <li class="AHFC_BulletPt">
+                            <span>The Correct City and State Code:</span>
+                            <br/>
+                            <span if:true={isDomainHonda}>{domainVal}</span>
+                            <span if:true={isAcuraDomain}>{domainVal}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slds-grid slds-wrap AHFC_IconCardLayout">
+            <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12 AHFC_IconCard1">
+                <div class="AHFC_Icontitle">
+                    MoneyGram
+                </div>
+                <div class="AHFC_InnerHeadCont">
+                    <p>Make a same-day payment at a MoneyGram location. MoneyGram charges a fee. To find a MoneyGram location, and to view their full terms and conditions, click below.</p>
+                </div>
+                <div class="AHFC_Linklayout"> <a href={moneyGram_URL} class="AHFC_WestLink" target="_blank">MoneyGram.com</a></div>
+                <div class="AHFC_BulletLayout">
+                    <ul>
+                        <div class="AHFC_BulletList">For this payment you will need:</div>
+                        <li class="AHFC_BulletPt">
+                            Your Finance Account Number
+                        </li>
+                        <li class="AHFC_BulletPt">
+                            Your receive code of 1888
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="AHFC_ContainerSec">
+        <div class="card-block ahfc-background-lightest AHFC_InnerAround">
+            <div class="slds-grid slds-wrap">
+                <div style="padding-top : 0px" class="ahfc_faq_wrap">
+                    <c-a-h-f-c_dashboard-faq page-name="Payments"></c-a-h-f-c_dashboard-faq>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</template>

@@ -1,0 +1,63 @@
+.ahfc-pagination {
+    font-family: Roboto, sans-serif;
+}
+
+.ahfc-pagination span {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+    color: #5e6162;
+    display: inline-block;
+}
+
+.ahfc-pagination .page {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 50%;
+    background: #fff;
+    color: #000;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+}
+
+.ahfc-pagination .page.active {
+    background: #CC0000;
+    color: #fff;
+}
+
+.ahfc-pagination .page.disable,
+.ahfc-pagination .nextprev.disable {
+    pointer-events: none;
+}
+
+.ahfc-pagination .page.dot {
+    padding: 6px 4px;
+}
+
+.ahfc-pagination .nextprev {
+    display: inline-block;
+    padding: 6px 8px;
+    background: #f7f7f7;
+    margin: 0 4px;
+}
+
+.ahfc-pagination .next {
+    margin-right: 0;
+}
+
+
+.ahfc-pagination .nextprev.active .page-icon {
+    --sds-c-icon-color-foreground-default: #CC0000;
+}
+
+.ahfc-pagination .nextprev.disable .page-icon {
+    --sds-c-icon-color-foreground-default: #afafaf;
+}
+
+@media screen and (max-width: 600px) {
+.slds-grid_align-end {
+    justify-content: flex-start !important;
+}
+}

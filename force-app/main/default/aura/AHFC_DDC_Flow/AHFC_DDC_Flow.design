@@ -1,0 +1,3 @@
+<design:component label="Sample">
+   <design:attribute name="someParam" label="Make Parameters great again" />
+</design:component>

@@ -1,0 +1,148 @@
+<template>
+    <template if:false={isLoaded}>      
+        <c-a-h-f-c_-spinner loading-message='Please wait while we process your request'></c-a-h-f-c_-spinner>
+    </template> 
+    <c-a-h-f-c_vehicle-header if:true={isLoaded}></c-a-h-f-c_vehicle-header> 
+    <div class="ahfc-background-lighter" if:true={isLoaded}>
+        <div class="ahfc-background-lightest slds-grid AHFC_MobLAyout">
+        </div>
+        <div class="reviewpayment-container">
+            <h1 class="ahfc-header-three managepayment-title">
+ 
+                <a href="javascript:void(0);" tabindex="-1">
+                    <lightning-icon class="ahfc-icon-red icon-space" icon-name="utility:back" size="small"
+                        alternative-text="back" title="back" onclick={navigateToDashboard}>
+                    </lightning-icon>
+                </a>
+
+                <span>Track Support Requests</span>
+            </h1>
+            <template if:true={isDataLoaded}>
+                <template if:true={isData}>
+                <div class="reviewinfo-container-fluid slds-m-vertical_x-large">
+                    <div class="reviewinfo-container">
+                        <div class="review-section-info">
+                            <div class="slds-grid slds-wrap reviewpaymentinfo-container">
+
+                                <div class="slds-col slds-size_1-of-1 payment-info AHFC_Col">
+                                    <h4 class="ahfc-sub-heading-one ahfc-text-dark">CASE #</h4>
+                                    <h1 class="ahfc-body-one">{caseObj.CaseNumber}</h1>
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 payment-info AHFC_Col">
+                                    <h4 class="ahfc-sub-heading-one ahfc-text-dark">CASE TYPE</h4>
+                                    <h1 class="ahfc-body-one">{caseObj.Type}</h1>
+                                </div>
+                                <template if:false={isDocumentSharing}>
+                                    <div class="slds-col slds-size_1-of-1 payment-info AHFC_Col">
+                                        <h4 class="ahfc-sub-heading-one ahfc-text-dark">STATUS</h4>
+                                        <h1 class="ahfc-body-one">{caseObj.Status}</h1>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                        <template if:false={isDocumentSharing}>
+                            <!-- <div class="slds-grid  easypay-container slds-m-bottom_x-large"></div> -->
+                            <div class="slds-grid  easypay-container">
+                                <div class="slds-col slds-size_1-of-1 ahfc-background-lighter easypay-info">
+                                    <p class="ahfc-text-grey ahfc-body-two">
+                                        Please allow at least 2-3 business days for your request to be completed.
+                                    </p>
+                                </div>
+                            </div>
+                        </template>
+                        <div class="review-section-info">
+                            <div class="slds-grid slds-wrap reviewpaymentinfo-container AHFC_DetailWrap">
+                                <template if:true={isDocumentSharing}>
+                                   
+                                    <hr aria-hidden="true"/>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 payment-info">
+                                        <h4 class="ahfc-info-label ahfc-text-dark">DATE/TIME CREATED</h4>
+                                        <h1>{createdDate} PT</h1>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 payment-info">
+                                        <h4 class="ahfc-info-label ahfc-text-dark">DOCUMENT TYPE</h4>
+                                        <h1>{caseObj.Document_Type__c}</h1>
+                                    </div>
+                                </template>
+                                <template if:false={isDocumentSharing}>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 payment-info">
+                                        <h4 class="ahfc-info-label ahfc-text-dark">DATE/TIME RECEIVED</h4>
+                                        <h1>{createdDate} PT</h1>
+                                    </div>
+                                </template>
+                                <template if:true={isLeaseExtension}>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 payment-info">
+                                        <h4 class="ahfc-info-label ahfc-text-dark">CURRENT MATURITY DATE</h4>
+                                        <h1>{currentMaturityDate}</h1>
+                                    </div>
+                                </template>
+                                <template if:true={isDueDateChange}>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 payment-info">
+                                        <h4 class="ahfc-info-label ahfc-text-dark">CURRENT DUE DATE</h4>
+                                        <h1>{currentDueDate}</h1>
+                                    </div>
+                                </template>
+
+                            </div>
+                        </div>
+                        <template if:true={isLeaseExtension}>
+                            <div class="slds-grid slds-wrap schedule-source-section AHFC_DetailWrap">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 scheduled-info">
+                                    <div>
+                                        <h4 class="ahfc-info-label ahfc-text-dark">NUMBER OF MONTHS REQUESTED</h4>
+                                        <h1>
+                                            {requestedMonths}
+                                        </h1>
+                                    </div>
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 source-info">
+                                    <h4 class="ahfc-info-label ahfc-text-dark">REQUESTED MATURITY DATE</h4>
+                                    <div class="sources-container">
+                                        <h1>{caseObj.Requested_Maturity_Date_Text__c}</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                        <div class="slds-grid slds-wrap schedule-source-section AHFC_DetailWrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 scheduled-info">
+                                <div>
+                                    <template if:true={isLeaseExtension}>
+                                        <h4 class="ahfc-info-label ahfc-text-dark">EASY PAY</h4>
+                                        <h1>
+                                            {requestDetails.easyPay}
+                                        </h1>
+                                    </template>
+                                    <template if:true={isDueDateChange}>
+                                        <h4 class="ahfc-info-label ahfc-text-dark">REQUESTED DUE DATE</h4>
+                                        <h1>
+                                            {requestedDueDate}
+                                        </h1>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+                        <template if:true={isDocumentSharing}>
+                            <hr aria-hidden="true"/>
+                          
+                            <c-a-h-f-c_list-notes record-id={caseObj.Id}>
+                            </c-a-h-f-c_list-notes>
+                            
+                            <c-a-h-f-c_list-files_and_-preview record-id={caseObj.Id}>
+                            </c-a-h-f-c_list-files_and_-preview>
+                        </template>
+                    </div>
+                </div>
+            </template>
+                <div if:false={isData}>
+                    <div class="reviewinfo-container-fluid slds-m-vertical_x-large">
+                        <div class="reviewinfo-container">
+  
+                          <div class='supportNoData ahfc-nodata'>The case you are attempting to view has been closed and is no longer available.</div>
+                       </div>
+                    </div>
+  
+                 </div>
+            </template>
+        </div>
+    </div>
+</template>

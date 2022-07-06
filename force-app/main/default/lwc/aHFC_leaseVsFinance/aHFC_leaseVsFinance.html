@@ -1,0 +1,281 @@
+<template>
+    <main>
+        <div class="AHFC_PageTitleWrap AHFC_leaseFinance">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12">
+                    <div class="AHFC_topCard">
+                        <div class="AHFC_topImage">
+                            <!--<picture>
+                                <source media="(max-width: 767px)" srcset={bannerMobileUrl}>
+                                <img src={bannerDesktopUrl} height="160" alt="Oil being poured out of a can">
+                            </picture>-->
+
+                            <div class="slds-show_small">
+                                <img src={bannerDesktopUrl} alt="Cliffside coastal bridge">
+                            </div>
+                            <div class="slds-hide_small">
+                                <img src={bannerMobileUrl} alt="Cliffside coastal bridge">
+                            </div>
+
+                             <!-- <img src={bannerDesktopUrl} alt=""> -->
+                        </div>
+                        <div class="AHFC_topHeading">
+                            Lease vs. Finance
+                            <p class="AHFC_dataLabel">
+                                Which One Is Right For You?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+        <div class="AHFC_Wrapperst">
+            <div class="slds-grid">
+                <div class="slds-col slds-size_1-of-1 slds-large-size_5-of-12 slds-m-right_small">
+                    <div class="AHFC_SectionText">The decision to lease or finance depends on many factors, but most customers make the decision based on monthly payments and how long they typically drive their vehicles.</div>
+                    <div class="AHFC_SectionLabel">Explore the detailed benefits of leasing and financing below.</div>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-large-size_7-of-12 slds-m-right_small">
+                    <div class="AHFC_CardWrap">
+                        <div class="AHFC_CardImg">                        
+                            <picture>
+                                <source media="(max-width: 767px)" srcset={silverHondaSUVDesktopUrl}>
+                                <img src={silverHondaSUVDesktopUrl} height="160" alt="Oil being poured out of a can">
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-grid">
+                <div class="slds-col slds-size_1-of-1 slds-large-size_6-of-12 slds-m-right_small">
+                    <div class="AHFC_CardTtile">Leasing</div>
+                    <div class="AHFC_CardData">Customers who lease drive a new car every two to three years and enjoy lower monthly payments. For certain business customers, there may also be additional tax advantages with leasing.</div>
+                    <div class="AHFC_LeaseAccord">
+                        <template for:each={leaseData} for:item="sections">
+                            <section class={sections.class}  key={sections.id}>
+                                <div
+                                class="slds-accordion__summary-action slds-size_1-of-1"
+                                aria-controls={sections.id} data-keyno={sections.id}
+                                aria-expanded={sections.isOpened} title=""
+                                onclick={onCardClick}>
+                                    <div class="slds-grid slds-size_1-of-1 AHFC_AccordTab" data-keyno={sections.id}>
+                                        <div class="slds-col slds-large-size_10-of-12 AHFC_AccordTitle">
+                                            <span>{sections.cardTitle}</span>
+                                        </div>
+                                        <div class="slds-col slds-large-size_2-of-12">
+                                          
+                                            <a href="javascript:void(0);" role="img" aria-label="chevrondown">
+                                                <lightning-icon  class="AHFC_ArrowIcon" if:false={sections.isOpened}
+                                                icon-name="utility:chevrondown" size="small" alternative-text="chevrondown"
+                                                title="chevrondown" >
+                                               </lightning-icon>
+                                            </a>
+                                            
+                                            <a href="javascript:void(0);" role="img" aria-label="chevronup">
+                                                <lightning-icon   class="AHFC_ArrowIcon" if:true={sections.isOpened}
+                                                icon-name="utility:chevronup" size="small" alternative-text="chevronup"
+                                                title="chevronup">
+                                                </lightning-icon>
+                                            </a>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-accordion__content" id={sections.id}>
+                                    <div class="AHFC_CardDetail">
+                                        {sections.cardData}
+                                    </div>
+                                </div>
+                            </section>
+                        </template>
+</div>
+</div>
+
+<div class="slds-col slds-size_1-of-1 slds-large-size_6-of-12 slds-m-right_small">
+    <div class="AHFC_CardTtile">Financing</div>
+    <div class="AHFC_CardData">Customers who finance their vehicles tend to drive them for five to 10 years and enjoy driving without mileage limitations.</div>
+    <div class="AHFC_FinanceAccord">
+        <template for:each={financingData} for:item="sections">
+                            <section class={sections.class}  key={sections.id}>
+                                <div
+                                class="slds-accordion__summary-action slds-size_1-of-1"
+                                aria-controls={sections.id} data-keyno={sections.id}
+                                aria-expanded={sections.isOpened} title=""
+                                onclick={onCardFinanceClick}>
+                                    <div class="slds-grid slds-size_1-of-1 AHFC_AccordTab" data-keyno={sections.id}>
+                                        <div class="slds-col slds-large-size_10-of-12 AHFC_AccordTitle">
+                                            <span>{sections.cardTitle}</span>
+                                        </div>
+                                        <div class="slds-col slds-large-size_2-of-12" >
+                                            <a href="javascript:void(0);" role="img" aria-label="chevrondown">
+                                                <lightning-icon  class="AHFC_ArrowIcon" if:false={sections.isOpened}
+                                                icon-name="utility:chevrondown" size="small" alternative-text="chevrondown"
+                                                title="chevrondown">
+                                                 </lightning-icon>
+                                            </a>
+                                            
+                                            <a href="javascript:void(0);" role="img" aria-label="chevronup">
+                                                <lightning-icon  class="AHFC_ArrowIcon" if:true={sections.isOpened}
+                                                icon-name="utility:chevronup" size="small" alternative-text="chevronup"
+                                                title="chevronup" >
+                                            </lightning-icon>
+    
+                                            </a>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-accordion__content" id={sections.id}>
+                                    <template for:each={sections.cardData} for:item="itemDetail">
+                                        <div class="AHFC_CardDetail"  key={itemDetail.id} >
+                                            {itemDetail.detail}
+                                        </div>
+                                    </template>
+    </div>
+    </section>
+    </template>
+</div>
+</div>
+</div>
+</div>
+<div class="AHFC_WrapperstOA slds-show_large">
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12  slds-large-size_6-of-12">
+            <div class="ahfc_offersAndApproval">
+                <div class="ahfc_offersAndApprovalImage">
+                    <img src={hondaPreApprovalLogoUrl} alt="fee waiver">
+                </div>
+                <div class="ahfc_offersAndApprovalContent">
+                    <div class="ahfc_offersAndApprovalHeading">Honda Special Offers</div>
+                    <div class="ahfc_offersAndApprovalDescription">
+                        Find special offers in your area.
+                    </div>
+                    <div class="ahfc_Links ahfc_findOffersLink">
+                        <a href="https://automobiles.honda.com/tools/current-offers" onclick={onClickhondaOffers} class="href">Find Offers</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12  slds-large-size_6-of-12">
+            <div class="ahfc_offersAndApproval">
+                <div class="ahfc_offersAndApprovalImage">
+                    <img src={hondaSpecialOffersLogoUrl} alt="fee waiver">
+                </div>
+                <div class="ahfc_offersAndApprovalContent">
+                    <div class="ahfc_offersAndApprovalHeading">Honda Loyalty Benefits</div>
+                    <div class="ahfc_offersAndApprovalDescription">
+                        From flexible terms to multiple mileage options, explore the benefits of leasing a new Honda.
+                    </div>
+                    <div class="ahfc_Links ahfc_learnMoreLink">
+                        <a href="javascript:void(0);" onclick={onClickhondaLoyalty} class="href">LEARN MORE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12  slds-large-size_6-of-12">
+            <div class="ahfc_offersAndApproval">
+                <div class="ahfc_offersAndApprovalImage">
+                    <img src={acuraOffersUrl} alt="fee waiver">
+                </div>
+                <div class="ahfc_offersAndApprovalContent">
+                    <div class="ahfc_offersAndApprovalHeading">Acura Special Offers</div>
+                    <div class="ahfc_offersAndApprovalDescription">
+                        Visit Acura.com to see current offers on the Acura family of precision crafted vehicles.
+                    </div>
+                    <div class="ahfc_Links ahfc_findOffersLink">
+                        <a href="https://www.acura.com/tools/current-luxury-car-suv-offers-leasing" onclick={onClickacuraOffers} class="href">Find Offers</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12  slds-large-size_6-of-12">
+            <div class="ahfc_offersAndApproval">
+                <div class="ahfc_offersAndApprovalImage">
+                    <img src={acuraLoyaltyCarUrl} alt="fee waiver">
+                </div>
+                <div class="ahfc_offersAndApprovalContent">
+                    <div class="ahfc_offersAndApprovalHeading">The Acura Loyalty Advantage</div>
+                    <div class="ahfc_offersAndApprovalDescription">
+                        Acura lease customers, explore the exclusive benefits of leasing with us again.
+                    </div>
+                    <div class="ahfc_Links ahfc_learnMoreLink">
+                        <a href="javascript:void(0);" onclick={onClickacuraLoyalty} class="href">LEARN MORE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div class="AHFC_WrapperstOAMob slds-hide_large">
+            <div class="slds-carousel">
+                <div class="slds-carousel__stage">
+                    <div class={panelClass}>
+                        <template for:each={carouselData} for:item="slide">
+                            <div key={slide.id} id={slide.id} class="slds-carousel__panel" role="tabpanel" aria-hidden={slide.hidden} aria-labelledby={slide.labelledby}>
+                                <div   class="slds-carousel__panel-action slds-text-link_reset" tabindex={slide.index}>
+                                    <div class="slds-carousel__image" >
+                                        <img src={slide.imageSrc} alt="Honda Special Offers" />
+                                    </div>
+                                    <div class="slds-carousel__content" ></div>
+                                        <h2 class="slds-carousel__content-title"></h2>
+                                        <p class="AHFC_SubText">{slide.detail}</p>                               
+                                        <div class="ahfc_Links">
+                                            <a href={slide.helpLinkUrl} class="href">{slide.helpLinkLabel}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                      </div>
+                        <ul class="slds-carousel__indicators" role="tablist">                    
+                            <template for:each={carouselData} for:item="tempData">
+                                <li key={tempData.id} class="slds-carousel__indicator" role="presentation">
+                                    <a data-id={tempData.id} data-transformtype={tempData.transformtype} class={tempData.paginationClass} href="#" role="tab" tabindex={tempData.index} aria-selected={tempData.selected} aria-controls={tempData.id} onclick={onPaginationClick}></a>
+                                </li>
+                            </template>
+                        </ul>
+                </div>
+            </div>
+        </div>-->
+
+<div class="AHFC_WrapperstOAMob slds-hide_large">
+    <div class="slds-carousel">
+        <div class="slds-carousel__stage">
+
+            <div class={panelClass}>
+                <template for:each={carouselData} for:item="slide">
+                            <div key={slide.id} id={slide.id} class="slds-carousel__panel" data-index={slide.index} ontouchstart={touchStart} ontouchend={touchEnd} role="tabpanel" aria-hidden={slide.hidden} aria-label={slide.labelledby}>
+                                <div   class="slds-carousel__panel-action slds-text-link_reset" tabindex={slide.index}>
+                                    <div class="slds-carousel__image" >
+                                        <img src={slide.imageSrc} alt="Honda Special Offers" />
+                                    </div>
+                                    <div class="slds-carousel__content" >
+                                        <h2 class="slds-carousel__content-title">{slide.title}</h2><!-- 20193 -->
+                                        <p class="AHFC_SubText">{slide.detail}</p>                               
+                                        <div class="ahfc_Links">
+                                        <!--    <a href={slide.helpLinkUrl} class="href">{slide.helpLinkLabel}</a>-->
+                                            <a href="javascript:void(0)" onclick={onLinkClicked} data-value={slide.title} class="href">{slide.helpLinkLabel}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+            </div>
+
+            <ul class="slds-carousel__indicators" role="tablist">
+                <template for:each={carouselData} for:item="tempData">
+                            <li key={tempData.id} class="slds-carousel__indicator" role="presentation">
+                                <a data-id={tempData.id} data-transformtype={tempData.transformtype}
+                                   class={tempData.paginationClass} href="#" role="tab" 
+                                   tabindex={tempData.index} aria-selected={tempData.selected}
+                                   aria-controls={tempData.id} onclick={onPaginationClick}></a>
+                            </li>
+                        </template>
+            </ul>
+        </div>
+    </div>
+</div>
+</main>
+</template>

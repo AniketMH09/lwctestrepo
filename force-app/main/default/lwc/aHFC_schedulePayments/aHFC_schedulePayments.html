@@ -1,0 +1,274 @@
+<template>
+  <div class="editPayments-parent ahfc-background-lighter">
+    <div class="editPayment-banner ahfc-background-lightest">
+      <p class="managepayment-banner ahfc-body-one ahfc-text-dark">
+      {schPaymentsLabelInformation}
+      </p>
+    </div>
+    <div if:true={noScheduledPayments} class="no-schedule-payments-section">
+      <h3 class="slds-m-bottom_medium ahfc-text-medium AHFC_PaymentTitle">
+        {labels.AHFC_No_Scheduled_Payments}
+      </h3>
+      <p class="ahfc-sub-text-medium AHFC_PaymentMsg">
+        {labels.AHFC_No_Scheduled_Payments_Msg}
+      </p>
+    </div>
+    <div if:false={noScheduledPayments}>
+      <div class="paymentType-container-fluid slds-m-top_xx-large">
+        <div class="paymentType-div slds-m-top_xx-large">
+          <div class="easyPay-header-wrap">
+            <h3 class="easyPay-title ahfc-text-medium">{labels.AHFC_Label_EasyPay}</h3>
+
+            <p if:true={isEZPEnrolled} class="easyPay-banner ahfc-body-one slds-m-vertical_medium">
+              {eZPEnrolledMsg}
+            </p>
+            <p if:true={isDisplayNotEnrolled} class="easyPay-banner ahfc-body-one slds-m-vertical_medium">
+              {labels.AHFC_EZP_Not_Enrolled_Msg}
+            </p>
+            <p if:true={openCancelEZPEligibility} class="easyPay-banner ahfc-body-one slds-m-vertical_medium">
+              Your EasyPay schedule is suspended. Please <a href ="javascript:void(0)" class="ahfc-suspened-click-here" onclick={navigateToContactUs}>click here</a> to contact a customer service representative for
+              assistance.
+            </p>
+          </div>
+          <div class="easy-pay-wrapper-clear">
+            <div class="easy-pay-wrapper" if:true={showEZP}>
+              <div class="easyPay-customer-info-clear">
+                <div class="easyPay-customer-info slds-m-top_small slds-m-bottom_xx-large ahfc-background-lightest">
+
+
+                  <div class="account-amt">
+                    <div class="account-amtType">
+                      <span>
+                        <label
+                          class="slds-m-bottom_small ahfc-info-label AHFC_Button">{labels.AHFC_SchPayments_NextWithdraw}</label>
+                        <span class="ahfc-text-medium">{nextWithdrawalDateEZP}</span>
+                      </span>
+                    </div>
+                    <div class="account-amtType">
+                      <span>
+                        <template if:false={openCancelEZPEligibility}>
+                          <a href="javascript:void(0);" tabindex="-1">
+                          <lightning-icon icon-name="utility:date_input"
+                            class="ahfc-icon-green ahfc-icon sheduled-label" alternative-text="Sheduled"
+                            title="Sheduled" size="small"></lightning-icon></a>
+                          <span class="ahfc-info-label ahfc-text-uppercase AHFC_Button">{labels.AHFC_SchPayments_Scheduled}</span>
+                        </template>
+<template if:true={openCancelEZPEligibility}>
+                          <a href="javascript:void(0);" tabindex="-1">
+                          <lightning-icon icon-name="utility:error" class="ahfc-icon-red ahfc-icon sheduled-label"
+                            alternative-text="Suspended" title="Suspended" size="small"></lightning-icon></a>
+                          <span class="ahfc-info-label ahfc-text-uppercase AHFC_Button">{labels.AHFC_SchPayments_Suspended}</span>
+                        </template>
+</span>
+</div>
+</div>
+<div class="account-date">
+    <div class="account-dateType">
+        <span>
+                        <label class="slds-m-bottom_small ahfc-info-label AHFC_Button">{labels.AHFC_SchPayments_PaymentAmt}</label>
+                        <span class="ahfc-text-medium">{chargentAmountEZP}</span>
+        </span>
+    </div>
+    <div class="account-dateType">
+        <span class="slds-p-left_medium">
+                        <label
+                          class="slds-m-bottom_small ahfc-info-label AHFC_Button">{labels.AHFC_SchPayments_LastWithdraw}</label>
+                        <span class="ahfc-text-medium">{lastWithdrawalDateEZP}</span>
+        </span>
+    </div>
+</div>
+<div class="account-no ahfc-sub-text-medium">
+    <h4 class="AHFC_PaymentData">{paySource}&nbsp;&nbsp;
+        <span>
+                        <span class="circle"></span>
+        <span class="circle"></span>
+        <span class="circle"></span>
+        <span class="circle"></span> &nbsp; {PayLast4}
+        </span>
+    </h4>
+</div>
+<p if:true={openCancelEZPEligibility} class="ahfc-text-small-disabled slds-m-vertical_medium ahfc-text-red">
+    {labels.AHFC_SchPayments_SuspendMsg}
+</p>
+<p if:true={EZPDisableFlag} class="ahfc-text-small-disabled slds-m-vertical_medium ahfc-text-red">
+    {labels.AHFC_CuttOffDisabledErrorMsg}
+</p>
+
+<div class="disabledButtons slds-m-vertical_large slds-p-bottom_large">
+    <a if:true={EZPDisableFlag} class="slds-float_left ahfc-links ahfc-links-primary disabled" href="javascript:void(0);">{labels.AHFC_Cancel_EasyPay_Button}</a>
+    <a if:false={EZPDisableFlag} onclick={openModalMethod} class="slds-float_left ahfc-links ahfc-links-primary AHFC_Button" href="javascript:void(0);">{labels.AHFC_Cancel_EasyPay_Button}</a>
+
+
+
+</div>
+
+</div>
+</div>
+</div>
+<template if:true={openModalFlag}>
+              <c-a-h-f-c_cancel-Scheduled-Payments-Pop-Up ezp-payment-data={ezpPaymentData} oncustevent={closePopUp}>
+              </c-a-h-f-c_cancel-Scheduled-Payments-Pop-Up>
+            </template>
+</div>
+</div>
+</div>
+<div class="paymentType-container-fluid slds-m-top_xx-large">
+    <div class="paymentType-div slds-m-top_xx-large">
+        <div class="easyPayTitle ahfc-text-medium">
+            <h3 class="otp-title ahfc-text-medium slds-m-top_xx-large">
+                {labels.AHFC_SchPayments_OTP}
+            </h3>
+            <p if:true={oneTimePaymentMessage} class="easyPay-banner ahfc-body-one slds-m-vertical_medium">
+
+                You have no scheduled One-Time Payments. To add a payment, please click on ‘Make a Payment’.
+            </p>
+            <p if:false={oneTimePaymentMessage} class="easyPay-banner ahfc-body-one slds-m-vertical_medium">
+
+                Your scheduled payments are below.
+            </p>
+
+        </div>
+
+
+        <div if:false={oneTimePaymentMessage}>
+
+            <div>
+                <div>
+                    <template for:each={lstPaymentsOTP} for:item="source" for:index="index">
+                  <div class="easyPay-customer-info slds-m-bottom_large ahfc-background-lightest" key={source.Id}>
+                    <div class="account-amt">
+                      <div class="account-amtType">
+                        <span>
+                          <label class="slds-m-bottom_small ahfc-info-label AHFC_Button">PAYMENT DATE</label>
+                          <span class="ahfc-text-medium">{source.ChargentOrders__Payment_Start_Date__c}</span>
+                        </span>
+                      </div>
+                      <div class="account-amtType">
+                        <span>
+                          <a href="javascript:void(0);" tabindex="-1">
+                          <lightning-icon if:true={source.boolIsEligible} icon-name="utility:date_input"
+                            class="ahfc-icon-green ahfc-icon sheduled-label" alternative-text="Sheduled"
+                            title="Sheduled" size="small"></lightning-icon></a>
+                            <a href="javascript:void(0);" tabindex="-1">
+                          <lightning-icon if:false={source.boolIsEligible} icon-name="utility:rotate"
+                            class="ahfc-icon-orange ahfc-icon sheduled-label" alternative-text="Processing"
+                            title="Processing" size="small"></lightning-icon></a>
+                          <span class="ahfc-info-label ahfc-text-uppercase AHFC_Button">{source.Payment_Display_Status__c}</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="account-amt">
+                      <div class="account-dateType">
+                        <span>
+                          <label
+                            class="slds-m-bottom_small ahfc-info-label AHFC_Button">{labels.AHFC_SchPayments_PaymentAmt}</label>
+                          <span class="ahfc-text-medium">{source.ChargentOrders__Charge_Amount__c}</span>
+                        </span>
+                      </div>
+                      <div class="account-dateType">
+                        <span class="slds-p-left_medium">
+                          <label
+                            class="slds-m-bottom_small ahfc-info-label AHFC_Button">{labels.AHFC_SchPayments_AuthorisedOn}</label>
+                          <span class="ahfc-text-medium">{source.PaymentAuthorizedOn__c}</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="account-date">
+                      <div class="account-dateType">
+                        <span>
+                          <label
+                            class="slds-m-bottom_small ahfc-info-label AHFC_Button">{labels.AHFC_SchPayments_ConfirmationNumber}</label>
+                          <span class="ahfc-text-medium">{source.Confirmation_Number__c}</span>
+                        </span>
+                      </div>
+                      <div class="account-dateType">
+                        <span class="slds-p-left_medium">
+                          <label
+                            class="slds-m-bottom_small ahfc-info-label AHFC_Button">{labels.AHFC_SchPayments_PaymentType}</label>
+                          <span class="ahfc-text-medium">{source.Payment_Type__c}</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="account-no ahfc-sub-text-medium">
+                      <!-- <span>{source.Source}
+                        
+                       <!.. ....{source.Last4}</span> -->
+                        <h4 class="AHFC_PaymentData">{source.Source}&nbsp;&nbsp;
+                          <span>
+                            <span class="circle"></span>
+                            <span class="circle"></span>
+                            <span class="circle"></span>
+                            <span class="circle"></span>                
+                            &nbsp; {source.Last4}
+                          </span>
+                        </h4>
+                    </div>
+
+
+                    <div class="disabledButtons slds-m-vertical_large">
+                     <!--
+                      <a if:true={source.isOTPCutOff}
+                        class="slds-m-right_xx-large ahfc-links ahfc-links-primary disabled">{labels.AHFC_SchPayments_CancelPayment}</a>
+                      <a if:true={source.isOTPCutOff}
+                        class="slds-float_right ahfc-links ahfc-links-primary disabled" >{labels.AHFC_SchPayments_Edit}</a>
+                     
+                      <a if:false={source.isOTPCutOff} onclick={openCancelModal} data-index={index}
+                        class="ahfc-links ahfc-links-primary slds-m-right_xx-large AHFC_Button">{labels.AHFC_SchPayments_CancelPayment}</a>
+                      <a if:false={source.isOTPCutOff} onclick={openEditModal}
+                        class="ahfc-links ahfc-links-primary slds-float_right AHFC_Button" data-index={index}>{labels.AHFC_SchPayments_Edit}</a>
+  
+                     -->
+                     <a if:false={source.isEligibleForEdit}
+                     class="slds-m-right_xx-large ahfc-links ahfc-links-primary disabled"  href="javascript:void(0);"  aria-label="cancel the payment">{labels.AHFC_SchPayments_CancelPayment}</a>
+                   <a if:false={source.isEligibleForEdit}
+                     class="slds-float_right ahfc-links ahfc-links-primary disabled" href="javascript:void(0);" aria-label="Edit the payment" >{labels.AHFC_SchPayments_Edit}</a>
+                  
+                   <a if:true={source.isEligibleForEdit} onclick={openCancelModal} data-index={index} href="javascript:void(0);"  aria-label="cancel the payment"
+                     class="ahfc-links ahfc-links-primary slds-m-right_xx-large AHFC_Button">{labels.AHFC_SchPayments_CancelPayment}</a>
+                   <a if:true={source.isEligibleForEdit} onclick={openEditModal} href="javascript:void(0);" aria-label="Edit the payment"
+                     class="ahfc-links ahfc-links-primary slds-float_right AHFC_Button" data-index={index}>{labels.AHFC_SchPayments_Edit}</a>
+
+                    </div>
+                  </div>
+                </template>
+                    <!--US:3793 by edwin starts here-->
+                    <template if:true={openEditModalFlag}>
+                  <c-a-h-f-c_edit-payment-pop-up 
+                  finance-acc-data={financeAccData}
+                  oneditmodalsave={onEditModalSave} 
+                  oneditmodalclose={onEditModalClose}
+                  ></c-a-h-f-c_edit-payment-pop-up>                 
+              
+                </template>
+                    <template if:true={openCancelModalFlag}>
+                  <c-a-h-f-c_cancel-payment-pop-up 
+                  finance-acc-data={financeAccData}
+                  oncancelmodalclose={onCancelModalClose} >
+                  </c-a-h-f-c_cancel-payment-pop-up>
+                </template>
+                    <!--US:3793 by edwin ends here-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<div>
+
+</div>
+<div class="makepayment-btn-div slds-m-top_xx-large AHFC_BtnWrap">
+    <button class="slds-button ahfc-btn ahfc-btn-tertiary" title="MAKE A PAYMENT" onclick={goToMakeAPayment}>
+        MAKE A PAYMENT
+      </button>
+</div>
+</div>
+<template if:true={boolShowSuccessMsg}>
+    <div class="message-info slds-m-top_xx-large">
+       <c-a-h-f-c_message-toast type="success" label={toastType} message={successSaveMsg} toast-type="snack-bar"
+        show-icon="true" onclosetoast={onCloseToast} ></c-a-h-f-c_message-toast>
+
+    </div>
+  </template>
+</template>

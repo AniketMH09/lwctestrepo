@@ -1,0 +1,8 @@
+<design:component>
+    <design:attribute name= "readTerms" label = 'Read Terms'/>
+	<design:attribute name= "instruction1" label = 'Instruction1'/>
+    <design:attribute name= "LeTermsHeading" label = 'LE Terms Heading'/>
+    <design:attribute name= "instruction2" label = 'Instruction 2'/>
+    <design:attribute name= "temsList" label = 'Terms List'/>
+    <design:attribute name= "downloadButton" label = 'Download Button'/>
+</design:component>

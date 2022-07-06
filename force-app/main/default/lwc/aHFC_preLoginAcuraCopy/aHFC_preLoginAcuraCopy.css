@@ -1,0 +1,700 @@
+@import 'c/aHFC_dashboardTheme';
+
+/*Desktop view start*/
+
+/* .AHFC_PageTitleWrap { */
+    /* margin-top: -1.5rem; */
+    
+/* } */
+
+.aHFC_globalAlert {
+    position: relative;
+    z-index: 20;
+}
+
+
+/*covid banner start*/
+
+.ahfc_covidBg {
+    background: #ffa638;
+    padding-left: 8.5rem;
+    font-size: 14px;
+    letter-spacing: .03em;
+    color: #000;
+    height: 40px;
+    /* line-height: 20px; */
+    line-height: 2.5rem;
+}
+
+.ahfc_covidBg span {
+    font-family: 'ahfc-robotomedium';
+    text-transform: uppercase;
+}
+
+.ahfc_covidText {
+    display: initial;
+}
+
+.AHFC_warning {
+    --lwc-colorTextIconDefault: #000000;
+    margin-right: 1rem;
+}
+
+
+/*covid banner end*/
+
+.ahfc_topCard {
+    position: relative;
+    /* margin-bottom: 2rem; */
+    z-index: 19;
+}
+
+.ahfc_topHeading {
+    font-family: 'ahfc-robotolight';
+    font-size: 38px;
+    line-height: 48px;
+    color: #000000;
+    /* background-color: #FFFFFF; */
+    /* position: absolute; */
+    /* padding: 1.5rem 2rem; */
+    /* bottom: 0px; */
+    /* top: 3rem; */
+    /* margin-left: 6rem; */
+}
+
+.ahfc_top {
+    position: absolute;
+    /* top: 3rem;
+    padding: 1.5rem 2rem; */
+    padding: 1.8rem 2.2rem 2.5rem;
+    top: 2.8rem;
+    margin-left: 8.5rem;
+    background-color: #fff;
+    /* width: 35%; 
+    width: 480px;
+    */
+    width: 480px;
+}
+
+.ahfc_topSubHeading {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+    color: #5E6162;
+    /* margin-top: 0.5rem; */
+    margin: 0.5rem 0 1.5rem;
+}
+
+
+/*slider start*/
+
+.carousal-button-desktop {
+    padding: 9px 10px;
+    background: #f0f0f0;
+    margin-left: 16px;
+    border-radius: 0;
+}
+
+.carousal-button-desktop .carousal-icon {
+    --sds-c-icon-color-foreground-default: #CC0000;
+}
+
+.carousal-button-disabled .carousal-icon {
+    --sds-c-icon-color-foreground-default: #afafaf;
+}
+
+.carousal-desktop {
+    position: absolute;
+    top: 280px;
+    right: 1px;
+}
+
+.ahfc_corouselButton {
+    /* background-color: #d9d9d9;
+    border-color: #fff; */
+    --lwc-carouselIndicatorColorBackground: #D9D9D9;
+    --lwc-carouselIndicatorWidth: 12px;
+}
+
+.ahfc_isActive {
+    --lwc-carouselIndicatorColorBackgroundActive: #CC0000;
+    --lwc-carouselIndicatorWidth: 1rem;
+}
+
+
+/* .slds-carousel__indicator-action .ahfc_isActive{
+    --lwc-carouselIndicatorColorBackgroundActive: #CC0000;
+} */
+
+.ahfc_swipeButtons {
+    text-align: center;
+}
+
+.ahfc_swipeDesktop {
+    position: absolute;
+    bottom: 1rem;
+    right: 6rem;
+}
+
+.slds-carousel__indicator-action:focus {
+    --lwc-carouselIndicatorColorBackgroundFocus: #CC0000;
+}
+
+
+/*slider end*/
+
+
+/*Primary button start*/
+
+.AHFC_customPrimaryButton {
+    padding: 14px 24px;
+    height: 44px;
+    background: #CC0000;
+    border-radius: 3px;
+    text-transform: uppercase;
+    /* border: 2px solid #CC0000; */
+    border: none;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.06em;
+    color: #FFFFFF;
+    font-family: 'ahfc-robotomedium', sans-serif;
+}
+
+.AHFC_customPrimaryButton:hover {
+    background: #AA0000;
+}
+
+.AHFC_customPrimaryButton.disable {
+    background: #AFAFAF;
+    border-color: #AFAFAF;
+}
+
+
+/*Primary button end*/
+
+
+/*Tertiary button start*/
+
+.AHFC_customTertiaryButton {
+    padding: 14px 24px;
+    height: 44px;
+    border: none;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 16px;
+    background: #ffffff;
+    text-align: center;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #CC0000;
+    font-family: 'ahfc-robotomedium', sans-serif;
+    margin-left: 1rem;
+}
+
+.AHFC_customTertiaryButton:hover {
+    background: rgba(228, 37, 37, 0.05);
+    color: #AA0000;
+}
+
+.AHFC_customTertiaryButton.disable {
+    color: #AFAFAF;
+}
+
+.AHFC_customTertiaryButton.disable,
+.AHFC_customTertiaryButton.disable:hover {
+    background: #FFFFFF;
+    color: #AFAFAF;
+}
+
+
+/*Tertiary button end*/
+
+
+/*waiver css start*/
+
+.AHFC_WrapperstWaiver {
+    /* background: #E5E5E5; */
+    background: #F7F7F7;
+    padding: 1rem 8rem;
+}
+
+.ahfc_waiver {
+    position: relative;
+}
+
+.ahfc_waiverCard {
+    /* background-color: #F7F7F7; */
+    /* padding: 1rem 2rem; */
+    /* padding: 2.5rem 2rem 2rem 4.5rem; */
+    /* position: relative; */
+    margin: 0 0.5rem 0rem 0rem;
+}
+
+.ahfc_waiverContent {
+    background-color: #ffffff;
+    margin: 2rem 0rem 2rem 2rem;
+    /* padding: 3rem 1rem 2.5rem 3rem; */
+    padding: 2rem 1.5rem 2.5rem 4rem;
+    /* position: absolute; */
+}
+
+.ahfc_waiverCard1 {
+    position: relative;
+    margin: 0 0.5rem 0rem 0rem;
+}
+
+.ahfc_waiverContent1 {
+    background-color: #F7F7F7;
+    margin: 2rem 0rem 2rem 2rem;
+    padding: 3rem 1.5rem 2.5rem 4rem;
+    position: absolute;
+}
+
+.ahfc_waiverHeading {
+    font-size: 26px;
+    line-height: 36px;
+    color: #000000;
+    font-family: 'ahfc-robotolight';
+}
+
+.ahfc_rightSpace {
+    margin-right: 0rem;
+    margin-left: 0.5rem;
+}
+
+.ahfc_rightSpaceTurnInWaiver {
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+.ahfc_waiverIcon {
+    /* background-color: #000000;
+    height: 50px;
+    width: 50px; */
+    position: absolute;
+    top: 13px;
+}
+
+.ahfc_leftSpace {
+    left: 0.5rem;
+}
+
+.ahfc_waiverDescription {
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+    color: #5E6162;
+    margin-top: 1rem;
+}
+
+.ahfc_Links {
+    margin-top: 1rem;
+}
+
+.ahfc_Links a {
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #CC0000;
+    font-family: 'ahfc-robotomedium';
+    /* margin-top: 2rem; */
+}
+
+.ahfc_topMargin {
+    margin-top: 3.1rem;
+}
+
+.ahfc_learnMoreButton {
+    /* background-color: #000000; */
+    padding: 0;
+    border: 0px;
+}
+
+.ahfc_buttons {
+    font-size: 14px;
+    /* line-height: 14px; */
+    line-height: 16px;
+    letter-spacing: 0.06em;
+    font-family: 'ahfc-robotomedium';
+    text-transform: uppercase;
+    color: #CC0000;
+}
+
+
+/*waiver css end*/
+
+
+/*Middle Image start*/
+
+.ahfc_middleImage {
+    margin: 2rem 0rem 2rem 8rem;
+    width: 60%;
+}
+
+.ahfc_middle {
+    position: absolute;
+    padding: 1.8rem 2.2rem 2.5rem;
+    top: 2.8rem;
+    right: 8rem;
+    margin-left: 0rem;
+    background-color: #fff;
+    width: 480px;
+}
+
+.ahfc_middleHeading {
+    font-size: 30px;
+    line-height: 36px;
+    color: #000000;
+    font-family: 'ahfc-robotolight';
+    margin: 1rem 0;
+}
+
+.ahfc_new {
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #5E6162;
+}
+
+.ahfc_hondaAccord {
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #CC0000;
+}
+
+.ahfc_allNew {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.ahfc_line {
+    width: 20%;
+    border-bottom: 1px solid #D9D9D9;
+    margin: 0 0.5rem;
+}
+
+.ahfc_learnMoreBtn {
+    margin-top: 1rem;
+}
+
+
+/*Middle Image end*/
+
+
+/*offers & apporval start*/
+
+.AHFC_WrapperstOA {
+    /* padding: 1rem 6rem; */
+    padding: 1rem 6rem 1rem 8rem;
+    background-color: #F7F7F7;
+}
+
+.ahfc_sidePadding {
+    padding: 0 7rem;
+}
+
+.ahfc_offersAndApproval {
+    /* background-color: red; */
+    position: relative;
+}
+
+.ahfc_offersAndApprovalHeading {
+    font-size: 26px;
+    line-height: 36px;
+    font-family: 'ahfc-robotolight';
+    color: #000000;
+    padding-bottom: 0.5rem;
+}
+
+.ahfc_offersAndApprovalContent {
+    padding: 2rem;
+    background-color: #FFFFFF;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    padding-right: 14rem;
+}
+
+.ahfc_offersAndApprovalDescription {
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+    color: #5E6162;
+}
+
+.ahfc_Links a {
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #CC0000;
+    font-family: 'ahfc-robotomedium';
+    /* margin-top: 2rem; */
+}
+
+.ahfc_findOffersLink {
+    margin-top: 2rem;
+}
+
+.ahfc_learnMoreLink {
+    margin-top: 1rem;
+}
+
+.ahfc_offersAndApprovalImage {
+    /* background-color: black; */
+    margin: 2rem;
+    padding-bottom: 7.5rem;
+}
+
+.ahfc_rightCard {
+    /* padding-right: 4rem; */
+    padding-right: 7.5rem;
+    margin-right: 5rem;
+}
+
+.ahfc_protectionProducts {
+    margin-right: 5rem;
+    padding-right: 3rem;
+}
+
+
+/*offers & apporval end*/
+
+
+/*Desktop view end*/
+
+
+/*Mobile view start*/
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .ahfc_topHeading {
+        font-size: 26px;
+        line-height: 36px;
+        margin: 0;
+        padding: 0;
+    }
+    .ahfc_top {
+        width: 100%;
+        margin-left: 0;
+        position: relative;
+        top: 0;
+        /* padding: 0 1rem 2rem 1rem; */
+        padding: 1.5rem 1rem 2rem;
+    }
+    .ahfc_swipeDesktop {
+        position: relative;
+        bottom: 2rem;
+        right: 0rem;
+    }
+    /*covid banner start*/
+    .ahfc_covidBg {
+        /* padding-left: 1rem; */
+        display: flex;
+        padding-left: 1rem;
+        height: 60px;
+        line-height: 20px;
+        /* padding-top: 0.5rem; */
+        padding-top: 0.7rem;
+    }
+    /*covid banner end*/
+    /*waiver start*/
+    .AHFC_WrapperstWaiver {
+        padding: 1rem;
+    }
+    .ahfc_waiverCard {
+        margin-right: 0rem;
+    }
+    .ahfc_waiverHeading {
+        font-size: 20px;
+        line-height: 26px;
+    }
+    .ahfc_waiverContent {
+        margin-bottom: 0rem;
+    }
+    /*waiver end*/
+    /*Middle Image start*/
+    .ahfc_middleImage {
+        /* padding: 1rem; */
+        padding: 1rem 1rem 0;
+        width: 100%;
+        margin: 0;
+    }
+    .ahfc_middle {
+        position: relative;
+        width: 100%;
+        top: 0;
+        right: 0;
+        padding: 0.5rem 1rem 1rem 1rem;
+    }
+    .ahfc_learnMoreBtn {
+        display: block;
+        width: 100%;
+    }
+    .ahfc_middleHeading {
+        font-size: 26px;
+    }
+    .ahfc_allNew {
+        margin-bottom: 0rem;
+    }
+    /*Middle Image end*/
+    /*Offer & approval start*/
+    .AHFC_WrapperstOA {
+        padding: 1rem;
+    }
+    .ahfc_rightCard {
+        padding-right: 0rem;
+        margin-right: 0rem;
+    }
+    .ahfc_offersAndApprovalContent {
+        position: initial;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    .ahfc_offersAndApprovalImage {
+        margin: 0rem;
+        padding-bottom: 0rem;
+    }
+    .ahfc_swipeButtonsBottom {
+        margin: 2rem 0 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .ahfc_offersAndApprovalHeading {
+        font-size: 20px;
+        line-height: 26px;
+        padding-bottom: 1rem;
+    }
+    .ahfc_offersAndApprovalDescription {
+        line-height: 20px;
+    }
+    .ahfc_Links {
+        margin-top: 2rem;
+    }
+    /*Offer & approval end*/
+}
+
+
+/*Mobile view end*/
+
+
+/*Added for ipad */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .ahfc_topHeading {
+        font-size: 26px;
+        line-height: 36px;
+        margin: 0;
+        padding: 0;
+    }
+    .ahfc_top {
+        width: 100%;
+        margin-left: 0;
+        position: relative;
+        top: 0;
+        /* padding: 0 1rem 2rem 1rem; */
+        padding: 1.5rem 1rem 2rem;
+    }
+    .ahfc_swipeDesktop {
+        position: relative;
+        bottom: 2rem;
+        right: 0rem;
+    }
+    /*covid banner start*/
+    .ahfc_covidBg {
+        /* padding-left: 1rem; */
+        display: flex;
+        padding-left: 1rem;
+        height: 60px;
+        line-height: 20px;
+        /* padding-top: 0.5rem; */
+        padding-top: 0.7rem;
+    }
+    /*covid banner end*/
+    /*waiver start*/
+    .AHFC_WrapperstWaiver {
+        padding: 1rem;
+    }
+    .ahfc_waiverCard {
+        margin-right: 0rem;
+    }
+    .ahfc_waiverHeading {
+        font-size: 20px;
+        line-height: 26px;
+    }
+    .ahfc_waiverContent {
+        margin-bottom: 0rem;
+    }
+    /*waiver end*/
+    /*Middle Image start*/
+    .ahfc_middleImage {
+        /* padding: 1rem; */
+      /*  padding: 1rem 1rem 0;
+        width: 100%;
+        margin: 0; */
+
+        margin: 2rem 0rem 2rem 8rem;
+        width: 60%;
+    }
+    .ahfc_middle {
+        position: relative;
+        width: 100%;
+        top: 0;
+        right: 0;
+        padding: 0.5rem 1rem 1rem 1rem;
+    }
+    .ahfc_learnMoreBtn {
+        display: block;
+        width: 100%;
+    }
+    .ahfc_middleHeading {
+        font-size: 26px;
+    }
+    .ahfc_allNew {
+        margin-bottom: 0rem;
+    }
+    /*Middle Image end*/
+    /*Offer & approval start*/
+    .AHFC_WrapperstOA {
+        padding: 1rem;
+    }
+    .ahfc_rightCard {
+        padding-right: 0rem;
+        margin-right: 0rem;
+    }
+    .ahfc_offersAndApprovalContent {
+        position: initial;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    .ahfc_offersAndApprovalImage {
+        margin: 0rem;
+        padding-bottom: 0rem;
+    }
+    .ahfc_swipeButtonsBottom {
+        margin: 2rem 0 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .ahfc_offersAndApprovalHeading {
+        font-size: 20px;
+        line-height: 26px;
+        padding-bottom: 1rem;
+    }
+    .ahfc_offersAndApprovalDescription {
+        line-height: 20px;
+    }
+    .ahfc_Links {
+        margin-top: 2rem;
+    }
+    /*Offer & approval end*/
+}

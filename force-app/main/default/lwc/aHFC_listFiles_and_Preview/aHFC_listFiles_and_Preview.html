@@ -1,0 +1,28 @@
+<template>
+  <template if:true={isRecordsAvaialable}>
+    
+    <div class="AHFC_FilesWrap">
+      
+    <h3 class="ahfc_sp_label">FILES({recordCount})</h3>
+    <template for:each={filesList} for:item="file">
+      <div key={file.ContentDocumentId}>
+        <div class="slds-grid slds-wrap">
+          <!-- <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
+                       <p><strong>FileName - </strong>{file.label}</p>
+                     </div>-->
+          <!-- <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
+                       <a href={file.url} download>Download</a>
+                     </div>-->
+          <div class="slds-col slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-size_12-of-12">
+            <!-- <lightning-button class="ahfc-links" label={file.label} variant="base" data-value={file.url} data-id={file.value} onclick={previewHandler}>
+            </lightning-button> -->
+            <button class="AHFC-links" data-value={file.contentTitle} data-id={file.ContentDocumentId} onclick={previewHandler}>{file.contentTitle}</button>
+          </div>
+        </div>
+      </div>
+    </template>
+  </div>
+  </template>
+
+
+</template>

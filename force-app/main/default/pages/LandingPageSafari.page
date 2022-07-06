@@ -1,0 +1,103 @@
+<apex:page docType="html-5.0" showHeader="false" standardStylesheets="false" sidebar="false">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Honda Finance Service</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <apex:stylesheet value="{!URLFOR($Resource.AFSHFS, 'AfsHfs/css/style.css')}" />
+    <style>
+        #text{ display:none;}
+        #textEnablePopup{ display:none;}
+        #img{    position: absolute; left:0; right:0; top:20%;  width: 200px;height: 100px; margin:0 auto;
+     }
+    
+    </style>
+     <script>
+  window.onload = function() {
+      document.getElementById('img').style.display = 'block';
+      document.getElementById('text').style.display = 'none';
+      document.getElementById('textEnablePopup').style.display = 'none';
+ 
+        var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+       // alert(isSafari);
+        if(isSafari)
+        {
+            if(checkcookieexists('BrowserId') == ""){
+            // alert('cookie not set');
+             openwindowforsettingcookie();
+            }
+            
+        }
+            
+
+}
+
+
+function writenewcookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function checkcookieexists(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    }
+    return "";
+}
+
+function openwindowforsettingcookie()
+{
+//alert('Inside Method');
+var tabnameopened;
+  var tabnameopened;
+    interval = setInterval(function(){
+    if(checkcookieexists('BrowserId') == ""){
+            if( tabnameopened == null)
+                tabnameopened =  window.open("{!$Label.CustomerDomain}","DummyWindow","width=100, height=100,left=1500 ,top=800");
+                if(tabnameopened == null)
+                {   
+                    clearInterval(interval);
+                    //alert('Please enable browser popup and try again');
+                    document.getElementById('img').style.display = 'none';
+                    document.getElementById('textEnablePopup').style.display = 'block';
+                }
+                self.focus();
+            
+        } else {
+            //alert("Cookie has been set");
+            clearInterval(interval);
+            tabnameopened.close();
+            document.getElementById('img').style.display = 'none';
+            document.getElementById('text').style.display = 'block';
+        }
+    }, 1000);   
+}
+    
+
+  </script>
+
+    
+</head>
+<body>
+<div id="img">
+<apex:image url="{!URLFOR($Resource.AFSHFS, 'AfsHfs/images/safari.gif')}" />
+</div>
+<div id="text">
+    {!$Label.LinkRedirect}
+   <!-- Please click the link again ! -->
+</div>
+<div id="textEnablePopup">
+    {!$Label.BrowserPopup}
+   <!-- Please enable browser popup and try again! -->
+</div>
+
+</body>
+</html>
+</apex:page>

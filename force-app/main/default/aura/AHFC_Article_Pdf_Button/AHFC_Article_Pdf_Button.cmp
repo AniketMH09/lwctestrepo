@@ -1,0 +1,38 @@
+<aura:component controller = "AHFC_Article_Pdf_Button_Controller" implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens,force:hasRecordId" access="global">
+   
+    <ltng:require styles="{!$Resource.AHFC_Article_Buttons}"/>
+    
+    <aura:attribute name=  "checked" type="boolean" default="false"/>
+    <aura:attribute name= "communityName" type="string" default=""/>
+    <aura:attribute name= "subdomain" type="string" default=""/>
+    <aura:attribute name= "instance" type="string" default=""/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:if isTrue="{!v.communityName == 'hondahelp'}">
+        <div class="info-output slds-grid slds-gutters slds-wrap mb-xl">
+            <div class="slds-col slds-size_1-of-2">
+               <!-- <c:AHFC_ArticleDownload/> -->
+                <aura:if isTrue="{!v.checked}">
+                    <a href="{!$Label.c.Honda_Article_Download_Url+'?kid='+v.recordId}" target="_blank" ><img alt="Printable view " height="25" src="{!$Resource.AHFC_Article_Buttons + '/AHFC_Article_Buttons/download-honda-o.png'}"/></a>  
+                </aura:if>
+                
+            </div>
+        </div>
+        <aura:set attribute="else">
+            <div class="info-output slds-grid slds-gutters slds-wrap mb-xl">
+                <div class="slds-col slds-size_1-of-2">
+                    
+                    <aura:if isTrue="{!v.checked}">
+                        <a href="{!$Label.c.Acura_Article_Download_Url+'?kid='+v.recordId}" target="_blank"><img alt="Printable view " height="25" src="{!$Resource.AHFC_Article_Buttons + '/AHFC_Article_Buttons/download-acura-o.png'}"/></a>
+                       
+                    </aura:if>
+                    
+                </div>
+            </div>
+        </aura:set>
+    </aura:if>
+    
+    
+    
+</aura:component>

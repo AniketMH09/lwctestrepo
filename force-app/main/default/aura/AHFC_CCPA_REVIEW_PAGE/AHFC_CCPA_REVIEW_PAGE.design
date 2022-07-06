@@ -1,0 +1,37 @@
+<design:component>
+   <!--Inputs-->
+   <design:attribute name= "strRequestType" label="Request Type" />
+   <!--outputs--> 
+
+    
+<design:attribute name= "strFaAccount" label="FA Account" />
+<design:attribute name= "strVin" label="VIN" />
+<design:attribute name= "strSerialNo" label="Serial Number" />
+<design:attribute name= "strContractNo" label="Contract Number" />
+<design:attribute name= "strssn" label="SSN" />
+<design:attribute name= "hasaccount" label="AHFC Customer" />
+
+<design:attribute name= "strdob2" label="DOB" />
+ 
+   <!--outputs--> 
+     <design:attribute name= "strFirstName" label="First Name" />
+<design:attribute name= "strLastName" label="Last Name" />
+<design:attribute name= "strMiddleName" label="Middle Name" />
+<design:attribute name= "strSalutation" label="Salutation" />
+<design:attribute name= "strSuffix" label="Suffix" />
+
+<design:attribute name= "strStreet" label="Street" />
+<design:attribute name= "strCity" label="City" />
+<design:attribute name= "strState" label="State" />
+<design:attribute name= "strCountry" label="Country" />
+<design:attribute name= "strPostalCode" label="PostalCode" /> 
+<design:attribute name="strPerjuryAck" label="Perjury Ack" />
+    
+<design:attribute name= "strEmail" label="Email" />
+<design:attribute name= "strPhoneNumber" label="Phone" />
+<design:attribute name= "strCommunicationPref" label="CommPref" />
+<design:attribute name= "strAuthorizedUser" label="AuthorizedUser" />
+<design:attribute name="strmailaddress" label="Mailing Address" />
+<design:attribute name="refresh1" label="Refresh" />
+
+</design:component>

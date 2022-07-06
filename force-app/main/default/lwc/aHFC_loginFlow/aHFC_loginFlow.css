@@ -1,0 +1,77 @@
+.action-container {
+  width: 380px;
+  text-align: center;
+  margin-left: 500px;
+}
+.AHFC_Logostyle {
+  height: 40px;
+  width: auto;
+  }
+.aHFC_image{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  margin-top: 2rem;    
+}
+.slds-spinner_background{
+  background-color: #ffffff00;
+}
+
+.slds-spinner-message{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 9051;
+  transform: translate(-50%, -50%);
+}
+.slds-spinner_container{    
+  position: fixed;
+  z-index: 400 ;
+}
+.slds-spinner-message-possition{
+  margin-top: 200px;
+}
+.slds-spinner_color.slds-spinner:before, .slds-spinner_color.slds-spinner:after, .slds-spinner_color .slds-spinner__dot-a:before, .slds-spinner_color .slds-spinner__dot-b:before, .slds-spinner_color .slds-spinner__dot-a:after, .slds-spinner_color .slds-spinner__dot-b:after, .slds-spinner--brand.slds-spinner:before, .slds-spinner--brand.slds-spinner:after, .slds-spinner--brand .slds-spinner__dot-a:before, .slds-spinner--brand .slds-spinner__dot-b:before, .slds-spinner--brand .slds-spinner__dot-a:after, .slds-spinner--brand .slds-spinner__dot-b:after {
+  background-color: #CC0000;
+}
+.AHFC_LabelDetail{
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: 0.02em;
+  color: #5E6162;
+  padding-bottom: 1rem;
+}
+.slds-spinner-message{
+  text-align: center;
+  width: 380px;    
+}
+.action_message{
+  width: 380px;
+  text-align: center;
+  margin-left: 500px;
+}
+.login_flow_class{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;    
+  background-color: #ffffff0d;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity .2s ease,visibility 0s;
+  transition-delay: 0s,.3s;
+}  
+.AHFC_SpinnerTop{
+top: 42%;
+} 
+@media screen and (min-width: 320px) and (max-width: 768px) {
+.AHFC_LabelDetail {      
+  margin-left: 3.5rem;
+  margin-right: 3.5rem;
+}
+}

@@ -1,0 +1,36 @@
+<template>
+      <div class="AHFC_InnerHeadCont AHFC_ToastBar">
+         <div class="AHFC_ToastLabel"> 
+            <a href="javascript:void(0);" tabindex="-1">
+            <lightning-icon icon-name="utility:error" size="xx-small" alternative-text="Error"
+            title="Error" ></lightning-icon>
+         </a>
+            Error
+         </div>
+         <div class="AHFC_ToastMsg" if:true={isOneTime}>
+            <p if:true={showErrorOTPPaymentRecordCount}>You have reached the maximum number of scheduled payments allowed for this finance account. You may edit your payment(s) on the <a href="javascript:void(0)" onclick={navigatetoPaymentActivityPage}>Scheduled Payments</a> page.</p>
+            <p if:false={showErrorOTPPaymentRecordCount}>You are not eligible to make a One Time Payment at the moment.</p>
+            
+         </div>
+         <div class="AHFC_ToastMsg" if:true={isEasyPay}>
+            <p if:true={showDueInEligibilityErrorMsg}>
+               Please Make a Payment. Your account is past due. You must first make a payment of ${dueAmmount} and then return to the EasyPay page to proceed with enrollment.
+            </p>
+            <p if:false={showDueInEligibilityErrorMsg}>
+               You are not eligible to make an EasyPay Payment at the moment.   
+            </p>
+         </div>
+         <div class="AHFC_ToastMsg" if:true={isPayOff}>
+            You are not eligible to make a Payoff Payment at the moment.   
+         </div>
+         <div class="AHFC_ToastMsg" if:true={isPurchase}>
+            You are not eligible to make a Purchase Payment at the moment.   
+         </div>
+      </div>
+    <div class="AHFC_AmtLayout">
+        <div tabindex="0" role="button" aria-pressed="false">
+           <button onclick={returnToDashBoard} aria-label = "Go to Dashboard button" title="GO TO DASHBOARD"
+              class="slds-button ahfc-btn AHFC_SubmitBut ahfc-btn-primary">GO TO DASHBOARD</button>
+        </div>
+     </div>
+</template>

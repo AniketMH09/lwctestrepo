@@ -1,0 +1,187 @@
+<apex:page title="Recurring Payment" standardController="ChargentOrders__ChargentOrder__c" action="{!fetchdataRP}"  extensions="RPAgentController1" standardStylesheets="true" lightningStyleSheets="true">
+    
+    <apex:include pageName="LoadingOverlay" />
+    <apex:includeScript value="/support/console/24.0/integration.js"/>
+   <!-- Fix for defect 113951 - adding a VF Page which has the javascript for disabling the buttons-->    
+    <apex:include pageName="VF_DisableButton"/>
+     <apex:includescript value="{!$Resource.jquery1113min}" />
+    <!-- Fix for defect # 113951 Ends here -->
+
+    
+
+<div class="slds-scope">
+<apex:form id="form" >
+    <apex:actionFunction action="{!populateRecords}" name="ShowBankDetailsAF" id="ShowBankDetailsAF"  reRender="BankName,Last4" status="loading" />
+  <!-- Made this change for Defect # 112673 -->
+    <apex:actionFunction action="{!cancelRP}" name="cancelAction" id="cancelRecurringPay" reRender="form"  status="loading"/>
+  
+
+<apex:pageMessage severity="info" strength="2" summary="This account is not eligible for Recurring Payments." title="IMPORTANT NOTE :" rendered="{!eligibleFlagRP == false}"></apex:pageMessage>
+<apex:pageMessage severity="info" strength="2" summary="Account is past due.A payment must be scheduled for the Past Due amount before setting up a Recurring Payment." title="IMPORTANT NOTE :" rendered="{!OTPFlag == true}"></apex:pageMessage> 
+<apex:pageMessage severity="info" strength="2" summary="A Recurring Payment Schedule already exists for this finance account." title="IMPORTANT NOTE :" rendered="{!displaymodeRP == true && OTPFlag == false }"></apex:pageMessage>         
+<apex:pageMessages id="PageMessages"></apex:pageMessages>
+<apex:pageBlock rendered="{!eligibleFlagRP == true && OTPFlag == false && displaymodeRP == false}"  id="payRefresh">
+ 
+<apex:pageBlockButtons >
+<!-- Fix for defect # 113951 - added a onclick logic to disable the button -->
+<apex:commandButton value="Save" action="{!saveRP}" rendered="{!editMode == true}" reRender="form" status="loading" onclick="DisableButton()" id="saveButton"/>
+<apex:commandButton value="Cancel"  onclick="testCloseTab();" rendered="{!editMode == true}" reRender="form"  status="loading" />
+</apex:pageBlockButtons>
+
+
+<apex:pageBlockSection title="Payment Information" id="PayInfo" rendered="{!editMode == true}">
+
+<!--Defect: 112762 -  Hardcoding helptext is not accessible in {!$ObjectType.ChargentOrders__ChargentOrder__c.ChargentOrders__Charge_Amount__c.inlineHelpText}-->
+<apex:pageBlockSectionItem rendered="{!readOnly == false}">
+    {!$ObjectType.ChargentOrders__ChargentOrder__c.fields.ChargentOrders__Charge_Amount__c.label}    
+    <img src="/s.gif" alt="Help" class="helpIcon" title="The amount to be authorized or charged by the next withdrawal date. If there are multiple charges, this field will automatically reflect the Amount of the order minus the total amount of successful charges."/>    
+    <apex:inputText value="{!ChargentOrders__ChargentOrder__c.ChargentOrders__Charge_Amount__c}"/>  
+</apex:pageBlockSectionItem>  
+
+
+    <apex:pageBlockSectionItem id="ChargentOrders__Charge_Amount__c" rendered="{!readOnly == true}">
+       {!$ObjectType.ChargentOrders__ChargentOrder__c.fields.ChargentOrders__Charge_Amount__c.label}
+           <img src="/s.gif" alt="Help" class="helpIcon" title="{!$ObjectType.ChargentOrders__ChargentOrder__c.fields.ChargentOrders__Charge_Amount__c.inlineHelpText}"/>
+       <apex:outputfield value="{!ChargentOrders__ChargentOrder__c.ChargentOrders__Charge_Amount__c}"    />
+    </apex:pageBlockSectionItem>
+
+    <apex:pageBlockSectionItem >Bank Account Nickname
+        <apex:selectList value="{!SelBankAcc}" multiselect="false" size="1"  label="Bank Account Nickname"  onchange="ShowBankDetailsJS();" >
+            <apex:selectOptions value="{!BankAccs}"/>
+        </apex:selectList>
+    </apex:pageBlockSectionItem> 
+    
+    <!-- Below Changes added to the defect 114290 by Jayashree -->
+    <apex:pageBlockSectionItem >Payment Due Date
+       <apex:outputText value="{0, date, MM/dd/yyyy}" id="paymentDueDate">
+          <apex:param value="{!finaccount.Payment_Due_Date__c}"/>
+       </apex:outputText>
+    </apex:pageBlockSectionItem> 
+    <!--- End of defect 114290 --->
+     
+   <apex:pageBlockSectionItem >
+       {!$ObjectType.ChargentOrders__ChargentOrder__c.fields.ChargentOrders__Bank_Name__c.label}
+               <img src="/s.gif" alt="Help" class="helpIcon" title="{!$ObjectType.ChargentOrders__ChargentOrder__c.fields.ChargentOrders__Bank_Name__c.inlineHelpText}"/>
+       <apex:outputfield value="{!ChargentOrders__ChargentOrder__c.ChargentOrders__Bank_Name__c}" id="BankName"/> 
+   </apex:pageBlockSectionItem>    
+                
+   <apex:pageBlockSectionItem />
+   <apex:outputfield value="{!ChargentOrders__ChargentOrder__c.Payment_Source_Nickname__r.Last_4__c}" id="Last4"/>
+        
+
+</apex:pageBlockSection>
+
+
+<apex:pageblockSection title="Recurring Billing" columns="2" id="payFresh">
+
+<!-- Below Changes added to the defect 114290 by Jayashree -->
+<apex:pageblockSectionItem >
+<apex:outputLabel value="Payment Frequency"></apex:outputLabel>
+<apex:outputText value="Monthly"/>
+</apex:pageblockSectionItem> 
+<!--- End of defect 114290 --->
+
+<!-- Below Changes added to the defect 114004 by Jayashree -->
+<apex:pageBlockSectionItem >
+<apex:outputLabel value="Payment Count"></apex:outputLabel>
+<apex:inputText value="{!paymentcount}" style="{!IF(errorColorCount = 'Red','border:1px solid #FF6600','')}" rendered="{!$ObjectType.ChargentOrders__ChargentOrder__c.fields.ChargentOrders__Payment_Count__c.Accessible}"/>
+</apex:pageBlockSectionItem>
+<!--- End of defect 114004 --->
+
+<apex:pageBlockSectionItem >
+{!$ObjectType.ChargentOrders__ChargentOrder__c.fields.ChargentOrders__Payment_Start_Date__c.label}
+<apex:inputField id="chargeDT" value="{!ChargentOrders__ChargentOrder__c.ChargentOrders__Charge_Date__c}">
+<apex:actionSupport event="onchange" action="{!checkDatevalue}" reRender="PageMessages,nxtdate,payRefresh"   status="loading"  />
+</apex:inputField>
+</apex:pageBlockSectionItem>
+
+
+<apex:pageBlockSectionItem id="nxtdate"> 
+<apex:outputLabel value="Next Withdrawal Date"></apex:outputLabel> 
+<apex:outputText value="{0, date, MM/dd/yyyy}">
+  <apex:param value="{!NextTransactionDate}"/>
+   </apex:outputText> 
+<!--<apex:outputText value="{!NextWithdrawalDate}"></apex:outputText>-->
+<!--<apex:outputText value="{!Next_Withdrawal_Date__c}"></apex:outputText>-->
+
+</apex:pageBlockSectionItem>
+
+<apex:pageblockSectionItem >
+<!-- Below Changes added to the defect 114004 by Jayashree -->
+<apex:outputLabel value="NRC Account"></apex:outputLabel>
+<apex:inputField value="{!ChargentOrders__ChargentOrder__c.Deficiency_Account__c}" style="{!IF(errorcolorNRC = 'Red','outline: 1px solid #F00;','')}"/>
+<!-- End of defect 114004 --->
+</apex:pageblockSectionItem>
+
+<!-- Below Changes added to the defect 114290 by Jayashree -->
+<apex:pageblockSectionItem >
+{!$ObjectType.ChargentOrders__ChargentOrder__c.fields.Skip_First__c.label}
+<apex:inputCheckbox id="SkipFirst" value="{!ChargentOrders__ChargentOrder__c.Skip_First__c}" >
+<apex:actionSupport event="onchange" action="{!checkDatevalue}" reRender="PageMessages,nxtdate,payRefresh"   status="loading"  />
+</apex:inputCheckbox>
+</apex:pageblockSectionItem>
+<!-- End of defect 114290 -->
+
+</apex:pageblockSection>  
+
+
+               
+  <apex:outputPanel rendered="{!detailMode == true}">
+
+    <apex:pageBlockSection title="Payment Information" id="PayInfodetail">
+
+        <apex:pageBlockSectionItem >
+        <apex:outputLabel value="Payment Amount"/>
+        <apex:outputText value="{!ChargentOrders__ChargentOrder__c.ChargentOrders__Charge_Amount__c}"/>
+        </apex:pageBlockSectionItem>
+
+        <apex:pageBlockSectionItem >
+        <apex:outputLabel value="Bank Account Nickname"></apex:outputLabel>
+        <apex:outputField value="{!ChargentOrders__ChargentOrder__c.Payment_Source_Nickname__c}">
+        </apex:outputField>
+        </apex:pageBlockSectionItem> 
+
+       <apex:pageBlockSectionItem >
+       {!$ObjectType.ChargentOrders__ChargentOrder__c.fields.ChargentOrders__Bank_Name__c.label}
+       <img src="/s.gif" alt="Help" class="helpIcon" title="{!$ObjectType.ChargentOrders__ChargentOrder__c.fields.ChargentOrders__Bank_Name__c.inlineHelpText}"/>
+       <apex:outputfield value="{!ChargentOrders__ChargentOrder__c.ChargentOrders__Bank_Name__c}" id="BankName"/> 
+       </apex:pageBlockSectionItem>                 
+       <apex:pageBlockSectionItem />
+       <apex:outputfield value="{!ChargentOrders__ChargentOrder__c.Payment_Source_Nickname__r.Last_4__c}" id="Last4"/>
+       </apex:pageBlockSection> 
+    </apex:outputPanel> 
+ 
+
+  </apex:pageBlock>
+  
+    <script type="text/javascript">
+         window.onload=testSetTabTitle();       
+          function testSetTabTitle() {
+              sforce.console.setTabTitle('Recurring Payment');     
+          } ;
+          
+          function testCloseTab() {
+                //First find the ID of the current tab to close it
+                if(confirm('You will lose any unsaved changes. Are you sure you want to continue?')){ 
+                    cancelAction();
+                }else{
+                    return false;
+                }
+            }
+            
+            var closeSubtab = function closeSubtab(result) {
+                //Now that we have the tab ID, we can close it
+                var tabId = result.id;
+                sforce.console.closeTab(tabId);
+            };
+            
+            function ShowBankDetailsJS(){  
+            ShowBankDetailsAF();
+         }
+         
+         
+
+     </script>
+</apex:form>
+</div>
+</apex:page>

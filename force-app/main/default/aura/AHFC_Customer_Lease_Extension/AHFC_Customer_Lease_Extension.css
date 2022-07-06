@@ -1,0 +1,870 @@
+.THIS {
+  font-size: 16px;    
+}
+.THIS.slds-spinner_container { display: none !important; }
+.THIS .center {
+  /* width: 66%; */
+  margin: 0 auto;
+  background: #E5E5E5;
+  padding-bottom: 0.1px;
+}
+/*Primary button start*/
+
+.THIS .aHFC_rightSpace {
+	/*margin-right: 1rem;*/
+    padding-right:20px;
+}
+
+.THIS .ahfc_buttons {
+	margin-top: 2.5rem;
+}
+
+.THIS .AHFC_customPrimaryButton {
+	padding: 14px 24px;
+	height: 44px;
+	background: #CC0000;
+	border-radius: 3px;
+	text-transform: uppercase;
+	/* border: 2px solid #CC0000; */
+	border: none;
+	font-size: 14px;
+	line-height: 16px;
+	text-align: center;
+	letter-spacing: 0.06em;
+	color: #FFFFFF;
+	font-family: 'ahfc-robotomedium', sans-serif;
+}
+
+.THIS .AHFC_customPrimaryButton:hover {
+	background: #AA0000;
+}
+
+.THIS .AHFC_customPrimaryButton.disable {
+	background: #AFAFAF;
+	border-color: #AFAFAF;
+}
+
+
+/*Primary button end*/
+
+
+/*Tertiary button start*/
+
+.THIS .AHFC_customTertiaryButton {
+	padding: 14px 24px;
+	height: 44px;
+	border: none;
+	border-radius: 3px;
+	text-transform: uppercase;
+	font-size: 14px;
+	line-height: 16px;
+	background: #ffffff;
+	text-align: center;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: #CC0000;
+	font-family: 'ahfc-robotomedium', sans-serif;
+	margin-left: 1rem;
+}
+
+.THIS .AHFC_customTertiaryButton:hover {
+	background: rgba(228, 37, 37, 0.05);
+	color: #AA0000;
+}
+
+.THIS .AHFC_customTertiaryButton.disable {
+	color: #AFAFAF;
+}
+
+.THIS .AHFC_customTertiaryButton.disable,
+.THIS .AHFC_customTertiaryButton.disable:hover {
+	background: #FFFFFF;
+	color: #AFAFAF;
+}
+
+
+/*Tertiary button end*/
+
+@media (max-width: 1024px) {
+  .THIS .center {
+    width: 100%;
+  }
+}
+.THIS .header {
+  font-size: 28px;
+  /* margin-bottom: 30px;     */
+}
+.THIS .AHFC_backArrow { 
+  --lwc-colorTextIconDefault:#CC0000;
+  margin-right: 1rem;
+}
+.THIS .info {
+  /* padding: 30px 30px; */
+  /*background: #F6F6F6;*/
+  padding: 1.3rem;
+  margin-top: 30px;
+  margin-bottom: 2.5rem;
+  background:#F7F7F7;
+}
+.THIS .info h3 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #d3d3d3;
+  padding-bottom: 10px;
+}
+.THIS .block {
+  margin-bottom: 30px;    
+}
+.THIS .action {
+  margin-bottom: 30px;    
+}
+.THIS label {
+  display: block;
+  font-weight: 600;    
+}
+
+.THIS .alignCenter{
+   text-align: center;
+}
+
+.THIS .slds-select_container::before{
+    display : none !important;
+}
+.THIS .slds-select_container::after{
+    display : none !important;
+}
+
+.THIS .selectpicker > .slds-form-element__control > .slds-select_container >.slds-select{
+   background: transparent;
+   outline: none;
+   border: 2px solid #434343;
+   height: 40px;
+   font-size: 16px;
+   width: 100%;
+   display: inline;
+   border-radius: 30px;
+   -webkit-appearance: none;
+   padding: 0 15px;
+   line-height: 36px;
+
+}
+.THIS .select-icon{
+   display: inline-block;
+   z-index: 0;
+   float: right;
+   margin-left: 0;
+   margin-top: -33px;
+   padding-right: 10px;
+   height: 25px;
+}
+
+/* helper */
+.THIS .mb-sm {
+  margin-bottom: 10px;
+}
+.THIS .mb-xl {
+  margin-bottom: 35px;
+}
+.THIS .mr-sm {
+  margin-right: 10px;
+}
+.THIS .pull-left {
+  float: left;
+}
+.THIS .pull-right {
+  float: right;
+}
+@media (max-width: 767px) {
+  .THIS .action .default {
+    width: 100%;
+  }
+  .THIS .action .primary.pull-right {
+    float: none;
+    /* margin-top: 20px; */
+    width: 100%;
+  }
+  .THIS .action .btn-continue {
+    margin-top: 20px;
+  }
+        
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .THIS .AHFC_InnerHeadCont{margin: 1rem !important ;}
+    .THIS .AHFC_DetName{font-size: 16px !important;}
+    .THIS .AHFC_LeftGridSec{display: none;}
+    .THIS .AHFC_Aclabel{padding-right: 0.5rem !important;display: inline-block !important;}
+    .THIS .AHFC_Vehdetail{   line-height: 1.75 !important;
+         padding: .5rem 0.5rem .75rem 0.5rem !important;
+    }
+    .THIS .AHFC_CommunitySecHeader{padding:0rem !important;display: inline-flex;}
+.THIS .AHFC_MobLAyout{display: block;}
+.THIS .AHFC_Wrapperst {
+    /* padding: 0.5rem; */
+    margin: 0rem 0 0rem 0;    padding: 0rem !important;
+
+    display: block;
+    /* padding: 1rem; */
+}
+.THIS .AHFC_PrimHead{
+    padding:1rem;
+}
+
+
+
+.THIS .AHFC_ContainerSec{
+    padding: 1rem;
+    background-color: white;
+}
+.THIS .AHFC_InnerAround{padding:0rem !important;    margin: 0rem 0 0rem 0;
+    display: block;
+}
+
+.THIS .AHFC_ContLayout{
+    display: block ;
+}
+/*start Icon Card */
+.THIS .AHFC_IconCardLayout{    padding: 1rem 1rem !important;
+ 
+  display: block;    margin: 1rem 0 !important;
+}
+  .THIS .AHFC_IconCard {
+   
+    width: 100%;
+    padding: 2rem !important;    margin-bottom: 1rem;
+
+}
+/* End Icon Card */
+        
+        .THIS .AHFC_ModTitle {
+            font-size:20px !important;
+            line-height:26px !important;
+        }
+        
+        .THIS .para-text-medium {
+            font-size:16px !important;
+            line-height:24px !important;
+        }
+        
+        .THIS .save-action {
+             display: block;
+              width: 100%;
+        }
+        
+        .THIS .cancel-action{
+            display: block;
+    width: 100%;
+    margin-left: 0;
+    margin: 2rem 0 0;
+        }
+  }    
+    
+@media (max-width: 768px) and (min-width: 768px) {
+    .THIS .action .btn.default, 
+    .THIS .action .btn.primary, 
+    .THIS .action .btn.grey {
+        width: auto;
+    }
+}
+.THIS .info-output .slds-col {
+  margin-bottom: 20px;
+}
+/* .THIS .btn {
+  background: #fff;
+  padding: 3px 30px;
+  border-radius: 29px;
+  font-size: 15px;
+  border-width: 2px;
+  font-weight: 600;
+} */
+.THIS .btn.default {
+  /* background: #fff;
+  border: 2px solid #0072CE;
+  color: #0072CE; */
+  background: #fff;
+  color: #CC0000;
+}
+.THIS .btn.primary {
+  background: #CC0000;
+  border: 2px solid #CC0000;
+  color: #fff;
+}
+.THIS .btn.grey {
+  background: #BFBFBD;
+  border: 2px solid #BFBFBD;
+  color: #fff;
+}
+/* .THIS .tooltip{
+    position: relative;
+} */
+.THIS .AHFC_ToolTipWrap{    
+  top: -82px;
+  left: 42px;
+  width: 260px;
+  padding: 0.5rem !important;
+  text-align: left !important;
+} 
+.THIS .AHFC_ToolTipWrapTwo{    
+  top: -88px;
+  left: 42px;
+  width: 260px;
+  padding: 0.5rem !important;
+  text-align: left !important;
+} 
+.THIS .AHFC_ToolTipWrap:before,
+.THIS .AHFC_ToolTipWrap:after{
+  left: 0%;
+  bottom: 4.8rem;
+  margin-left: -0.5rem;
+}
+.THIS .AHFC_ToolTipWrapTwo:before,
+.THIS .AHFC_ToolTipWrapTwo:after{
+  left: 0%;
+  bottom: 5.4rem;
+  margin-left: -0.5rem;
+}
+
+.THIS .tooltip .tooltiptext {
+  background: #000;
+  visibility: hidden;
+  text-align: center;
+  border: 1px solid #000;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 20;
+  color: #ffffff;
+  font-size: 14px;
+}
+.THIS .tooltip:hover {
+    /* color:blue; */
+    color:#000;
+  }
+.THIS .tooltip:hover .tooltiptext {
+  /* position: absolute; */
+  visibility: visible;
+  /* width: 100%; */
+}
+@media (max-width: 599px) {
+    .THIS .tooltip {
+        position: unset;
+    }
+    /* .THIS .tooltip:hover .tooltiptext {
+        left: 10px !important;
+        top: -200px !important;
+    } */
+    .THIS .slds-path__track {
+	    padding-left: 0;
+    	padding-right: 0;
+	}
+    .THIS .slds-path__item {
+        min-width: auto !important;
+    }
+    .THIS .slds-path__title {
+        font-size: 12px;
+        white-space: normal;
+        line-height: normal;
+        height: 29px !important;
+        display: flex;
+        align-items: center;
+    }
+}
+/* .THIS .slds-col.slds-size_1-of-1.slds-medium-size_1-of-2 {
+    padding-bottom: 15px;
+} */
+.THIS .row-divide {
+    /* border-bottom: 1px solid #dedede; */
+    /* padding-bottom: 10px; */
+    padding-bottom: 1.3rem;
+    padding-top: 5px;
+    margin-bottom: 10px;
+}
+.THIS .contain-secondary .row-divide:nth-child(3) {
+    border-bottom: none;
+}
+.THIS .select-v-align {
+    line-height: 50px;
+    height: 50px;
+}
+.THIS .maturity-date {
+    /* border-bottom: 1px dashed #ccc; */
+    margin-bottom: 15px;
+    padding: 10px 0 15px;
+}
+.THIS .maturity-date:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+}
+.THIS .select-results {
+    /* border: 1px solid #dde8f2; */
+    /* border-radius: 3px;
+    padding: 15px; */
+    /* background: #f2f9ff; */
+    /* margin-left: -15px;
+    margin-right: -15px; */
+}
+
+.THIS .class-label{
+    width: 215px;
+ /*background-color: powderblue;*/
+}
+/* img.tooltip.inline {
+    margin-left: 10px;
+    height: 20px;
+    margin-top: -2px;
+} */
+.THIS .tooltip-label-wrap {
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+}
+.THIS .tooltip-label {
+  display: inline;
+}
+.THIS .tooltip {
+    padding-top: 0;
+    margin-left: 10px;
+}
+.THIS .tooltip img.inline {
+    height: 20px;
+}
+.THIS .slds-popover__body {
+    padding: 10px 5px 5px;
+    line-height: 18px;
+    font-size: 14px;
+    /* color: #fff !important; */
+}
+.THIS .AHFC_CommunitySecHeader{padding:0rem !important;display: inline-flex;}
+.THIS .AHFC_MobLAyout{display: block;}
+.THIS .AHFC_CommunitySecHeader{width: 100%;
+  padding: 0 4rem;
+  height: 100px!important;
+  border-bottom: 1px solid #d9d9d9;}
+.THIS .AHFC_LeftGridSec {
+  padding: 1rem 2rem 0.75rem 0.5rem;
+  float: left;
+  /* border-right: 1px solid black; */
+  /* height: 55px; */
+  border-right: 1px solid #d9d9d9;
+  }
+.THIS .AHFC_SecLogostyle{
+  width: auto;
+  height: 50px;
+  }
+.THIS .AHFC_SecLogostyle img{    object-fit: contain;
+  /* width: auto; */
+  height: 43px;}
+
+.THIS .AHFC_VehImg {    width: auto;
+  /* height: auto; */
+  float: left;
+  padding: 1rem 2rem .75rem 2rem;}
+.THIS .AHFC_VehImg img{
+  height: 56px;
+  object-fit: contain;
+  width: auto;
+}
+
+.THIS .AHFC_Vehdetail { float: left;
+  padding: 0.5rem 2rem .75rem 2rem;
+  line-height: 2;}
+    
+.THIS .AHFC_DetName{font-size: 18px;
+  font-family: 'ahfc-roboto';}
+.THIS .AHFC_Aclabel{
+  color: #6b6e6e;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/*desktop start*/
+.THIS .AHFC_HeaderWrap{
+  margin: 0rem 8.2rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+.THIS .AHFC_HeaderWrap span{
+  font-size: 38px;
+  line-height: 48px;
+  color: #000000;
+  padding-left: 1rem;
+  font-family: 'ahfc-robotolight', sans-serif;
+}
+.THIS .AHFC_DetailWrap{
+  margin: 0 8.2rem 9rem 8.2rem;
+  padding: 3.5rem 7.2rem;
+  background: #fff;
+}
+.THIS .AHFC_Hr{
+  border-top: 1px solid #D9D9D9;
+}
+.THIS .info p{
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #5E6162;
+}
+.THIS .AHFC_CardLabel{
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #000000;
+  margin-bottom: 0.5rem;
+  font-family: 'ahfc-robotomedium' ,sans-serif;
+}
+.THIS .AHFC_CardData span{
+  font-size: 30px;
+  line-height: 40px;
+  color: #000000;
+  font-family: 'ahfc-robotolight', sans-serif;
+}
+.THIS .AHFC_LabelTwo{
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.03em;
+  color: #5E6162;
+}
+.THIS .AHFC_DDWrap{
+  position:relative;
+}
+.THIS .AHFC_DD .slds-select_container{
+  background: #F7F7F7;
+}
+.THIS .AHFC_DD .slds-select{  
+  height: 56px !important;
+  border: none !important;
+  border-bottom: 1px solid #5E6162 !important;
+  background-color: #f0f0f0 !important;
+  border-radius: 0 !important;
+  font-size: 18px !important;
+  line-height: 28px !important;
+  letter-spacing: 0.02em !important;
+  color: #000 !important;
+  padding: 14px 16px !important;
+}
+.THIS .AHFC_SelectIcon{
+  right: 0;
+  position: absolute;
+  margin-top: -.5rem;
+  top: 64px;
+  pointer-events: none;
+}
+.THIS .AHFC_HrDesktop{
+  border-top: 1px solid #D9D9D9;
+}
+.THIS .AHFC_BtnWrap{
+  margin-top: 3rem;
+  padding-right: 190px;      
+}
+.THIS .AHFC_ContinueBtn{
+  padding: 0.5rem 4rem;
+  text-transform: uppercase;  
+  font-size: 14px;
+  line-height: 16px;
+  font-family: 'ahfc-robotomedium' ,sans-serif;
+}
+.THIS .AHFC_CancelBtn{
+  border: none;
+  padding: 0.6rem 0rem;
+  text-transform: uppercase;
+  margin-left: 2rem;  
+  font-size: 14px;
+  line-height: 16px;
+  font-family: 'ahfc-robotomedium' ,sans-serif;
+}
+.THIS .ahfc_submitBtn{
+  width: auto;
+}    
+/*desktop end*/
+/*mobile start*/
+@media (min-width: 320px) and (max-width: 767px) {
+        
+  /* mobile button css*/
+	/*Primary & Secondary button start*/
+	
+	.THIS .AHFC_BtnWrap {
+		margin-top: 0rem;
+        padding-right: 0px;     
+	}
+
+     .THIS .aHFC_rightSpace {
+		margin-bottom: 3.125rem;
+        padding-right:0px;    
+	}
+	
+	.THIS .AHFC_customPrimaryButton,
+	.THIS .AHFC_customSecondaryButton {
+		display: block;
+		width: 100%;
+	}
+	/*Primary & Secondary button end*/
+	/*Tertiary button start*/
+	.THIS .AHFC_customTertiaryButton {
+		display: block;
+		width: 100%;
+		margin-left: 0;
+		margin: 2rem 0 0;
+	}
+	/*Tertiary button end*/
+	
+	
+	/*button css */
+        
+  .THIS .AHFC_HeaderWrap svg {    
+    vertical-align: middle;
+  }
+  .THIS .AHFC_BtnWrap{
+    margin-top: 0rem;
+  }
+  .THIS .AHFC_HeaderWrap{
+    margin: 0rem;
+    /* padding: 2rem 1rem 1.5rem; */
+    padding: 1.5rem 1rem 1.5rem;
+  }
+  .THIS .AHFC_DetailWrap{
+    margin: 0rem;
+    padding: 2rem 1rem;
+    background: #fff;
+  }
+  .THIS.AHFC_LeftGridSec[c-aHFC_Help_Payments_aHFC_Help_Payments] {
+    padding: 1rem 2rem .75rem .5rem;
+    float: left;
+    border-right: 1px solid #d9d9d9;
+}
+
+.THIS.AHFC_VehImg[c-aHFC_Help_Payments_aHFC_Help_Payments] {
+    width: auto;
+    float: left;
+    padding: 1rem 2rem .75rem;
+}
+  .THIS .AHFC_DetailWrap .info{
+    /* padding: 1.3rem 0rem; */
+    padding: 1.3rem 0.5rem;
+  }
+  .THIS .AHFC_DetailWrap .info p{
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+  }  
+  .THIS .AHFC_CardData span{
+    font-size: 26px;
+    line-height: 36px;
+  }
+  .THIS .AHFC_ContinueBtn{
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 0.8rem 4rem;
+  }
+  .THIS .AHFC_CancelBtn{
+    width: 100%;
+    margin-left: 0rem;
+  }
+  .THIS .AHFC_HeaderWrap span{
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .THIS .AHFC_HrDesktop{
+    display:none;
+  }
+  .THIS .AHFC_HrMobile{
+    display:block;
+    border-top: 1px solid #D9D9D9;
+  }
+  .THIS .AHFC_ToolTipData{    
+    top: -135px !important; 
+    left: 0px; 
+    width: 100%;
+  } 
+  .THIS .AHFC_ToolTipData:before{
+    top: 100%;
+    left: 17rem;
+  }
+  .THIS .AHFC_ToolTipData:after{
+    top: 100%;
+    left: 17rem;
+  }
+  .THIS .AHFC_backArrow { 
+    margin-right: 0rem;
+  }
+  .THIS .select-results {
+    margin-left: 0px;
+    margin-right: 2px;
+}
+
+
+  .THIS .AHFC_ToolTipWrap{    
+    top: -162px !important;
+    left: 0px !important;
+    width: 100%;
+    padding: 0.5rem !important;
+    text-align: left !important;
+  } 
+  .THIS .AHFC_ToolTipWrapTwo{    
+    top: -207px;
+    left: 0px;
+    width: 100%;
+    padding: 0.5rem !important;
+    text-align: left !important;
+  } 
+  .THIS .AHFC_ToolTipWrap:before{
+    left: 96%;
+    bottom: -0.5rem;
+    margin-left: -.5rem;
+  }
+  .THIS .AHFC_ToolTipWrap:after{
+    left: 96%;
+    bottom: -0.5rem;
+    margin-left: -0.5rem;
+  }
+  .THIS .AHFC_ToolTipWrapTwo:before{
+    left: 198px;
+    bottom: -0.5rem;
+    margin-left: -0.5rem;
+  }
+  .THIS .AHFC_ToolTipWrapTwo:after{
+    left: 198px;
+    bottom: -0.5rem;
+    margin-left: -0.5rem;
+  }
+        
+ .THIS .ahfc_submitBtn{
+    width: -webkit-fill-available;
+  }       
+        
+}
+/*mobile end*/
+    
+    /*pop up css*/
+    
+    .THIS .header-text-medium {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 26px;
+    line-height: 36px;
+    color: #000000;
+  }
+  .THIS .label-text-medium {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    display: block;
+    letter-spacing: 0.03em;
+    color: #5e6162;
+  }
+  .THIS .para-text-medium {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: #5e6162;
+  }
+  .THIS .form-element-input{
+    border-width: 0px 0px 1px 0px solid #5E6162;
+    border-radius: 0;
+    background: #f7f7f7;
+    height: 56px;
+    font-family: Roboto;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: black;
+  }
+  .THIS .form-element-input:focus{
+    outline: none;
+    box-shadow: none;
+    border-color: #5E6162;
+  }
+  .THIS .check-billing p, 
+  .THIS .check-billing .slds-form-element__label{
+    font-size: 18px !important;
+    color: #000000;
+  }
+  .THIS .finance-account-edit-modal{
+    position: absolute;
+  }
+  .THIS .finance-account-edit-modal:focus{
+    outline: none;
+  }
+  .THIS .finance-account-edit-modal .slds-modal__container{
+    height: auto;
+  }
+  .THIS .action-btn {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    padding: 14px 24px;
+    letter-spacing: 0.06em;
+  }
+  
+  
+  
+  .THIS .edit-modal-content{
+    padding: 80px 100px;
+    border-radius: 0px;
+       
+  }
+    
+   .THIS .ahFC_Model_Content{
+       padding: 3rem 3rem 5rem 5rem; 
+        
+    }  
+  .THIS .stop-finance-info{
+      background-color: #F7F7F7;
+      padding: 24px;
+  }
+  .THIS .save-action {
+    background-color: #CC0000;
+    border: none;
+    color: #ffffff;
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin-right: 16px;
+  }
+  .THIS .cancel-action{
+      color: #CC0000;
+  }
+  
+  @media (min-width: 992px) {
+    .THIS .finance-account-edit-modal .slds-modal__container {
+      margin: 0 auto;
+      width: 50%;
+      max-width: inherit;
+      min-width: inherit;
+    }
+  }
+  
+  @media screen and (min-width: 320px) and (max-width: 540px) {
+    .THIS .finance-account-edit-modal .slds-modal__container{
+      width: 100%;
+      margin: 0px;
+    }
+    .THIS .edit-modal-content{
+      padding: 32px;
+    }
+  }
+
+  .THIS .AHFC_ModTitle{
+    font-family: ahfc-robotolight;
+    font-size: 26px;
+    padding-bottom: 1rem;
+    line-height: 1;
+    letter-spacing: 0.02rem;
+    color: #000000;
+    }
+    
+    .THIS .aHFC_Close_Icon{
+        text-align: right;
+    }
+@media (max-width: 768px) and (min-width: 768px) {
+  .THIS .AHFC_DetailWrap{
+    padding: 3.5rem 5.8rem;
+  }
+}

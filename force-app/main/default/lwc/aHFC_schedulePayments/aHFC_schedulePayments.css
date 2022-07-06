@@ -1,0 +1,306 @@
+.ahfc-suspened-click-here{
+  text-decoration: underline;
+    color: #CC0000;
+}
+
+.managepayment-banner,
+.no-schedule-payments-section {
+  /* padding: 50px; */
+  padding: 3.7rem 2.7rem;
+}
+.payment-info-div {
+  padding: 56px 0;
+  width: 85%;
+  margin: auto;
+}
+.paymentType-div {
+  padding: 0 40px;
+}
+.easyPay-customer-info {
+  max-width: 480px;
+  width: 480px;
+  float: left;
+  padding: 22px;
+  margin-right: 15px;
+}
+.easyPay-customer-info-clear {
+  clear: both;
+}
+.account-no,
+.account-amt, .account-date {
+  display: flex;
+  padding: 15px 0 15px 0;
+  border-bottom: 1px solid #d9d9d9;
+}
+.account-amtType label {
+  display: block;
+}
+.sheduled-label{
+  margin-left: 105px;
+}
+.account-dateType label{
+  display: block;
+}
+.account-amtType,
+.account-dateType {
+  width: 50%;
+  display: flex;
+}
+.easy-pay-wrapper {
+  width: 100%;
+  float: left;
+}
+.easy-pay-wrapper-clear {
+  clear: both;
+}
+.makepayment-btn-div {
+  display: inline-block;
+  margin-left: 40px;
+  width:90%;
+}
+
+.payment-amt{
+  width: 50%;
+  float: left;
+}
+/* Modal Popup */
+.paymentsource-modalcontent {
+  padding: 0px;
+  border-radius: 0;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.paymentSourceEdit-modal{
+  padding: 0px;
+  border-radius: 0;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+.paymentsource-modal-container {
+  width: 80%;
+  margin: 80px auto;
+}
+.modal-container .account-type {
+  display: flex;
+}
+.modal-container .slds-modal {
+  position: absolute;
+}
+.modal-container .slds-modal:focus {
+  outline: none;
+}
+.modal-container .slds-modal__container {
+  height: auto;
+}
+.modal-container .slds-modal__container:focus {
+  outline: none;
+}
+.modal-container .slds-form-element label {
+  line-height: 20px;
+  color: #5e6162;
+  padding: 0px;
+  margin-bottom: 16px;
+}
+.modal-container .inputInfo-icon {
+  width: 18px;
+  height: 18px;
+}
+.modal-container .accountdetails-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-container .accountdetails-container .bank-info {
+  flex: 0 0 45%;
+  padding: 20px 18px;
+}
+.modal-container .accountdetails-container .bank-info img {
+  width: 60%;
+  margin: auto;
+}
+.modal-container .accountdetails-container .bank-info label {
+  display:block;
+}
+
+.modal-container .accountdetails-container .bank-info hr {
+  display: none;
+}
+.modal-container .accountdetails-container .bank-info .bank-info-details {
+  display: flex;
+}
+.modal-container .accountdetails-container .bank-info .bank-info-details > div {
+  width: 50%;
+}
+.modal-container .accountdetails-container .paymentsource-info {
+  flex: 0 0 45%;
+}
+
+.ahfc-icon{
+  right:8px;
+}
+.bottom-border{
+  border-bottom: 1px solid #D9D9D9;
+
+}
+.AHFC_PaymentTitle{
+  font-family: 'ahfc-robotolight', sans-serif !important;
+}
+.AHFC_PaymentMsg{
+  line-height: 22px !important;
+}
+.AHFC_BtnWrap{
+  margin-top: 1rem !important; 
+}
+.AHFC_Button{
+  font-family: 'ahfc-robotomedium' ,sans-serif;
+  font-weight: normal !important;
+}
+.AHFC_BtnWrap button{
+  font-family: 'ahfc-robotomedium' ,sans-serif;
+  font-weight: normal !important;
+  border: 2px solid #CC0000 !important;
+}
+/*End of Modal Popup */
+@media (min-width: 992px) {
+  .modal-container .slds-modal__container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: inherit;
+    min-width: inherit;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .modal-container .slds-modal__container {
+    width: 100%;
+    max-width: 100%;
+  }
+  .paymentsource-modal-container {
+    width: 85%;
+  }
+}
+@media screen and (min-width: 250px) and (max-width: 540px) {
+  .modal-container .accountdetails-container .bank-info .bank-info-details {
+    margin-top:15px;
+  }
+  
+  .paymentType-div {
+    width: 100%;
+    margin: auto;
+    padding: 0;
+  }
+  .easyPayTitle, .managepayment-banner {
+    margin: auto;
+    padding: 25px 20px;
+  }
+  .easy-pay-wrapper {
+    margin-left: 0;
+  }
+
+  .easyPay-customer-info {
+    width: 100%;
+    padding: 18px;
+    margin-top: 0 !important;
+  }
+  /* Modal Popup media queries */
+  .paymentsource-modal-container .preferred-section {
+    width: 100%;
+  }
+
+  .modal-container .slds-modal__container {
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+  }
+  .paymentsource-modal-container {
+    margin: 40px auto;
+    width: 86%;
+  }
+  .modal-container .accountdetails-container {
+    flex-direction: column-reverse;
+  }
+  .modal-container .accountdetails-container .bank-info {
+    margin-top: 0px;
+  }
+  .modal-container .accountdetails-container .bank-info label {
+    display:block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .modal-container .accountdetails-container .bank-info p {
+    display: block;
+  }
+  .modal-container .action-container {
+    display: flex;
+    flex-direction: column;
+  }
+ 
+  .modal-container .slds-form-element label{
+    margin-bottom:0;
+  }
+  .modal-container .slds-form-element__control{
+    margin-top:10px;
+  }
+  .easyPay-header-wrap{
+    padding: 20px;
+    margin-top: 15px;
+
+  }
+  .easyPay-banner{
+    margin-top: 15px !important;
+    margin-bottom: 0 !important;
+  }
+  .makepayment-btn-div {
+    /* margin-left: 20px; */
+    margin-left: 1rem;
+  }
+  .ahfc-text-medium, .ahfc-text-large{
+    font-size: 20px;
+    line-height: 26px;
+  }
+  
+  .ahfc-sub-text-medium{
+    font-size: 16px;
+    line-height: 21px;
+}
+.ahfc-body-one{
+  font-size:14px;
+  line-height:20px;
+}
+.paymentType-container-fluid{
+  margin-top:0 !important;
+}
+.sheduled-label{
+  margin-left: 60px;
+}
+.otp-title{
+  margin-top:0;
+}
+  .paymentsource-modalcontent {max-width: 340px;}
+  .no-schedule-payments-section{
+    padding: 2rem 1rem;
+  }
+  .AHFC_PaymentTitle{
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+    font-family: 'ahfc-robotolight', sans-serif;
+  }
+  .AHFC_PaymentMsg{
+    font-size: 14px;
+    line-height: 18px !important;
+    letter-spacing: 0.03em;
+    color: #000000;
+  }
+}
+AHFC_PaymentData{
+  color: #000;
+}
+
+.AHFC_PaymentData .circle{
+  height: 5px;
+  width: 5px;
+  background-color: #000;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 1px;
+}

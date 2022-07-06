@@ -1,0 +1,273 @@
+<template>
+  <!--Added by Aswin Jose for Bug fix of #11657 -->
+  <template if:true={routingSpinner}>
+    <c-a-h-f-c_-spinner loading-message={spinnerWheelMessage}></c-a-h-f-c_-spinner>
+  </template>
+<div class="reviewpayment-container">
+
+    <template if:false={isPayoffSuccess}>
+      <h1 class="reviewpayment-title">
+        <c-a-h-f-c_page-title title="Review Payment" show-icon ="false"></c-a-h-f-c_page-title>      </h1>
+    </template>
+    <!-- condition added by kanagaraj for US_4594 -->
+    <template if:false={purchaseSuccess}>
+    <div class="message-info" if:true={isPayoffSuccessMsg}>
+      <c-a-h-f-c_message-toast type="success" label="Success" message={successMessage}
+        show-icon="true" onclosetoast={onCloseToast} is-review-payment="true">
+      </c-a-h-f-c_message-toast>
+    </div>
+  </template>
+    <div class="reviewinfo-container-fluid slds-m-vertical_x-large">
+
+        <div class="reviewinfo-container">
+            <!-- Added by kanagaraj for US_4594 start-->
+            <div class="success-info slds-m-bottom_x-large slds-grid" if:true={purchaseSuccess}>
+                <img class="slds-m-right_medium" src={successIcon} width="45" height="36" alt="SuccessIcon" />
+                <h1 class="ahfc-header-two AHFC_HeaderTwo">{successMessage}</h1>
+            </div>
+            <!-- Added by kanagaraj for US_4594 end-->
+
+            <div class="review-section-info">
+                <div class="slds-grid slds-wrap additionalpaymentinfo-container">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 payment-info AHFC_PayType">
+                        <label>{paymenttype} </label>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_5-of-12 payment-info AHFC_CardWrapper">
+                        <label>{paymenttype} AMOUNT</label>
+                        <!-- dynamic payment type added by kanagaraj for US_4594 -->
+                        <h1>{payoffamt}</h1>
+                    </div>
+
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_7-of-12 payment-info AHFC_CardWrapper" if:true={isPayoffSuccess}>
+                        <label>{paymenttype} PAYMENT CONFIRMATION #</label>
+                        <!-- dynamic payment type added by kanagaraj for US_4594 -->
+                        <h1>{confirmationNumber}</h1>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-size_1-of-1 schedule-source-section slds-m-top_x-large ahfc_mobilePadding" if:true={isPayoffSuccess}>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_5-of-12 payment-info AHFC_CardWrapper ahfc-AuthorizedDate">
+                            <label>{paymenttype} AUTHORIZED ON</label>
+                            <!-- dynamic payment type added by kanagaraj for US_4594 -->
+                            <h1>{payoffAuthorizedOn}</h1>
+                        </div>
+                        <div class="slds-grid slds-wrap  slds-medium-size_7-of-12 schedule-source-section AHFC_DateCard AHFC_CardWrapper">
+                            <div class="slds-col slds-size_1-of-1 scheduled-info">
+                                <div>
+                                    <label>{paymenttype} Date</label>
+                                    <!-- dynamic payment type added by kanagaraj for US_4594 -->
+                                    <h1 class="ahfc-AuthorizedDate">{payoffdate}</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-wrap slds-size_1-of-1 schedule-source-section slds-m-top_x-large">
+                        <div class="slds-grid slds-wrap  slds-medium-size_5-of-12 schedule-source-section AHFC_DateCard" if:false={isPayoffSuccess}>
+                            <div class="slds-col slds-size_1-of-1 scheduled-info">
+                                <div>
+                                    <label>{paymenttype} Date</label>
+                                    <!-- dynamic payment type added by kanagaraj for US_4594 -->
+                                    <h1 class="ahfc-AuthorizedDate">{payoffdate}</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_7-of-12 source-info AHFC_SourceCard">
+                            <label class="AHFC_CardLabel">PAYMENT SOURCE</label>
+                            <div class="sources-container slds-wrap ahfc_review">
+                                <h1>{selectedpaymentsource}</h1>
+                                <p>(
+                                    <span class="circle"></span>
+                                    <span class="circle"></span>
+                                    <span class="circle"></span>
+                                    <span class="circle"></span>
+                                    <span class="circle"></span>
+                                    <span class="circle"></span>
+                                    <span class="circle"></span>
+                                    <span class="circle"></span>
+                                    <span class="circle"></span> &nbsp; {last4accnumofselpaysource})
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--US:4595 by edwin starts here -->
+                    <template if:true={isPayoffSuccess}>
+                      <div class="slds-size_1-of-1"> <!--div tag added by sagar for bug fix 20030 -->
+                        <p class="slds-m-top_x-large questions-link">
+                          Questions? Contact&nbsp;
+                          <a href="javascript:void(0)" onclick={navigateToContactUsPost}>Customer Service</a>
+                        </p>
+                      </div>
+             
+            </template>
+                    <!--US:4595 by edwin ends here -->
+
+                    <hr class="slds-col slds-size_1-of-1" if:true={isReceivedNotification} aria-hidden="true"/>
+                    <div class="review-section">
+                        <div class="confirmation-credit-section">
+                            <label if:true={isReceivedNotification} class="ahfc-info-label ahfc-text-dark">Receiving notifications
+                  at</label>
+                            <template if:true={Payment_Confirmations_via_Email}>
+                  <div class="AHFC_NotificationWrap">
+                    </br>
+                    <a href="javascript:void(0);" role="img" aria-label="Email" alt="Email">
+                    <lightning-icon icon-name="utility:email" alternative-text="Connected" size="small"
+                      title="small size">
+                    </lightning-icon>
+                    </a>
+                    <h1 class="slds-m-top_medium mail-alignment">{strCommunicationEmail}</h1>
+                  </div>
+                </template>
+                            <template if:true={Payment_Confirmations_via_Text}>
+                  <div class="AHFC_NotificationWrap">
+                    <lightning-icon icon-name="utility:engage" alternative-text="Connected" size="small"
+                      title="small size">
+                    </lightning-icon>
+                    <h1 class="slds-m-top_small mail-alignment">{strCommunicationPhone}</h1>
+                  </div>
+                </template>
+                        </div>
+                        <!--US:4595 by edwin starts here -->
+                        <template if:true={isPayoffSuccess}> 
+                <div class="ahfc_titleReleaseAddress">Title Release Address </div>
+                <div class="slds-grid  payoff-container slds-m-bottom_x-large">
+                  <div class="slds-col slds-size_1-of-1 ahfc-background-lighter payoff-info">
+                    <p class="ahfc-text-grey ahfc-body-two ahfc_titleReleaseStatement">
+                      The address below is where your title will be sent if your state provides titles. Your title
+                      release
+                      may take approximately 2-3 weeks depending on your state.<br /><br />
+
+                      If your state provides electronic titles, visit your local DMV to obtain your title. Not sure?
+                      Read our <a href="javascript:void(0)" onclick={navigateTohelpCenter}
+                        class="ahfc-links ahfc_FAQ ahfc-links-secondary ahfc-toggle-links">FAQ</a>
+                    </p>
+                  </div>
+                </div>
+
+                
+                  <div class="ahfc_pleaseConfirm">Please confirm the address below is where you would like to receive your
+                    title:
+                  </div>
+                  <!-- condition added by kanagaraj for US_4594 -->
+                  <template if:true={addressSection}> 
+                  <div>
+                    <div class="slds-grid slds-wrap additionalpaymentinfo-container">
+                      <div class="slds-col  scheduled-info">
+                        <div class="ahfc_address">ADDRESS</div>
+                        <div class="ahfc_addressDetails">
+                          <p class="para-text-large slds-m-bottom_x-small address-info">
+                            <span class="ahfc_address_line"
+                              if:true={resultData.billToAddress.addressLine1}>{resultData.billToAddress.addressLine1}</span>
+                            <span class="ahfc_address_line"
+                              if:true={resultData.billToAddress.addressLine2}>{resultData.billToAddress.addressLine2}</span>
+                            <span class="ahfc_statespace" if:true={resultData.billToAddress.city}>{resultData.billToAddress.city},</span>
+                            <span if:true={resultData.billToAddress.state}>{resultData.billToAddress.state}</span>
+                            <span class="ahfc_address_line" if:true={resultData.billToAddress.zipCode}>{resultData.billToAddress.zipCode}</span>
+                          </p>
+                        </div>
+                      </div>
+                      <!-- commented by kanagaraj for US_4594 -->
+                      <!-- <div class="slds-col  message-info" if:true={isAddressUpdatedSucess}>
+                        <c-a-h-f-c_message-toast type="success" label="Success"
+                          message="Your address was successfully updated">
+                        </c-a-h-f-c_message-toast>
+                      </div> -->
+                    </div>
+                    <div class="slds-grid slds-wrap ahfc_editButton">
+                      <button class="AHFC_btn_edit" title="edit" onclick={editAddress}>EDIT</button>
+                    </div>
+                    <!-- Added by kanagaraj for US_4594 start-->
+                    <div class="message-info slds-m-top_x-large slds-m-bottom_large" if:true={isAddressUpdatedSucess}>
+                      <c-a-h-f-c_message-toast type="success" label="Success"
+                        message="Your address was successfully updated">
+                      </c-a-h-f-c_message-toast>
+                    </div>
+                    <div class="message-info slds-m-top_x-large slds-m-bottom_large" if:true={addressUpdateFailed}>
+                      <c-a-h-f-c_message-toast type="error" label="Error"
+                        message={addressErrorMsgOnSave}>
+                      </c-a-h-f-c_message-toast>
+                    </div>
+                    <template if:true={addressUpdateInQueue}>
+                      <div class="message-info slds-m-top_x-large slds-m-bottom_large">
+                          <c-a-h-f-c_message-toast type="warning" label="Attention" message="We have received your request and will update your information shortly."></c-a-h-f-c_message-toast>
+                      </div>
+                  </template>
+                        <!-- Added by kanagaraj for US_4594 end-->
+                    </div>
+                    </template>
+                    <!-- Added by kanagaraj for US_4594 start-->
+                    <template if:true={showAddressErrorMessage}>
+                  <div class="message-info slds-m-top_x-large slds-m-bottom_large">
+                      <c-a-h-f-c_message-toast type="error" label="Error" message={addressErrorMsg}></c-a-h-f-c_message-toast>
+                  </div>
+                </template>
+                    <!-- Added by kanagaraj for US_4594 end-->
+                    <template if:true={isAddressEditModalOpen}>
+                  <c-a-h-f-c_finance-account-detail-edit modal-header-text={modalHeaderText}
+                    nick-name-modal={nickNameModal} contact-info-modal={contactInfoModal}
+                    garage-address-modal={garageAddressModal} billing-address-modal={billingAddressModal}
+                    stop-finance-modal={stopFinanceModal} modal-save-text={modalBtnSave}
+                    modal-cancel-text={modalBtnCancel} result-data={resultData} onmodalsave={onModalSave}
+                    onmodalclose={onModalClose} get-finance-account-num={getFinanceAccountNum}
+                    is-redirected-from-pay-off=true>
+                  </c-a-h-f-c_finance-account-detail-edit>
+                </template>
+                    <template if:true={nextStep}>
+                  <!-- <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" 
+                  aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open ahfc_nextStep">
+                    <div class="slds-modal__container">
+                  <c-ahfc_next-steps></c-ahfc_next-steps>
+                  </div></section>
+                  <div class="slds-backdrop slds-backdrop_open"></div> -->
+                  <c-ahfc_next-steps onclose={onCancelPopup}></c-ahfc_next-steps>
+                </template>
+
+                    <hr aria-hidden="true"/>
+
+                    <!-- condition added by kanagaraj for US_4594 -->
+                    <div class="submit-action slds-m-top_xx-large" if:true={isPayOff}>
+                        <button class="AHFC_btn_submit" title="SUBMIT" onclick={navigateToDashboard}>CONFIRM ADDRESS &
+                    CONTINUE TO DASHBOARD</button>
+                    </div>
+                    <!-- Added by kanagaraj for US_4594 start-->
+                    <div class="submit-action slds-m-top_xx-large" if:false={isPayOff}>
+                        <button class="AHFC_btn_submit" title="SUBMIT" onclick={navigateToNextstep}>CONFIRM AND
+                    SEE NEXT STEPS</button>
+                    </div>
+                    <!-- Added by kanagaraj for US_4594 end-->
+                    </template>
+                    <!--US:4595 by edwin ends here -->
+                    <template if:false={isPayoffSuccess}>
+
+               <!-- <div class="slds-m-vertical_xx-large paymentconfirmation-container AHFC_NotCard ahfc_blackline">
+                  <span>Your {paymenttype} payment will be credited to your account within 2 business days of your scheduled {paymenttype} Date. {paymenttype}s made after
+                    {cutOffTime} cannot be edited or cancelled</span>
+                </div> -->
+
+              <div class="slds-m-vertical_xx-large paymentconfirmation-container AHFC_NotCard ahfc_blackline">
+
+                <div if:true={showPayOff}>
+                  <span> {confirmationMessage} </span>
+              </div>
+              <div if:true={showPurchase}>
+                  <span> {confirmationMessage} </span>
+              </div>
+              </div>
+
+
+                <div class="slds-m-bottom_xx-large paymentconfirmation-container AHFC_TextTnC">
+                  <span>Your {paymenttype} payment is being submitted in accordance with the
+                    <a href={paymentAuthTnCUrl} target="_blank"> Terms & Conditions </a>
+                    of the Payment Withdrawal Authorization.
+                    Please print and retain a copy of this authorization for your records.</span>
+                </div>
+                <div class="reviewaction-container">
+                  <button class="slds-button ahfc-btn ahfc-btn-primary" onclick={handleSubmitPayment}>SUBMIT</button>
+                  <button class="slds-button ahfc-btn ahfc-btn-text" onclick={editReviewPayment}>EDIT PAYMENT</button>
+              </div>
+              </template>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</template>

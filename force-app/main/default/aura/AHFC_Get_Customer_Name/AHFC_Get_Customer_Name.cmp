@@ -1,0 +1,127 @@
+<aura:component    implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    <!-- Inputs -->
+    <!-- RSS 48955 Web Button Cut off Line 4 added, Line 88, 113 updated in cmp and 13-22 in css -->
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <aura:attribute name= "strRequestType" type="String"  default="Do Not Sell" />
+    <!-- Outputs -->
+    <aura:attribute name= "strFirstName" type="String" access="global" />
+    <aura:attribute name= "strLastName" type="String" />
+    <aura:attribute name= "strMiddleName" type="String" />
+    <aura:attribute name= "strSalutation" type="String" />
+    <aura:attribute name= "strSuffix" type="String" />
+    <aura:attribute name="lstsalutations" type="List" />
+    
+    <!-- Others-->
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <aura:attribute name= "value" type="String" />
+    <aura:attribute name=  "disabled" type="boolean" default="true"/>
+    <aura:attribute name= "communityName" type="string" default=""/>
+    <aura:attribute name= "LeaseExtensionRequest" type ="string"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="contain">
+        <div class="center">
+            <h2 class="header">{!v.strRequestType}</h2>
+            
+            <div class="slds-grid_pull-padded-sm">
+                
+            </div>
+            
+            
+         <!--   <div class="info">
+                <p>Please enter your Name</p>
+            </div> -->
+            
+              <div class="contain-secondary">
+                
+              <!--  <lightning:combobox aura:id="field" label="Salutation"
+                                 name="Salutation"
+                                 value="{!v.strSalutation}"
+                                 required="false"
+                                 options="{! v.lstsalutations }"
+                                 onchange="{!c.onChange}"/> -->
+                
+                 
+                <lightning:input aura:id="inputCmp" label="{!$Label.c.CCPA_FIRST_NAME}"
+                                 name="firstname"
+                                 value="{!v.strFirstName}"
+                                 required="true"
+                                 onchange="{!c.onChange}"
+                                 maxlength="80"/> 
+                  
+               
+                  
+                <lightning:input aura:id="field" label="{!$Label.c.CCPA_MIDDLE_NAME}"
+                                 name="middlename"
+                                 value="{!v.strMiddleName}"
+                                 required="false"
+                                 onchange="{!c.onChange}"
+                                 maxlength="80"/> 
+                <lightning:input aura:id="field" label="{!$Label.c.CCPA_LAST_NAME}"
+                                 name="lastname"
+                                 value="{!v.strLastName}"
+                                 required="true"
+                                 onchange="{!c.onChange}"
+                                 maxlength="80"/> 
+                <lightning:input aura:id="field" label="{!$Label.c.CCPA_SUFFIX}"
+                                 name="suffix"
+                                 value="{!v.strSuffix}"
+                                 required="false"
+                                 onchange="{!c.onChange}"
+                                 maxlength="50"/>
+            </div>
+            
+           <br />
+            <br />
+            <!--
+            <div class="action slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12">  
+                    <lightning:button class="btn default mr-sm" aura:id="cancel1" name="cancelButton1" label="Cancel" onclick="{! c.openModel }"/>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12">  
+                    <lightning:button class="btn default mr-sm" aura:id="cancel1" name="cancelButton1" label="Previous" onclick="{! c.openModel }"/>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12">  
+                    <lightning:button class="{!v.disabled == true ?	'btn grey pull-right btn-continue':'btn primary pull-right btn-continue'}"
+                                      disabled="{!v.disabled == true ? 'true':'false'}" aura:id="cont3" name="continue3" label="Continue" onclick="{!c.handleContinue}"/>
+                </div>
+            </div>
+ -->
+            <div class="slds-grid slds-grid_align-space HD_Gridlayout">
+                <div class="slds-col">
+                    <span><lightning:button class="btn default mr-sm" aura:id="cancel1" name="cancelButton1" label="{!$Label.c.CCPA_Cancel}" onclick="{! c.openModel }"/></span>
+                </div>
+                <div class="slds-col">
+                    <span><lightning:button class="btn default mr-sm" aura:id="back1" name="backButton1" label="{!$Label.c.CCPA_PREVIOUS}" onclick="{! c.handlePrevious }"/></span>
+                </div>
+                <div class="slds-col">
+                    <span><lightning:button class="{!v.disabled == true ?	'btn grey pull-right btn-continue':'btn primary pull-right btn-continue'}"
+                                      disabled="{!v.disabled == true ? 'true':'false'}" aura:id="cont3" name="continue3" label="{!$Label.c.CCPA_CONTINUE}" onclick="{!c.handleContinue}"/></span>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <div class="confirm-modal">
+        <aura:if isTrue="{!v.isOpen}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!$Label.c.AHFC_Confirmation}</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <aura:unescapedHtml value ="{!$Label.c.AHFC_Cancel_CCPA}"/>
+                        
+                    </div>
+                    <footer class="slds-modal__footer HD_Gridlayout">
+                        <lightning:button class="btn default pull-left mr-sm" aura:id="cancel2" name="cancelButton2" label="Cancel" onclick="{! c.closeModel }"/>
+                        <lightning:button class="btn primary pull-right"
+                                          aura:id="cont3" name="continue3" label="Continue" onclick="{!c.redirectToHome}"/>
+                        
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    </div>
+</aura:component>

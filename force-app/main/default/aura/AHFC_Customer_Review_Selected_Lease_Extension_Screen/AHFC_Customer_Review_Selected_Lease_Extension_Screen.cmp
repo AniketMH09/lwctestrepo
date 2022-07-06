@@ -1,0 +1,218 @@
+<!--
+* Name: AHFC_Customer_Review_Selected_Lease_Extension_Screen
+* Description: Review Selected Lease Extension Request
+* Created Date: 13-Aug-2021
+* Created By: Sagar (cloned from AHFC_Review_Selected_Lease_Extension_Screen)
+* Modified By: Sagar  US-4059 - changes the UI screen. 
+*-->
+
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" controller="CASSCalloutLE" access="global">
+    <!--Inputs -->
+    <aura:attribute name = "nextPaymentAmount" type = "String" default=""/>
+    <aura:attribute name = "nextPaymentAmountDecimal" type = "Decimal" default=""/>
+    <aura:attribute name= "leaseReviewIstructions1" type="String" />
+    <aura:attribute name= "leaseReviewIstructions2" type="String" />
+    <aura:attribute name = "currentMaturityDate" type = "String"  default="12/15/18" />
+    <aura:attribute name = "noOfMonthRequested" type = "String" default="5" /> 
+    <aura:attribute name = "newMaturityDate" type = "String" default="5/15/18" />
+    <aura:attribute name= "estimatedLETax" type="String" default=""/>
+    <aura:attribute name="faNumber" type = "String" default =""/>
+    <aura:attribute name="financeAccId" type = "String" default =""/>
+    <aura:attribute name = "financeAccNumber" type = "String" />
+    <aura:attribute name = "CancelLeaseExtension" type = "string"/>
+    <aura:attribute name = "Review" type = "string"/>
+    <aura:attribute name = "LeaseExtension" type = "string"/>
+    <aura:attribute name = "AccountNumbertemplate" type = "string"/>
+    <aura:attribute name= "MonthlyPaymentAmount" type = "string"/>
+    <aura:attribute name= "CurrentMaturityDatetemplate" type = "string"/>
+    <aura:attribute name= "NumberofMonthsRequested" type = "string"/>
+    <aura:attribute name = "RequestedMaturityDate" type = "string"/>
+    <aura:attribute name = "EstimatedUpfrontTax" type="string"/>
+    <aura:attribute name=  "FCId" type="String"/>
+    <aura:attribute name="resultofwebsvc" type="String" default = "ERROR" />
+    <!-- Others-->
+    <aura:attribute name="value" type="String" />
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <aura:attribute name="isPopupOpen" type="boolean" default="false"/>
+    <aura:attribute name= "communityName" type="string" default=""/>
+    <aura:attribute name= "baseUrl" type="string" default=""/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <!--Start US-4059 adding below tag for navigation purpose like Dashboard -->
+    <lightning:navigation aura:id="navService"/>
+    <!--End US-4059 adding below tag for navigation purpose like Dashboard -->
+    
+    
+    <div class="contain">
+       <c:aHFC_vehicleHeader/>
+        <div class="center"> 
+          <div class="AHFC_HeaderWrap">
+              <h2 class="header">
+                  <a href="javascript:void(0);" role="img" aria-label="back">
+                     <lightning:icon iconName="utility:back" class="AHFC_backArrow" alternativeText="Connected" size="small"
+                                  title="" onclick="{!c.back}"></lightning:icon>
+                  </a>
+                  
+                  <span>{!$Label.c.AHFC_Review_Lease_Extension_Request}</span>
+              </h2>
+            </div>
+            <div class="AHFC_DetailWrap">
+            <div class="slds-grid_pull-padded-sm">
+                <lightning:progressIndicator currentStep="2" type="path" variant="base">
+                    <lightning:progressStep  label="Select Term" value="1"/>
+                    <lightning:progressStep  label="Review" value="2"/>
+                    <lightning:progressStep  label="Complete" value="3"/>
+                </lightning:progressIndicator>
+            </div>
+            <hr class="AHFC_Hr" />
+            <div class="info">
+                <aura:if isTrue = "{!v.leaseReviewIstructions1}">
+                    <p>{!v.leaseReviewIstructions1}</p>
+                    <aura:set attribute="else">
+                        <p>{!$Label.c.AHFC_Request}</p> 
+                    </aura:set>
+                </aura:if>
+            </div>
+            <div class="contain-secondary">
+               <!-- <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap row-divide">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_7-of-12">
+                        <label>{!$Label.c.AHFC_Account_Number}</label>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12">
+                        <aura:if isTrue = "{!v.currentMaturityDate != ''}">
+                            <span>{!v.financeAccNumber}</span>
+                        </aura:if> 
+                    </div>
+                </div>-->
+                <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap row-divide">
+                    <div class="slds-col">
+                        <label class="AHFC_CardLabel">{!$Label.c.AHFC_Customer_Monthly_Payment_Amount}</label>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 AHFC_CardData">
+                        <aura:if isTrue="{!v.nextPaymentAmount != ''}" >
+                            <span>${!v.nextPaymentAmountDecimal}</span>
+                        </aura:if> 
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap row-divide">
+                    <div class="slds-col">
+                        <label class="AHFC_CardLabel">{!$Label.c.AHFC_Customer_Current_Maturity_Date}</label>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 AHFC_CardData">
+                        <aura:if isTrue = "{!v.currentMaturityDate != ''}">
+                            <span>{!v.currentMaturityDate}</span>
+                        </aura:if>  
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap row-divide">
+                    <div class="slds-col ">
+                        <label  class="AHFC_CardLabel">{!$Label.c.AHFC_Customer_of_Months_Requested}</label>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 AHFC_CardData">
+                        <aura:if isTrue = "{!v.noOfMonthRequested != ''}">
+                            <aura:if isTrue = "{!v.noOfMonthRequested =='1'}">
+                                <span>{!v.noOfMonthRequested} month</span> 
+                                <aura:set attribute="else">
+                                    <span>{!v.noOfMonthRequested} months</span> 
+                                </aura:set>
+                            </aura:if>
+                        </aura:if> 
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap row-divide">
+                    <div class="slds-col">
+                        <label class="AHFC_CardLabel">{!$Label.c.AHFC_Customer_Requested_Maturity_Date}</label>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 AHFC_CardData">
+                        <aura:if isTrue = "{!v.newMaturityDate != ''}">
+                            <span>{!v.newMaturityDate}</span>
+                        </aura:if>
+                    </div>
+                </div>
+                <aura:if isTrue="{!v.estimatedLETax != ''}">
+                    <div class="slds-grid slds-wrap maturity-date">
+                        <div class="slds-col">
+                            <div class="slds-form-element">
+                                <label class="tooltip-label AHFC_CardLabel">{!$Label.c.AHFC_Customer_Estimated_Tax}</label>
+                                <div class="slds-form-element__icon tooltip">
+                                    <img class="inline" alt='tooltip' src="{!$Resource.AHFC_UI_Kit + '/img/icons/tooltip.svg'}"/>
+                                    <div class="tooltiptext slds-popover slds-popover_tooltip slds-nubbin_bottom" role="dialog" id="help">
+                                        <div class="slds-popover__body">
+                                            <aura:unescapedHtml value ="{!$Label.c.AHFC_CUSTOMER_TAX_TOOLTIP}"/>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 AHFC_CardData">
+                            <span>${!v.estimatedLETax}</span>
+                        </div>
+                    </div>
+                </aura:if>
+                
+                
+            </div>     
+      
+           <!--Start US-4059 adding links for terms and conditions -->      
+            <p class="slds-m-vertical_small terms-conditions ahfc_termsText">
+                By clicking on 'Submit' you are agreeing to our
+                <a href="{!v.baseUrl+'/AHFC_Lease_Terms_Conditions?communityName='+v.communityName}" target="_blank" >Terms &amp; Conditions</a>.
+            </p>
+             <!--End US-4059 adding links for terms and conditions -->    
+                
+            <hr class="AHFC_Hr slds-hide_large" />
+            <div class="action slds-grid slds-wrap AHFC_BtnWrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12 ahfc_submitBtn">
+                    <lightning:button class="btn primary pull-right AHFC_ContinueBtn" aura:id="cont1" name="continue1" label="Submit" onclick="{!c.handleContinue}"/>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12 action__prev-cancel">
+                  <lightning:button class="btn default mr-sm AHFC_CancelBtn" aura:id="cancel1" name="cancelButton1" label="Cancel" onclick="{! c.openModel }"/>
+              </div>
+            </div>
+          </div>
+        </div>  
+    </div>
+     
+    <div class="confirm-modal">
+        <aura:if isTrue="{!v.isOpen}">
+           <section
+                     role="dialog"
+                     tabindex="-1"
+                     aria-label="Meaningful description of the modal content"
+                     aria-modal="true"
+                     aria-describedby="modal-content-id-1"
+                     class="slds-modal slds-fade-in-open finance-account-edit-modal"
+                     >
+                <div class="slds-modal__container">
+                    <div class="slds-modal__content edit-modal-content ahFC_Model_Content" id="modal-content-id-1">
+                        
+                        <div class="close-icon close-icon-alignment aHFC_Close_Icon">
+                            <button onclick="{!c.closeModel}" class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse message-content-info" title="Close" > 
+                                <lightning:icon size="small" class="close-icon-color" iconName="utility:close" alternativeText="close"
+                                                title="close"></lightning:icon>
+                                <span class="slds-assistive-text">Close</span>
+                            </button> 
+                        </div>
+                        
+                        <h1 class="AHFC_ModTitle">{!$Label.c.AHFC_Confirmation}</h1>
+                        <div class="slds-m-top_medium">
+                            <p class="para-text-medium"><aura:unescapedHtml value ="{!$Label.c.AHFC_Customer_Cancel_Lease_Extension}"/></p>
+                        </div>
+                        <div class="modal-action slds-m-top_xx-large">
+                            <button class="slds-button action-btn save-action" onclick="{!c.redirectToDashboard}">
+                                CONTINUE
+                            </button>
+                            <button class="slds-button action-btn cancel-action" onclick="{!c.closeModel}">
+                                CANCEL
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>  
+        </aura:if>
+    </div>
+    
+   
+</aura:component>

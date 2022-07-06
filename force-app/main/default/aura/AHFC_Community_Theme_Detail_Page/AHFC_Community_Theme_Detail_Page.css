@@ -1,0 +1,50 @@
+.THIS .mainContentArea {
+    padding: 60px;    
+
+}
+
+.THIS .customProfile{
+    width: 15%;
+}
+.THIS .notifications{
+    width: 50px;
+    padding-top: 14px;
+    padding-left: 8px;
+}
+.THIS .searchRegion{
+    width: 15%;
+    padding-top: 10px;
+}
+.THIS .searchBar{
+    margin-left: 2.5rem;
+}
+.THIS .menu1{
+    /*width: 65%;*/
+    width: 13%;
+    padding-top: 10px;
+}
+.THIS .blankRow{
+    width: 60% !important;
+}
+
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .THIS .notifications{
+    width: 50px;
+    padding-top: 14px;
+    padding-left: 8px;
+}
+.THIS .searchRegion{
+    width: 15%;
+    padding-top: 10px;
+}
+.THIS .menu1{
+    /*width: 65%;*/
+    width: 42%;
+    padding-top: 10px;
+}
+.THIS .blankRow{
+    width: 32% !important;
+}
+
+}

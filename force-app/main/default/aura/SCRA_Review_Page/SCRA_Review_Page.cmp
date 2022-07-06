@@ -1,0 +1,448 @@
+<!--
+* Name: SCRA_Review_Page
+* Description: customer review screen
+* Created Date: 16-Sept-2021
+* Created By: Mani
+*-->
+<aura:component   implements="lightning:isUrlAddressable,forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    <!-- Inputs -->
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <aura:attribute name= "strRequestType" type="String"  default="SCRA Request" />
+    <!-- Outputs -->
+    <aura:attribute name="truthy" default="true" type="boolean"/>
+    <aura:attribute name="acctfieldsreqd" default="false" type="boolean"/>
+    <aura:attribute name="otherfieldsreqd" default="false" type="boolean"/>
+    <aura:attribute name= "strFaAccount" type="string" />
+    <aura:attribute name= "strEmail" type="String" access="global" />
+    <aura:attribute name= "strPhoneNumber" type="String" />
+    <aura:attribute name= "strCommunicationPref" type="String"  default=""/>
+    <aura:attribute name= "strinfocategory" type="String"  default=""/>
+    <aura:attribute name= "strAuthorizedUser" type="boolean"  default="false"/>
+    <aura:attribute name= "strAuthorizedUser2" type="String"  default=""/>
+    <aura:attribute name="strmailaddress" type="String" default=""/>
+    <aura:attribute name= "hasaccount" type="string" />
+    <aura:attribute name= "strVin" type="string" />
+    <aura:attribute name= "strSerialNo" type="string" />
+    <aura:attribute name= "strContractNo" type="string" />
+    <aura:attribute name= "strssn" type="string" />
+    <aura:attribute name= "strdob" type="date" />
+    <aura:attribute name= "strdob2" type="string" />
+    <aura:attribute name="yesno" type="List" default="[
+                                                      {'label': 'Yes', 'value': 'Yes'},
+                                                      {'label': 'No', 'value': 'No'}
+                                                      ]"/>
+   <aura:attribute name= "strAdditionalInfo" type="string" />
+   
+    <!-- Others-->
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <aura:attribute name= "value" type="String" />
+    <aura:attribute name=  "disabled" type="boolean" default="true"/>
+    <aura:attribute name= "communityName" type="string" default=""/>
+    <aura:attribute name= "LeaseExtensionRequest" type ="string"/>
+    <aura:attribute name= "strFirstName" type="String" access="global" />
+    <aura:attribute name= "strLastName" type="String" />
+    <aura:attribute name= "strMiddleName" type="String" />
+    <aura:attribute name= "strSalutation" type="String" />
+    <aura:attribute name= "strSuffix" type="String" />
+    <aura:attribute name= "strStreet" type="String" access="global" />
+    <aura:attribute name= "strCity" type="String" />
+    <aura:attribute name= "strState" type="String" />
+    <aura:attribute name= "strCountry" type="String" default="United States"/>
+    <aura:attribute name= "strPostalCode" type="String" />
+    <aura:attribute name="lstStates" type="List" />
+    <aura:attribute name="selectedState" type="String" default="None"/>
+    <aura:attribute name="strPerjuryAck" type="Boolean" default="false"/>
+    <aura:attribute name="refresh1" type="String" default="No"/>
+    <aura:attribute name="activedutydate" type="String"/>
+    <aura:attribute name="strbranchofservice" default="" type="String"/>
+    <aura:attribute name="strrequestoption" default="" type="String"/>
+    <aura:attribute name="strrequestoptionText" default="" type="String"/>
+    
+<aura:attribute name="strFaAccountDisp" default="" type="String"/>
+<aura:attribute name="strVinDisp" default="" type="String"/>
+<aura:attribute name="strSerialNoDisp" default="" type="String"/>
+<aura:attribute name="strContractNoDisp" default="" type="String"/>
+<aura:attribute name="strssnDisp" default="" type="String"/>
+<aura:attribute name="hasaccountDisp" default="" type="String"/>
+<aura:attribute name="strdob2Disp" default="" type="String"/>
+<aura:attribute name="strFirstNameDisp" default="" type="String"/>
+<aura:attribute name="strLastNameDisp" default="" type="String"/>
+<aura:attribute name="strMiddleNameDisp" default="" type="String"/>
+<aura:attribute name="strSalutationDisp" default="" type="String"/>
+<aura:attribute name="strSuffixDisp" default="" type="String"/>
+<aura:attribute name="strStreetDisp" default="" type="String"/>
+<aura:attribute name="strCityDisp" default="" type="String"/>
+<aura:attribute name="strStateDisp" default="" type="String"/>
+<aura:attribute name="strCountryDisp" default="" type="String"/>
+<aura:attribute name="strPostalCodeDisp" default="" type="String"/>
+<aura:attribute name="strPerjuryAckDisp" default="" type="String"/>
+<aura:attribute name="strEmailDisp" default="" type="String"/>
+<aura:attribute name="strPhoneNumberDisp" default="" type="String"/>
+<aura:attribute name="strCommunicationPrefDisp" default="" type="String"/>
+<aura:attribute name="strAuthorizedUserDisp" default="" type="String"/>
+<aura:attribute name="strmailaddressDisp" default="" type="String"/>
+<aura:attribute name="activedutydateDisp" default="" type="String"/>
+<aura:attribute name="strbranchofserviceDisp" default="" type="String"/>
+<aura:attribute name="strrequestoptionDisp" default="" type="String"/>
+<aura:attribute name= "strAdditionalInfoDisp" type="string" />
+
+    <lightning:navigation aura:id="navService"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.acctfieldsreqd}" action="{!c.onChange}"/>
+    <aura:handler name="change" value="{!v.otherfieldsreqd}" action="{!c.onChange}"/>
+    <aura:handler name="change" value="{!v.pageReference}" action="{!c.reInit}" />
+    
+    <div class="contain">
+        <div class="center">
+            
+            <div class="ahfc_arrowAlign">
+                <h2 class="header">
+                    <span>Servicemembers Civil Relief Act Request</span>
+                </h2>
+            </div>
+            
+            <div class="AHFC_DetailWrap">
+                <div class="info">
+                 <span class='Message_CCPA'>{!$Label.c.SCRA_Review_instr1}</span>
+                </div>
+                
+                <div class="contain-secondary">
+                    
+                    <div>
+                      {!$Label.c.SCRA_FIRST_NAME}
+                    </div>
+                    
+                    <div class="AHFC_CCPA_Values">
+                      <aura:if isTrue="{!v.strFirstNameDisp}">
+                          {!v.strFirstNameDisp}  
+                          <aura:set attribute="else">
+                              -
+                            </aura:set>
+                        </aura:if>   
+                        
+                    </div>
+                    
+                    <div>
+                      {!$Label.c.SCRA_LAST_NAME}
+                    </div>
+                    
+                    <div class="AHFC_CCPA_Values">
+                       <aura:if isTrue="{!v.strLastNameDisp}">
+                          {!v.strLastNameDisp}  
+                          <aura:set attribute="else">
+                              -
+                            </aura:set>
+                        </aura:if>  
+                    </div>
+
+                    <!--
+                    <div>
+                      {!$Label.c.SCRA_MIDDLE_NAME}
+                    </div>
+                    
+                    <div class="AHFC_CCPA_Values">
+                       <aura:if isTrue="{!v.strMiddleNameDisp}">
+                          {!v.strMiddleNameDisp}  
+                          <aura:set attribute="else">
+                              -
+                            </aura:set>
+                        </aura:if>  
+                    </div>
+                    
+                    
+                    
+                    <div>
+                      {!$Label.c.SCRA_SUFFIX}
+                    </div>
+                    
+                    <div class="AHFC_CCPA_Values">
+                      <aura:if isTrue="{!v.strSuffixDisp}">
+                          {!v.strSuffixDisp}  
+                          <aura:set attribute="else">
+                              -
+                            </aura:set>
+                        </aura:if>   
+                        
+                    </div>
+                    
+                    <div class='AHFC_Line'>
+                    
+                    </div>
+                    
+                    <div>
+                      {!$Label.c.SCRA_CURRENT_ADDRESS}
+                    </div>
+                    
+                    <div class="AHFC_CCPA_Values">
+                      <aura:if isTrue="{!v.strStreetDisp}">
+                          {!v.strStreetDisp}  
+                          <aura:set attribute="else">
+                              -
+                            </aura:set>
+                        </aura:if>   
+                    </div>
+                    
+                    <div>
+                      {!$Label.c.SCRA_CURRENT_CITY}
+                    </div>
+                    
+                    <div class="AHFC_CCPA_Values">
+                      <aura:if isTrue="{!v.strCityDisp}">
+                          {!v.strCityDisp}  
+                          <aura:set attribute="else">
+                              -
+                            </aura:set>
+                        </aura:if>   
+                    </div>
+                    
+                    <div>
+                      {!$Label.c.SCRA_CURRENT_STATE}
+                    </div>
+                    
+                    <div class="AHFC_CCPA_Values">
+                      <aura:if isTrue="{!v.strStateDisp}">
+                          {!v.strStateDisp}  
+                          <aura:set attribute="else">
+                              -
+                            </aura:set>
+                        </aura:if>   
+                    </div>
+                    
+                    
+                    <div>
+                      {!$Label.c.SCRA_CURRENT_ZIP}
+                    </div>
+                    
+                   
+                    
+                    <div class="AHFC_CCPA_Values">
+                        <aura:if isTrue="{!v.strPostalCodeDisp}">
+                          {!v.strPostalCodeDisp}  
+                          <aura:set attribute="else">
+                              -
+                            </aura:set>
+                        </aura:if> 
+                    </div>
+                    -->
+                     <div class='AHFC_Line'></div>
+                    
+                    <div>
+                      {!$Label.c.CCPA_COMPREF_MSG_2}
+                    </div>
+                    
+                    <div class="AHFC_CCPA_Values">
+                        <aura:if isTrue="{!v.strCommunicationPrefDisp}">
+                          {!v.strCommunicationPrefDisp}  
+                          <aura:set attribute="else">
+                              -
+                            </aura:set>
+                        </aura:if> 
+                    </div> 
+                    
+                    <div>
+                      Email
+                    </div>
+                    
+                    <div class="AHFC_CCPA_Values">
+                      <aura:if isTrue="{!v.strCommunicationPrefDisp}">
+                          {!v.strEmailDisp}  
+                          <aura:set attribute="else">
+                              -
+                            </aura:set>
+                        </aura:if>   
+                    </div>
+                    
+                    <div>
+                      Phone
+                    </div>
+                    
+                    <div class="AHFC_CCPA_Values">
+                        <aura:if isTrue="{!v.strPhoneNumberDisp}">
+                          {!v.strPhoneNumberDisp}  
+                          <aura:set attribute="else">
+                              -
+                            </aura:set>
+                        </aura:if>  
+                      
+                    </div>
+                    
+                    <div>
+                      {!$Label.c.SCRA_Are_you_the_service_member}
+                    </div>
+                    
+                    <div class="AHFC_CCPA_Values">
+                        
+                      <aura:if isTrue="{!v.strrequestoptionDisp}">
+                          {!v.strrequestoptionDisp}  
+                          <aura:set attribute="else">
+                              -
+                            </aura:set>
+                        </aura:if>   
+                    </div>
+                    
+                    <div class='AHFC_Line'></div>
+                    
+                    <div>
+                      {!$Label.c.SCRA_LAST_4_OF_YOUR_SSN_TIN}
+                    </div>
+                    
+                    <div class="AHFC_CCPA_Values">
+                      <aura:if isTrue="{!v.strssnDisp}">
+                          {!v.strssnDisp}  
+                          <aura:set attribute="else">
+                              -
+                            </aura:set>
+                        </aura:if>   
+                    </div>
+                    
+                    <div>
+                      {!$Label.c.SCRA_DATE_OF_BIRTH}
+                    </div>
+                    
+                    <div class="AHFC_CCPA_Values">
+                      <aura:if isTrue="{!v.strssnDisp}">
+                        <span><lightning:formattedDateTime value="{!v.strdob2Disp}"/></span>  
+                          <aura:set attribute="else">
+                              -
+                            </aura:set>
+                        </aura:if>   
+                    </div>
+                    
+                    <div>
+                      {!$Label.c.SCRA_Date_of_Active_Duty}
+                    </div>
+                    
+                    <div class="AHFC_CCPA_Values">
+                      <aura:if isTrue="{!v.activedutydateDisp}">
+                          <span><lightning:formattedDateTime value="{!v.activedutydate}"/></span>  
+                          <aura:set attribute="else">
+                              -
+                            </aura:set>
+                        </aura:if>   
+                    </div>
+                    
+                    <div>
+                      {!$Label.c.SCRA_Branch_of_Service}
+                    </div>
+                    
+                    <div class="AHFC_CCPA_Values">
+                      
+                      <aura:if isTrue="{!v.strbranchofserviceDisp}">
+                          {!v.strbranchofservice}  
+                          <aura:set attribute="else">
+                              -
+                            </aura:set>
+                        </aura:if>   
+                    </div>
+
+                    <div>
+                      {!$Label.c.SCRA_AHFC_ACCOUNT}
+                    </div>
+                    
+                    <div class="AHFC_CCPA_Values">
+                      <aura:if isTrue="{!v.strFaAccountDisp}">
+                          {!v.strFaAccountDisp}  
+                          <aura:set attribute="else">
+                              -
+                            </aura:set>
+                        </aura:if>   
+                    </div>
+
+                    <div>
+                      {!$Label.c.SCRA_CURRENT_STATE}
+                    </div>
+                    
+                    <div class="AHFC_CCPA_Values">
+                      <aura:if isTrue="{!v.strStateDisp}">
+                          {!v.strStateDisp}  
+                          <aura:set attribute="else">
+                              -
+                            </aura:set>
+                        </aura:if>   
+                    </div>
+
+                    <div>
+                      {!$Label.c.SCRA_Additional_Info}
+                    </div>
+                    
+                    <div class="AHFC_CCPA_Values">
+                      <aura:if isTrue="{!v.strAdditionalInfoDisp}">
+                          {!v.strAdditionalInfoDisp}  
+                          <aura:set attribute="else">
+                              -
+                            </aura:set>
+                        </aura:if>   
+                    </div>
+                    
+                    <div class='AHFC_TEXT_Spacing'>
+                        <aura:unescapedHtml value ="{!$Label.c.CCPA_Perjury_Stmt}"/>
+                    </div>
+                      
+                    <lightning:input type="checkbox" Class='AHFC_Checkbox_TEXT' label="{!$Label.c.CCPA_Perjury_Ack}" checked="{!v.strPerjuryAck}" 
+                         name="strperJuryAck" onchange="{!c.onChange}"/> 
+                 
+                </div>
+                
+                <div class="action ahfc_buttons">
+                    <div>
+                      <lightning:button class="AHFC_customSecondaryButton AHFC_Mob_buttons" aura:id="back1" name="backButton1" label="{!$Label.c.SCRA_PREVIOUS}" onclick="{! c.handlePrevious }"/>
+                       
+                        <aura:if isTrue="{!v.disabled}">
+                            <lightning:button class="AHFC_customPrimaryButton disable AHFC_Mob_buttons"  disabled="true"  aura:id="cont3" name="continue3" label="{!$Label.c.SCRA_SUBMIT}" onclick="{!c.handleContinue}"/>  
+                            <aura:set attribute="else">
+                               <lightning:button class="AHFC_customPrimaryButton  AHFC_Mob_buttons"    aura:id="cont3" name="continue3" label="{!$Label.c.SCRA_SUBMIT}" onclick="{!c.handleContinue}"/>
+                            </aura:set>
+                        </aura:if>  
+                      
+                        
+                      <lightning:button class="AHFC_customTertiaryButton AHFC_Cancle"  aura:id="cancel1" name="cancelButton1" label="{!$Label.c.CCPA_Cancel}" onclick="{! c.openModel }"/>            
+                    </div>
+                </div>
+                
+                
+            </div>
+            
+            
+        </div>  
+    </div>
+    <div class="confirm-modal">
+        <aura:if isTrue="{!v.isOpen}">
+           <section
+                     role="dialog"
+                     tabindex="-1"
+                     aria-label="Meaningful description of the modal content"
+                     aria-modal="true"
+                     aria-describedby="modal-content-id-1"
+                     class="slds-modal slds-fade-in-open finance-account-edit-modal"
+                     >
+                <div class="slds-modal__container">
+                    <div class="slds-modal__content edit-modal-content ahFC_Model_Content" id="modal-content-id-1">
+                        
+                        <div class="close-icon close-icon-alignment aHFC_Close_Icon">
+                            <button onclick="{!c.closeModel}" class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse message-content-info" title="Close" > 
+                                <lightning:icon size="small" class="close-icon-color" iconName="utility:close" alternativeText="close"
+                                                title="close"></lightning:icon>
+                                <span class="slds-assistive-text">Close</span>
+                            </button> 
+                        </div>
+                        
+                        <h1 class="AHFC_ModTitle">{!$Label.c.AHFC_Confirmation}</h1>
+                        <div class="slds-m-top_medium">
+                            <p class="para-text-medium"><aura:unescapedHtml value ="{!$Label.c.AHFC_Customer_Cancel_CCPA}"/></p>
+                        </div>
+                        <div class="modal-action slds-m-top_xx-large">
+                            <button class="slds-button action-btn save-action" onclick="{!c.redirectToHome}">
+                                CONTINUE
+                            </button>
+                            <button class="slds-button action-btn cancel-action" onclick="{!c.closeModel}">
+                                CANCEL
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>  
+        </aura:if>
+    </div>
+</aura:component>

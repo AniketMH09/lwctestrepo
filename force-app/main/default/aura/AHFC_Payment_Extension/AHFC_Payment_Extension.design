@@ -1,0 +1,17 @@
+<design:component>
+   <!--Inputs-->
+   <design:attribute name="currentMaturityDate" label="Current Maturity Date" />
+   <design:attribute name="dueDate" label="Paid To Date" />
+   <design:attribute name="dueDatemdy" label="Paid To Date mdy" />
+   <design:attribute name="nextDueDate" label="Next Due Date" />
+   <design:attribute name ="nextPaymentAmount" label ="Next Payment Amount"/>
+   <design:attribute name ="noOfMonthsLeft" label ="Number of months left"/>
+   <design:attribute name ="extensionTaxRate" label ="Extension Tax Rate"/>
+   <design:attribute name=  "financeAcc" label="FinanceAcc"/>
+   <!--outputs--> 
+   <design:attribute name ="selRequestedMonths" label ="Selected months requested"/>
+   <design:attribute name="maturityDate" label="Maturity Date" />
+   <design:attribute name ="nextMaturityDate" label ="Next Maturity Date"/>
+   <design:attribute name ="estimatedLETax" label ="Estimated LE Tax"/>
+   <design:attribute name= "LeaseExtensionRequest" label ="Lease Extension Request"/>
+</design:component>

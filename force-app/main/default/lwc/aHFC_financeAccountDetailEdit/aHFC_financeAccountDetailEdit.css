@@ -1,0 +1,374 @@
+@import "c/aHFC_globalStyle";
+.nickNameValidation {
+    color: #CC0000;
+    /* bug 20070*/
+}
+
+.ahfc_reviewContainer {
+    width: 63% !important;
+}
+
+.ahfc_useAddrMargin {
+    margin-left: 0px !important;
+}
+
+.ahfc_buttons {
+    margin-top: 2rem;
+}
+
+.ahfc_addressInstead {
+    padding-top: 0.5rem;
+}
+
+.ahfc_headerbottom {
+    margin-bottom: 8px;
+}
+
+.AHFC_Spinnereg {
+    --lwc-colorBackgroundSpinnerDot: rgb(228, 37, 37) !important;
+}
+
+.ahfc_spinnerposition {
+    position: fixed;
+}
+
+.ahfc_right {
+    margin-left: 0.5rem;
+}
+
+.ahfc_rightButton {
+    margin-left: 0 !important;
+}
+
+.AHFC_padding {
+    padding-left: 0px;
+    padding-bottom: 56px;
+}
+
+.ahfc_margin {
+    /* margin-right: 5rem; */
+    /* margin-right: 4rem; */
+}
+
+.ahfc_statespace {
+    /* margin-right: 10px; */
+    margin-right: 8px;
+}
+
+
+/* START - RECOMMEND MODAL BOX */
+
+.AHFC_ModTitle {
+    font-family: ahfc-robotolight;
+    font-size: 26px;
+    padding-bottom: 1rem;
+    line-height: 1;
+    letter-spacing: 0.02rem;
+    color: #000000;
+}
+
+.exampleHolder {
+    position: relative;
+    display: inline-block;
+    margin-left: 15px;
+    width: 55px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.sources-container {
+    padding: 20px 0;
+}
+
+.ahfc_address {
+    display: block;
+}
+
+.AHFC_ModSubtxt {
+    font-size: 18px;
+    letter-spacing: 0.02rem;
+    /* color: #5E6162; */
+    /* font-family: 'ahfc-robotoregular'; */
+    /* padding: 1rem 0 1rem 0; */
+    padding-bottom: 1rem;
+}
+
+.AHFC_Collayout {
+    /* padding: 1rem 0 1rem 0; */
+    /* --lwc-spacingLarge:0rem; */
+}
+
+.AHFC_ModFormLabel {
+    color: #000000;
+    font-family: 'ahfc-robotomedium';
+    font-size: 14px;
+    letter-spacing: 0.03rem;
+}
+
+.AHFC_ModFormValue span {
+    font-family: 'ahfc-robotolight';
+    /* font-size: 28px; */
+    font-size: 26px;
+    line-height: 36px;
+    color: #000000;
+    text-transform: capitalize;
+}
+
+.AHFC_BgRedButton {
+    background-color: #CC0000;
+    border: none;
+    color: #fff;
+    box-sizing: border-box;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    padding: 14px 24px;
+    letter-spacing: .06em;
+}
+
+.AHFC_NoBgButton {
+    color: #CC0000;
+    font-size: 14px;
+    border-top-width: 10px;
+    margin-left: 14px;
+    font-family: 'ahfc-robotomedium';
+    letter-spacing: 0.06rem;
+}
+
+.AHFC_Butsecwidth {
+    /* margin-left: 2rem; */
+    /* width:50%; */
+}
+
+
+/* END - RECOMMEND MODAL BOX */
+
+.header-text-medium {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 26px;
+    line-height: 36px;
+    color: #000000;
+}
+
+.label-text-medium {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    display: block;
+    letter-spacing: 0.03em;
+    color: #5e6162;
+}
+
+.para-text-medium {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: #5e6162;
+}
+
+.form-element-input {
+    border-width: 0px 0px 1px 0px solid #5E6162;
+    border-radius: 0;
+    background: #f7f7f7;
+    height: 56px;
+    font-family: Roboto;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: black;
+}
+
+.form-element-input:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: #5E6162;
+}
+
+.check-billing p,
+.check-billing .slds-form-element__label {
+    font-size: 18px !important;
+    color: #000000;
+}
+
+.finance-account-edit-modal {
+    position: absolute;
+}
+
+.finance-account-edit-modal:focus {
+    outline: none;
+}
+
+.finance-account-edit-modal .slds-modal__container {
+    height: auto;
+}
+
+.action-btn {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    padding: 14px 24px;
+    letter-spacing: 0.06em;
+}
+
+.cellphone1 .error-help,
+.cellphone2 .error-help,
+.homephonenumber .error-help,
+.workphone .error-help {
+    visibility: hidden;
+}
+
+.slds-has-error .error-help {
+    visibility: visible;
+}
+
+.edit-modal-content {
+    padding: 80px 100px;
+    border-radius: 0px;
+}
+
+.stop-finance-info {
+    background-color: #F7F7F7;
+    padding: 24px;
+}
+
+.save-action {
+    background-color: #CC0000;
+    border: none;
+    color: #ffffff;
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin-right: 16px;
+}
+
+.cancel-action {
+    color: #CC0000;
+}
+
+@media (min-width: 992px) {
+    .finance-account-edit-modal .slds-modal__container {
+        margin: 0 auto;
+       /* width: 50%;
+        max-width: inherit;
+        min-width: inherit;*/
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 540px) {
+    .finance-account-edit-modal .slds-modal__container {
+        width: 100%;
+        margin: 0px;
+    }
+    .edit-modal-content {
+        padding: 32px;
+    }
+}
+
+
+/*Mobile view start*/
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .ahfc_right {
+        margin-left: 0.1rem;
+    }
+    .AHFC_ModTitle {
+        font-size: 20px;
+        line-height: 26px;
+    }
+    .AHFC_ModSubtxt {
+        font-family: 'ahfc-robotolight';
+    }
+    .ahfc_Addresses {
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+    .AHFC_Collayout {
+        --lwc-spacingLarge: 0rem;
+    }
+    .AHFC_Butsecwidth {
+        width: 100%;
+    }
+    .AHFC_ModButsec {
+        display: block;
+    }
+    .AHFC_ModFormLabel {
+        margin: 2rem 0 1rem;
+    }
+    .AHFC_ModFormValue {
+        font-size: 20px;
+        line-height: 26px;
+        padding-right: 6rem;
+        text-transform: capitalize;
+    }
+    .AHFC_BgRedButton {
+        margin-top: 8rem;
+        width: 100%;
+    }
+    .ahfc_addressText {
+        text-align: center;
+    }
+    .AHFC_NoBgButton {
+        display: inline-block;
+        margin-top: 1rem;
+    }
+    .save-action,
+    .cancel-action {
+        display: block;
+        width: 100%;
+    }
+    .ahfc_editbtn {
+        display: inline-block;
+    }
+    .ahfc_editaddress {
+        text-align: center;
+        display: block;
+    }
+    .cancel-action {
+        margin-top: 1rem;
+    }
+    
+}
+@media (min-width: 766px) and (max-width: 768px) {
+    .finance-account-edit-modal .slds-modal__container{
+        width: 90%;
+        max-width: inherit;
+        min-width: inherit;
+        
+    }
+    .slds-size_1-of-1, .slds-size--1-of-1{
+        width: auto;
+    }
+}
+@media (min-width: 767px) and (max-width: 1024px) {
+    .finance-account-edit-modal .slds-modal__container{
+        width: 85%;
+        max-width: inherit;
+        min-width: inherit;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+    .finance-account-edit-modal .slds-modal__container{
+        width: 75%;
+        max-width: inherit;
+        min-width: inherit;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1320px) {
+    .finance-account-edit-modal .slds-modal__container{
+        width: 65%;
+        max-width: inherit;
+        min-width: inherit;
+    }
+}

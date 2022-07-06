@@ -1,0 +1,156 @@
+<!--
+// (c) 2018 Appirio, Inc.
+// Generating Due Date Screen by luanching a flow.
+
+// 26 Oct 2018 		Namita Choudhary		Original
+// 08 Nov 2018 		Karunakar Pulkam 		Enable Custom Buttons.
+//28 Jul 2021       Prabu					US-2247 - changed the UI screen.
+-->
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens"
+                controller="CASSCalloutDDC" access="global">
+    <!-- Inputs -->
+    <aura:attribute name="accountN" type="String" />
+    <aura:attribute name="currentDueDate" type="String" />
+    <aura:attribute name="requestedDueDate" type="String" />
+    <aura:attribute name = "FCId" type = "String"/>
+    <aura:attribute name="DDC_Review_Instructions" type="String" />
+    <aura:attribute name="monthlyPaymentAmount" type="String" />
+    <aura:attribute name="instructions" type="String" /><!-- No Use -->
+    <aura:attribute name = "disabled" type = "Boolean" default="false"/>
+    <aura:attribute name = "isSubmitError" type = "Boolean" default="false"/>
+    <!--Others -->
+    <aura:attribute name="financeAccNumber" type="String" />
+    <aura:attribute name="financeAccId" type="String" />
+    <aura:attribute name="reqDueDateVal" type="String" />
+    <aura:attribute name="value" type="String" />
+    <aura:attribute name="isOpen" type="boolean" default="false" />
+    <aura:attribute name="resultofwebsvc" type="String" default = "ERROR" />
+    <aura:attribute name=  "buttonDisabled" type="boolean" default="false"/>
+    <aura:attribute name="SubmitClicks" type="Integer" default = "0" />
+    <lightning:navigation aura:id="navService"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!--Declare Handlers-->
+    <aura:handler event="aura:waiting" action="{!c.handleShowSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.handleHideSpinner}"/>
+    
+    <div class="contain">
+         
+        <!-- US - 2247 - Added Prabu - Start -->
+        <div class="center">
+            
+            <c:aHFC_vehicleHeader/>
+            
+             <aura:if isTrue="{!v.isSubmitError}">
+                 <c:aHFC_messageToast type="error" label="Error" link="Contact US"
+              message=' Your request could not be processed at this time. Please try again later. If you require urgent
+              assistance, please' toast-type="" show-icon="false"></c:aHFC_messageToast>
+            </aura:if>
+            
+            <div class="AHFC_HeaderWrap">            
+                <h2 class="header">
+                    <lightning:icon iconName="utility:back" class="AHFC_backArrow ahfc-icon-red" alternativeText="Connected" size="small"
+                                    title="" onclick="{!c.back}"></lightning:icon>
+                    <span>Review Due Date Change Request</span>
+                </h2>     
+            </div>  
+            <div class="AHFC_DetailWrap">     
+                <div class="slds-grid_pull-padded-sm AHFC_ProgressIndicator">
+                    <lightning:progressIndicator currentStep="step-2" type="path" variant="base">
+                        <lightning:progressStep label="Select Date" value="step-1" />
+                        <lightning:progressStep label="Review" value="step-2" />
+                        <lightning:progressStep label="Complete" value="step-3" />
+                    </lightning:progressIndicator>
+                </div>
+                <hr class="AHFC_Hr" />
+                <div class="info">
+                    <aura:if isTrue="{!v.DDC_Review_Instructions}">
+                        <p>
+                            <aura:unescapedHtml value="{!v.DDC_Review_Instructions}" />
+                        </p>
+                        <aura:set attribute="else">
+                            <p>To complete your request, review and submit the information below. Please allow 2-3</p>
+                            <p> business days for your request to be processed.Continue to make your payment on or</p>
+                            <p>before your current due date until we confirm your new due date.</p>
+                        </aura:set>
+                    </aura:if>
+                </div>
+                
+                <div class="contain-secondary">               
+                    <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap row-divide">
+                        <div class="slds-col">
+                            <label class="AHFC_CardLabel">PAYMENT AMOUNT</label>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 AHFC_CardData">
+                            <!-- <span>${!v.monthlyPaymentAmount}</span> -->
+                            <span>$
+                                <lightning:formattedNumber value="{!v.monthlyPaymentAmount}" style="decimal" minimumFractionDigits="2" />
+                            </span>
+                            
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap row-divide">
+                        <div class="slds-col slds-size_1-of-1">
+                            <label class="AHFC_CardLabel">CURRENT DUE DATE</label>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 AHFC_CardData">
+                            <span>{!v.currentDueDate} </span>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap row-divide">
+                        <div class="slds-col slds-size_1-of-1 AHFC_DDWrap">
+                            <label class="tooltip-label AHFC_CardLabel">REQUESTED DUE DATE</label>
+                            <div class="slds-form-element__icon tooltip select-v-align AHFC_ToolTip">
+                                <img class="inline" src="{!$Resource.AHFC_UI_Kit + '/img/icons/tooltip.svg'}" />
+                                <div class="tooltiptext slds-popover slds-popover_tooltip slds-nubbin_bottom AHFC_ToolTipData" role="dialog" id="help">
+                                    <div class="slds-popover__body"><strong>Will changing my due date extend my
+                                        contract?</strong><br /><br />On lease accounts only, changing your due date will not extend your
+                                        contract.</div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 AHFC_CardData">
+                            <span>{!v.reqDueDateVal} of the month</span>
+                        </div>
+                    </div>
+                    
+                </div>
+                <hr class="AHFC_Hr" />
+                <div class="action slds-grid slds-wrap AHFC_BtnWrap">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+                        
+                        <lightning:button class="{!v.buttonDisabled == true ?	'btn grey AHFC_ContinueBtn':'btn primary AHFC_ContinueBtn'}"
+                                        disabled="{!v.buttonDisabled == true ? 'true':'false'}"
+                                        aura:id="cont1" name="continue1" label="SUBMIT"
+                                        onclick="{!c.handleContinue}" />
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">  
+                        <lightning:button class="btn default mr-sm AHFC_CancelBtn" aura:id="cancel1" name="cancelButton1" label="Cancel" onclick="{! c.openModel }"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="confirm-modal">
+        <aura:if isTrue="{!v.isOpen}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!$Label.c.AHFC_CUST_LEAVE_PAGE_Confirmation}</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <aura:unescapedHtml value ="{!$Label.c.AHFC_Customer_LEAVE_PAGE_CONFIRM_DETAIL}"/>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning:button class="btn default pull-left mr-sm" aura:id="cancel2" name="cancelButton3" label="Cancel" onclick="{! c.closePopup }"/>
+                        <lightning:button class="btn primary pull-right"
+                                          aura:id="cont3" name="continue3" label="Continue" onclick="{!c.redirectToDashboard}"/>
+                        
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    </div>
+    <!-- US - 2247 - End -->
+</aura:component>

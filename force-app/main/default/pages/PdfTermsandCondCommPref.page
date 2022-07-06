@@ -1,0 +1,128 @@
+<apex:page renderAs="pdf"  >
+   
+  <!-- Communication Preferences and condition --------------------- -->
+    <div id='Termstobeprinted'>
+             
+  
+            <div class="print-pdf-section">
+         <!--Changes for RSS-44777 Starts-->       
+          
+                <apex:outputPanel >
+    <p class="tc-head" style="font-weight:bold;"> DISCLOSURE AND CONSENT TO USE ELECTRONIC SIGNATURES AND RECORDS    </p>
+    <p class="tc-content" style="line-height:24px;"> Please read this document carefully.  Print a copy for your reference. </p>
+    <p class="tc-content" style="line-height:24px;"> 
+        1.  DEFINITIONS.<br></br><br></br>
+        As used in this “Disclosure and Consent to Use Electronic Records” (the “Consent”):<br></br><br></br>
+        a) “Account” means your motor vehicle retail installment contract, motor vehicle lease or ancillary product contract. <br></br> <br></br>
+        b) “We,” “us,” “our” and <apex:outputText rendered="{! If($CurrentPage.parameters.ishonda == 'true' ,true,false) }"> “Honda” means Honda Financial Services</apex:outputText>  
+<apex:outputText rendered="{! If($CurrentPage.parameters.ishonda == 'false' ,true,false) }"> “Acura” means Acura Financial Services</apex:outputText><sup style="font-size: 12px;vertical-align: super"> SM</sup>.<br></br><br></br>
+        c) “You” and “your” means the person giving this consent. <br></br><br></br>
+         d) “Records” means all documents related to an Account that you currently have or that you obtain from us, such as your credit application, your customer agreements, amendments to your customer agreements, consumer disclosures, billing statements, online bill payments and payment authorizations, transaction histories, privacy policies, extension and modification agreements and other servicing documents, and all other communication or information related to the Account you currently have or that you obtain from us, including any records we are required by law to provide to you in writing during the term of our business relationship with you.  <br></br>
+        </p>
+        <p class="tc-content" style="line-height:24px;"> 
+        2.  SCOPE OF CONSENT. By giving your consent, you agree to conduct Account transactions with us using your computer or mobile device to receive, view and electronically sign Records.   You agree that such electronic signatures will consist of clicking on buttons and/or checking boxes where indicated.  You also consent to the use of electronic Records displayed on the computer you are using, as well as any Records that we send to you electronically.  We may provide Records to you electronically by emailing them to you at any email address that you provide us, which may include the Records as attachments or as embedded links to a website that we operate and control.  Your consent will be effective unless you withdraw it in the manner provided below.  
+        </p>
+        <p class="tc-content" style="line-height:24px;">
+        3.  HOW TO UPDATE YOUR CONTACT INFORMATION. You agree to provide us with your accurate personal contact information and to promptly notify us of any changes. If you have a working email address, your personal contact information must include that email address. You can update your contact information (including your email address) by logging into your 
+            <apex:outputText rendered="{! If($CurrentPage.parameters.ishonda == 'true' ,true,false) }">
+            Honda Financial Services account at
+            <a style="content:'(attr(href)')'" href="https://www.hondafinancialservices.com">hondafinancialservices.com</a> and selecting Communication Preferences or by 
+            <a style="content:'(attr(href)')'" href="{!$Label.HondaCSEP}">contacting Customer Service.</a>
+            </apex:outputText>    
+            <apex:outputText rendered="{! If($CurrentPage.parameters.ishonda == 'false' ,true,false) }">
+             Acura Financial Services account at
+            <a style="content:'(attr(href)')'" href="https://www.acurafinancialservices.com">acurafinancialservices.com</a> and selecting Communication Preferences or by 
+            <a style="content:'(attr(href)')'" href="{!$Label.AcuraCSEP}">contacting Customer Service.</a>
+            </apex:outputText>
+  </p>
+        <p class="tc-content" style="line-height:24px;">
+        4.  OBTAINING PAPER COPIES. At any time and without charge, you may obtain free paper copies of your Records from us by contacting your
+            <apex:outputText rendered="{! If($CurrentPage.parameters.ishonda == 'true' ,true,false) }">
+            Honda Financial Services
+            </apex:outputText>
+            <apex:outputText rendered="{! If($CurrentPage.parameters.ishonda == 'false' ,true,false) }">
+                Acura Financial Services 
+            </apex:outputText><sup style="font-size: 12px;vertical-align: super"> SM </sup>
+             <apex:outputText rendered="{!If($CurrentPage.parameters.ishonda == 'true' ,true,false) }">
+            (HFS)
+            </apex:outputText>
+            <apex:outputText rendered="{!If($CurrentPage.parameters.ishonda == 'false' ,true,false) }">
+                (AFS)
+            </apex:outputText>
+            region below to request that a free paper copy be mailed to you.  You can also obtain a free paper copy of any Record by choosing to have your Records emailed to you, where you can view and print your Records using your device. The request for a paper copy of a Record will not by itself constitute a withdrawal of your consent to receive Records electronically. We reserve the right, but are not required, to send a paper copy of any Record you authorize us to provide electronically.
+        </p>
+        <p class="tc-content" style="line-height:24px;">
+        5.  WITHDRAWING CONSENT. You can withdraw your consent at any time during this enrollment process before you check the box indicating that you agree to the terms of this document or by clicking on the Cancel" button. However, your enrollment may be completed online only if you agree to accept the copy of your authorization in electronic form. After you have completed your transaction, you may at any time withdraw your consent to receive Records electronically.  You have the option to withdraw your consent to receive or use certain electronic Records while keeping your consent to receive or use other electronic Records.  You may withdraw or limit your consent by logging into your 
+           <apex:outputText rendered="{! If($CurrentPage.parameters.ishonda == 'true' ,true,false) }">
+            Honda Financial Services account at 
+            <a style="content:'(attr(href)')'" href="https://www.hondafinancialservices.com">hondafinancialservices.com</a> and selecting Communication Preferences or by 
+            <a style="content:'(attr(href)')'" href="{!$Label.HondaCSEP}">contacting Customer Service.</a>
+            </apex:outputText>
+            <apex:outputText rendered="{! If($CurrentPage.parameters.ishonda == 'false' ,true,false) }">
+                Acura Financial Services account at 
+            <a style="content:'(attr(href)')'" href="https://www.acurafinancialservices.com">acurafinancialservices.com</a> and selecting Communication Preferences or by 
+            <a style="content:'(attr(href)')'" href="{!$Label.AcuraCSEP}">contacting Customer Service.</a>
+            </apex:outputText>
+            <br></br><br></br>
+        We will not impose any fee if you withdraw your consent to receive Records electronically. If you withdraw your consent to receive Records electronically, such withdrawal will not apply to Records that were furnished to you electronically before the date on which the withdrawal of your consent takes effect.
+        </p>
+        <p class="tc-content" style="line-height:24px;">
+        6.  HARDWARE AND SOFTWARE REQUIREMENTS. In order to use electronic signatures and Records you should have and continue to have hardware sufficient to utilize Firefox 27.0, IE 11.0, Chrome 30.0, Opera 12.18, Edge 0.0. To print or download disclosures you should have a printer connected to your PC or sufficient hard-drive space for saving the disclosure and a printer if you wish to print paper copies. You will need a program that can view, save and print PDF files (such as Adobe Reader 6.0 or higher). You will also need a working email account to receive, view, sign and print your Records.  To verify that you have all of the necessary hardware and software for you to use electronic Records and signatures on your devices, please verify that you were able to read this electronic disclosure and that you also were able to print on paper or electronically save this page for your future reference and access or that you were able to e-mail this document to an address where you will be able to print on paper or save it for your future reference and access. If we ever change the hardware or software requirements in a way that creates a material risk that you will not be able to access or retain a Record that we previously sent you, we will send you notice of the revised requirements.<br></br><br></br>
+        By checking the "I have read and agree to Terms &amp; Conditions" box below, you agree that you have the ability to transmit, receive, and retain disclosures in electronic form and that you consent to receive such disclosures electronically.
+        </p>
+
+</apex:outputPanel>       
+ <!--Changes for RSS-44777 Ends-->  
+            </div>              
+        </div>
+<!--Commented as part of RSS-44777-->
+<!-- Communication Preferences and condition --------------------- -->
+  <!--  <div id='Termstobeprinted'>
+             
+  
+            <div class="print-pdf-section">
+            <apex:outputPanel rendered="{! If($CurrentPage.parameters.ishonda == 'true' ,true,false) }">
+                <p class="tc-head" style="font-weight:bold;">Communication Authorization</p>
+                <p class="tc-content" style="line-height:24px;"> I agree that Honda Financial Services[SM] (HFS) can send emails and/or SMS text messages to me 
+                 regarding my account, including but not limited to the communications I have elected to receive 
+                 above, at the email address and/or telephone number that I have provided.  I expressly consent to 
+                 HFS using prerecorded/artificial voice messages, text messages and/or automatic dialing equipment 
+                 when contacting me regarding my account.  To stop receiving SMS text messages reply with STOP 
+                 and you will be unsubscribed from this service, you will receive an additional text message to confirm your cancellation.<br/></p>
+                
+                 <p class="tc-content" style="line-height:24px;">HFS does not have a separate charge for text message notification services; however, <b>message 
+                   and data rates may apply</b> from your mobile carrier. Subject to the terms and conditions of 
+                   your mobile carrier, you may be charged for delivery of text messages sent to your mobile phone or  
+                   device. By providing your consent to SMS text services, you approve any such charges from your  
+                   mobile carrier. Charges for text messages may appear on your mobile phone bill or be deducted from your prepaid mobile balance. </p>
+                </apex:outputPanel>
+            </div>
+            
+            <div class="print-pdf-section">
+            <apex:outputPanel rendered="{! If($CurrentPage.parameters.ishonda =='false' ,true,false) }">
+                <p class="tc-head" style="font-weight:bold;">Communication Authorization</p>
+                 <p class="tc-content" style="line-height:24px;"> I agree that Acura Financial Services[SM] (AFS) can send emails and/or SMS text messages to me 
+                 regarding my account, including but not limited to the communications I have elected to receive 
+                 above, at the email address and/or telephone number that I have provided.  I expressly consent to 
+                 AFS using prerecorded/artificial voice messages, text messages and/or automatic dialing equipment 
+                 when contacting me regarding my account.  To stop receiving SMS text messages reply with STOP 
+                and you will be unsubscribed from this service, you will receive an additional text message to confirm your cancellation.<br/></p>
+                
+                <p class="tc-content" style="line-height:24px;">AFS does not have a separate charge for text message notification services; however, <b>message 
+                 and data rates may apply</b> from your mobile carrier. Subject to the terms and conditions of  
+                 your mobile carrier, you may be charged for delivery of text messages sent to your mobile phone or 
+                 device. By providing your consent to SMS text services, you approve any such charges from your 
+                 mobile carrier. Charges for text messages may appear on your mobile phone bill or be deducted from your prepaid mobile balance.</p>
+                
+                
+                </apex:outputPanel>
+            </div> 
+             
+        </div> -->
+    
+    
+    <!--------------------End of Terms and Conditions ----------------- -->
+    
+    
+  
+</apex:page>

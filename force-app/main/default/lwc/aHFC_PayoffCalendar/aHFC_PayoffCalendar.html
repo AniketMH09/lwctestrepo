@@ -1,0 +1,229 @@
+<!--
+   @description The component aHFC_PayoffCalendar is used to display all statements
+   @ author vishnu
+   @copyright L&T
+   @version 1.000
+-->
+<template>
+  
+   <div aria-hidden='true'>
+      <c-a-h-f-c_vehicleswitcher loading-message="Please wait while we process your request" loader-control='true'></c-a-h-f-c_vehicleswitcher> </div>
+      <div role="main" id="main-container" class="main-content" aria-hidden='true'>
+      <div class="AHFC_Wrapperst ahfc-background-lighter" >
+        
+      <div class="AHFC_PrimHead">
+         <template if:true={isPayOff}>
+            <!--<p>{label.Payoff_Calendar}</p>-->
+            <c-a-h-f-c_page-title title='Payoff Options' show-icon="true"></c-a-h-f-c_page-title>
+         </template>
+         <template if:true={isPurchase}>
+            <!--<p>{label.Purchase_Calendar}</p>-->
+            <c-a-h-f-c_page-title title="Purchase Options" show-icon="true" class="AHFC_TitleWrapper"></c-a-h-f-c_page-title>
+         </template>
+         <template if:true={isAcc500}>
+         <div class="AHFC_PrintRt AHFC_PrinterWrap" onclick={printCurrentPage}>
+            <a href="javascript:void" tabindex="-1">    <lightning-icon icon-name="utility:print" alternative-text="Connected" size="x-small"
+               title="xx-small size" class="AHFC_PrintertextIcon"></lightning-icon></a>
+            <span class="outsideText">
+               {label.Printer}</span>
+         </div>
+      </template>
+     
+      </div>
+      <template if:true={isAcc500}>
+         
+         <div class="AHFC_ContainerSec">
+            <div class="card-block ahfc-background-lightest AHFC_InnerAround">
+               <span>
+                  <template if:true={isPayOff}><div class="AHFC_innerHeader">{label.Make_Payoff}</div></template>
+                  <template if:true={isPurchase}><div class="AHFC_innerHeader">{label.Make_Purchase}</div></template>
+               </span>
+               <span class="AHFC_InnerHeading">
+                  <div class="AHFC_InnerHeadCont AHFC_bgCont ">
+                     <p> {label.AHFC_PurCalender_Acc500_inelgbilityMessage}
+                     </p>
+                  </div>
+                  <div class="AHFC_AmtLayout">
+                     <div>
+                        <button onclick={returnToDashBoard}
+                           class="slds-button ahfc-btn AHFC_SubmitBut ahfc-btn-primary">Return To Dashboard</button>
+                     </div>
+                  </div>
+               </span>
+               <div style="padding-top : 50px">
+                  <c-a-h-f-c_dashboard-faq page-name='Payoff_Purchase'></c-a-h-f-c_dashboard-faq>
+               </div>
+            </div>
+         </div>
+      </template>
+      <template if:false={isAcc500}>
+         <template if:true={defaultDetails}>
+            <div class="AHFC_ContainerSec">
+              
+               <div class="card-block ahfc-background-lightest AHFC_InnerAround">
+                  <div if:true={showWebserviceFailureError} class="showToast">  <c-a-h-f-c_message-toast onclosetoast={closeToast} message='There was an error retrieving your information. Please refresh the page or try again later.'  type='error' label='Error' toast-type='error'></c-a-h-f-c_message-toast></div>
+                 <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_12-of-12 slds-small-size_6-of-12">
+                  <span>
+                     <template if:true={isPayOff}><h2><div class="AHFC_innerHeader">{label.Make_Payoff}</div></h2></template>
+                     <template if:true={isPurchase}><h2><div class="AHFC_innerHeader">{label.Make_Purchase}</div></h2></template>
+                  </span>
+               </div>
+               <div class="slds-col slds-size_12-of-12 slds-small-size_6-of-12">
+                  <div class="AHFC_PrintRt insideText " onclick={printCurrentPage}>
+                     <a href="javascript:void" tabindex="-1">     <lightning-icon icon-name="utility:print" alternative-text="Connected" size="x-small"
+                        title="xx-small size" class="AHFC_PrintertextIcon"></lightning-icon></a>
+                     <span class="AHFC_Printertext">
+                        {label.Printer}</span>
+                  </div>
+               </div>
+               </div>
+                  <div class="AHFC_InnerHeadCont AHFC_bgCont">
+                     <p class="AHFC_PCMsg">
+                        <template if:true={isAccClosed}>{label.AHFC_PayoffCallender_Acc_closed}</template>
+                        <template if:false={isAccClosed}>
+                           <template if:true={isPayOff}> {label.AHFC_PayoffCalendarMessage1} </template>
+                           <template if:true={isPurchase}> {label.AHFC_PurchaseCalendarMessage1} </template>
+                           <b>{label.AHFC_PayoffCalendarMessage2}</b>
+                        </template>
+                     </p>
+                  </div>
+                  <div class="AHFC_AmtLayout">
+                     <div class="AHFC_AmtWrap">
+                        <div class="AHFC_CalLabel">
+                           <b class="AHFC_labelHeading">
+                              <template if:true={isPayOff}>{label.PAYOFF_AMOUNT}</template>
+                              <template if:true={isPurchase}>{label.PURCHASE_AMOUNT}</template>
+                           </b>
+                        </div>
+                        <div class="AHFC_CalVal">
+                           <template if:true={recordData}>
+                              <lightning-formatted-number value={recordData.payoffAmount} format-style="currency" currency-code="USD"></lightning-formatted-number>
+                           </template>
+                           <!-- <span>$5,340.00</span> -->
+                        </div>
+                        <div class="AHFC_Subtxt">
+                           {label.GOOD_THROUGH}
+                           <lightning-formatted-date-time value={goodThroughDate} month="short" day="2-digit">
+                           </lightning-formatted-date-time>
+                           (today)
+                        </div>
+                     </div>
+                     <div class="AHFC_AmtWrap">
+                        <div class="AHFC_CalLabel"><b class="AHFC_labelHeading">{label.MATURITY_DATE}</b></div>
+                        <div class="AHFC_CalVal">
+                           <lightning-formatted-date-time value={defaultDetails.maturityDate}>
+                           </lightning-formatted-date-time>
+                        </div>
+                        <div class="AHFC_maturitySubhead">
+                           <template if:true={isPurchase}>{label.Sales_Tax_3} <a class="AHFC_Colred" onclick={navigateToPayoffArticlePage}> {label.FAQ}</a> for more information on sales tax.
+                           </template>
+                        </div>
+                     </div>
+                     <div>
+                        <template if:true={isAccClosed}><button onclick={returnToDashBoard}
+                              class="slds-button ahfc-btn AHFC_SubmitBut ahfc-btn-primary">Return To
+                              Dashboard</button></template>
+                        <template if:false={isAccClosed}><button onclick={handleSubmitClick}
+                              class="slds-button ahfc-btn AHFC_SubmitBut ahfc-btn-primary" if:true={isPayOff}>{label.SUBMIT_PAYOFF}</button>
+                              <button onclick={handleSubmitClick}
+                              class="slds-button ahfc-btn AHFC_SubmitBut ahfc-btn-primary"  if:true={isPurchase}>{label.SUBMIT_PURCHASE}</button></template>
+                     </div>
+                  </div>
+                  <template if:false={isAccClosed}>
+                     <div class="AHFC_SubheadStyle">
+                        <template if:true={isPayOff}>
+                           <h2 class="AHFC_innerHeader">{label.Estimate_Future_Payoff}</h2>
+                           <div class="AHFC_InnerHeadCont AHFC_bgCont">
+                              <p class="AHFC_estimateSubheading"> {label.AHFC_Pay_Off_Estimate_Message}
+                                 <b> {label.ESTIMATE}</b>
+                              </p>
+                           </div>
+                        </template>
+                        <template if:true={isPurchase}>
+                           <h2 class="AHFC_innerHeader">{label.Estimate_Future_Purchase}</h2>
+                           <div class="AHFC_InnerHeadCont AHFC_bgCont">
+                              <p class="AHFC_estimateSubheading"> {label.AHFC_Purchase_Estimate_Message}
+                                 <b> {label.ESTIMATE}</b>
+                              </p>
+                           </div>
+                        </template>
+
+                        <div class="slds-grid CalLayoutMob">
+                           <div class="AHFC_Calwidth">
+                              <span>
+                                 <c-a-h-f-c_full-calendar onseldate={handleSelectedDate}>
+                                 </c-a-h-f-c_full-calendar>
+                              </span>
+                           </div>
+                           <div>
+                              <span>
+                                 <div class="AHFC_AmtWrap AHFC_rightSpace">
+                                    <div class="AHFC_CalLabel">
+                                       <div class="AHFC_estimatedHeading">
+                                          <template if:true={isPayOff}>{label.ESTIMATED_PAYOFF_AMOUNT}</template>
+                                          <template if:true={isPurchase}>{label.ESTIMATED_PURCHASE_AMOUNT}</template>
+                                       </div>
+                                    </div>
+                                    <div class="AHFC_CalVal">
+                                       <template if:true={recordDataSelectedDate}>
+                                          <lightning-formatted-number value={recordDataSelectedDate.payoffAmount} format-style="currency" currency-code="USD"></lightning-formatted-number>
+                                       </template>
+                                    </div>
+                                    <div class="AHFC_Subtxt">
+                                       {label.GOOD_THROUGH}
+                                       <lightning-formatted-date-time value={goodThroughDateSelectedDate} month="short"
+                                          day="2-digit"></lightning-formatted-date-time>
+                                    </div>
+                                 </div>
+                              </span>
+                           </div>
+                        </div>
+                     </div>
+                  </template>
+                  <div style="padding-top : 50px">
+                     <c-a-h-f-c_dashboard-faq page-name='Payoff_Purchase'></c-a-h-f-c_dashboard-faq>
+                  </div>
+          
+               </div>
+              
+            </div>
+         </template>
+      </template>
+    
+   </div></div>
+   
+   <!--PopSection Starts-->
+   <template if:true={showPopUp}>
+      <section role="dialog" tabindex="-1"  aria-label="lease purchase Attention Popup" aria-modal="true" aria-hidden="true"
+         aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open attention-modal" >
+         <div class="slds-modal__container">
+            <div class="slds-modal__content attention-modal-content" id="modal-content-id-1">
+               <a href="javascript:void" tabindex="-1"> <lightning-button-icon class="slds-modal__close cross-icon" title="Close" variant="bare"
+                  icon-name="utility:close" aria-label="modal close" onclick={onCancel} size="large"></lightning-button-icon></a>
+               <div class="attention-info">
+                  <h1 class="header-text-med slds-m-bottom_x-large">Attention</h1>
+                  <p class="para-text-med slds-m-bottom_x-large">
+                     {label.AHFC_PayoffCalendarMessageAttention1}
+                     &nbsp;<a onclick={navigateToPayoffArticlePage}>here.</a>
+                  </p>
+                  <p class="para-text-med">
+                     {label.AHFC_PayoffCalendarMessageAttention2}
+                     &nbsp;<a href={findDealer}> {label.AHFC_Find_a_Dealer}</a>
+                  </p>
+               </div>
+               <div class="modal-action ahfc_buttons slds-m-vertical_x-large">
+                  <button class="slds-button continue-button ahfc-action-btn" onclick={acceptContinue}>
+                     Continue
+                  </button>
+                  <button class="slds-button ahfc-action-btn cancel-action" onclick={onCancel}>
+                     Cancel
+                  </button>
+               </div>
+            </div>
+         </div>
+      </section>
+      <div class="slds-backdrop slds-backdrop_open" aria-hidden="true"></div>
+   </template>
+   <!--PopSection Ends-->
+</template>

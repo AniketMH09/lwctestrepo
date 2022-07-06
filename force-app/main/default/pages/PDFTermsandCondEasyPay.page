@@ -1,0 +1,146 @@
+<apex:page renderAs="pdf"  >
+  <apex:form > 
+   
+    
+  
+  <!-- Bank Account Terms and condition --------------------- -->
+    <div class="textarea-text terms-condition"   id="TermsConditiontxtarea">
+        <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda == 'true' ,true,false) }">
+        <div class="print-pdf-section">
+           <h2 style="text-decoration: underline; font-weight:bold; font-size:22px;">EasyPay Terms &amp; Conditions</h2>
+           <p>To continue the EasyPay<sup>SM</sup> enrollment process, please read the following terms and conditions:</p>
+
+           <p class="tc-head" style="text-decoration: underline; font-weight:bold;">Consent To Do Business Electronically</p>
+           <p class="tc-content" style="line-height:23px;">You have a right to receive a copy of your preauthorized electronic funds transfer authorization and consent to receive such copy 
+                                 electronically. Your consent is limited to receiving a copy of your authorization and information relating to EasyPay.</p>
+
+           <p class="tc-content" style="line-height:23px;">You can withdraw your consent at any time during this enrollment process before you click the Enrollment Confirmation's 
+                                 "Submit" button by clicking on your browser's "Back" button or clicking on the "Cancel" button. However, your enrollment may be 
+                                 completed online only if you agree to accept the copy of your authorization in electronic form. Otherwise, you may complete the 
+                                 enrollment form on the back of your statement and mail it with your next payment.</p>
+           <p class="tc-content" style="line-height:23px;">If you accept an electronic copy of your authorization, you may later obtain a paper copy by contacting your Honda Financial Services 
+                                 (HFS) region below. In addition, you can cancel or update your information at any time by clicking on the “Manage EasyPay” button on your 
+                                 Account Overview home page.</p>
+
+           <p class="tc-content" style="line-height:23px;">In order to transmit, receive, and retain your authorization and other information related to your EasyPay enrollment, you should have and 
+                                 continue to have: Windows 95/98/NT/2000 or Macintosh OS 8.5 or higher and an Internet browser (Microsoft Internet Explorer 4.0 or higher, 
+                                 Netscape Navigator 4.08 or higher, or AOL 4.0 or higher). To print or download disclosures you should have a printer connected to your PC 
+                                 or sufficient hard-drive space for saving the disclosure.</p>
+           <p class="tc-content" style="line-height:23px;">
+            By checking the “I Agree” box below, you agree that you have the ability to transmit, receive, and retain disclosures in electronic form and that you consent to 
+            receive such disclosures electronically.
+        </p>
+        <p class="tc-head" style="text-decoration: underline; font-weight:bold;">Consent To Automatic Payments</p>
+        <p class="tc-content" style="line-height:23px;">You authorize Honda Financial Services (HFS) to withdraw funds by electronic transfer from the financial institution and account named for 
+                                regularly scheduled payments ("EasyPay") due under the terms of the Retail Installment Contract/Motor Vehicle Lease Agreement between HFS and 
+                                the owner/lessee named in the contract/agreement. You understand that the regularly scheduled payment, or the amount that you designate, will 
+                                be automatically withdrawn even if additional payments are submitted during the same calendar month. Your EasyPay monthly payment will be 
+                                transferred from your checking or savings account within two business days of the day of the month you select. Should the payment due date 
+                                fall on a Sunday or holiday, the payment will be processed within the next two business days. If your selected payment date falls on the 29th,
+                                 30th, or 31st, for months with a shorter number of days, we will process the payment from your checking or savings account on the last day of
+                                  
+                                the month (or within two business days if the last day of the month is a Sunday or holiday).</p>
+        <p class="tc-content" style="line-height:23px;">You will continue to receive a monthly statement detailing the date and amount of the automatic payment and any other amounts owing, if applicable. 
+                              The date and amount of the automatic payment on your statement is your proof of payment.</p>
+        <p class="tc-content" style="line-height:23px;">You understand that HFS will discontinue EasyPay if it learns that you have filed a petition for bankruptcy,if we confirm your request to voluntarily
+                               surrender the vehicle/collateral subject to the Retail Installment Contract/Motor Vehicle Lease Agreement, or if the vehicle/collateral is subject 
+                               to repossession.</p>
+        <p class="tc-content" style="line-height:23px;">This authorization will remain in effect until you cancel the EasyPay schedule online; or we receive written notice from you; or until your account 
+                              has been paid in full. HFS may discontinue EasyPay at any time for any reason without prior notice. You may elect to cancel your authorization at 
+                              any time online by accessing the EasyPay "Cancellation" option at www.hondafinancialservices.com/MyAccount, or contacting your HFS region or in 
+                              your monthly statement. The cancellation will stop your next regularly scheduled payment as long as it is made five business days in advance of 
+                              that scheduled payment, as we need time to process your cancellation. In addition, you may stop payment by notifying your financial institution 
+                              verbally or in writing at any time up to 2 business days before the regularly scheduled payment date.</p>
+        <p class="tc-content" style="line-height:23px;">These methods of cancellation (and other methods of cancellation we may make available from time to time) are the only ways that you can cancel 
+                               this authorization.</p>
+        <p class="tc-content" style="line-height:23px;">Please notify us of any checking or savings account or address changes as soon as possible to ensure timely payments. Checking or savings account 
+                                changes made via the web portal will be processed within that same day, but payments already scheduled to be made the same day of the change will 
+                                still be processed. Checking or savings account changes requested via other written mediums will require a 10 day processing period after receipt 
+                                of the request. You may change your personal bank account from which your monthly funds are deducted by accessing the Manage EasyPay option and 
+                                selecting the "Edit icon” at www.hondafinancialservices.com/MyAccount, or contacting your HFS region at the return address below or in your monthly 
+                                statement.</p>
+        <p class="tc-content">
+            You acknowledge that EasyPay does not automatically withdraw funds to pay charges in excess of your regularly scheduled payments. Such incidental charges may include 
+                        property taxes, registration fees, parking tickets, etc. and must be paid separately.
+        </p>
+        <p class="tc-content" style="line-height:23px;">If your transfer is rejected due to insufficient funds, HFS may charge you a fee and your bank may also charge you a fee. If your transfer is 
+                               rejected due to insufficient funds on three occasions within a 12 month period, we will cancel your EasyPay enrollment and will no longer attempt 
+                               to debit funds from your account.</p>
+                               
+        <p class="tc-content">You agree that the payments authorized by you must comply with the terms of U.S. law.</p>
+        <p class="tc-content">After you have accepted the terms and conditions and completed your EasyPay setup, we will confirm the date on which your first EasyPay payment 
+        will be processed. Please follow the instructions regarding any payments due before your first EasyPay payment will be processed.</p>
+        <p class="tc-content">For information about how to contact Honda Financial Services  
+              <a style="content:'(attr(href)')'" href="{!$Label.HondaCSEP}">Click Here</a>.</p>
+    </div>
+    </apex:outputpanel>  
+      
+    <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda =='false' ,true,false) }">
+    <!-- Acura Terms condition -->
+    <div class="print-pdf-section">
+       <h2 style="text-decoration: underline; font-weight:bold; font-size:22px;">EasyPay Terms &amp; Conditions</h2>
+       <p>To continue the EasyPay<sup>SM</sup> enrollment process, please read the following terms and conditions:</p>
+    
+       <p class="tc-head" style="text-decoration: underline; font-weight:bold;">Consent To Do Business Electronically</p>
+       <p class="tc-content" style="line-height:23px;">You have a right to receive a copy of your preauthorized electronic funds transfer authorization and consent to receive such copy electronically. 
+                               Your consent is limited to receiving a copy of your authorization and information relating to EasyPay.</p>
+    
+       <p class="tc-content" style="line-height:23px;">You can withdraw your consent at any time during this enrollment process before you click the Enrollment Confirmation's "Submit" button by 
+       clicking on your browser's "Back" button or clicking on the "Cancel" button. However, your enrollment may be completed online only if you agree to accept the copy of 
+       your authorization in electronic form. Otherwise, you may complete the enrollment form on the back of your statement and mail it with your next payment.</p>
+       <p class="tc-content" style="line-height:23px;">If you accept an electronic copy of your authorization, you may later obtain a paper copy by contacting your Acura Financial Services (AFS) 
+       region below. In addition, you can cancel or update your information at any time by clicking on the “Manage EasyPay” button on your Account Overview home page.</p>
+    
+       <p class="tc-content" style="line-height:23px;">In order to transmit, receive, and retain your authorization and other information related to your EasyPay enrollment, you should have and 
+       continue to have: Windows 95/98/NT/2000 or Macintosh OS 8.5 or higher and an Internet browser (Microsoft Internet Explorer 4.0 or higher, Netscape Navigator 4.08 
+       or higher, or AOL 4.0 or higher). To print or download disclosures you should have a printer connected to your PC or sufficient hard-drive space for saving the disclosure.</p>
+       <p class="tc-content" style="line-height:23px;">
+        By checking the “I Agree” box below, you agree that you have the ability to transmit, receive, and retain disclosures in electronic form and that you consent 
+        to receive such disclosures electronically.
+    </p>
+    <p class="tc-head" style="text-decoration: underline; font-weight:bold;">Consent To Automatic Payments</p>
+    <p class="tc-content" style="line-height:23px;">You authorize Acura Financial Services (AFS) to withdraw funds by electronic transfer from the financial institution and account named for regularly 
+                            scheduled payments ("EasyPay") due under the terms of the Retail Installment Contract/Motor Vehicle Lease Agreement between AFS and the owner/lessee 
+                            named in the contract/agreement. You understand that the regularly scheduled payment, or the amount that you designate, will be automatically 
+                            withdrawn even if additional payments are submitted during the same calendar month. Your EasyPay monthly payment will be transferred from your 
+                            checking or savings account within two business days of the day of the month you select. Should the payment due date fall on a Sunday or holiday, 
+                            the payment will be processed within the next two business days. If your selected payment date falls on the 29th, 30th, or 31st, for months with 
+                            a shorter number of days, we will process the payment from your checking or savings account on the last day of the month (or within two business 
+                            days if the last day of the month is a Sunday or holiday).</p>
+    <p class="tc-content" style="line-height:23px;">You will continue to receive a monthly statement detailing the date and amount of the automatic payment and any other amounts owing, if applicable. 
+                            The date and amount of the automatic payment on your statement is your proof of payment.</p>
+    <p class="tc-content" style="line-height:23px;">You understand that AFS will discontinue EasyPay if it learns that you have filed a petition for bankruptcy,if we confirm your request to voluntarily 
+                            surrender the vehicle/collateral subject to the Retail Installment Contract/Motor Vehicle Lease Agreement, or if the vehicle/collateral is subject 
+                            to repossession.</p>
+    <p class="tc-content" style="line-height:23px;">This authorization will remain in effect until you cancel the EasyPay schedule online; or we receive written notice from you; or until your account 
+                            has been paid in full. AFS may discontinue EasyPay at any time for any reason without prior notice. You may elect to cancel your authorization at 
+                            any time online by accessing the EasyPay "Cancellation" option at www.acurafinancialservices.com/MyAccount, or contacting your AFS region or in 
+                            your monthly statement. The cancellation will stop your next regularly scheduled payment as long as it is made five business days in advance of 
+                            that scheduled payment, as we need time to process your cancellation. In addition, you may stop payment by notifying your financial institution 
+                            verbally or in writing at any time up to 2 business days before the regularly scheduled payment date.</p>
+    <p class="tc-content" style="line-height:23px;">These methods of cancellation (and other methods of cancellation we may make available from time to time) are the only ways that you can cancel this 
+                            authorization.</p>
+    <p class="tc-content" style="line-height:23px;">Please notify us of any checking or savings account or address changes as soon as possible to ensure timely payments. Checking or savings account 
+                            changes made via the web portal will be processed within that same day, but payments already scheduled to be made the same day of the change will 
+                            still be processed. Checking or savings account changes requested via other written mediums will require a 10 day processing period after receipt 
+                            of the request. You may change your personal bank account from which your monthly funds are deducted by accessing the Manage EasyPay option and 
+                            selecting the "Edit icon” at www.acurafinancialservices.com/MyAccount, or contacting your AFS region at the return address below or in your monthly 
+                            statement.</p>
+    <p class="tc-content" style="line-height:23px;">
+        You acknowledge that EasyPay does not automatically withdraw funds to pay charges in excess of your regularly scheduled payments. Such incidental charges may include 
+            property taxes, registration fees, parking tickets, etc. and must be paid separately.
+    </p>
+    <p class="tc-content" style="line-height:23px;">If your transfer is rejected due to insufficient funds, AFS may charge you a fee and your bank may also charge you a fee. If your transfer is rejected 
+                            due to insufficient funds on three occasions within a 12 month period, we will cancel your EasyPay enrollment and will no longer attempt to debit 
+                            funds from your account.</p>
+    <p class="tc-content">You agree that the payments authorized by you must comply with the terms of U.S. law.</p>
+    <p class="tc-content">After you have accepted the terms and conditions and completed your EasyPay setup, we will confirm the date on which your first EasyPay payment will 
+    be processed. Please follow the instructions regarding any payments due before your first EasyPay payment will be processed.</p>
+    <p class="tc-content">For information about how to contact Acura Financial Services   <a style="content:'(attr(href)')'" href="{!$Label.AcuraCSEP}">Click Here</a>.</p>  
+    </div>
+    </apex:outputpanel>
+    </div>
+    
+ </apex:form>   
+    <!--------------------End of Terms and Conditions ----------------- -->
+</apex:page>

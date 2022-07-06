@@ -1,0 +1,141 @@
+<!--
+* Appirio, Inc
+* Name: AHFC_Lease_Terms_Conditions
+* Description: AHFC_Lease_Terms_Conditions(T-761057)
+* Created Date: 28-Nov-2018
+* Created By: Naveen Pilla
+*-->
+<aura:component  implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    
+    <aura:attribute name= "value" type="String" />
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <aura:attribute name=  "checked" type="boolean" default="false"/>
+    <aura:attribute name= "subdomain" type="string" default=""/>
+    <aura:attribute name= "instance" type="string" default=""/>
+    <aura:attribute name= "communityName" type="string" default=""/>
+    
+    <aura:attribute name= "readTerms" type="string" default=""/>
+    <aura:attribute name= "instruction1" type="string" default=""/>
+    <aura:attribute name= "LeTermsHeading" type="string" default=""/>
+    <aura:attribute name= "instruction2" type="string" default=""/>
+    <aura:attribute name= "temsList" type="string" default=""/>
+    <aura:attribute name= "downloadButton" type="string" default=""/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <ltng:require styles="{!$Resource.AHFC_UI_Kit}"/>
+    
+    <div class="contain">
+        <div class="center">
+            <h2 class="header">{!$Label.c.ReadTerms}</h2>
+            
+            <div class="slds-grid_pull-padded-sm">
+                <a href="#">
+                <lightning:progressIndicator currentStep="step-2" type="path" variant="base">
+                    <lightning:progressStep label="Select Term" value="step-1"/>
+                    <aura:if isTrue="{!or($Browser.isPhone, $Browser.isTablet)}">
+                        <lightning:progressStep label="T&amp;Cs" value="step-2"/>
+                        <aura:set attribute="else">
+                            <lightning:progressStep label="Terms &amp; Conditions" value="step-2"/>
+                        </aura:set>
+                    </aura:if>
+                    <lightning:progressStep label="Review" value="step-3"/>
+                    <lightning:progressStep label="Complete" value="step-4"/>
+                </lightning:progressIndicator>
+                </a>
+            </div>
+            
+            <div class="info">
+                <p>{!$Label.c.LE_TermsCond_Instruction1}
+                </p>
+            </div>
+            
+            <h3 class="mt-lg"><b>{!$Label.c.LE_TemsCons_Sub_Heading}</b></h3><br/>
+            <div class="contain-secondary">
+                <p>{!$Label.c.LE_TermsCond_Instruction2} 
+                </p>                
+            </div>
+            
+            <div class="contain-secondary">
+                <div class="mb-md">
+                    <div class="TermsConditionsTextBox">
+                        <ul style="list-style-type:disc">
+                            <li>The lease extension is month-to-month and can be terminated at any time during the extension period. If you decide to end your lease before your extended maturity date, you must contact us one month prior to returning your vehicle.</li>
+                            <li>If you reside in any of these states, please note that your state requires us to charge upfront taxes for the full term of your lease extension: IA, IL, ME, MN, ND, NJ, OH and SD. Upfront taxes are non-refundable if the extension is terminated early.</li>
+                            <li>Your monthly payment amount and payment due date will remain the same. If you are using EasyPay<sup class ="superscript">SM</sup>, this service will automatically continue through the lease extension period. Your account must be in good standing at the time we process your request for EasyPay to automatically continue. 
+                                As a reminder, EasyPay will only withdraw your upcoming monthly payment amount. Past due monthly payments or any additional fees charged to your account must be paid separately.
+                            </li>
+                            <li>Please note that your payment may have included additional service or maintenance plan products purchased, and those products may expire on the original maturity date. Refer to your original Lease Agreement for such products. </li>
+                            <li>Your mileage allowance will be extended at a prorated monthly rate based on the allowed mileage in your original agreement. Refer to your original Lease Agreement for those terms.  </li>
+                            <aura:if isTrue="{!v.communityName == 'hondahelp'}">
+                                <li>As a reminder, the Honda Limited Warranty on your lease vehicle covers 3 years/36,000 miles non-powertrain and 5 years/60,000 miles on powertrain.</li>
+                            </aura:if>
+                            <aura:if isTrue="{!v.communityName == 'acurahelp'}">
+                                <li>As a reminder, the Acura Limited Warranty on your lease vehicle covers 4 years/50,000 miles non-powertrain and 6 years/70,000 miles on powertrain.</li>
+                            </aura:if>
+                            <li>All of the terms and conditions contained in the current Lease Agreement will remain in full force and effect, except as modified by the Extension Agreement.  </li>
+                        </ul>
+                        
+                        <br/> 
+                        
+                        <div class="slds-col slds-size_1-of-1 ">
+                            <ui:inputCheckbox class="myCheckbox" aura:id="checkbox"  value="{!v.checked}"  />&nbsp;&nbsp; <b>I agree</b>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="mb-lg mt-lg">
+                    <div class="slds-col slds-size_1-of-1">
+                        <aura:if isTrue="{!v.communityName == 'hondahelp'}">
+                            <a class="download" href="{!$Label.c.Honda_Disclosure_Download+'?communityName='+v.communityName}" target="_blank">
+                                <img src="{!$Resource.AHFC_UI_Kit + '/img/icons/download-icon-o.svg'}"/>
+                                <span>{!$Label.c.LE_TermsCond_DownloadButton}</span>
+                            </a>    
+                            <aura:set attribute="else">
+                                <a class="download" href="{!$Label.c.Acura_Disclosure_Download+'?communityName='+v.communityName}" target="_blank">
+                                    <img src="{!$Resource.AHFC_UI_Kit + '/img/icons/download-icon-o.svg'}"/>
+                                    <span>{!$Label.c.LE_TermsCond_DownloadButton}</span>
+                                </a>    
+                            </aura:set>
+                        </aura:if>
+                        
+                    </div>
+                </div>
+                
+                
+            </div>  
+            
+            <div class="action slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 action__prev-cancel">  
+                    <lightning:button class="btn default mr-sm" aura:id="previous1" name="previousButton1" label="Previous" onclick="{!c.handlePrevious}"/>
+                    <lightning:button class="btn default mr-sm" aura:id="cancel1" name="cancelButton1" label="Cancel" onclick="{! c.openModel }"/>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                    
+                    <lightning:button class="{!v.checked != true ?	'btn grey pull-right btn-continue':'btn primary pull-right btn-continue'}"
+                                      disabled="{!v.checked != true ? 'true':'false'}" aura:id="cont3" name="continue3" label="I Acknowledge and Continue" onclick="{!c.handleContinue}"/>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <div class="confirm-modal">
+        <aura:if isTrue="{!v.isOpen}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Confirmation</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <aura:unescapedHtml value ="{!$Label.c.AHFC_Cancel_Lease_Extension}"/>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning:button class="btn default pull-left mr-sm" aura:id="cancel2" name="cancelButton2" label="Cancel" onclick="{! c.closeModel }"/>
+                        <lightning:button class="btn primary pull-right"
+                                          aura:id="cont3" name="continue3" label="Continue" onclick="{!c.redirectToHome}"/>
+                        
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    </div>
+</aura:component>

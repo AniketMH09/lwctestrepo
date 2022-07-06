@@ -1,0 +1,19 @@
+<template>
+    <div class="slds-grid slds-wrap slds-grid_align-end slds-grid_vertical-align-center ahfc-pagination">
+        <span>{showingText}</span>
+        <a class={prevClass} href="javascript:void(0)" onclick={setPrevPage}> 
+            <lightning-icon class="page-icon" icon-name="utility:chevronleft" size="x-small"
+                    alternative-text="previous" title="previous"></lightning-icon>
+                  
+        </a>
+        <template for:each={pageNoArray} for:item="page">
+            <a data-page={page.pageNo} class={page.className} key={page.pageNo} href="javascript:void(0)" onclick={setPage} aria-current="true" aria-label={page.pagename}>
+            {page.pageNo}  
+            </a>
+        </template>
+        <a class={nextClass} href="javascript:void(0)" onclick={setNextPage}>
+            <lightning-icon class="page-icon" icon-name="utility:chevronright" size="x-small"
+                    alternative-text="next" title="next"></lightning-icon> 
+        </a>
+    </div>
+</template>

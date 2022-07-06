@@ -1,0 +1,12 @@
+<design:component>
+	<design:attribute name="instructions" label="instructions1" />
+    <design:attribute name="instructions2" label="instructions2" />
+    <design:attribute name="LeaseExtensionRequestCompleted" label="Lease Extension Request Completed"/>
+    <design:attribute name = "instructions3" label = "instructions3"/>
+    <design:attribute name = "instructions4" label = "instructions4"/>
+    <design:attribute name = "ReturntoAccountOverview" label = "Return to Account Overview"/>
+    <design:attribute name = "EnrollinAccountStatusUpdates" label="Enroll in Account Status Updates"/>
+    <design:attribute name = "CaseNumber" label="Case Number"/>
+    <design:attribute name=  "FCId" label="FCId"/>
+    <design:attribute name=  "FlowCaseId" label="FlowCaseId"/>
+</design:component>

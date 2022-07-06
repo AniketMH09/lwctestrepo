@@ -1,0 +1,19 @@
+<apex:page >
+<!-- This page will be added to all the Agent Console VF Pages to Disable any button that is under a page block button tag
+Parameter - btnId (Button Id that needs to be disabled.)
+-->
+<!-- Fix for defect # 114490 - Added to prevent Mutiple One Time Payments records created for Agent and Web customers when only 1 payment is submitted.-->
+<script> 
+    var $j = jQuery.noConflict(); 
+    var saved = false; 
+    function DisableButton() { 
+        if (saved) { 
+            return true; 
+        } 
+    $j('[id$="'+'saveButton'+'"]').addClass('btnDisabled'); 
+    $j('[id$="'+'saveNewButton'+'"]').addClass('btnDisabled'); 
+    saved = true; 
+    return false; 
+} 
+</script>
+</apex:page>

@@ -1,0 +1,233 @@
+.AHFC_Spinnereg{
+  --lwc-colorBackgroundSpinnerDot:rgb(228, 37, 37) !important;
+}
+.slds-grid_vertical-align-end {
+  align-items: normal !important;
+}
+
+.ahfc-text-size {
+  font-size: 16px !important;
+}
+
+.sub-header {
+    border-bottom: 1px solid #d9d9d9;
+  }
+  .container {
+    padding: 24px 0 0;
+  }
+  .container-bottom-gap {
+    padding-bottom: 24px;
+  }
+  .container .vehicle-logo {
+    padding-left: 15px;
+  }
+  .vehicle-img {
+    margin: 0 20px;
+    max-width: 120px;
+    width: 100% !important;
+  }
+  .vehicleaccount-info p {
+    margin-top: 8px;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .container {
+      padding: 0 0;
+    }
+    .vehicle-info {
+      border-left: 1px solid #d9d9d9;
+    }
+    .container .slds-col:first-child {
+      width: 120px;
+    }
+    .container .slds-col:nth-child(2) {
+      width: calc(100% - 120px);
+    }
+    .vehicle-img { 
+      max-width: 150px;
+    }
+    .vehicleaccount-info h1{
+      width: 71%;
+    }
+  }
+
+
+
+
+  .header-text-medium {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 26px;
+    line-height: 36px;
+    color: #000000;
+  }
+  .label-text-medium {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    display: block;
+    letter-spacing: 0.03em;
+    color: #5e6162;
+  }
+  .para-text-medium {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: #5e6162;
+  }
+  .form-element-input{
+    border-width: 0px 0px 1px 0px solid #5E6162;
+    border-radius: 0;
+    background: #f7f7f7;
+    height: 56px;
+    font-family: Roboto;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: black;
+  }
+  .form-element-input:focus{
+    outline: none;
+    box-shadow: none;
+    border-color: #5E6162;
+  }
+  .check-billing p, 
+  .check-billing .slds-form-element__label{
+    font-size: 18px !important;
+    color: #000000;
+  }
+  .finance-account-edit-modal{
+    position: absolute;
+  }
+  .finance-account-edit-modal:focus{
+    outline: none;
+  }
+  .finance-account-edit-modal .slds-modal__container{
+    height: auto;
+  }
+  .action-btn {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    padding: 14px 24px;
+    letter-spacing: 0.06em;
+  }
+  
+  
+  
+  .edit-modal-content{
+    padding: 80px 100px;
+    border-radius: 0px;
+  }
+  .stop-finance-info{
+      background-color: #F7F7F7;
+      padding: 24px;
+  }
+  .save-action {
+    background-color: #CC0000;
+    border: none;
+    color: #ffffff;
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin-right: 16px;
+  }
+  .cancel-action{
+      color: #CC0000;
+  }
+  
+@media (min-width: 992px) {
+  .finance-account-edit-modal .slds-modal__container {
+    margin: 0 auto;
+    width: 50%;
+    max-width: inherit;
+    min-width: inherit;
+  }
+  .ahfc-container {
+    width: auto !important; 
+    max-width: none !important; 
+    margin: 0px 130px 10px 130px!important;
+  }
+
+}
+
+  /* bug fix- 13042 start */
+  .AHFC_CarousalButtons{
+    top: 21%;
+  }
+  /* bug fix- 13042 end */
+
+/* Added by Aswin Jose for US : 13061 Start*/
+.ahfc-honda-blue {
+    border-left: 2px solid #1b86c3;
+    padding: 11px 0 11px 30px;
+}
+.ahfc-honda-black {
+    border-left: 2px solid black;
+    padding: 11px 0 11px 30px;
+}
+.ahfc-honda-navyblue {
+    border-left: 2px solid #083F88;
+    padding: 11px 0 11px 30px;
+}
+.ahfc-honda-red {
+    border-left: 2px solid #DF1B21;
+    padding: 11px 0 11px 30px;
+}
+/* Added by Aswin Jose for US : 13061 End*/
+
+
+@media screen and (min-width: 250px) and (max-width: 540px) {
+  .finance-account-edit-modal .slds-modal__container{
+    width: 100%;
+    margin: 0px;
+  }
+  .edit-modal-content{
+    padding: 32px;
+  }
+  /* bug fix- 13042 start */
+  .AHFC_CarouselIndicator a{
+    height: 9px;
+    width: 9px;
+  }
+  .AHFC_CarouselIndicator .slds-is-activea{
+    height: 10px;
+    width: 10px;
+  }
+  /* bug fix- 13042 end */
+
+/* Added by Aswin Jose for US : 13061 start*/
+  .ahfc-honda-blue {
+      border-left: 0px;
+  }
+  .ahfc-honda-black {
+      border-left: 0px;
+  }
+  .ahfc-honda-navyblue {
+      border-left: 0px;
+      padding: 11px 0 0px 30px;
+  }
+  .ahfc-honda-red {
+      border-left: 0px;
+  }
+  /* Added by Aswin Jose for US : 13061 End*/
+
+  .container {
+    padding: 0px 0 0;
+  }
+  .ahfc-header-three{
+    font-size: 16px !important;
+  }
+  .ahfc-carousal .sfdc-carousel__indicators {
+    margin: 0px 0px !important;
+  }
+
+}

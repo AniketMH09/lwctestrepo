@@ -1,0 +1,163 @@
+<aura:component   controller="AHFC_Lease_Extension_Controller" access="global">
+    <!-- Inputs -->
+    <aura:attribute name = "currentMaturityDate" type = "String" /><!-- default="7/26/2018"-->
+    <aura:attribute name = "nextPaymentAmount" type = "String" default=""/>
+    <aura:attribute name = "nextPaymentAmountDecimal" type = "Decimal" default=""/>
+    <aura:attribute name = "noOfMonthsLeft" type = "Integer" />
+    <aura:attribute name=  "extensionTaxRate" type="String" />
+    <aura:attribute name=  "financeAcc" type="String"/>
+    <!-- Outputs -->
+    <aura:attribute name = "maturityDate" type = "String" />
+    <aura:attribute name = "selRequestedMonths" type = "String" />
+    <aura:attribute name = "nextMaturityDate" type = "String" />
+    <aura:attribute name=  "estimatedLETax" type="String" default=""/>
+    <!-- Others-->
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <aura:attribute name= "value" type="String" />
+    <aura:attribute name=  "disabled" type="boolean" default="true"/>
+    <aura:attribute name= "communityName" type="string" default=""/>
+    <aura:attribute name= "LeaseExtensionRequest" type ="string"/>
+      <aura:attribute name="selectedCountry" type="String"/>
+    <aura:attribute name="selectedState" type="String"/>
+ 
+    <aura:attribute name="objectAPIName" type="String" default="Account"/>
+    <aura:attribute name="countryPicklistAPIName" type="String" default="Country__c"/>
+    <aura:attribute name="statePicklistAPIName" type="String" default="State__c"/>
+    <aura:attribute name="prefoptions" type="List" default="[
+    {'label': 'Email', 'value': 'Email'},
+    {'label': 'Mail', 'value': 'Mail'}
+    ]"/>
+    <aura:attribute name="pref" type="String" default="Email"/>
+   
+    
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="contain">
+        <div class="center">
+            <h2 class="header">CCPA Request</h2>
+            
+            <div class="slds-grid_pull-padded-sm">
+                
+            </div>
+            
+            
+            <div class="info">
+                <p>Please enter your details</p>
+            </div>
+            
+           
+    
+
+    <lightning:radioGroup name="radioGroup"
+                          label="Communication Preference"
+                          options="{!v.prefoptions }"
+                          value="{! v.pref }"
+                          type="radio"/>
+            
+            
+            <div class="contain-secondary">
+                
+                <!-- CREATE NEW EXPENSE -->
+    <div aria-labelledby="newexpenseform">
+        <!-- BOXED AREA -->
+        <fieldset class="slds-box slds-theme--default slds-container--small">
+        
+  
+        <!-- CREATE NEW EXPENSE FORM -->
+        <form class="slds-form--stacked">          
+            <lightning:input aura:id="FirstName" label="First Name"
+                             name="firstname"
+                             value="{!v.firstname}"
+                             required="true"/> 
+            <lightning:input aura:id="middleName" label="Middle Name"
+                             name="middlename"
+                             value="{!v.middlename}"
+                             required="false"/> 
+            <lightning:input aura:id="lastName" label="Last Name"
+                             name="lastname"
+                             value="{!v.lastname}"
+                             required="true"/> 
+            <lightning:input aura:id="suffix" label="Suffix"
+                             name="suffix"
+                             value="{!v.suffix}"
+                             required="false"/> 
+            <lightning:input type="email" aura:id="email" label="Email Address"
+                             name="email"
+                             value="{!v.email}"
+                             required="{!v.bEmailRequired}"/> 
+            
+            <lightning:input type="tel" aura:id="tel" label="Phone"
+                             name="phone"
+                             value="{!v.phone}"
+                             required="{!v.bphoneRequired}"/> 
+            
+            <lightning:input aura:id="street1" label="Street Address 1"
+                             name="street1"
+                             value="{!v.street1}"
+                             required="true"/> 
+            <lightning:input aura:id="street2" label="Street Address 2"
+                             name="street2"
+                             value="{!v.street2}"
+                             required="false"/> 
+            <lightning:input aura:id="city" label="City"
+                             name="city"
+                             value="{!v.city}"
+                             required="true"/> 
+            <lightning:input aura:id="state" label="State"
+                             name="state"
+                             value="{!v.state}"
+                             required="true"/> 
+            <lightning:input aura:id="zip" label="Zip"
+                             name="zip"
+                             value="{!v.zip}"
+                             required="true"/> 
+            
+                        
+                       
+            
+            
+        </form>
+        <!-- / CREATE NEW EXPENSE FORM -->
+  
+      </fieldset>
+      <!-- / BOXED AREA -->
+    </div>
+    <!-- / CREATE NEW EXPENSE -->
+                
+                
+            </div>
+            <div class="action slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">  
+                    <lightning:button class="btn default mr-sm" aura:id="cancel1" name="cancelButton1" label="Cancel" onclick="{! c.openModel }"/>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">  
+                    <lightning:button class="{!v.disabled == true ?	'btn grey pull-right btn-continue':'btn primary pull-right btn-continue'}"
+                                      disabled="{!v.disabled == true ? 'true':'false'}" aura:id="cont3" name="continue3" label="Continue" onclick="{!c.handleContinue}"/>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <div class="confirm-modal">
+        <aura:if isTrue="{!v.isOpen}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!$Label.c.AHFC_Confirmation}</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <aura:unescapedHtml value ="{!$Label.c.AHFC_Cancel_Lease_Extension}"/>
+                        
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning:button class="btn default pull-left mr-sm" aura:id="cancel2" name="cancelButton2" label="Cancel" onclick="{! c.closeModel }"/>
+                        <lightning:button class="btn primary pull-right"
+                                          aura:id="cont3" name="continue3" label="Continue" onclick="{!c.redirectToHome}"/>
+                        
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    </div>
+</aura:component>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>ENCRYPTION_Details</label>
+    <protected>false</protected>
+    <values>
+        <field>APP_ID__c</field>
+        <value xsi:type="xsd:string">0sp2h000000CaVE</value>
+    </values>
+    <values>
+        <field>DEFAULT_SETTING_NAME__c</field>
+        <value xsi:type="xsd:string">Default</value>
+    </values>
+    <values>
+        <field>ENCRYPTION_KEY__c</field>
+        <value xsi:type="xsd:string">Zu5X9w6aVRe0qXT0vXQsUTmVPDxjeZ9W</value>
+    </values>
+    <values>
+        <field>HASHING_ALGORITHM_16BYTE__c</field>
+        <value xsi:type="xsd:string">MD5</value>
+    </values>
+    <values>
+        <field>HASHING_ALGORITH_32BYTE__c</field>
+        <value xsi:type="xsd:string">SHA-256</value>
+    </values>
+</CustomMetadata>

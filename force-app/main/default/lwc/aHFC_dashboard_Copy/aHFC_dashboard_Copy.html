@@ -1,0 +1,632 @@
+<template>
+   <template if:true={isLoaded}>
+      <lightning-spinner variant="brand" size="large">
+      </lightning-spinner>
+   </template>
+   <div class="submit-action slds-m-top_xx-large">
+      <button class="AHFC_btn_submit" title="SUBMIT" onclick={navigateToNextstep}>CONFIRM AND
+        SEE NEXT STEPS</button>
+    </div>
+   <template if:true={nextStep}>
+      <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+      <c-ahfc_next-steps></c-ahfc_next-steps>
+      </div></section>
+    </template>
+   <div class="ahfc-background-lighter">
+      <div class="car-header-container ahfc-background-lightest">
+         <template if:false={showBlankDashboard}>
+            <div class="ahfc-container">
+               <!-- Header Section -->
+               <div class="card-block ahfc-background-lightest carousal-card-block">
+                  <div class="ahfc-carousal slds-carousel">
+                     <div class="slds-carousel__stage">
+                        <div class="slds-carousel__panels">
+                           <template for:each={selServiceAccountWrapperForHeader} for:item="servAcc">
+                              <div key={servAcc.keyNo} id={servAcc.panelId} class="slds-carousel__panel" role="tabpanel"
+                                 aria-hidden={servAcc.ariaHidden} aria-labelledby={servAcc.indicatorId}>
+                                 <div class="slds-carousel__panel-action">
+                                    <div class="slds-grid slds-wrap carousal-card-item">
+                                       <div
+                                          class="slds-col slds-size_1-of-1 slds-large-size_4-of-12 car-header-left-border">
+                                          <div class="slds-grid slds-wrap car-header-logo-grid">
+                                             <div class="slds-col slds-size_4-of-12 slds-large-size_1-of-1 car-logo">
+                                                <div
+                                                   class="slds-grid slds-grid_align-spread slds-grid_vertical-align-end">
+                                                   <div class="slds-col">
+                                                      <img if:true={servAcc.isHonda} src={hondaLogoUrl}
+                                                         alt="honda logo" />
+                                                      <img if:false={servAcc.isHonda} src={acuraLogoUrl}
+                                                         alt="acura logo" />
+                                                   </div>
+                                                   <div class="slds-col slds-show_large">
+                                                      <a href="" tabindex={servAcc.tabIndex}
+                                                         onclick={navigatetoAccountprofile}
+                                                         class="ahfc-links ahfc-links-secondary">{labels.DashboardAccountDetails}</a>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div
+                                                class="slds-col slds-size_8-of-12 slds-large-size_1-of-1 car-name-container">
+                                                <div class="slds-grid">
+                                                   <div class="slds-col slds-align-middle">
+                                                      <p class="car-name">
+                                                         <span>{servAcc.name}</span>
+                                                         <a href="javascript:void(0);" tabindex={servAcc.tabIndex}
+                                                            onclick={opennicknamemodal}>
+                                                            <lightning-icon class="slds-show_large ahfc-icon"
+                                                               icon-name="utility:edit" alternative-text="edit"
+                                                               title="edit" size="small">
+                                                            </lightning-icon>
+                                                            <lightning-icon class="slds-hide_large ahfc-icon"
+                                                               icon-name="utility:edit" alternative-text="edit"
+                                                               title="edit" size="x-small">
+                                                            </lightning-icon>
+                                                         </a>
+                                                      </p>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div
+                                                class="slds-col slds-large-size_1-of-1 slds-show_large car-block-info">
+                                                <p
+                                                   class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps">
+                                                   {labels.DashboardVin}
+                                                </p>
+                                                <p class="ahfc-info-small ahfc-text-dark">
+                                                   {servAcc.vin}
+                                                </p>
+                                             </div>
+                                             <div class="slds-col slds-large-size_1-of-2 slds-show_large">
+                                                <p
+                                                   class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps">
+                                                   {labels.DashboardAccountNo}
+                                                </p>
+                                                <p class="ahfc-info-small ahfc-text-dark">
+                                                   {servAcc.accNo}
+                                                </p>
+                                             </div>
+                                             <div class="slds-col slds-large-size_1-of-2 slds-show_large">
+                                                <p
+                                                   class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps">
+                                                   {labels.DashboardAccountType}
+                                                </p>
+                                                <p class="ahfc-info-small ahfc-text-dark">
+                                                   {servAcc.accType}
+                                                </p>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="slds-col slds-size_1-of-1 slds-large-size_8-of-12 car-header-right">
+                                          <div class="slds-grid car-styles-block">
+                                             <div class="slds-col">
+                                                <div
+                                                   class="slds-grid slds-grid_reverse slds-grid_align-spread slds-grid_vertical-align-center slds-show_large car-header-options">
+                                                   <div class="slds-col">
+                                                      <div class="add-product">
+                                                         <a href="" tabindex={servAcc.tabIndex}
+                                                            onclick={navigatetoaddFincanceAccount}
+                                                            class="ahfc-links ahfc-links-primary slds-text-title_caps">
+                                                            <span>{labels.DashboardAddProduct}</span>
+                                                            <lightning-icon class="ahfc-icon ahfc-icon-red"
+                                                               icon-name="utility:add" alternative-text="add"
+                                                               title="add" size="x-small">
+                                                            </lightning-icon>
+                                                         </a>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="slds-col">
+                                                <div
+                                                   class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-bottom car-image-container">
+                                                   <div class="slds-col">
+                                                      <img src={servAcc.imageurl} alt="honda car" class="car-image" />
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </template>
+                        </div>
+                        <template if:true={showCarousel}>
+                           <ul class="slds-carousel__indicators slds-hide_large" role="tablist">
+                              <template for:each={selServiceAccountWrapperForHeader} for:item="servAcc">
+                                 <li key={servAcc.keyNo} data-indicator={servAcc.keyNo} class="slds-carousel__indicator"
+                                    role="presentation">
+                                    <a id={servAcc.indicatorId} data-indicator={servAcc.keyNo}
+                                       onclick={onCarousalIndicatorClick} class={servAcc.indicatorClass}
+                                       href="javascript:void(0);" role="tab" tabindex="0"
+                                       aria-selected={servAcc.ariaSelected} aria-controls={servAcc.panelId}
+                                       title={servAcc.name}>
+                                       <span class="slds-assistive-text"
+                                          data-indicator={servAcc.keyNo}>{servAcc.name}</span>
+                                    </a>
+                                 </li>
+                              </template>
+                           </ul>
+                           <div class="slds-show_large carousal-desktop">
+                              <button class={carousalPrevButtonClass} disabled={isCarousalFirstItem}
+                                 onclick={onCarousalPrevDesktop}>
+                                 <lightning-icon class="carousal-icon" icon-name="utility:chevronleft"
+                                    alternative-text="previous" title="previous" size="small">
+                                 </lightning-icon>
+                              </button>
+                              <button class={carousalNextButtonClass} disabled={isCarousalLastItem}
+                                 onclick={onCarousalNextDesktop}>
+                                 <lightning-icon class="carousal-icon" icon-name="utility:chevronright"
+                                    alternative-text="next" title="next" size="small">
+                                 </lightning-icon>
+                              </button>
+                           </div>
+                        </template>
+                     </div>
+                  </div>
+                  <!-- </div> -->
+                  <!-- For Mobile -->
+                  <div class="car-header-right slds-hide_large">
+                     <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center car-header-options">
+                        <div class="slds-col slds-hide_large">
+                           <a href="javascript:void(0)" class="ahfc-links ahfc-links-primary ahfc-toggle-link"
+                              if:false={showCarDetailsMobile} onclick={onMobileCarDetailsClick}>
+                              <span>{labels.DashboardMoreInfo}</span>
+                              <lightning-icon class="ahfc-icon ahfc-icon-red dashboard-icon"
+                                 icon-name="utility:chevrondown" size="xx-small" alternative-text="chevrondown"
+                                 title="chevrondown">
+                              </lightning-icon>
+                           </a>
+                           <a href="javascript:void(0)" class="ahfc-links ahfc-links-primary ahfc-toggle-link"
+                              if:true={showCarDetailsMobile} onclick={onMobileCarDetailsClick}>
+                              <span>{labels.DashboardLessInfo}</span>
+                              <lightning-icon class="ahfc-icon ahfc-icon-red dashboard-icon"
+                                 icon-name="utility:chevronup" size="xx-small" alternative-text="chevronup"
+                                 title="chevronup">
+                              </lightning-icon>
+                           </a>
+                        </div>
+                        <div class="slds-col">
+                           <div class="add-product">
+                              <a href="" onclick={navigatetoaddFincanceAccount}
+                                 class="ahfc-links ahfc-links-primary slds-text-title_caps">
+                                 <span>{labels.DashboardAddProduct}</span>
+                                 <lightning-icon class="ahfc-icon ahfc-icon-red" icon-name="utility:add"
+                                    alternative-text="add" title="add" size="x-small">
+                                 </lightning-icon>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="slds-grid">
+                        <div class="slds-col">
+                           <div class="slds-grid slds-wrap car-details-mobile" if:true={showCarDetailsMobile}>
+                              <div class="slds-col slds-size_1-of-1 car-block-info">
+                                 <p class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps">
+                                    {labels.DashboardVin}
+                                 </p>
+                                 <p class="ahfc-info-small ahfc-text-dark">
+                                    {selServiceAccountWrapperForMobile.vin}
+                                 </p>
+                              </div>
+                              <div class="slds-col slds-size_1-of-2">
+                                 <p class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps">
+                                    {labels.DashboardAccountNo}
+                                 </p>
+                                 <p class="ahfc-info-small ahfc-text-dark">
+                                    {selServiceAccountWrapperForMobile.accNo}
+                                 </p>
+                              </div>
+                              <div class="slds-col slds-size_1-of-2">
+                                 <p class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps">
+                                    {labels.DashboardAccountType}
+                                 </p>
+                                 <p class="ahfc-info-small ahfc-text-dark">
+                                    {selServiceAccountWrapperForMobile.accType}
+                                 </p>
+                              </div>
+                              <div class="slds-col car-header-account-details">
+                                 <a href="" onclick={navigatetoAccountprofile}
+                                    class="ahfc-links ahfc-links-secondary">{labels.DashboardAccountDetails}</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <template if:true={showmobile}>
+                     <template if:true={showdashboard}>
+                        <!-- Current Bill Section  -->
+                        <template if:true={isLocked}>
+                           <div class='slds-hide_large'>
+                              <c-a-h-f-c_message-toast class="made-payment-toast" type="error"
+                                 singlemsg='Your account is not available for online managment. Please contact us if you need assistance.'
+                                 show-icon="false">
+                              </c-a-h-f-c_message-toast>
+                           </div>
+                        </template>
+                        <template if:false={isLocked}>
+                           <template if:true={showMadePayment}>
+                              <div class='slds-hide_large'>
+                                 <c-a-h-f-c_message-toast class="made-payment-toast" type="warning"
+                                    singlemsg={labels.MadePaymentPastDue} singlelink={labels.MadePaymentAlreadyDone}
+                                    onsinglelinkclicked={navigateToMadePayment} show-icon="false">
+                                 </c-a-h-f-c_message-toast>
+                              </div>
+                           </template>
+                           <!-- 4674 - EOT info section start -->
+                           <div class='slds-hide_large' if:true={isEOTDashboardInfo}>
+                              <c-a-h-f-c_message-toast class="made-payment-toast infosec" type="info"
+                                 singlemsg='Did you know you have three options at the end of your lease?'
+                                 singlelink='Learn more.' onclosetoast={closeinfo}
+                                 show-icon="true">
+                              </c-a-h-f-c_message-toast>
+                           </div>
+                           <!-- 4674 - EOT info section end -->
+                        </template>
+                        <template if:false={isLocked}>
+                           <div class="slds-col slds-size_1-of-1" if:false={showBlankDashboard}>
+                              <div class="current-bill-mobile slds-hide_large">
+                                 <p class="section-header ahfc-text-header ahfc-text-dark slds-text-title_caps">
+                                    {labels.DashboardCurrentBill}
+                                 </p>
+                                 <c-a-h-f-c_dashboard-current-bill
+                                    sel-service-account-wrapper={selServiceAccountWrapper}>
+                                 </c-a-h-f-c_dashboard-current-bill>
+                              </div>
+                           </div>
+                        </template>
+                     </template>
+                  </template>
+               </div>
+            </div>
+         </template>
+         <template if:true={showBlankDashboard}>
+            <div class="ahfc-header-banner"></div>
+         </template>
+      </div>
+      <template if:true={showdashboard}>
+         <div class="ahfc-container">
+            <div class="slds-grid slds-wrap" if:true={showBlankDashboard}>
+               <div class="slds-col">
+                  <div class="card-block blank-state-block ahfc-background-lightest">
+                     <c-a-h-f-c_dashboard-blank></c-a-h-f-c_dashboard-blank>
+                  </div>
+               </div>
+            </div>
+            <template if:false={isLocked}>
+               <template if:true={showMadePayment}>
+                  <div class='slds-show_large'>
+                     <c-a-h-f-c_message-toast class="made-payment-toast" type="warning"
+                        singlemsg={labels.MadePaymentPastDue} singlelink={labels.MadePaymentAlreadyDone}
+                        onsinglelinkclicked={navigateToMadePayment} show-icon="false">
+                     </c-a-h-f-c_message-toast>
+                  </div>
+               </template>
+               <!-- 4674 - EOT info section start -->
+               <div class='slds-show_large' if:true={isEOTDashboardInfo}>
+                  <c-a-h-f-c_message-toast class="made-payment-toast" type="info"
+                     singlemsg='Did you know you have three options at the end of your lease?'
+                     singlelink='Learn more.'  onclosetoast={closeinfo}
+                     show-icon="true">
+                  </c-a-h-f-c_message-toast>
+            </div>
+            <!-- 4674 - EOT info section end -->
+            </template>
+            <template if:true={isLocked}>
+               <div class='slds-show_large'>
+                  <c-a-h-f-c_message-toast class="made-payment-toast" type="error"
+                     singlemsg='Your account is not available for online managment. Please contact us if you need assistance.'
+                     show-icon="false">
+                  </c-a-h-f-c_message-toast>
+               </div>
+            </template>
+            <!-- -- Desktop Section -->
+            <template if:true={showdesktop}>
+               <div class="slds-grid slds-wrap slds-grid_align-spread slds-show_large" if:false={isLocked}>
+                  <div class="slds-col slds-size_1-of-1 slds-large-size_8-of-12">
+                     <div class="slds-grid slds-wrap">
+                        <!-- Current Bill Section  -->
+                        <div class="slds-col slds-size_1-of-1" if:false={showBlankDashboard}>
+                           <div class="card-block ahfc-background-lightest">
+                              <p class="section-header ahfc-text-header ahfc-text-dark slds-text-title_caps">
+                                 {labels.DashboardCurrentBill}
+                              </p>
+                              <c-a-h-f-c_dashboard-current-bill sel-service-account-wrapper={selServiceAccountWrapper}>
+                              </c-a-h-f-c_dashboard-current-bill>
+                           </div>
+                        </div>
+                        <!-- --  Payment Activity Section  -->
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2" if:false={showBlankDashboard}>
+                           <div class="card-block ahfc-background-lightest">
+                              <p class="section-header ahfc-text-header ahfc-text-dark slds-text-title_caps">
+                                 {labels.DashboardPaymentActivity}
+                              </p>
+                              <c-a-h-f-c_dashboard-payment-activity serviceaccdata={selServiceAccountWrapper}>
+                              </c-a-h-f-c_dashboard-payment-activity>
+                           </div>
+                        </div>
+                        <!-- --  Statements Section -->
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2" if:false={showBlankDashboard}>
+                           <div class="card-block ahfc-background-lightest">
+                              <p class="section-header ahfc-text-header ahfc-text-dark slds-text-title_caps">
+                                 {labels.DashboardStatements}
+                              </p>
+                              <c-a-h-f-c_dashboard-statements finaccid={selServiceAccountWrapper}>
+                              </c-a-h-f-c_dashboard-statements>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12">
+                     <div class="slds-grid slds-wrap">
+                        <!-- -- Payment Progress Section  -->
+                        <div class="slds-col slds-size_1-of-1" if:false={showBlankDashboard}>
+                           <div class="card-block ahfc-background-lightest AHFC_PaymentProgress">
+                              <p class="section-header ahfc-text-header ahfc-text-dark slds-text-title_caps">
+                                 {labels.DashboardPaymentProgress}
+                              </p>
+                              <c-payment-progress-tile-dashboard-l-w-c dashboard-data={selServiceAccountWrapper}>
+                              </c-payment-progress-tile-dashboard-l-w-c>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="slds-grid slds-wrap slds-grid_align-spread slds-show_large">
+                  <div class="slds-col slds-size_1-of-1 slds-large-size_8-of-12">
+                     <div class="slds-grid slds-wrap" if:false={isLocked}>
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2" if:false={showBlankDashboard}>
+                           <div class="card-block ahfc-background-lightest">
+                              <p class="section-header ahfc-text-header ahfc-text-dark slds-text-title_caps">
+                                 {labels.DashboardSupportRequest}
+                              </p>
+                              <c-a-h-f-c_supportcorrespondence supportrequest finaaccdata={selServiceAccountWrapper}>
+                              </c-a-h-f-c_supportcorrespondence>
+                           </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2" if:false={showBlankDashboard}>
+                           <div class="card-block ahfc-background-lightest">
+                              <p class="section-header ahfc-text-header ahfc-text-dark slds-text-title_caps">
+                                 {labels.DashboardCorrespondence}
+                              </p>
+                              <c-a-h-f-c_supportcorrespondence correspondence finaaccdata={selServiceAccountWrapper}>
+                              </c-a-h-f-c_supportcorrespondence>
+                           </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-1">
+                           <div class="card-block ahfc-background-lightest">
+                              <p class="section-header ahfc-text-header ahfc-text-dark AHFC_DbSecTitle">
+                                 HOW CAN WE HELP YOU?
+                              </p>
+                              <c-a-h-f-c_dashboardfaqhelp>
+                              </c-a-h-f-c_dashboardfaqhelp>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="slds-grid slds-wrap ahfc-locked" if:true={isLocked}>
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2" if:false={showBlankDashboard}>
+                           <div class="card-block ahfc-background-lightest">
+                              <p class="section-header ahfc-text-header ahfc-text-dark slds-text-title_caps">
+                                 {labels.DashboardSupportRequest}
+                              </p>
+                              <c-a-h-f-c_supportcorrespondence supportrequest finaaccdata={selServiceAccountWrapper}>
+                              </c-a-h-f-c_supportcorrespondence>
+                           </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2" if:false={showBlankDashboard}>
+                           <div class="card-block ahfc-background-lightest">
+                              <p class="section-header ahfc-text-header ahfc-text-dark slds-text-title_caps">
+                                 {labels.DashboardCorrespondence}
+                              </p>
+                              <c-a-h-f-c_supportcorrespondence correspondence finaaccdata={selServiceAccountWrapper}>
+                              </c-a-h-f-c_supportcorrespondence>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="slds-grid slds-wrap" if:true={isLocked}>
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-1">
+                           <div class="card-block ahfc-background-lightest">
+                              <p class="section-header ahfc-text-header ahfc-text-dark AHFC_DbSecTitle">
+                                 HOW CAN WE HELP YOU?
+                              </p>
+                              <c-a-h-f-c_dashboardfaqhelp>
+                              </c-a-h-f-c_dashboardfaqhelp>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12" if:false={showBlankDashboard}>
+                     <div class=" ahfc-background-lightest" style="margin:0.5rem;">
+                        <c-a-h-f-c_dashboard-marketing-tile sel-service-account-wrapper={selServiceAccountWrapper}>
+                        </c-a-h-f-c_dashboard-marketing-tile>
+                     </div>
+                  </div>
+                  <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12" if:true={showBlankDashboard}>
+                     <div class=" ahfc-background-lightest" style="margin:0.5rem;">
+                        <img class="dash-blank-tile" src={blankDashboardMarketingTileURL} alt="Marketing Tile For Blank Dashboard"/>
+                     </div>
+                  </div>
+               </div>
+            </template>
+            <!--  Mobile Section for non locked account-->
+            <div class="slds-hide_large" if:false={isLocked}>
+               <ul class="slds-accordion sections-accordion">
+                  <template for:each={mobileSections} for:item="sections">
+                     <li class="slds-accordion__list-item ahfc-accordion-item ahfc-background-lightest"
+                        key={sections.id}>
+                        <section class={sections.class}>
+                           <div class="slds -accordion__summary">
+                              <h2 class="slds-accordion__summary-heading">
+                                 <button
+                                    class="slds-button slds-button_reset slds-accordion__summary-action section-header ahfc-text-header ahfc-text-dark slds-text-title_caps"
+                                    aria-controls={sections.id} data-keyno={sections.id}
+                                    aria-expanded={sections.isOpened} title={sections.header}
+                                    onclick={onMobileSectionsClick}>
+                                    <div class="slds-grid slds-grid_align-spread" data-keyno={sections.id}>
+                                       <div class="slds-col" data-keyno={sections.id}>
+                                          <span data-keyno={sections.id}
+                                             class="slds-accordion__summary-content">{sections.header}</span>
+                                       </div>
+                                       <div class="slds-col" data-keyno={sections.id}>
+                                          <lightning-icon data-keyno={sections.id} if:false={sections.isOpened}
+                                             icon-name="utility:chevrondown" size="small" alternative-text="chevrondown"
+                                             title="chevrondown">
+                                          </lightning-icon>
+                                          <lightning-icon data-keyno={sections.id} if:true={sections.isOpened}
+                                             icon-name="utility:chevronup" size="small" alternative-text="chevronup"
+                                             title="chevronup">
+                                          </lightning-icon>
+                                       </div>
+                                    </div>
+                                 </button>
+                              </h2>
+                           </div>
+                           <template if:true={showmobile}>
+                              <div class={sections.contentClass} id={sections.id}>
+                                 <div if:true={sections.isPaymentActivity}>
+                                    <c-a-h-f-c_dashboard-payment-activity serviceaccdata={selServiceAccountWrapper}>
+                                    </c-a-h-f-c_dashboard-payment-activity>
+                                 </div>
+                                 <div if:true={sections.isStatements}>
+                                    <c-a-h-f-c_dashboard-statements finaccid={selServiceAccountWrapper}>
+                                    </c-a-h-f-c_dashboard-statements>
+                                 </div>
+                                 <div if:true={sections.isSupportRequest}>
+                                    <c-a-h-f-c_supportcorrespondence supportrequest
+                                       finaaccdata={selServiceAccountWrapper}>
+                                    </c-a-h-f-c_supportcorrespondence>
+                                 </div>
+                                 <div if:true={sections.isCorrespondence}>
+                                    <c-a-h-f-c_supportcorrespondence correspondence
+                                       finaaccdata={selServiceAccountWrapper}>
+                                    </c-a-h-f-c_supportcorrespondence>
+                                 </div>
+                                 <div if:true={sections.isPaymentProgress}>
+                                    <c-payment-progress-tile-dashboard-l-w-c dashboard-data={selServiceAccountWrapper}>
+                                    </c-payment-progress-tile-dashboard-l-w-c>
+                                 </div>
+                                 <div if:true={sections.isFaqs}>
+                                    <div class="slds-col slds-size_1-of-1 ">
+                                       <div class=" ahfc-background-lightest">
+                                          <c-a-h-f-c_dashboardfaqhelp>
+                                          </c-a-h-f-c_dashboardfaqhelp>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div if:true={sections.isMarketting}>
+                                    <div class="slds-col slds-size_1-of-1 ">
+                                       <c-a-h-f-c_dashboard-marketing-tile
+                                          sel-service-account-wrapper={selServiceAccountWrapper}>
+                                       </c-a-h-f-c_dashboard-marketing-tile>
+                                    </div>
+                                 </div>
+                              </div>
+                           </template>
+                        </section>
+                     </li>
+                  </template>
+               </ul>
+               <template if:true={showBlankDashboard}>
+                  <div class="slds-col slds-size_1-of-1">
+                     <div class=" ahfc-background-lightest" style="margin:0.5rem;">
+                      <img class="dash-blank-tile" src={blankDashboardMarketingTileURL} alt="Current Offers Honda Auto Logo"/>
+                     </div>
+                  </div>
+              </template>
+            </div>
+            <!--Locked account mobile view -->
+            <div class="slds-hide_large" if:true={isLocked}>
+               <ul class="slds-accordion sections-accordion">
+                  <template for:each={lockedmobileSections} for:item="sections">
+                     <li class="slds-accordion__list-item ahfc-accordion-item ahfc-background-lightest"
+                        key={sections.id}>
+                        <section class={sections.class}>
+                           <div class="slds -accordion__summary" if:false={sections.isGrayedOut}>
+                              <h2 class="slds-accordion__summary-heading">
+                                 <button
+                                    class="slds-button slds-button_reset slds-accordion__summary-action section-header ahfc-text-header ahfc-text-dark slds-text-title_caps"
+                                    aria-controls={sections.id} data-keyno={sections.id}
+                                    aria-expanded={sections.isOpened} title={sections.header}
+                                    onclick={onMobileSectionsClickForLocked}>
+                                    <div class="slds-grid slds-grid_align-spread" data-keyno={sections.id}>
+                                       <div class="slds-col" data-keyno={sections.id}>
+                                          <span data-keyno={sections.id}
+                                             class="slds-accordion__summary-content">{sections.header}</span>
+                                       </div>
+                                       <div class="slds-col" data-keyno={sections.id}>
+                                          <lightning-icon data-keyno={sections.id} if:false={sections.isOpened}
+                                             icon-name="utility:chevrondown" size="small" alternative-text="chevrondown"
+                                             title="chevrondown">
+                                          </lightning-icon>
+                                          <lightning-icon data-keyno={sections.id} if:true={sections.isOpened}
+                                             icon-name="utility:chevronup" size="small" alternative-text="chevronup"
+                                             title="chevronup">
+                                          </lightning-icon>
+                                       </div>
+                                    </div>
+                                 </button>
+                              </h2>
+                           </div>
+                           <div class="slds -accordion__summary ahfc-locked" if:true={sections.isGrayedOut}>
+                              <h2 class="slds-accordion__summary-heading">
+                                 <button
+                                    class="slds-button slds-button_reset slds-accordion__summary-action section-header ahfc-text-header ahfc-text-dark slds-text-title_caps"
+                                    aria-controls={sections.id} data-keyno={sections.id}
+                                    aria-expanded={sections.isOpened} title={sections.header}
+                                    onclick={onMobileSectionsClickForLocked}>
+                                    <div class="slds-grid slds-grid_align-spread" data-keyno={sections.id}>
+                                       <div class="slds-col ahfc-locked" data-keyno={sections.id}>
+                                          <span data-keyno={sections.id}
+                                             class="slds-accordion__summary-content">{sections.header}</span>
+                                       </div>
+                                       <div class="slds-col" data-keyno={sections.id}>
+                                          <lightning-icon data-keyno={sections.id} if:false={sections.isOpened}
+                                             icon-name="utility:chevrondown" size="small" alternative-text="chevrondown"
+                                             title="chevrondown">
+                                          </lightning-icon>
+                                          <lightning-icon data-keyno={sections.id} if:true={sections.isOpened}
+                                             icon-name="utility:chevronup" size="small" alternative-text="chevronup"
+                                             title="chevronup">
+                                          </lightning-icon>
+                                       </div>
+                                    </div>
+                                 </button>
+                              </h2>
+                           </div>
+                           <template if:true={showmobile}>
+                              <div class={sections.contentClass} id={sections.id}>
+                                 <div if:true={sections.isFaqs}>
+                                    <div class="slds-col slds-size_1-of-1 ">
+                                       <div class=" ahfc-background-lightest">
+                                          <c-a-h-f-c_dashboardfaqhelp>
+                                          </c-a-h-f-c_dashboardfaqhelp>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div if:true={sections.isMarketting}>
+                                    <div class="slds-col slds-size_1-of-1 ">
+                                       <c-a-h-f-c_dashboard-marketing-tile
+                                          sel-service-account-wrapper={selServiceAccountWrapper}>
+                                       </c-a-h-f-c_dashboard-marketing-tile>
+                                    </div>
+                                 </div>
+                              </div>
+                           </template>
+                        </section>
+                     </li>
+                  </template>
+               </ul>
+               <div class="slds-col slds-size_1-of-1 ">
+                  <c-a-h-f-c_dashboard-marketing-tile sel-service-account-wrapper={selServiceAccountWrapper}>
+                  </c-a-h-f-c_dashboard-marketing-tile>
+               </div>
+            </div>
+         </div>
+      </template>
+   </div>
+   <template if:true={isEditNickname}>
+      <c-a-h-f-c_finance-account-edit-modal onclose={closenicknamepopup} accdata={selServiceAccountWrapper}>
+      </c-a-h-f-c_finance-account-edit-modal>
+   </template>
+</template>

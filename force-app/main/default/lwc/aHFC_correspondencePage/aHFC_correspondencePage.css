@@ -1,0 +1,263 @@
+@import 'c/aHFC_dashboardTheme';
+@media (min-width: 992px) {
+    .ahfc-container {
+  width: auto !important; 
+  max-width: none !important; 
+  margin: 0 130px !important;
+}
+} 
+
+@media screen and (min-width: 1024px) and (max-width: 1156px) {
+    
+    .ahfc-container {
+        width: auto !important; 
+        max-width: none !important; 
+        margin: 0 50px !important;
+      }
+  
+}
+
+
+
+.AHFC_Spinnereg{
+    --lwc-colorBackgroundSpinnerDot:rgb(228, 37, 37) !important;
+  }
+.exampleHolder{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9001;
+}
+
+.ahfc-mobile-header {
+    font-weight: bolder;
+}
+.modalBody {
+    position: relative;
+} 
+
+
+.ahfc-correspondence-wrapper{
+    width:100%
+ }
+
+ .ahfc-correspondence-container{
+    padding-bottom: 40px;
+}
+
+.ahfc-corres-info{
+    margin: 16px 0;
+}
+
+.transaction-history {
+    padding: 32px 20px;
+}
+
+.transaction-history .header {
+    margin-bottom: 40px;
+}
+.table-body a:focus{
+    outline-offset: 0px !important;
+    text-decoration: none;
+}
+.ahfc-reader {
+   border-bottom: 1px solid #d9d9d9;
+}
+
+.ahfc-nodata {
+    color: #5E6162;
+    font-weight: 500;
+    font-size: 18px;
+    border-bottom: 1px solid #d9d9d9;
+    padding-bottom: 20px;
+    margin-top: 12px;
+}
+
+
+.ahfc-reader img {
+    margin-right: 8px;
+}
+
+.ahfc-reader .ahfc-reader-mobile{
+    margin-top: 15px;
+}
+
+
+.filter-sort-wrapper {
+    width: 85vw;
+   /* height: 100vh;
+    position: fixed;
+    top: 0;
+    padding: 33px 20px; */
+}
+.filter-sort-wrapper.hide {
+    z-index: -1;
+    display: none;
+}
+.filter-sort-wrapper.show {
+    display: block;
+    z-index: 9999;
+}
+.filter-sort-wrapper .main-options {
+    height: calc(20vh - 20px);
+   /* overflow-y: scroll; */
+    margin-bottom: 16px;
+}
+.filter-sort-wrapper .sort-options {
+    margin-top: 40px;
+}
+.filter-sort-wrapper .sort-actions {
+    position: fixed;
+    bottom: 16px;
+    width: calc(100% - 40px);
+}
+.filter-sort-wrapper .sort-actions button:first-child {
+    margin-bottom: 16px;
+}
+
+
+
+/* Table CSS  */
+/* Table Styles */
+
+.transaction-table,
+.no-data-error {
+    margin-top: 30px;
+}
+
+/* Table Mobile */
+.transaction-table .card-item {
+    border: 1px solid #d9d9d9;
+    margin-top: 24px;
+}
+.transaction-table .card-item:first-child {
+    margin-top: 0;
+}
+.transaction-table .card-item .table-data-row {
+    padding: 24px 20px;
+}
+.transaction-table .card-item .table-data-row p:nth-child(1) {
+    margin-bottom: 8px;
+}
+.transaction-table .card-item .table-data-row .table-date,
+.transaction-table .card-item .table-data-row p:nth-child(2) {
+    display: block;
+    margin-bottom: 24px;
+}
+
+/* Table header */
+.transaction-table .table-header .slds-col {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+.table-accor-btn,
+.table-sort-button {
+    width: 100%;
+    display: block;
+}
+.table-sort-button {
+    padding-right: 10px;
+}
+.table-accor-btn:focus,
+.table-sort-button:focus {
+    box-shadow: none;
+}
+.table-sort-button:hover {
+    color: #000;
+}
+.table-sort {
+    bottom: 1px;
+    margin-left: 5px;
+}
+
+
+/* Table Body */
+.transaction-table .table-body .slds-grid {
+    border-bottom: 1px solid #d9d9d9;
+}
+.transaction-table .table-body .slds-col {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.transaction-table .table-header .slds-col:first-child div,
+.transaction-table .table-body .slds-col:first-child div {
+    margin: 0 10px 0 30px;
+}
+.table-accor-btn {
+    text-decoration: none;
+}
+.table-accor-btn .table-arrow {
+    --sds-c-icon-color-foreground-default: #CC0000;
+}
+.table-accor-btn.disable-btn {
+    pointer-events: none;
+    color: #afafaf;
+}
+.table-accor-btn.disable-btn .table-arrow {
+    --sds-c-icon-color-foreground-default: #afafaf;
+}
+.table-accor-btn .ahfc-icon {
+    margin-left: 8px;
+}
+
+.ahfc-backgroud-lighter {
+    background-color: #f0f0f0;
+} 
+
+.ahfc-red-actions {
+    color: #CC0000;
+}
+
+.ahfc-tabel-header {
+    font-weight: 700;
+}
+
+.error {
+    font-weight: 800;
+    color: black;
+}
+
+@media screen and (min-width: 768px) {
+    .transaction-history {
+        padding: 29px 54px;
+    }
+    .statements-wrapper {
+        padding: 0 40px 40px;
+    }
+    .past-statement .ahfc-body-two {
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: 0.02em;
+    }
+    .retun-dashboard-wrapper {
+        padding: 0 40px;
+    }
+    .dashboard-return-button {
+        margin-top: 0;
+        padding: 40px 0;
+    }
+
+    .transaction-table {
+        border: 1px solid #d9d9d9;
+    }
+
+    .table-accor-btn .table-arrow {
+        --sds-c-icon-color-foreground-default: #5e6162;
+    }
+
+    .extra-details .extra-details-block-wrapper {
+        padding: 0;
+        margin: 0 30px;
+        border-top: 1px solid #d9d9d9;
+    }
+    .extra-details .fee-structure {
+        width: 300px;
+    }
+    
+    .error {
+        font-weight: 800;
+        color: black;
+    }
+}

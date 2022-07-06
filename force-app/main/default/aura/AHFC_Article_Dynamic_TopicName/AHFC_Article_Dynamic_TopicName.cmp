@@ -1,0 +1,13 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens,force:hasRecordId" access="global" >
+	
+    <aura:attribute name= "TopicName" type="string" default=""/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:if isTrue="{!v.TopicName}">
+       
+        <p class="topicName" > <b>{!v.TopicName}</b> </p>                   
+                    
+    </aura:if>
+
+</aura:component>

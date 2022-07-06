@@ -1,0 +1,916 @@
+<template>
+   <template if:true={isLoaded}>
+      <!-- <lightning-spinner  size="large" class='AHFC_Spinnereg'>
+      </lightning-spinner> -->
+      <c-a-h-f-c_-spinner loading-message='Please wait while we process your request'></c-a-h-f-c_-spinner>
+   </template>
+   <div class=" ahfc-background-lighter">
+      <template if:false={flags.showReviewPayment}>
+         <c-a-h-f-c_vehicleswitcher></c-a-h-f-c_vehicleswitcher>
+      </template>
+      <template if:true={flags.showReviewPayment}>
+         <c-a-h-f-c_vehicle-header></c-a-h-f-c_vehicle-header>
+      </template>
+      <div role="main" id="main-container" class="main-content">
+         <div class="ahfc-container" if:false={flags.showReviewPayment}>
+            <c-a-h-f-c_page-title title="Make a Payment" show-icon="true"
+               show-notification-on-change={dataValueChanged}></c-a-h-f-c_page-title>
+            <div class="ahfc-panel-card ahfc-background-lightest paymentinfo-container-fluid">
+               <div class="slds-grid slds-wrap">
+                  <div
+                     class="slds-col slds-size_1-of-2 slds-medium-size_4-of-12 slds-large-size_3-of-12 paymentdue-info">
+                     <label class="ahfc-info-label ahfc-text-dark">{labels.AmountDue}</label>
+                     <p class="ahfc-text-medium ahfc-text-dark">
+                        <template if:true={flags.showtotalamountlabel}>${strRemainingAmountDue}</template>
+                     </p>
+                     <div>
+                        <a href="javascript:void(0)" class="ahfc-links ahfc-links-primary ahfc-toggle-links"
+                           if:false={flags.showAmountDetails} onclick={displayAmountInfo}>
+                           <span>{labels.ViewDetails}</span>
+                           <lightning-icon class="ahfc-icon ahfc-icon-red" icon-name="utility:chevrondown"
+                              size="xx-small" title="chevrondown">
+                           </lightning-icon>
+                        </a>
+                        <a href="javascript:void(0)" class="ahfc-links ahfc-links-primary ahfc-toggle-links"
+                           if:true={flags.showAmountDetails} onclick={displayAmountInfo}>
+                           <span>{labels.HideDetails}</span>
+                           <lightning-icon class="ahfc-icon ahfc-icon-red" icon-name="utility:chevronup" size="xx-small"
+                              title="chevronup">
+                           </lightning-icon>
+                        </a>
+                     </div>
+                  </div>
+                  <div class="slds-col slds-size_1-of-2 slds-medium-size_8-of-12 slds-large-size_6-of-12 duedate-info">
+                     <label class="ahfc-info-label ahfc-text-dark" if:true={showDueDate}>{labels.DueDate}</label>
+                     <p class="ahfc-text-medium ahfc-text-dark " if:true={showDueDate}>{dueDate}</p>
+                     <div class="slds-col slds-size_1-of-1" if:true={showDueDate}>
+                        <template if:true={boolShowDaysRemaining}>
+                           <div class="day-remaining">
+                              <a href="javascript:void(0);" tabindex="-1">
+                                 <lightning-icon class="ahfc-icon ahfc-icon-black" icon-name="utility:clock"
+                                    size="x-small" alternative-text="Clock" title="Clock">
+                                 </lightning-icon>
+                              </a>
+                              <span class="ahfc-caption-text ahfc-text-dark">{daysRemaining} {labelDaysRemaining}</span>
+                           </div>
+                        </template>
+                     </div>
+                  </div>
+                  <!--Start: US 4710-->
+                  <div
+                     class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center section-header ahfc-text-header ahfc-text-dark slds-text-title_caps">
+                     <div class="slds-col"> </div>
+                     <template if:true={enrolledInEasyPayFlag}>
+                        <div class="slds-col ahfc_enrollLabel">
+                           <p class="info-subtext ahfc-info-subtext ahfc-text-grey  easypay-label">
+                              <a href="javascript:void(0);" tabindex="-1">
+                                 <lightning-icon class="ahfc-icon ahfc-icon-green" icon-name="utility:record"
+                                    size="x-small" alternative-text="easypay enrolled" variant="success"
+                                    title="easypay">
+                                 </lightning-icon>
+                              </a>
+                              <!-- <span>{EasyPayLabel.CurrentBillEasypayEnrolled}</span>-->&nbsp;
+                              <span>{easyPayLabel.CurrentBillEasypayEnrolled}</span>
+                           </p>
+                        </div>
+                     </template>
+                  </div>
+                  <!--End-->
+                  <!-- <div class="slds-col slds-size_1-of-2 slds-medium-size_8-of-12 slds-large-size_3-of-12 " style="float: right;">
+                    <template if:true={boolShowDaysRemaining}>
+                     <div class="day-remaining">
+                        <a href="javascript:void(0);" tabindex="-1">
+                        <lightning-icon class="ahfc-icon ahfc-icon-black" icon-name="utility:clock" size="x-small"
+                           alternative-text="Clock" title="Clock">
+                        </lightning-icon>
+                        </a>
+                        <span class="ahfc-caption-text ahfc-text-dark">{daysRemaining} {labelDaysRemaining}</span>
+                     </div>
+                  </template>
+                </div>-->
+               </div>
+               <template if:true={flags.showAmountDetails}>
+                  <div class="ahfc-background-lighter details-card">
+                     <div
+                        class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-end details-header">
+                        <div class="slds-col">
+                           <label class="ahfc-info-label ahfc-text-dark">{labels.TotalAmountDue}</label>
+                        </div>
+                        <div class="slds-col">
+                           <p class="ahfc-text-header ahfc-text-dark">${strTotalAmountDue}</p>
+                        </div>
+                     </div>
+                     <div class="slds-grid slds-grid_reverse slds-wrap details-body">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-12 slds-large-size_9-of-12">
+                           <div
+                              class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-start details-body-row"
+                              if:true={flags.showCurrentAmount}>
+                              <div class="slds-col">
+                                 <div class="slds-grid details-body-subtext">
+                                    <div class="slds-col">
+                                       <label class="ahfc-body-one ahfc-text-dark">{labels.CurrentAmount}</label>
+                                    </div>
+                                    <div class="slds-col">
+                                       <span class="ahfc-body-two ahfc-text-grey "  if:true={showDueDate}>{dueDate}</span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="slds-col">
+                                 <p class="ahfc-sub-text-medium ahfc-text-grey">${userAccountInfo.Current_Amount_Due__c}
+                                 </p>
+                              </div>
+                           </div>
+                           <div
+                              class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-start details-body-row"
+                              if:true={flags.showfeeDues}>
+                              <div class="slds-col">
+                                 <label class="ahfc-body-one ahfc-text-dark">Total Fees Due</label>
+                              </div>
+                              <div class="slds-col">
+                                 <p class="ahfc-sub-text-medium ahfc-text-grey">${userAccountInfo.Total_Fees_Due__c}</p>
+                              </div>
+                           </div>
+                           <div
+                              class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-start details-body-row"
+                              if:true={flags.showpastAmountDue}>
+                              <div class="slds-col">
+                                 <div class="slds-grid details-body-subtext">
+                                    <div class="slds-col">
+                                       <label class="ahfc-body-one ahfc-text-red">{labels.PastAmountDue}</label>
+                                    </div>
+                                    <div class="slds-col">
+                                       <span class="ahfc-body-two ahfc-text-red">{labels.DueToday}</span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="slds-col">
+                                 <p class="ahfc-sub-text-medium ahfc-text-red">${userAccountInfo.Past_Amount_Due__c}</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="ahfc-background-lighter details-card" if:false={flags.showScheduledPayments}>
+                     <div
+                        class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-end details-header">
+                        <div class="slds-col slds-size_8-of-12">
+                           <label class="ahfc-info-label ahfc-text-dark">{labels.ScheduledPayments}</label>
+                        </div>
+                        <div class="slds-col slds-size_4-of-12" align='right'>
+                           <p class="ahfc-text-header ahfc-text-dark">$0.00</p>
+                        </div>
+                     </div>
+                     <div class="slds-grid slds-grid_reverse slds-wrap details-body">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-12 slds-large-size_9-of-12">
+                           <div
+                              class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-start details-body-row">
+
+                              <div class="slds-col slds-size_8-of-12 slds-medium-size_9-of-12 slds-large-size_10-of-12">
+                                 <label class="ahfc-body-one ahfc-text-dark">None</label>
+                              </div>
+                              <div
+                                 class="slds-col slds-size_4-of-12 slds-medium-size_3-of-12 slds-large-size_2-of-12 slds-text-align_right">
+                                 <p class="ahfc-sub-text-medium ahfc-text-grey">
+                                    $0.00</p>
+                              </div>
+
+                           </div>
+                        </div>
+                     </div>
+
+                  </div>
+                  <div class="ahfc-background-lighter details-card" if:true={flags.showScheduledPayments}>
+                     <div
+                        class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-end details-header">
+                        <div class="slds-col slds-size_8-of-12">
+                           <label class="ahfc-info-label ahfc-text-dark">{labels.ScheduledPayments}</label>
+                        </div>
+                        <div class="slds-col slds-size_4-of-12" align='right'>
+                           <p class="ahfc-text-header ahfc-text-dark">${strTotalSchedludedAmount}</p>
+                        </div>
+                     </div>
+                     <div class="slds-grid slds-grid_reverse slds-wrap details-body">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-12 slds-large-size_9-of-12">
+                           <template for:each={OTPScheduledpayments} for:item="OTPpayment">
+                              <template if:true={OTPpayment.isOTP}>
+                                 <div key={OTPpayment.Id}
+                                    class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-start details-body-row">
+                                    <!-- if:true={flags.showCurrentAmount}-->
+
+                                    <div
+                                       class="slds-col slds-size_8-of-12 slds-medium-size_9-of-12 slds-large-size_10-of-12">
+                                       <label class="ahfc-body-one ahfc-text-dark">{labels.OneTimePaymentOn}
+                                          {OTPpayment.ChargentOrders__Payment_Start_Date__c}</label>
+                                    </div>
+                                    <div
+                                       class="slds-col slds-size_4-of-12 slds-medium-size_3-of-12 slds-large-size_2-of-12 slds-text-align_right">
+                                       <p class="ahfc-sub-text-medium ahfc-text-grey">
+                                          ${OTPpayment.ChargentOrders__Charge_Amount__c}</p>
+                                    </div>
+
+                                 </div>
+                              </template>
+                           </template>
+                           <template for:each={OTPScheduledpayments} for:item="EZPpayment">
+                              <template if:true={EZPpayment.isEP}>
+                                 <div key={EZPpayment.Id}
+                                    class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-start details-body-row">
+                                    <!--if:true={flags.showCurrentAmount}-->
+
+                                    <div
+                                       class="slds-col slds-size_8-of-12 slds-medium-size_9-of-12 slds-large-size_10-of-12 "> <!-- removed css class ahfc-AuthorizedDate for bug fix 21920-->
+                                       <label class="ahfc-body-one ahfc-text-dark">{labels.ScheduledEasyPayAmtOn}
+                                          {EZPpayment.Next_Withdrawal_Date__c}</label>
+                                       <!--Added by Aswin Jose for Bug fix : 15491 . Before we were showing ChargentOrders__Payment_Start_Date__c-->
+                                    </div>
+                                    <div
+                                       class="slds-col slds-size_4-of-12 slds-medium-size_3-of-12 slds-large-size_2-of-12 slds-text-align_right">
+                                       <p class="ahfc-sub-text-medium ahfc-text-grey">
+                                          ${EZPpayment.ChargentOrders__Charge_Amount__c}</p>
+                                    </div>
+
+                                 </div>
+                              </template>
+                           </template>
+                           <!--<div
+                           class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-start details-body-row"
+                           if:true={flags.showScheduledEasypay}>
+                           <div class="slds-col slds-size_8-of-12 slds-medium-size_9-of-12 slds-large-size_10-of-12">
+                              <label class="ahfc-body-one ahfc-text-dark">{labels.ScheduledEasyPayAmtOn}
+                                 {easypayScheduledDate}</label>
+                           </div>
+                           <div
+                              class="slds-col slds-size_4-of-12 slds-medium-size_3-of-12 slds-large-size_2-of-12 slds-text-align_right">
+                              <p class="ahfc-sub-text-medium ahfc-text-grey">${userInfoResult.dbEasypayAmount}</p>
+                           </div>
+                        </div>-->
+                        </div>
+                     </div>
+                  </div>
+                  <div class="ahfc-background-lighter details-card">
+                     <div
+                        class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-end details-header no-body">
+                        <div class="slds-col">
+                           <label class="ahfc-info-label ahfc-text-dark">{labels.RemaningAmountDue}</label>
+                        </div>
+                        <div class="slds-col">
+                           <p class="ahfc-text-header ahfc-text-dark">${strRemainingAmountDue}</p>
+                        </div>
+                     </div>
+                     <div
+                     class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-end details-header no-body">
+                     <div class="slds-col" if:true={accntTypeForPurchase}>
+                        <label class="ahfc-info-label ahfc-text-dark">Scheduled Purchase Payments are not reflected in the Remaining Amount Due.</label>
+                     </div>
+                     <div class="slds-col" if:false={accntTypeForPurchase}>
+                        <label class="ahfc-info-label ahfc-text-dark">Scheduled Payoff Payments are not reflected in the Remaining Amount Due.</label>
+                     </div>
+                  </div>
+                  </div>
+               </template>
+            </div>
+            <div class="ahfc-panel-card ahfc-background-lightest paymentoptions-container-fluid">
+               <div class="paymentschedule-container">
+                  <!--US : 4710 - Added by Edwin Antony Start -->
+                  <template if:true={enrolledInEasyPayFlag}>
+                     <div class="slds-grid  easypay-container slds-m-bottom_x-large">
+                        <div class="slds-col slds-size_1-of-1 ahfc-background-lighter easypay-info AHFC_EasypayInfo">
+                           <template if:false={enrolledInEasyPayAndSuspended}>
+                              <p class="ahfc-text-grey ahfc-body-two">
+                                 Your next EasyPay payment of ${userInfoResult.dbEasypayAmount} is scheduled on
+                                 {easypayScheduledDate}. <a href="javascript:void(0)"
+                                    class="slds-float_right ahfc-links ahfc-links-secondary ahfc-toggle-links"
+                                    onclick={navigatetoPaymentActivityPage}>View Payment Activity</a>
+                              </p>
+                           </template>
+                           <template if:true={enrolledInEasyPayAndSuspended}>
+                              <p class="ahfc_suspended_easypay"><span class="ahfc_suspended_display">
+                                    Your EasyPay schedule is suspended.</span> <a href="javascript:void(0)"
+                                    class="slds-float_right ahfc-links ahfc-links-secondary ahfc-toggle-links"
+                                    onclick={navigatetoPaymentActivityPage}>View Payment Activity</a>
+                              </p>
+                           </template>
+                        </div>
+                     </div>
+                  </template>
+                  <!--US : 4710 End-->
+                  <div class="payment-type-container">
+                     <h2 class="ahfc-sub-text-medium ahfc-text-dark">{labels.PaymentType}</h2>
+                     <div class="select-payment-type"  role="radiogroup">
+                        <div class="payement-options">
+                           <lightning-input type="radio" label={labels.RadioOTP} onchange={checkPaymentType}
+                              name="paymentSelection" class="ahfc-radio input-payment"
+                              checked={flags.showOneTimePayment}>
+                           </lightning-input>
+                        </div>
+                        <!--US : 4710(Added enroll flag) - Added by Edwin Antony Start -->
+                        <div class="enroll-easypay-radio payement-options" if:false={enrolledInEasyPayFlag}>
+                           <!--US : 4710 End-->
+                           <lightning-input type="radio" label={labels.RadioEZP} onchange={checkPaymentType}
+                              name="paymentSelection" class="ahfc-radio" checked={flags.showEasyPay}></lightning-input>
+                        </div>
+
+                        <div class="payement-options">
+                           <lightning-input type="radio" label={labels.RadioPayoff} name="paymentSelection"
+                              onchange={checkPaymentType} class="ahfc-radio" checked={flags.showPayOff}>
+                           </lightning-input>
+                        </div>
+                     </div>
+                  </div>
+                  <!--US : 3686 - Added by Aswin Jose Start -->
+                  <div class="ahfc_horizontal" if:true={showpaymentEligibilityErrorMsg}>
+                     <c-a-h-f-c_make-payment-not-eligible-message-l-w-c due-ammount={userAccountInfo.Past_Amount_Due__c}
+                        show-due-in-eligibility-error-msg={showDueInEligibilityErrorMsg} payment-type={paymentType}
+                        show-error-o-t-p-payment-record-count={showErrorOTPPaymentRecordCount}>
+                     </c-a-h-f-c_make-payment-not-eligible-message-l-w-c>
+                  </div>
+
+                  <!--US : 3686 - Added by Aswin Jose End -->
+                  <div if:false={showpaymentEligibilityErrorMsg}>
+                     <div class="paymentdetails-container">
+                        <h2 class="ahfc-sub-text-medium ahfc-text-dark">{labels.PaymentDetails}</h2>
+                        <!--US 3693 & 3694 starts-->
+                        <template if:true={flags.showOneTimePayment}>
+                           <div class="slds-grid slds-wrap otp-container">
+                              <!-- for bug 26056-->
+                                 <!--end -->
+                                 <!-- <div class="slds-col slds-size_1-of-1">
+                                    <template if:true={flags.boolShowScheduleOnMsg}>
+                                       <div class="message-info slds-m-vertical_small">
+                                          <c-a-h-f-c_message-toast type="warning" label="Attention"
+                                             message={messages.strScheduleOnMsg}> 
+                                          </c-a-h-f-c_message-toast>
+                                       </div>
+                                    </template>
+                                 </div> -->
+                             
+                             
+                              
+                              <div class="slds-col slds-size_1-of-1">
+                                 <div class="slds-grid slds-gutters_direct slds-wrap">
+                                    <!-- <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 otp-data"> -->
+                                    <!-- ipad changes -->
+                                    <div
+                                       class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2 otp-data">
+                                       <div class="slds-grid slds-wrap slds-grid_align-spread label-gaps">
+                                          <div class="slds-col">
+                                             <label class="ahfc-body-two ahfc-text-grey" for="paymentAmount">
+                                                {label.PaymentAmount}
+                                             </label>
+                                          </div>
+                                          <div class="slds-p-around_medium lgc-bg">
+                                             <lightning-helptext icon-name="utility:info_alt"
+                                                content={label.AHFC_PayAmt_Help_Text} class="makePaymentPopover">
+                                             </lightning-helptext>
+                                          </div>
+                                       </div>
+
+                                       <lightning-input type="number" id="paymentAmount" label="Payment Amount"
+                                          class="ahfc-input no-label" name="paymentAmount" value={decStdPaymentAmount}
+                                          formatter="currency" step="0.01" min="0" onchange={validateStdPaymentAmount}
+                                          variant="label-hidden" aria-labelledby="paymentAmount" placeholder="$0.00"
+                                          message-when-range-underflow="Error: Please enter a valid payment amount."
+                                          message-when-step-mismatch="Error: Please enter a valid payment amount."
+                                          data-id="stdpaymentAmount">
+                                       </lightning-input>
+
+
+                                    </div>
+                                    <!-- <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2"> -->
+                                    <!-- ipad changes -->
+                                    <div
+                                       class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                                       <div class="slds-grid slds-wrap slds-grid_align-spread label-gaps">
+                                          <div class="slds-col">
+                                             <label class="ahfc-body-two ahfc-text-grey" for="schedule">
+                                                {labels.ScheduledOn}
+                                             </label>
+                                          </div>
+                                          <div class="slds-p-around_medium lgc-bg">
+                                             <lightning-helptext icon-name="utility:info_alt"
+                                                content={label.AHFC_Sch_Help_Text}>
+                                             </lightning-helptext>
+                                          </div>
+                                       </div>
+                                       <lightning-input class="schedule-input ahfc-input no-label" id="schedule"
+                                          label="Schedule On" variant="label-hidden" aria-labelledby="schedule"
+                                          type="date" data-id="schedule" name="schedule" date-style="medium"
+                                          value={datScheduleOn} onchange={validateScheduleOn}>
+                                       </lightning-input>
+                                    </div>
+                                 </div>
+                              </div>
+                              <!-- added for bug 26056-->
+                              <template if:true={showPayoffMsg}>
+                              <div class="slds-col slds-size_1-of-1">
+                                 <template if:true={flags.boolShowScheduleOnMsg}>
+                                    <div class="message-info slds-m-vertical_small">
+                                       <c-a-h-f-c_message-toast type="warning" label="Attention"
+                                          message={oneTimeAlertMsg}> 
+                                       </c-a-h-f-c_message-toast>
+                                    </div>
+                                 
+                              </template>
+                              </div>
+                           </template>
+                           <!--end -->
+                              <template if:true={flags.alreadyScheduleOnMsgShow}>
+
+                                 <div class="slds-col slds-size_1-of-1">
+                                    <div class="message-info slds-m-vertical_small">
+                                       <c-a-h-f-c_message-toast type="warning" label="Attention"
+                                          link={paymentActivityLink} onlinkclicked={onToastLinkClicked}
+                                          message={messages.alreadyScheduleOnMsg} is-notification="true">
+                                       </c-a-h-f-c_message-toast>
+                                    </div>
+                                 </div>
+                              </template>
+                             
+
+                              <!--     bug 13706 -->
+                              <template if:true={flags.showOtpWarning}>
+                                 <div class="slds-col slds-size_1-of-1">
+                                    <template if:true={flags.boolShowScheduleOnMsg}>
+                                       <div class="message-info slds-m-vertical_small">
+                                          <c-a-h-f-c_message-toast type="warning" label="Attention"
+                                             message={messages.strScheduleOnMsg}> 
+                                          </c-a-h-f-c_message-toast>
+                                       </div>
+                                    </template>
+                                 </div>
+                              </template>
+
+                              <div class="slds-col slds-size_1-of-1">
+                                 <template if:true={flags.boolShowStdPaymentAmountMsg}>
+                                    <div class="message-info slds-m-vertical_small">
+                                       <c-a-h-f-c_message-toast type="warning" label="Attention"
+                                          message={messages.strStdPaymentAmountMsg} link={linkonToast}
+                                          onlinkclicked={onToastLinkClicked}>
+                                       </c-a-h-f-c_message-toast>
+                                    </div>
+                                 </template>
+                              </div>
+                              <div class="slds-col slds-size_1-of-1 additional-amount"
+                                 if:true={flags.showPrinicipalAmountfield}>
+                                 <template if:false={flags.showPrinicipalAmount}>
+                                    <div class="slds-grid slds-wrap slds-grid_align-spread additional-amount-text">
+                                       <div class="slds-col">
+                                          <a href="javascript:void(0);" class="ahfc-links ahfc-links-secondary"
+                                             onclick={displayPrincipalAmount}>{labels.PayAdditionalPrincipleAmt}</a>
+                                       </div>
+                                       <div class="slds-col">
+                                          <span class="ahfc-info-label ahfc-text-grey">{labels.PrincipleBalanceAmount}
+                                             {principalBalAmount}</span>
+                                       </div>
+                                    </div>
+                                 </template>
+                                 <template if:true={flags.showPrinicipalAmount}>
+                                    <div class="slds-grid slds-gutters_direct slds-wrap">
+                                       <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                                          <div class="slds-grid slds-wrap slds-grid_align-spread label-gaps">
+                                             <div class="slds-col">
+                                                <label class="ahfc-body-two ahfc-text-grey" for="principalAmount">
+                                                   {labels.AdditionalPaymentAmount}
+                                                </label>
+                                             </div>
+                                             <div class="slds-p-around_medium lgc-bg">
+                                                <lightning-helptext icon-name="utility:info_alt"
+                                                   content={label.AHFC_PrincipalAmount_Help_Text}></lightning-helptext>
+                                             </div>
+                                          </div>
+                                          <lightning-input type="number" id="principalAmount"
+                                             class="principal-input ahfc-input no-label" name="principalAmount"
+                                             variant="label-hidden" aria-labelledby="principalAmount"
+                                             value={decAddnlPricipalAmount} formatter="currency" step="0.01"
+                                             data-id="principalAmount" placeholder={additionalPaymentAmount} min="0"
+                                             message-when-range-underflow="Error: please enter a valid payment amount."
+                                             message-when-step-mismatch="Error: please enter a valid payment amount."
+                                             onchange={validateAddnlPricipalAmount}></lightning-input>
+                                       </div>
+                                    </div>
+                                 </template>
+                              </div>
+                              <div class="slds-col slds-size_1-of-1">
+                                 <template if:true={flags.boolShowAddnlPrincAmountMsg}>
+                                    <div class="message-info slds-m-vertical_xx-large">
+                                       <c-a-h-f-c_message-toast type="warning" label="Attention"
+                                          message={messages.strAddnlPrincAmountMsg}>
+                                       </c-a-h-f-c_message-toast>
+                                    </div>
+                                 </template>
+                              </div>
+                           </div>
+                        </template>
+                        <!--US 3693 & 3694 Ends -->
+                        <!-- Easy Pay Section Starts US 4531-->
+                        <template if:true={flags.showEasyPay}>
+                           <!--Narain 20255  -->
+                           <template if:true={easypayWarning}>
+
+                              <div class="slds-col slds-size_1-of-1">
+                                 <template if:true={flags.boolShowScheduleOnMsg}>
+                                    <div class="message-info slds-m-bottom_x-large">
+                                       <c-a-h-f-c_message-toast type="warning" label="Attention"
+                                          link={linkonToastWarning} onlinkclicked={onToastLinkClicked}
+                                          message={messages.strScheduleOnWarningMsg}>
+                                       </c-a-h-f-c_message-toast>
+                                    </div>
+                                 </template>
+                              </div>
+                           </template>
+
+
+                           <!--Narain 20255 end -->
+                           <c-a-h-f-c_make-payment-easy-pay-l-w-c  ondisablereviewbutton={disableReviewButton} onenablereviewbutton ={enableReviewButton}
+                              bool-show-std-payment-amount-msg={flags.boolViewPaymentActivity}
+                              onchangevalues={setNotificationOnValuesChanged}
+                              str-std-payment-amount-msg={messages.strStdPaymentAmountMsg} linkon-toast={linkonToast}
+                              finance-account-data={financeAccData} onsetvalues={setEasyPayValues}>
+                           </c-a-h-f-c_make-payment-easy-pay-l-w-c>
+                        </template>
+                        <!-- Easy Pay Section ENDS US 4531-->
+
+                        <!-- Payoff/Purchase Section start US 6061/4535-->
+                        <template if:true={flags.showPayOff}>
+
+                           <div class="slds-grid slds-wrap otp-container">
+                              <template if:true={showPayoffMsg}>
+
+                                 <div class="slds-col slds-size_1-of-1">
+                                    <template if:true={flags.boolShowScheduleOnMsg}>
+                                       <div class="message-info slds-m-bottom_x-large">
+                                          <c-a-h-f-c_message-toast type="warning" label="Attention" link={linkonToast}
+                                             onlinkclicked={onToastLinkClicked} message={messages.strScheduleOnMsg}>
+                                          </c-a-h-f-c_message-toast>
+                                       </div>
+                                    </template>
+                                 </div>
+                              </template>
+                              <!--Narn 20255-->
+                              <template if:true={payoffWarning}>
+
+                                 <div class="slds-col slds-size_1-of-1">
+                                    <template if:true={flags.boolShowScheduleOnMsg}>
+                                       <div class="message-info slds-m-bottom_x-large">
+                                          <c-a-h-f-c_message-toast type="warning" label="Attention"
+                                             link={linkonToastWarning} onlinkclicked={onToastLinkClicked}
+                                             message={messages.strScheduleOnWarningMsg}>
+                                          </c-a-h-f-c_message-toast>
+                                       </div>
+                                    </template>
+                                 </div>
+                              </template>
+                              <!--Narain 20255-->
+                              <template if:false={isnewPayment}>
+
+                                 <div class="slds-col slds-size_1-of-1 AHFC_CardHead">
+                                    <span class="slds-float_right">{labels.RadioPayoff}</span>
+                                 </div>
+
+                                 <div class="slds-col slds-size_1-of-1 AHFC_FirstSection">
+                                    <div class="slds-grid slds-gutters_direct slds-wrap">
+                                       <div
+                                          class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_5-of-12 otp-data">
+
+                                          <div
+                                             class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 payment-monthly-info">
+                                             <label class="AHFC_CardLabel">{labels.RadioPayoff} AMOUNT</label>
+                                             <h1 class="AHFC_CardData">{payoffamt}</h1>
+                                          </div>
+
+                                       </div>
+                                       <div
+                                          class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_7-of-12">
+
+                                          <div class="confirmation-number"></div>
+                                          <label class="AHFC_CardLabel">{labels.RadioPayoff} PAYMENT CONFIRMATION
+                                             #</label>
+                                          <h1 class="AHFC_CardData">{confirmationNumber}</h1>
+
+                                       </div>
+                                       <div
+                                          class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_5-of-12 otp-data AHFC_PayCard">
+
+                                          <div
+                                             class="slds-col slds-size_1-of-1 slds-medium-size_5-of-12 payment-monthly-info">
+                                             <label class="AHFC_CardLabel">PAYMENT AUTHORIZED ON</label>
+                                             <h1 class="AHFC_CardData ">{payoffauthorized}</h1>
+                                          </div>
+
+                                       </div>
+                                       <div
+                                          class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_7-of-12 AHFC_PayCard AHFC_DateCard">
+
+                                          <div class="confirmation-number"></div>
+                                          <label class="AHFC_CardLabel">{labels.RadioPayoff} Date</label>
+                                          <h1 class="AHFC_CardData ">{payoffDate}</h1>
+
+                                       </div>
+                                       <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 otp-data">
+                                          <div class="slds-grid slds-wrap schedule-source-section slds-m-top_x-large">
+                                             <div
+                                                class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 payment-monthly-info">
+                                                <label class="AHFC_CardLabel">PAYMENT SOURCE</label>
+                                                <div class="sources-container AHFC_PayWrap">
+                                                   <!--kanchi added a fix-->
+                                                   <span class="AHFC_PayDetail">{paymentSourceNickname}</span>
+                                                   <span class="AHFC_PayDetail">(
+                                                      <span class="circle"></span>
+                                                      <span class="circle"></span>
+                                                      <span class="circle"></span>
+                                                      <span class="circle"></span>
+                                                      <span class="circle"></span>
+                                                      <span class="circle"></span>
+                                                      <span class="circle"></span>
+                                                      <span class="circle"></span>
+                                                      <span class="circle"></span>
+                                                      &nbsp; {payoffBankAccountNo})
+                                                   </span>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                              </template>
+                              <template if:true={isnewPayment}>
+
+                                 <div class="slds-col slds-size_1-of-1" if:true={showmobile}>
+                                    <div class="slds-grid slds-gutters_direct slds-wrap">
+                                       <div class="slds-grid  slds-size_1-of-1 easypay-container">
+                                          <div class="slds-col slds-size_1-of-1 ahfc-background-lighter easypay-info" if:true={accntTypeForPurchase}>
+                                             <p class="ahfc-text-grey-payment-details ahfc-body-two1">
+                                                The {labels.RadioPayoff} amount is calculated based on today’s date and
+                                                cannot be changed. Sales tax may not be included in your purchase amount. 
+                                                Visit your state's DMV or read our <a onclick={navigatetoPurchaseFAQ} href="javascript:void(0);">FAQ</a> for more information on sales tax.
+                                             </p>
+                                          </div>
+                                          <div class="slds-col slds-size_1-of-1 ahfc-background-lighter easypay-info" if:false={accntTypeForPurchase}>
+                                             <p class="ahfc-text-grey-payment-details ahfc-body-two1">
+                                                The {labels.RadioPayoff} amount is calculated based on today’s date and
+                                                cannot be changed.
+                                             </p>
+                                          </div>
+                                       </div>
+                                       <div
+                                          class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_4-of-12 otp-data AHFC_CardWrap">
+                                          <div class="slds-grid slds-wrap slds-grid_align-spread label-gaps">
+                                             <div class="slds-col">
+                                                <label class="ahfc-body-two ahfc-text-grey AHFC_CardLabel"
+                                                   for="paymentAmount">
+                                                   {labels.RadioPayoff} Amount
+                                                </label>
+                                             </div>
+                                             <div class="slds-p-around_medium lgc-bg">
+                                             </div>
+                                          </div>
+                                          <h1 class="AHFC_CardData">{payoffamt}</h1>
+                                          <template if:true={isvalidatePayoff}>
+                                             <div
+                                                class="slds-form-element__help slds-has-error error-help AHFC_ErrorMsg">
+                                                {labels.RadioPayoff} Amount must be greater than $0.00.
+                                             </div>
+                                          </template>
+                                       </div>
+                                       <div
+                                          class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_4-of-12">
+                                          <div class="slds-grid slds-wrap slds-grid_align-spread label-gaps">
+                                             <div class="slds-col">
+                                                <label class="ahfc-body-two ahfc-text-grey AHFC_CardLabel"
+                                                   for="schedule">
+                                                   {labels.RadioPayoff} Date
+                                                </label>
+                                             </div>
+                                             <div class="slds-p-around_medium lgc-bg">
+                                             </div>
+                                          </div>
+                                          <h1 class="AHFC_CardData ">{payoffDate}</h1>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="slds-col slds-size_1-of-1" if:true={showdesktop}>
+                                    <div class="slds-grid slds-gutters_direct slds-wrap">
+                                       <div
+                                          class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_4-of-12 otp-data AHFC_CardWrap">
+                                          <div class="slds-grid slds-wrap slds-grid_align-spread label-gaps">
+                                             <div class="slds-col">
+                                                <label class="ahfc-body-two ahfc-text-grey AHFC_CardLabel"
+                                                   for="paymentAmount">
+                                                   {labels.RadioPayoff} Amount
+                                                </label>
+                                             </div>
+                                             <div class="slds-p-around_medium lgc-bg">
+                                             </div>
+                                          </div>
+                                          <h1 class="AHFC_CardData">{payoffamt}</h1>
+                                          <template if:true={isvalidatePayoff}>
+                                             <div
+                                                class="slds-form-element__help slds-has-error error-help AHFC_ErrorMsg">
+                                                {labels.RadioPayoff} Amount must be greater than $0.00.
+                                             </div>
+                                          </template>
+                                       </div>
+                                       <div
+                                          class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_4-of-12">
+                                          <div class="slds-grid slds-wrap slds-grid_align-spread label-gaps">
+                                             <div class="slds-col">
+                                                <label class="ahfc-body-two ahfc-text-grey AHFC_CardLabel"
+                                                   for="schedule">
+                                                   {labels.RadioPayoff} Date
+                                                </label>
+                                             </div>
+                                             <div class="slds-p-around_medium lgc-bg">
+                                             </div>
+                                          </div>
+                                          <h1 class="AHFC_CardData ">{payoffDate}</h1>
+                                       </div>
+                                       <div class="slds-grid  slds-size_1-of-1 easypay-container">
+                                          <div class="slds-col slds-size_1-of-1 ahfc-background-lighter easypay-info" if:true={accntTypeForPurchase}>
+                                             <p class="ahfc-text-grey-payment-details ahfc-body-two">
+                                                The {labels.RadioPayoff} amount is calculated based on today’s date and
+                                                cannot be changed. Sales tax may not be included in your purchase amount. 
+                                                Visit your state's DMV or read our <a onclick={navigatetoPurchaseFAQ} href="javascript:void(0);">FAQ</a> for more information on sales tax.
+                                             </p>
+                                          </div>
+                                          <div class="slds-col slds-size_1-of-1 ahfc-background-lighter easypay-info" if:false={accntTypeForPurchase}>
+                                             <p class="ahfc-text-grey-payment-details ahfc-body-two">
+                                                The {labels.RadioPayoff} amount is calculated based on today’s date and
+                                                cannot be changed.
+                                             </p>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                              </template>
+                           </div>
+                        </template>
+                     </div>
+                     <template if:false={isButtonSection}>
+                        <div class="reviewaction-container AHFC_ServiceWrap">
+                           <p class="ahfc-text-grey ahfc-body-two">
+                              To edit your payment, go to <a href="javascript:void(0)"
+                                 class="ahfc-links ahfc-links-secondary ahfc-toggle-links"
+                                 onclick={navigatetoPaymentActivityPage}>Scheduled Payments.</a>
+                           </p>
+                           <p class="ahfc-text-grey ahfc-body-two">
+                              For questions, contact <a href="javascript:void(0)" onclick={navigatetoContactUs}
+                                 class="ahfc-links ahfc-links-secondary ahfc-toggle-links">Customer Service.</a>
+                           </p>
+                        </div>
+                     </template>
+                     <!-- Payoff/Purchase Pay Section End US 6061/4535-->
+
+                     <template if:true={isButtonSection}>
+                        <div class="paymentsource-container psource">
+                           <h2 class="ahfc-sub-text-medium ahfc-text-dark">{labels.PaymentSource}</h2>
+                           <div if:true={flags.showPaySources}>
+                              <template for:each={paymentSourcesList} for:item="source">
+                                 <div key={source.strID}
+                                    class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-center sources-container">
+                                    <div class="slds-col">
+                                       <lightning-input class="ahfc-radio" type="radio" data-id={source.strID}
+                                          label={source.strName} onchange={checkPaymentSource} name="sourceSelection"
+                                          checked={source.boolIsPreferredSource}>
+                                       </lightning-input>
+                                    </div>
+                                    <div class="slds-col">
+                                       <p class="ahfc-body-one ahfc-text-grey">{source.maskedAccNumber}</p>
+                                    </div>
+                                 </div>
+                              </template>
+                           </div>
+                           <template if:true={ispaymentSourceCountExceeds}>
+
+                              <!--US:10994  paymentSourceCountExceeds if false display Add Payment Source button -->
+                              <button if:false={paymentSourceCountExceeds}
+                                 class="slds-button ahfc-btn ahfc-btn-secondary" title={labels.AddPaymentSource}
+                                 onclick={openmodal}>{labels.AddPaymentSource}</button>
+
+                              <!--Start US:10994  paymentSourceCountExceeds if true display Add Payment Source button -->
+                              <button if:true={paymentSourceCountExceeds}
+                                 class="slds-button ahfc-btn ahfc-btn-secondary" title={AHFC_ManagePaymentSources}
+                                 onclick={navigateToMangePaymentSourcePage}>{label.AHFC_MakeAPayment_Manage_Payment_Sources}</button>
+                              <!--End US:10994 -->
+                           </template>
+                           <!--Added for Payment source error-->
+
+                           <template if:true={displayPaySourceError}>
+                              <div class="message-info slds-m-vertical_xx-large">
+                                 <c-a-h-f-c_message-toast type="error" label="Error"
+                                    message="Please add a Payment Source.">
+                                 </c-a-h-f-c_message-toast>
+                              </div>
+                           </template>
+                        </div>
+                        <template if:false={flags.showPayOff}>
+                           <div class="paymentconfirmation-container">
+                              <p class="ahfc-body-two ahfc-text-dark">{confirmationMessage}</p>
+                              <br>
+                              <p class="ahfc-body-two ahfc-text-grey-payment-details">Your payment is being submitted in
+                                 accordance with the <a href={paymentAuthTnCUrl} target="_blank">Terms & Conditions </a>
+                                  of the Payment Withdrawal Authorization. Please print and retain a copy of this
+                                 authorization for your records.</p>
+                           </div>
+                        </template>
+                        <template if:true={flags.showPayOff}>
+                           <div class="paymentconfirmation-container">
+
+                              <p class="ahfc-body-two ahfc-text-dark">{payOffPurchaseMessage}</p>
+                              <!-- Commeneted by Narain US 14480 
+                           <p class="ahfc-body-two ahfc-text-dark">Your purchase payment will be credited to
+                              your account within 2 business days of your scheduled {labels.RadioPayoff} date.
+                              {labels.RadioPayoff} made after {cutOffTime} PT cannot be edited or cancelled.
+                           </p>  -->
+                              <br>
+                              <p class="ahfc-body-two ahfc-text-grey-payment-details">Your payment is being submitted in
+                                 accordance with the <a href={paymentAuthTnCUrl} target="_blank">Terms & Conditions</a>
+                                 of the Payment Withdrawal Authorization. Please print and retain a copy of this
+                                 authorization for your records.</p>
+                           </div>
+                        </template>
+                        <div class="reviewaction-container">
+                           <template if:true={revieButtonEnabled}>
+                           <button class="slds-button ahfc-btn ahfc-btn-primary" title={labels.ReviewPayment}
+                              onclick={handleReviewPayment} >{labels.ReviewPayment}</button>
+                           </template>
+                           <template if:false={revieButtonEnabled}><button class="slds-button ahfc-btn ahfc-btn-primary" title={labels.ReviewPayment}
+                               >{labels.ReviewPayment}</button></template>
+                           <button class="slds-button ahfc-btn ahfc-btn-text" title={labels.CancelButton}
+                              onclick={navigateBackToDashboard}>{labels.CancelButton}</button>
+                        </div>
+                     </template>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div if:false={showpaymentEligibilityErrorMsg}>
+         <div if:true={flags.showReviewPayment}>
+            <div if:true={showEasyPayReviewPayment}>
+               <c-a-h-f-c_-review-payments-easy-pay easy-payment-details={easyPaymentInfo}
+                  onediteasypaypayment={handleEditEasyPayPayment} brand-name={brandName}>
+               </c-a-h-f-c_-review-payments-easy-pay>
+            </div>
+            <div if:false={flags.showPayOff}>
+               <div if:false={showEasyPayReviewPayment}>
+                  <c-a-h-f-c_review-payment monthlyamount={monthlyamount} scheduleon={datScheduleOn}
+                     nextwithdrawldate={nextWithdrawldate} chargeday={chargeDaySelected}
+                     selectedpaymentsource={selPaymentSource} paytype={paymentType}
+                     additionalprincipalamount={decAddnlPricipalAmountFromMakeAPayment}
+                     oneditpayment={handleEditPayment} last4accnumofselpaysource={strLast4AccNumber}
+                     serviceaccountid={sacRecordId} selectedpaymentsourceid={selPaymentSourceId}
+                     isboolenrolled={enrolledInEasyPayFlag} isadditionalprinicipalamount={isAdditionalPrinicipalAmount}
+                     brand-name={brandName}>
+                  </c-a-h-f-c_review-payment>
+               </div>
+            </div>
+
+            <div if:true={flags.showPayOff}>
+               <div if:false={showEasyPayReviewPayment}>
+                  <c-a-h-f-c_review-payment-payoff-purchase paymenttype={labels.RadioPayoff} payoffamt={payoffamt}
+                     paymentwithoutdollar={paymentwithoutdollar} scheduledon={datScheduleOn}
+                     purchasereviewdate={purchasereviewdate} selectedpaymentsourceid={selPaymentSourceId}
+                     oneditreviewpayment={handlePayoffPurchaseEdit} payoffdate={payoffDate}
+                     last4accnumofselpaysource={strLast4AccNumber} selectedpaymentsource={selPaymentSource}
+                     paymentsourcenickname={paymentSourceNickname} payoffbankaccno={payoffBankAccountNo}
+                     finaccid={sacRecordId} brand-name={brandName}>
+                  </c-a-h-f-c_review-payment-payoff-purchase>
+               </div>
+            </div>
+
+
+
+
+         </div>
+         <!--  <div if:false={showpaymentEligibilityErrorMsg}>
+         <div if:true={flags.showReviewPayoffPurchasePayment}>
+         <div if:true={showPayoffPurchaseReviewPayment}>
+            <c-a-h-f-c_review-payment-payoff-purchase
+         paymenttype={labels.RadioPayoff}
+         payoffdate ={payoffDate}
+         paymentsourcenickname ={paymentSourceNickname}
+         payoffbankaccno ={payoffBankAccountNo}
+       ></c-a-h-f-c_review-payment-payoff-purchase>
+         </div>
+         </div>
+      </div> -->
+
+
+      </div>
+
+   </div>
+   <template if:true={flags.isModalOpen}>
+      <c-a-h-f-c_add-new-payment-source options={options} renderwithpreferredpaymentoptions="true"
+         onmodalclose={onNewPaymentModalClose} onmodalsave={savePaymentSource}
+         showreenterbankaccnum={showReEnterBankAccNum} userprofiletype={userprofiletype} fin-id={sacRecordId}>
+      </c-a-h-f-c_add-new-payment-source>
+   </template>
+   <template if:true={flags.boolShowSuccessMsg}>
+      <div class="message-info slds-m-top_xx-large">
+         <c-a-h-f-c_message-toast type={toastType} label={toastLabel} message={successSaveMsg} toast-type="snack-bar"
+            show-icon="true" onclosetoast={onCloseToast}></c-a-h-f-c_message-toast>
+      </div>
+   </template>
+</template>

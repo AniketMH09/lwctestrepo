@@ -1,0 +1,212 @@
+/* START - CANCEL MODAL BOX */
+.ahfc-backgroud-lighter{
+  background: #F7F7F7;
+}
+.error-help {
+ /*  color: red;
+  font-size: 17px; */
+  color: #c64540;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 8px;
+  line-height: 18px;
+}
+.edit-modal-content{
+  padding: 5rem 6rem 5rem 6rem;
+
+
+  border-radius: 0px;
+}
+.madepayment-content-wrapper {
+  padding-bottom: 50px;
+  border-bottom: 1px solid #D9D9D9;
+  margin-bottom: 30px;
+}
+.AHFC_Collayout{    padding: 1rem 0 0 0;
+} 
+.AHFC_ModTitle{
+  font-family: ahfc-robotolight;
+  font-size: 26px;
+  padding-bottom: 1rem;
+  line-height: 1;
+  letter-spacing: 0.02rem;
+  color: #000000;
+}
+.exampleHolder{
+  position: relative;
+  display: inline-block;
+  margin-left: 15px;
+  width: 55px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.AHFC_ModSubtxt{
+    font-size: 18px;
+  letter-spacing: 0.02rem;
+  
+  padding: 1rem 0 1rem 0;
+}
+
+.AHFC_ModFormLabel{     color: #5E6162;
+  
+ 
+  font-size: 18px;
+  letter-spacing: 0.02rem;}
+ 
+  .AHFC_BgRedButton{    background-color: #CC0000;
+    border: none;
+    color: #fff;
+    box-sizing: border-box;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    padding: 14px 24px;
+    letter-spacing: .06em;
+  }
+  .AHFC_NoBgButton{    color: #CC0000;
+    font-size: 14px;
+    border-top-width: 10px;
+    margin-left: 14px;
+    font-family: 'ahfc-robotomedium';
+    letter-spacing: 0.06rem;}
+
+/* END - CANCEL MODAL BOX */
+
+.made-payment-container-fluid {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 100px;
+  }
+  .made-payment-heading {
+    align-items: center;
+    padding-top: 2rem;
+    margin-top: 0rem;
+  }
+  
+  .payment-container {
+    background: #fff;
+    padding: 54px 100px;
+  }
+  .payment-mode-container {
+    justify-content: space-between;
+  }
+  .ahfc_horizontalLine{
+    margin: 4rem 0 2.5rem;
+    border-bottom: 1px solid #D9D9D9
+  }
+  .due-container {
+    /* width: 50%;
+    justify-content: space-between; */
+  }
+  .ahfc-radio{
+    margin-right: 2rem;
+  }
+  .popover-content {
+    position: absolute;
+    top: 42px;
+    right: -15px;
+    width: 270px;
+    background: black;
+  }
+  /* success info */
+  .success-info {
+    align-items: center;
+  }
+  .success-info img {
+    width: 45px;
+    height: 36px;
+  }
+  
+  
+  .cancel-action {
+    padding-left: 0px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    .made-payment-container-fluid{
+      width: 90%;
+    }
+    .payment-container {
+      padding: 32px 20px;
+    }
+    .payment-mode-container{
+      align-items: baseline;
+    }
+    .due-container {
+      width: 80%;
+    }
+    
+  }
+  @media screen and (min-width: 320px) and (max-width: 540px) {
+    .made-payment-container-fluid,
+    .payment-mode-select,
+    .tracking-number,
+    .payment-date {
+      width: 100%;
+    }
+    .made-payment-heading{
+      padding: 0px 20px;
+    }
+    .made-payment-heading h1{
+      font-size: 20px;
+      line-height: 26px;
+    }
+   
+    .payment-container {
+      padding: 24px 20px;
+    }
+    .payment-container .payment-details,
+    .payment-container .select-amount-label{
+      font-size: 18px;
+      line-height: 28px;
+    }
+    .payment-container .payment-info{
+      font-size: 14px;
+      line-height: 20px;
+    }
+    .payment-mode-container {
+      flex-direction: column;
+    }
+    .payment-mode-select{
+      margin-bottom: 48px;
+    }
+    .ahfc-input.slds-form-element .slds-input{
+      font-size: 16px;
+    }
+    .due-container {
+      width: 100%;
+      flex-direction: column;
+      margin-bottom: 0px;
+    }
+    .due-container .ahfc-radio{
+      margin-bottom: 40px;
+    }
+    .payment-action .cancel-btn{
+      margin-top: 40px;
+    }
+     /* bug 10969 */
+    .AHFC_TrackingLabel{
+      width: 90%;
+    }
+    .AHFC_DateWrap{
+      margin-top: 1.5rem;
+    }
+    /* end */
+  }
+  /* bug 10969 */
+  .AHFC_Button{
+    font-family: 'ahfc-robotomedium' ,sans-serif;
+    font-weight: 500;
+  }
+
+/* ADA fix start */
+.AHFC_removehovereffect{
+  cursor: auto;
+}
+/* ADA fix end */
+
+.ahfc-combobox:focus {
+  border: 1px solid black !important;
+}

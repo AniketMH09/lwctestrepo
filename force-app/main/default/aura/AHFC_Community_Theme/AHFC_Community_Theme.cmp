@@ -1,0 +1,27 @@
+<aura:component implements="forceCommunity:themeLayout" access="global" description="Sample Custom Theme Layout">
+    <aura:attribute name="search" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="profileMenu" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="blueBackground" type="Boolean" default="false"/> 
+    <aura:attribute name="smallLogo" type="Boolean" default="false" />
+    <aura:attribute name="navBar" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="newHeader" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="newFooter" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="themeHero" type="Aura.Component[]" required="false"/>
+    
+    <div>
+        <div class="grey">            
+            <div class="newHeader">
+                {!v.newHeader}
+            </div>
+            <div class="themeHero">
+                {!v.themeHero}
+            </div>
+            <div class="mainContentArea">
+                {!v.body}
+            </div>
+        </div>
+        <div class="newFooter">
+            {!v.newFooter}
+        </div>
+    </div>
+</aura:component>

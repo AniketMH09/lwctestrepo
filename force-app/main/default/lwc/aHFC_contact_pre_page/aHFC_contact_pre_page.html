@@ -1,0 +1,526 @@
+<template>
+
+    <!-- 2320 - Global Alert  Start -->
+    <template if:true={globalAlertFlag}>
+        <template for:each={alertMessageArrayMain} for:item='item'>
+            <div class='slds-show_large aHFC_globalAlert' key={item.Name}>
+                <c-a-h-f-c_message-toast class="made-payment-toast" type="alert" message={item.Alert_Message__c}
+                    is-notification="true" show-icon="false">
+                </c-a-h-f-c_message-toast>
+            </div>
+        </template>
+    </template>
+    <!-- 2320 - Global  Alert  End -->
+
+
+
+    <!-- 2320 - Global Alert for mobile view start -->
+    <template if:true={globalAlertFlag}>
+        <template for:each={alertMessageArrayMain} for:item='item'>
+            <div class='slds-hide_large aHFC_globalAlert' key={item.Name}>
+                <c-a-h-f-c_message-toast class="made-payment-toast infosec" type="alert" message={item.Alert_Message__c}
+                    is-notification="true" show-icon="false">
+                </c-a-h-f-c_message-toast>
+            </div>
+        </template>
+    </template>
+    <!-- 2320 - Global Alert for mobile view start -->
+    <div role="main" id="main-container" class="main-content">
+        <div class='ahfc-contact-main'>
+            <div class='ahfc-contact-header'>
+                
+                <div class='ahfc-contact-header-title slds-show_large'>
+                    <a href="javascript:void(0);" onclick={onCheckApplicationStatusClick}>
+                    <img role='img' src={ahfc_contact_post_back_arrow} class='ahfc-contact-header-title-png ahfc-cnt-pnt'
+                        alt="Return to previous page" onclick={onCheckApplicationStatusClick} /></a>
+                    <h1 class='ahfc-contact-header-title-text ahfc-contact-header-Heading'>Customer
+                        Service</h1>
+                </div>
+                
+                <div class='ahfc-contact-header-title slds-hide_large'>
+                    <a href="javascript:void(0);" onclick={onCheckApplicationStatusClick}>
+                    <img role='img' src={ahfc_contact_post_back_arrow_mobile} class='ahfc-contact-header-title-png ahfc-cnt-pnt'
+                        alt="Return to previous page" onclick={onCheckApplicationStatusClick} /></a>
+                    <h1 class='ahfc-contact-header-title-text ahfc-contact-header-Heading'>Customer
+                        Service</h1>
+                </div>
+                <!-- <template if:true={isErrorState}>
+                    <div class="made-payment-toast">
+                        <c-a-h-f-c_message-toast type="warning" singlemsg='We are experiencing high call volume. As a reminder, you can log into your account to make payments, view statements and
+                    manage your account.' show-icon="false">
+                        </c-a-h-f-c_message-toast>
+                    </div>
+                </template>-->
+            </div>
+            <div class='ahfc-contact-tab'>
+                <div>
+                    <h2>
+                        <div class='ahfc-pop-container-title'>
+                            Contact Us
+                        </div>
+                    </h2>
+                    <div class='ahfc-pop-container-title-text'>
+                        To contact a representative, select your product and state in which it was originally acquired.
+                    </div>
+                </div>
+                <div class='ahfc-contact-select-product'>
+                    <div class='ahfc-pop-selection slds-show_large'>
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div class="slds-col slds-medium-size_2-of-10 slds-large-size_2-of-10">
+                                <a href="javascript:void(0);" onclick={onFindClick} data-name='honda' > <div class={hondaClass} onclick={onFindClick} data-name='honda'>
+                                   <img role="img" src={AHFC_cpa_hondaauto} alt="Grey Honda SUV" onclick={onFindClick}
+                                        data-name='honda' />
+                                </div></a> 
+                                <div class='ahfc-pop-img-title'>HONDA Auto</div>
+                            </div>
+                            <div class="slds-col slds-medium-size_2-of-10 slds-large-size_2-of-10">
+                                <a href="javascript:void(0);" onclick={onFindClick} data-name='acura' >    <div class={acuraClass} onclick={onFindClick} data-name='acura'>
+                                    <img role="img" src={AHFC_cpa_acura} alt="Red Acura NSX" onclick={onFindClick}
+                                        data-name='acura' />
+                                </div></a>
+                                <div class='ahfc-pop-img-title'>ACURA auto</div>
+                            </div>
+                            <div class="slds-col slds-medium-size_2-of-10 slds-large-size_2-of-10">
+                                <a href="javascript:void(0);" onclick={onFindClick} data-name='powersport'>    <div class={psClass} onclick={onFindClick} data-name='powersport'>
+                                     <img role="img" src={AHFC_cpa_ps} alt="Red Honda Motorcycle" onclick={onFindClick}
+                                        data-name='powersport' />
+                                </div></a>
+                                <div class='ahfc-pop-img-title'>Powersports</div>
+                            </div>
+                            <div class="slds-col slds-medium-size_2-of-10 slds-large-size_2-of-10">
+                                <a href="javascript:void(0);" onclick={onFindClick} data-name='powerequipment' >  <div class={peClass} onclick={onFindClick} data-name='powerequipment'>
+                                      <img role="img" src={AHFC_cpa_pe} alt="Red Honda Generators" onclick={onFindClick}
+                                        data-name='powerequipment' />
+                                </div> </a>
+                                <div class='ahfc-pop-img-title'>Power Equipment</div>
+                            </div>
+                            <div class="slds-col slds-medium-size_2-of-10 slds-large-size_2-of-10">
+                                <a href="javascript:void(0);" onclick={onFindClick} data-name='marine'>   <div class={marineClass} onclick={onFindClick} data-name='marine'>
+                                    <img role="img" src={AHFC_cpa_marine} alt="Gray Honda Marine Engine" onclick={onFindClick}
+                                        data-name='marine' />
+                                </div></a>
+                                <div class='ahfc-pop-img-title'>Marine</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='ahfc-pop-selection slds-hide_large slds-hide_medium slds-hide_small'>
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div class="slds-col slds-size_1-of-2 slds-medium-size_2-of-10">
+                                <a href="javascript:void(0);" onclick={onFindClick} data-name='honda' >   <div class={hondaClass} onclick={onFindClick} data-name='honda'>
+                                    <img role="img" src={AHFC_cpa_hondaauto} alt="Honda SUV" onclick={onFindClick}
+                                        data-name='honda' />
+                                </div></a>
+                                <div class='ahfc-pop-img-title'>HONDA Auto</div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 slds-medium-size_2-of-10">
+                                <a href="javascript:void(0);" onclick={onFindClick} data-name='acura' >    <div class={acuraClass} onclick={onFindClick} data-name='acura'>
+                                    <img role="img" src={AHFC_cpa_acura} alt="Red fancy car" onclick={onFindClick}
+                                        data-name='acura' />
+                                </div></a>
+                                <div class='ahfc-pop-img-title'>ACURA auto</div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 slds-medium-size_2-of-10">
+                                <a href="javascript:void(0);" onclick={onFindClick} data-name='powersport'>    <div class={psClass} onclick={onFindClick} data-name='powersport'>
+                                    <img role="img" src={AHFC_cpa_ps} alt="Red sports bike" onclick={onFindClick}
+                                        data-name='powersport' />
+                                </div></a>
+                                <div class='ahfc-pop-img-title'>Powersports</div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 slds-medium-size_2-of-10">
+                                <a href="javascript:void(0);" onclick={onFindClick} data-name='powerequipment' > <div class={peClass} onclick={onFindClick} data-name='powerequipment'>
+                                    <img role="img" src={AHFC_cpa_pe} alt="Red Power equipments" onclick={onFindClick}
+                                        data-name='powerequipment' />
+                                </div></a>
+                                <div class='ahfc-pop-img-title'>Power Equipment</div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 slds-medium-size_2-of-10">
+                                <a href="javascript:void(0);" onclick={onFindClick} data-name='marine'>    <div class={marineClass} onclick={onFindClick} data-name='marine'>
+                                    <img role="img" src={AHFC_cpa_marine} alt="Grey Marine Equipment" onclick={onFindClick}
+                                        data-name='marine' />
+                                </div></a>
+                                <div class='ahfc-pop-img-title'>Marine</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='ahfc-pop-selection slds-show_medium slds-hide_large slds-show_small'>
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div class="slds-col slds-medium-size_2-of-10 slds-large-size_2-of-10">
+                                <div class={hondaClass} onclick={onFindClick} data-name='honda'>
+                                    <img role="img" src={AHFC_cpa_hondaauto} alt="Grey Honda SUV" onclick={onFindClick}
+                                        data-name='honda' />
+                                </div>
+                                <div class='ahfc-pop-img-title'>HONDA Auto</div>
+                            </div>
+                            <div class="slds-col slds-medium-size_2-of-10 slds-large-size_2-of-10">
+                                <div class={acuraClass} onclick={onFindClick} data-name='acura'>
+                                    <img role="img" src={AHFC_cpa_acura} alt="Red Acura NSX" onclick={onFindClick}
+                                        data-name='acura' />
+                                </div>
+                                <div class='ahfc-pop-img-title'>ACURA auto</div>
+                            </div>
+                            <div class="slds-col slds-medium-size_2-of-10 slds-large-size_2-of-10">
+                                <div class={psClass} onclick={onFindClick} data-name='powersport'>
+                                    <img role="img" src={AHFC_cpa_ps} alt="Red Honda Motorcycle" onclick={onFindClick}
+                                        data-name='powersport' />
+                                </div>
+                                <div class='ahfc-pop-img-title'>Powersports</div>
+                            </div>
+                            <div class="slds-col slds-medium-size_2-of-10 slds-large-size_2-of-10">
+                                <div class={peClass} onclick={onFindClick} data-name='powerequipment'>
+                                    <img role="img" src={AHFC_cpa_pe} alt="Red Honda Generators" onclick={onFindClick}
+                                        data-name='powerequipment' />
+                                </div>
+                                <div class='ahfc-pop-img-title'>Power Equipment</div>
+                            </div>
+                            <div class="slds-col slds-medium-size_2-of-10 slds-large-size_2-of-10">
+                                <div class={marineClass} onclick={onFindClick} data-name='marine'>
+                                    <img role="img" src={AHFC_cpa_marine} alt="Gray Honda Marine Engine" onclick={onFindClick}
+                                        data-name='marine' />
+                                </div>
+                                <div class='ahfc-pop-img-title'>Marine</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='ahfc-pop-selection slds-hide_medium slds-hide_large slds-show_small'>
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div
+                                class="slds-col slds-small-size_2-of-10 slds-medium-size_2-of-10 slds-large-size_2-of-10">
+                                <div class={hondaClass} onclick={onFindClick} data-name='honda'>
+                                    <img role="img" src={AHFC_cpa_hondaauto} alt="Grey Honda SUV" onclick={onFindClick}
+                                        data-name='honda' />
+                                </div>
+                                <div class='ahfc-pop-img-title'>HONDA Auto</div>
+                            </div>
+                            <div
+                                class="slds-col slds-small-size_2-of-10 slds-medium-size_2-of-10 slds-large-size_2-of-10">
+                                <div class={acuraClass} onclick={onFindClick} data-name='acura'>
+                                    <img role="img" src={AHFC_cpa_acura} alt="Red Acura NSX" onclick={onFindClick}
+                                        data-name='acura' />
+                                </div>
+                                <div class='ahfc-pop-img-title'>ACURA auto</div>
+                            </div>
+                            <div
+                                class="slds-col slds-small-size_2-of-10 slds-medium-size_2-of-10 slds-large-size_2-of-10">
+                                <div class={psClass} onclick={onFindClick} data-name='powersport'>
+                                    <img role="img" src={AHFC_cpa_ps} alt="Red Honda Motorcycle" onclick={onFindClick}
+                                        data-name='powersport' />
+                                </div>
+                                <div class='ahfc-pop-img-title'>Powersports</div>
+                            </div>
+                            <div
+                                class="slds-col slds-small-size_2-of-10 slds-medium-size_2-of-10 slds-large-size_2-of-10">
+                                <div class={peClass} onclick={onFindClick} data-name='powerequipment'>
+                                    <img role="img" src={AHFC_cpa_pe} alt="Red Honda Generators" onclick={onFindClick}
+                                        data-name='powerequipment' />
+                                </div>
+                                <div class='ahfc-pop-img-title'>Power Equipment</div>
+                            </div>
+                            <div
+                                class="slds-col slds-small-size_2-of-10 slds-medium-size_2-of-10 slds-large-size_2-of-10">
+                                <div class={marineClass} onclick={onFindClick} data-name='marine'>
+                                    <img role="img" src={AHFC_cpa_marine} alt="Gray Honda Marine Engine" onclick={onFindClick}
+                                        data-name='marine' />
+                                </div>
+                                <div class='ahfc-pop-img-title'>Marine</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='ahfc-contact-select-state'>
+                    <a href="javascript:void(0);" tabindex="-1" aria-label="month">
+                        <lightning-combobox class="ahfc-combobox ahfc-input" name="State" label="State"
+                            value={selectedState} placeholder="Select the State" options={listofState}
+                            onchange={handleInputData} data-id="state-input"></lightning-combobox>
+                    </a>
+                </div>
+                <div>
+                    <div class='ahfc-appl-sec-btn'>
+                        <button class="slds-button ahfc-btn" onclick={onSubmit}>SUBMIT</button>
+                    </div>
+                </div>
+                <template if:true={isSubmit}>
+                    <div class='ahfc-contact-partition'></div>
+                    <div class="manage-payment-tabs">
+                        <ul class="slds-tabs_default__nav slds-text-title_caps" role="tablist">
+                            <template for:each={tabItems} for:item="tab">
+                                <li key={tab.key} class={tab.headerClass} title={tab.name} role="presentation"
+                                    data-tabname={tab.key} onkeypress={onTabChangeEnterKey} tabindex="0">
+                                    <a class="slds-tabs_default__link ahfc-tab-label" href="javascript:void(0);"
+                                        role="tab" tabindex='-1' aria-selected={tab.ariaSelected}
+                                        aria-controls={tab.ariaControls} data-tabname={tab.key} id={tab.ariaLabelledby}
+                                        onclick={onTabChange}>{tab.name}</a>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                    <template for:each={tabItems} for:item="tab">
+                        <div key={tab.key} id={tab.ariaControls} class={tab.contentClass} role="tabpanel"
+                            aria-labelledby={tab.ariaLabelledby}>
+                            <div if:true={tab.isScheduledPayment} class='ahfc-contact-phone-tab-data'>
+                                <div class='ahfc-contact-phone'>
+                                    <div class='ahfc-contact-phone-number'>Phone Number:<a
+                                            href={linkmobilenumber1}><span class='ahfc-contact-phone-number-span'>
+                                                {phonenumber}</span></a></div>
+                                </div>
+                                <div class='ahfc-contact-hours'>
+                                    <div class='ahfc-contact-phone-number ahfc-display'>Business hours:</div>
+                                    <div class='ahfc-contact-phone-number-msg'>Monday – Friday, 9 a.m. – 5 p.m. local
+                                        time.
+                                        Automated lines are available 24 hours a day.</div>
+                                </div>
+                                <div class='ahfc-contact-hours-text-msg'>
+                                    {textforphone}
+                                </div>
+
+                            </div>
+                            <div if:true={tab.isTransactionHistory}>
+                                <div class="slds-grid ahfc-contact-address-tab-pad">
+                                    <div class="slds-col slds-size_1-of-1 slds-large-size_12-of-12 ahfc-contact-acc">
+                                        <template for:each={leaseData} for:item="sections">
+                                            <section class={sections.class} key={sections.id}>
+                                              <a href="javascript:void(0);" onclick={onCardClick} data-keyno={sections.id}>
+                                                <div class="slds-accordion__summary-action slds-size_1-of-1 ahfc-cnt-pnt"
+                                                    aria-controls={sections.id} data-keyno={sections.id}
+                                                    aria-expanded={sections.isOpened} title={sections.cardTitle} onclick={onCardClick} >
+                                                    <div class="slds-grid slds-size_1-of-1 AHFC_AccordTab"
+                                                        data-keyno={sections.id}>
+                                                        <div class="slds-col slds-size_9-of-12 slds-large-size_10-of-12 AHFC_AccordTitle">
+                                                            <span>{sections.cardTitle}</span>
+                                                        </div>
+                                                      <div
+                                                            class="slds-col slds-size_3-of-12 slds-large-size_1-of-12 ahfc-contact-arrow">
+                                                            <div if:true={sections.isOpened}
+                                                                class='ahfc-contact-arrow-img'>
+                                                                <img src={ahfc_contact_uparrow} alt="chevronup" />
+                                                            </div>
+                                                            <div if:false={sections.isOpened}
+                                                                class='ahfc-contact-arrow-img'>
+                                                                <img src={ahfc_contact_downarrow} alt="chevrondown" />
+                                                            </div>
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                              </a>
+                                                <div class="slds-accordion__content" id={sections.id}>
+                                                    <div class="AHFC_CardDetail">
+                                                        <div if:true={sections.isCRDA} class='ahfc-contact-address-lines ahfc-crda'>
+                                                           {sections.crda}
+                                                        </div> 
+                                                        <div class='ahfc-contact-address-lines'>
+                                                            {sections.address.addr_line1__c}</div>
+                                                        <div class='ahfc-contact-address-lines'>
+                                                            {sections.address.addr_line2__c}</div>
+                                                        <div class='ahfc-contact-address-lines'>
+                                                            {sections.address.city__c},
+                                                        </div>
+                                                        <div class='ahfc-contact-address-lines'>
+                                                            {sections.address.state_cd__c}<span>&nbsp;&nbsp;{sections.address.zip__c}</span>
+                                                        </div>
+                                                        <div if:true={sections.isDiscliamer} class='ahfc-disclaimer'>
+                                                            <div class='ahfc-contact-address-lines'>DISCLAIMER</div>
+                                                            <div class='ahfc-disclaimer-text'>*Notice is hereby given that
+                                                                Honda Lease Trust has assigned all of its rights (but not
+                                                                obligations) to purchase and/or sell this vehicle to Honda
+                                                                Finance Exchange, Inc. pursuant to the Sub-Serving and
+                                                                Master Exchange Agreement. Notice for New York and Virginia
+                                                                residents: The Trust designation is HVT, Inc. as Trustee for
+                                                                Honda Lease Trust.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </template>
+                <div class='ahfc-contact-knw-more'>
+                    <h2>
+                        <div class='contact-knw-more-title'>
+                            Know More
+                        </div>
+                    </h2>
+                    <div class='contact-knw-more-text' if:true={isHonda}>
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div
+                                class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-3 ahfc-knw-more-col-brd ipad">
+                                <h2 class='contact-knw-more-text-1'>APPROACHING THE END OF YOUR LEASE?
+                                </h2> 
+                                <div class='contact-knw-more-text-2'>If you are approaching the end of your lease and
+                                    have questions about the lease-end process, contact our Lease Maturity Center (LMC).
+                                </div>
+                                <a href="javascript:void(0);" tabindex="0" onclick={onHonda1}> <div class='contact-knw-more-text-3'><span onclick={onHonda1}  aria-label="APPROACHING THE END OF YOUR LEASE? View Phone Number" class='ahfc-btn-clk'>View
+                                        Phone Number</span></div></a>
+                            </div>
+                            <div
+                                class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-3 ahfc-knw-more-col-brd ahfc-cont-add-mobile-mrg">
+                                <h2 class='contact-knw-more-text-1'>QUESTIONS ABOUT HONDA CARE? </h2>
+                                <div class='contact-knw-more-text-2 ahfc-cont-marg'>Our Honda Care Vehicle Service
+                                    Contracts (VSC) provide additional benefits beyond the manufacturer's warranty.
+                                </div>
+                                <a href="javascript:void(0);" tabindex="0" onclick={onHonda2}>  <div class='contact-knw-more-text-3  ahfc-cont-marg-2'><span aria-label="QUESTIONS ABOUT HONDA CARE? View Phone Number" class='ahfc-btn-clk'
+                                        onclick={onHonda2}>View
+                                        Phone Number</span></div> </a>
+                            </div>
+                            <div
+                                class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-3 ahfc-cont-add-mobile-mrg">
+                                <h2 class='contact-knw-more-text-1'>CONCERNS ABOUT YOUR VEHICLE? </h2>
+                                <div class='contact-knw-more-text-2 ahfc-cont-marg'>Our Honda Automobiles Customer
+                                    Service team is happy to help you with questions about your Honda vehicle. </div>
+                                    <a href="javascript:void(0);" tabindex="0" onclick={onHonda3}>    <div class='contact-knw-more-text-3 ahfc-cont-marg-2'><span  aria-label="CONCERNS ABOUT YOUR VEHICLE? View Phone Number"  onclick={onHonda3}
+                                        class='ahfc-btn-clk'>View
+                                        Phone Number</span></div></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='contact-knw-more-text' if:true={isAcura}>
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div
+                                class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-3 ahfc-knw-more-col-brd ipad">
+                                <h2 class='contact-knw-more-text-1'>APPROACHING THE END OF YOUR LEASE?
+                                </h2>
+                                <div class='contact-knw-more-text-2'>If you are approaching the end of your lease and
+                                    have questions about the lease-end process, contact our Lease Maturity Center (LMC).
+                                </div>
+                                <a href="javascript:void(0);" tabindex="0" onclick={onAcura1}> <div class='contact-knw-more-text-3'><span onclick={onAcura1} aria-label="APPROACHING THE END OF YOUR LEASE? View Phone Number" class='ahfc-btn-clk'>View
+                                        Phone Number</span></div></a>
+                            </div>
+                            <div
+                                class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-3 ahfc-knw-more-col-brd ahfc-cont-add-mobile-mrg">
+                                <h2 class='contact-knw-more-text-1'>QUESTIONS ABOUT ACURA CARE?</h2>
+                                <div class='contact-knw-more-text-2 ahfc-cont-marg'>Our Acura Care Vehicle Service
+                                    Contracts (VSCs) provide additional benefits beyond the manufacturer's warranty.
+                                </div>
+                                <a href="javascript:void(0);" tabindex="0" onclick={onAcura2}>    <div class='contact-knw-more-text-3 ahfc-cont-marg-2'><span  aria-label="QUESTIONS ABOUT ACURA CARE? View Phone Number" class='ahfc-btn-clk'
+                                        onclick={onAcura2}>View
+                                        Phone Number</span></div></a>
+                            </div>
+                            <div
+                                class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-3 ahfc-cont-add-mobile-mrg">
+                                <h2 class='contact-knw-more-text-1'>CONCERNS ABOUT YOUR VEHICLE? </h2>
+                                <div class='contact-knw-more-text-2 ahfc-cont-marg'>The Acura Client Relations team is
+                                    happy to help you with questions about your Acura vehicle.</div>
+                                    <a href="javascript:void(0);" tabindex="0" onclick={onAcura3}>  <div class='contact-knw-more-text-3 ahfc-cont-marg-2'><span onclick={onAcura3} aria-label="CONCERNS ABOUT YOUR VEHICLE? View Phone Number"
+                                        class='ahfc-btn-clk'>View
+                                        Phone Number</span></div></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='contact-knw-more-text' if:true={isPS}>
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div
+                                class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-3 ahfc-knw-more-col-brd ahfc-cont-add-mobile-mrg">
+                                <h2 class='contact-knw-more-text-1'>QUESTIONS ABOUT HONDA CARE? </h2>
+                                <div class='contact-knw-more-text-2 ahfc-cont-marg'>Our HondaCare Protection Plan
+                                    provides additional benefits beyond the factory warranty.</div>
+                                    <a href="javascript:void(0);" tabindex="0" onclick={onPS1}>    <div class='contact-knw-more-text-3 ahfc-cont-marg-2'><span  class='ahfc-btn-clk' aria-label="QUESTIONS ABOUT HONDA CARE? View Phone Number"
+                                        onclick={onPS1}>View
+                                        Phone Number</span></div></a>
+                            </div>
+                            <div
+                                class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-3 ahfc-cont-add-mobile-mrg">
+                                <h2 class='contact-knw-more-text-1'>CONCERNS ABOUT YOUR VEHICLE? </h2>
+                                <div class='contact-knw-more-text-2 ahfc-cont-marg'>Our Honda Customer Service team is
+                                    happy to help you with questions about your Honda powersports product.
+                                </div>
+                                <a href="javascript:void(0);" tabindex="0" onclick={onPS2}>     <div class='contact-knw-more-text-3  ahfc-cont-marg-2'><span  onclick={onPS2} aria-label="CONCERNS ABOUT YOUR VEHICLE? View Phone Number"
+                                        class='ahfc-btn-clk'>View
+                                        Phone Number</span></div></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='contact-knw-more-text' if:true={isPE}>
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div
+                                class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-3 ahfc-cont-add-mobile-mrg">
+                                <h2 class='contact-knw-more-text-1'>CONCERNS ABOUT YOUR PRODUCT?</h2>
+                                <div class='contact-knw-more-text-2 ahfc-cont-marg'>Our Honda Customer Service team is
+                                    happy to help you with questions about your Honda product.</div>
+                                    <a href="javascript:void(0);" tabindex="0" onclick={onPE1}>     <div class='contact-knw-more-text-3 ahfc-cont-marg-2'><span  onclick={onPE1} aria-label="CONCERNS ABOUT YOUR PRODUCT? View Phone Number"
+                                        class='ahfc-btn-clk'>View
+                                        Phone Number</span></div></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='contact-knw-more-text' if:true={isMarine}>
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div
+                                class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-3 ahfc-cont-add-mobile-mrg">
+                                <h2 class='contact-knw-more-text-1'>CONCERNS ABOUT YOUR PRODUCT?</h2>
+                                <div class='contact-knw-more-text-2 ahfc-cont-marg'>Our Honda Customer Service team is
+                                    happy to help you with questions about your Honda product.</div>
+                                    <a href="javascript:void(0);" tabindex="0" onclick={onMKarine1}>      <div class='contact-knw-more-text-3 ahfc-cont-marg-2'><span  onclick={onMKarine1} aria-label="CONCERNS ABOUT YOUR PRODUCT? View Phone Number"
+                                        class='ahfc-btn-clk'>View
+                                        Phone Number</span></div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <template if:true={openPopUp}>
+        <section aria-describedby="modal-content-id-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            class="slds-modal slds-fade-in-open" role="dialog" tabindex="-1">
+            <div class="slds-modal__container">
+                <div class="slds-modal__content">
+                    <div class='ahfc-pop-container'>
+                        <div class='ahfc-pop-container-title'>
+                            {popHead}
+                        </div>
+                        <a href={mobilenuimber2}>
+                            <div class='ahfc-pop-container-title-text-2'>
+                                {popPhoneNumber}
+                            </div>
+                        </a>
+                        <div class='ahfc-pop-selection'>
+                            <div class='ahfc-contact-phone-number ahfc-display'>Business hours:</div>
+                            <div class='ahfc-contact-phone-number-msg'>{businesshours}
+                            </div>
+                        </div>
+                        <div class='ahfc-pop-btn'>
+                            <button class="slds-button ahfc-btn" onclick={onCloseApp}>CLOSE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" aria-hidden="true"></div>
+    </template>
+    <template if:true={openPopUp2}>
+        <section aria-describedby="modal-content-id-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            class="slds-modal slds-fade-in-open" role="dialog" tabindex="-1">
+            <div class="slds-modal__container">
+                <div class="slds-modal__content">
+                    <div class='ahfc-pop-container'>
+                        <div class='ahfc-pop-container-title'>
+                            {popHead}
+                        </div>
+                        <a href={mobilenuimber2}>
+                            <div class='ahfc-pop-container-title-text-2'>
+                                {popPhoneNumber}
+                            </div>
+                        </a>
+                        <a href={mobilenuimber3}>
+                            <div class='ahfc-pop-container-title-text-2'>
+                                {popPhoneNumber2}
+                            </div>
+                        </a>
+                        <div class='ahfc-pop-selection'>
+                            <div class='ahfc-contact-phone-number ahfc-display'>Business hours:</div>
+                            <div class='ahfc-contact-phone-number-msg'>{businesshours}
+                            </div>
+                        </div>
+                        <div class='ahfc-pop-btn'>
+                            <button class="slds-button ahfc-btn" onclick={onCloseApp}>CLOSE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" aria-hidden="true"></div>
+    </template>
+</template>

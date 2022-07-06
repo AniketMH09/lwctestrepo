@@ -1,0 +1,39 @@
+<apex:page controller="AHFC_ArticlePrintableApexController" applyBodyTag="false" renderAs="pdf" >
+    
+    
+    <apex:stylesheet value="{!$Resource.AHFC_Pdf_Footer_css}"/>
+    
+    <div class="header" style="padding-top: 20px;" >
+        <div style="float: left;" >
+            <apex:image id="theImage12" value="{!$Resource.HondaImageForPDF}" width="112px" height="82px"/>
+            
+        </div>
+        <div style="font-family: 'Helvetica Neue', 'SansSerif', Helvetica; float: right;padding-top: 35px; " >
+            {!MONTH(TODAY())}/{!DAY(TODAY())}/{!YEAR(TODAY())}
+        </div>
+        
+    </div>
+    
+    
+    <div class="footer">
+        <div style="font-family: 'Helvetica Neue', 'SansSerif', Helvetica;">
+            
+            <apex:outputLabel value="{!$Label.HondaPDFFooterURL}" />
+           
+        </div>
+    </div>
+    
+    
+    <br/><br/>
+    
+    
+    <div style="font-family: 'Helvetica Neue', 'SansSerif', Helvetica; padding-top: 40px;padding-left: 10px;">
+        <h2>
+            <apex:outputText value="{!details.Title}" /><br/>
+        </h2>
+        <apex:outputText value="{!details.Details__c }" escape="false"/>
+    </div>
+    
+    
+    
+</apex:page>

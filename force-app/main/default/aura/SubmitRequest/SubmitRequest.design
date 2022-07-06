@@ -1,0 +1,4 @@
+<design:component>
+	<design:attribute name= "strEmail" label="Email" />
+    <design:attribute name = "intWidth" label = "Width" />
+</design:component>

@@ -1,0 +1,65 @@
+<aura:component  implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" controller="CASSCalloutController" access="global">
+    <!-- Inputs -->
+    <aura:attribute name="faNumber" type = "String" default =""/>
+    <aura:attribute name= "NumberofMonthsRequested" type = "string"/>
+    <!-- Outputs -->
+    <aura:attribute  name = "resultofwebsvc" type = "string"/>
+    <!-- Others-->
+    <aura:attribute name="loaded" type="Boolean" default="false" />
+    <aura:attribute name="trackpref" type="boolean" default="true"/>
+    
+   
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <!--aura handler with waiting and donewaiting events-->
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+    <aura:handler name="change" value="{!v.trackpref}" action="{!c.handleContinue}"/>
+    
+    <div class="contain">
+        <div class="center">
+            <h1 class="header">{!$Label.c.AHFC_PE_Extension_Request}</h1>
+            
+            
+            <!-- Path Configuration - -->       
+            <div class="slds-grid_pull-padded-sm">
+                <lightning:progressIndicator currentStep="step-3" type="path" variant="base">
+                    <lightning:progressStep label="Select Term" value="step-1"/>                  
+                    <lightning:progressStep label="Review" value="step-2"/>
+                    <lightning:progressStep label="Submit" value="step-3"/>
+                    <lightning:progressStep label="Complete" value="step-4"/>
+                </lightning:progressIndicator>
+            </div>
+            <!-- End Path Configuration - -->           
+            
+            <div class="info">
+                <div class="slds-grid slds-grid--align-center slds-grid--vertical-align-center">
+                {!$Label.c.AHFC_PE_Wait_Label}
+                </div>
+                    <br/>
+                    <br/>
+                <div class="slds-grid slds-grid--align-center slds-grid--vertical-align-center">
+                {!$Label.c.AHFC_PE_Wait_Label2}
+                </div>
+            </div>
+           
+            
+        
+              
+                
+            <div class="contain-secondary">
+               
+            </div>
+           
+        </div>  
+    </div>
+    
+   <!--loading spinner start-->
+    <!--
+    <div class="exampleHolder">
+        <lightning:spinner aura:id="mySpinner" variant="brand" class="slds-hide"/>
+    </div> -->
+    <!-- Loading spinner end-->   
+    
+</aura:component>

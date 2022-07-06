@@ -1,0 +1,79 @@
+<template>
+<div role="main" id="main-container" class="main-content">
+<div class="banner-container"></div>
+<div class="account-container">
+<div class="user-info">
+<template if:false={accountExists}>
+<h1 class="user-title">Welcome<template if:false={boolIsGuestUser}>, {userFirstName}!</template></h1>
+</template>
+<template if:true={accountExists}>
+  <h1 class="user-title">Let's set up your finance account!</h1>
+</template>
+<template if:false={accountExists}>
+<h2 class="setup-info slds-m-vertical_small">
+  Set up your online account using your account number or VIN.
+</h2>
+</template>
+<template if:true={accountExists}>
+  <h2 class="setup-info slds-m-vertical_small">
+  Set up your online account using your account number or VIN.
+  </h2>
+  </template> 
+</div>
+<div class="tabs-container">
+  <div class="slds-tabs_default">
+    <ul class="slds-tabs_default__nav" role="tablist">
+      <template for:each={tabsList} for:item="tab">
+        <li
+          key={tab.key}
+          class={tab.tabClass}
+          role="presentation"
+          data-id={tab.key}
+          onclick={onTabChange}
+          tabindex="0"
+          onkeypress={onTabChange}
+        > 
+          <a
+            class="slds-tabs_default__link"
+            href="javascript:void(0);"           
+            tabindex='-1'
+            aria-selected="true"
+            role='button'
+            name={tab.name}
+            >{tab.title}</a
+          > <!-- role="tab"-->
+        </li>
+      </template>
+    </ul>
+
+    <template if:true={currentTabActive}>
+      <div
+        id="tab-default-1"
+        class="slds-tabs_default__content"
+        role="tabpanel"
+        
+      >
+      <!--Bug id Fixes 21492 onsetvaluesfromparent onsetvalues Added-->
+        <c-a-h-f-c_add-finance-account-number-tab onsetvaluesfromparent={setCommValuesForChild} useremail={useremail} onsetvalues={setCommValues}></c-a-h-f-c_add-finance-account-number-tab>
+      </div>
+    </template>
+    
+    <template if:false={currentTabActive}>
+      <div
+        id="tab-default-2"
+        class="slds-tabs_default__content"
+        role="tabpanel"
+        
+      >
+      <!--Bug id Fixes 21492 onsetvaluesfromparent onsetvalues Added-->
+        <c-a-h-f-c_add-finance-account-vin-zip-tab  useremail={useremail} onsetvaluesfromparent={setCommValuesForChild} onsetvalues={setCommValues}></c-a-h-f-c_add-finance-account-vin-zip-tab>
+      </div>
+    </template>
+  </div>
+</div>
+</div>
+</div>
+</template>
+
+<!-- aria-labelledby="tab-default-1__item"
+aria-labelledby="tab-default-2__item" -->

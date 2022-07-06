@@ -1,0 +1,75 @@
+.THIS .mainContentArea {
+    padding-top: 10px !important; 
+    padding-left: 80px !important;
+    padding-right: 80px !important;
+    padding-bottom: 30px !important; 
+
+}
+.THIS .articleDetails{
+    padding-left: 0px !important;
+    margin: 0 5rem;
+}
+.THIS .downloadPdf{
+    padding-left: 20px !important;
+}
+.THIS .fullWidthGrid{
+    width: 100%;
+}
+
+.THIS .customProfile{
+    width: 15%;
+}
+.THIS .notifications{
+    width: 50px;
+    padding-top: 14px;
+    padding-left: 6px;
+}
+.THIS .searchRegion{
+    width: 16%;
+    padding-top: 10px;
+}
+.THIS .searchBar{
+    margin-left: 2.9rem;
+}
+.THIS .menu1{
+    /*width: 65%;*/
+    width: 13%;
+    padding-top: 10px;
+}
+.THIS .blankRow{
+    width: 60% !important;
+}
+
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .THIS .notifications{
+    width: 50px;
+    padding-top: 14px;
+    padding-left: 8px;
+}
+.THIS .searchRegion{
+    width: 15%;
+    padding-top: 10px;
+}
+.THIS .menu1{
+    /*width: 65%;*/
+    width: 42%;
+    padding-top: 10px;
+}
+.THIS .blankRow{
+    width: 32% !important;
+}
+    
+.THIS .mainContentArea {
+    padding-top: 5px !important; 
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    padding-bottom: 5px !important; 
+
+}
+.THIS .articleDetails{
+    padding-left: 5px !important;
+    margin: 0 5rem;
+}
+
+}

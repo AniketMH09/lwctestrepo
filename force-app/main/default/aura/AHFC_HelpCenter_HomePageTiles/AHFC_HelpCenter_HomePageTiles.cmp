@@ -1,0 +1,430 @@
+<!--AHFC_HelpCenter_HomePageTiles -->
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    <ltng:require styles="{!$Resource.AHFC_UI_Kit}"/>
+    
+    <aura:attribute name= "communityName" type="string" default=""/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:if isTrue="{!v.communityName == 'hondahelp'}">
+        <div class="topic-container">
+            <div class="slds-grid slds-gutters slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+                    <a href="{!$Label.c.AHFC_Topic_Id_Payment}" class="topic-block">
+                        <div class="slds-align-top">
+                            <div class="slds-grid slds-grid_align-center">
+                                <img alt=""  src="{!$Resource.AHFC_UI_Kit + '/img/icons/payment.svg'}"/>
+                            </div>
+                        </div>
+                        <div class="slds-align-bottom">
+                            <div class="slds-grid slds-grid_align-center">
+                                <div class="text">Payments</div>
+                            </div>
+                        </div>
+                        <div class="hoverline"></div>
+                    </a>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+                    <a href="{!$Label.c.AHFC_Topic_Id_Account_Management}" class="topic-block">
+                        <div class="slds-align-top">
+                            <div class="slds-grid slds-grid_align-center">
+                                <img alt="" title="Account Management" src="{!$Resource.AHFC_UI_Kit + '/img/icons/settings-gear.svg'}"/>
+                            </div>
+                        </div>
+                        <div class="slds-align-bottom">
+                            <div class="slds-grid slds-grid_align-center">
+                                <div class="text">Account Management</div>
+                            </div>
+                        </div>
+                        <div class="hoverline"></div>
+                    </a>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+                    <a href="{!$Label.c.AHFC_Topic_Id_Financing}" class="topic-block">
+                        <div class="slds-align-top">
+                            <div class="slds-grid slds-grid_align-center">
+                                <img alt="" title="Financing" src="{!$Resource.AHFC_UI_Kit + '/img/icons/dollar.svg'}"/>
+                            </div>
+                        </div>
+                        <div class="slds-align-bottom">
+                            <div class="slds-grid slds-grid_align-center">
+                                <div class="text">Financing</div>
+                            </div>
+                        </div>
+                        <div class="hoverline"></div>
+                    </a>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+                    <a href="{!$Label.c.AHFC_Topic_Id_Leasing}" class="topic-block">
+                        <div class="slds-align-top">
+                            <div class="slds-grid slds-grid_align-center">
+                                <img alt="" title="Leasing" src="{!$Resource.AHFC_UI_Kit + '/img/icons/signature.svg'}"/>
+                            </div>
+                        </div>
+                        <div class="slds-align-bottom">
+                            <div class="slds-grid slds-grid_align-center">
+                                <div class="text">Leasing</div>
+                            </div>
+                        </div>
+                        <div class="hoverline"></div>
+                    </a>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+                    <a href="{!$Label.c.AHFC_Topic_Id_End_Of_Lease}" class="topic-block">
+                        <div class="slds-align-top">
+                            <div class="slds-grid slds-grid_align-center">
+                                <img alt="" title="End of Lease" src="{!$Resource.AHFC_UI_Kit + '/img/icons/exclamation.svg'}"/>
+                            </div>
+                        </div>
+                        <div class="slds-align-bottom">
+                            <div class="slds-grid slds-grid_align-center">
+                                <div class="text">End of Lease</div>
+                            </div>
+                        </div>
+                        <div class="hoverline"></div>
+                    </a>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+                    <a href="{!$Label.c.AHFC_Topic_Id_Statements}" class="topic-block">
+                        <div class="slds-align-top">
+                            <div class="slds-grid slds-grid_align-center">
+                                <img alt="" title="Statements" src="{!$Resource.AHFC_UI_Kit + '/img/icons/copy.svg'}"/>
+                            </div>
+                        </div>
+                        <div class="slds-align-bottom">
+                            <div class="slds-grid slds-grid_align-center">
+                                <div class="text">Statements</div>
+                            </div>
+                        </div>
+                        <div class="hoverline"></div>
+                    </a>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+                    <a href="{!$Label.c.AHFC_Topic_Id_Service_Contracts}" class="topic-block">
+                        <div class="slds-align-top">
+                            <div class="slds-grid slds-grid_align-center">
+                                <img alt="" title="Service Contracts" src="{!$Resource.AHFC_UI_Kit + '/img/icons/todo.svg'}"/>
+                            </div>
+                        </div>
+                        <div class="slds-align-bottom">
+                            <div class="slds-grid slds-grid_align-center">
+                                <div class="text">Service Contracts</div>
+                            </div>
+                        </div>
+                        <div class="hoverline"></div>
+                    </a>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12" >
+                    <a href="{!$Label.c.AHFC_Topic_Id_Credit_Preapproval}" class="topic-block">
+                        <div class="slds-align-top" >
+                            <div class="slds-grid slds-grid_align-center">
+                                <img alt="" title="Credit Pre-Approval" src="{!$Resource.AHFC_UI_Kit + '/img/icons/list.svg'}" />
+                            </div>
+                        </div>
+                        <div class="slds-align-bottom">
+                            <div class="slds-grid slds-grid_align-center">
+                                <div class="text">Credit Pre-Approval</div>
+                            </div>
+                        </div>
+                        <div class="hoverline"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="divide"></div>
+        </div>
+        
+        
+        
+        <!-- Acura KB Block -->
+        <aura:set attribute="else">
+            <aura:if isTrue="{!v.communityName == 'acurahelp'}">
+                <div class="topic-container">
+                    <div class="slds-grid slds-gutters slds-wrap">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+                            <a href="{!$Label.c.AHFC_Topic_Id_Payment_Acura}" class="topic-block">
+                                <div class="slds-align-top">
+                                    <div class="slds-grid slds-grid_align-center">
+                                        <img alt="" title="Payments" src="{!$Resource.AHFC_UI_Kit + '/img/icons/payment.svg'}"/>
+                                    </div>
+                                </div>
+                                <div class="slds-align-bottom">
+                                    <div class="slds-grid slds-grid_align-center">
+                                        <div class="text">Payments</div>
+                                    </div>
+                                </div>
+                                <div class="hoverline"></div>
+                            </a>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+                            <a href="{!$Label.c.AHFC_Topic_Id_Account_Management_Acura}" class="topic-block">
+                                <div class="slds-align-top">
+                                    <div class="slds-grid slds-grid_align-center">
+                                        <img alt="" title="Account Management" src="{!$Resource.AHFC_UI_Kit + '/img/icons/settings-gear.svg'}"/>
+                                    </div>
+                                </div>
+                                <div class="slds-align-bottom">
+                                    <div class="slds-grid slds-grid_align-center">
+                                        <div class="text">Account Management</div>
+                                    </div>
+                                </div>
+                                <div class="hoverline"></div>
+                            </a>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+                            <a href="{!$Label.c.AHFC_Topic_Id_Financing_Acura}" class="topic-block">
+                                <div class="slds-align-top">
+                                    <div class="slds-grid slds-grid_align-center">
+                                        <img alt="" title="Financing" src="{!$Resource.AHFC_UI_Kit + '/img/icons/dollar.svg'}"/>
+                                    </div>
+                                </div>
+                                <div class="slds-align-bottom">
+                                    <div class="slds-grid slds-grid_align-center">
+                                        <div class="text">Financing</div>
+                                    </div>
+                                </div>
+                                <div class="hoverline"></div>
+                            </a>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+                            <a href="{!$Label.c.AHFC_Topic_Id_Leasing_Acura}" class="topic-block">
+                                <div class="slds-align-top">
+                                    <div class="slds-grid slds-grid_align-center">
+                                        <img alt="" title="Leasing" src="{!$Resource.AHFC_UI_Kit + '/img/icons/signature.svg'}"/>
+                                    </div>
+                                </div>
+                                <div class="slds-align-bottom">
+                                    <div class="slds-grid slds-grid_align-center">
+                                        <div class="text">Leasing</div>
+                                    </div>
+                                </div>
+                                <div class="hoverline"></div>
+                            </a>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+                            <a href="{!$Label.c.AHFC_Topic_Id_End_Of_Lease_Acura}" class="topic-block">
+                                <div class="slds-align-top">
+                                    <div class="slds-grid slds-grid_align-center">
+                                        <img alt="" title="End of Lease" src="{!$Resource.AHFC_UI_Kit + '/img/icons/exclamation.svg'}"/>
+                                    </div>
+                                </div>
+                                <div class="slds-align-bottom">
+                                    <div class="slds-grid slds-grid_align-center">
+                                        <div class="text">End of Lease</div>
+                                    </div>
+                                </div>
+                                <div class="hoverline"></div>
+                            </a>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+                            <a href="{!$Label.c.AHFC_Topic_Id_Statements_Acura}" class="topic-block">
+                                <div class="slds-align-top">
+                                    <div class="slds-grid slds-grid_align-center">
+                                        <img alt="" title="Statements" src="{!$Resource.AHFC_UI_Kit + '/img/icons/copy.svg'}"/>
+                                    </div>
+                                </div>
+                                <div class="slds-align-bottom">
+                                    <div class="slds-grid slds-grid_align-center">
+                                        <div class="text">Statements</div>
+                                    </div>
+                                </div>
+                                <div class="hoverline"></div>
+                            </a>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+                            <a href="{!$Label.c.AHFC_Topic_Id_Service_Contracts_Acura}" class="topic-block">
+                                <div class="slds-align-top">
+                                    <div class="slds-grid slds-grid_align-center">
+                                        <img alt="" title="Service Contracts" src="{!$Resource.AHFC_UI_Kit + '/img/icons/todo.svg'}"/>
+                                    </div>
+                                </div>
+                                <div class="slds-align-bottom">
+                                    <div class="slds-grid slds-grid_align-center">
+                                        <div class="text">Service Contracts</div>
+                                    </div>
+                                </div>
+                                <div class="hoverline"></div>
+                            </a>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12" >
+                            <a href="{!$Label.c.AHFC_Topic_Id_Credit_Preapproval_Acura}" class="topic-block">
+                                <div class="slds-align-top" >
+                                    <div class="slds-grid slds-grid_align-center">
+                                        <img alt="" title="Credit Pre-Approval" src="{!$Resource.AHFC_UI_Kit + '/img/icons/list.svg'}" />
+                                    </div>
+                                </div>
+                                <div class="slds-align-bottom">
+                                    <div class="slds-grid slds-grid_align-center">
+                                        <div class="text">Credit Pre-Approval</div>
+                                    </div>
+                                </div>
+                                <div class="hoverline"></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="divide"></div>
+                </div>
+                <aura:set attribute="else">
+                    <div class="topic-container">
+                        <div class="AHFC_CntrWrap">
+                            <div class="slds-grid slds-wrap AHFC_CntrGrid">
+                                <div class="slds-col slds-size_1-of-5 AHFC_CardWrap">
+                                    <a href="{!$Label.c.AHFC_Topic_Id_Payment}" class="topic-block slds-align_absolute-center">
+                                        <div class="AHFC_CardData">
+                                            <img alt="" title="Payments" src="{!$Resource.AHFC_Help_Center_Tiles + '/HomePageTilesIcon/PaymentShaded.png'}" />                                    
+                                        </div>
+                                        <div class="AHFC_CardData">
+                                            <div class="text">Payments</div>
+                                        </div>
+                                        <!-- <div class="hoverline"></div> -->
+                                    </a>
+                                </div>
+                                <div class="slds-col slds-size_1-of-5 AHFC_CardWrap">
+                                    <a href="{!$Label.c.AHFC_Topic_Id_Account_Management}" class="topic-block slds-align_absolute-center">
+                                        <div class="AHFC_CardData">
+                                            <!-- <div class="slds-grid slds-grid_align-center"> -->
+                                                
+                                            	<img alt="" title="Account Management" src="{!$Resource.AHFC_Help_Center_Tiles + '/HomePageTilesIcon/SettingsShaded.png'}" />
+                                            
+                                            <!-- </div> -->
+                                        </div>
+                                        <div class="AHFC_CardData">
+                                            <!-- <div class="slds-grid slds-grid_align-center"> -->
+                                                <div class="text">Account Management</div>
+                                            <!-- </div> -->
+                                        </div>
+                                        <!-- <div class="hoverline"></div> -->
+                                    </a>
+                                </div>
+                                <div class="slds-col slds-size_1-of-5 AHFC_CardWrap">
+                                    <a href="{!$Label.c.AHFC_Topic_Id_Statements}" class="topic-block slds-align_absolute-center">
+                                        <div class="AHFC_CardData">
+                                            <!-- <div class="slds-grid slds-grid_align-center"> -->
+                                                <img alt="" title="Statements" src="{!$Resource.AHFC_Help_Center_Tiles + '/HomePageTilesIcon/StatementsShaded.png'}" />
+                                            <!-- </div> -->
+                                        </div>
+                                        <div class="AHFC_CardData">
+                                            <!-- <div class="slds-grid slds-grid_align-center"> -->
+                                                <div class="text">Statements</div>
+                                            <!-- </div> -->
+                                        </div>
+                                        <!-- <div class="hoverline"></div> -->
+                                    </a>
+                                </div>
+                                <div class="slds-col slds-size_1-of-5 AHFC_CardWrap">
+                                    <a href="{!$Label.c.AHFC_Topic_Id_Financing}" class="topic-block slds-align_absolute-center">
+                                        <div class="AHFC_CardData">
+                                            <!-- <div class="slds-grid slds-grid_align-center"> -->
+                                                <img alt="" title="Financing" src="{!$Resource.AHFC_Help_Center_Tiles + '/HomePageTilesIcon/PriceShaded.png'}" />
+                                            <!-- </div> -->
+                                        </div>
+                                        <div class="AHFC_CardData">
+                                            <!-- <div class="slds-grid slds-grid_align-center"> -->
+                                                <div class="text">Financing</div>
+                                            <!-- </div> -->
+                                        </div>
+                                        <!-- <div class="hoverline"></div> -->
+                                    </a>
+                                </div>
+                                <div class="slds-col slds-size_1-of-5 AHFC_CardWrap">
+                                    <a href="{!$Label.c.AHFC_Topic_Id_Leasing}" class="topic-block slds-align_absolute-center">
+                                        <div class="AHFC_CardData">
+                                            <!-- <div class="slds-grid slds-grid_align-center"> -->
+                                                <img alt="" title="Leasing" src="{!$Resource.AHFC_Help_Center_Tiles + '/HomePageTilesIcon/Component1.png'}" />
+                                            <!-- </div> -->
+                                        </div>
+                                        <div class="AHFC_CardData">
+                                            <!-- <div class="slds-grid slds-grid_align-center"> -->
+                                                <div class="text">Leasing</div>
+                                            <!-- </div> -->
+                                        </div>
+                                        <!-- <div class="hoverline"></div> -->
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="slds-grid slds-wrap AHFC_CntrGrid">
+                                <div class="slds-col slds-size_1-of-5 AHFC_CardWrap">
+                                    <a href="{!$Label.c.AHFC_Topic_Id_End_Of_Lease}" class="topic-block slds-align_absolute-center">
+                                        <div class="AHFC_CardData">
+                                            <!-- <div class="slds-grid slds-grid_align-center"> -->
+                                                <img alt="" title="End of Lease" src="{!$Resource.AHFC_Help_Center_Tiles + '/HomePageTilesIcon/LeaseHandOffShaded.png'}" />
+                                            <!-- </div> -->
+                                        </div>
+                                        <div class="AHFC_CardData">
+                                            <!-- <div class="slds-grid slds-grid_align-center"> -->
+                                                <div class="text">End Of Term</div>
+                                            <!-- </div> -->
+                                        </div>
+                                        <!-- <div class="hoverline"></div> -->
+                                    </a>
+                                </div>
+                                <div class="slds-col slds-size_1-of-5 AHFC_CardWrap">
+                                    <a href="{!$Label.c.AHFC_Topic_Id_PayoffPurchase}" class="topic-block slds-align_absolute-center">
+                                        <div class="AHFC_CardData">
+                                            <!-- <div class="slds-grid slds-grid_align-center"> -->
+                                                <img alt="" title="Payoff Or Purchase" src="{!$Resource.AHFC_Help_Center_Tiles + '/HomePageTilesIcon/LeaseHandOffShaded-1.png'}" />
+                                            <!-- </div> -->
+                                        </div>
+                                        <div class="AHFC_CardData">
+                                            <!-- <div class="slds-grid slds-grid_align-center"> -->
+                                                <div class="text">Payoff Or Purchase</div>
+                                            <!-- </div> -->
+                                        </div>
+                                        <!-- <div class="hoverline"></div> -->
+                                    </a>
+                                </div>
+                                <div class="slds-col slds-size_1-of-5 AHFC_CardWrap" >
+                                    <a href="{!$Label.c.AHFC_Topic_Id_Title}" class="topic-block slds-align_absolute-center">
+                                        <div class="AHFC_CardData" >
+                                            <!-- <div class="slds-grid slds-grid_align-center"> -->
+                                                <img alt="" title="title" src="{!$Resource.AHFC_Help_Center_Tiles + '/HomePageTilesIcon/ContractsShaded.png'}" />
+                                            <!-- </div> -->
+                                        </div>
+                                        <div class="AHFC_CardData">
+                                            <!-- <div class="slds-grid slds-grid_align-center"> -->
+                                                <div class="text">Title</div>
+                                            <!-- </div> -->
+                                        </div>
+                                        <!-- <div class="hoverline"></div> -->
+                                    </a>
+                                </div>
+                                <div class="slds-col slds-size_1-of-5 AHFC_CardWrap" >
+                                    <a href="{!$Label.c.AHFC_Topic_Id_Service_Contracts}" class="topic-block slds-align_absolute-center">
+                                        <div class="AHFC_CardData" >
+                                            <!-- <div class="slds-grid slds-grid_align-center"> -->
+                                                <img alt="" title="Service Contracts" src="{!$Resource.AHFC_Help_Center_Tiles + '/HomePageTilesIcon/ContractsShaded-1.png'}" />
+                                            <!-- </div> -->
+                                        </div>
+                                        <div class="AHFC_CardData">
+                                            <!-- <div class="slds-grid slds-grid_align-center"> -->
+                                                <div class="text">Service Contracts</div>
+                                            <!-- </div> -->
+                                        </div>
+                                        <!-- <div class="hoverline"></div> -->
+                                    </a>
+                                </div>
+                                <div class="slds-col slds-size_1-of-5 AHFC_CardWrap" >
+                                    <a href="{!$Label.c.AHFC_Topic_Id_Credit_Preapproval}" class="topic-block slds-align_absolute-center">
+                                        <div class="AHFC_CardData" >
+                                            <!-- <div class="slds-grid slds-grid_align-center"> -->
+                                               <!-- <img alt="Credit" src="{!$Resource.AHFC_HelpCenter_Credit}" /> -->
+                                            	<img alt="" title="Credit Pre-Approval" src="{!$Resource.AHFC_Help_Center_Tiles + '/HomePageTilesIcon/ChecklistShaded.png'}" />
+                                            <!-- </div> -->
+                                        </div>
+                                        <div class="AHFC_CardData">
+                                            <!-- <div class="slds-grid slds-grid_align-center"> -->
+                                                <div class="text">Credit Pre-Approval</div>
+                                            <!-- </div> -->
+                                        </div>
+                                        <!-- <div class="hoverline"></div> -->
+                                    </a>
+                                </div>
+                                
+                            </div>
+                            <div class="divide"></div>
+                        </div>
+                    </div>
+                </aura:set>
+            </aura:if>
+        </aura:set>            
+    </aura:if>
+</aura:component>

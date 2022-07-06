@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>S46</label>
+    <protected>false</protected>
+    <values>
+        <field>branch_cd__c</field>
+        <value xsi:type="xsd:string">104</value>
+    </values>
+    <values>
+        <field>lmc_phone__c</field>
+        <value xsi:type="xsd:string">8667776495</value>
+    </values>
+    <values>
+        <field>prod_div_cd__c</field>
+        <value xsi:type="xsd:string">B</value>
+    </values>
+    <values>
+        <field>state_cd__c</field>
+        <value xsi:type="xsd:string">MA</value>
+    </values>
+    <values>
+        <field>zip_begin__c</field>
+        <value xsi:type="xsd:string">NULL</value>
+    </values>
+    <values>
+        <field>zip_end__c</field>
+        <value xsi:type="xsd:string">NULL</value>
+    </values>
+</CustomMetadata>

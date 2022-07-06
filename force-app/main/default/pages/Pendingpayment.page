@@ -1,0 +1,621 @@
+<!-- This page is for pending payments ---
+Author :
+Date Created:
+Last Modified by and Date: JayaShree on 04/13/2016 for the defect fix 114111  --->
+<apex:page id="pg" standardController="ChargentOrders__ChargentOrder__c" extensions="Pendingpaymentextn,UIHelper" showHeader="false" sidebar="false" 
+    standardStylesheets="false" docType="html-5.0" cache="false" language="en-US"  action="{!init}">    
+  <!--- Defect:114079 :Timeout dialog modified by Tiru  --->
+  <apex:includescript value="{!$Resource.jquery1113min}" />
+  <apex:includescript value="{!URLFOR($Resource.jQueryFiles,'jquery-ui-1.11.4.custom/jquery-ui.min.js')}" />
+  <apex:includescript value="{!URLFOR($Resource.TimeoutDialog, 'Timeout/js/idle-timer.js')}"/>  
+  <apex:includescript value="{!URLFOR($Resource.TimeoutDialog, 'Timeout/js/timeout-dialog.js')}"/> 
+  <apex:stylesheet value="{!URLFOR($Resource.TimeoutDialog,'Timeout/css/timeout-dialog.css')}" /> 
+  <!-- End Defect:114079 -->
+    
+  <apex:includeScript value="{!URLFOR($Resource.Calender, 'datepicker/javascript/jquery-1.11.1.js')}" />
+   <apex:includescript value="{!URLFOR($Resource.TrackingJS, 'AppMeasurement_JavaScript-1.5.2/VisitorAPI.js')}"/>
+    <apex:includescript value="{!URLFOR($Resource.TrackingJS, 'AppMeasurement_JavaScript-1.5.2/AppMeasurement.js')}"/> 
+  <apex:outputpanel rendered="{!Honda}">
+      <apex:stylesheet value="{!URLFOR($Resource.AFSHFS, 'AfsHfs/css/style.css')}"/>
+  </apex:outputpanel>
+  <apex:outputpanel rendered="{!Not(Honda)}">
+      <apex:stylesheet value="{!URLFOR($Resource.AFSHFS, 'AfsHfs/css/acura-style.css')}"/>
+  </apex:outputpanel>
+  <apex:form id="frm">
+  <apex:actionFunction name="cancelPayment" action="{!CancelPayment}" reRender="frm">
+      <apex:param name="cancelpayId" value=""/>
+  </apex:actionFunction>
+
+     <!-- Start Cancel Request -->
+     <apex:actionfunction name="cancelPage_JS" action="{!checkDevice}" oncomplete="{!If(mobile==false,'redirectToHFS_JS();','popWinClose()')}"/>
+     <apex:actionfunction action="{!redirectToHFS}" name="redirectToHFS_JS" />
+     <!-- End Cancel Request -->
+
+    <apex:pageBlock id="pgBlk" >
+      <html>
+        <head>
+            <meta name="viewport" content="width=640"/>
+          <meta/>
+          <title>Pending payment</title>
+            <apex:stylesheet value="{!URLFOR($Resource.AFSHFS, 'AfsHfs/css/common.css')}"/>
+        <!--  <link href="css/common.css" rel="stylesheet" type="text/css"/> -->
+        </head>
+        <body>
+        <!-- Defect:114079 :Timeout dialog modified by Tiru  -->
+        <div class="overlay-sec"></div>
+        <!-- End Defect:114079 -->
+        <script language="JavaScript" type="text/javascript">
+            /* You may give each page an identifying name, server, and channel on
+            the next lines. */
+            s.pageName="Pendingpayment"
+            s.server=""
+            s.channel=""
+            s.pageType=""
+            s.prop1=""
+            s.prop2=""
+            s.prop3=""
+            s.prop4=""
+            s.prop5=""
+            /* Conversion Variables */
+            s.campaign=""
+            s.state=""
+            s.zip=""
+            s.events=""
+            s.products=""
+            s.purchaseID=""
+            s.eVar1=""
+            s.eVar2=""
+            s.eVar3=""
+            s.eVar4=""
+            s.eVar5=""
+            var s_code=s.t();if(s_code)document.write(s_code);
+        </script>
+            <div class="overlay"></div>
+            <apex:outputPanel id="jsPanel">
+                <script>
+                  function popWinClose()
+                  {
+                    //setTimeout(window.close, 1000);
+                    //window.open('','_self',''); 
+                    window.close();
+                    //return false;
+                  }
+                </script>
+            </apex:outputPanel>
+
+          <div class="middle-col pending-payments">
+            <div class="middle-title">
+              <p><apex:outputPanel rendered="{!Honda}"><apex:commandlink onclick="{window.top.location={!$Label.AccountOverviewURL}; return false;}" rerender="pgBlk">
+              <span>Account Overview </span> </apex:commandlink> 
+              <apex:outputPanel >
+              <apex:commandlink onclick="{window.top.location={!$Label.AccountOverviewURL}; return false;}" rerender="pgBlk">
+                  <apex:image alt="" url="{!URLFOR($Resource.AFSHFS, 'AfsHfs/images/home.png')}" width="20" height="20">
+                
+                  </apex:image>
+              </apex:commandlink>    
+              </apex:outputPanel>
+              </apex:outputPanel>
+              
+              <apex:outputPanel rendered="{!Not(Honda)}"><apex:commandlink onclick="{window.top.location={!$Label.Accura_Account_Overview_URL}; return false;}" rerender="pgBlk">
+              <span>Account Overview </span> </apex:commandlink> 
+              <apex:outputPanel >
+              <apex:commandlink onclick="{window.top.location={!$Label.Accura_Account_Overview_URL}; return false;}" rerender="pgBlk">
+                  <apex:image alt="" url="{!URLFOR($Resource.AFSHFS, 'AfsHfs/images/home.png')}" width="20" height="20">
+                
+                  </apex:image>
+              </apex:commandlink>    
+              </apex:outputPanel>
+              </apex:outputPanel>
+
+            </p>
+              <h1>Pending Payments  </h1>
+            </div>
+            
+            <section>
+              <div class="note-info">
+              <!-- Changes added for the defect 113948 by Jayashree ----><!-- RSS 41455 -  modified the message-->
+                <p style="color:#808080;">You can edit and/or cancel payments until the cut-off time ({!cutOffTime} {!$Setup.Honda_Finance__c.Time_Zone__c}) on the Payment Date. Same day one-time payments cannot be edited or cancelled after {!cutOffTime} {!$Setup.Honda_Finance__c.Time_Zone__c}. Payments scheduled for Sunday will process on Monday and be credited to your account as of the payment date.</p>
+              </div>
+              
+              <!-- EasyPay (Automatic Payment) --->
+              <apex:outputPanel rendered="{!NOT(chrRec)}">
+              <apex:outputPanel id="PendingEP" rendered="{!(recurringPay.Payment_Display_Status__c='Pending')}">
+              <div class="secondary-title">
+                <h3>EasyPay (Automatic Payments)</h3>
+                <!-- Changes added for the defect 113948 by Jayashree ---->
+                <p>You are enrolled in EasyPay. Cancellations completed by {!cutOffTime} {!$Setup.Honda_Finance__c.Time_Zone__c} on the payment date will be effective immediately starting with the current scheduled payment.</p>
+              </div>
+              <div class="round-box mTB10">
+                <ul class="single-field">
+                    <!--New column 'Next Withdrawal Date' added RSS-44869-->
+                  <li>Next Withdrawal Date: <strong><apex:outputField id="epDisplayNWD" value="{!recurringPay.Next_Withdrawal_Date__c}"/></strong></li>
+                  <!--Defect:114271 -- Adding last4 Digits of Bank Account Number -->
+                  <li>Payment Amount: <strong><apex:outputField value="{!recurringPay.ChargentOrders__Charge_Amount__c}"/></strong></li>
+                  <li>Bank Account Nickname: <strong><apex:outputText value="{!recurringPay.Payment_Source_Nickname__r.Payment_Source_Nickname__c}(XXXX-{!recurringPay.Payment_Source_Nickname__r.Last_4__c})" style="text-decoration:none;cursor:default"/></strong></li>
+                  <li>Last Withdrawal Date: <strong>
+                  <apex:outputText value="{0,date,M'/'d'/'yyyy}">
+                  <apex:param value="{!recurringPay.Last_Extraction_Date__c}"/></apex:outputText></strong></li>
+                </ul>
+                <div class="right-icon">
+                
+                  <p>
+                    <a href="#">
+                      <apex:image width="24px" height="23px" alt="edit icon"  url="{!URLFOR($Resource.PendingPayment, 'PendingPayment/images/close-icon.png')}">
+                      <span class="cncel">Cancel</span>
+                      <apex:actionSupport id="isEPCancelledAfterCutoff" event="onclick" action="{!isEPCancelledAfterCutoff}" oncomplete="showPopUp('{!recurringPay.Next_Withdrawal_Date__c}','{!JSENCODE(recurringPay.Payment_Source_Nickname__r.Payment_Source_Nickname__c)}','{!recurringPay.ChargentOrders__Charge_Amount__c}', '{!recurringPay.Id}')" reRender="frm">
+                          <apex:param name="{!recurringPay.Payment_Display_Status__c}" value="{!recurringPay.Payment_Display_Status__c}" assignTo="{!epDisplayStatus}" />
+                          <apex:param name="{!TEXT(recurringPay.Next_Withdrawal_Date__c)}" value="{!TEXT(recurringPay.Next_Withdrawal_Date__c)}" assignTo="{!NWDStr}" />
+                        </apex:actionSupport>
+                          
+                        </apex:image>
+                    </a>
+                  </p>
+                </div>
+              </div>
+              </apex:outputPanel>
+              <!-- End of EasyPay (Automatic Payment) -->
+              
+              <!-- EasyPay (Recurring Payment) -->
+              <apex:outputPanel rendered="{!recurringPay.Payment_Display_Status__c='Suspended'}">
+              <div class="secondary-title">
+                <h3>EasyPay (Automatic Payments)</h3>
+                <!---- Changes added to the defect 114165 by Jayashree -->
+                <p>Your EasyPay schedule is suspended. Please&nbsp;<apex:outputLink value="{!$Label.HondaCSEP}" target="_blank" rendered="{!Honda}">click here</apex:outputLink><apex:outputlink value="{!$Label.AcuraCSEP}" target="_blank"  rendered="{!!Honda}">click here</apex:outputLink>&nbsp;to contact a customer service representative for assistance.</p>
+                <!--- End of defect 114165 --->
+              </div>
+              <div class="round-box mTB10">
+                <ul class="single-field">
+                  <li>Status:<strong><apex:outputField value="{!recurringPay.Payment_Display_Status__c}" /></strong></li>
+                  <li>Bank Account Nickname:<strong><apex:outputText value="{!recurringPay.Payment_Source_Nickname__r.Payment_Source_Nickname__c}" style="text-decoration:none;cursor:default"/></strong></li>
+                  <li>Payment Amount:<strong><apex:outputField value="{!recurringPay.ChargentOrders__Charge_Amount__c}"/></strong></li>
+                </ul>
+                <div class="right-icon">
+                 <!--  <p class="mR10">
+                    <a href="#">
+                      <apex:image width="24px" height="23px" alt="edit icon" url="{!URLFOR($Resource.PendingPayment, 'PendingPayment/images/GrayPencil.png')}"/>
+                      <span>Edit</span>
+                    </a>
+                  </p> -->
+                 <p>
+                    <a href="#">
+                      <apex:image width="24px" height="23px" alt="edit icon" url="{!URLFOR($Resource.PendingPayment, 'PendingPayment/images/GrayX.png')}"/>
+                      <span>Cancel</span>
+                    </a>
+                  </p> 
+                </div>
+              </div>
+              </apex:outputPanel>
+              </apex:outputPanel>
+              <!-- End of EasyPay (Recurring Payment) -->
+             
+              <!-- EasyPay (Recurring Payment) -->
+              <apex:outputPanel rendered="{!chrRec}">
+              <apex:outputPanel rendered="{!pastDueStatus == false && financeAccount.Fl_Recurring_Payment_Eligible_Web__c == TRUE }">
+              <div class="secondary-title easypay-btn">
+                <h3>EasyPay (Automatic Payments)</h3>
+                <p>You are not enrolled in EasyPay.</p>
+                <apex:commandButton styleClass="primary-btn btn-2 setup-easypay-btn " value="Set Up EasyPay" onclick="{window.location='/apex/MakeAPaymentLandingPage?finnumber={!$CurrentPage.parameters.finnumber}&type=2&isReadOnly={!csat}'; return false;}"/>
+              </div>
+              </apex:outputPanel>
+              
+              <!-- End of EasyPay (Recurring Payment) -->
+              
+              <!-- EasyPay (Automatic Payment) -->
+              <apex:outputPanel rendered="{!pastDueStatus == true && financeAccount.Fl_Recurring_Payment_Eligible_Web__c == TRUE }">
+              <div class="secondary-title">
+                <h3>EasyPay (Automatic Payments)</h3>
+                <p>Your account is past due. To enroll in EasyPay, you must first pay your past due balance.</p>
+              </div>
+              </apex:outputPanel>
+              <!-- End of EasyPay (Automatic Payment) -->
+              
+              <!-- EasyPay (Recurring Payment) -->
+              <apex:outputPanel rendered="{!IF(financeAccount.Fl_Recurring_Payment_Eligible_Web__c==False,True,False)}">
+              <div class="secondary-title border-btm">
+               <h3>EasyPay (Automatic Payments)</h3>
+               <!-- <h3>EasyPay (Recurring  Payment)</h3> -->
+               <!---Changes to the links added by Jayashree for defect 114165 -->
+                <apex:outputPanel rendered="{!Honda == true}">
+                <p>Your finance account is currently ineligible for EasyPay enrollment. Please&nbsp;<a href="{!$Label.HondaCSEP}" styleclass="clkhere" target="_blank">click here</a>&nbsp;to contact a customer service representative for assistance.</p>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!Honda == false}">
+                <p>Your finance account is currently ineligible for EasyPay enrollment. Please&nbsp;<a href="{!$Label.AcuraCSEP}" styleclass="clkhere" target="_blank" >click here</a>&nbsp;to contact a customer service representative for assistance.</p>
+                </apex:outputPanel>
+                <!------End of Changes 114165 ----->
+              </div>
+              </apex:outputPanel>
+              </apex:outputPanel>
+              <!-- End of EasyPay (Recurring Payment) -->
+             <div class="hr mRL10"></div> 
+
+              <!-- One-Time Payment1 -->
+              <apex:outputPanel rendered="{!oneTimePay.size>0}">
+              <div class="secondary-title">
+                <h3>One-Time Payments</h3>
+                <p>Your scheduled payments are below.</p>
+              </div>
+              <apex:variable value="{!1}" var="i"/>
+              <apex:repeat value="{!oneTimePay}" var="oneTim" id="otrpt">
+              <apex:outputPanel styleClass="{!IF(mod(i,2)==1, 'round-box mTB10 two-col card-one','round-box mTB10 two-col card-two')}">
+              <div>
+                    <ul style='margin-right:8px'>
+                  <li style="width:120%">Payment Authorized On: <strong>
+                   <apex:outputText value="{0,date,M'/'d'/'yyyy}"> 
+                    <apex:param value="{!oneTim.PaymentAuthorizedOn__c}" /></apex:outputText></strong>    <!-- Added as part of 43711-->
+                  </li> 
+                  <li style="width:90%">Payment Date: <strong>
+                    <apex:outputField value="{!oneTim.ChargentOrders__Payment_Start_Date__c}"/></strong>
+                  </li >
+                  <li style="width:90%">Amount: <strong>
+                    <apex:outputField value="{!oneTim.ChargentOrders__Charge_Amount__c}"/></strong>
+                  </li>
+                </ul>  
+                  <ul>
+                  <li>Confirmation#: <strong>
+                    <apex:outputField value="{!oneTim.Confirmation_Number__c}"/></strong>
+                  </li>
+                  <li>Payment Type: <strong>
+                   <!--<apex:outputField value="{!oneTim.Payment_Type__c}"/> --><apex:outputLabel value="{!IF(oneTim.Payment_Type__c== 'R', IF(oneTim.RecordType.DeveloperName=='One_Time_Payment','Standard','Principal'),IF(oneTim.Payment_Type__c == 'P','Payoff','Principal'))}" /></strong>
+                  </li>
+                  <li>Status: <strong>
+                    <apex:outputField id="status" value="{!oneTim.Payment_Display_Status__c}"/></strong>
+                  </li>
+                </ul> 
+                
+                <ul class="bank-name-view">
+                   <li>Bank Account Nickname: <strong>
+                    <!--Defect:114271 -- Adding last4 Digits of Bank Account Number -->
+                    <apex:outputText value="{!oneTim.Payment_Source_Nickname__r.Payment_Source_Nickname__c}(XXXX-{!oneTim.Payment_Source_Nickname__r.Last_4__c})" style="text-decoration:none;cursor:default"/></strong>
+                  </li>
+                </ul>
+                
+                <div class="right-icon">
+                  <p class="mR10">
+                    <a href="#"><!-- Commented oneTim.Payment_Display_Status__c='Processing' for defect 112540-->
+                      <apex:image width="24px" height="23px" alt="edit icon" url="{!URLFOR($Resource.PendingPayment, 'PendingPayment/images/GrayPencil.png')}" rendered="{!AND(oneTim.Payment_Display_Status__c!='Researching',oneTim.Payment_Display_Status__c='Pending',oneTim.ChargentOrders__Payment_Start_Date__c < TODAY())}"/>
+                      <apex:image width="24px" height="23px" alt="edit icon" url="{!URLFOR($Resource.PendingPayment, 'PendingPayment/images/edit-icon.png')}" rendered="{!AND(oneTim.Payment_Display_Status__c!='Researching',oneTim.Payment_Display_Status__c="Pending",oneTim.ChargentOrders__Payment_Start_Date__c > TODAY())}" onclick="editOtpPayment('{!oneTim.Id}')"/>
+                      <apex:image width="24px" height="23px" alt="edit icon" url="{!URLFOR($Resource.PendingPayment, 'PendingPayment/images/GrayPencil.png')}" rendered="{!AND(oneTim.Payment_Display_Status__c!='Researching',oneTim.Payment_Display_Status__c="Pending",oneTim.ChargentOrders__Payment_Start_Date__c == TODAY(),cutOffFlag == FALSE)}"/>
+                      <apex:image width="24px" height="23px" alt="edit icon" url="{!URLFOR($Resource.PendingPayment, 'PendingPayment/images/edit-icon.png')}" rendered="{!AND(oneTim.Payment_Display_Status__c!='Researching',oneTim.Payment_Display_Status__c="Pending",oneTim.ChargentOrders__Payment_Start_Date__c == TODAY(),cutOffFlag == TRUE)}" onclick="editOtpPayment('{!oneTim.Id}')"/>
+                      <span>Edit</span>
+                    </a>
+                  </p>
+                  <p>
+                    <a href="#">
+                      <apex:image width="24px" height="23px" alt="edit icon" url="{!URLFOR($Resource.PendingPayment, 'PendingPayment/images/GrayX.png')}" rendered="{!AND(oneTim.Payment_Display_Status__c!='Researching',oneTim.Payment_Display_Status__c='Pending',oneTim.ChargentOrders__Payment_Start_Date__c < TODAY())}"/>
+                      <apex:image width="24px" height="23px" alt="edit icon" url="{!URLFOR($Resource.PendingPayment, 'PendingPayment/images/close-icon.png')}" onclick="showPopUp1('{!oneTim.ChargentOrders__Payment_Start_Date__c}','{!JSENCODE(HTMLENCODE(oneTim.Payment_Source_Nickname__r.Payment_Source_Nickname__c))}','{!oneTim.ChargentOrders__Charge_Amount__c}', '{!oneTim.Id}')" rendered="{!AND(oneTim.Payment_Display_Status__c!='Researching',oneTim.Payment_Display_Status__c="Pending",oneTim.ChargentOrders__Payment_Start_Date__c > TODAY())}"/>
+                      <apex:image width="24px" height="23px" alt="edit icon" url="{!URLFOR($Resource.PendingPayment, 'PendingPayment/images/GrayX.png')}"  rendered="{!AND(oneTim.Payment_Display_Status__c!='Researching',oneTim.Payment_Display_Status__c="Pending",oneTim.ChargentOrders__Payment_Start_Date__c == TODAY(),cutOffFlag == FALSE)}"/>
+                      <apex:image width="24px" height="23px" alt="edit icon" url="{!URLFOR($Resource.PendingPayment, 'PendingPayment/images/close-icon.png')}" rendered="{!AND(oneTim.Payment_Display_Status__c!='Researching',oneTim.Payment_Display_Status__c="Pending",oneTim.ChargentOrders__Payment_Start_Date__c == TODAY(),cutOffFlag == TRUE)}" onclick="showPopUp1('{!oneTim.ChargentOrders__Payment_Start_Date__c}','{!JSENCODE(HTMLENCODE(oneTim.Payment_Source_Nickname__r.Payment_Source_Nickname__c))}(XXXX-{!JSENCODE(HTMLENCODE(oneTim.Payment_Source_Nickname__r.Last_4__c))})','{!oneTim.ChargentOrders__Charge_Amount__c}', '{!oneTim.Id}')"/>                   
+                      <!--Defect:114271 -- Adding last4 Digits of Bank Account Number -->
+                      <span class="cncel">Cancel</span>
+                    </a>
+                  </p>
+                </div>
+              </div>
+              <apex:variable value="{!i+1}" var="i"/>
+              </apex:outputPanel>
+              </apex:repeat>
+              
+              
+              
+              </apex:outputPanel>
+              <!-- Completed -->  <!--TEST1-->
+              
+              
+             <!-- One-Time Payment2 -->
+            
+              <apex:outputPanel rendered="{!oneTimePayFlagchk.size>0}">
+              <div class="secondary-title">
+                <h3>One-Time Payments</h3>
+                <p>The following scheduled payments can be cancelled but not edited.</p>
+              </div>
+              <apex:variable value="{!1}" var="i"/>
+              <apex:repeat value="{!oneTimePayFlagchk}" var="oneTimFlgchk" id="otfrpt">
+              <apex:outputPanel styleClass="{!IF(mod(i,2)==1, 'round-box mTB10 two-col card-two','round-box mTB10 two-col card-one')}">
+              <div>
+                <ul>
+                  <li>Date: <strong>
+                    <apex:outputField value="{!oneTimFlgchk.ChargentOrders__Payment_Start_Date__c}"/></strong>
+                  </li>
+                  <li>Status: <strong>
+                    <apex:outputField value="{!oneTimFlgchk.Payment_Display_Status__c}"/></strong>
+                  </li>
+                  <li>Bank Account Nickname: <strong>
+                    <apex:outputText value="{!oneTimFlgchk.Payment_Source_Nickname__r.Payment_Source_Nickname__c}" style="text-decoration:none;cursor:default"/></strong>
+                  </li>
+                  <li>Amount: <strong>
+                    <apex:outputField value="{!oneTimFlgchk.ChargentOrders__Charge_Amount__c}"/></strong>
+                  </li>
+                </ul>
+                <ul>
+                  <li>Confirmation#: <strong>
+                    <apex:outputField value="{!oneTimFlgchk.Confirmation_Number__c}"/></strong>
+                  </li>
+                  <li>Payment Type: <strong>
+                    <!-- <apex:outputField value="{!oneTimFlgchk.Payment_Type__c}"/> --><apex:outputLabel value="{!IF(oneTimFlgchk.Payment_Type__c== 'R', IF(oneTimFlgchk.RecordType.DeveloperName=='One_Time_Payment','Standard','Principal'),IF(oneTimFlgchk.Payment_Type__c == 'P','Payoff','Principal'))}" /></strong>
+                  </li>
+                </ul>
+                <!--- Changes added to the defect 114111 by Jayashree --->
+                <apex:outputPanel >
+                <div class="right-icon">
+                  <p class="mR10">
+                    <a href="#">
+                      <apex:image width="24px" height="23px" alt="edit icon" url="{!URLFOR($Resource.PendingPayment, 'PendingPayment/images/GrayPencil.png')}" rendered="{!oneTimFlgchk.Payment_Display_Status__c="Pending"}"/>
+                      <span>Edit</span>
+                    </a>
+                  </p>
+                  <p>
+                    <a href="#">
+                      <apex:image width="24px" height="23px" alt="edit icon" url="{!URLFOR($Resource.PendingPayment, 'PendingPayment/images/close-icon.png')}" onclick="showPopUp1('{!oneTimFlgchk.ChargentOrders__Payment_Start_Date__c}','{!JSENCODE(HTMLENCODE(oneTimFlgchk.Payment_Source_Nickname__r.Payment_Source_Nickname__c))}','{!oneTimFlgchk.ChargentOrders__Charge_Amount__c}','{!oneTimFlgchk.Id}')" 
+                          rendered="{!AND(oneTimFlgchk.Payment_Display_Status__c!='Researching',oneTimFlgchk.Payment_Display_Status__c="Pending",oneTimFlgchk.ChargentOrders__Payment_Start_Date__c > TODAY())}"/>
+                      <apex:image width="24px" height="23px" alt="edit icon" url="{!URLFOR($Resource.PendingPayment, 'PendingPayment/images/close-icon.png')}" onclick="showPopUp1('{!oneTimFlgchk.ChargentOrders__Payment_Start_Date__c}','{!JSENCODE(HTMLENCODE(oneTimFlgchk.Payment_Source_Nickname__r.Payment_Source_Nickname__c))}','{!oneTimFlgchk.ChargentOrders__Charge_Amount__c}','{!oneTimFlgchk.Id}')" 
+                          rendered="{!AND(oneTimFlgchk.Payment_Display_Status__c!='Researching',oneTimFlgchk.Payment_Display_Status__c="Pending",oneTimFlgchk.ChargentOrders__Payment_Start_Date__c == TODAY(),cutOffFlag == TRUE)}"/>
+                      <apex:image width="24px" height="23px" alt="edit icon" url="{!URLFOR($Resource.PendingPayment, 'PendingPayment/images/GrayX.png')}" rendered="{!AND(oneTimFlgchk.Payment_Display_Status__c!='Researching',oneTimFlgchk.Payment_Display_Status__c='Pending',oneTimFlgchk.ChargentOrders__Payment_Start_Date__c < TODAY())}"/>
+                      <apex:image width="24px" height="23px" alt="edit icon" url="{!URLFOR($Resource.PendingPayment, 'PendingPayment/images/GrayX.png')}" rendered="{!AND(oneTimFlgchk.Payment_Display_Status__c!='Researching',oneTimFlgchk.Payment_Display_Status__c="Pending",oneTimFlgchk.ChargentOrders__Payment_Start_Date__c == TODAY(),cutOffFlag == FALSE)}"/>
+                      <span class="cncel">Cancel</span>
+                    </a>
+                  </p>
+                </div>
+                </apex:outputPanel>
+               
+              </div>
+              <apex:variable value="{!i+1}" var="i"/>
+              </apex:outputPanel>
+              </apex:repeat>
+              </apex:outputPanel>
+              <!-- End of One-Time Payment2 -->
+              
+              
+               <!-- One-Time Payment3  -->
+                            
+              <apex:outputPanel rendered="{!IF(((oneTimePay.size<1) && (oneTimePayFlagchk.size<1)),true, false)}">
+              <div class="secondary-title">
+                <h3>One-Time Payments </h3>
+                <p>You have no scheduled one-time payments.</p>
+              </div>
+              
+              </apex:outputPanel>
+              <!--End of  One-Time Payment3 -->
+              
+            </section>
+            
+           <apex:outputPanel >
+              <div class="secondary-title easypay-btn">
+               <!--apex:commandButton id="CancelPaymentBtn" styleClass="primary-btn btn-2 pull-right" value="Cancel" onclick="{window.location='/icp'; return false;}"/-->
+               <apex:commandButton styleClass="primary-btn btn-2 pull-right" value="Make a Payment" onclick="{window.location='/apex/MakeAPaymentLandingPage?finnumber={!$CurrentPage.parameters.finnumber}&type=3&isReadOnly={!csat}'; return false;}"/>
+              </div>
+           </apex:outputPanel>            
+            
+            <!-- Popup1 -->
+            <apex:outputPanel id="Popup1" style="display:none; top:35%;; margin:0 auto; position:absolute; right:0; left:0;border:0; outline:none; border-radius:4px; cursor:pointer;"  layout="block" >
+            <div class="window-size-two" id="delete-pop">
+              <h3>Cancel EasyPay?</h3>
+              <div class="pop-up-details">
+                <p class="window-msg">Are you sure you want to cancel EasyPay?</p>
+                <ul>
+                  <li>
+                    <apex:outputLabel value="Next Withdrawal Date"></apex:outputLabel>
+                    <apex:outputField id="startdate1" value="{!recurringPay.Next_Withdrawal_Date__c}"/>
+                  </li>
+                  <li>
+                    <label>Bank Account Nickname</label>
+                    <apex:outputText id="name1" value="{!recurringPay.Payment_Source_Nickname__r.Payment_Source_Nickname__c}"/>
+                    <!--Defect:114271 -- Adding last4 Digits of Bank Account Number -->
+                    <apex:outputText id="last4name1" value="(XXXX-{!recurringPay.Payment_Source_Nickname__r.Last_4__c})"/>
+                    
+                  </li>
+                  <li>
+                    <label>Payment Amount </label>
+                    
+                    <span class="dollar-sym"><b>&#36;</b><apex:outputtext styleClass="dollar-amt" id="amt1" value="{!recurringPay.ChargentOrders__Charge_Amount__c}"/>
+                    
+                        <apex:outputtext id="status1" value="{!recurringPay.Payment_Display_Status__c}" styleClass="dollar-amt" rendered="false"/> </span>
+                  </li>
+                </ul>
+                <div class="pop-btn-section">
+                  <label><apex:commandButton styleClass="regular-btn btn-3 js-modal-close close" value="No" onclick="closePopUp1()"/></label>
+                <!-- <label><apex:commandbutton value="Yes" styleclass="regular-btn btn-3" action="{!doNothingMethod}" onclick="cancelPage_JS();return false;"></apex:commandbutton></label> --->
+                  
+                  <label>
+                  <apex:outputPanel rendered="{!csat}">
+                      <apex:commandButton styleClass="btn-3" style="color: #BBBBBC;" value="Yes, Cancel" reRender="frm"/>
+                  </apex:outputPanel>
+                  <apex:outputPanel rendered="{!NOT(csat)}">
+                      <apex:commandButton styleClass="primary-btn btn-3" value="Yes, Cancel" onclick="changeStatus()" reRender="frm" />
+                  </apex:outputPanel></label>
+                </div>
+              </div>
+            </div>
+            </apex:outputPanel>
+            <!-- End of Popup1 -->
+            
+            <!-- Popup4 Cancelled Not Allowed -->
+            <apex:outputPanel id="Popup4" style="display:none; top:35%;; margin:0 auto; position:absolute; right:0; left:0;border:0; outline:none; border-radius:4px; cursor:pointer;"  layout="block" >
+            <div class="window-size-two" id="delete-pop4">           
+                <h3>EasyPay payment is processing</h3>            
+              <div class="pop-up-details">
+                <p class="window-msg">EasyPay cannot be cancelled at this time because your currently scheduled payment is being processed. Please try again later.</p>
+                <ul>
+                  <li>
+                    <apex:outputLabel value="Next Withdrawal Date"></apex:outputLabel>
+                    <apex:outputField id="startdate4" value="{!recurringPay.Next_Withdrawal_Date__c}"/>
+                  </li>
+                  <li>
+                    <label>Bank Account Nickname</label>
+                  <!--  <apex:outputText id="name4" value="{!recurringPay.Payment_Source_Nickname__r.Payment_Source_Nickname__c}"/>
+                      Defect:114271 -- Adding last4 Digits of Bank Account Number 
+                    <apex:outputText id="last4name4" value="(XXXX-{!recurringPay.Payment_Source_Nickname__r.Last_4__c})"/>  -->
+                    
+                  <span class="mL8">
+                    <!--Defect:114271 -- Adding last4 Digits of Bank Account Number -->
+                    <apex:outputtext value="{!recurringPay.Payment_Source_Nickname__r.Payment_Source_Nickname__c}(XXXX-{!recurringPay.Payment_Source_Nickname__r.Last_4__c})" />
+                   </span> 
+                
+                  </li>
+                  <li>
+                    <label>Payment Amount </label>
+                    
+                    <span class="dollar-sym"><b>&#36;</b><apex:outputtext styleClass="dollar-amt" id="amt4" value="{!recurringPay.ChargentOrders__Charge_Amount__c}"/>
+                    
+                        <apex:outputtext id="status4" value="{!recurringPay.Payment_Display_Status__c}" styleClass="dollar-amt" rendered="false"/> </span>
+                  </li>
+                </ul>
+                <div class="pop-btn-section" style="margin-left:15%">
+                  <label><apex:commandButton styleClass="primary-btn btn-3" value="OK" onclick="closePopUp()"/></label>
+                 
+                </div>
+              </div>
+            </div>
+            </apex:outputPanel>
+            <!-- End of Popup4 Cancelled Not Allowed -->
+            
+            <!-- Popup2 --> 
+            <apex:outputPanel id="Popup2" style="display:None; top:35%;; margin:0 auto; position:absolute; right:0; left:0;border:0; outline:none; border-radius:4px; cursor:pointer;"  layout="block" >
+            <div class="window-size-two" id="delete-pop">
+              <h3>Cancel Payment?</h3>
+              <div class="pop-up-details">
+                <p class="window-msg">Are you sure you want to cancel the following payment?</p>
+                <ul>
+                  <li>
+                    <label>Payment Date</label> 
+                      <apex:outputField id="startdate" value="{!ChargentOrders__ChargentOrder__c.ChargentOrders__Payment_Start_Date__c}"/>
+                  </li>
+                  <li>
+                    <label>Bank Account Nickname </label>
+                      <apex:outputText id="name" value="{!ChargentOrders__ChargentOrder__c.Payment_Source_Nickname__r.Payment_Source_Nickname__c}"/>
+                  </li>
+                  <li>
+                    <label>Payment Amount </label>
+                       <span class="dollar-sym"><b>&#36;</b><apex:outputtext styleClass="dollar-amt" id="amt" value="{!ChargentOrders__ChargentOrder__c.ChargentOrders__Charge_Amount__c}"/></span>
+                  </li>
+                </ul>
+                <div class="pop-btn-section">
+                  <label>
+                    <apex:commandButton styleClass="regular-btn btn-3 js-modal-close close" value="No" onclick="closePopUp()"/>
+                  </label>
+                  <label>
+                  <apex:outputPanel rendered="{!csat}">
+                      <apex:commandButton styleClass="btn-3" style="color: #BBBBBC;" value="Yes, Cancel" reRender="frm"/>
+                  </apex:outputPanel>
+                  <apex:outputPanel rendered="{!NOT(csat)}">
+                      <apex:commandButton styleClass="primary-btn btn-3" value="Yes, Cancel" onclick="changeStatus()" reRender="frm" />
+                  </apex:outputPanel></label>
+                </div>
+              </div>
+            </div>
+            </apex:outputPanel>
+            <!-- End of Popup2 -->
+
+          </div>
+
+          <script type="text/javascript">
+            var pj = jQuery.noConflict(); 
+            pj(function() {
+                document.getElementById('{!$Component.pg:frm:pgBlk:Popup1}').style.display = 'none';
+                document.getElementById('{!$Component.pg:frm:pgBlk:Popup2}').style.display = 'none';
+            // Invoke the plugin
+            pj('input, textarea').placeholder({customClass:'my-placeholder'});
+            });
+
+            var orderId; 
+
+            function showPopUp(dat1,name1,amt1,chargentOrderId){
+              ovelayPop();
+              orderId = chargentOrderId;
+              document.getElementById('{!$Component.pg.frm.pgBlk.startdate1}').innerHTML= dat1;
+              document.getElementById('{!$Component.pg.frm.pgBlk.name1}').innerHTML= name1;
+              document.getElementById('{!$Component.pg.frm.pgBlk.amt1}').innerHTML= amt1;
+                
+              var decision = "{!allowCancel}";
+                if (decision == "Yes") {
+                    document.getElementById('{!$Component.pg.frm.pgBlk.Popup1}').style.display = 'block';
+                } else {
+                    document.getElementById('{!$Component.pg.frm.pgBlk.Popup4}').style.display = 'block';
+                }
+              
+              
+             }
+
+             function showPopUp1(dat,name,amt,chargentOrderId){
+              ovelayPop();
+              orderId = chargentOrderId;
+              document.getElementById('{!$Component.pg.frm.pgBlk.startdate}').innerHTML= dat;
+              document.getElementById('{!$Component.pg.frm.pgBlk.name}').innerHTML= name;
+              document.getElementById('{!$Component.pg.frm.pgBlk.amt}').innerHTML= amt;
+              document.getElementById('{!$Component.pg.frm.pgBlk.Popup2}').style.display = 'block';
+             }
+
+
+            function showPopUp2(){
+              document.getElementById('{!$Component.pg.frm.pgBlk.Popup2}').style.display = 'block';
+             }
+             
+             function closePopUp(){
+              removeovelayPop();
+              document.getElementById('{!$Component.pg.frm.pgBlk.Popup1}').style.display = 'none';
+              return false;
+             }
+             function closePopUp1(){
+              removeovelayPop();
+              document.getElementById('{!$Component.pg.frm.pgBlk.Popup2}').style.display = 'none';
+              return false;
+             }
+             
+             function changeStatus(){
+                 cancelPayment(orderId);
+             }
+             
+             function editOtpPayment(otpid){
+                 var readFlag = '{!csat}';
+                 window.location='/apex/MakeAPaymentLandingPage?id='+otpid +'&isReadOnly='+readFlag;
+                 return false;
+             }
+          </script>
+          <script>
+                 function ovelayPop(){
+                    var pj = jQuery.noConflict();    
+                    pj(document).ready(function() {
+                    pj('.overlay ').addClass('overlay-layer');
+        
+             });
+             }   
+             
+             function removeovelayPop(){
+                    var pj = jQuery.noConflict();    
+                    pj(document).ready(function() {
+                     pj('.overlay').removeClass('overlay-layer');
+             });
+             }   
+             
+           </script>        
+
+          <!-- Defect:114079 :Timeout dialog modified by Tiru  --> 
+           <script type="text/JavaScript"> 
+            //Start the idle timer
+            $.idleTimer({!$Label.Community_Session_Timeout}*60000);
+            $(document).bind("idle.idleTimer", function(){
+              // function you want to fire when the user goes idle       
+               if (!inIframe()) {
+                   $.timeoutDialog({timeout:{!$Label.Community_Session_Timeout}});
+                   $(".overlay-sec").addClass('overlay');
+               }
+             });    
+             
+             function inIframe() {
+                try {
+            
+                    return window.self !== window.top;
+            
+                } catch (e) {
+            
+                    return true;
+            
+                }
+             }
+            </script>
+            <!-- End Defect:114079 -->
+          <apex:includescript value="{!$Resource.placeholder}" />
+        </body>
+      </html>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

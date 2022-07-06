@@ -1,0 +1,171 @@
+<apex:page standardController="Communication_Preferences__c" extensions="NEWCommunicationPreferenceInlineAgent" lightningStyleSheets="true">
+<apex:slds />
+<apex:include pageName="LoadingOverlay" />
+<!-- Fix for defect 113951 - adding a VF Page which has the javascript for disabling the buttons-->    
+<apex:include pageName="VF_DisableButton"/>
+<apex:includescript value="{!$Resource.jquery1113min}" />
+<!-- Fix for defect # 113951 Ends here -->
+
+<apex:includeScript value="/support/console/24.0/integration.js"/>
+
+<script type="text/javascript">
+
+//set the tab name in console
+function testSetTabTitle() {
+    sforce.console.setTabTitle('Communication Preference: {!Communication_Preferences__c.Name}');
+    testSetTabUnsavedChanges();
+}
+var pageLoad = window.onload;
+  window.onload = function() {
+        if (pageLoad) {
+                pageLoad();
+        }
+          testSetTabTitle();
+          
+  } 
+
+function testSetTabUnsavedChanges() {
+    sforce.console.setTabUnsavedChanges(true);
+};
+
+function testCloseTab() {
+    //First find the ID of the current tab to close it
+    
+    if (sforce.console.isInConsole()) {
+        sforce.console.getEnclosingTabId(closeSubtab);
+    } else {
+         window.location.href = '/' + '{!financeAccountId}';
+    }
+}
+
+var closeSubtab = function closeSubtab(result) {
+    //Now that we have the tab ID, we can close it
+    var tabId = result.id;
+    sforce.console.closeTab(tabId);
+};
+
+                
+ function ShowBankDetailsJS(){
+    ShowBankDetailsAF();
+ }
+</script>
+<div class="slds-scope">
+<apex:form id="form">
+<A HREF="#" onClick="testGenerateConsoleURL();return true">
+Click here to generate a console URL</A>
+
+<apex:sectionHeader title="Communication Preference" subtitle="{!Communication_Preferences__c.Name}"/>       
+ <apex:pageBlock id="pgBlock" mode="maindetail" title="Communication Preference">
+    <apex:pageMessages />  
+  <apex:pageBlockButtons location="top" id="pgButton">
+        <apex:commandButton value="Cancel" rendered="{!isReadonly == true}" onclick="testCloseTab();return false"  reRender="form"  status="loading"  />
+        <apex:commandButton value="Save" action="{!updateEdeliveryPreference}" rendered="{!isReadonly == true}" id="saveButton" reRender="pgBlock"  status="loading"  onclick="DisableButton();"/>
+        <apex:commandButton value="Edit" action="{!updateReadOnly}" rendered="{!isReadonly == false}" reRender="pgBlock"  status="loading" />
+   </apex:pageBlockButtons>
+   
+   <apex:pageBlockSection title="Information" collapsible="True" columns="2" rendered="{!isReadonly == false}" >
+        <apex:outputField value="{!Communication_Preferences__c.Email_Address__c}"   />
+        <apex:outputField value="{!Communication_Preferences__c.Finance_Account_Number__c}"   />
+        <apex:outputField value="{!Communication_Preferences__c.Text_Number__c}"   />
+   </apex:pageBlockSection>
+   
+   
+   <apex:pageBlockSection title="Information" collapsible="True" columns="2" rendered="{!isReadonly == true}" >
+      <apex:pageBlockSectionItem >
+        Email Address: <apex:inputField value="{!Communication_Preferences__c.Email_Address__c}"   />
+      </apex:pageBlockSectionItem>    
+      <apex:outputField value="{!Communication_Preferences__c.Finance_Account_Number__c}"   />
+      <apex:pageBlockSectionItem >
+        Text Number: <apex:inputText value="{!TextNumber}"  />
+      </apex:pageBlockSectionItem> 
+        
+   </apex:pageBlockSection>
+   
+   
+   <apex:pageBlockSection title="Communication Options" collapsible="True" columns="2" rendered="{!isReadonly == false}"> 
+    
+       <apex:outputField value="{!Communication_Preferences__c.Statements_Letters__c}" />
+   
+       <apex:outputField value="{!Communication_Preferences__c.Account_Status_Updates_via_Email__c}"  />                      <!--Added for DSX2&3-->
+       <apex:outputField value="{!Communication_Preferences__c.Account_Status_Updates_via_Text__c}"  />                       <!--Added for DSX2&3-->
+       <apex:outputField value="{!Communication_Preferences__c.Payment_Confirmations_via_Email__c}"  />
+       <apex:outputField value="{!Communication_Preferences__c.Payment_Reminders_via_Email__c}"  />
+       <apex:outputField value="{!Communication_Preferences__c.Payment_Confirmations_via_Text__c}"  />              
+       <apex:outputField value="{!Communication_Preferences__c.Payment_Reminders_via_Text__c}"  />
+       <apex:outputField value="{!Communication_Preferences__c.EasyPay_Communications_via_Email__c  }"  />
+       <apex:outputField value="{!Communication_Preferences__c.Days_Prior_Reminder__c}"   />
+       <apex:outputField value="{!Communication_Preferences__c.EasyPay_Communications_via_text__c   }"  />
+       <apex:outputField value="{!Communication_Preferences__c.Unsubscribe_from_all__c    }"  />
+       
+   </apex:pageBlockSection> 
+   
+  
+   <apex:pageBlockSection title="Communication Options" collapsible="True" columns="2" rendered="{!isReadonly == true}" >
+        <!--- Added by Omkar for 114116 Defect --->
+        <apex:inputField value="{!Communication_Preferences__c.Statements_Letters__c}" id="oppNameInput" onchange="unCheckSubscribe();"/>                       
+        <script>document.getElementById('{!$Component.oppNameInput}').disabled = {!disableInput}; </script>
+       <apex:inputField value="{!Communication_Preferences__c.Account_Status_Updates_via_Email__c}" id="accViaEmail" onclick="unCheckSubscribe();"/>                   <!--Added for DSX2&3-->          
+       <apex:inputField value="{!Communication_Preferences__c.Account_Status_Updates_via_Text__c}" id="accViaText" onclick="unCheckSubscribe();"/>                    <!--Added for DSX2&3-->
+       <apex:inputField value="{!Communication_Preferences__c.Payment_Confirmations_via_Email__c}" id="payConfViaEmail" onclick="unCheckSubscribe();"/>
+       <apex:inputField value="{!Communication_Preferences__c.Payment_Reminders_via_Email__c}" id="payRemdViaEmail" onclick="unCheckSubscribe();"/>
+       <apex:inputField value="{!Communication_Preferences__c.Payment_Confirmations_via_Text__c}" id="payConfViaText" onclick="unCheckSubscribe();"/>
+       <apex:inputField value="{!Communication_Preferences__c.Payment_Reminders_via_Text__c}" id="payRemdViaText" onclick="unCheckSubscribe();"/>
+       <apex:inputField value="{!Communication_Preferences__c.EasyPay_Communications_via_Email__c}" id="easypayComViaEmail" onclick="unCheckSubscribe();"/>
+       <apex:inputField value="{!Communication_Preferences__c.Days_Prior_Reminder__c}"  />
+       <apex:inputField value="{!Communication_Preferences__c.EasyPay_Communications_via_Text__c}"  id="easypayComViaText" onclick="unCheckSubscribe();"/>
+       <apex:inputField value="{!Communication_Preferences__c.Unsubscribe_from_all__c    }" id="unsubscribechkbox" onchange="unsubscribe();"/>
+       
+       <script>
+            function unsubscribe(){
+                var unsub = document.getElementById('{!$Component.unsubscribechkbox}').checked; 
+                if(unsub){
+                    document.getElementById('{!$Component.oppNameInput}').selectedIndex = "1";
+                    document.getElementById('{!$Component.accViaEmail}').checked= false;                           
+                    document.getElementById('{!$Component.accViaText}').checked = false;
+                    document.getElementById('{!$Component.payConfViaEmail}').checked= false;
+                    document.getElementById('{!$Component.payRemdViaEmail}').checked= false;
+                    document.getElementById('{!$Component.payConfViaText}').checked= false;
+                    document.getElementById('{!$Component.payRemdViaText}').checked= false;
+                    document.getElementById('{!$Component.easypayComViaEmail}').checked= false;
+                    document.getElementById('{!$Component.easypayComViaText}').checked= false;
+                }
+           }
+           function unCheckSubscribe(){
+                var accEmail = document.getElementById('{!$Component.accViaEmail}').checked;
+                var statementLetter = document.getElementById('{!$Component.oppNameInput}').selectedIndex;
+                var accText = document.getElementById('{!$Component.accViaText}').checked;
+                var payConfEmail = document.getElementById('{!$Component.payConfViaEmail}').checked;
+                var payRemdEmail = document.getElementById('{!$Component.payRemdViaEmail}').checked;
+                var payConfText = document.getElementById('{!$Component.payConfViaText}').checked;
+                var payRemdText = document.getElementById('{!$Component.payRemdViaText}').checked;
+                var easypayComEmail = document.getElementById('{!$Component.easypayComViaEmail}').checked;
+                var easypayComText = document.getElementById('{!$Component.easypayComViaText}').checked;
+                if(accEmail || accText || payConfEmail || payRemdEmail || payConfText || payRemdText || easypayComEmail || easypayComText || statementLetter != 1){
+                    document.getElementById('{!$Component.unsubscribechkbox}').checked = false; 
+                }
+            }
+       
+       </script>
+   </apex:pageBlockSection> 
+   
+   <apex:pageBlockSection title="System Information" collapsible="True" columns="2" >  
+      <apex:outputField value="{!Communication_Preferences__c.CreatedByid}" />
+      <apex:outputField value="{!Communication_Preferences__c.LastModifiedByid}" />
+      <apex:outputField value="{!Communication_Preferences__c.Source_of_Creation__c}" />
+      <apex:outputField value="{!Communication_Preferences__c.Source_of_Modification__c}" />
+   </apex:pageBlockSection>
+</apex:pageBlock> 
+<apex:pageBlock id="CustomList" title="Communication Preference History" >  
+<apex:pageBlockTable value="{!history}" var="item" >
+    <apex:column value="{!item.CreatedDate}" headerValue="Date"/>
+    <apex:column value="{!item.CreatedById}" headerValue="User"/>
+    <apex:column value="{!item.field}" headerValue="Action"/>
+</apex:pageBlockTable>
+
+   </apex:pageBlock> 
+   
+   </apex:form>   
+<apex:relatedList list="ActivityHistories" />
+
+</div>    
+</apex:page>

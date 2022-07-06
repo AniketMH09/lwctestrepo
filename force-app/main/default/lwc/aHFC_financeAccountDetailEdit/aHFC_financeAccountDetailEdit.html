@@ -1,0 +1,420 @@
+<template>
+    <template if:true={loadingsprinner}>
+      <!-- <div class="slds-backdrop slds-backdrop_open"></div>
+            <lightning-spinner alternative-text="Loading" size="large" class="AHFC_Spinnereg ahfc_spinnerposition" ></lightning-spinner> -->
+            <c-a-h-f-c_-spinner loading-message={spinnerMessage}></c-a-h-f-c_-spinner>
+    </template>
+<template if:false={loadingsprinner}>
+    <section
+      role="dialog"
+      tabindex="0"
+      aria-label="finance account modal popup"
+      aria-modal="true"
+      aria-describedby="modal-content-id-1"
+      class="slds-modal slds-fade-in-open finance-account-edit-modal"
+    >
+      <div class="slds-modal__container">
+        <div
+          class="slds-modal__content edit-modal-content"
+          id="modal-content-id-1"
+        >
+        <template if:true={loaded}>
+          <div style="text-align: center; margin-top: 50px;">
+          <div class="exampleHolder">
+                <lightning-spinner alternative-text="Loading" size="large" class="AHFC_Spinnereg" ></lightning-spinner>
+          </div>
+          <h1 class="header-text-medium slds-m-bottom_x-large" style="margin-top: 50px;">{loadingMsg}</h1>
+        </div>
+        </template>
+
+<template if:true={nickNameModal}>
+            <h1 class="header-text-medium slds-m-bottom_x-large">{modalHeaderText}</h1>
+            <div class="slds-form-element">
+              <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-01">Nickname</label>
+              <div class="slds-form-element__control">
+                <input type="text" id="form-element-01" placeholder="Enter Nick Name"  maxlength="30" class="nickname slds-input form-element-input"
+                value={updatenicknamefinaccdetail} 
+                onchange={handleChangeFinAccDetail}   />
+               <!--bug 20070-->
+                <span class="nickNameValidation">{nickNameValidation}</span>
+
+              </div>
+            </div>
+          </template>
+<template if:true={contactInfoModal}>
+            <h1 class="header-text-medium slds-m-bottom_x-large">{modalHeaderText}</h1>
+            <div class="slds-form-element slds-m-bottom_xx-large cellphone1">
+              <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-02">Mobile Number 1</label>
+              <div class="slds-form-element__control">
+                <input type="tel" id="form-element-02"  pattern="[0-9]{10}" data-id="cell1-input" placeholder="Enter Mobile Number 1" class="slds-input form-element-input" value={responseData.otherDemographics.cellPhone} oninput={handleInputData} />
+              </div>
+              <div class="slds-form-element__help error-help" if:false={isMustonephonenumber}>
+                Error: Phone Number field accepts values 0-9, and must be 10 characters in length.
+              </div>
+              <div class="slds-form-element__help error-help" if:true={isMustonephonenumber}>
+                Error: You must enter at least one phone number.
+             </div>
+            </div>
+            <div class="slds-form-element slds-m-bottom_xx-large cellphone2">
+              <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-03">Mobile Number 2</label>
+              <div class="slds-form-element__control">
+                <input type="text" id="form-element-03" pattern="[0-9]{10}" data-id="cell2-input" placeholder="Enter Mobile Number 2" class="slds-input form-element-input" value={responseData.otherDemographics.cellPhone2} oninput={handleInputData}/>
+              </div>
+              <div class="slds-form-element__help error-help">
+                Error: Phone Number field accepts values 0-9, and must be 10 characters in length.
+              </div>
+            </div>
+            <div class="slds-form-element slds-m-bottom_xx-large homephonenumber">
+              <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-04">Home Number</label>
+              <div class="slds-form-element__control">
+                <input type="text" id="form-element-04" pattern="[0-9]{10}"  data-id="homePhone-input" placeholder="Enter Home Number" class="slds-input form-element-input" value={responseData.otherDemographics.homePhone} oninput={handleInputData}/>
+              </div>
+              <div class="slds-form-element__help error-help">
+                Error: Phone Number field accepts values 0-9, and must be 10 characters in length.
+              </div>
+            </div>
+            <div class="slds-form-element slds-m-bottom_xx-large workphone">
+              <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-05">Work Number</label>
+              <div class="slds-form-element__control">
+                <input type="text" id="form-element-05" pattern="[0-9]{10}"  data-id="workPhone-input" placeholder="Enter Work Number" class="slds-input form-element-input" value={responseData.otherDemographics.workPhone} oninput={handleInputData}/>
+              </div>
+              <div class="slds-form-element__help error-help">
+                Error: Phone Number field accepts values 0-9, and must be 10 characters in length.
+              </div>
+            </div>
+            <div class="slds-form-element slds-m-bottom_xx-large">
+              <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-06">Employer Name</label>
+              <div class="slds-form-element__control">
+                <input type="text" id="form-element-06" data-id="employerName-input" placeholder="Enter Employer Name" class="slds-input form-element-input" value={responseData.otherDemographics.placeOfEmployment} oninput={handleInputData}/>
+              </div>
+            </div>
+            <p>By updating any of the phone numbers listed above, you agree to all of the following: 
+              <br />(a) AHFC may monitor and record telephone calls regarding your account to assure the quality of our service or for other reasons; 
+              <br />(b) you expressly consent to AHFC using prerecorded/artificial voice messages, text messages and/or automatic dialing equipment while servicing or collecting your account, as the law allows; 
+              <br />(c) you agree that AHFC may take these actions using the telephone number(s) that you provide Us, even if the number is for a mobile telephone and/or our using the number results in charges to you.</p>
+          </template>
+<template if:true={garageAddressModal}>
+            <h1 class="header-text-medium slds-m-bottom_x-large">{modalHeaderText}</h1>
+            <div class="slds-form-element slds-m-bottom_xx-large">
+              <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-07">Address Line 1</label>
+              <div class="slds-form-element__control">
+                <input type="text" id="form-element-07" data-id="address1-input" placeholder="Enter Address Line 1" class="slds-input form-element-input" value={responseData.garagingAddress.addressLine1} oninput={handleInputData}/>
+              </div>
+            </div>
+            <div class="slds-form-element slds-m-bottom_xx-large">
+              <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-08">Address Line 2</label>
+              <div class="slds-form-element__control">
+                <input type="text" id="form-element-08" data-id="address2-input" placeholder="Enter Address Line 2" class="slds-input form-element-input" value={responseData.garagingAddress.addressLine2} oninput={handleInputData}/>
+              </div>
+            </div>
+            <div class="slds-form-element slds-m-bottom_xx-large">
+              <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-09">City</label>
+              <div class="slds-form-element__control">
+                <input type="text" id="form-element-09" data-id="city-input" placeholder="Enter City" class="slds-input form-element-input" value={responseData.garagingAddress.city} oninput={handleInputData}/>
+              </div>
+            </div>
+            <div class="slds-form-element slds-m-bottom_xx-large">
+              <!-- <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-10">State</label> -->
+              <div class="slds-form-element__control">
+                <!-- <input type="text" id="form-element-10" data-id="state-input" placeholder="Enter State" class="slds-input form-element-input" value={responseData.garagingAddress.state} oninput={handleInputData}/> -->
+                <a href="javascript:void" tabindex="-1">
+                <lightning-combobox
+                class="ahfc-combobox ahfc-input"
+                name="State"
+                label="State"
+                value={selectedState}
+                placeholder="Select the State"
+                options={listofState}
+                onchange={handleInputData}
+                data-id="state-input"
+              ></lightning-combobox></a>
+              </div>
+            </div>
+            <div class="slds-form-element">
+              <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-11">Zip Code</label>
+              <div class="slds-form-element__control">
+                <input type="text" id="form-element-11" data-id="zipcode-input" placeholder="Enter Zip Code" class="slds-input form-element-input" value={responseData.garagingAddress.zipCode} oninput={handleInputData}/>
+              </div>
+            </div>
+          
+            <div class="check-billing slds-m-vertical_x-large" if:true={isupdatableBillingAddress}>
+              <div class="slds-form-element slds-m-bottom_x-large">
+                <div class="slds-form-element__control">
+                  <div class="slds-checkbox">
+                    <input type="checkbox" name="options" id="checkbox-unique-id-73" value="checkbox-unique-id-73" checked={checkboxVal} onchange={handleChecked}/>
+                    <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                      <span class="slds-checkbox_faux"></span>
+                      <span class="slds-form-element__label para-text-medium">
+                        My billing address is the same as my garaging address.
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <p class="para-text-medium">By updating the garaging address, taxes may be adjusted.</p>
+            </div>
+          
+          </template>
+<template if:true={billingAddressModal}>
+            <h1 class="header-text-medium slds-m-bottom_x-large">{modalHeaderText}</h1>
+            <div class="slds-form-element slds-m-bottom_xx-large">
+              <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-12">Address Line 1</label>
+              <div class="slds-form-element__control">
+                <input type="text" id="form-element-12" data-id="bill-address1-input" placeholder="Enter Address Line 1" class="slds-input form-element-input" value={responseData.billToAddress.addressLine1} oninput={handleInputData}/>
+              </div>
+            </div>
+            <div class="slds-form-element slds-m-bottom_xx-large">
+              <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-13">Address Line 2</label>
+              <div class="slds-form-element__control">
+                <input type="text" id="form-element-13" data-id="bill-address2-input" placeholder="Enter Address Line 2" class="slds-input form-element-input" value={responseData.billToAddress.addressLine2} oninput={handleInputData}/>
+              </div>
+            </div>
+            <div class="slds-form-element slds-m-bottom_xx-large">
+              <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-14">City</label>
+              <div class="slds-form-element__control">
+                <input type="text" id="form-element-14" data-id="bill-city-input" placeholder="Enter City" class="slds-input form-element-input" value={responseData.billToAddress.city} oninput={handleInputData}/>
+              </div>
+            </div>
+            <div class="slds-form-element slds-m-bottom_xx-large">
+              <!-- <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-15">State</label> -->
+              <div class="slds-form-element__control">
+                <!-- <input type="text" id="form-element-15" data-id="bill-state-input" placeholder="Enter State" class="slds-input form-element-input" value={responseData.billToAddress.state} oninput={handleInputData}/> -->
+                <a href="javascript:void" tabindex="-1">
+                <lightning-combobox
+                class="ahfc-combobox ahfc-input"
+                name="State"
+                label="State"
+                icon-name="utility:info_alt"
+                value={selectedState}
+                placeholder="Select the State"
+                options={listofState}
+                onchange={handleInputData}
+                data-id="bill-state-input"
+              ></lightning-combobox>
+            </a>
+              </div>
+            </div>
+            <div class="slds-form-element">
+              <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-16">Zip Code</label>
+              <div class="slds-form-element__control">
+                <input type="text" id="form-element-16" data-id="bill-zipcode-input" placeholder="Enter Zip Code" class="slds-input form-element-input" value={responseData.billToAddress.zipCode} oninput={handleInputData}/>
+              </div>
+            </div>
+            <template if:false={isCheckBoxGaragingBilling}> <!--Added by Prabu for the bug 21975-->
+            <template if:false ={isRedirectedFromPayOff} > <!--added check as part of US:4595 by edwin-->
+            <div class="check-billing slds-m-vertical_x-large" if:true={isupdatableGaragingAddress}>
+              <div class="slds-form-element slds-m-bottom_x-large">
+                <div class="slds-form-element__control">
+                  <div class="slds-checkbox">
+                    <input type="checkbox" name="options" id="checkbox-unique-id-74" value="checkbox-unique-id-74" checked={checkboxBill} onchange={handleCheckedBill}/>
+                    <label class="slds-checkbox__label" for="checkbox-unique-id-74">
+                      <span class="slds-checkbox_faux"></span>
+                      <span class="slds-form-element__label para-text-medium">
+                        My garaging address is the same as my billing address.
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </template>
+            </template>
+</template>
+<template if:true={openValidatemodal}>
+            <h1 class="AHFC_ModTitle">May we recommend</h1>
+            <!--Modified the below message by Prabu for the bug - 21975-->
+            <template if:true={isfailLevel}><p class="AHFC_ModSubtxt">No recommended address found. Please enter the address where your vehicle is parked.</p></template>
+<template if:false={isfailLevel}><p class="AHFC_ModSubtxt">We found an alternative for the address you entered</p></template>
+<div class="slds-grid  AHFC_Collayout ahfc_Addresses">
+    <template if:false={isfailLevel}>
+                <!-- <div class="slds-col slds-size_7-of-12 slds-p-around_large AHFC_padding ahfc_margin">bug fixes 10599 -->
+                <div class="slds-col slds-size_1-of-1 slds-large-size_7-of-12 slds-medium-size_7-of-12 slds-p-around_large AHFC_padding ahfc_margin">
+                    <span>
+                        <div class="AHFC_ModFormLabel ahfc_headerbottom">OUR RECOMMENDATION</div>
+                        <div class="AHFC_ModFormValue">
+                          <span class="ahfc_address" if:true ={ValidAddress.addressLine1}>{ValidAddress.addressLine1}</span>
+                          <span class="ahfc_address" if:true ={ValidAddress.addressLine2}>{ValidAddress.addressLine2}</span>
+                          <span class="ahfc_statespace" if:true ={ValidAddress.city}>{ValidAddress.city},</span>
+                          <span if:true ={ValidAddress.state}>{ValidAddress.state}</span>
+                          <span class="ahfc_address" if:true ={ValidAddress.zip}>{ValidAddress.zip}-{ValidAddress.plus4}</span>
+                        </div>
+                      </span>
+                      <!-- <template if:false={isfailLevel}>
+                        <div class="slds-col AHFC_Butsecwidth  slds-show_large">
+                          <span>
+                            <button class="slds-button AHFC_BgRedButton ahfc_buttons" onclick={OnRecommendedAddress}>
+                                USE RECOMMENDED ADDRESS
+                            </button>
+                          </span>
+                         </div>
+                      </template> -->
+</div>
+</template>
+<!-- <div class="slds-col slds-size_5-of-12 slds-p-around_large AHFC_padding ahfc_right"> bug fixes 10599-->
+<div class="slds-col slds-size_1-of-1 slds-large-size_7-of-12 slds-medium-size_7-of-12 slds-p-around_large slds-p-around_large AHFC_padding ahfc_right">
+    <span>
+                  <div class="AHFC_ModFormLabel ahfc_headerbottom">YOU ENTERED</div>
+                  <div class="AHFC_ModFormValue" if:false={isAddressValidationforGaraging}>
+                    <span class="ahfc_address" if:true ={responseData.billToAddress.addressLine1}>{responseData.billToAddress.addressLine1}</span>
+    <span class="ahfc_address" if:true={responseData.billToAddress.addressLine2}>{responseData.billToAddress.addressLine2}</span>
+    <span class="ahfc_statespace" if:true={responseData.billToAddress.city}>{responseData.billToAddress.city},</span>
+    <span if:true={responseData.billToAddress.state}>{responseData.billToAddress.state}</span>
+    <span class="ahfc_address" if:true={responseData.billToAddress.zipCode}>{responseData.billToAddress.zipCode}</span>
+</div>
+<div class="AHFC_ModFormValue" if:true={isAddressValidationforGaraging}>
+    <span class="ahfc_address" if:true={responseData.garagingAddress.addressLine1}>{responseData.garagingAddress.addressLine1}</span>
+    <span class="ahfc_address" if:true={responseData.garagingAddress.addressLine2}>{responseData.garagingAddress.addressLine2}</span>
+    <span class="ahfc_statespace" if:true={responseData.garagingAddress.city}>{responseData.garagingAddress.city},</span>
+    <span if:true={responseData.garagingAddress.state}>{responseData.garagingAddress.state}</span>
+    <span class="ahfc_address" if:true={responseData.garagingAddress.zipCode}>{responseData.garagingAddress.zipCode}</span>
+</div>
+</span>
+<!-- <template  if:false={isfailLevel}>
+                  <div class="slds-col AHFC_Butsecwidth ahfc_addressInstead  slds-show_large">
+                    
+                      <div class="ahfc_addressText">
+                      <button class="slds-button AHFC_NoBgButton ahfc_buttons ahfc_useAddrMargin" onclick={OnEnteredAddress}>
+                      USE ADDRESS ENTERED
+                      </button>
+                      </div>
+                    
+                  </div></template> -->
+</div>
+<template if:true={isfailLevel}>
+                <div class="slds-col slds-p-around_large">
+                </div>
+              </template>
+</div>
+<!-- desktop start -->
+
+<div class="slds-grid  slds-size_1-of-1 AHFC_Collayout ahfc_Addresses slds-show_large">
+    <template if:false={isfailLevel}>
+                    <div class="slds-col slds-size_7-of-12 AHFC_Butsecwidth">
+                      <span>
+                        <button class="slds-button AHFC_BgRedButton " onclick={OnRecommendedAddress}>
+                            USE RECOMMENDED ADDRESS
+                        </button>
+                      </span>
+                     </div>
+                  
+                    <div class="slds-col slds-size_5-of-12  ahfc_right AHFC_Butsecwidth ahfc_addressInstead">
+                      
+                        <div class="ahfc_addressText">
+                        <button class="slds-button AHFC_NoBgButton ahfc_rightButton " onclick={OnEnteredAddress}>
+                        USE ADDRESS ENTERED
+                        </button>
+                        </div>
+                      
+                    </div>
+                  </template>
+</div>
+
+<!-- desktop end -->
+<div class="AHFC_ModButsec slds-grid slds-hide_large">
+    <template if:false={isfailLevel}>
+                    <div class="slds-col AHFC_Butsecwidth">
+                      <span>
+                        <button class="slds-button AHFC_BgRedButton " onclick={OnRecommendedAddress}>
+                            USE RECOMMENDED ADDRESS
+                        </button>
+                      </span>
+                     </div>
+                  
+                    <div class="slds-col AHFC_Butsecwidth ahfc_addressInstead">
+                      <!-- <span> -->
+                        <div class="ahfc_addressText">
+                        <button class="slds-button AHFC_NoBgButton " onclick={OnEnteredAddress}>
+                        USE ADDRESS ENTERED
+                        </button>
+                        </div>
+                      <!-- </span> -->
+                    </div>
+                  </template>
+</div>
+<div class="AHFC_ModButsec slds-grid">
+    <template if:true={isfailLevel}>
+                    <div class="slds-col AHFC_Butsecwidth">
+                        <div class="ahfc_addressText">
+                        <button class="slds-button AHFC_BgRedButton" onclick={OnEnteredAddress}>
+                        USE ADDRESS ENTERED
+                        </button>
+                        </div>
+                    </div>
+                    <div class="slds-col AHFC_Butsecwidth ahfc_addressInstead">
+                      <span class="ahfc_editaddress">
+                        <button class="slds-button AHFC_NoBgButton ahfc_editbtn" onclick={onEditAddress}>
+                            EDIT ADDRESS
+                        </button>
+                      </span>
+                      </div>
+                  </template>
+</div>
+
+</template>
+<template if:true={isCountyModel}>
+            <h1 class="AHFC_ModTitle">Edit Account</h1>
+            <p class="AHFC_ModSubtxt">Our database shows two possible counties for your garage address. Please select the appropriate county to proceed further.</p>
+            
+            <div class="slds-grid slds-grid_align-spread AHFC_Collayout">
+                <div class="slds-col slds-p-around_large" style="padding-left: 0px;">
+                <span>
+                  <h2 class="AHFC_ModTitle">Counties</h2>
+                  <template for:each={countyList} for:item="county">
+                    <div key={county.countyID} class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-center sources-container">
+                       <div class="slds-col">
+                          <lightning-input class="ahfc-radio" type="radio" data-id={county.countyID} name="counties" value={county} label={county} onchange={onHandlingCounty} checked>
+                          </lightning-input>
+                       </div>
+                    </div>
+                  </template>
+</span>
+</div>
+
+</div>
+<div class="modal-action slds-m-top_xx-large">
+    <button class="slds-button action-btn save-action" onclick={saveGaragingAddress}>
+                    {modalSaveText}
+                  </button>
+    <button class="slds-button action-btn cancel-action" onclick={onCancel}>
+                    {modalCancelText}
+                  </button>
+</div>
+</template>
+<!-- <template if:true={stopFinanceModal}>
+            <p class="para-text-medium">Are you sure you want to stop managing this finance account?</p>
+            <div class="stop-finance-info slds-m-top_medium">
+              <p class="para-text-medium">Unmanaging an account does not cancel scheduled payments or stop any activity on your account.</p>
+            </div>
+          </template> -->
+<template if:true={btnSection}>
+            <div class="modal-action slds-m-top_xx-large">
+              <button class="slds-button action-btn save-action" onclick={onSave}>
+                {modalSaveText}
+              </button>
+              <button
+                class="slds-button action-btn cancel-action"
+                onclick={onCancel}
+              >
+                {modalCancelText}
+              </button>
+            </div>
+          </template>
+<template if:true={btnSectionForAddress}>
+            <div class="modal-action slds-m-top_xx-large">
+              <button class="slds-button action-btn save-action" onclick={onAddressValidate}>
+                {modalSaveText}
+              </button>
+              <button
+                class="slds-button action-btn cancel-action"
+                onclick={onCancel}
+              >
+                {modalCancelText}
+              </button>
+            </div>
+          </template>
+</div>
+</div>
+</section>
+<div class="slds-backdrop slds-backdrop_open" aria-hidden="true"></div>
+</template>
+</template>

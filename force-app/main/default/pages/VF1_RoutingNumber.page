@@ -1,0 +1,129 @@
+<apex:page standardController="Payment_Source__c" extensions="RoutingNumberExtension" lightningStylesheets="true"  title="Bank Account Edit" lightningStyleSheets="true"  action="{!init}">
+    <style>
+    .requiredInput2{ border-left:2px  solid red;}
+    
+    #mydiv {color:red;}
+    
+    </style>
+    <apex:slds />
+    <apex:include pageName="LoadingOverlay"/>
+    <apex:includeScript value="/support/console/24.0/integration.js"/>
+    <!-- Fix for defect 113951 - adding a VF Page which has the javascript for disabling the buttons-->    
+    <apex:include pageName="VF_DisableButton"/>
+     <apex:includescript value="{!$Resource.jquery1113min}" />
+    <!--- Fix for defect # 113951 Ends here --->
+    <div class="slds-scope">
+    <apex:form id="frm">
+        <apex:actionfunction id="actionfunc1" name="validateRoutingNumber" action="{!validateRoutingNumber}" reRender="frm" immediate="true" status="loading">
+            <apex:param assignto="{!Ps.Bank_Routing_Number__c}" name="routingNumber" value=""/>
+        </apex:actionfunction>
+         
+        
+        <apex:pageMessage severity="info" strength="2" summary="You are not allowed to edit this Bank Account Since the status is Deleted." title="IMPORTANT NOTE :" rendered="{!bankDeletedFlag}" />         
+
+        <apex:outputPanel id="panlout1" rendered="{!!bankDeletedFlag}" >
+            <apex:outputPanel id="panlout2">
+            
+        <apex:pageBlock title="Information" id="outputPanel11">
+            <apex:pageBlockButtons >
+            <!-- Fix for defect #113951 - added a onclick logic to disable save button -->
+                <apex:commandButton value="Save" action="{!save}"  reRender="frm"   status="loading" rendered="{!operation == 'create'}" id="saveButton" onclick="DisableButton()"/>
+                <apex:commandButton value="Cancel"  onClick="testCloseTab();return false" />
+            </apex:pageBlockButtons> 
+             <apex:pageMessages id="PageMessages"  ></apex:pageMessages>
+            
+            
+            <!-- CREATE MODE STARTS -->
+                <apex:pageBlockSection id="pbsec1"  rendered="{!operation == 'create'}" > 
+                    <apex:inputField value="{!Ps.Finance_Account_Number__c}"  />   
+                    <apex:inputField value="{!Ps.Bank_Account_Number__c}" styleClass="requiredInput2"  id="bankAccountNumberId" />
+                    <apex:inputField value="{!Ps.Payment_Source_Nickname__c}"   id="bankAccountNicknameId" /> 
+                    <apex:outputField value="{!Ps.Status__c}"  styleClass="requiredInput2" id="sattusid"  /> <!-- 114103 - Made it to read only-->
+                    <apex:inputField value="{!Ps.Bank_Account_Type__c}" styleClass="requiredInput2" id="accountTypeId" />
+                    <apex:inputField value="{!Ps.Bank_Name__c}" styleClass="requiredInput2"  id="bankNameId" /> 
+                    <apex:inputField value="{!Ps.Bank_Routing_Number__c}"  styleClass="requiredInput2" id="routingNumberId" onblur="validateJS(this);"   > 
+                    <div id="mydiv"> </div>
+                        <apex:param assignto="{!Ps.Bank_Routing_Number__c}" name="routingNumber" value=""/>          
+                    </apex:inputField>
+                    <apex:inputField value="{!Ps.Preferred_Payment_Source__c}" />
+                
+                </apex:pageBlockSection>
+            <!-- CREATE MODE ENDS -->
+            
+            
+            <!-- EDIT MODE STARTS -->     
+            <apex:pageBlockSection id="pbsec" rendered="{!operation != 'create'}" > 
+                <apex:outputField value="{!Ps.Finance_Account_Number__c}" />                 
+                <apex:outputField value="{!Ps.Bank_Account_Number__c}" styleClass="requiredInput2"  /> 
+                <apex:outputField value="{!Ps.Payment_Source_Nickname__c}"   id="bankAccountNicknameId" /> 
+                <apex:outputField value="{!Ps.Status__c}"  styleClass="requiredInput2"  />
+                <apex:outputField value="{!Ps.Bank_Account_Type__c}" styleClass="requiredInput2"  />             
+                <apex:outputField value="{!Ps.Bank_Name__c}" styleClass="requiredInput2"  />             
+                <apex:outputField value="{!Ps.Bank_Routing_Number__c}"  styleClass="requiredInput2"  /> 
+                <apex:outputField value="{!Ps.Preferred_Payment_Source__c}" />
+            </apex:pageBlockSection>
+           <!-- EDIT MODE ENDS -->     
+ 
+            
+            </apex:pageBlock>
+        </apex:outputPanel>
+        </apex:outputPanel>
+        
+        
+        <script type="text/javascript">
+             
+            
+            <!-- Function to handle Routing Number -->
+            function validateJS(inpValue) {  
+                if ( inpValue ) {
+                    
+                    var routingNumber = inpValue.value ; 
+                    
+                                      
+                    if(   routingNumber.length == 0 ) {
+                        document.getElementById('mydiv').innerHTML = 'Error: Enter a valid 9-digit routing number.';
+                    } else if(   routingNumber.length < 9 ) {
+                        document.getElementById('mydiv').innerHTML = 'Error: Enter a valid 9-digit routing number.';
+                    } else {
+                        validateRoutingNumber(routingNumber);
+                    }
+                }
+            }
+               
+            <!-- Function for Console -->
+            
+            window.onload=testSetTabTitle();       
+            function testSetTabTitle() {
+                sforce.console.setTabTitle('Edit Bank Account');     
+                SetTabUnsavedChanges();
+            } ;
+        
+            function testSetTabUnsavedChanges() {
+                sforce.console.setTabUnsavedChanges(true);
+            };
+            
+                  function testCloseTab() {
+            //First find the ID of the current tab to close it
+            
+            if (sforce.console.isInConsole()) {
+                sforce.console.getEnclosingTabId(closeSubtab);
+            } else {
+                 window.location.href = '/' + '{!finanaceAccountId}';
+            }
+        }
+        
+        var closeSubtab = function closeSubtab(result) {
+            //Now that we have the tab ID, we can close it
+            var tabId = result.id;
+            sforce.console.closeTab(tabId);
+        };
+    
+            function SetTabUnsavedChanges() {
+                sforce.console.setTabUnsavedChanges(true);
+            };
+             
+    
+        </script>
+    </apex:form> 
+    </div>
+</apex:page>

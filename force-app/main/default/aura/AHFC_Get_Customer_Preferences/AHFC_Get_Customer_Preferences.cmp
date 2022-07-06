@@ -1,0 +1,225 @@
+<aura:component    implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    <!-- Inputs -->
+    <!-- RSS 48955 Web Button Cut off Line 4 added, Line 181,216 updated in cmp and 19-28 in css -->
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <aura:attribute name= "strRequestType" type="String"  default="Do Not Sell" />
+    
+    <!-- Others-->
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <aura:attribute name= "value" type="String" />
+    <aura:attribute name=  "disabled" type="boolean" default="true"/>
+    <aura:attribute name=  "captchaokay" type="boolean" default="false"/>
+    
+    
+    <aura:attribute name=  "emailrequired" type="boolean" default="false"/>
+    <aura:attribute name=  "phonerequired" type="boolean" default="false"/>
+    <aura:attribute name= "communityName" type="string" default=""/>
+    
+    <!-- Outputs -->
+    <aura:attribute name= "strEmail" type="String" access="global" />
+    <aura:attribute name= "strPhoneNumber" type="String" />
+    <aura:attribute name= "strCommunicationPref" type="String"  default=""/>
+    <aura:attribute name= "strinfocategory" type="String"  default=""/>
+    <aura:attribute name= "strAuthorizedUser" type="boolean"  default="false"/>
+    <aura:attribute name= "strMessage1" type="String"  default=""/>
+    
+    
+    <aura:attribute name="prefoptions" type="List" default="[
+                                                            {'label': 'Email', 'value': 'Email'},
+                                                            {'label': 'Mail', 'value': 'Mail'}
+                                                            ]"/>
+    
+    <aura:attribute name="infocategory" type="List"  />
+    <aura:attribute name="strPerjuryAck" type="String" />
+    
+    <aura:attribute name="test" type="String" default=""/>
+    
+    <aura:attribute name="truthy" default="true" type="boolean"/>
+    <aura:attribute name="inforequest" default="false" type="boolean"/>
+    <aura:attribute name="perjuryackreqd" default="false" type="boolean"/>
+    <aura:attribute name="strvflink" type="String" default=""/>
+    <aura:attribute name="strmailaddress" type="String" default=""/>
+    <aura:attribute name="trackpref" type="boolean" default="true"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.captchaokay}" action="{!c.onChange}"/>
+    <aura:handler name="change" value="{!v.trackpref}" action="{!c.onChange}"/>
+    
+    <div class="contain">
+        <div class="center">
+            <h2 class="header">{!v.strRequestType}</h2>
+            
+            <div class="slds-grid_pull-padded-sm">
+                
+            </div>
+            
+            
+            <!--   <div class="info">
+                <p>{!$Label.c.CCPA_COMPREF_MSG_2}</p>
+            </div> -->
+            
+            <div class="info">
+                <p>{!v.strMessage1}</p>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            <div class="contain-secondary">
+                
+               
+                    
+                    
+                    
+                 
+                <!--
+                    <aura:if isTrue="{!v.inforequest}">
+                        
+                        <lightning:radioGroup name="radioGroupRequired"
+                                              label="{!$Label.c.CCPA_WHAT_INFO_MSG_2}"
+                                              options="{! v.infocategory }"
+                                              value="{!v.strinfocategory}"
+                                              type="radio"
+                                              required="true"
+                                              onchange="{!c.changeinfocategory}" />
+                    </aura:if>
+                    
+                    <br />
+                    
+                    <aura:if isTrue="{!v.inforequest}">
+                    <div class="action slds-grid slds-wrap">
+                        
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-12"> 
+                            <span></span>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_11-of-12">  
+                            
+                            <lightning:input type="checkbox" variant="label-inline variant" required="{!v.perjuryackreqd}" label="{!$Label.c.CCPA_INFO_PERJURY_MSG}" value="{!v.strPerjuryAck}" name="strAuthorizedUser" checked="false" class="declaration"/>     
+                        </div>
+                    </div>
+                    <br/>
+                    </aura:if>
+                    -->
+                    <!--  <p>{!$Label.c.CCPA_COMPREF_MSG_2}</p> -->
+                    <lightning:radioGroup name="radioGroupRequired"
+                                          label="{!$Label.c.CCPA_COMPREF_MSG_2}"
+                                          options="{! v.prefoptions }"
+                                          value="{!v.strCommunicationPref}"
+                                          type="radio"
+                                          required="true"
+                                          onchange="{!c.onPrefChange}"
+                                          aura:id="field" />
+                    <br />        
+                    <lightning:input aura:id="field" label="Email"
+                                     name="Email"
+                                     type="email"
+                                     value="{!v.strEmail}"
+                                     required="{!v.emailrequired}"
+                                     onchange="{!c.onChange}"/> 
+                    
+                    <lightning:input aura:id="field" label="Phone"
+                                     name="Phone"
+                                     value="{!v.strPhoneNumber}"
+                                     onchange="{!c.onChange}"
+                                     			minlength="4"
+                                 maxlength="10"
+                                 pattern="[0-9]{10}"
+                                 messageWhenBadInput="Phone Number should be 10 digits"
+                                 messageWhenPatternMismatch="Phone Number should be 10 digits"
+                                 messageWhenTypeMismatch="Phone Number should be 10 digits"
+                                 messageWhenValueMissing="Phone Number should be 10 digits"
+/> 
+                    
+                    
+                    
+			<lightning:input aura:id="field" label="Mailing Address, if different from Current Address (optional)"
+                             name="MailingAddress"
+                                     value="{!v.strmailaddress}"
+                                     onchange="{!c.onChange}"
+                             maxlength="255"/> 
+                    
+                    
+                    <br/> 
+                <div class="section"> Authorized Agents Only: </div>
+
+               		<lightning:input type="checkbox" label="{!$Label.c.CCPA_AUTHORIZED_MSG}" checked="{!v.strAuthorizedUser}" name="strAuthorizedUser" />     
+                    <br/>                   
+                
+            </div>
+            <br />
+            
+            
+            
+            <!--     <iframe src="/apex/sfdcode_recaptcha" height="110px" width="350px" style="border:0px"/> -->
+            
+            
+            
+           <!-- 
+            <div class="action slds-grid slds-wrap"> 
+                <iframe id="vfFrame" class="reCaptchaSmall" src="/apex/captcha2" scrolling="no" frameborder="0"
+                        allowtransparency="true" width="100%" />
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">  
+                    <lightning:button class="btn default mr-sm" aura:id="cancel1" name="cancelButton1" label="Cancel" onclick="{! c.openModel }"/>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">  
+                    <lightning:button class="{!v.disabled == true ?	'btn grey pull-right btn-continue':'btn primary pull-right btn-continue'}"
+                                      disabled="{!v.disabled == true ? 'true':'false'}" aura:id="cont3" name="continue3" label="Continue" onclick="{!c.handleContinue}"/>
+                </div>  
+                
+                
+            </div> 
+-->
+            </div>  
+    </div>
+   
+    <iframe id="vfFrame" class="reCaptchaSmall" src="{!v.strvflink}" scrolling="no" frameborder="0"
+        allowtransparency="false" width="100%"   />
+    <br/>
+            <div class="slds-grid slds-grid_align-space HD_Gridlayout">
+                <div class="slds-col">
+                    <span></span>
+                </div>
+                <div class="slds-col">
+                    <span><lightning:button class="btn default mr-sm" aura:id="cancel1" name="cancelButton1" label="{!$Label.c.CCPA_Cancel}" onclick="{! c.openModel }"/></span>
+                </div>
+                
+                <div class="slds-col">
+                    <!--<span><lightning:button class="{!v.disabled == true ?	'btn grey pull-right btn-continue':'btn primary pull-right btn-continue'}"
+                                      disabled="{!v.disabled == true ? 'true':'false'}" aura:id="cont3" name="continue3" label="{!$Label.c.CCPA_CONTINUE}" onclick="{!c.handleContinue}"/></span>-->
+                    <span><lightning:button class="{!v.disabled == true ?	'btn grey pull-right btn-continue':'btn primary pull-right btn-continue'}"
+                                       aura:id="cont3" name="continue3" label="{!$Label.c.CCPA_CONTINUE}" onclick="{!c.handleContinue}"/></span>
+                </div>
+                <div class="slds-col">
+                    <span></span>
+                </div>
+            </div>
+        
+    
+    
+    
+    <div class="confirm-modal">
+        <aura:if isTrue="{!v.isOpen}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!$Label.c.AHFC_Confirmation}</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <aura:unescapedHtml value ="{!$Label.c.AHFC_Cancel_CCPA}"/>
+                        
+                    </div>
+                    <footer class="slds-modal__footer HD_Gridlayout">
+                        <lightning:button class="btn default pull-left mr-sm" aura:id="cancel2" name="cancelButton2" label="Cancel" onclick="{! c.closeModel }"/>
+                        <lightning:button class="btn primary pull-right"
+                                          aura:id="cont3" name="continue3" label="Continue" onclick="{!c.redirectToHome}"/>
+                        
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    </div>
+</aura:component>

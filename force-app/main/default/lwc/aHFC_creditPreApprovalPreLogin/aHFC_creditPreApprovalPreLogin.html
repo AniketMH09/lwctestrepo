@@ -1,0 +1,490 @@
+<template> 
+    <div role="main" id="main-container" class="main-content">
+    <div class='ahfc-main'>
+        <div class='ahfc-header'>
+            <div class='ahfc-img-raod-vally'>
+                <img src={AHFC_Road_vally} alt="Road through a valley" role="img" aria-label="Road through a valley"/>
+                <div class='ahfc-title slds-show_large ahfc-postion-for-text'>
+                    <h1><div class='ahfc-title-text'>
+                        Apply for Credit Pre-Approval
+                    </div></h1>
+                </div>
+            </div>
+            <div class='ahfc-title slds-hide_large'>
+                <h1><div class='ahfc-title-text-mobile'>
+                    Apply for Credit Pre-Approval
+                </div></h1>
+            </div>
+        </div>
+    </div>
+</div>
+    <template if:true={isLoaded}>
+        <c-a-h-f-c_-spinner loading-message='Please wait while we process your request'></c-a-h-f-c_-spinner>
+    </template>
+<template if:true={isIframe}>
+        <div class='ahfc-contains'>
+            <div class="ahfc-credit-descript">
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-large-size_6-of-12 ahfc-desc-pading">
+                        <div class='ahfc-para-1'>
+                            {ahfc_text_1}
+                        </div>
+                        <div class='ahfc-para-2'>
+                            {ahfc_text_2}
+                        </div>
+
+                    </div>
+                    <div class="slds-col slds-large-size_6-of-12">
+                        <div>
+                            <img src={AHFC_Car_Sea} alt="Grey SUV with a woman and a man" role="img" aria-label="Grey SUV with a woman and a man"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='ahfc-appl-prc'>
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-large-size_6-of-12">
+                        <h2>
+                        <div class='ahfc-section-header'>
+                            Application Process
+                        </div></h2>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <div class="slds-col slds-large-size_4-of-12">
+                        <div class='ahfc-apl-prc-img '>
+                            <img src={AHFC_Book_Pen} alt="a person writing" class="AHFC_imgalign" role="img" aria-label="a person writing"/>
+                            <div class='ahfc-apl-prc-sym'>
+                                <img src={AHFC_Frame_1} alt="Frame 1" role="img"/>
+                            </div>
+                        </div>
+                        <div class='ahfc-apl-prc-contains'>
+                            <h3><div class='ahfc-apl-prc-contains-title'>
+                                Checklist
+                            </div></h3>
+                            <div class='ahfc-apl-prc-contains-data'>
+                                <div class='ahfc-apl-prc-contains-data-row'>
+                                    <div class="slds-grid slds-wrap">
+                                        <div class="slds-col slds-large-size_1-of-12 slds-size_1-of-12 ahfc-padding">
+                                            <img class='ahfc-apl-prc-contains-data-row-img' src={AHFC_Vector_cred}
+                                                alt="Vector" role="img"/>
+                                        </div>
+                                        <div class="slds-col slds-large-size_11-of-12 slds-size_11-of-12">
+                                            <div class='ahfc-apl-prc-contains-data-row-text'>
+                                                Social Security number for each applicant
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='ahfc-apl-prc-contains-data'>
+                                <div class='ahfc-apl-prc-contains-data-row'>
+                                    <div class="slds-grid slds-wrap">
+                                        <div class="slds-col slds-large-size_1-of-12 slds-size_1-of-12 ahfc-padding">
+                                            <img class='ahfc-apl-prc-contains-data-row-img' src={AHFC_Vector_cred}
+                                                alt="Vector" role="img"/>
+                                        </div>
+                                        <div class="slds-col slds-large-size_11-of-12 slds-size_11-of-12">
+                                            <div class='ahfc-apl-prc-contains-data-row-text'>
+                                                Savings and checking account numbers
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='ahfc-apl-prc-contains-data'>
+                                <div class='ahfc-apl-prc-contains-data-row'>
+                                    <div class="slds-grid slds-wrap">
+                                        <div class="slds-col slds-large-size_1-of-12 slds-size_1-of-12 ahfc-padding">
+                                            <img class='ahfc-apl-prc-contains-data-row-img' src={AHFC_Vector_cred}
+                                                alt="Vector" role="img"/>
+                                        </div>
+                                        <div class="slds-col slds-large-size_11-of-12 slds-size_11-of-12">
+                                            <div class='ahfc-apl-prc-contains-data-row-text'>
+                                                Employment information
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='ahfc-apl-prc-contains-data'>
+                                <div class='ahfc-apl-prc-contains-data-row'>
+                                    <div class="slds-grid slds-wrap">
+                                        <div class="slds-col slds-large-size_1-of-12 slds-size_1-of-12 ahfc-padding">
+                                            <img class='ahfc-apl-prc-contains-data-row-img' src={AHFC_Vector_cred}
+                                                alt="Vector" role="img"/>
+                                        </div>
+                                        <div class="slds-col slds-large-size_11-of-12 slds-size_11-of-12">
+                                            <div class='ahfc-apl-prc-contains-data-row-text'>
+                                                Product model
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='ahfc-apl-prc-contains-data'>
+                                <div class='ahfc-apl-prc-contains-data-row'>
+                                    <div class="slds-grid slds-wrap">
+                                        <div class="slds-col slds-large-size_1-of-12 slds-size_1-of-12 ahfc-padding">
+                                            <img class='ahfc-apl-prc-contains-data-row-img' src={AHFC_Vector_cred}
+                                                alt="Vector" role="img"/>
+                                        </div>
+                                        <div class="slds-col slds-large-size_11-of-12 slds-size_11-of-12">
+                                            <div class='ahfc-apl-prc-contains-data-row-text'>
+                                                A down payment amount, if applicable
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-large-size_4-of-12">
+                        <div class='ahfc-apl-prc-img '>
+                            <img src={AHFC_laptop} alt="A person typing on a laptop" class="AHFC_imgalign" role="img"/>
+                            <div class='ahfc-apl-prc-sym '>
+                                <img src={AHFC_Frame_2} alt="Frame 2" role="img"/>
+                            </div>
+                        </div>
+                        <div class='ahfc-apl-prc-contains'>
+                            <h3><div class='ahfc-apl-prc-contains-title'>
+                                Apply
+                            </div></h3>
+                            <div class='ahfc-apl-prc-contains-data'>
+                                <div class='ahfc-apl-prc-contains-data-row'>
+                                    <div class='ahfc-appl-sec'>
+                                        <div class='ahfc-appl-sec-text'>
+                                            For credit pre-approval, apply online or download application for all Honda and Acura products.
+                                        </div>
+                                        <div class='ahfc-appl-sec-btn'>
+                                            <button role="button" class="slds-button ahfc-btn" onclick={onStartApp} aria-label="TART ONLINE
+                                            APPLICATION">START ONLINE
+                                                APPLICATION</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='ahfc-apl-prc-contains-data'>
+                                <div class='ahfc-apl-prc-contains-data-row'>
+                                    <div class='ahfc-appl-sec'>
+                                        <div class='ahfc-appl-sec-text'>
+                                            IN PERSON
+                                        </div>
+                                        <div class='ahfc-appl-sec-btn'>
+                                            <a href={AHFC_Credit_Pre_Approval} download="Credit Pre-Approval"
+                                                onclick={onDownload} aria-label="OWNLOAD APPLICATION" role="button"><button class="slds-button  ahfc-btn-wht" tabindex="-1">DOWNLOAD
+                                                    APPLICATION</button></a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-large-size_4-of-12">
+                        <div class='ahfc-apl-prc-img '>
+                            <img src={AHFC_Honda_Centre} alt="AHFC Honda Centre"  class="AHFC_imgalign" role="img"/>
+                            <div class='ahfc-apl-prc-sym '>
+                                <img src={AHFC_Frame_3} alt="Frame 3" role="img"/>
+                            </div>
+                        </div>
+                        <div class='ahfc-apl-prc-contains'>
+                            <h3><div class='ahfc-apl-prc-contains-title'>
+                                Follow Up
+                            </div></h3>
+                            <div class='ahfc-apl-prc-contains-data'>
+                               <a href="javascript:void(0);" onclick={oncheckappstus} aria-label="Check Your Application Status" role="link"><div class='ahfc-follow-up-text'>Check Your Application Status
+                                </div> </a>
+                                <a href="javascript:void(0);" onclick={onFindDealer} aria-label="Find a  Local Dealer" role="link"> <div class='ahfc-follow-up-text ahfc-follow-up-text-sec' >Find a
+                                    Local Dealer</div> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='ahfc-appl-prc'>
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-large-size_6-of-12">
+                        <h2><div class='ahfc-section-header'>
+                            Know More
+                        </div></h2>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <div class="slds-col slds-large-size_4-of-12">
+                        <div class='ahfc-knw-more'>
+                            <div class='ahfc-knw-more-main'>
+                                <div class='ahfc-knw-more-main-text'>
+                                    <h3><div class='ahfc-knw-more-main-text-1'>Your information is safe with us.</div></h3>
+                                    <div class='ahfc-knw-more-main-text-2'>Applying online is safe and secure, and we
+                                        never
+                                        share your information.</div>
+                                </div>
+                            </div>
+                            <div class='ahfc-knw-more-main-img'>
+                                <img src={AHFC_Icon_Frame_1} alt="Information" role="img"/>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="slds-col slds-large-size_4-of-12">
+                        <div class='ahfc-knw-more'>
+                            <div class='ahfc-knw-more-main'>
+                                <div class='ahfc-knw-more-main-text'>
+                                    <h3><div class='ahfc-knw-more-main-text-1'>How long does pre-approval take?</div></h3>
+                                    <div class='ahfc-knw-more-main-text-2'>Credit pre-approval typically takes one
+                                        business
+                                        day after you apply.</div>
+                                </div>
+                            </div>
+                            <div class='ahfc-knw-more-main-img'>
+                                <img src={AHFC_Icon_Frame_2} alt="Time Taken" role="img"/>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="slds-col slds-large-size_4-of-12">
+                        <div class='ahfc-knw-more'>
+                            <div class='ahfc-knw-more-main'>
+                                <div class='ahfc-knw-more-main-text'>
+                                    <h3><div class='ahfc-knw-more-main-text-1'>How do I know if I’ve been approved?</div></h3>
+                                    <div class='ahfc-knw-more-main-text-2'>You will receive an email when your
+                                        application
+                                        status is ready. Or you can check your application status online anytime. Be
+                                        sure to
+                                        have your credit application number when you check. The number is in the
+                                        confirmation email you received after you applied.</div>
+                                </div>
+                            </div>
+                            <div class='ahfc-knw-more-main-img'>
+                                <img src={AHFC_Icon_Frame_3} alt="Notification" role="img"/>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class='ahfc-faq'>
+                <c-a-h-f-c_dashboard-faq page-name="Credit_Pre_Approval"></c-a-h-f-c_dashboard-faq>
+            </div>
+        </div>
+    </template>
+
+<template if:false={isIframe}>
+        <div class='ahfc-contains'>
+            <iframe onload={oninframeload} src={iFrame} style="margin:0 15px; width:100%; height:600px;"
+                frameborder="0"></iframe>
+        </div>
+    </template>
+
+<template if:true={opendealermodel}>
+        <section aria-describedby="modal-content-id-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            class="slds-modal slds-fade-in-open" role="dialog" tabindex="-1">
+            <div class="slds-modal__container">
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <div class="ahfc-pop-close">
+                        <a href="javascript:void(0);" onclick={closeModal}>
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                            title="Close">
+                            <lightning-icon icon-name="utility:close" size="medium" variant="susses"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button></a>
+                    </div>
+                    <div class='ahfc-pop-container'>
+                        <h2><div class='ahfc-pop-container-title'>
+                            Find a Local Dealer
+                        </div></h2>
+                        <div class='ahfc-pop-container-title-text'>
+                            Select a Product for which you want to find a Local Dealer.
+                        </div>
+                        <div class='ahfc-pop-selection'>
+                            <div class="slds-grid slds-wrap slds-gutters">
+                                <div class="slds-col slds-large-size_4-of-12 slds-size_6-of-12">
+                                    <a href="javascript:void(0);" onclick={onFindClick} data-name='honda'>
+                                    <div class='ahfc-pop-img' o data-name='honda'>
+                                        <img src={AHFC_cpa_hondaauto} alt="Honda SUV"
+                                            data-name='honda' role="img"/>
+                                    </div></a>
+                                    <div class='ahfc-pop-img-title'>HONDA Auto</div>
+                                </div>
+                                <div class="slds-col slds-large-size_4-of-12 slds-size_6-of-12">
+                                    <a href="javascript:void(0);" onclick={onFindClick} data-name='acura'>
+                                    <div class='ahfc-pop-img'  data-name='acura'>
+                                        <img src={AHFC_cpa_acura} alt="Red fancy car" 
+                                            data-name='acura' role="img" />
+                                    </div></a>
+                                    <div class='ahfc-pop-img-title'>ACURA auto</div>
+                                </div>
+                                <div class="slds-col slds-large-size_4-of-12 slds-size_6-of-12">
+                                    <a href="javascript:void(0);" onclick={onFindClick} data-name='powersport'>
+                                    <div class='ahfc-pop-img' data-name='powersport'>
+                                        <img src={AHFC_cpa_ps} alt="Red sports bike" 
+                                            data-name='powersport' role="img"/>
+                                    </div></a>
+                                    <div class='ahfc-pop-img-title'>Powersports</div>
+                                </div>
+                                <div class="slds-col slds-large-size_4-of-12 slds-size_6-of-12">
+                                    <a href="javascript:void(0);" onclick={onFindClick} data-name='powerequipment'>
+                                    <div class='ahfc-pop-img'  data-name='powerequipment'>
+                                        <img src={AHFC_cpa_pe} alt="Red Power equipments" 
+                                            data-name='powerequipment' role="img"/>
+                                    </div></a>
+                                    <div class='ahfc-pop-img-title'>Power Equipment</div>
+                                </div>
+                                <div class="slds-col slds-large-size_4-of-12 slds-size_6-of-12">
+                                    <a href="javascript:void(0);" onclick={onFindClick} data-name='marine'>
+                                    <div class='ahfc-pop-img'  data-name='marine'>
+                                        <img src={AHFC_cpa_marine} alt="Grey Marine Equipment" 
+                                            data-name='marine' role="img"/>
+                                    </div></a>
+                                    <div class='ahfc-pop-img-title'>Marine</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" aria-hidden="true"></div>
+    </template>
+
+<template if:true={openstartapp}>
+        <section aria-describedby="modal-content-id-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            class="slds-modal slds-fade-in-open" role="dialog" tabindex="-1">
+            <div class="slds-modal__container">
+                <div class="slds-modal__content slds-p-around_medium">
+                    <div class="ahfc-pop-close">
+                        <a href="javascript:void(0);" onclick={closeModal}>
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                             title="Close">
+                            <lightning-icon icon-name="utility:close" size="medium" variant="susses"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button></a>
+                    </div>
+                    <div class='ahfc-pop-container'>
+                        <div class='ahfc-pop-container-title'>
+                            Start Application Now
+                        </div>
+                        <div class='ahfc-pop-container-title-text'>
+                            Select a Product to start your application.
+                        </div>
+                        <div class='ahfc-pop-selection'>
+                            <div class="slds-grid slds-wrap slds-gutters">
+                                <div class="slds-col slds-large-size_4-of-12 slds-size_6-of-12">
+                                    <a href="javascript:void(0);" data-name='honda' onclick={onStartApplicationClick}>
+                                    <div class='ahfc-pop-img'  data-name='honda'>
+                                        <img src={AHFC_cpa_hondaauto} alt="Honda SUV"
+                                            data-name='honda' role="img"/>
+                                    </div></a>
+                                    <div class='ahfc-pop-img-title'>HONDA Auto</div>
+                                </div>
+                                <div class="slds-col slds-large-size_4-of-12 slds-size_6-of-12">
+                                    <a href="javascript:void(0);" data-name='acura' onclick={onStartApplicationClick}>
+                                    <div class='ahfc-pop-img'  data-name='acura'>
+                                        <img src={AHFC_cpa_acura} alt="Red fancy car"
+                                            data-name='acura' role="img"/>
+                                    </div></a>
+                                    <div class='ahfc-pop-img-title'>ACURA auto</div>
+                                </div>
+                                <div class="slds-col slds-large-size_4-of-12 slds-size_6-of-12">
+                                    <a href="javascript:void(0);" data-name='powersport' onclick={onStartApplicationClick}>
+                                    <div class='ahfc-pop-img'  data-name='powersport'>
+                                        <img src={AHFC_cpa_ps} alt="Red sports bike"
+                                            data-name='powersport' role="img"/>
+                                    </div></a>
+                                    <div class='ahfc-pop-img-title'>Powersports</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='ahfc-pop-container-title'>
+                            Download Application Now
+                        </div>
+                        <div class='ahfc-pop-container-title-text'>
+                            Select a Product to start your application.
+                        </div>
+                        <div class='ahfc-pop-selection'>
+                            <div class="slds-grid slds-wrap slds-gutters">
+                                <div class="slds-col slds-large-size_4-of-12 slds-size_6-of-12">
+                                    <a href={AHFC_Credit_Pre_Approval} target="_blank">
+                                    <div class='ahfc-pop-img' 
+                                        data-name='powerequipment'>
+                                             <img src={AHFC_cpa_pe} alt="Red Power equipments"
+                                                 data-name='powerequipment' />
+                                    </div></a>
+                                    <div class='ahfc-pop-img-title'>Power Equipment</div>
+                                </div>
+                                <div class="slds-col slds-large-size_4-of-12 slds-size_6-of-12">
+                                    <a href={AHFC_Credit_Pre_Approval} target="_blank">
+                                    <div class='ahfc-pop-img'  data-name='marine'>
+                                         <img src={AHFC_cpa_marine}
+                                                alt="Grey Marine Equipment"
+                                                data-name='marine' role="img"/>
+                                    </div></a>
+                                    <div class='ahfc-pop-img-title'>Marine</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" aria-hidden="true"></div>
+    </template>
+
+<template if:true={openstatuscheck}>
+        <section aria-describedby="modal-content-id-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            class="slds-modal slds-fade-in-open" role="dialog">
+            <div class="slds-modal__container">
+                <div class="slds-modal__content slds-p-around_medium">
+                    <div class="ahfc-pop-close">
+                        <a href="javascript:void(0);" onclick={closeModal}>
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                             title="Close">
+                            <lightning-icon icon-name="utility:close" size="medium" variant="susses"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button></a>
+                    </div>
+                    <div class='ahfc-pop-container'>
+                        <div class='ahfc-pop-container-title'>
+                            Check Your Application Status
+                        </div>
+                        <div class='ahfc-pop-container-title-text'>
+                            Select a Product to check your application status.
+                        </div>
+                        <div class='ahfc-pop-selection'>
+                            <div class="slds-grid slds-wrap slds-gutters">
+                                <div class="slds-col slds-large-size_4-of-12 slds-size_6-of-12">
+                                    <a href="javascript:void(0);" data-name='honda' onclick={onCheckApplicationStatusClick}>
+                                    <div class='ahfc-pop-img'  data-name='honda'>
+                                        <img src={AHFC_cpa_hondaauto} alt="Honda SUV"
+                                             data-name='honda' role="img"/>
+                                    </div></a>
+                                    <div class='ahfc-pop-img-title'>HONDA Auto</div>
+                                </div>
+                                <div class="slds-col slds-large-size_4-of-12 slds-size_6-of-12">
+                                    <a href="javascript:void(0);" data-name='acura' onclick={onCheckApplicationStatusClick}>
+                                    <div class='ahfc-pop-img'  data-name='acura'>
+                                        <img src={AHFC_cpa_acura} alt="Red fancy car"
+                                            data-name='acura' role="img"/>
+                                    </div></a>
+                                    <div class='ahfc-pop-img-title'>ACURA auto</div>
+                                </div>
+                                <div class="slds-col slds-large-size_4-of-12 slds-size_6-of-12">
+                                    <a href="javascript:void(0);" data-name='powersport' onclick={onCheckApplicationStatusClick}>
+                                    <div class='ahfc-pop-img' 
+                                        data-name='powersport'>
+                                        <img src={AHFC_cpa_ps} alt="Red sports bike"
+                                             data-name='powersport' />
+                                    </div></a>
+                                    <div class='ahfc-pop-img-title'>Powersports</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" aria-hidden="true"></div>
+    </template>
+
+</template>

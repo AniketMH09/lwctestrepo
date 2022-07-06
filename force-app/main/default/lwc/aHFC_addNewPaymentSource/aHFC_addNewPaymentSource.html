@@ -1,0 +1,308 @@
+<template>
+    
+  <template if:false={openCancelmodal}>
+    <div class="modal-container" id="Add-Payment-Source-Modal">
+      <section if:false={routingSpinner}
+        role="dialog"
+        tabindex="-1"
+        data-id="exampleModal"
+        aria-labelledby="Add-Payment-Source-Modal"
+        aria-modal="true"
+        aria-describedby="Add-Payment-Source-Modal"
+        class="slds-modal slds-fade-in-open"
+      >
+        <div class="slds-modal__container" >
+          <div class="paymentsource-modalcontent slds-modal__content">
+            <div class="paymentsource-modal-container">
+              <div class="preferred-section">
+                <h1 class="slds-m-bottom_medium modal-title">
+                  Adding a new payment source
+                </h1>
+                <div class="nickname-info slds-form-element slds-m-bottom_large">
+                  <label class="slds-form-element__label" for="nickname">
+                    Nickname (Optional)
+                  </label>
+                  <div class="slds-form-element__control">
+                    <input
+                      type="text"
+                      id="nickname"
+                      data-id = "nick-name-ps"
+                      class="slds-input nick-name"
+                      placeholder="Eg. Anne's Account"
+                      value={AHFCBankAccountNickName}
+                      onchange={handlechangeAHFCBankAccountNickName}
+                      oninput = {handlechangeAHFCBankAccountNickName}
+                    />
+                  </div>
+                  <div if:true = {nickNameError} class="slds-form-element__help error-help">
+                    Error: Nickname cannot be more than 21 characters.
+                  </div>
+                </div>
+                <template if:false={renderwithpreferredpaymentoptions}>
+                  <div if:true={showPreferredPaymentSource}>
+                    <lightning-input
+                      type="checkbox"
+                      label="Set as preferred payment source"
+                      name="payment"
+                      onchange={handleAHFCPreferredPaymentSource}
+                      checked={AHFCPreferredPaymentSource}
+                    ></lightning-input>
+                  </div>
+                </template>
+                <hr aria-hidden="true"/>
+              </div>
+              <h2 class="slds-m-bottom_large modal-bankdetails">Bank Details</h2>
+  
+              <div class="accountdetails-container">
+                <div class="paymentsource-info">
+                  <p class="slds-m-bottom_large">Account Type</p>
+                  <div class="account-type slds-m-bottom_large">                    
+                    <lightning-input
+                      class="ahfc-radio savings-radio"
+                      type="radio"
+                      label="Savings"
+                      name="accountType"
+                      onchange={handlechangeAHFCBankAccountType}
+                    ></lightning-input>
+                    <lightning-input
+                      type="radio"
+                      class="ahfc-radio"
+                      label="Checking"
+                      name="accountType"
+                      onchange={handlechangeAHFCBankAccountType}
+                      checked
+                    ></lightning-input>
+                  </div>
+                  <div class="slds-form-element slds-m-bottom_large routing-input">
+                    <label class="slds-form-element__label" for="routing">
+                      Routing Number
+                    </label>
+                    <div class="slds-form-element__control">
+                      <img class="warning-icon" src={warningSvg} alt="warning" />
+                      <input
+                        type="text"
+                        id="routing"
+                        class="slds-input"
+                        data-id="routing-input"
+                        placeholder="Enter your 9-digit routing number"
+                        maxlength="9"
+                        value={AHFCBankRoutingNumber}
+                        onchange={handlechangeAHFCBankRoutingNumber}
+                        onblur={validateOnBlur}
+                        oninput={validateOnEnter}
+                        required
+                      />
+                    </div>
+                    <div class="slds-form-element__help error-help">
+                      Error: Enter a valid 9-digit routing number.
+                    </div>
+                    <!--US 4544-->
+                    <template if:true={boolDisplayRoutingNumberErrorMsg}>
+                      <template if:false={routingNumberErrorMsg}>
+                      <div class="message-info">
+                        <c-a-h-f-c_message-toast type="warning" label="Warning:" message={routingNumberErrorMessage}></c-a-h-f-c_message-toast>
+                      </div>
+                      </template> 
+                    </template>
+                  </div>
+                  <div class="slds-form-element slds-m-bottom_large bankname-input">
+                    <label class="slds-form-element__label" for="bank">
+                      Bank Name
+                    </label>
+                    <div class="slds-form-element__icon slds-float_right">
+                      <img
+                        class="inputInfo-icon"
+                        src={infoSvg}
+                        alt="info"
+                        onmouseenter={onClickBankNameInfo}
+                        onmouseleave={onleaveBankNameInfo}
+                        ontouchstart={onTouchstartBankNameInfo} />
+                        <template if:true={showBankNamePopover}>
+                          <div
+                            class="slds-popover slds-popover_tooltip slds-nubbin__top-right popover-content"
+                            role="tooltip"
+                          >
+                            <div class="slds-popover__body">
+                              More than one bank name might be associated
+                               to your routing number. If the bank name is
+                                incorrect please type in the correct name,
+                                 or contact your financial institution
+                                  for further assistance.
+                            </div>
+                          </div>
+                        </template>
+                    </div>
+                    <template if:false={renderBankNameText}>
+                      <span class="bank-name-prefilled-text bank-name-color">Routing number will determine your bank</span>
+                    </template>
+                    <template if:true={renderBankNameText}>
+                      <div class="slds-form-element__control">
+                        <img class="warning-icon" src={warningSvg} alt="warning" />
+                        <input
+                          type="text"
+                          id="bank"
+                          class="slds-input"
+                          data-id="bankname-input"
+                          placeholder="Enter your Bank Name"
+                          value={AHFCBankName}
+                          onchange={handlechangeAHFCBankName}
+                          onblur={validateOnBlur}
+                          oninput={validateOnEnter}
+                          required
+                        />
+                      </div>
+                    </template>
+                    <div class="slds-form-element__help error-help">
+                      Error: Enter your bank name.
+                    </div>
+                  </div>
+                  <!--Added by Aakash as part of 6953 starts -->
+                  <template if:true={isBankNumberBlank}>
+                    <div class="message-info">
+                      <c-a-h-f-c_message-toast
+                        type="error"
+                        label="Error:"
+                        message="Enter your bank name."
+                      ></c-a-h-f-c_message-toast>
+                    </div>
+                  </template><br>
+                  <!--Added by Aakash as part of 6953 Ends -->
+                  <div
+                    class="slds-form-element slds-m-bottom_large bankaccount-input"
+                  >
+                    <label class="slds-form-element__label" for="bankAccountNumber" data-id="saved">
+                      Bank Account Number
+                    </label>
+                    <div class="slds-form-element__control">
+                      <img class="warning-icon" src={warningSvg} alt="warning" />
+                      <input
+                        type="text"
+                        id="bankAccountNumber"
+                        class="slds-input"
+                        data-id="bankaccount-input"
+                        placeholder="Enter your Account Number"
+                        maxlength="17"
+                        minlength="4"
+                        value={AHFCBankAccountNumber}
+                        onchange={handleChangeAHFCBankAccountNumber}
+                        onblur={validateOnBlur}
+                        oninput={validateOnEnter}
+                        required
+                      />
+                    </div><div class="slds-form-element__help error-help">
+                      Error: Enter a valid bank account number.
+                    </div>
+                  </div>
+                  <template if:true={showreenterbankaccnum}>
+                    <div
+                      class="slds-form-element slds-m-bottom_large bankaccount-input accountnumbervalidate-input"
+                    >
+                      <label class="slds-form-element__label" for="bankAccount">
+                        Re-Enter Bank Account Number
+                      </label>
+                      <div class="slds-form-element__control">
+                        <img class="warning-icon" src={warningSvg} alt="warning" />
+                        <input
+                        
+                          type="text"
+                          id="bankAccount"
+                          class="slds-input"
+                          data-id="accountnumbervalidate-input"
+                          placeholder="Re-Enter your Account Number"
+                          maxlength="17"
+                          value={AHFCreEnterBankAccountNumber}
+                          onchange={handlechangeReEnterBankAccountNumber}
+                          onblur={validateOnBlur}
+                          oninput={validateOnEnter}
+                          onpaste={test}
+                          required
+                        />
+                      </div>
+                      <div class="slds-form-element__help error-help">
+                        Error: The account numbers don't match.
+                      </div>
+                    </div>
+                  </template>
+                  <template if:true={renderwithpreferredpaymentoptions}>
+                    <div class="preferred-payment-options-checkboxes">
+                      <lightning-input class="slds-p-left_xx-large ahfc-checkbox-two" type="checkbox" 
+                        checked={preferredpayment} onchange={handlepreferredpaymentChange} label="Set as preferred payment source" style="padding-left: 0px;"></lightning-input>
+                    </div>
+                    <span class="preferred-conditions">
+                      Selecting a preferred bank account makes that account your default payment source when you schedule a new payment. Changing your preferred bank account will not change pending payments you have previously set up. To update a pending payment, you must edit the payment from the Payment Activity page.
+                    </span>
+                  </template>
+                  <span class="terms-conditions">
+                    Your bank account is being added in accordance with the
+                    <a href={paymentAuthTnCUrl} target="_blank"> Terms & Conditions </a> of the Payment Withdrawal
+                    authorization. Please review and print a copy of this authorization for your records.
+                  </span>
+                  <div class="action-container slds-p-top_medium">                   
+                    <button class="AHFC_customPrimaryButton" onclick={savePaymentSource}>Add Payment Source</button>                   
+                    <button
+                      class="slds-button AHFC_NoBgButton"
+                      title="Cancel"
+                      onclick={Oncancel}
+                    >CANCEL</button>
+                  </div>
+                </div>
+                <div class="bank-info">
+                  <p
+                    class="bankinfo-text slds-m-bottom_large"
+                    onclick={showBankInfo}
+                  >
+                    Where to find Bank Information
+                  </p>
+                  <img class="bankinfo-img" src={bankInfoSvg} alt="Where to find banking information Bank Check furthest lower left routing number, account number then the check number" />
+                  <hr class="bankinfo-hr" aria-hidden="true"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+    <template if:true={routingSpinner}>
+      <!-- Added by kanagaraj for US_11044 -->
+      <c-a-h-f-c_-spinner loading-message={spinnerMessage}></c-a-h-f-c_-spinner>
+  </template>
+      <div class="slds-backdrop slds-backdrop_open" aria-hidden="true"></div>
+  </div>
+      </template>
+      <!-- cancel modal steps -->
+    <template if:true={openCancelmodal}>
+      <section role="dialog" tabindex="-1" data-id="confirm-modal" aria-label="Add Payment Source" aria-modal="true"
+        aria-describedby="modal-content-id-1" id="modal-content-id-1" class="slds-modal slds-fade-in-open finance-account-edit-modal">
+        <div class="slds-modal__container ahfc_canPopup">
+          <div class="slds-modal__content edit-modal-content ">
+            <h1 class="AHFC_ModTitle">Cancel?</h1>
+
+            <div class="slds-grid  AHFC_Collayout">
+
+
+              <div class="slds-col ">
+                <span>
+                  <div class="AHFC_ModFormLabel"> Are you sure you want to cancel adding a new payment source?</div>
+
+                </span>
+              </div>
+
+            </div>
+            <div class="AHFC_ModButsec slds-grid slds-m-top_xx-large">
+              <div class="slds-col">
+                <span>
+                  <!--Modified the onClick by Prabu for the bug - 22351-->
+                  <button class="slds-button AHFC_BgRedButton slds-m-right_x-large ahfc_cancelBtn" onclick={closeModal}>
+                    YES, CANCEL
+                  </button></span>
+                  <!--Modified the onClick by Prabu for the bug - 22351-->
+                  <button class="AHFC_customTertiaryButton" onclick={OnBack}>Back</button>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>      
+    </template>
+              
+  </template>

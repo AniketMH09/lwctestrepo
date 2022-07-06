@@ -1,0 +1,94 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global" controller= "AHFC_DatePickerUIController">
+    
+    <!-- Inputs -->
+    <!-- RSS 48955 Web Button Cut off Line 5 added, Line 82 updated in cmp and 14-18 in css -->
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <aura:attribute name = "instructions" type = "string"/> 
+    <aura:attribute name= "strRequestType" type="string" default=""/>
+    <aura:attribute name= "strMessage" type="string" default=""/>
+    <aura:attribute name= "strCaseNumber" type="string" default=""/>
+    
+    
+    
+    <!-- Others -->
+    
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    
+    <aura:attribute name=  "value" type="String" />
+    <aura:attribute name=  "buttonDisabled" type="boolean" default="true"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="contain">
+        <div class="center">
+            <h2 class="header">{!v.strRequestType}</h2>
+            
+            
+            <div class="info">
+                <p>{!$Label.c.CCPA_DNS_DESC_FOOTER}</p>
+            </div>
+            <div class="slds-grid slds-grid_align-space HD_Gridlayout">
+                <div class="slds-col">
+                    <span><lightning:button class="btn default mr-sm" aura:id="cancel1" name="cancelButton1" label="{!$Label.c.CCPA_Cancel}" onclick="{! c.openModel }"/></span>
+                </div>
+                
+                <div class="slds-col">
+                    <span><lightning:button class="btn default mr-sm"
+                                       aura:id="cont3" name="continue3" label="{!$Label.c.CCPA_CA_CUST}" onclick="{!c.handleContinue}"/></span>
+                </div>
+            </div>
+            
+        </div>
+        <!--
+       <div class="slds-grid slds-grid_vertical">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-8 slds-align_absolute-center">
+                
+                <lightning:button class="btn primary slds-button_stretch slds-m-top_small" aura:id="cancel1" name="cancelButton1" label="Cancel" onclick="{! c.redirectToHome}"/>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-8 slds-align_absolute-center">
+                
+                
+                <lightning:button class="btn primary slds-button_stretch slds-m-top_small"
+                                  aura:id="cont3" name="continue3" label="Online Request" onclick="{!c.handleContinue}"/>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-8 slds-align_absolute-center">
+                
+                
+                <lightning:button class="btn primary slds-button_stretch slds-m-top_small"
+                                  aura:id="cont3" name="continue3" label="Contact Us By Phone" onclick="{!c.contactUs}"/>
+            </div>
+        </div>
+-->
+        
+        
+        
+        
+        
+       
+        
+        
+    </div>  
+     <div class="confirm-modal">
+        <aura:if isTrue="{!v.isOpen}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!$Label.c.AHFC_Confirmation}</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium HD_Gridlayout" id="modal-content-id-1">
+                        <aura:unescapedHtml value ="{!$Label.c.AHFC_Cancel_CCPA}"/>
+                        
+                    </div>
+                    <footer class="slds-modal__footer HD_Gridlayout">
+                        <lightning:button class="btn default pull-left mr-sm" aura:id="cancel2" name="cancelButton2" label="Cancel" onclick="{! c.closeModel }"/>
+                        <lightning:button class="btn primary pull-right"
+                                          aura:id="cont3" name="continue3" label="Continue" onclick="{!c.redirectToHome}"/>
+                        
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    </div>   
+    
+</aura:component>

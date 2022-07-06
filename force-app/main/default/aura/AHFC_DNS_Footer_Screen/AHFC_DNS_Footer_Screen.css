@@ -1,0 +1,202 @@
+.THIS {
+  font-size: 16px;    
+}
+.THIS .center {
+  width: 66%;
+  margin: 0 auto;
+}
+@media (max-width: 1024px) {
+  .THIS .center {
+    width: 100%;
+  }
+}
+
+@media (max-width: 830px) and (min-width: 320px){
+    .THIS .HD_Gridlayout{display:block !important;}
+    .THIS .HD_Gridlayout button{width:100%;margin-bottom:10px;}
+    .THIS .center {padding: 5px 20px 5px 20px; width: auto !important;margin:0 !important;}
+}
+.THIS .HD_Gridlayout{ display:flex;}
+.THIS .center {
+  width: 66%;
+  margin: 0 auto;
+}
+
+.THIS .header {
+  font-size: 28px;
+  margin-bottom: 30px;    
+}
+.THIS .info {
+  padding: 30px 30px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  background: #F6F6F6;
+}
+.THIS .info h3 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #d3d3d3;
+  padding-bottom: 10px;
+}
+.THIS .block {
+  margin-bottom: 30px;    
+}
+.THIS .action {
+  margin-bottom: 30px;    
+}
+.THIS label {
+  display: block;
+  font-weight: 600;    
+}
+.THIS .slds-select_container::before{
+    display : none !important;
+}
+.THIS .slds-select_container::after{
+    display : none !important;
+}
+
+.THIS .selectpicker > .slds-form-element__control > .slds-select_container >.slds-select{
+   background: transparent;
+   outline: none;
+   border: 2px solid #434343;
+   height: 40px;
+   font-size: 16px;
+   width: 100%;
+   display: inline;
+   border-radius: 30px;
+   -webkit-appearance: none;
+   padding: 0 15px;
+   line-height: 36px;
+
+}
+.THIS .select-icon {
+   display: inline-block;
+   z-index: 0;
+   float: right;
+   margin-left: 0;
+   margin-top: -33px;
+   padding-right: 10px;
+   height: 25px;
+}
+
+.THIS .slds-col.slds-size_1-of-1.slds-medium-size_1-of-2 {
+  padding-bottom: 15px;
+}
+
+/* helper */
+.THIS .mb-sm {
+  margin-bottom: 10px;
+}
+.THIS .mr-sm {
+  margin-right: 10px;
+}
+.THIS .pull-left {
+  float: left;
+}
+.THIS .pull-right {
+  float: right;
+}
+@media (max-width: 768px) {
+  .THIS .action .default {
+    width: 100%;
+  }
+  .THIS .action .primary.pull-right {
+    float: none;
+    margin-top: 20px;
+    width: 100%;
+  }
+}
+.THIS .info-output .slds-col {
+  margin-bottom: 20px;
+}
+
+.THIS .row-divide {
+    border-bottom: 1px solid #dedede;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    margin-bottom: 10px;
+}
+.THIS .contain-secondary .row-divide:nth-child(3) {
+    border-bottom: none;
+}
+.THIS .select-v-align {
+    line-height: 50px;
+    height: 50px;
+}
+.THIS .select-results {
+    border-radius: 3px;
+    padding: 15px;
+    background: #f2f9ff;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.THIS .block-display button{
+  margin-bottom:5px;
+  display:block;
+}
+.THIS .btn:hover {
+  transition: .2s;
+  box-shadow: 0 2px 8px #ccc;
+}
+.THIS .btn.default {
+  background: #fff;
+  border: 2px solid #0072CE;
+  color: #0072CE;
+}
+.THIS .btn.primary {
+  background: #0072CE;
+  border: 2px solid #0072CE;
+  color: #fff;
+}
+.THIS .btn.primary:hover {
+    background: #22679E;
+    border-color: #22679E;
+}
+.THIS .btn.grey {
+  background: #BFBFBD;
+  border: 2px solid #BFBFBD;
+  color: #fff;
+  transition: none;
+}
+.THIS .btn.grey:hover {
+  transition: none;
+  box-shadow: none;
+}
+
+.THIS .tooltip .tooltiptext {
+  background: #0a5fb2;
+  visibility: hidden;
+  text-align: center;
+  border: 1px solid #0a5fb2;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 20;
+  color: #ffffff;
+  font-size: 14px;
+}
+.THIS .tooltip:hover .tooltiptext {
+  /* position: absolute; */
+  visibility: visible;
+  /* width: 100%; */
+}
+
+.THIS .tooltip-label {
+  display: inline-block;
+}
+.THIS .tooltip {
+    padding-top: 0;
+    margin-left: 10px;
+}
+.THIS .tooltip img.inline {
+    height: 20px;
+}
+.THIS .slds-popover__body {
+    padding: 10px 5px 5px;
+    line-height: 18px;
+    font-size: 14px;
+    /* color: #fff !important; */
+}
+
+.THIS .dataformat {
+    margin-left:32px;
+}

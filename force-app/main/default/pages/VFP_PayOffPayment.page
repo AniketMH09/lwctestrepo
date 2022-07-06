@@ -1,0 +1,95 @@
+<apex:page standardController="ChargentOrders__ChargentOrder__c" action="{!fetchDataPF}" extensions="PayoffAgentController" showHeader="true" lightningStyleSheets="true">
+    <apex:slds />
+    <apex:include pageName="LoadingOverlay" /> 
+    <apex:includeScript value="/support/console/24.0/integration.js"/>
+    <!-- Fix for defect 113951 - adding a VF Page which has the javascript for disabling the buttons-->    
+    <apex:include pageName="VF_DisableButton"/>
+     <apex:includescript value="{!$Resource.jquery1113min}" />
+    <!-- Fix for defect # 113951 Ends here -->
+<div class="slds-scope">
+<apex:form id="form" >
+    <apex:actionFunction action="{!AccountPopulated}" name="ShowBankDetailsAF" id="ShowBankDetailsAF"  reRender="BankName,Last4" status="loading" /> 
+
+  <!-- Made this change for Defect # 112673 -->
+   
+ 
+   <apex:pageMessage severity="info" strength="2" summary="This account is not eligible for Payoff Payments" title="IMPORTANT NOTE :" rendered="{!eligibleFlagPF == false}" ></apex:pageMessage>         
+   <!----Below Message added to the defect 114264 by Jayashree ---->
+   <apex:pageMessage severity="info" strength="2" summary="{!$Label.Existing_PF_Error_Msg}" title="IMPORTANT NOTE :" rendered="{!existingPFFlag == true && eligibleFlagPF == true}" ></apex:pageMessage>         
+
+    <apex:pageBlock rendered="{!eligibleFlagPF == true && existingPFFlag == false}">
+    <apex:pageMessages />
+      <apex:pageblockButtons >  
+      <!-- Fix for defect # 113951 - added a onclick logic to disable save button -->     
+        <apex:commandButton value="Save" action="{!savePayOff}" onclick="SetTabTitle();DisableButton();" immediate="true" reRender="form" status="loading" id="saveButton"/>
+        <apex:commandButton value="Cancel" action="{!CancelPayoff}" onclick="testCloseTab()" immediate="true" reRender="form"  status="loading"/>
+      </apex:pageblockButtons> 
+    
+       <apex:pageBlockSection title="PayOff Payment Information" showHeader="true"  >       
+            
+          <apex:pageBlockSectionItem >
+               {!$ObjectType.ChargentOrders__ChargentOrder__c.fields.ChargentOrders__Charge_Amount__c.label}
+                   <img src="/s.gif" alt="Help" class="helpIcon" title="{!$ObjectType.ChargentOrders__ChargentOrder__c.fields.ChargentOrders__Charge_Amount__c.inlineHelpText}"/>
+               <apex:outputfield value="{!cOrder.ChargentOrders__Charge_Amount__c}"  />
+           </apex:pageBlockSectionItem> 
+          
+         <apex:selectList value="{!SelBankAcc}" multiselect="false" size="1"  label="Bank Account Nickname"  onchange="ShowBankDetailsJS();" >
+           <apex:selectOptions value="{!BankAccs}"/>
+         </apex:selectList>        
+   
+        <apex:pageBlockSectionItem >
+        {!$ObjectType.ChargentOrders__ChargentOrder__c.fields.ChargentOrders__Payment_Start_Date__c.label}
+                <img src="/s.gif" alt="Help" class="helpIcon" title="{!$ObjectType.ChargentOrders__ChargentOrder__c.fields.ChargentOrders__Payment_Start_Date__c.inlineHelpText}"/>
+        <apex:outputfield value="{!cOrder.ChargentOrders__Payment_Start_Date__c}" /> 
+        </apex:pageBlockSectionItem> 
+               
+        <apex:pageBlockSectionItem >
+        {!$ObjectType.ChargentOrders__ChargentOrder__c.fields.ChargentOrders__Bank_Name__c.label}
+                <img src="/s.gif" alt="Help" class="helpIcon" title="{!$ObjectType.ChargentOrders__ChargentOrder__c.fields.ChargentOrders__Bank_Name__c.inlineHelpText}"/>
+        <apex:outputfield value="{!cOrder.ChargentOrders__Bank_Name__c}" id="BankName"/> 
+        </apex:pageBlockSectionItem>                  
+        <apex:pageBlockSectionItem />
+        <apex:outputfield value="{!cOrder.Payment_Source_Nickname__r.Last_4__c}" id="Last4"/>
+        
+       </apex:pageBlockSection> 
+    </apex:pageBlock>
+    
+    <script>
+        
+        function ShowBankDetailsJS(){
+            ShowBankDetailsAF();
+         }
+         
+         function testCloseTab() {
+            //First find the ID of the current tab to close it
+            if(confirm('You will lose any unsaved changes. Are you sure you want to continue?')){ 
+              sforce.console.getEnclosingTabId(closeSubtab);
+            }
+        }
+        
+        var closeSubtab = function closeSubtab(result) {
+            //Now that we have the tab ID, we can close it
+            var tabId = result.id;
+            sforce.console.closeTab(tabId);
+        };
+        
+        function SetTabTitle() {
+            sforce.console.setTabTitle('Details');     
+            SetTabUnsavedChanges();
+        } ;
+
+        function SetTabUnsavedChanges() {
+            sforce.console.setTabUnsavedChanges(true);
+        };
+        
+        window.onload=testSetTabTitle();       
+        function testSetTabTitle() {
+            sforce.console.setTabTitle('Payoff Payment');
+        } ;
+    
+    </script>
+    
+    
+  </apex:form> 
+  </div>
+</apex:page>

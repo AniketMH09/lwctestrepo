@@ -1,0 +1,7 @@
+<apex:page >
+  <script type='text/javascript' src='https://uat2.sendyouropinions.com/ClientFiles/Honda/cnx/SPA.js'></script>
+  
+   <script type='text/javascript'>cnxInit();</script>
+
+
+</apex:page>

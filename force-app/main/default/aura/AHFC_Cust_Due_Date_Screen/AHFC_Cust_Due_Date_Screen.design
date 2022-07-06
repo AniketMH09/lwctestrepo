@@ -1,0 +1,16 @@
+<design:component>
+   <!--Inputs-->
+   <design:attribute name="startDueDate" label="Next Due Date" />
+   <design:attribute name="monthlyPaymentAmount" label="Monthly Payment Amount" />
+   <design:attribute name="instructions" label="Instructions" />
+   <design:attribute name="FANumber" label="FANumber"/>
+    <design:attribute name="FCId" label="FCId"/>
+   <design:attribute name = "firstDueDate" label="firstDueDate"/>
+   <!--Outputs-->
+   <design:attribute name ="currDueDate" label ="Current Due Date"/>
+   <design:attribute name ="selNextDueDate" label ="Selected Next Due Date"/>
+    <design:attribute name ="selNextDueDateDay" label ="Selected Next Due Date Day"/>
+   <!-- -->
+   <design:attribute name="daysUnderDDC" label="Days" />
+   
+</design:component>

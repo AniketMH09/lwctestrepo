@@ -1,0 +1,56 @@
+<template>
+    <div class='ahfc-brd ahfc-padding AHFC_FAQWrap'>
+        <div class="slds-col slds-small-size_4-of-4">
+            <div class="card-block ahfc-background-lightest">
+                <p class="section-header ahfc-text-header ahfc-text-dark slds-text-title_caps pad-top">POPULAR FAQs
+                </p>
+            </div>
+        </div>
+
+        <div class="slds-grid slds-grid_vertical dashboard-faq">
+            <div class="slds-col">
+                <ul class="slds-accordion faq-accordion">
+                    <template for:each={faqListToDisplay} for:item="faq">
+                    <li class="slds-accordion__list-item ahfc-accordion-item ahfc-text-dark" key={faq.IdValue}>
+                        <section class={faq.className}>
+                            <div class="slds-accordion__summary ahfc-backgroud-lighter">
+                                <h2 class="slds-accordion__summary-heading">
+                                    <button class="slds-button slds-button_reset slds-accordion__summary-action"
+                                        aria-controls={faq.IdValue} data-keyno={faq.IdValue} aria-expanded={faq.isOpened}
+                                        title={faq.header} onclick={onFaqAccordionClick}>
+                                        <div class="slds-grid slds-grid_align-spread" data-keyno={faq.IdValue}>
+                                            <div class="slds-col" data-keyno={faq.IdValue}>
+                                                <span data-keyno={faq.IdValue}
+                                                    class="slds-accordion__summary-content">{faq.header}</span>
+                                            </div>
+                                            <div class="slds-col" data-keyno={faq.IdValue}>
+                                                <template if:true={faq.isOpened}>
+                                                    <lightning-icon data-keyno={faq.IdValue} icon-name="utility:chevronup"
+                                                        size="x-small" alternative-text="chevronup" title="chevronup">
+                                                    </lightning-icon>
+                                                </template>
+                                                <template if:false={faq.isOpened}>
+                                                    <lightning-icon data-keyno={faq.IdValue} icon-name="utility:chevrondown"
+                                                        size="x-small" alternative-text="chevrondown"
+                                                        title="chevrondown">
+                                                    </lightning-icon>
+                                                </template>
+
+                                            </div>
+                                        </div>
+                                    </button>
+                                </h2>
+                            </div>
+                            <div class="slds-accordion__content ahfc-caption-text ahfc-text-dark ahfc-description" id={faq.IdValue}>
+                                <lightning-formatted-rich-text value={faq.description}></lightning-formatted-rich-text><a if:true={faq.faqReadMoreFlag} class='ahfc-read-more' data-id={faq.IdValue} onclick={navigateToArticle}>Read More</a></div>
+                        </section>
+                    </li>
+                </template>
+            </ul>
+        </div>
+        <!--<div class="slds-col slds-p-top_medium extra-options">
+            <a href={NavigateToViewAllHelpCenter} target="_blank"  class="ahfc-links ahfc-links-primary slds-text-title_caps">{viewAllButtonLabel}</a>
+        </div> -->
+        </div>
+    </div>
+</template>

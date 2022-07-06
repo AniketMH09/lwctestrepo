@@ -1,0 +1,236 @@
+<!--
+* Name: AHFC_CCPA_Get_Customer_Preferences
+* Description: Customer Preferences screen
+* Created Date: 25-Aug-2021
+* Created By: Sagar (US 4090,US 4081,US 4088)
+*
+* Modification Log
+* MOdified By - Sagar (US 13697 - change error messages) 
+*-->
+<aura:component    implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+   
+   <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <!-- Inputs -->
+    <aura:attribute name= "strRequestType" type="String"  default="Do Not Sell" />
+    
+    <!-- Outputs -->
+    <aura:attribute name= "strEmail" type="String" access="global" />
+    <aura:attribute name= "strPhoneNumber" type="String" />
+    <aura:attribute name= "strCommunicationPref" type="String"  default=""/>
+    <aura:attribute name= "strinfocategory" type="String"  default=""/>
+    <aura:attribute name= "strAuthorizedUser" type="boolean"  default="false"/>
+    <aura:attribute name= "strMessage1" type="String"  default=""/>
+    
+    <!-- Others-->
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <aura:attribute name= "value" type="String" />
+    <aura:attribute name=  "disabled" type="boolean" default="true"/>
+    <aura:attribute name=  "captchaokay" type="boolean" default="false"/>
+    
+    
+    <aura:attribute name=  "emailrequired" type="boolean" default="false"/>
+    <aura:attribute name=  "phonerequired" type="boolean" default="false"/>
+    
+    <aura:attribute name="inforequest" default="false" type="boolean"/>
+    <aura:attribute name="perjuryackreqd" default="false" type="boolean"/>
+    <aura:attribute name="strmailaddress" type="String" default=""/>
+    <aura:attribute name="trackComPref" type="boolean" default="false"/>
+    <aura:attribute name="isEMailChecked" type="boolean" default="true"/>
+    <aura:attribute name="isComPreNotSel" type="boolean" default="true"/>
+    <aura:attribute name="isMailSel" type="boolean" default="false"/>
+    <aura:attribute name="isEmailSel" type="boolean" default="false"/>
+    
+    <aura:attribute name="radioGroupOptions" type="List" default="[{'label': 'Email', 'value': 'Email'},{'label': 'Mail', 'value': 'Mail'}]"/>
+    
+    <aura:handler name="change" value="{!v.strCommunicationPref}" action="{!c.onChangeComPref}"/>
+    <aura:handler name="change" value="{!v.captchaokay}" action="{!c.checkCapchaStatus}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <lightning:navigation aura:id="navService"/>
+    
+    <div class="contain">
+        <div class="center">
+            <div class="AHFC_HeaderWrap ahfc_arrowAlign">
+                <h2 class="header">
+                    <span>{!v.strRequestType}</span>
+                </h2>
+            </div>
+            
+            <div class="AHFC_DetailWrap">
+                <div class="info">
+                    <span class='Message_CCPA'>{!v.strMessage1}</span>
+                </div>
+                
+                <div>
+                    
+                    <div class="AHFC_Label">
+                        <span class='AHFC_ASTRIC'>*</span>{!$Label.c.CCPA_COMPREF_MSG_2}
+                    </div>
+                    
+                    <div class='AHFC_Radio_Btn_padding'>
+                      <lightning:radioGroup name="radioBtn"
+                          options="{! v.radioGroupOptions }"
+                          value="{! v.strCommunicationPref}"
+                          type="radio"
+                          class="customRadioCls"
+                          />
+                    </div>
+                    
+                    
+                    <div  class="slds-grid slds-wrap AHFC_Fields_Margin">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_6-of-12 aHFC_rightSpace">
+                            <div class="aHFCEmail">
+                                <aura:if isTrue="{!v.emailrequired}">
+                                    <abbr title="required" class="slds-required AHFC_ASTRIC" >*</abbr>
+                                </aura:if>
+                                Email
+                            </div>
+                            <lightning:input class ="inputField" aura:id="email" 
+                                             name="Email"
+                                             type="email"
+                                             value="{!v.strEmail}"
+                                             onchange="{!c.validateEmail}"
+                                             messageWhenBadInput="Error: Enter a Valid Email Id."
+                                             messageWhenPatternMismatch="Error: Enter a Valid Email Id."
+                                             messageWhenTypeMismatch='Error: Enter a Valid Email Id.'
+                                             messageWhenValueMissing='Error: Enter a Valid Email Id.'
+                                             /> 
+                            
+                        </div>
+                        
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_6-of-12 aHFC_rightSpace">
+                            <div class="aHFCEmail">Mobile Number</div>
+                            <lightning:input  class ="inputField" aura:id="phone"
+                                             name="Phone"
+                                             value="{!v.strPhoneNumber}"
+                                             onchange="{!c.validatePhone}"
+                                             minlength="4"
+                                             maxlength="10"
+                                             pattern="[0-9]{10}"
+                                             messageWhenBadInput="Error: Mobile Number should be 10 digits."
+                                             messageWhenPatternMismatch="Error: Mobile Number should be 10 digits."
+                                             messageWhenTypeMismatch="Error: Mobile Number should be 10 digits."
+                                             messageWhenValueMissing="Error: Mobile Number should be 10 digits."
+                                             /> 
+                        </div>
+                    </div> 
+                    
+                    <div class="slds-grid slds-wrap AHFC_Fields_Margin">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_6-of-12 aHFC_rightSpace">
+                            <div class="aHFCEmail">Mailing Address, if different from Current Address (optional)</div>
+                            <lightning:input  class ="inputField" aura:id="field" 
+                                             name="MailingAddress"
+                                             value="{!v.strmailaddress}"
+                                             maxlength="255"/> 
+                        </div>
+                        
+                       
+                        
+                    </div>
+                    
+                </div>
+                
+                <div class="AHFC_Divider"></div>
+                
+                <div class="section AHFC_Section"> Authorized Agents Only: </div>
+                
+                
+                
+                <div class='AHFC_Bottom_TEXT'>
+                    
+                    <lightning:input type="checkbox"  checked="{!v.strAuthorizedUser}" name="strAuthorizedUser" />
+                    
+                    <span class='AHFC_Checkbox_Text'>
+                        {!$Label.c.CCPA_AUTHORIZED_MSG}
+                    </span>
+                    
+                </div>    
+                <div>
+                    
+                </div>
+                
+                <iframe id="vfFrame"  src="/apex/GoogleReCaptcha"  aura:id="vfFrame" scrolling="no" frameborder="0"
+                        allowtransparency="false" width="100%" />
+                
+                
+                
+                <div class="action ahfc_buttons">
+                    
+                    <div class="action slds-grid slds-wrap AHFC_BtnWrap">
+                        
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_6-of-12 aHFC_rightSpace">
+                           <aura:if isTrue="{!v.disabled}">
+                            <lightning:button  class="AHFC_customPrimaryButton disable"
+                                              aura:id="cont3" name="continue3" disabled="true"  label="{!$Label.c.CCPA_CONTINUE}" onclick="{!c.handleContinue}"/>
+                            <aura:set attribute="else">
+                                <lightning:button class="AHFC_customPrimaryButton"
+                                                  aura:id="cont4" name="continue3" disabled="{!v.disabled == true ? 'true':'false'}" label="{!$Label.c.CCPA_CONTINUE}" onclick="{!c.handleContinue}"/>
+                            </aura:set>
+                        </aura:if>
+                        <lightning:button class="AHFC_customTertiaryButton" aura:id="cancel1" name="cancelButton1" label="{!$Label.c.CCPA_Cancel}" onclick="{! c.openModel }"/>
+                        </div>
+                        
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_6-of-12 aHFC_rightSpace">
+                        
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        
+    </div>  
+    
+    <div class="confirm-modal">
+        <aura:if isTrue="{!v.isOpen}">
+            <section
+                     role="dialog"
+                     tabindex="-1"
+                     aria-label="Meaningful description of the modal content"
+                     aria-modal="true"
+                     aria-describedby="modal-content-id-1"
+                     class="slds-modal slds-fade-in-open finance-account-edit-modal"
+                     >
+                <div class="slds-modal__container">
+                    <div class="slds-modal__content edit-modal-content ahFC_Model_Content" id="modal-content-id-1">
+                        
+                       <!-- <div class="close-icon close-icon-alignment aHFC_Close_Icon">
+                            <button onclick="{!c.closeModel}" class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse message-content-info" title="Close" > 
+                                <lightning:icon size="small" class="close-icon-color" iconName="utility:close" alternativeText="close"
+                                                title="close"></lightning:icon>
+                                <span class="slds-assistive-text">Close</span>
+                            </button> 
+                        </div>-->
+                        
+                        <h1 class="AHFC_ModTitle">{!$Label.c.AHFC_Confirmation}</h1>
+                        <div class="slds-m-top_medium">
+                            <p class="para-text-medium"><aura:unescapedHtml value ="{!$Label.c.AHFC_Customer_Cancel_CCPA}"/></p>
+                        </div>
+                       <!-- <div class="modal-action slds-m-top_xx-large">
+                            <button class="slds-button action-btn save-action" onclick="{!c.redirectToHome}">
+                                CONTINUE
+                            </button>
+                            <button class="slds-button action-btn cancel-action" onclick="{!c.closeModel}">
+                                CANCEL
+                            </button>
+                        </div>-->
+                        <div class="action ahfc_popup_buttons">
+                            <div class="action slds-grid slds-wrap AHFC_BtnWrap">
+                               <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12 ">
+                                 <button class="slds-button slds-button_neutral AHFC_customPrimaryButton" name="continue3" onclick="{!c.redirectToHome}"  type="button"> CONTINUE </button>
+                                 <button class="slds-button slds-button_neutral AHFC_customTertiaryButton" name="cancelButton1" onclick="{!c.closeModel}" type="button"> Cancel </button>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>  
+        </aura:if>
+    </div>
+</aura:component>

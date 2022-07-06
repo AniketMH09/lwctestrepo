@@ -1,0 +1,114 @@
+<!--
+    Author        : Accenture
+    Date Created  :  
+    Description   : Generate PDF Summary Page for OTP and Principal
+-->
+
+<apex:page controller="PdfBankAccSummaryCont" showHeader="false" applyHtmlTag="false" applyBodyTag="false" standardStylesheets="false" docType="html-5.0" renderAs="pdf" >
+        <apex:stylesheet value="{!URLFOR($Resource.AFSHFS, 'AfsHfs/css/style.css')}" />
+ <html>   
+ <head>
+
+    <style> 
+    div.mainContent {margin: 1px auto;
+    width: 60%;
+    padding: 10px;}
+    table.myTable {background-color: #F2F2F2;
+                    width: 460px;
+                    padding: 10px;
+                    margin: 1px;
+                    margin-top: 100px
+                    border-radius: 30px;
+                    border-spacing: 10px;
+   table.myTable td{font-size:14px;
+                    font-color:#333333} 
+
+
+}
+    </style>
+
+  </head> 
+<!-- Logo on pdf to print conditionally start -->
+                        
+     <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda == 'true' ,true,false) }" >
+       <apex:image alt="" url="{!URLFOR($Resource.AFSHFS, 'AfsHfs/images/honda-logo.png')}"  width="25%" height="20%" style="margin-top: 50px;margin-bottom: 0px;margin-right: 0px;margin-left: 50px;"/>
+    </apex:outputpanel>
+    
+    <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda =='false' ,true,false) }">
+        <apex:image alt="" url="{!URLFOR($Resource.AFSHFS, 'AfsHfs/images/Acura.png')}"  width="25%" height="20%" style="margin-top: 50px;margin-bottom: 0px;margin-right: 0px;margin-left: 50px;"/>
+    </apex:outputpanel>              
+                     
+            
+    
+  
+  <body>  
+  
+    <div class = "mainContent">               
+       <div id='tobePrinted'>
+       <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda == 'true' ,true,false) }">
+           <apex:stylesheet value="{!URLFOR($Resource.AFSHFS, 'AfsHfs/css/style.css')}" />
+           <div class="secondary-title" >Thank You!</div>
+       </apex:outputpanel>
+       <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda =='false' ,true,false) }">
+           <apex:stylesheet value="{!URLFOR($Resource.AFSHFS, 'AfsHfs/css/acura-style.css')}" />
+           <div class="secondary-title">Thank You!</div>
+       </apex:outputpanel>
+        <p class="padding10">
+           Your new bank account was successfully added. <br/><br/>
+           <apex:outputtext value="{!finnumberWithoutZeroes }"> Account #:&nbsp;&nbsp; </apex:outputtext><br/><br/>
+            <table border="0" class="myTable">
+                
+                
+                <tr>   
+                    <td align="right" >
+                        Bank Account Nickname                
+                    </td>
+                    <td align="left"  style="padding-left: 10px;">
+                    <!--Added Last4 for 114271-->
+                        {!BankAcc.Payment_Source_Nickname__c}(XXXX-{!BankAcc.Last_4__c})
+                    </td>
+                </tr>
+                
+
+                
+                <tr>
+                    <td align="right">
+                        Bank Account Type
+                    </td>
+                    <td align="left" style="padding-left: 10px;">
+                        {!BankAcc.Bank_Account_Type__c}
+                    </td>
+                </tr>
+                
+                
+                 
+                <tr>
+                    <td align="right" >
+                        Bank Account Number
+                    </td>
+                    <td align="left"  style="padding-left: 10px;">
+                        {!BankAccNumber}
+                    </td>
+                </tr>
+                 
+                
+                <tr>    
+                    <td align="right" >
+                        Bank Name 
+                    </td>
+                    <td align="left"  style="padding-left: 10px;">
+                        {!BankAcc.Bank_Name__c} 
+                    </td>
+                </tr>
+                
+                
+                 
+            </table>
+       
+       
+        </p>
+       </div> 
+      </div>  
+    </body>
+    </html>
+</apex:page>

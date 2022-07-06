@@ -1,0 +1,828 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>AHFC_DDC_Confirmation_Email_Alert</fullName>
+        <description>AHFC DDC Confirmation Email Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>unfiled$public/SUPPORTWebtoCaseemailresponseSAMPLE</template>
+    </alerts>
+    <alerts>
+        <fullName>Acura_Brand_DDC_Case_Closed_Denied</fullName>
+        <description>Acura Brand DDC Case Closed Denied</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Comm_Pref_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>do_not_reply@acurafinancialservices.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Email_Notification_Templates/AHFC_DDC_Acura_Related_Case_Denied</template>
+    </alerts>
+    <alerts>
+        <fullName>Acura_Brand_DDC_Case_Closed_Resolution</fullName>
+        <description>Acura Brand DDC Case Closed Resolution</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Comm_Pref_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>do_not_reply@acurafinancialservices.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Email_Notification_Templates/AHFC_DDC_Acura_Related_Case_Resolved</template>
+    </alerts>
+    <alerts>
+        <fullName>Acura_Brand_DDC_Case_Denied_Resolution</fullName>
+        <description>Acura Brand DDC Case Denied Resolution</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Comm_Pref_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>do_not_reply@acurafinancialservices.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Email_Notification_Templates/AHFC_DDC_Acura_Related_Case_Denied</template>
+    </alerts>
+    <alerts>
+        <fullName>Acura_Brand_DDC_Submission</fullName>
+        <description>Acura Brand DDC Submission</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Comm_Pref_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>do_not_reply@acurafinancialservices.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Email_Notification_Templates/AHFC_DDC_Acura_Related_Case_Submit</template>
+    </alerts>
+    <alerts>
+        <fullName>Acura_Brand_DOC_Sharing_Type_Case_Submission</fullName>
+        <description>Acura Brand DOC Sharing Type Case Submission</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Comm_Pref_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>do_not_reply@acurafinancialservices.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Email_Notification_Templates/AHFC_DOC_Sharing_Acura_Related_Case_Submit</template>
+    </alerts>
+    <alerts>
+        <fullName>Acura_Brand_LE_Case_Closed_Denied</fullName>
+        <description>Acura Brand LE Case Closed Denied</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Comm_Pref_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>do_not_reply@acurafinancialservices.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Email_Notification_Templates/AHFC_LE_Acura_Related_Case_Denied</template>
+    </alerts>
+    <alerts>
+        <fullName>Acura_Brand_LE_Case_Closed_Resolution</fullName>
+        <description>Acura Brand LE Case Closed Resolution</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Comm_Pref_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>do_not_reply@acurafinancialservices.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Email_Notification_Templates/AHFC_LE_Acura_Related_Case_Resolved_with_Tax</template>
+    </alerts>
+    <alerts>
+        <fullName>Acura_Brand_LE_Case_Closed_Resolution_Without_Tax</fullName>
+        <description>Acura Brand LE Case Closed Resolution Without Tax</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Comm_Pref_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>do_not_reply@acurafinancialservices.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Email_Notification_Templates/AHFC_LE_Acura_Related_Case_Resolved_without_Tax</template>
+    </alerts>
+    <alerts>
+        <fullName>Acura_Brand_LE_Submission</fullName>
+        <description>Acura Brand LE Submission</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Comm_Pref_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>do_not_reply@acurafinancialservices.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Email_Notification_Templates/AHFC_LE_Acura_Related_Case_Submit</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Status_has_been_changed_to_Ready_for_Review</fullName>
+        <description>Case Status has been changed to Ready for Review</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Comm_Pref_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>do_not_reply@hondafinancialservices.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/AHFC_Case_Status_Change_Email_Trigger</template>
+    </alerts>
+    <alerts>
+        <fullName>Honda_Brand_DDC_Case_Closed_Denied</fullName>
+        <description>Honda Brand DDC Case Closed Denied</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Comm_Pref_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>do_not_reply@hondafinancialservices.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Email_Notification_Templates/AHFC_DDC_Honda_Related_Case_Denied</template>
+    </alerts>
+    <alerts>
+        <fullName>Honda_Brand_DDC_Case_Closed_Resolution</fullName>
+        <description>Honda Brand DDC Case Closed Resolution</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Comm_Pref_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>do_not_reply@hondafinancialservices.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Email_Notification_Templates/AHFC_DDC_Honda_Related_Case_Resolved</template>
+    </alerts>
+    <alerts>
+        <fullName>Honda_Brand_DDC_Case_Denied_Resolution</fullName>
+        <description>Honda Brand DDC Case Denied Resolution</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Comm_Pref_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>do_not_reply@hondafinancialservices.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Email_Notification_Templates/AHFC_DDC_Honda_Related_Case_Denied</template>
+    </alerts>
+    <alerts>
+        <fullName>Honda_Brand_DDC_Submission</fullName>
+        <description>Honda Brand DDC Submission</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Comm_Pref_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>do_not_reply@hondafinancialservices.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Email_Notification_Templates/AHFC_DDC_Honda_Related_Case_Submit</template>
+    </alerts>
+    <alerts>
+        <fullName>Honda_Brand_DOC_Sharing_Type_Case_Submission</fullName>
+        <description>Honda Brand DOC Sharing Type Case Submission</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Comm_Pref_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>do_not_reply@acurafinancialservices.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Email_Notification_Templates/AHFC_DOC_Sharing_Honda_Related_Case_Submit</template>
+    </alerts>
+    <alerts>
+        <fullName>Honda_Brand_LE_Case_Closed_Denied</fullName>
+        <description>Honda Brand LE Case Closed Denied</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Comm_Pref_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>do_not_reply@hondafinancialservices.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Email_Notification_Templates/AHFC_LE_Honda_Related_Case_Denied</template>
+    </alerts>
+    <alerts>
+        <fullName>Honda_Brand_LE_Case_Closed_Resolution</fullName>
+        <description>Honda Brand LE Case Closed Resolution</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Comm_Pref_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>do_not_reply@hondafinancialservices.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Email_Notification_Templates/AHFC_LE_Honda_Related_Case_Resolved_with_Tax</template>
+    </alerts>
+    <alerts>
+        <fullName>Honda_Brand_LE_Case_Closed_Resolution_Without_Tax</fullName>
+        <description>Honda Brand LE Case Closed Resolution Without Tax</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Comm_Pref_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>do_not_reply@hondafinancialservices.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Email_Notification_Templates/AHFC_LE_Honda_Related_Case_Resolved_without_Tax</template>
+    </alerts>
+    <alerts>
+        <fullName>Honda_Brand_LE_Submission</fullName>
+        <description>Honda Brand LE Submission</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Comm_Pref_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>do_not_reply@hondafinancialservices.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Email_Notification_Templates/AHFC_LE_Honda_Related_Case_Submit</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Case_Disposition_Field_Update</fullName>
+        <field>Case_Reason__c</field>
+        <name>Case Disposition Field Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Case_Record_Type</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Self_Service</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Case Record Type</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Case_Status_to_Assigned</fullName>
+        <field>Status</field>
+        <literalValue>Assigned</literalValue>
+        <name>Case Status to Assigned</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_Owner_To_Closed_Disaster_Queue</fullName>
+        <field>OwnerId</field>
+        <lookupValue>All_Closed_Disaster_Relief_Cases</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Change Owner To Closed Disaster Queue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_Owner_To_DDC_Queue</fullName>
+        <field>OwnerId</field>
+        <lookupValue>NPC_Unassigned_Case</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Change Owner To DDC Queue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_Owner_To_Disaster_Queue</fullName>
+        <field>OwnerId</field>
+        <lookupValue>Unassigned_Disaster_Relief_Cases</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Change Owner To Disaster Queue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_Owner_To_LE_Queue</fullName>
+        <field>OwnerId</field>
+        <lookupValue>LE_Unassigned</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Change Owner To LE Queue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_Owner_To_NPC_Queue</fullName>
+        <field>OwnerId</field>
+        <lookupValue>NPC_Unassigned_Case</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Change Owner To NPC Queue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_Owner_to_CCPA_Queue</fullName>
+        <description>Change Owner to CCPA Queue</description>
+        <field>OwnerId</field>
+        <lookupValue>Unassigned_CCPA_Cases</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Change Owner to CCPA Queue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Close_Doc_Sharing_Case</fullName>
+        <description>Close Doc Sharing Case</description>
+        <field>Status</field>
+        <literalValue>Closed</literalValue>
+        <name>Close Doc Sharing Case</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Closer_LE_AFS_Check_Update</fullName>
+        <field>Case_Closure_Email_Sent__c</field>
+        <literalValue>1</literalValue>
+        <name>Closer LE AFS Check Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Closer_LE_HFS_Check_Update</fullName>
+        <field>Case_Closure_Email_Sent__c</field>
+        <literalValue>1</literalValue>
+        <name>Closer LE HFS Check Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Denied_DDC_AFS_Check_Update</fullName>
+        <field>Case_Closure_Email_Sent__c</field>
+        <literalValue>1</literalValue>
+        <name>Denied DDC AFS Check Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SCRA_Case_Owner_to_Closed_Queue</fullName>
+        <field>OwnerId</field>
+        <lookupValue>All_Closed_SCRA_Request_Cases</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>SCRA Case Owner to Closed Queue</name>
+        <notifyAssignee>true</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SCRA_Case_owner_to_Open_Queue</fullName>
+        <field>OwnerId</field>
+        <lookupValue>All_Open_SCRA_Request_Cases</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>SCRA Case owner to Open Queue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SCRA_Case_owner_to_Unassigned_Queue</fullName>
+        <field>OwnerId</field>
+        <lookupValue>Unassigned_SCRA_Request_Cases</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>SCRA Case owner to Unassigned Queue</name>
+        <notifyAssignee>true</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Send_DDC_Email_True</fullName>
+        <field>Send_DDC_Email__c</field>
+        <literalValue>1</literalValue>
+        <name>Send DDC Email True</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_retry_to_zero</fullName>
+        <field>Retry__c</field>
+        <formula>0</formula>
+        <name>Set retry to zero</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Doc_Sharing_Case_Disposition</fullName>
+        <field>Case_Reason__c</field>
+        <literalValue>Auto Closed After 30 Days</literalValue>
+        <name>Update Doc Sharing Case Disposition</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Doc_Sharing_Case_Status</fullName>
+        <description>Update Doc Sharing Case Status to Close</description>
+        <field>Status</field>
+        <literalValue>Closed</literalValue>
+        <name>Update Doc Sharing Case Status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_RecordType_to_Lock_Record</fullName>
+        <description>If a Case Status is Closed, the page should be locked (T-748114)</description>
+        <field>RecordTypeId</field>
+        <lookupValue>Self_Service_Closed</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Update RecordType to Lock Record</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Assign Case To CCPA Unassigned Queue</fullName>
+        <actions>
+            <name>Change_Owner_to_CCPA_Queue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Type</field>
+            <operation>equals</operation>
+            <value>Do Not Sell My Info,Delete My Info,What Info Do You Have On Me</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>New</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Current_State__c</field>
+            <operation>equals</operation>
+            <value>California</value>
+        </criteriaItems>
+        <description>Needed for cases created from agents and customers</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Assign Case To DDC Unassigned Queue</fullName>
+        <actions>
+            <name>Change_Owner_To_DDC_Queue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Case.Type</field>
+            <operation>equals</operation>
+            <value>Due Date Change</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>CCPA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Processing_Type__c</field>
+            <operation>notEqual</operation>
+            <value>Automatic - Successful</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Assign Case To Disaster Closed Queue</fullName>
+        <actions>
+            <name>Change_Owner_To_Closed_Disaster_Queue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Type</field>
+            <operation>equals</operation>
+            <value>Disaster Relief</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>CCPA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>equals</operation>
+            <value>Coronavirus (COVID19)</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Assign Case To Disaster Unassigned Queue</fullName>
+        <actions>
+            <name>Change_Owner_To_Disaster_Queue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Type</field>
+            <operation>equals</operation>
+            <value>Disaster Relief</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>CCPA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Subject</field>
+            <operation>equals</operation>
+            <value>Coronavirus (COVID19)</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Assign Case To LE Unassigned Queue</fullName>
+        <actions>
+            <name>Change_Owner_To_LE_Queue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Type</field>
+            <operation>equals</operation>
+            <value>Lease Extension</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>New</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>CCPA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Processing_Type__c</field>
+            <operation>equals</operation>
+            <value>Pending - Retry</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.DDC_Retry_Callout_Count__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>3</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Assign Web Case To CCPA Unassigned Queue</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Case.Type</field>
+            <operation>equals</operation>
+            <value>Do Not Sell My Info,Delete My Info,What Info Do You Have On Me</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>New</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Current_State__c</field>
+            <operation>equals</operation>
+            <value>California</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Origin</field>
+            <operation>equals</operation>
+            <value>Web</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.CCPA_Assign_Case__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>Needed for cases created from agents and customers</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Auto Close Doc Sharing Case after 30 days</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Document Sharing</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <description>Auto Close Doc Sharing Case after 30 days</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Update_Doc_Sharing_Case_Disposition</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Update_Doc_Sharing_Case_Status</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Case.CreatedDate</offsetFromField>
+            <timeLength>30</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Closed Automatic Resolved</fullName>
+        <actions>
+            <name>Set_retry_to_zero</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Added to resolve issue of email not being sent for Automatically Closed Cases</description>
+        <formula>AND( NOT(Case_Closure_Email_Sent__c ),         Finance_Account__c &lt;&gt; NULL,  RecordType.DeveloperName != &apos;CCPA&apos;, ISPICKVAL(Status, &apos;Closed&apos;), ISPICKVAL(Case_Reason__c, &apos;Resolved&apos;), ISPICKVAL(Processing_Type__c, &apos;Automatic - Successful&apos;), ISPICKVAL(Type, &apos;Due Date Change&apos;) )</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Closed Resolved</fullName>
+        <actions>
+            <name>Set_retry_to_zero</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( NOT(Case_Closure_Email_Sent__c ),         Finance_Account__c &lt;&gt; NULL,         OR(ISCHANGED(Status),ISCHANGED(Case_Reason__c)),         ISPICKVAL(Status, &apos;Closed&apos;),         ISPICKVAL(Case_Reason__c, &apos;Resolved&apos;),  RecordType.DeveloperName != &apos;CCPA&apos;)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Status to Assigned</fullName>
+        <actions>
+            <name>Case_Disposition_Field_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Case_Record_Type</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Case_Status_to_Assigned</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(  $Profile.Name=&apos;NPC&apos;,  ISCHANGED(OwnerId), RecordType.DeveloperName != &apos;CCPA&apos;,    NOT(ISPICKVAL( Type , &apos;Disaster Relief&apos;))   )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>DDC AFS Case Denied Email one day following</fullName>
+        <active>false</active>
+        <description>DDC AFS Case Denied Email one day following</description>
+        <formula>AND( ISPICKVAL(Type,&apos;Due Date Change&apos;),  Finance_Account__c &lt;&gt; NULL,  ISPICKVAL(Finance_Account__r.Honda_Brand__c,&apos;AFS&apos;),  Comm_Pref_Email_Check__c,  Comm_Pref_Email__c &lt;&gt; NULL,  ISPICKVAL(Status,&apos;Closed&apos;),  ISPICKVAL(Case_Reason__c,&apos;Denied&apos;)  )</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Acura_Brand_DDC_Case_Denied_Resolution</name>
+                <type>Alert</type>
+            </actions>
+            <actions>
+                <name>Denied_DDC_AFS_Check_Update</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>24</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Lock Case Record</fullName>
+        <actions>
+            <name>Update_RecordType_to_Lock_Record</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Type</field>
+            <operation>equals</operation>
+            <value>Due Date Change,Lease Extension</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>CCPA</value>
+        </criteriaItems>
+        <description>If Case Status is Closed, the page should be locked (T-748114)</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Retry mail update</fullName>
+        <actions>
+            <name>Send_DDC_Email_True</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>DO NOT USE</description>
+        <formula>AND( ISPICKVAL(Type,&apos;Due Date Change&apos;), 				ISPICKVAL(Status,&apos;Closed&apos;), 				ISPICKVAL(Case_Reason__c,&apos;Resolved&apos;), 				NOT(Case_Closure_Email_Sent__c),  				ISCHANGED(Retry__c),Retry__c &lt; $Setup.AHFC_Max_Resolved_Email_Attempts__c.Retry_Attempts__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>SCRA All Open Cases</fullName>
+        <actions>
+            <name>SCRA_Case_owner_to_Open_Queue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Assigned,Working,Extended</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Type</field>
+            <operation>equals</operation>
+            <value>SCRA Request</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>SCRA Closed Cases</fullName>
+        <actions>
+            <name>SCRA_Case_Owner_to_Closed_Queue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Type</field>
+            <operation>equals</operation>
+            <value>SCRA Request</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>SCRA Unassigned Cases</fullName>
+        <actions>
+            <name>SCRA_Case_owner_to_Unassigned_Queue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>New</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Type</field>
+            <operation>equals</operation>
+            <value>SCRA Request</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Case Contact ID</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Case.Type</field>
+            <operation>equals</operation>
+            <value>Document Sharing</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

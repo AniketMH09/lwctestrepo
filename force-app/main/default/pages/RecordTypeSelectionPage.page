@@ -1,0 +1,59 @@
+<apex:page title="Select Payment Type" showHeader="false" sideBar="false" standardController="Finance_Account__c" extensions="RecordTypeSelection" action="{!init}" lightningStyleSheets="true">
+ <apex:slds />
+ <apex:include pageName="LoadingOverlay" />    
+ <apex:includeScript value="/support/console/24.0/integration.js"/>
+ <div class="slds-scope">
+ <apex:form id="frm">
+ <apex:pageMessage severity="Error" strength="3" summary="You are not allowed to make Payment." title="IMPORTANT NOTE :" rendered="{!!isPaymentAllowed}" /> 
+     <apex:outputPanel id="panel1" rendered="{!isPaymentAllowed}">
+     <apex:outputPanel id="panel2" >
+     <apex:pageMessage severity="Error" strength="3" summary="You are not allowed to make Scheduled Payment." title="IMPORTANT NOTE :" rendered="{!!isValid}" /> 
+<apex:pageBlock id="pageblock">
+         <apex:pageBlockButtons location="bottom">
+             <apex:commandButton value="Continue" action="{!ContinueAction}"  reRender="panel1,panel2" status="loading"/>
+            <!-- <apex:commandButton value="Cancel" action="{!CancelAction}"   /> -->
+            <apex:commandButton value="Cancel" action="{!CancelAction}" reRender="frm" status="loading"/>
+         </apex:pageBlockButtons> 
+         
+         <apex:pageBlockSection title="Select Payment Type" columns="2"  id="section" >  
+         
+             <apex:selectList value="{!Selected}" size="1" multiselect="false" required="true" label="Record Type of new record" onchange="ValidatePaymentCountJS();" >
+               <apex:selectOption itemLabel="Standard One-Time Payment" itemValue="One_Time_Payment" />
+               <apex:selectOption itemLabel="Payoff Payment" itemValue="Payoff_Payment"/>
+               <apex:selectOption itemLabel="Principal One-Time Payment" itemValue="Principal_One_Time_Payment"/>
+               <apex:selectOption itemLabel="EasyPay" itemValue="Recurring_Payment"/>
+             </apex:selectList>
+             
+             <apex:pageBlockSectionItem />
+          
+         </apex:pageBlockSection>
+     
+     </apex:pageBlock>
+     </apex:outputPanel>
+     </apex:outputPanel>
+     
+     <script type="text/javascript">
+     //onload set changes to true to display warning message       
+        window.onload=testSetTabUnsavedChanges();       
+        function testSetTabUnsavedChanges() {
+            sforce.console.setTabUnsavedChanges(true);
+        };
+        
+        function testCloseTab() {
+            //First find the ID of the current tab to close it
+            if (sforce.console.isInConsole()) {
+                sforce.console.getEnclosingTabId(closeSubtab);
+            } 
+        }
+        
+        var closeSubtab = function closeSubtab(result) {
+            //Now that we have the tab ID, we can close it
+            var tabId = result.id;
+            sforce.console.closeTab(tabId);
+        };
+          
+    </script> 
+    
+ </apex:form>
+ </div>
+</apex:page>

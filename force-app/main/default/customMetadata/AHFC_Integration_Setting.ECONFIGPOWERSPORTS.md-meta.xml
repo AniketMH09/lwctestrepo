@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>ECONFIGPOWERSPORTS</label>
+    <protected>false</protected>
+    <values>
+        <field>Body__c</field>
+        <value xsi:type="xsd:string">[{&quot;key&quot;:&quot;@mit_version_number&quot;,&quot;value&quot;:&quot;1&quot;},
+{&quot;key&quot;:&quot;@mit_version_date&quot;,&quot;value&quot;:&quot;2018-04-12&quot;},
+{&quot;key&quot;:&quot;@application_id&quot;,&quot;value&quot;:&quot;my.americanhondafinance.com&quot;},
+{&quot;key&quot;:&quot;@echo_input&quot;,&quot;value&quot;:&quot;false&quot;},
+{&quot;key&quot;:&quot;@server_ip&quot;,&quot;value&quot;:&quot;test&quot;},
+{&quot;key&quot;:&quot;@session_id&quot;,&quot;value&quot;:&quot;test&quot;},
+{&quot;key&quot;:&quot;@domain&quot;,&quot;value&quot;:&quot;poc.americanhondafinance.com&quot;},
+{&quot;key&quot;:&quot;@environment&quot;,&quot;value&quot;:&quot;DEV&quot;},
+{&quot;key&quot;:&quot;source_cd&quot;,&quot;value&quot;:&quot;ownerlink&quot;},
+{&quot;key&quot;:&quot;category_cd&quot;,&quot;value&quot;:&quot;OL&quot;},
+{&quot;key&quot;:&quot;@version_num&quot;,&quot;value&quot;:&quot;0&quot;},
+{&quot;key&quot;:&quot;#text&quot;,&quot;value&quot;:&quot;M&quot;},
+{&quot;key&quot;:&quot;source_cd&quot;,&quot;value&quot;:&quot;ownerlink&quot;},
+{&quot;key&quot;:&quot;@suppress_asset_name&quot;,&quot;value&quot;:&quot;false&quot;},
+{&quot;key&quot;:&quot;@suppress_asset_description&quot;,&quot;value&quot;:&quot;false&quot;},
+{&quot;key&quot;:&quot;@check_sum&quot;,&quot;value&quot;:&quot;B3F3AC36024C63D310EED8EB81E61C3AF06697E412D3BAE660B5ECC623BE4E69&quot;},
+{&quot;key&quot;:&quot;@filename&quot;,&quot;value&quot;:&quot;Model-GetModelCompleteDetails-MIT.xml&quot;},
+{&quot;key&quot;:&quot;@method&quot;,&quot;value&quot;:&quot;GetModelCompleteDetails&quot;},
+{&quot;key&quot;:&quot;@class&quot;,&quot;value&quot;:&quot;Model&quot;},
+{&quot;key&quot;:&quot;@xsd&quot;,&quot;value&quot;:&quot;Model-GetModelCompleteDetails-MIT.xsd&quot;},
+{&quot;key&quot;:&quot;@name&quot;,&quot;value&quot;:&quot;ecnetsp_Model_GetModelCompleteDetails&quot;}]</value>
+    </values>
+    <values>
+        <field>Endpoint_URL__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Environment__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>HeaderValue__c</field>
+        <value xsi:type="xsd:string">[{&quot;key&quot;:&quot;Content-Type&quot;,&quot;value&quot;:&quot;application/json&quot;},
+{&quot;key&quot;:&quot;ClientDomain&quot;,&quot;value&quot;:&quot;poc.americanhondafinance.com&quot;},
+{&quot;key&quot;:&quot;Accept&quot;,&quot;value&quot;:&quot;application/json&quot;},
+{&quot;key&quot;:&quot;Authorization&quot;,&quot;value&quot;:&quot;Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJDbGllbnRBcHBsaWNhdGlvbklEIjoibXkuYW1lcmljYW5ob25kYWZpbmFuY2UuY29tIiwiQ2xpZW50RG9tYWluIjoicG9jLmFtZXJpY2FuaG9uZGFmaW5hbmNlLmNvbSIsIlRva2VuSUQiOiIxNjI1MDc0ODk0Njk1IiwiaXNzIjoiZWNvbmZpZy5zZXJ2aWNlcy5ob25kYS5jb20iLCJhdWQiOiJ0ZXN0X3Rlc3QuZWNvbmZpZzIuc2VydmljZXMuaG9uZGEuY29tIn0.EpAEd07bGrl8eWJwJ1FwOs6JBDAa6ppBUt8z_PwSTco&quot;},
+{&quot;key&quot;:&quot;hondaHeaderType.messageId&quot;,&quot;value&quot;:&quot;82eee037-784e-47aa-9b1a-00be9cc5e5f4&quot;},
+{&quot;key&quot;:&quot;X-Honda-wl-authorization&quot;,&quot;value&quot;:&quot;Basic c2VydmljZV9iMmNfaGRtX3FhOkVhcnRoIzc0&quot;}]</value>
+    </values>
+    <values>
+        <field>Method__c</field>
+        <value xsi:type="xsd:string">POST</value>
+    </values>
+    <values>
+        <field>Parameters__c</field>
+        <value xsi:type="xsd:string">my.americanhondafinance.com</value>
+    </values>
+    <values>
+        <field>Path__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Request_Timeout__c</field>
+        <value xsi:type="xsd:double">120000.0</value>
+    </values>
+    <values>
+        <field>Retry__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ServiceName__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Success_Status_Codes__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

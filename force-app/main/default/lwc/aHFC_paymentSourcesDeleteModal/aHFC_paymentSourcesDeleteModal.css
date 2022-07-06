@@ -1,0 +1,140 @@
+.AHFC_DelModContainer{
+  width: 50% !important;
+}
+.delete-modal-content {
+   padding: 80px 100px;
+   border-radius: 0px;
+   position: relative;
+}
+.delete-modal-content .cross-icon {
+   /*top: 32px;
+   right: 32px;*/
+   left: 108%;
+   bottom: 20%;
+}
+.delete-modal-content .modal-action {
+   margin-top: 0;
+}
+.payment-delete-modal-heading {
+  font-family: 'ahfc-robotolight', sans-serif !important;
+  /* font-weight: 300;
+   */
+   font-size: 26px;
+   line-height: 36px;
+   margin-bottom: 24px;
+   color: #000000;
+}
+.delete-modal-content .delete-modal-subheading, 
+.delete-modal-content .bank-details-section {
+   font-size: 18px;
+   line-height: 22px;
+   letter-spacing: .02em;
+   color: #5e6162;
+   margin-bottom: 8px;
+}
+.delete-modal-content .bank-details-section {
+   margin-bottom: 32px;
+}
+.action-btn {
+  /* font-family: Roboto, sans-serif;
+   font-style: normal;
+   font-weight: bold;
+   */
+   font-size: 14px;
+   line-height: 16px;
+   text-align: center;
+   padding: 14px 24px;
+   letter-spacing: 0.06em;
+}
+.save-action {
+   border: 0px;
+   font-size: 14px;
+   margin-right: 2rem;
+   padding: 0.5rem 3rem 0.5rem 3rem;
+   height: 40px;
+   font-family:  'ahfc-robotomedium' ,sans-serif !important;
+   background: #CC0000;
+   border-radius: 3px;
+   align-items: center;
+   color: white;
+   letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.cancel-action {
+   color: #CC0000;
+   font-family: 'ahfc-robotomedium', sans-serif  !important;
+   font-size: 14px;
+   line-height: 16px;
+   /* letter-spacing: 0.06em; Salesforce Scan*/
+   display: inline-block;   
+   letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.action-buttons {
+   display: flex;
+}
+
+@media screen and (min-width: 320px) and (max-width: 540px) {
+   .delete-modal-content {
+       padding: 64px 24px;
+  }
+   .payment-delete-modal-heading {
+       font-size: 20px;
+       line-height: 26px;
+       margin-bottom: 24px;
+  }
+   .delete-modal-content .delete-modal-subheading, 
+   .delete-modal-content .bank-details-section {
+       font-size: 16px;
+       line-height: 24px;
+       margin-bottom: 16px;
+  }
+   .delete-modal-content .bank-details-section {
+       margin-bottom: 32px;
+  }
+  .bank-details-section span{
+    display:block;
+    margin: 0.5rem 0rem;
+  }
+   .save-action {
+       display: block;
+       justify-content: center;
+       margin-right: 0px;
+       margin-bottom: 24px;
+       width: 100%;
+  }
+  .cancel-action {
+    display: block;
+    justify-content: center;
+    margin-right: 0px;
+    width: 100%;
+
+  }
+   .delete-modal-content .cross-icon {
+      /* right: 24px;*/
+      left: 94%;
+      top: -10%;
+  }
+   .action-buttons {
+       display: block;
+  }
+}
+@media (min-width: 320px) and (max-width: 767px) {
+   .AHFC_DelModContainer{
+      width:auto !important;
+      margin:1rem !important;
+  }
+   .AHFC_NoBgButton{
+      margin-top:1rem;
+  }
+}
+@media (min-width: 320px) and (max-width: 420px) {
+   .save-action {
+      padding-top: 2px;
+      display: block;
+      justify-content: center;
+      margin-right: 0px;
+      margin-bottom: 24px;
+      width: 100%;
+ }
+}

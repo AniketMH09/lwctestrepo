@@ -1,0 +1,53 @@
+<!--
+// (c) 2018 Appirio, Inc.
+// Generating Lease Extension Screen by launching a flow.
+
+// 26 Nov 2018 		Anirudh		            Original
+// 01 Jan 2019 		Naveen Pilla			Modified for I-358949
+
+-->
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+   
+    <aura:attribute name = "instructions1" type = "String" /> 
+    <aura:attribute name= "instructions2" type="String" />
+    <aura:attribute name="EasyPayAmount" type="String" />
+    <aura:attribute name="accountStatusUpdatesViaEamil" type="Boolean" />
+    <aura:attribute name="LeaseExtension" type="string"/>
+    <aura:attribute name="instructions3" type="string"/>
+    <aura:attribute name="ReturntoAccountOverview" type="string"/>
+    
+    <ltng:require styles="{!$Resource.AHFC_Flatpickr_css}"/>
+    <ltng:require scripts="{!$Resource.AHFC_Flatpickr}" afterScriptsLoaded="{!c.doInit}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="contain"> 
+      <div class="center">
+        <h2 class="header">{!$Label.c.AHFC_Lease}</h2>   
+        <div class="slds-grid_pull-padded-sm">
+          <a href="#">
+          <lightning:progressIndicator currentStep="step-4" type="path" variant="base">
+              <lightning:progressStep label="Select Term" value="step-1"/>
+              <aura:if isTrue="{!or($Browser.isPhone, $Browser.isTablet)}">
+                        <lightning:progressStep label="T&amp;Cs" value="step-2"/>
+                        <aura:set attribute="else">
+                            <lightning:progressStep label="Terms &amp; Conditions" value="step-2"/>
+                        </aura:set>
+                    </aura:if>
+              <lightning:progressStep label="Review" value="step-3"/>
+              <lightning:progressStep label="Complete" value="step-4"/>
+          </lightning:progressIndicator>
+            </a>
+        </div>
+        <div class="info">
+            <aura:if isTrue = "{!v.instructions1}">
+                <p><aura:unescapedHtml value="{!v.instructions1}"/></p>
+                <!--<aura:set attribute="else">              
+                </aura:set> -->
+            </aura:if>
+        </div>
+        <div class="action">
+            <button class="btn default" onclick="{!c.redirectToHome}">{!$Label.c.AHFC_Return_to_Account_Overview}</button> 
+        </div>
+      </div>  
+    </div>
+</aura:component>

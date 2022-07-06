@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>reCAPTCHA demo: Simple page</title>
+     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </head>
+  <body>
+    <form action="?" onsubmit="return validateForm()" method="POST">
+      <div class="g-recaptcha" data-sitekey="6LeX1PYbAAAAANs8WIouDd8-UyWq4ldX0VCZkCID"></div>
+      <br/>
+      <input type="submit" value="Submit">
+
+    <script type="text/javascript">
+        function validateForm(){
+
+            if(grecaptcha.getResponse().length == 0){
+                alert('Please click the reCAPTCHA checkbox');
+                parent.postMessage("captcha failed", location.origin);
+                console.log('Inside if---> ',location.origin);
+                return false;
+
+            }
+            parent.postMessage("captcha success", location.origin);
+            console.log('Inside else---> ',location.origin)
+            return true;
+        }
+    </script>
+  </body>
+</html>

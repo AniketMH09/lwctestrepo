@@ -1,0 +1,36 @@
+.THIS .footer-container, .cAHFC_Footer {
+		/* max-width: 1280px; */
+		color: #474747;
+		max-width: 1280px;
+    margin: 20px auto 0;
+    padding: 0 .75rem;
+}
+.THIS.footer-container a {
+		color: #474747;
+		transition: .2s;
+		text-decoration: none;
+}
+.THIS.footer-container a:hover {
+		color: t(colorTextBrand);
+		transition: .2s;
+}
+.THIS .copyright {
+	margin-top: 1rem;
+}
+.THIS.footer-container .footer-right, .THIS .copyright {
+		text-align: right;
+}
+.THIS.footer-container .footer-center  {
+		text-align: center;
+}
+@media (max-width: 1024px) {
+	.THIS.footer-container a {
+    margin-bottom: 10px;
+    display: block;
+	}
+} 
+@media (max-width: 768px) {
+	.THIS.footer-container .footer-right, .THIS .copyright {
+		text-align: left;
+	}
+}

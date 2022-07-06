@@ -1,0 +1,775 @@
+@import 'c/aHFC_dashboardTheme';
+/*Desktop view start*/
+.AHFC_PageTitleWrap{
+    margin-top: 0.7rem;
+}
+.ahfc_topCard{
+    position: relative;
+    /* margin-bottom: 2rem; */
+}
+.ahfc_topHeading{
+    font-family:'ahfc-robotolight';
+    font-size: 48px;
+    line-height: 33px;
+    color: #000000;
+    background-color: #FFFFFF;
+    position: absolute;
+    padding: 1.5rem 2rem 0rem;
+    bottom: 0px;
+    margin-left: 6rem;
+}
+.AHFC_Wrapperst{    
+    padding: 2rem 8rem 2rem 8rem;
+}
+.ahfc_subHead{
+    font-size: 26px;
+    line-height: 36px;
+    color: #5E6162;
+    font-family: 'ahfc-robotolight';
+    padding-right: 15rem;
+}
+/*Tabs start*/
+.AHFC_WrapperstTabs{
+    /* padding: 1rem 6rem; */
+    padding: 1rem 8rem;
+}
+.tabs-container {
+    flex: 0 0 58%;
+  }
+  
+/* .slds-tabs_default__nav {
+    display: flex;
+} */
+.slds-tabs_default__nav{
+    display: table;
+    width: 100%;
+}
+.slds-tabs_default__nav li {
+    display: table-cell;
+    width: 33.33%;
+    flex: 1 1 0px;
+    text-align: center;
+    padding: 15px 25px;
+}
+  
+.slds-tabs_default__nav li a {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: bold !important;
+    font-size: 14px;
+    color: #000;
+    height: auto;
+    line-height: 20px;
+}
+  
+.slds-tabs_default__nav li a:focus {
+    text-decoration: none;
+}
+  
+.slds-tabs_default__nav li.slds-is-active {
+    border: 1px solid #afafaf;
+    border-width: 1px 1px 0 1px;
+}
+.slds-tabs_default__nav li.slds-is-active:after {
+    background-color: #cc0000;
+}
+  
+.slds-tabs_default__nav li.slds-tabs_default__item:hover:after {
+    background-color: #cc0000;
+}
+.slds-tabs_default__nav li.slds-tabs_default__item:focus:after {
+    background-color: #cc0000;
+}
+.ahfc_videoContent{
+    margin: 1rem 0rem 2rem;
+}
+.ahfc_content{
+    padding: 3rem 0rem;
+}
+.ahfc_header{
+    font-size: 38px;
+    line-height: 48px;
+    color: #000000;
+    font-family: 'ahfc-robotolight';
+}
+.ahfc_subHeader{
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    color: #000000;
+    margin-top: 1rem;
+}
+.ahfc_waiverCard{
+    border-left: 1px solid red;
+}
+.ahfc_waiver{
+    position: relative;
+    /* margin-bottom: 2rem; */
+    margin-bottom: 3rem;
+}
+.ahfc_stepIcon{
+    position: absolute;
+    /* top:13px; */
+    /* top: 60px; */
+    top: 36px;
+    z-index: 2;
+}
+.ahfc_card{
+    margin-left: 1.5rem;
+}
+.ahfc_cardContent{
+    background-color: #F7F7F7;
+    /* margin: 2rem 0rem 2rem 2rem; */
+    /* padding: 2rem 1.5rem 2.5rem 4rem; */
+    margin: 0rem;
+    padding: 3rem 4rem;
+}
+.ahfc_sideLineContainer{
+    /* background-color: #cc0000; */
+    position: relative;
+}
+.ahfc_links{
+  color: #cc0000;
+  margin-right: 0.4rem;
+}
+.ahfc_step2{
+    border-left: 1px solid #cc0000;
+}
+.ahfc_whitePatch{
+    background-color: #cc0000;
+    position: absolute;
+    width: 2px;
+    /* height: 86%; */
+    height: 75%;
+    z-index: 1;
+    top: 37px;
+    margin-left: 1.5rem;
+}
+.ahfc_whitePatch.ahfc_purchaseWPMore{
+    /* height: 83%; */
+    height: 87%;
+}
+.ahfc_purchaseWPLess{
+    /* height: 83%; */
+    height: 84%;
+}
+.ahfc_returnWP{
+    height: 70%;
+}
+.ahfc_waiverHeading{
+    font-size: 26px;
+    line-height: 36px;
+    color: #000000;
+    font-family: 'ahfc-robotolight';
+}
+.ahfc_waiverDescription{
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    color: #000000;
+    margin-top: 1rem;
+}
+.ahfc_square{
+    transform: rotate(45deg);
+    --sds-c-icon-color-foreground-default:#cc0000;
+    margin-right: 1rem;
+}
+.ahfc_iconAndInfo{
+    display: flex;
+}
+.ahfc_cardSpacing{
+    padding-right: 3rem;
+}
+.ahfc_subHeading{
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: .03rem;
+    color: #000;
+    font-family: 'ahfc-robotomedium';
+    margin-top: 2rem;
+}
+.ahfc_pdf{
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: .03rem;
+    /* color: #000; Salesforce scan*/
+    font-family: 'ahfc-robotomedium';
+    margin-top: 2rem;
+    color: #cc0000;
+    margin-right: 0.4rem;
+}
+.ahfc_appointedText{
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+    color: #000000;
+    margin-top: 2rem;
+}
+.ahfc_deliverTxt{
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.03rem;
+    color: #000000;
+    margin-bottom: 1rem;
+}
+.ahfc_conditions{
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+}
+.ahfc_conditions div, .ahfc_turnStatements{
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.03rem;
+    color: #000000;
+ }
+ .ahfc_turnStatements{
+    margin-bottom: 0.5rem;
+ }
+.ahfc_allConditions{
+    display: block;
+}
+.ahfc_stepHondaAcura{
+    margin: 1.5rem 0;
+}
+.ahfc_stats{
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.03rem;
+    color: #000000;
+    margin-top: 1rem;
+}
+.ahfc_tabImages{
+    padding-right: 5rem;
+}
+/*Tabs end*/
+
+/*Lease on contact start*/
+.AHFC_WrapperstLOC{
+    padding: 1rem 6rem;
+    background-color: #F7F7F7;
+}
+/*.ahfc_leaseEndContactImage{
+    /* padding: 1.5rem 0rem; 
+}*/
+.ahfc_leaseHead{
+    font-size: 38px;
+    line-height: 48px;
+    color: #000000;
+    font-family: 'ahfc-robotolight';
+    padding-bottom: 1rem;
+}
+.ahfc_leaseSubhead{
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02rem;
+    color: #000000;
+}
+.ahfc_locCard{
+    padding: 1.5rem 0rem;
+}
+.ahfc_leaseQuestions{
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03rem;
+    text-transform: uppercase;
+    color: #000000;
+    font-family: 'ahfc-robotomedium';
+    padding: 1rem 0rem;
+}
+.AHFC_NaDetails{
+    display:inline-block;
+    font-family: 'ahfc-robotobold', sans-serif;  
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.06rem;
+    text-transform: uppercase;
+    padding-right: 1.5rem;
+    font-weight: bold;
+    color: #000000;
+  }
+  .AHFC_NaDetails span{
+    color:#cc0000;
+  }
+  .AHFC_DownloadIcon{
+    --sds-c-icon-color-foreground-default: #cc0000;
+    padding-right: 0.5rem;
+  }
+  .ahfc_clockIcon{
+    padding-bottom: 1.5rem;
+    --sds-c-icon-color-foreground-default: #cc0000;
+    padding-right: 0.5rem;
+  }
+  .ahfc_informationText{
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.03rem;
+    color: #000000;
+    padding-top: 1.5rem;
+  }
+/*Lease on contact end*/
+/*purchase your vehicle start*/
+.ahfc_note{
+    /* padding-top: 3rem; */
+    padding-top: 3.3rem;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+    color: #000000;
+}
+.ahfc_note1{
+    /* padding-top: 3rem; */
+    padding-top: 2.3rem;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+    color: #000000;
+}
+.ahfc_moreDetails{
+    display:block;
+}
+.ahfc_lessDetails{
+    display:none;
+}
+.ahfc_moreLessButton{
+    padding: 0 1rem 0 0;
+    border: none;
+    background-color: #f7f7f7;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #cc0000;
+}
+.AHFC_ArrowIcon{
+    --sds-c-icon-color-foreground-default: #cc0000;
+    padding-top: 0.8rem;
+}
+.ahfc_buttons{
+    margin: 2rem 0 1rem;
+}
+.ahfc_spacing{
+    margin-top: 1rem;
+}
+.ahfc_spacing span{
+    font-family: 'ahfc-robotomedium';
+}
+/*purchase your vehicle end*/
+
+.ahfc_timing{
+    display: block;
+}
+.ahfc_disclaimerCard{
+    padding: 3rem 3rem 4rem 6rem;
+    background-color: #D9D9D9;
+}
+.ahfc_disclaimerCard span{
+    vertical-align: super;
+}
+.ahfc_disclaimerCard div, .ahfc_disclaimerCard span{
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.02rem;
+    color: #000000;
+}
+
+/*Desktop view end*/
+
+/*Mobile view start*/
+@media (min-width: 320px) and (max-width: 767px) {
+.ahfc_topHeading{
+    font-size: 26px;
+    line-height: 20px;
+    margin: 0;
+    padding: 0.75rem 1rem 0;
+}
+.ahfc_faq_wrap{
+    width : 100%;
+}
+.AHFC_Wrapperst{
+    padding: 1rem !important;
+}
+.ahfc_subHead{
+    font-size: 20px;
+    padding-right: 0;
+    margin-top: 2rem;
+    line-height: 26px;
+}
+.AHFC_WrapperstLOC{
+    padding: 0rem;
+    margin: 1rem;
+}
+.ahfc_leaseHead{
+    font-size: 20px;
+    line-height: 26px;
+    /* margin-top: 1rem; */
+}
+.ahfc_leaseSubhead{
+    font-size: 16px;
+    line-height: 24px;
+}
+.ahfc_locCard{
+    padding: 0 0;
+}
+.ahfc_leaseEndContent{
+    padding: 1rem 1rem 1.5rem;
+}
+.ahfc_leaseQuestions{
+    font-size: 12px;
+    line-height: 16px;
+}
+.ahfc_clockIcon{
+    padding-bottom: 0rem;
+}
+.AHFC_NaDetails{
+    padding-bottom: 1rem;
+}
+.ahfc_informationText{
+    line-height: 20px;
+    padding-top: 0.5rem;
+}
+.AHFC_WrapperstTabs{
+    padding: 1rem;
+}
+.slds-tabs_default__nav{
+    flex-wrap: wrap;
+}
+.ahfc_cardContent{
+    padding: 2.5rem 1rem 2.5rem 3rem;
+}
+.ahfc_header{
+    font-size: 20px;
+    line-height: 26px;
+}
+.ahfc_subHeader{
+    font-size: 16px;
+    line-height: 24px;
+}
+.ahfc_content{
+    padding-bottom: 0rem;
+}
+.ahfc_waiverDescription{
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+}
+.ahfc_marginBottom{
+    margin-bottom: 1rem;
+}
+.ahfc_whitePatch{
+    /* height: 72%; */
+    /* height: 73%; */
+    height: 74%;
+}
+.ahfc_returnWP{
+    /* height: 66%; */
+    /* height: 67%; */
+    height: 68%;
+}
+.ahfc_waiverHeading{
+    font-size: 20px;
+    line-height: 26px;
+}
+.ahfc_subHeading{
+    line-height: 20px;
+}
+.ahfc_appointedText{
+    margin-top: 1rem;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 700;
+}
+.ahfc_conditions{
+    margin: 1rem 0rem;
+    line-height: 20px;
+    /* align-items: end; */
+}
+.ahfc_lastCondition{
+    margin-bottom: 0rem;
+}
+.ahfc_turnStatements{
+    margin-bottom: 1rem;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+}
+.ahfc_stepHondaAcura{
+    margin: 1rem 0;
+}
+.ahfc_honda{
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+.ahfc_acura{
+    margin-top: 0rem;
+}
+/*Tab mobile start*/
+.slds_tab{
+    width: 33%;
+    height: 100%;
+}
+/* .ahfc_tabBase li:last-child{ */
+/* .ahfc_tabBase li{
+    overflow: hidden;
+    height: 72px;
+} */
+.slds-tabs_default__nav li {
+    padding: 10px 20px;
+}
+.slds-tabs_default__nav li a {
+    overflow: visible;
+    white-space: normal;
+    height: 100%;
+    line-height: 1.5rem;
+}
+.ahfc_tabImages{
+    padding-right: 0rem;
+}
+.slds-tabs_default__nav li a {
+    font-size: 12px;
+    font-family: 'ahfc-robotomedium';
+}
+/*Tab mobile end*/
+.ahfc_note{
+    padding-top:  0rem;
+}
+.ahfc_purchaseWPMore{
+    height: 82%;
+}
+.ahfc_purchaseWPLess{
+    height: 82%;
+}
+/* .slds-tabs_default__nav li {
+    padding: 0px;
+} */
+.ahfc_removeMarginBottom{
+    margin-bottom: 0;
+}
+.ahfc_disclaimerCard{
+    padding: 1rem;
+}
+.ahfc_cardSpacing{
+    padding-right: 0;
+}
+.ahfc_contentSpacing{
+    margin-bottom: 1rem;
+}
+.ahfc_topImage .slds-hide_small img{
+    width: 100%;
+}
+}
+
+/*Mobile view end*/
+
+/* ipad landscape view start*/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .ahfc_leaseEndContactImage{
+        padding-right: 3rem;
+    }
+    .ahfc_topHeading{
+        font-size: 26px;
+        line-height: 20px;
+        margin: 0;
+        padding: 0.75rem 1rem 0;
+    }
+    .ahfc_faq_wrap{
+        width : 100%;
+    }
+    .AHFC_Wrapperst{
+        padding: 1rem !important;
+    }
+    .ahfc_subHead{
+        font-size: 20px;
+        padding-right: 0;
+        margin-top: 2rem;
+        line-height: 26px;
+    }
+    .AHFC_WrapperstLOC{
+        padding: 0rem;
+        margin: 1rem;
+    }
+    .ahfc_leaseHead{
+        font-size: 20px;
+        line-height: 26px;
+        /* margin-top: 1rem; */
+    }
+    .ahfc_leaseSubhead{
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .ahfc_locCard{
+        padding: 0 0;
+    }
+    .ahfc_leaseEndContent{
+        padding: 1rem 1rem 1.5rem;
+    }
+    .ahfc_leaseQuestions{
+        font-size: 12px;
+        line-height: 16px;
+    }
+    .ahfc_clockIcon{
+        padding-bottom: 0rem;
+    }
+    .AHFC_NaDetails{
+        padding-bottom: 1rem;
+    }
+    .ahfc_informationText{
+        line-height: 20px;
+        padding-top: 0.5rem;
+    }
+    .AHFC_WrapperstTabs{
+        padding: 1rem;
+    }
+    .slds-tabs_default__nav{
+        flex-wrap: wrap;
+    }
+    .ahfc_cardContent{
+        padding: 2.5rem 1rem 2.5rem 3rem;
+    }
+    .ahfc_header{
+        font-size: 20px;
+        line-height: 26px;
+    }
+    .ahfc_subHeader{
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .ahfc_content{
+        padding-bottom: 0rem;
+    }
+    .ahfc_waiverDescription{
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.03em;
+    }
+    .ahfc_marginBottom{
+        margin-bottom: 1rem;
+    }
+    .ahfc_whitePatch{
+        /* height: 72%; */
+        /* height: 73%; */
+        height: 74%;
+    }
+    .ahfc_returnWP{
+        /* height: 66%; */
+        /* height: 67%; */
+        height: 68%;
+    }
+    .ahfc_waiverHeading{
+        font-size: 20px;
+        line-height: 26px;
+    }
+    .ahfc_subHeading{
+        line-height: 20px;
+    }
+    .ahfc_appointedText{
+        margin-top: 1rem;
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: 700;
+    }
+    .ahfc_conditions{
+        margin: 1rem 0rem;
+        line-height: 20px;
+        /* align-items: end; */
+    }
+    .ahfc_lastCondition{
+        margin-bottom: 0rem;
+    }
+    .ahfc_turnStatements{
+        margin-bottom: 1rem;
+        font-size: 12px;
+        line-height: 18px;
+        letter-spacing: 0.03em;
+    }
+    .ahfc_stepHondaAcura{
+        margin: 1rem 0;
+    }
+    .ahfc_honda{
+        margin-top: 1rem;
+        margin-bottom: 0;
+    }
+    .ahfc_acura{
+        margin-top: 0rem;
+    }
+    /*Tab mobile start*/
+    .slds_tab{
+        width: 33%;
+        height: 100%;
+    }
+    /* .ahfc_tabBase li:last-child{ */
+    /* .ahfc_tabBase li{
+        overflow: hidden;
+        height: 72px;
+    } */
+    .slds-tabs_default__nav li {
+        padding: 10px 20px;
+    }
+    .slds-tabs_default__nav li a {
+        overflow: visible;
+        white-space: normal;
+        height: 100%;
+        line-height: 1.5rem;
+    }
+    .ahfc_tabImages{
+        padding-right: 0rem;
+    }
+    .slds-tabs_default__nav li a {
+        font-size: 12px;
+        font-family: 'ahfc-robotomedium';
+    }
+    /*Tab mobile end*/
+    .ahfc_note{
+        padding-top:  0rem;
+    }
+    .ahfc_purchaseWPMore{
+        height: 82%;
+    }
+    .ahfc_purchaseWPLess{
+        height: 82%;
+    }
+    /* .slds-tabs_default__nav li {
+        padding: 0px;
+    } */
+    .ahfc_removeMarginBottom{
+        margin-bottom: 0;
+    }
+    .ahfc_disclaimerCard{
+        padding: 1rem;
+    }
+    .ahfc_cardSpacing{
+        padding-right: 0;
+    }
+    .ahfc_contentSpacing{
+        margin-bottom: 1rem;
+    }
+    
+}
+.ahfc_note_spacing{
+    margin-top: 1rem;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+    color: #000000;
+}
+@media only screen and (min-device-width: 1025px) and (max-device-width: 1250px) {
+    .ahfc_leaseEndContactImage{
+        padding-right: 3rem;
+    }
+}
+@media only screen and (device-width: 1024px) {
+    .ahfc_tabImages {
+        padding-right: 2rem;
+    }
+}
+@media (min-width: 2000px) {
+    .ahfc_deliverTxt{
+        width: 100%;
+    }
+  
+  }
+/* ipad landscape view end */

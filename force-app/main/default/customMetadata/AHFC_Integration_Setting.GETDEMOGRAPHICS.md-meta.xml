@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>GETDEMOGRAPHICS</label>
+    <protected>false</protected>
+    <values>
+        <field>Body__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Endpoint_URL__c</field>
+        <value xsi:type="xsd:string">/REST/CASS/SalesForceCustomer/1.0/api/cass/v1/GetDemographics</value>
+    </values>
+    <values>
+        <field>Environment__c</field>
+        <value xsi:type="xsd:string">AHFC_DEV</value>
+    </values>
+    <values>
+        <field>HeaderValue__c</field>
+        <value xsi:type="xsd:string">[{&quot;key&quot;:&quot;Content-Type&quot;,&quot;value&quot;:&quot;application/json&quot;},
+{&quot;key&quot;:&quot;hondaHeaderType.siteId&quot;,&quot;value&quot;:&quot;SALESFORCE&quot;},{&quot;key&quot;:&quot;hondaHeaderType.messageId&quot;,&quot;value&quot;:&quot;8e6ffb61-f6bA-Bc2F-5fE5-0Fb90a00d96F&quot;},
+{&quot;key&quot;:&quot;collectedTimeStamp&quot;,&quot;value&quot;:&quot;2021-01-07T15:57:20-04:00&quot;},{&quot;key&quot;:&quot;businessId&quot;,&quot;value&quot;:&quot;SALESFORCE&quot;},
+{&quot;key&quot;:&quot;Accept&quot;,&quot;value&quot;:&quot;application/json&quot;},
+{&quot;key&quot;:&quot;lookupID&quot;,&quot;value&quot;:&quot;&quot;},
+{&quot;key&quot;:&quot;honda.environment&quot;,&quot;value&quot;:&quot;DEV&quot;}]</value>
+    </values>
+    <values>
+        <field>Method__c</field>
+        <value xsi:type="xsd:string">GET</value>
+    </values>
+    <values>
+        <field>Parameters__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Path__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Request_Timeout__c</field>
+        <value xsi:type="xsd:double">120000.0</value>
+    </values>
+    <values>
+        <field>Retry__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ServiceName__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Success_Status_Codes__c</field>
+        <value xsi:type="xsd:string">200;202</value>
+    </values>
+</CustomMetadata>

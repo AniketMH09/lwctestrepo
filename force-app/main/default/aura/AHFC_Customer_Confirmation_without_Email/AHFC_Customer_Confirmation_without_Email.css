@@ -1,0 +1,306 @@
+.THIS {
+  font-size: 16px;    
+}
+/*desktop start*/
+.THIS .ahfc_thankyou{
+  font-size: 38px;
+  line-height: 48px;
+  color: #000000;
+  font-family: 'ahfc-robotolight';
+  padding-bottom: 1rem;
+}
+.THIS .ahfc_subtext, .THIS .ahfc_subtext a{
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02rem;
+  color: #000000;
+  margin-left: 0.2em;
+}
+.THIS .ahfc_subtext a{
+  color: #CC0000;
+  font-family: 'ahfc-robotomedium';
+  text-decoration: underline;
+  margin-left: 0.4rem;
+}
+.THIS .ahfc_greyBg{
+  background: #F7F7F7;
+  padding: 1rem;
+}
+.THIS .ahfc_bodyText{
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02rem;
+  color: #5E6162;
+}
+.THIS .ahfc_spacing {
+  padding-top: 1rem;
+}
+
+.THIS .ahfc_email {
+    padding-left:0.5rem;
+    text-decoration: underline;
+    color: #CC0000;
+}
+/*desktop end*/
+
+.THIS .center {
+  /* width: 66%; */
+  background: #E5E5E5;
+  margin: 0 auto;
+  padding-bottom: 0.1px;
+}
+@media (max-width: 1024px) {
+  .THIS .center {
+    width: 100%;
+    padding-bottom: 0.1px;
+  }
+}
+
+.THIS .header {
+  font-size: 28px;
+  margin-bottom: 30px;    
+}
+.THIS .info {
+  margin-top: 30px;
+  margin-bottom: 2.5rem;
+}
+.THIS .info p{
+  /*font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em; */
+  /* color: #5E6162; */
+}
+.THIS .info h3 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #d3d3d3;
+  padding-bottom: 10px;
+}
+.THIS .block {
+  margin-top: 30px;
+  margin-bottom: 10px;    
+}
+.THIS .action {
+  margin-top: 30px;
+  margin-bottom: 30px;    
+}
+.THIS label {
+  display: block;
+  font-weight: 600;    
+}
+/* helper */
+.THIS .mb-sm {
+  margin-bottom: 10px;
+}
+.THIS .mr-sm {
+  margin-right: 10px;
+}
+.THIS .pull-right {
+  float: right;
+}
+/* .THIS .btn {
+  background: #fff;
+  padding: 7px 30px;
+  border-radius: 29px;
+  font-size: 15px;
+  border-width: 2px;
+  font-weight: 600;
+} */
+.THIS .btn.default {
+  background: #CC0000;
+  border: 2px solid #CC0000;
+  color: #fff;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding:0.8rem;
+}
+.THIS .btn.primary {
+  background: #CC0000;
+  border: 2px solid #CC0000;
+  color: #fff;
+}
+
+
+/* UI correction */
+
+.THIS .AHFC_HeaderWrap{
+  margin: 0rem 8.2rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+.THIS .AHFC_HeaderWrap span{
+  font-size: 38px;
+  line-height: 48px;
+  color: #000000;
+  padding-left: 1rem;
+  font-family: 'ahfc-robotolight', sans-serif;
+}
+.THIS .AHFC_DetailWrap{
+  margin: 0 8.2rem 9rem 8.2rem;
+  padding: 3.5rem 7.2rem;
+  background: #fff;
+}
+.THIS .AHFC_ProgressIndicator{
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.03em;
+  color: #FFFFFF;
+}
+.THIS .AHFC_Hr{
+  border-top: 1px solid #D9D9D9;
+}
+.THIS .AHFC_ContinueBtn{
+  padding: 0.5rem 4rem;
+  text-transform: uppercase;  
+  font-size: 14px;
+  line-height: 16px;
+  font-family: 'ahfc-robotomedium' ,sans-serif;
+}
+.THIS .AHFC_BtnWrap{
+  margin-top: 3rem;
+}
+.THIS .AHFC_DetailWrap .AHFC_InfoOne{
+  font-size: 38px;
+  line-height: 48px;
+  color: #000000;
+  font-family: 'ahfc-robotolight', sans-serif;
+}  
+.THIS .AHFC_DetailWrap .AHFC_InfoTwo{
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #000000;
+} 
+.THIS .AHFC_Notified {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #000000;
+  font-family: 'ahfc-robotomedium' ,sans-serif;
+}
+
+.THIS .ahfc_colorRed{
+    text-decoration-line: underline;
+  color: #CC0000;
+}
+
+.THIS .AHFC_Enroll{
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #5E6162;
+}
+.THIS .AHFC_Link {
+  margin-top: 1rem;
+}
+.THIS .AHFC_Link a{
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  text-decoration-line: underline;
+  color: #CC0000;
+}
+.THIS .AHFC_Number{
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #000;
+}
+/*Primary button start*/
+   .THIS .AHFC_customPrimaryButton{
+  padding: 14px 24px;
+  height: 44px;
+  background: #CC0000;
+  border-radius: 3px;
+  text-transform: uppercase;
+  border: none;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.06em;
+  color: #FFFFFF;
+  font-family: 'ahfc-robotomedium' ,sans-serif;
+}
+.THIS .AHFC_customPrimaryButton:hover{
+  background: #AA0000;
+}
+.THIS .AHFC_customPrimaryButton.disable{
+  background: #AFAFAF;
+  border-color: #AFAFAF;
+}
+/*Primary button end*/
+
+@media (min-width: 320px) and (max-width: 767px) {
+    /*mobile start*/
+  .THIS .ahfc_mobile{
+    background: #ffffff;
+    margin-bottom: 0rem;
+  }
+  .THIS .ahfc_thankyou{
+    font-size: 20px !important;
+    line-height: 26px !important;
+  }
+  .THIS .ahfc_subtext, .THIS .ahfc_subtext a{
+    font-size: 16px !important;
+    line-height: 24px !important;
+    letter-spacing: 0.02rem;
+    margin-left: 0.2em;
+  }
+  .THIS .ahfc_bodyText{
+    font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.03rem;
+  word-break: break-word;
+  }
+  /*Primary & Secondary button start*/
+  .THIS .AHFC_customPrimaryButton,.THIS .AHFC_customSecondaryButton{
+  display: block;
+  width: 100%;
+}
+/*Primary & Secondary button end*/
+  /*mobile end*/
+
+   
+    
+    
+    
+    
+    
+  .THIS .AHFC_BtnWrap{
+    margin-top: 0rem;
+  }
+     
+
+  .THIS .AHFC_BtnWrap button{
+    width: 100%;
+  }
+  .THIS .AHFC_HeaderWrap{
+    margin: 0rem;
+    padding: 2rem 1rem 0rem;
+  }
+  .THIS .AHFC_DetailWrap{
+    margin: 0rem;
+    padding: 2rem 1rem;
+    background: #fff;
+  }
+  .THIS .AHFC_DetailWrap .info{
+    padding: 1.3rem 0rem;
+  } 
+  .THIS .AHFC_CardData span{
+    font-size: 26px;
+    line-height: 36px;
+  }
+  .THIS .AHFC_ContinueBtn{
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 0.8rem 4rem;
+  }
+  .THIS .AHFC_HeaderWrap span{
+    font-size: 20px;
+    line-height: 26px;
+    padding-left: 0;
+  }
+}

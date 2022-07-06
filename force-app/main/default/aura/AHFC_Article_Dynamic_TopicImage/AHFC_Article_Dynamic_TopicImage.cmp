@@ -1,0 +1,87 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens,force:hasRecordId" access="global" >
+
+    <aura:attribute name= "communityName" type="string" default=""/>
+    <aura:attribute name= "TopicName" type="string" default=""/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+  
+    
+    <aura:if isTrue="{!v.communityName == 'hondahelp'}">
+    
+    <aura:if isTrue="{!v.TopicName== 'Payments'}">
+        <img alt="Payments " src="{!$Resource.AHFC_Topic_Images + '/AHFC_Topic_Images/Honda/payment.png'}" />            
+    </aura:if>
+    
+    <aura:if isTrue="{!v.TopicName== 'Account Management'}">
+        <img alt="Account Management" src="{!$Resource.AHFC_Topic_Images + '/AHFC_Topic_Images/Honda/account-profile-updates.png'}" />  
+        
+    </aura:if>
+    
+     <aura:if isTrue="{!v.TopicName== 'Financing'}">
+        <img alt="Financing " src="{!$Resource.AHFC_Topic_Images + '/AHFC_Topic_Images/Honda/financing.png'}" />            
+    </aura:if>
+    
+     <aura:if isTrue="{!v.TopicName== 'Leasing'}">
+        <img alt="Leasing " src="{!$Resource.AHFC_Topic_Images + '/AHFC_Topic_Images/Honda/leasing-img.png'}" />            
+    </aura:if>
+    
+     <aura:if isTrue="{!v.TopicName== 'End Of Lease'}">
+        <img alt="End Of Lease " src="{!$Resource.AHFC_Topic_Images + '/AHFC_Topic_Images/Honda/end-of-lease-or-leadership-purchase-plan.png'}" />            
+    </aura:if>
+    
+     <aura:if isTrue="{!v.TopicName== 'Statements'}">
+        <img alt="Statements " src="{!$Resource.AHFC_Topic_Images + '/AHFC_Topic_Images/Honda/statements.png'}" />            
+    </aura:if>
+    
+     <aura:if isTrue="{!v.TopicName== 'Service Contracts'}">
+        <img alt="Service Contracts " src="{!$Resource.AHFC_Topic_Images + '/AHFC_Topic_Images/Honda/vehicle-service-contracts.png'}" />            
+    </aura:if>
+    
+     <aura:if isTrue="{!v.TopicName== 'Credit Pre-Approval'}">
+        <img alt="Credit Pre-Approval " src="{!$Resource.AHFC_Topic_Images + '/AHFC_Topic_Images/Honda/applying-for-credit-pre-approval.png'}" />            
+    </aura:if>
+       
+      <!--Acura -->
+        
+        <aura:set attribute="else">
+           <aura:if isTrue="{!v.TopicName== 'Payments'}">
+               <img alt="Payments " src="{!$Resource.AHFC_Topic_Images + '/AHFC_Topic_Images/Acura/payment.png'}" />            
+    </aura:if>
+    
+    <aura:if isTrue="{!v.TopicName== 'Account Management'}">
+        <img alt="Account Management" src="{!$Resource.AHFC_Topic_Images + '/AHFC_Topic_Images/Acura/account-profile-updates.png'}" />  
+        
+    </aura:if>
+    
+     <aura:if isTrue="{!v.TopicName== 'Financing'}">
+        <img alt="Financing " src="{!$Resource.AHFC_Topic_Images + '/AHFC_Topic_Images/Acura/financing.png'}" />            
+    </aura:if>
+    
+     <aura:if isTrue="{!v.TopicName== 'Leasing'}">
+        <img alt="Leasing " src="{!$Resource.AHFC_Topic_Images + '/AHFC_Topic_Images/Acura/leasing-img.png'}" />            
+    </aura:if>
+    
+     <aura:if isTrue="{!v.TopicName== 'End Of Lease'}">
+        <img alt="End Of Lease " src="{!$Resource.AHFC_Topic_Images + '/AHFC_Topic_Images/Acura/end-of-lease-or-leadership-purchase-plan.png'}" />            
+    </aura:if>
+    
+     <aura:if isTrue="{!v.TopicName== 'Statements'}">
+        <img alt="Statements " src="{!$Resource.AHFC_Topic_Images + '/AHFC_Topic_Images/Acura/statements.png'}" />            
+    </aura:if>
+    
+     <aura:if isTrue="{!v.TopicName== 'Service Contracts'}">
+        <img alt="Service Contracts " src="{!$Resource.AHFC_Topic_Images + '/AHFC_Topic_Images/Acura/vehicle-service-contracts.png'}" />            
+    </aura:if>
+    
+     <aura:if isTrue="{!v.TopicName== 'Credit Pre-Approval'}">
+        <img alt="Credit Pre-Approval " src="{!$Resource.AHFC_Topic_Images + '/AHFC_Topic_Images/Acura/applying-for-credit-pre-approval.png'}" />            
+    </aura:if>
+    
+           
+           
+       </aura:set>
+       
+       
+    </aura:if>
+    
+</aura:component>

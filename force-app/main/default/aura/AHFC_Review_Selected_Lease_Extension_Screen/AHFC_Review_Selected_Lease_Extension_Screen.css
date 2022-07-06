@@ -1,0 +1,130 @@
+.THIS {
+  font-size: 16px;    
+}
+.THIS .center {
+  width: 66%;
+  margin: 0 auto;
+}
+@media (max-width: 1024px) {
+  .THIS .center {
+    width: 100%;
+  }
+}
+.THIS .header {
+  font-size: 28px;
+  margin-bottom: 30px;    
+}
+.THIS .info {
+  padding: 30px 30px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  background:#F0F0F0;
+  /*background: #F6F6F6;*/
+}
+.THIS .info h3 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #d3d3d3;
+  padding-bottom: 10px;
+}
+.THIS .block {
+  margin-top: 30px;
+  margin-bottom: 10px;    
+}
+.THIS .action {
+  margin-bottom: 30px;    
+}
+.THIS label {
+  display: block;
+  font-weight: 600;    
+}
+/* helper */
+.THIS .mb-sm {
+  margin-bottom: 10px;
+}
+.THIS .mr-sm {
+  margin-right: 10px;
+}
+.THIS .pull-left {
+  float: left;
+}
+.THIS .pull-right {
+  float: right;
+}
+@media (max-width: 767px) {
+  .THIS .action .default {
+    width: 48%;
+  }
+  .THIS .action .default:nth-child(2) {
+    float: right;
+  }
+  .THIS .action .primary.pull-right {
+    float: none;
+    margin-top: 20px;
+    width: 100%;
+  }
+}
+@media (max-width: 768px) and (min-width: 768px) {
+    .THIS .action .btn.default, 
+    .THIS .action .btn.primary, 
+    .THIS .action .btn.grey {
+        width: auto;
+    }
+    .THIS .action .action__prev-cancel .btn.default {
+        margin-right: 10px;
+    }
+}
+.THIS .info-output .slds-col {
+  margin-bottom: 20px;
+}
+/* .THIS .btn {
+  background: #fff;
+  padding: 3px 30px;
+  border-radius: 29px;
+  font-size: 15px;
+  border-width: 2px;
+  font-weight: 600;
+} */
+.THIS .btn.default {
+  background: #fff;
+  border: 2px solid #0072CE;
+  color: #0072CE;
+}
+.THIS .btn.primary {
+  background: #0072CE;
+  border: 2px solid #0072CE;
+  color: #fff;
+}
+/* .THIS .slds-col.slds-size_1-of-1.slds-medium-size_1-of-2 {
+    padding-bottom: 15px;
+} */
+.THIS .class-label{
+    width: 240px;
+ /*background-color: powderblue;*/
+}
+.THIS .row-divide {
+    border-bottom: 1px solid #dedede;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    margin-bottom: 10px;
+}
+.THIS .contain-secondary .row-divide:last-child {
+    border-bottom: none;
+}
+@media (max-width: 599px) {
+    .THIS .slds-path__track {
+	    padding-left: 0;
+    	padding-right: 0;
+	}
+    .THIS .slds-path__item {
+        min-width: auto !important;
+    }
+    .THIS .slds-path__title {
+        font-size: 12px;
+        white-space: normal;
+        line-height: normal;
+        height: 29px !important;
+        display: flex;
+        align-items: center;
+    }
+}

@@ -1,0 +1,268 @@
+.ahfc-lgc-bg {
+    position: relative;
+    bottom: 7px;
+    right: 3px;
+}
+.ahfc-progress-ring {
+    max-height: 230px;
+}
+
+.ahfc-col-first {
+    margin-bottom: 12px;
+}
+
+.slds-popover__body{
+    background: black;
+  }
+  .comm-page-custom-make-a-payment .slds-popover:before{
+    background: black;
+  }
+.ahfc-progress-ring .slds-progress-ring.inner-ring{
+    height: 12rem;
+    width: 12rem;
+    border-radius: 12rem;
+    background: #f0f0f0;
+}
+
+.ahfc-progress-ring .slds-progress-ring__path {
+    fill: #CC0000;
+}
+
+.ahfc-progress-ring .slds-progress-ring__progress {
+    transform: scale(1) rotate(90deg);
+}
+
+.ahfc-progress-ring .inner-ring .slds-progress-ring__content,
+.ahfc-progress-ring .inner-most-ring .slds-progress-ring__content {
+    border-radius: 12rem;
+}
+.ahfc-progress-ring .text-ring .slds-progress-ring__content {
+    border-radius: 11rem;
+}
+
+.ahfc-progress-ring .progress-ring-secondary-text { 
+    font-size: 12px;
+    color: #5E6162;
+    line-height: 16px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+}
+
+.ahfc-progress-ring .progress-ring-primary-text {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 40px;
+    color: #000;
+}
+
+
+
+.ahfc-progress-ring .progress-ring-primary-text .primary-text-between {
+    font-style: italic;
+    font-weight: 300;
+}
+
+.ahfc-progress-ring .slds-progress-ring.outer-ring{
+    height: 14rem;
+    width: 14rem;
+    border-radius: 14rem;
+    background:none;
+    position: relative;
+    z-index: 9;
+}
+
+.ahfc-progress-ring .ring-start  {
+    fill: #5e6162;
+}
+
+.ahfc-progress-ring .outer-content, .ahfc-progress-ring .inner-most-content {
+    background:none;
+}
+
+.ahfc-progress-ring .slds-progress-ring.inner-most-ring{
+    height: 11.62rem;
+    width: 13rem;
+    border-radius: 12rem;
+    background:none;
+}
+
+.ahfc-progress-ring .slds-progress-ring.text-ring{
+    height: 10rem;
+    width: 10rem;
+    border-radius: 10rem;
+    background:none;
+}
+
+.ending-circle {
+    position: relative;
+    /* z-index: 9999; bug-10974 */
+    z-index: 10;
+    bottom: 230px;
+}
+
+.ending-circle circle {
+    fill: #CC0000;
+}
+
+/*Start grey off payemt progress content css*/
+
+.ahfc-progress-ring1 {
+    max-height: 230px;
+}
+
+.ahfc-progress-ring1 .slds-progress-ring.inner-ring{
+    height: 12rem;
+    width: 12rem;
+    border-radius: 12rem;
+    background: #f0f0f0;
+}
+
+
+
+.ahfc-progress-ring1 .slds-progress-ring__path {
+    /*fill: #CC0000;*/
+    fill:#e7e7e7;
+}
+
+.ahfc-progress-ring1 .slds-progress-ring__progress {
+    transform: scale(1) rotate(90deg);
+}
+
+.ahfc-progress-ring1 .inner-ring .slds-progress-ring__content,
+.ahfc-progress-ring1 .inner-most-ring .slds-progress-ring__content {
+    border-radius: 12rem;
+}
+.ahfc-progress-ring1 .text-ring .slds-progress-ring__content {
+    border-radius: 11rem;
+}
+
+.ahfc-progress-ring1 .progress-ring-secondary-text { 
+    font-size: 12px;
+    color: #5E6162;
+    line-height: 16px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+}
+
+.ahfc-progress-ring1 .progress-ring-primary-text {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 40px;
+    color: #000;
+}
+
+
+
+.ahfc-progress-ring1 .progress-ring-primary-text .primary-text-between {
+    font-style: italic;
+    font-weight: 300;
+}
+
+.ahfc-progress-ring1 .progress-ring-secondary-greytext { 
+    font-size: 12px;
+    color: #e7e7e7;
+    line-height: 16px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+}
+
+.ahfc-progress-ring1 .progress-ring-primary-greytext {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 40px;
+    color: #e7e7e7;
+}
+
+.ahfc-progress-ring1 .progress-ring-primary-greytext .primary-text-between {
+    font-style: italic;
+    font-weight: 300;
+}
+
+.ahfc-progress-ring1 .slds-progress-ring.outer-ring{
+    height: 14rem;
+    width: 14rem;
+    border-radius: 14rem;
+    background:none;
+    position: relative;
+    z-index: 9;
+}
+
+.ahfc-progress-ring1 .ring-start  {
+   /* fill: #5e6162;*/
+   fill:#e7e7e7;
+}
+
+.ahfc-progress-ring1 .outer-content, .ahfc-progress-ring1 .inner-most-content {
+    background:none;
+}
+
+.ahfc-progress-ring1 .slds-progress-ring.inner-most-ring{
+    height: 11.62rem;
+    width: 13rem;
+    border-radius: 12rem;
+    background:none;
+}
+
+.ahfc-progress-ring1 .slds-progress-ring.text-ring{
+    height: 10rem;
+    width: 10rem;
+    border-radius: 10rem;
+    background:none;
+}
+
+.ending-circle-gray {
+    
+    position: relative;
+    z-index: 10;
+    bottom: 230px;
+}
+
+.ending-circle-gray circle {
+    fill: #e7e7e7;
+}
+
+
+/*end grey off payemt progress content css*/
+
+.payment-progress-ring {
+    padding: 25px 0 0;
+    display: block;
+}
+
+.payment-progress-info {
+    margin: 14px 0 21px;
+}
+
+/* .payment-progress-info .slds-col:first-child {
+    margin-bottom: 30px;
+} */
+
+/* bug - 10967  */
+.AHFC_Wrapper{
+    height: 453px;
+    position: relative;
+}
+.AHFC_CalWrap{
+    position: absolute;
+    width: 100%;
+    bottom: -68px;
+    padding-top: 31px;
+    border-top: 1px solid #D9D9D9;
+}
+.AHFC_GrayText{
+   color: #e7e7e7;
+}
+/* end */
+@media (min-width: 320px) and (max-width: 1023px) {
+    .AHFC_CalWrap{
+        position: relative;
+        /* width: 100%; */
+        bottom: 0px;
+    } 
+    .AHFC_Wrapper{
+        height: auto;
+    }
+}
+.non-clickable{
+    cursor: auto !important;
+}

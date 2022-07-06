@@ -1,0 +1,525 @@
+@import 'c/aHFC_dashboardTheme';
+.comm-page-custom-make-a-payment .slds-popover__body{
+  background: black;
+}
+.comm-page-custom-make-a-payment .slds-popover:before{
+  background: black;
+}
+
+.ahfc_horizontal{
+  /* border-top: 1px solid #D9D9D9; */
+  padding-top: 3rem;
+}
+.ahfc-container {
+  width: 80%;
+}
+.ahfc-body-two {
+  font-size: 18px;
+  line-height: 23px;
+  letter-spacing: 0.02rem;
+}
+.ahfc-body-two1 {
+  font-size: 18px;
+  line-height: 23px;
+  letter-spacing: 0.02rem;
+}
+.ahfc-links-secondary{
+  font-size: 18px;
+  padding-top: 0.2rem;
+}
+.ahfc-text-grey{
+  color: #000000;
+}
+.ahfc-text-grey-payment-details
+{
+  color:#5E6162;
+}
+.ahfc-text-grey-payment-details a
+{
+  color: #CC0000;
+}
+.ahfc-icon {
+  bottom: 1px;
+}
+.ahfc_enrollOnline{
+  padding-left: 6rem;
+}
+.sources-container{
+  display: flex;
+  width: 100%;
+  /* justify-content: space-between; */
+}
+.sources-container p {
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  color: #767676;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-left: 15px;
+}
+/* .schedule-source-section p > .circle:before {
+  content: " \25CF";
+} */
+.slds-has-error .error-help {
+  visibility: visible;
+}
+.AHFC_ErrorMsg{
+  font-size: large;
+  color: #CC0000;
+}
+
+.paymentinfo-container-fluid {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    margin: 0 0 16px;
+  }
+  .paymentdue-info {
+    border-right: 1px solid #d9d9d9;
+    padding-right: 15px;
+  }
+  .duedate-info {
+    padding-left: 15px;
+  }
+  .paymentdue-info p,
+  .duedate-info p {
+    line-height: 38px;
+    margin: 8px 0;
+  }
+  .ahfc-toggle-links .ahfc-icon {
+    margin-left: 10px;
+    bottom: 1px;
+  }
+  .day-remaining .ahfc-icon {
+    margin-right: 10px;
+    bottom: 1px;
+  }
+  .day-remaining span {
+    line-height: 20px;
+    letter-spacing: 0.05em;
+  }
+  .details-card {
+    padding: 20px 16px;
+    margin: 8px 0;
+  }
+  .details-header {
+    padding-bottom: 8px;
+    border-bottom: 1px solid #d9d9d9;
+  }
+  .details-header.no-body {
+    border: none;
+  }
+  .details-body .details-body-row {
+    padding: 16px 0 8px;
+    border-bottom: 1px solid #d9d9d9;
+  }
+  .details-body .details-body-row:last-child {
+    border: none;
+  }
+  .details-body-subtext {
+    flex-direction: column;
+  }
+  .paymentoptions-container-fluid {
+    margin: 0 0 16px;
+  }
+  .paymentschedule-container h2 {
+    font-weight: 300;
+  }
+  .select-payment-type .payement-options {
+    margin-bottom: 35px;
+  }
+  .select-payment-type .payement-options:last-child {
+    margin-bottom: 0;
+  }
+  .enroll-easypay-radio {
+    position: relative;
+  }
+  .enroll-easypay-radio .ahfc-radio,
+  .enroll-easypay-radio .easypay-tooltip {
+    display: inline-block;
+  }
+  .enroll-easypay-radio .ahfc-icon {
+    margin-left: 15px;
+    bottom: 0;
+  }
+  .select-payment-type,
+  .paymentdetails-container,
+  .paymentsource-container,
+  .paymentconfirmation-container {
+    padding: 30px 0;
+    border-bottom: 1px solid #d9d9d9;
+  }
+  .paymentconfirmation-container {
+    border-bottom: none;
+  }
+  .paymentconfirmation-container p {
+    line-height: 18px;
+  }
+  .enroll-easypay-radio .popover-content {
+    position: absolute;
+    background: #000;
+    top: 40px;
+    left: 40px;
+    width: 180px;
+  }
+  .paymentdetails-container h2,
+  .paymentsource-container h2 {
+    margin-bottom: 20px;
+  }
+  .paymentsource-container button {
+    margin-top: 20px;
+  }
+  .sources-container {
+    padding: 20px 0;
+  }
+  .reviewaction-container {
+    margin-top: 15px;
+  }
+  .reviewaction-container .ahfc-btn:nth-child(2) {
+    margin-top: 30px;
+  }
+  .payoff-container,
+  .easypay-container {
+    flex-direction: column;
+  }
+  .payoff-container .payoff-info,
+  .easypay-container .easypay-info {
+    border-radius: 3px;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  .payoff-container .payoff-info p {
+    line-height: 18px;
+  }
+  .payoff-container .ahfc-info-label {
+    margin-bottom: 10px;
+  }
+  .otp-data,
+  .easypay-data,
+  .payoff-data .slds-col:first-child {
+    margin-bottom: 30px;
+  }
+  .label-gaps {
+    margin-bottom: 15px;
+  }
+  .next-widthdrawl {
+    margin-top: 10px;
+  }
+  .next-widthdrawl span {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .additional-amount {
+    margin-top: 50px;
+  }
+  .additional-amount .additional-amount-text {
+    flex-direction: column-reverse;
+  }
+  .additional-amount .additional-amount-text .slds-col:last-child {
+    margin-bottom: 10px;
+  }
+  .additional-amount .ahfc-info-label {
+    font-weight: normal;
+    letter-spacing: 0.05em;
+  }
+  
+  /* @media screen and (min-width: 768px) { */
+  /* @media screen and (min-width: 796px) { */
+  @media screen and (min-width: 831px) {
+    .duedate-info,
+    .details-body {
+      padding-left: 50px;
+    }
+    .paymentdue-info p,
+    .duedate-info p {
+      font-size: 38px;
+      line-height: 48px;
+    }
+    .details-card {
+      padding: 16px 32px;
+    }
+    .paymentschedule-container h2 {
+      font-size: 26px;
+      line-height: 36px;
+    }
+    .select-payment-type .payement-options {
+      display: inline-block;
+      margin-right: 80px;
+      margin-bottom: 0;
+    }
+    .select-payment-type .payement-options:last-child {
+      margin-right: 0;
+    }
+    .enroll-easypay-radio .popover-content {
+      left: 53px;
+    }
+    .sources-container {
+      width: 60%;
+    }
+    .reviewaction-container .ahfc-btn:nth-child(2) {
+      margin-top: 0;
+      margin-left: 15px;
+    }
+    .paymentconfirmation-container p {
+      font-size: 18px;
+      line-height: 28px;
+    }
+    .payoff-container,
+    .easypay-container {
+      flex-direction: column-reverse;
+    }
+    .payoff-container .payoff-info,
+    .easypay-container .easypay-info {
+      padding: 24px 32px;
+      margin-top: 30px;
+      margin-bottom: 0;
+    }
+    .payoff-container .payoff-info p {
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: 0.02em;
+    }
+    .payoff-container .ahfc-header-three,
+    .value-text {
+      font-size: 30px;
+      line-height: 40px;
+    }
+    .otp-data,
+    .easypay-data,
+    .payoff-data .slds-col {
+      margin: 0 !important;
+    }
+    .additional-amount .additional-amount-text {
+      flex-direction: row;
+    }
+    .additional-amount .additional-amount-text .slds-col {
+      margin-bottom: 0 !important;
+    }
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .details-body-subtext {
+      flex-direction: row;
+    }
+    .details-body-subtext .slds-col:nth-child(2) {
+      margin-left: 16px;
+    }
+  }
+  .lgc-bg {
+    background-color: rgb(255 255 255);
+  }
+  .mr20{
+    margin-right: 20px;
+  }
+
+  .vehicle_details_section{
+    display: flex;
+    margin-bottom: 10px;
+  }
+  .vehicle_logo{
+    width: 150px;
+    
+  }
+
+  .brand-logo{
+    margin-right: 50px;
+    padding-top: 5px;
+  }
+
+  .vehicle-info{
+    border-left: 1px solid #d5d0d0;
+    padding-left: 30px;
+  }
+  .clo{
+    text-align: right;
+  }
+
+  .AHFC_CardLabel{
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #5E6162;
+    font-family: 'ahfc-robotomedium' ,sans-serif;
+  }
+  
+  .AHFC_CardData{
+    margin-top: 0.5rem;
+    font-size: 30px;
+    line-height: 40px;
+    color: #000000;
+    font-family: 'ahfc-robotolight', sans-serif;
+  }
+  .AHFC_PayCard{
+    padding-top: 1.5rem;
+  }
+  .AHFC_PayWrap{
+    padding-top: 0.5rem !important;
+  }
+  .AHFC_PayWrap .AHFC_PayDetail{
+    font-size: 30px;
+    /* line-height: 40px; */
+    color: #000000;
+    font-family: 'ahfc-robotolight', sans-serif;
+  }
+  .AHFC_PayWrap .circle{
+    height: 5px;
+    width: 5px;
+    background-color: #000;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 1px;
+}
+.AHFC_CardHead span{
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #000000;
+    padding: 0.5rem 1em;
+    border:2px solid #D9D9D9;
+    border-radius: 100px;
+    font-family: 'ahfc-robotomedium' ,sans-serif;
+}
+.AHFC_ServiceWrap p{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+  /*******************************************************************************************************
+  */
+  @media (min-width: 250px) and (max-width: 1179px) {
+    .ahfc-body-two{
+      display: grid;
+    }
+    .ahfc-links-secondary{
+      padding-top: 1rem;
+    }
+  }
+  /* @media (min-width: 320px) and (max-width: 768px) { */
+  @media (min-width: 250px) and (max-width: 796px) {
+    .ahfc-word-break
+    {
+      word-break: break-word;
+    }
+    .ahfc_horizontal{
+      padding-top: 2rem;
+    }
+    .ahfc-container {
+      width: 100%;
+    }
+    .AHFC_ServiceWrap p,
+    .AHFC_ServiceWrap a{
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: 0.03em;
+      float: none;
+    }
+    .AHFC_CardHead{margin-bottom: 1.5rem;}
+    .AHFC_CardHead span{
+      float: left !important;
+    }
+    .AHFC_DateCard{
+      padding-top: 0rem !important;
+    }
+    .otp-data{
+      margin-bottom: 0px;
+    }
+    .AHFC_CardLabel{
+      color: #000000;
+    }
+    .AHFC_CardData{
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 26px;
+      color: #000000;
+      font-family: 'ahfc-robotolight', sans-serif;
+    }
+    .AHFC_PayWrap .AHFC_PayDetail{
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 26px;
+      color: #000000;
+      font-family: 'ahfc-robotolight', sans-serif;
+    }
+    /* .AHFC_FirstSection .AHFC_CardLabel{
+      margin-bottom: 0.6rem;
+    }*/
+    .AHFC_CardData:nth-child(2){
+      margin-bottom: 2rem !important;
+    } 
+    .AHFC_CardWrap {
+      margin-bottom: 0px;
+    }
+    .AHFC_PayCard:nth-child(2){
+      padding-top: 0rem;
+    }
+    .ahfc-body-two{
+      font-size: 16px;
+      line-height: 28px;
+      letter-spacing: .02rem;
+     
+    }
+    .ahfc-body-two1{
+      font-size: 16px;
+      line-height: 28px;
+      letter-spacing: .02rem;
+     
+    }
+  
+
+    .ahfc-links-secondary{
+      font-size: 16px;
+      float: left;
+      padding-top: 1rem;
+    }
+    .ahfc_enrollOnline{
+      padding-top: 1rem;
+      padding-bottom: 0.5rem;
+    }
+    .ahfc_enrollLabel{
+      border-top: 1px solid #D9D9D9;
+      margin-top: 1rem;
+      padding-top: 1rem;  /* bug-12276 fixes */
+    }
+    .ahfc_enrollOnline {
+      padding-left: 0rem;
+    }
+    .paymentinfo-container-fluid{
+      padding-bottom: 0px;
+    }
+    .section-header{
+      display: block;
+      width: 100%;
+    }
+    .ahfc_suspended_display{
+      display:block;
+    }
+    /* bug-12276 fixes start */
+    .AHFC_EasypayInfo{
+      padding-right: 11px !important;
+    }
+    /* bug-12276 fixes end */
+    .ahfc-text-medium{
+      font-size: 20px !important;
+    }
+  }
+
+  .ahfc_suspended_easypay{
+    color: #5E6162;
+    line-height: 22px;
+    font-family: 'ahfc-robotomedium';
+    font-size: 18px;
+    letter-spacing: .02rem;
+    }
+/* mobile fold fixes start*/
+@media (min-width: 250px) and (max-width: 319px) {
+  .ahfc-text-medium{
+    font-size: 20px !important;
+  }
+}
+/* mobile fold fixes end*/

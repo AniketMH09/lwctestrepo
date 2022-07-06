@@ -1,0 +1,538 @@
+@import 'c/aHFC_dashboardTheme';
+/*START - Secondary Header*/
+.AHFC_FamilyReg{
+    text-align: left;
+}
+ .AHFC_CommunitySecHeader{
+    width: 100%;
+     padding: 0 8rem;
+     height: 100px!important;
+     border-bottom: 1px solid #d9d9d9;
+}
+ .AHFC_LeftGridSec {
+     padding: 1rem 2rem 0.75rem 1.5rem;
+     float: left;
+    /* border-right: 1px solid black;
+     */
+    /* height: 55px;
+     */
+     border-right: 1px solid #d9d9d9;
+}
+ .AHFC_SecLogostyle{
+     width: auto;
+     height: 50px;
+}
+ .AHFC_SecLogostyle img{
+     object-fit: contain;
+    /* width: auto;
+     */
+     height: 43px;
+}
+ .AHFC_VehImg {
+     width: auto;
+    /* height: auto;
+     */
+     float: left;
+     padding: 1rem 2rem .75rem 2rem;
+}
+ .AHFC_VehImg img{
+     height: 56px;
+     object-fit: contain;
+     width: auto;
+}
+ .AHFC_Vehdetail {
+     float: left;
+     line-height: 1.5;
+     padding: 0.5rem 2rem .75rem 2rem;
+    /* line-height: 2;
+     */
+}
+ .AHFC_DetName{
+     font-size: 30px;
+     font-family: 'ahfc-robotolight';
+     line-height: 40px;
+}
+ .AHFC_Aclabel{
+     color: #5E6162;
+     font-size: 14px;
+    /* font-weight: bold;
+     */
+     font-family: ahfc-robotoMedium;
+     line-height: 20px;
+}
+/*END - Secondary Header*/
+ .AHFC_ContainerSec{
+    width: 100%;
+    margin: 0 auto;
+}
+ .AHFC_InnerHeading{
+    font-size:26px;
+}
+ .AHFC_Wrapperst{
+     padding: 1rem 9rem;
+}
+ .AHFC_InnerAround{
+     padding: 2rem 6rem;
+    /* padding: 1rem 8rem 1rem 8rem;
+     */
+}
+ .AHFC_Colred{
+    color:#CC0000;
+}
+ .AHFC_InnerHeadCont{
+     font-size: 18px;
+     letter-spacing: 0.02em;
+}
+ .AHFC_InnerHeadCont p>a{
+     color:#CC0000 !important;
+     text-decoration: underline;
+}
+ .AHFC_InnerHeadCont p{
+     color: #5E6162;
+     margin: 1rem 0 1rem 0rem;
+}
+ .AHFC_ViewHover:hover{
+    cursor: pointer !important;
+}
+ .AHFC_Tabborder{
+    border: 1px solid #dddddd;
+     margin: 2rem 0 2rem 0;
+}
+ .AHFC_ColorBlack{
+     font-size: #000 !important;
+}
+ .AHFC_SizeOneFour{
+     font-size: 14px !important;
+}
+ .AHFC_SizeOneEight{
+     font-size: 18px !important;
+}
+ .AHFC_SizeTwoSix{
+     font-size: 25px !important;
+}
+ .AHFC_FamilyMed{
+     font-family: 'ahfc-robotomedium' !important;
+}
+ .AHFC_FamilyLgt{
+     font-family: 'ahfc-robotolight' !important;
+}
+ .AHFC_FamilyReg{
+     font-family: 'ahfc-robotoregular' !important;
+}
+ .AHFC_FamilyBold{
+     font-family: 'ahfc-robotobold' !important;
+}
+ .AHFC_FamilyBlack{
+     font-family: 'Roboto-Black' !important;
+}
+ .AHFC_VerticalAlign{
+     vertical-align: sub !important;
+}
+ .AHFC_SpcgOThree{
+     letter-spacing: 0.03em;
+}
+ .AHFC_SpcgOTwo{
+     letter-spacing: 0.02em;
+}
+ .AHFC_SpcgOSix{
+     letter-spacing: 0.06em;
+}
+ .AHFC_Sttable thead th{
+     width:100%;
+     background: #f7f7f7;
+     letter-spacing: 0.03em;
+     color: #000;
+}
+ .AHFC_Sttable tr{
+     border-bottom: 1px solid #dddddd;
+}
+ .AHFC_Sttable thead th:nth-child(1){
+     padding: .5rem 2.5rem .5rem 2.5rem;
+}
+ .AHFC_Sttable thead th:nth-child(2){
+     padding: .5rem 2.5rem 0.5rem 0rem;
+}
+ .AHFC_Sttable thead th>span{
+     text-transform: uppercase;
+}
+ .AHFC_Sttable tbody td{
+     padding: 1rem 2.5rem 1rem 2.5rem;
+    cursor: default;
+}
+ .AHFC_ColRt{
+    float:right;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+ .AHFC_AR img{
+    margin-right: 0.5rem;
+}
+ .AHFC_BordBot{
+     border-bottom: 1px solid #d9d9d9;
+     padding-bottom: 2rem;
+}
+ .AHFC_ContLayout{
+     padding: 2rem 0 1rem 0;
+}
+ .AHFC_Samplest{
+     background: #f7f7f7;
+     padding: 1rem 2.5rem 1rem 1rem;
+    /* line-height: 2;
+     */
+}
+ .AHFC_Samplest span{
+    color: #5E6162;
+}
+ .AHFC_Notify a{
+    margin-top:0.5rem;
+    margin-bottom: 0.5rem;
+    text-decoration:underline;
+}
+ .AHFC_Linkwrap{
+     margin: 1rem 0 1rem 0;
+}
+ .AHFC_Notify{
+    line-height: 1.5;
+    /* margin-top: 1rem;
+     */
+}
+ .AHFC_Notify b{
+    text-transform: uppercase;
+}
+ .AHFC_NotifyCustom{
+     width: 50%;
+     padding: 1rem 0rem 0rem 6rem;
+}
+ .AHFC_ContEmail{
+    font-size: 18px;
+}
+ .AHFC_PrimHead{
+     padding-bottom: 2rem;
+}
+ .AHFC_PrimHead p{
+     display: inline;
+     padding-left: 0.75rem;
+     font-size: 20px;
+}
+ .AHFC_PrimHead lightning-icon {
+     --lwc-colorTextIconDefault:#CC0000;
+}
+ .AHFC_Notify{
+    margin-top:2rem !important;
+}
+ .AHFC_ToastBar{
+     background-color: #F6D5D4;
+     text-align: left;
+     border-radius: 3px;
+     padding: 10px 16px;
+     font-size: 18px;
+}
+ .AHFC_ToastLabel{
+     color: #762019;
+     font-size: 14px;
+     font-weight: bold;
+}
+ .AHFC_ToastMsg{
+     color: #762019 !important;
+     font-size: 14px;
+     margin: 0rem 1.5rem !important;
+}
+ .AHFC_ToastLabel lightning-icon {
+     --lwc-colorTextIconDefault:#762019;
+     padding-right: 0.5rem;
+}
+ .AHFC_InnerHeadCont a{
+     text-decoration: underline;
+     color: #762019 !important;
+}
+ .AHFC_titleWrap span{
+     font-family: 'ahfc-robotolight' !important;
+}
+ .AHFC_icon-space{
+     padding-right:10px;
+}
+ .AHFC_page-title{
+     margin: 2rem 0rem;
+     font-size: 38px;
+}
+
+/*   ---MOBILE VIEW---   */
+ @media (min-width: 320px) and (max-width: 767px) {
+    .ahfc-reader-mobile{
+        margin-top: 15px;
+    }
+     .AHFC_DetName{
+        font-size: 20px !important;
+    }
+     .AHFC_LeftGridSec{
+        display: none;
+    }
+     .AHFC_Aclabel{
+        padding-right: 0.5rem !important;
+        display: inline-block !important;
+    }
+     .AHFC_Vehdetail{
+         line-height: 1.75 !important;
+         padding: .5rem 0.5rem .75rem 0.5rem !important;
+    }
+     .AHFC_CommunitySecHeader{
+        padding:0rem !important;
+        display: inline-flex;
+    }
+     .AHFC_MobLAyout{
+        display: block;
+    }
+     .AHFC_Wrapperst {
+        /* padding: 0.5rem;
+         */
+         padding-top: 1px !important;
+         margin: 0rem 0 0rem 0;
+         padding: 0rem !important;
+         display: block;
+        /* padding: 1rem;
+         */
+    }
+    .AHFC_ContEmail{
+        font-family: 'ahfc-robotolight', sans-serif !important;
+        font-size: 18px !important;
+        line-height: 28px !important;
+        letter-spacing: 0.02em !important;
+        color: #000000 !important;
+        padding-top: 0.5rem !important;
+    }
+    
+    .AHFC_Notify{
+        margin-top:1.5rem !important;        
+        font-size: 14px !important
+    }
+     .AHFC_PrimHead{
+         padding:1rem;
+    }
+     .AHFC_ContainerSec{
+         padding: 1rem;
+         background-color: white;
+    }
+     .AHFC_InnerAround{
+        padding:0rem !important;
+         margin: 0rem 0 0rem 0;
+         display: block;
+    }
+     .AHFC_Sttable thead th {
+         padding: .5rem 1.5rem !important;
+         font-family: 'ahfc-robotomedium';
+         line-height: 20px;
+    }
+     .AHFC_Sttable tbody td {
+         padding: .5rem 1.5rem !important;
+         font-size: 16px !important;
+        line-height: 24px !important;
+        letter-spacing: 0.02em !important;
+    }
+    .AHFC_Sttable tbody td:nth-child(1){
+        font-family: 'ahfc-robotoregular' !important;
+    }
+    .AHFC_Sttable tbody td:nth-child(2){
+        font-family: 'ahfc-robotomedium' !important;
+    }
+     .AHFC_ContLayout{
+         display: block ;
+    }
+     .AHFC_Samplest{
+        padding:1rem 0rem 1rem 0rem !important;
+        font-family: 'ahfc-robotoregular', sans-serif;
+        font-size: 14px !important;
+        line-height: 18px !important;
+        letter-spacing: 0.03em !important;
+    }
+     .AHFC_InnerHeading{
+        font-family: 'ahfc-robotolight';
+        font-size: 18px;
+        line-height: 21px;
+        color: #000000;
+    }
+    .AHFC_InnerHeadCont{
+        font-family: 'ahfc-robotolight';
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 0.03em;
+   }
+    .AHFC_InnerHeadCont p>a{
+        color:#CC0000 !important;
+        text-decoration: underline;
+   }
+    .AHFC_InnerHeadCont p{
+        color: #5E6162;
+        margin: 1rem 0 1rem 0rem;
+   }
+     .AHFC_ToastMsg{
+         font-size: 12px;
+    }
+     .AHFC_page-title{
+         margin: 0rem;
+         padding: 1rem 0rem 1rem 1rem;
+    }
+    .AHFC_page-title span{
+        vertical-align: middle;
+        font-size: 20px;
+        line-height: 26px;
+   }
+   .AHFC_NotifyCustom{
+       width: 100%;
+       padding: 2rem 0rem 0rem 0rem;
+    }
+    .AHFC_ToastBar{
+        margin-top: 1rem;
+    }
+}
+
+/*   ---TABLET VIEW---   */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .ahfc-reader-mobile{
+        margin-top: 15px;
+    }
+     .AHFC_DetName{
+        font-size: 20px !important;
+    }
+     .AHFC_LeftGridSec{
+        display: none;
+    }
+     .AHFC_Aclabel{
+        padding-right: 0.5rem !important;
+        display: inline-block !important;
+    }
+     .AHFC_Vehdetail{
+         line-height: 1.75 !important;
+         padding: .5rem 0.5rem .75rem 0.5rem !important;
+    }
+     .AHFC_CommunitySecHeader{
+        padding:0rem !important;
+        display: inline-flex;
+    }
+     .AHFC_MobLAyout{
+        display: block;
+    }
+     .AHFC_Wrapperst {
+        /* padding: 0.5rem;
+         */
+         padding-top: 1px !important;
+         margin: 0rem 0 0rem 0;
+         padding: 0rem !important;
+         display: block;
+        /* padding: 1rem;
+         */
+    }
+    .AHFC_ContEmail{
+        font-family: 'ahfc-robotolight', sans-serif !important;
+        font-size: 18px !important;
+        line-height: 28px !important;
+        letter-spacing: 0.02em !important;
+        color: #000000 !important;
+        padding-top: 0.5rem !important;
+    }
+    
+    .AHFC_Notify{
+        margin-top:1.5rem !important;        
+        font-size: 14px !important
+    }
+     .AHFC_PrimHead{
+         padding:1rem;
+    }
+     .AHFC_ContainerSec{
+         padding: 1rem;
+         background-color: white;
+    }
+     .AHFC_InnerAround{
+        padding:0rem !important;
+         margin: 0rem 0 0rem 0;
+         display: block;
+    }
+     .AHFC_Sttable thead th {
+         padding: .5rem 1.5rem !important;
+         font-family: 'ahfc-robotomedium';
+         line-height: 20px;
+    }
+     .AHFC_Sttable tbody td {
+         padding: .5rem 1.5rem !important;
+         font-size: 16px !important;
+        line-height: 24px !important;
+        letter-spacing: 0.02em !important;
+    }
+    .AHFC_Sttable tbody td:nth-child(1){
+        font-family: 'ahfc-robotoregular' !important;
+    }
+    .AHFC_Sttable tbody td:nth-child(2){
+        font-family: 'ahfc-robotomedium' !important;
+    }
+     .AHFC_ContLayout{
+         display: block ;
+    }
+     .AHFC_Samplest{
+        padding:1rem 0rem 1rem 0rem !important;
+        font-family: 'ahfc-robotoregular', sans-serif;
+        font-size: 14px !important;
+        line-height: 18px !important;
+        letter-spacing: 0.03em !important;
+    }
+     .AHFC_InnerHeading{
+        font-family: 'ahfc-robotolight';
+        font-size: 18px;
+        line-height: 21px;
+        color: #000000;
+    }
+    .AHFC_InnerHeadCont{
+        font-family: 'ahfc-robotolight';
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 0.03em;
+   }
+    .AHFC_InnerHeadCont p>a{
+        color:#CC0000 !important;
+        text-decoration: underline;
+   }
+    .AHFC_InnerHeadCont p{
+        color: #5E6162;
+        margin: 1rem 0 1rem 0rem;
+   }
+     .AHFC_ToastMsg{
+         font-size: 12px;
+    }
+     .AHFC_page-title{
+         margin: 0rem;
+         padding: 1rem 0rem 1rem 1rem;
+    }
+    .AHFC_page-title span{
+        vertical-align: middle;
+        font-size: 20px;
+        line-height: 26px;
+   }
+   .AHFC_NotifyCustom{
+       width: 100%;
+       padding: 2rem 0rem 0rem 0rem;
+    }
+    .AHFC_ToastBar{
+        margin-top: 1rem;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 1290px) {
+    .AHFC_NotifyCustom {
+        width: 80%
+    }
+}
+
+
+@media (min-width: 1024px) and (max-width: 1300px) {
+
+.AHFC_ContLayout{
+    display: block ;
+}
+
+.AHFC_NotifyCustom {
+    padding: 0px;
+}
+
+.AHFC_Samplest {
+    padding: 0px;
+}
+
+}

@@ -1,0 +1,417 @@
+<template>
+   <!--Footer hre--> 
+   <div class="HCC_FooterLayout">
+      <footer class="AHFCMainFooter">
+         <div class="slds-grid ContentWrap">
+            <div class="slds-grid HCC_Footercontent Leftwidth">
+               <span>
+                  <div class="Titlestyle">
+                     {labels.FinanceToolsLabel}
+                  </div>
+               </span>
+               <div class="slds-col AHFC_Col1">
+                  <div class="SubTitle"><a onclick={navigateToCreaditPreApproval} href="javascript:void(0);" role="link"> {labels.ApplyforPreApprovalLabel}
+                     </a></div>
+                  <div class="SubTitle"><a onclick={navigateToLeaseVSFinance} href="javascript:void(0);" role="link">{labels.LeaseVsFinanceLabel} </a> </div>
+                  <div class="SubTitle"><a onclick={navigateTohondaLoyaltyBenfits} href="javascript:void(0);" role="link">{labels.HondaLoyaltyBenefitsLabel}
+                     </a> </div>
+                  <div class="SubTitle"><a onclick={navigateToAcuraLoyalotyPage} href="javascript:void(0);" role="link">{labels.AcuraLoyaltyAdvantageLabel}
+                     </a> </div>
+                  <div class="SubTitle"><a onclick={navigateToEndOfTerm} href="javascript:void(0);" role="link">{labels.EndofTermLabel} </a> </div>
+               </div>
+               <div class="slds-col AHFC_Col2">
+                  <div class="SubTitle" onclick={navigateToProtectionProducts}><a href="javascript:void(0);" role="link">{labels.ProtectionofProductsLabel}
+                     </a> </div>
+                     <div if:false = {isSubMenuOpenOffer}>
+                        <div class="SubTitle">
+                           <a href="javascript:void(0)" name='Offers' alt="Offers" role="button" aria-expanded="false" onclick={onSubmenuOfferClick}>{labels.OFFER} 
+                           <lightning-icon icon-name="utility:chevrondown" alternative-text="down" 
+                            size="xx-small" title="Connected" class="AHFC_DownIconFoot"> 
+   
+                           </lightning-icon>
+                           </a>
+                        </div>
+                     </div>
+                     <div if:true = {isSubMenuOpenOffer}>
+                        <div class="SubTitle AHFC_Highlight">
+                           <a href="javascript:void(0)" name='Offers' alt="Offers" role="button" aria-expanded="true" onclick={onSubmenuOfferClick}><b>{labels.OFFER}</b> 
+                           <lightning-icon icon-name="utility:chevronup" alternative-text="down" 
+                            size="xx-small" title="Connected"
+                            class="AHFC_DownIconFoot AHFC_HighlightIcon" >
+                        </lightning-icon>
+                        </a>
+                        </div>
+                        <ul class="subMenuMob sub2level sub2levelhighlight">
+                           <li><a href={labels.OffersHondaURLLabel}  target="_blank" role="link">{labels.Honda}</a></li>
+                           <li><a href={labels.OffersAcuraURLLabel} target="_blank" role="link">{labels.Acura}</a></li>
+                           <li><a href={labels.OffersPowersportsURLLabel}  target="_blank" role="link">{labels.PowerSports}</a></li>
+                           <li><a href={labels.OffersPowerEquipmentURLLabel}  target="_blank" role="link">{labels.PowerEquipment}</a></li>
+                           <li><a href={labels.OffersMarineURLLabel}  target="_blank" role="link">{labels.Marine}</a></li>
+                        </ul>
+                     </div>
+                     <div if:false = {isSubMenuOpenCalculator}>
+                        <div class="SubTitle ">
+                           <a href="javascript:void(0)" name='Calculator' alt="Calculator" role="button" aria-expanded="false" onclick={onSubmenuCalcClick}>{labels.Calculator}
+                           <lightning-icon icon-name="utility:chevrondown" alternative-text="down"  size="xx-small" title="Connected" class="AHFC_DownIconFoot"> </lightning-icon>
+                           </a>
+                        </div>
+                     </div>
+                     <div if:true = {isSubMenuOpenCalculator}>
+                        <div class="SubTitle AHFC_Highlight">
+                           <a href="javascript:void(0)" name='Calculator' alt="Calculator" role="button" aria-expanded="true" onclick={onSubmenuCalcClick} >{labels.Calculator}
+                           <lightning-icon icon-name="utility:chevronup" alternative-text="down"  size="xx-small" title="Connected" class="AHFC_DownIconFoot AHFC_HighlightIcon "> </lightning-icon>
+                           </a>
+                        </div>
+                        <ul class="subMenuMob sub2level sub2levelhighlight">
+                           <li><a href={labels.CalculatorHondaNewVehiclesURLLabel} target="_blank" role="link">{labels.AHFC_HondaNewVehickes}</a></li>
+                           <li><a href={labels.CalculatorHondaCertifiedPreOwnedURLLabel} target="_blank" role="link">{labels.HondaCertifiedOwner}</a></li>
+                           <li><a href={labels.CalculatorAcuraURLLabel} target="_blank" role="link">{labels.Acura}</a></li>
+                           <li><a href={labels.CalculatorPowersportsURLLabel} target="_blank" role="link">{labels.PowerSports}</a></li>
+                           <li><a href={labels.CalculatorMarineURLLabel} target="_blank" role="link">{labels.Marine}</a></li>
+                        </ul>
+                     </div>
+                     <div if:false = {isSubMenuOpenDealer}>
+                        <div class="SubTitle">
+                           <a href="javascript:void(0)" name='LocateDealer' alt="LocateDealer" role="button" aria-expanded="false" onclick={onSubmenuDealClick}>{labels.Locatedealer}
+                           <lightning-icon icon-name="utility:chevrondown" alternative-text="down"  size="xx-small" title="Connected" class="AHFC_DownIconFoot"  > </lightning-icon>
+                           </a>
+                        </div>
+                     </div>
+                     <div if:true = {isSubMenuOpenDealer}>
+                        <div class="SubTitle AHFC_Highlight">
+                           <a href="javascript:void(0)" name='LocateDealer' alt="LocateDealer" role="button" aria-expanded="true" onclick={onSubmenuDealClick}>{labels.Locatedealer}
+                           <lightning-icon icon-name="utility:chevronup" alternative-text="down"  size="xx-small" title="Connected" class="AHFC_DownIconFoot AHFC_HighlightIcon "  > </lightning-icon>
+                           </a>
+                        </div>
+                        <ul class="subMenuMob sub2level sub2levelhighlight">
+                           <li><a href={labels.LocateADealerHondaURLLabel} target="_blank" role="link">{labels.Honda}</a></li>
+                           <li><a href={labels.LocateADealerAcuraURLLabel} target="_blank" role="link">{labels.Acura}</a></li>
+                           <li><a href={labels.LocateADealerPowersportsURLLabel} target="_blank" role="link">{labels.PowerSports}</a></li>
+                           <li><a href={labels.LocateADealerMarineURLLabel} target="_blank" role="link">{labels.Marine}</a></li>
+                           <li><a href={labels.LocateADealerPowerEquipmentURLLabel} target="_blank" role="link">{labels.PowerEquipment}</a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            <div class="slds-grid HCC_Footercontent  Rightwidth">
+               <span>
+                  <div class="Titlestyle">{labels.SUPPORTLabel}</div>
+               </span>
+               <div class="slds-col AHFC_Col1">
+                  <div class="SubTitle"><a onclick={navigateTohelpCenter} data-id="" href="javascript:void(0);" role="link">{labels.HelpCenterLabel} </a> </div>
+                  <div class="SubTitle"><a onclick={navigateToContactUsPage} data-id="" href="javascript:void(0);" role="link">{labels.ContactUsLabel} </a>
+                  </div>
+                  <!--Added by sagar re arrange links for bug fix 22786 -->  
+                  <div class="SubTitle"><a onclick={navigateToPaymentOptions} data-id="" href="javascript:void(0);" role="link">{labels.PaymentOptionsLabel}
+                     </a> </div>
+                  <div class="SubTitle"><a onclick={navigateToPrintableForms} href="javascript:void(0);" role="link">{labels.PrintableFormsLabel} </a> </div>   
+                  <div if:false = {isSubMenuOpenProdSupport}>
+                     <div class="SubTitle">
+                        <a href="javascript:void(0)" name='ProductSupport' data-id="" role="button" aria-expanded="false" onkeydown={onSubmenuProdSupClick}>{labels.ProductSupport} 
+                        <lightning-icon icon-name="utility:chevrondown" alternative-text="down"  size="xx-small" title="Connected" class="AHFC_DownIconFoot" onclick={onSubmenuProdSupClick}> </lightning-icon>
+                        </a>
+                     </div>
+                  </div>
+                  <div if:true = {isSubMenuOpenProdSupport}>
+                     <div class="SubTitle AHFC_Highlight"> 
+                        <a href="javascript:void(0)" name='ProductSupport' data-id="" role="button" aria-expanded="true" onclick={onSubmenuProdSupClick}>{labels.ProductSupport} 
+                        <lightning-icon icon-name="utility:chevronup" alternative-text="down"  size="xx-small" title="Connected" class="AHFC_HighlightIcon AHFC_DownIconFoot" > </lightning-icon>
+                        </a>
+                     </div>
+                     <ul class="subMenuMob sub2level sub2levelhighlight">
+                        <li><a href={labels.ProductSupportHondaURLLabel} target="_blank" role="link">{labels.Honda} </a></li>
+                        <li><a href={labels.ProductSupportAcuraURLLabel} target="_blank" role="link">{labels.Acura}</a></li>
+                        <li><a href={labels.ProductSupportPowersportsURLLabel} target="_blank" role="link">{labels.PowerSports}</a></li>
+                        <li><a href={labels.ProductSupportMarineURLLabel} target="_blank" role="link">{labels.Marine}</a></li>
+                        <li><a href={labels.ProductSupportPowerRequirementURLLabel} target="_blank" role="link">{labels.PowerEquipment}</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="slds-grid HCC_Footercontent owner1">
+               <span>
+                  <div class="Titlestyle">{labels.OWNERSLabel}</div>
+               </span>
+               <div class="slds-col">
+               <div class="SubTitleOwner" if:true={isDisplay}><a href={labels.OWNERSHondaLabelUrl} target="_blank" role="link">{labels.OWNERSHondaLabel}</a></div>
+               <div class="SubTitleOwner1" if:true={isDisplay}><a href={labels.OWNERSAcuraLabelUrl} target="_blank" role="link">{labels.OWNERSAcuraLabel}</a></div>
+               </div>
+            </div>
+            <div class="slds-grid HCC_Footercontent ContactStyle AHFC_LastCol" if:true={isCheck}>
+               <span>
+                  <div class="Titlestyle">{labels.MyAccountLabel}</div>
+               </span>
+               <div class="slds-col AHFC_Col1">
+                  <!-- Prelogin Content -->
+                  <div class="SubTitle">
+                     <a onclick={navigateToLoginPage} href="javascript:void(0);" role="link">Log In</a>
+                  </div> 
+               </div>
+            </div>
+         </div>
+      </footer>
+      <template if:true={showmobile}>
+         <footer>
+            <div class="menulist ">
+               <ul class="mainMenu">
+                  <div if:false={isSubMenuOpenFinance}>
+                     <button class="accordion Titlestyle" onclick={onSubmenuFinanceClick} role="button">
+                        {labels.FinanceToolsLabel}
+                        <lightning-icon icon-name="utility:chevrondown" alternative-text="down" size="x-small"
+                           title="Connected" class="AHFC_DownIconAcc"> </lightning-icon>
+                     </button>
+                  </div>
+                  <div if:true={isSubMenuOpenFinance}>
+                     <button class="accordion Titlestyle" onclick={onSubmenuFinanceClick} role="button">
+                        {labels.FinanceToolsLabel}
+                        <lightning-icon icon-name="utility:chevronup" alternative-text="down" size="x-small"
+                           title="Connected" class="AHFC_DownIconAcc"> </lightning-icon>
+                     </button>
+                     <div class="">
+                        <ul class="subMenuMob">
+                           <li><a onclick={navigateToCreaditPreApproval} href="javascript:void(0);" role="link">{labels.ApplyforPreApprovalLabel}</a></li>
+                           <li onclick={navigateToLeaseVSFinance}><a href="javascript:void(0);" role="link">{labels.LeaseVsFinanceLabel}</a></li>
+                           <li><a onclick={navigateTohondaLoyaltyBenfits} href="javascript:void(0);" role="link">{labels.HondaLoyaltyBenefitsLabel}</a></li>
+                           <li><a onclick={navigateToAcuraLoyalotyPage} href="javascript:void(0);" role="link">{labels.AcuraLoyaltyAdvantageLabel}</a></li>
+                           <li><a onclick={navigateToEndOfTerm} href="javascript:void(0);" role="link">{labels.EndofTermLabel}</a></li>
+                           <li onclick={navigateToProtectionProducts}><a href="javascript:void(0);" role="link">{labels.ProtectionofProductsLabel}</a></li>
+                           <div if:false={isSubMenuOpenOffer}>
+                              <li onclick={onSubmenuOfferClick}>
+                                 <a href="javascript:void(0);" role="link">{labels.OFFER} </a>
+                                 <lightning-icon icon-name="utility:chevrondown" alternative-text="down" size="x-small"
+                                    title="Connected" class="AHFC_DownIconlevel2"> </lightning-icon>
+                              </li>
+                           </div>
+                           <div if:true={isSubMenuOpenOffer}>
+                              <li onclick={onSubmenuOfferClick}>
+                                 <a href="javascript:void(0);" role="link">{labels.OFFER}</a>
+                                 <a href="javascript:void(0);" tabindex="-1" role="link">
+                                    <lightning-icon icon-name="utility:chevronup" alternative-text="down" size="x-small"
+                                       title="Connected" class="AHFC_DownIconlevel2"> </lightning-icon>
+                                 </a>
+                              </li>
+                              <ul class="subMenuMob sub2level">
+                                 <li><a href={labels.OffersHondaURLLabel} target="_blank" role="link">{labels.Honda} </a></li>
+                                 <li><a href={labels.OffersAcuraURLLabel} target="_blank" role="link">{labels.Acura} </a></li>
+                                 <li><a href={labels.OffersPowersportsURLLabel} target="_blank" role="link">{labels.PowerSports}
+                                    </a></li>
+                                 <li><a href={labels.OffersPowerEquipmentURLLabel}
+                                       target="_blank" role="link">{labels.PowerEquipment} </a></li>
+                                 <li><a href={labels.OffersMarineURLLabel} target="_blank" role="link">{labels.Marine} </a></li>
+                              </ul>
+                           </div>
+                           <div if:false={isSubMenuOpenCalculator}>
+                              <li onclick={onSubmenuCalcClick}>
+                                 <a href="javascript:void(0);" role="link">{labels.Calculator}</a>
+                                 <a href="javascript:void(0);" tabindex="-1" role="link">
+                                    <lightning-icon icon-name="utility:chevrondown" alternative-text="down"
+                                       size="x-small" title="Connected" class="AHFC_DownIconlevel2"> </lightning-icon>
+                                 </a>
+                              </li>
+                           </div>
+                           <div if:true={isSubMenuOpenCalculator}>
+                              <li onclick={onSubmenuCalcClick}>
+                                 <a href="javascript:void(0);" role="link">{labels.Calculator}</a>
+                                 <a href="javascript:void(0);" tabindex="-1" role="link">
+                                    <lightning-icon icon-name="utility:chevronup" alternative-text="down" size="x-small"
+                                       title="Connected" class="AHFC_DownIconlevel2"> </lightning-icon>
+                                 </a>
+                              </li>
+                              <ul class="subMenuMob sub2level">
+                                 <li><a href={labels.CalculatorHondaNewVehiclesURLLabel}
+                                       target="_blank" role="link">{labels.AHFC_HondaNewVehickes}</a></li>
+                                 <li><a href={labels.CalculatorHondaCertifiedPreOwnedURLLabel}
+                                       target="_blank" role="link">{labels.HondaCertifiedOwner}</a></li>
+                                 <li><a href={labels.CalculatorAcuraURLLabel} target="_blank" role="link">{labels.Acura}</a></li>
+                                 <li><a href={labels.CalculatorPowersportsURLLabel}
+                                       target="_blank" role="link">{labels.PowerSports}</a></li>
+                                 <li><a href={labels.CalculatorMarineURLLabel} target="_blank" role="link">{labels.Marine}</a></li>
+                              </ul>
+                           </div>
+                           <div if:false={isSubMenuOpenDealer}>
+                              <li onclick={onSubmenuDealClick}>
+                                 <a href="javascript:void(0);" role="link">{labels.Locatedealer}</a>
+                                 <a href="javascript:void(0);" tabindex="-1">
+                                    <lightning-icon icon-name="utility:chevrondown" alternative-text="down"
+                                       size="x-small" title="Connected" class="AHFC_DownIconlevel2"> </lightning-icon>
+                                 </a>
+                              </li>
+                           </div>
+                           <div if:true={isSubMenuOpenDealer}>
+                              <li onclick={onSubmenuDealClick}>
+                                 <a href="javascript:void(0);" role="link">{labels.Locatedealer}</a>
+                                 <a href="javascript:void(0);" tabindex="-1">
+                                    <lightning-icon icon-name="utility:chevronup" alternative-text="down" size="x-small"
+                                       title="Connected" class="AHFC_DownIconlevel2"> </lightning-icon>
+                                 </a>
+                              </li>
+                              <ul class="subMenuMob sub2level AHFC_RemBordbottom">
+                                 <li><a href={labels.LocateADealerHondaURLLabel} target="_blank" role="link">{labels.Honda}</a></li>
+                                 <li><a href={labels.LocateADealerAcuraURLLabel} target="_blank" role="link">{labels.Acura}</a></li>
+                                 <li><a href={labels.LocateADealerPowersportsURLLabel}
+                                       target="_blank" role="link">{labels.PowerSports}</a></li>
+                                 <li><a href={labels.LocateADealerMarineURLLabel} target="_blank" role="link">{labels.Marine}</a>
+                                 </li>
+                                 <li><a href={labels.LocateADealerPowerEquipmentURLLabel}
+                                       target="_blank" role="link">{labels.PowerEquipment}</a></li>
+                              </ul>
+                           </div>
+                        </ul>
+                     </div>
+                  </div>
+                  <div if:false={isSubMenuOpenSupport}>
+                     <button class="accordion Titlestyle" onclick={onSubmenuSupportClick} role="button">
+                        {labels.SUPPORTLabel}
+                        <lightning-icon icon-name="utility:chevrondown" alternative-text="down" size="x-small"
+                           title="Connected" class="AHFC_DownIconAcc"> </lightning-icon>
+                     </button>
+                  </div>
+                  <div if:true={isSubMenuOpenSupport}>
+                     <button class="accordion Titlestyle" onclick={onSubmenuSupportClick} role="button">
+                        {labels.SUPPORTLabel}
+                        <lightning-icon icon-name="utility:chevronup" alternative-text="down" size="x-small"
+                           title="Connected" class="AHFC_DownIconAcc"> </lightning-icon>
+                     </button>
+                     <div class="">
+                        <ul class="subMenuMob">
+                           <li><a onclick={navigateTohelpCenter} href="javascript:void(0);" role="link">{labels.HelpCenterLabel}</a></li>
+                           <li><a onclick={navigateToContactUsPage} href="javascript:void(0);" role="link">{labels.ContactUsLabel}</a></li>
+                           <!--Added by sagar re arrange links for bug fix 22786 -->  
+                           <li><a onclick={navigateToPaymentOptions} href="javascript:void(0);" role="link">{labels.PaymentOptionsLabel}</a></li>
+                           <li onclick={navigateToPrintableForms}><a href="javascript:void(0);" role="link">{labels.PrintableFormsLabel}</a></li>
+                           
+                           <div if:false={isSubMenuOpenProdSupport}>
+                              <li onclick={onSubmenuProdSupClick}>
+                                 <a href="javascript:void(0);" role="link">{labels.ProductSupport}</a>
+                                 <a href="javascript:void(0);" tabindex="-1">
+                                    <lightning-icon icon-name="utility:chevrondown" alternative-text="down"
+                                       size="x-small" title="Connected" class="AHFC_DownIconlevel2"> </lightning-icon>
+                                 </a>
+                              </li>
+                           </div>
+                           <div if:true={isSubMenuOpenProdSupport}>
+                              <li onclick={onSubmenuProdSupClick}>
+                                 <a href="javascript:void(0);" role="link">{labels.ProductSupport}</a>
+                                 <a href="javascript:void(0);" tabindex="-1">
+                                    <lightning-icon icon-name="utility:chevronup" alternative-text="down" size="x-small"
+                                       title="Connected" class="AHFC_DownIconlevel2"> </lightning-icon>
+                                 </a>
+                              </li>
+                              <ul class="subMenuMob sub2level AHFC_RemBordbottom">
+                                 <li><a href={labels.ProductSupportHondaURLLabel} target="_blank" role="link">{labels.Honda}</a>
+                                 </li>
+                                 <li><a href={labels.ProductSupportAcuraURLLabel} target="_blank" role="link">{labels.Acura}</a>
+                                 </li>
+                                 <li><a href={labels.ProductSupportPowersportsURLLabel}
+                                       target="_blank">{labels.PowerSports}</a></li>
+                                 <li><a href={labels.ProductSupportMarineURLLabel} target="_blank" role="link">{labels.Marine}</a>
+                                 </li>
+                                 <li><a href={labels.ProductSupportPowerRequirementURLLabel}
+                                       target="_blank" role="link">{labels.PowerEquipment}</a></li>
+                              </ul>
+                           </div>
+                        </ul>
+                     </div>
+                  </div>
+                  <div if:false = {isSubMenuOwner}>
+                     <button class="accordion Titlestyle"  onclick={onSubmenuOwnerClick} role="button">
+                        {labels.OWNERSLabel}
+                        <lightning-icon icon-name="utility:chevrondown" alternative-text="down"  size="x-small" title="Connected" class="AHFC_DownIconAcc"> </lightning-icon>
+                     </button>
+                  </div>
+                  <div if:true = {isSubMenuOwner}>
+                     <button class="accordion Titlestyle" onclick={onSubmenuOwnerClick} role="button">
+                        {labels.OWNERSLabel}
+                        <lightning-icon icon-name="utility:chevronup" alternative-text="down"  size="x-small" title="Connected" class="AHFC_DownIconAcc"> </lightning-icon>
+                     </button>
+                     <div class="">
+                        <ul class=" subMenuMob">
+                           <li if:true={isDisplay}><a href={labels.OWNERSHondaLabelUrl} target="_blank" role="link">{labels.OWNERSHondaLabel}</a></li>
+                           <li if:true={isDisplay}><a href={labels.OWNERSAcuraLabelUrl} target="_blank" role="link">{labels.OWNERSAcuraLabel}</a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <template if:true={isCheck}>
+                    <div if:false={isSubMenuOpenMyacc}>
+                     <button class="accordion Titlestyle" onclick={onSubmenuMyaccClick} role="button">
+                        {labels.MyAccountLabel}
+                        <lightning-icon icon-name="utility:chevrondown" alternative-text="down" size="x-small"
+                           title="Connected" class="AHFC_DownIconAcc"> </lightning-icon>
+                     </button>
+                     </div>
+                    <div if:true={isSubMenuOpenMyacc}>
+                     <button class="accordion Titlestyle" onclick={onSubmenuMyaccClick} role="button">
+                        {labels.MyAccountLabel}
+                        <lightning-icon icon-name="utility:chevronup" alternative-text="down" size="x-small"
+                           title="Connected" class="AHFC_DownIconAcc"> </lightning-icon>
+                     </button>
+                     <div class="">
+                        <ul class=" subMenuMob">
+                           <li><a onclick={navigateToLoginPage} href="javascript:void(0);">Log In</a></li>
+                        </ul>
+                     </div>
+                    </div>
+                  </template>
+               </ul>
+            </div> 
+         </footer>
+      </template>
+      <footer class="AHFC_MobMargin">
+         <div class="AHFC_FooterWrap">
+            <div class="slds-grid AHFC_FtIconlayout AHFC_TopStyle">
+               <div class="AHFC_BrandsTitle ">{labels.HondaFamilyOfBrands}</div>
+               <div class="slds-grid AHFC_MobIconWrap">
+                  <div class=" AHFC_Iconslayout   "> <a href={labels.HondaCarLogoUrl} target="_blank" role="link"><img
+                           src={hondacarLogoUrl} alt={labels.HondaCarLogoUrl} class="" /></a></div>
+                  <div class="AHFC_Iconslayout "> <a href={labels.HondaAcuraLogoUrl} target="_blank" role="link"> <img
+                           src={acurawhiteLogoUrl} alt={labels.HondaAcuraLogoUrl} /></a></div>
+                  <div class=" AHFC_Iconslayout "> <a href={labels.HondaBikeLogoUrl} target="_blank" role="link"><img
+                           src={hondabikeLogoUrl} alt={labels.HondaBikeLogoUrl} /></a></div>
+                  <div class=" AHFC_Iconslayout  AHFC_AddRt AHFC_Addleft ">
+                     <a href={labels.HondaPowerEquipmentLogoUrl} target="_blank" role="link"><img src={hondaPowerEqLogoUrl}
+                           alt={labels.HondaPowerEquipmentLogoUrl} /></a>
+                  </div>
+                  <div class="AHFC_Iconslayout  AHFC_AddRt ">
+                     <a href={labels.HondaMarineLogoUrl} target="_blank" role="link"><img src={hondaMarineLogoUrl}
+                           alt={labels.HondaMarineLogoUrl} /></a>
+                  </div>
+                  <div class="AHFC_Iconslayout   "> <a href={labels.HondaJetLogoUrl} target="_blank" role="link"><img
+                           src={hondaJetLogoUrl} alt={labels.HondaJetLogoUrl} /></a></div>
+               </div>
+               <div class="AHFC_DividerLine"></div>
+            </div>
+            <div class="slds-grid AHFC_FtIconlayout  AHFC_BottomStyle">
+               <div class="slds-grid AHFC_Options">
+                  <div class="AHFC_MobTermOptions"><a onclick={navigateToAboutUsPage} href="javascript:void(0);" data-id="" role="link">{labels.Aboutus}</a>
+                  </div>
+                  <div class="AHFC_MobTermOptions" onclick={navigateToTermsAndConditions}><a href="javascript:void(0);" role="link"
+                        data-id="">{labels.TermsAndConditions}</a></div>
+
+                 <div class="AHFC_MobTermOptions" onclick={privacyPolicyTagging}><a href={privacyPolicyPdfUrl} target="_blank" role="link"
+                        data-id="">{labels.Privacypolicy}</a></div>
+                        
+                  <div class="AHFC_MobTermOptions"><a href={labels.InvestorRelationsURL} target="_blank" role="link"
+                        data-id="">{labels.InvestorRelations}</a></div>
+                  <div class="AHFC_MobTermOptions"><a href={labels.CareersUrl} target="_blank" role="link"
+                        data-id="">{labels.Careers}</a></div>
+                 <!-- <div class="AHFC_MobTermOptions"><a href="javascript:void(0)" data-id="">{labels.PersonalInfo}</a>
+                  </div>-->
+                  <div class="AHFC_MobTermOptions" onclick={navigateToDoNotSellPerInfo}><a href="javascript:void(0);"  data-id="">{labels.PersonalInfo}</a>
+                  </div>
+               </div>
+               <div class="slds-grid AHFC_Options">
+                  <div class="slds-col AHFC_MobTerms">
+                     <div class="AHFC_CookiesStyle" onclick={cookiePolicyTagging}>
+                        <p>{labels.Cookietext}</p>
+                        <a href={privacyPolicyPdfUrl} target="_blank" role="link">{labels.CookiePolicy}</a>
+                     </div>
+                  </div>
+                  <div class="slds-col AHFC_StyleRt AHFC_MobTerms AHFC_RemRightStyle AHFC_NoFloat">
+                     <p>{labels.Corporation}</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+   </div>
+</template>

@@ -1,0 +1,219 @@
+<template>
+  <c-a-h-f-c_vehicle-header></c-a-h-f-c_vehicle-header>
+  <div class="made-payment-container ahfc-backgroud-lighter">
+    <div role="main" id="main-container" class="main-content">
+    <div class="made-payment-container-fluid">
+      <div class="made-payment-heading slds-m-vertical_x-large slds-grid">
+        <a href="javascript:void(0);" class="AHFC_removehovereffect" tabindex="0" onclick={showPageNavigationPopup}>
+        <lightning-icon if:false={isPromiseMade} class="ahfc-icon-red" icon-name="utility:back" size="small"
+          alternative-text="back to previous page" title="back" onclick={showPageNavigationPopup}>
+        </lightning-icon></a>
+        <h2 class="ahfc-header-two slds-m-left_medium" if:false={isPromiseMade}>
+          {label.madePaymentHeading}
+        </h2>
+      </div>
+      <!--Added by Prabu for the US - 9970 displaying the error message-->
+      <template if:true={isWebServiceDown}>            
+        <div class="madepayment-content-wrapper">
+        <c-a-h-f-c_message-toast
+        type="error"
+        label="Error"
+        singlemsg={label.AHFC_Already_Made_Payment_Error_Msg} singlelink="Contact Us." onsinglelinkclicked={onToastLinkClicked} message ={addAccountPageErrorMsg2}
+      ></c-a-h-f-c_message-toast>
+      </div>
+    </template>
+    <!--START - Added by Prabu for the bug - 22313-->
+    <template if:true={routingSpinner}>      
+      <c-a-h-f-c_-spinner loading-message={spinnerMessage}></c-a-h-f-c_-spinner>
+  </template>
+  <!--END - Added by Prabu for the bug - 22313-->
+      <div class="payment-container">
+        <template if:false={isPromiseMade}>
+          <h3 class="payment-details ahfc-text-medium slds-m-bottom_xx-large">
+            {label.madePaymentSubHeading}
+          </h3>
+          <p class="payment-info ahfc-text-danger ahfc-sub-text-medium slds-m-bottom_x-large">
+            {madePaymentPastDueDays}
+          </p>
+          <div class="slds-grid slds-gutters payment-mode-container slds-m-bottom_xx-large">
+            <div class="payment-mode-select slds-col slds-size_1-of-2">
+              <a href="javascript:void" tabindex="-1" ><lightning-combobox alt='comboxDropDown' class="ahfc-combobox ahfc-input" name="paymentMode"
+                label={label.madePaymentInputPaymentMode} value={madePaymentDetails.promiseMadeType} aria-label="Select Payment Mode"
+                placeholder="Select mode of payment" options={listModesOfPayment} onchange={handleInputData}
+                data-id="paymentModeCombo"></lightning-combobox></a>
+              <span class="input-combobox slds-form-element__help error-help" if:true={ispaymentMode}>
+                Select a mode of payment.
+              </span>
+            </div> 
+            <div class="ahfc-input slds-form-element tracking-number slds-col slds-size_1-of-2">
+              <label class="slds-form-element__label label-text-medium slds-m-bottom_medium AHFC_TrackingLabel" for="text-input-id-1">
+                {label.madePaymentInputTrackingNumber}
+              </label>
+              <div class="slds-form-element__icon slds-float_right">
+                <a href="javascript:void(0);" aria-label="Enter the tracking or confirmation number associated with the payment." role="tooltip">
+                <img class="inputInfo-icon" src={infoSvg} alt="info" onmouseenter={onClickTrackingInfo}
+                  onmouseleave={onleaveTrackingInfo} ontouchstart={onTouchstartTrackingInfo} /></a>
+                <template if:true={showTrackingPopover}>
+
+                  <div class="slds-popover slds-popover_tooltip slds-nubbin__top-right popover-content" role="tooltip">
+                    <div class="slds-popover__body" >
+                      Enter the tracking or confirmation number associated with the payment.
+                    </div>
+                  </div>
+
+                </template>
+              </div>
+              <div class="slds-form-element__control">
+                <input type="text" id="text-input-id-1" data-id="confirm-input" 
+                  placeholder="Enter the tracking / confirmation number" value={madePaymentDetails.confirmNumber}
+                  oninput={handleInputData} onchange={inputValuesChanged} required="" class="slds-input form-element-input" />
+                  <span class="input-combobox slds-form-element__help error-help" if:true={isTrackingError}>
+                    Error: Tracking number cannot contain any special characters.
+                  </span>
+              </div>
+            </div>
+          </div>
+          <div class="slds-grid slds-gutters">
+            <div class="payment-date slds-col slds-size_1-of-2">
+              <lightning-input class="ahfc-input" type="date" data-id="todatemob" name="todatemob" date-style="short"
+                label={label.madePaymentInputPaymentDate} value={madePaymentDetails.promiseDate}
+                placeholder="MM/DD/YYYY" onchange={handleInputData} min={minDate} max={maxDate}>
+              </lightning-input>
+              <span class="input-combobox slds-form-element__help error-help" if:true={isWrongFormate}>
+                Your entry does not match the allowed format MM/DD/YYYY.
+              </span>
+            </div>
+          </div>
+          <hr aria-hidden="true"/>
+          <h4 class="select-amount-label ahfc-text-medium slds-m-bottom_xx-large">
+            {label.madePaymentSelectAmount}
+          </h4>
+          <div class="due-container slds-m-bottom_xx-large slds-form-element__control slds-grid">
+            
+            <lightning-input 
+            aria-required="true" class="ahfc-radio" tabindex="0" aria-label={label.madePaymentRadioTotalAmount} type="radio" label={label.madePaymentRadioTotalAmount}
+              data-id="radio-total" name="dueType" onchange={handleInputData} checked></lightning-input>
+              
+            <lightning-input class="ahfc-radio" type="radio" tabindex="0" data-id="radio-past" aria-label={label.madePaymentPastDue} label={label.madePaymentPastDue}
+              name="dueType" onchange={handleInputData}></lightning-input>
+              
+            <lightning-input class="ahfc-radio" type="radio" tabindex="0" data-id="radio-other" aria-label={label.madePaymentRadioOther}  label={label.madePaymentRadioOther}
+              name="dueType" onchange={handleInputData}></lightning-input>
+          </div>
+          <div class="amount-paid-info slds-m-bottom_x-large">
+            <label
+              class="ahfc-body-two ahfc-text-grey slds-m-bottom_medium slds-show">{label.madePaymentAmountPaid}</label>
+            <template if:true={boolOtherAmountDue}>
+              <div class="ahfc-input slds-form-element tracking-number slds-col slds-size_1-of-2">
+                  <lightning-input type="number" id="AmountPaid" label="Amount Paid"
+                    class="ahfc-input no-label" name="paymentAmount" 
+                    value={madePaymentDetails.promiseAmount}
+                    formatter="currency" step="0.01" min="0" 
+                    onchange={inputValuesChangedAmountPaidValueOnChange}
+                    variant="label-hidden" aria-labelledby="AmountPaid" 
+                    placeholder="$ Enter Amount"
+                    message-when-range-underflow="Please enter valid Amount"
+                    data-id="amount-input">
+                </lightning-input>
+                <span class="input-combobox slds-form-element__help error-help" if:true={isNegnumber}>
+                    Error: Amount cannot be less than $1
+                </span>
+              </div>
+            </template>
+            <template if:false={boolOtherAmountDue}>
+              <!-- <p class="ahfc-body-one">{label.dollar}{madePaymentDetails.promiseAmount}</p> -->
+              <p class="ahfc-body-one">{amountField}</p>
+            </template>
+          </div>
+          <hr aria-hidden="true" />
+          <div class="payment-action">
+            <button class="slds-button ahfc-btn ahfc-btn-primary AHFC_Button" onclick={onSubmit}>
+              {label.madePaymentButtonSumbit}
+            </button>
+            <button class="slds-button ahfc-btn ahfc-btn-text cancel-btn" onclick={Oncancel}>
+              {label.madePaymentButtonCancel}
+            </button>
+          </div>
+        </template>
+        <template if:true={isPromiseMade}>
+          <template if:false={isWebServiceDown}>
+            <div class="success-info slds-m-bottom_x-large slds-grid">
+              <img class="slds-m-right_medium" src={successIcon} width="45" height="36" alt="SuccessIcon" />
+              <h1 class="ahfc-header-two">{label.madePaymentThankYou}</h1>
+            </div>
+            <p class="ahfc-sub-text-medium ahfc-text-grey slds-m-bottom_x-large">
+              {label.madePaymentSubmittedInfo}
+            </p>
+
+            <div class="payment-info slds-grid slds-wrap slds-m-bottom_x-large">
+              <!-- <div class="payment-mode-info slds-col slds-size_1-of-2"> bug 10969-->
+              <div class="payment-mode-info slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                <label
+                  class="ahfc-info-label slds-m-bottom_x-small slds-show">{label.madePaymentLabelPaymentMode}</label>
+                <p class="ahfc-text-large">{afterResultPaymentMode}</p>
+              </div>
+              <!-- <div class="payment-date-info slds-col slds-size_1-of-2"> bug 10969-->
+              <div class="payment-date-info slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 AHFC_DateWrap">
+                <label
+                  class="ahfc-info-label slds-m-bottom_x-small slds-show">{label.madePaymentLabelPaymentDate}</label>
+                <p class="ahfc-text-large">{promiseDateFormatted}</p>
+              </div>
+            </div>
+            <button class="slds-button ahfc-btn ahfc-btn-text cancel-action" onclick={navigateBackToDashboard}>
+              {label.madePaymentButtonDashboard}
+            </button>
+          </template>
+          
+        </template>
+        
+
+      </div>
+    </div>
+  </div>
+    <!-- 6905 changes starts-->
+    <template if:true={showPopUpNotificationOnChange}>
+      <c-a-h-f-c_page-navigation-notification onaccept={acceptNavigation} oncancel={cancelNavigation}></c-a-h-f-c_page-navigation-notification>
+   </template>
+   <!-- 6905 changes ends-->
+    <!-- cancel modal steps -->
+    <template if:true={openCancelmodal}>
+      <section role="dialog" tabindex="-1" aria-label="Meaningful description of the modal content" aria-modal="true"
+        aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open finance-account-edit-modal">
+        <div class="slds-modal__container">
+          <div class="slds-modal__content edit-modal-content ">
+            <h1 class="AHFC_ModTitle">Cancel?</h1>
+
+            <div class="slds-grid  AHFC_Collayout">
+
+
+              <div class="slds-col ">
+                <span>
+                  <div class="AHFC_ModFormLabel"> Are you sure you want to cancel submitting your payment details?</div>
+
+                </span>
+              </div>
+
+            </div>
+            <div class="AHFC_ModButsec slds-grid slds-m-top_xx-large">
+              <div class="">
+                <span>
+                  <!--START - Added by Prabu for the bugs - 22281, 22306 -->
+                  <button class="slds-button AHFC_BgRedButton slds-m-right_x-large" onclick={onPreviousPage}>
+                    YES, CANCEL
+                  </button></span>
+                  <!--END - Added by Prabu for the bugs - 22281, 22306 -->
+
+                <span>
+                  <button class="slds-button AHFC_NoBgButton " onclick={OnBack}>
+                    BACK
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="slds-backdrop slds-backdrop_open" aria-hidden="true"></div>
+    </template>
+  </div>
+</template>

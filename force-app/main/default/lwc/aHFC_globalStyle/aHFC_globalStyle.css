@@ -1,0 +1,11 @@
+.slds-checkbox__label .slds-checkbox_faux {
+  border: 2px solid #CC0000 !important;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+.slds-checkbox [type="checkbox"]:checked + .slds-checkbox__label .slds-checkbox_faux {
+    background-color: #CC0000 !important;
+}
+.slds-checkbox [type="checkbox"]:checked + .slds-checkbox__label .slds-checkbox_faux::after {
+    border-color: #ffffff !important;
+}

@@ -1,0 +1,261 @@
+<!--
+    Author        : Accenture
+    Date Created  :  
+    Description   : Generate PDF Summary Page for OTP and Principal.
+-->
+
+
+<apex:page renderAs="pdf" controller="PdfOTPSummaryCont"  showHeader="false" applyHtmlTag="false" applyBodyTag="false" standardStylesheets="false" docType="html-5.0" >
+    
+     <html>   
+  <head>
+
+    <style> 
+    div.mainContent {margin: 1px auto;
+    width: 60%;
+    padding: 10px;}
+    table.myTable {background-color: #F2F2F2;
+                    width:460px;
+                    padding: 10px;
+                    margin: 1px;
+                    border-radius:10px;
+                    border-spacing: 10px;} 
+                    
+    table.myTable td{ font-size:14px;
+                        font-color:#333333}
+                                    
+     
+  </style>
+
+  </head> 
+  
+  <!-- Logo on pdf to print conditionally start -->
+    <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda == 'true' ,true,false) }" >
+       <apex:image alt="" url="{!URLFOR($Resource.AFSHFS, 'AfsHfs/images/honda-logo.png')}"  width="25%" height="20%" style="margin-top: 50px;margin-bottom: 0px;margin-right: 0px;margin-left: 50px;"/>
+    </apex:outputpanel>
+    
+    <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda =='false' ,true,false) }">
+        <apex:image alt="" url="{!URLFOR($Resource.AFSHFS, 'AfsHfs/images/Acura.png')}"  width="25%" height="20%" style="margin-top: 50px;margin-bottom: 0px;margin-right: 0px;margin-left: 50px;"/>
+    </apex:outputpanel>
+     
+    
+    <body>
+      <div class="mainContent">
+       <div id='tobePrinted'>
+       <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda == 'true' ,true,false) }">
+           <apex:stylesheet value="{!URLFOR($Resource.AFSHFS, 'AfsHfs/css/style.css')}" />
+           <div class="secondary-title" >Thank You!</div>
+       </apex:outputpanel>
+       <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda =='false' ,true,false) }">
+           <apex:stylesheet value="{!URLFOR($Resource.AFSHFS, 'AfsHfs/css/acura-style.css')}" />
+           <div class="secondary-title">Thank You!</div>
+       </apex:outputpanel>
+        <p class="padding10">
+            {!SumamryMessage} <br/><br/>
+           <apex:outputtext value="{!finnumberWithoutZeroes}"> Account #:&nbsp;&nbsp; </apex:outputtext><br/><br/>
+            
+            <!-- DEFECT 114148 STARTS // UPDATE WITH MULTIPLE OUTPUT PANELS  -->
+            <apex:outputPanel rendered="{!IF(PaymentType == 'STD',TRUE,FALSE)}" styleClass="myTable">
+            <apex:outputText value="{!OTPPayment.Confirmation_Number__c}"> Standard Payment Confirmation #:&nbsp;&nbsp;</apex:outputText><br/><br/>
+            <table border="0" class="myTable">
+                <!-- Added on July 2018 As part of RSS 41776-->
+                <tr>    
+                    <td align="right" >
+                        Payment Authorized On 
+                    </td>
+                    <td align="left"  style="padding-left: 10px;">
+                        {!PaymentAuthorizedOn}
+                    </td>
+                </tr>
+                <!--RSS 41776 changes end --> 
+                   
+                <tr>    
+                    <td align="right" >
+                        Payment Date 
+                    </td>
+                    <td align="left"  style="padding-left: 10px;">
+                        {!PaymentDate}
+                    </td>
+                </tr>
+                
+                <tr>   
+                    <td align="right" >
+                        Bank Account Nickname                    
+                    </td>
+                    <td align="left"  style="padding-left: 10px;">
+                        {!BankAccNickName}
+                    </td>
+                </tr>
+                
+               
+
+               <tr>   
+                    <td align="right" >
+                        Standard Payment Amount                   
+                    </td>
+                    <td align="left"  style="padding-left: 10px;">
+                         ${!OTPPayment.ChargentOrders__Charge_amount__c} 
+                    </td>
+                </tr>
+            <!-- Added on July 2018 As part of RSS 41776-->   
+            <tr>
+            <td colspan="2" align="center">
+            <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda == 'true' ,true,false) }" >
+            <div class="pL10 pR10">For questions,&nbsp;<a href="{!$Label.HondaCSEP}" target="_blank" styleclass="clkhere" >contact Customer Service</a> </div>
+            </apex:outputpanel>
+
+            <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda =='false' ,true,false) }">
+            <div class="pL10 pR10">For questions,&nbsp;<a href="{!$Label.AcuraCSEP}" target="_blank" styleclass="clkhere" >contact Customer Service</a> </div>
+            </apex:outputpanel>    
+            </td>
+            </tr>
+            <!--RSS 41776 changes end -->   
+                 
+            </table>
+           </apex:outputPanel>
+           
+           
+           
+           <apex:outputPanel rendered="{!IF(PaymentType == 'PRINC' ,TRUE,FALSE)}" styleClass="myTable">
+           <apex:outputText value="{!PRINPayment.Confirmation_Number__c}"> Principal Payment Confirmation #:&nbsp;&nbsp;</apex:outputText><br/><br/>
+            <table border="0" class="myTable">
+                <!-- Added on July 2018 As part of RSS 41776-->
+                <tr>    
+                    <td align="right" >
+                        Payment Authorized On 
+                    </td>
+                    <td align="left"  style="padding-left: 10px;">
+                        {!PaymentAuthorizedOn}
+                    </td>
+                </tr>
+                <!--RSS 41776 changes end -->  
+                <tr>    
+                    <td align="right" >
+                        Payment Date
+                    </td>
+                    <td align="left"  style="padding-left: 10px;">
+                        {!PaymentDate}
+                    </td>
+                </tr>
+                
+                <tr>   
+                    <td align="right" >
+                        Bank Account Nickname                    
+                    </td>
+                    <td align="left"  style="padding-left: 10px;">
+                        {!BankAccNickName}
+                    </td>
+                </tr>
+
+                <tr>   
+                    <td align="right"  >
+                        Principal Payment Amount                    
+                    </td>
+                    <td align="left"  style="padding-left: 10px;">
+                       $<apex:outputText value="{!PRINPayment.ChargentOrders__Charge_Amount__c}"   />
+                    </td>
+                </tr>
+              
+            <!-- Added on July 2018 As part of RSS 41776-->     
+            <tr>
+            <td colspan="2" align="center">
+            <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda == 'true' ,true,false) }" >
+            <div class="pL10 pR10">For questions,&nbsp;<a href="{!$Label.HondaCSEP}" target="_blank" styleclass="clkhere" >contact Customer Service</a> </div>
+            </apex:outputpanel>
+
+            <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda =='false' ,true,false) }">
+            <div class="pL10 pR10">For questions,&nbsp;<a href="{!$Label.AcuraCSEP}" target="_blank" styleclass="clkhere" >contact Customer Service</a> </div>
+            </apex:outputpanel>    
+            </td>
+            </tr>
+            <!--RSS 41776 changes end -->       
+
+            </table>
+           </apex:outputPanel>
+           
+           
+           <apex:outputPanel rendered="{!IF(PaymentType == 'BOTH' ,TRUE,FALSE)}" styleClass="myTable">
+           <apex:outputText value="{!OTPPayment.Confirmation_Number__c}"> Standard Payment Confirmation #:&nbsp;&nbsp;</apex:outputText><br/><br/>
+            <apex:outputText value="{!PRINPayment.Confirmation_Number__c}"> Principal Payment Confirmation #:&nbsp;&nbsp;</apex:outputText><br/><br/>
+            <table border="0" class="myTable">
+                <!-- Added on July 2018 As part of RSS 41776-->
+                <tr>    
+                    <td align="right" >
+                        Payment Authorized On 
+                    </td>
+                    <td align="left"  style="padding-left: 10px;">
+                        {!PaymentAuthorizedOn}
+                    </td>
+                </tr>
+                <!--RSS 41776 changes end -->
+                <tr>    
+                    <td align="right" >
+                        Payment Date
+                    </td>
+                    <td align="left" style="padding-left: 10px;">
+                        {!PaymentDate}
+                    </td>
+                </tr>
+                
+                <tr>   
+                    <td align="right" >
+                        Bank Account Nickname                    
+                    </td>
+                    <td align="left" style="padding-left: 10px;">
+                        {!BankAccNickName}
+                    </td>
+                </tr>
+                
+                <tr>   
+                    <td align="right" >
+                        Standard Payment Amount                   
+                    </td>
+                    <td align="left" style="padding-left: 10px;">
+                        ${!OTPPayment.ChargentOrders__Charge_amount__c} 
+                    </td>
+                </tr>
+        
+                <tr>   
+                    <td align="right" >
+                        Principal Payment Amount                    
+                    </td>
+                    <td align="left" style="padding-left: 10px;">
+                      $<apex:outputText value="{!PRINPayment.ChargentOrders__Charge_Amount__c}"   />
+                    </td>
+                </tr>
+                 
+                <tr >   
+                    <td align="right"   >
+                       <b> Total Payment Amount </b>                     
+                    </td>
+                    <td align="left" style="padding-left: 10px;">
+                         <b> $<apex:outputText value="{!TotalPaymentAmount}" rendered="{!if(PRINPayment <> NULL && OTPPayment <> NULL, TRUE, FALSE)}" /></b>
+                    </td>
+                </tr>
+
+            <!-- Added on July 2018 As part of RSS 41776-->     
+            <tr>
+            <td colspan="2" align="center">
+            <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda == 'true' ,true,false) }" >
+            <div class="pL10 pR10">For questions,&nbsp;<a href="{!$Label.HondaCSEP}" target="_blank" styleclass="clkhere" >contact Customer Service</a> </div>
+            </apex:outputpanel>
+
+            <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda =='false' ,true,false) }">
+            <div class="pL10 pR10">For questions,&nbsp;<a href="{!$Label.AcuraCSEP}" target="_blank" styleclass="clkhere" >contact Customer Service</a> </div>
+            </apex:outputpanel>    
+            </td>
+            </tr>
+            <!--RSS 41776 changes end -->   
+            
+            </table>
+           </apex:outputPanel>
+          <!-- DEFECT 114148 ENDS // UPDATE WITH MULTIPLE OUTPUT PANELS  -->
+        </p>
+       </div>  
+    
+    </div>
+    </body> 
+    
+ 
+  </html>  
+</apex:page>

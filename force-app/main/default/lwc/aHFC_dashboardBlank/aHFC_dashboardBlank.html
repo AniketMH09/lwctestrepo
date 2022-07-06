@@ -1,0 +1,72 @@
+<template>
+   <div role="main" id="main-container" class="main-content">
+      <div class="ahfc-background-lighter">
+         <div class="car-header-container ahfc-background-lightest">
+            <div class="ahfc-header-banner"></div>
+
+         </div>
+         <div class="ahfc-container">
+            <div class="slds-grid slds-wrap">
+               <div class="slds-col">
+                  <div class="card-block blank-state-block ahfc-background-lightest">
+                     <section class="blank-dashboard">
+                        <div class="slds-grid slds-wrap slds-grid_vertical-align-center AHFC_CardWrap">
+                           <div class="slds-col slds-size_1-of-1 slds-large-size_9-of-12">
+                              <h3 class="ahfc-text-finacc ahfc-text-medium ahfc-text-red header-text">Let's set up your
+                                 finance account!
+                              </h3>
+                              <p class="ahfc-text-desc ahfc-header-four ahfc-text-grey header-sub-text">Set up your
+                                 account using your
+                                 account # or VIN</p>
+                           </div>
+                           <div class="slds-col slds-size_1-of-1 slds-large-size_3-of-12">
+                              <button class="ahfc-btn ahfc-btn-primary slds-float_right" onclick={onAddFinAcctClick}>Add
+                                 Finance Account</button>
+                           </div>
+                        </div>
+                     </section>
+                  </div>
+               </div>
+            </div>
+
+            <!-- -- Desktop Section -->
+
+            <div class="slds-grid slds-wrap slds-grid_align-spread slds-show_large">
+               <div class="slds-col slds-size_1-of-1 slds-large-size_8-of-12">
+                  <div class="slds-grid slds-wrap">
+                     <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-1">
+                        <div class="card-block ahfc-background-lightest">
+                           <c-a-h-f-c_dashboard-faq page-name="Account_Management"></c-a-h-f-c_dashboard-faq>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12">
+                  <div class="ahfc-imgbg   ahfc-background-lightest" style="margin:0.5rem; width:89%">
+                     <img class="dash-blank-tile AHFC_imgalign" src={blankDashboardMarketingTileURL}
+                        alt="Marketing Tile For Blank Dashboard" />
+                  </div>
+               </div>
+            </div>
+            <!--  Mobile Section for non locked account-->
+            <div class="slds-hide_large">
+               <ul class="slds-accordion sections-accordion">
+                  <div class="slds-col slds-size_1-of-1">
+                     <div class="card-block ahfc-background-lightest">
+                        <c-a-h-f-c_dashboard-faq page-name="Account_Management"></c-a-h-f-c_dashboard-faq>
+                     </div>
+                  </div>
+               </ul>
+               <div class="slds-col slds-size_1-of-1">
+                  <div class="ahfc-imgbg  ahfc-background-lightest" style="margin:0.5rem; width:100%">
+                     <img class="dash-blank-tile AHFC_imgalign" src={blankDashboardMarketingTileURL}
+                        alt="Current Offers Honda Auto Logo" />
+                  </div>
+               </div>
+
+            </div>
+            <!--Locked account mobile view -->
+         </div>
+      </div>
+   </div>
+</template>

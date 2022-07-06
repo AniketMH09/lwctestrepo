@@ -1,0 +1,346 @@
+<template>
+    <div class="account-profile-container">
+      <template if:false={boolStopFinanceAccount}>
+        <div class="account-profile-container-fluid">
+          <h1 class="header-text-large">Finance Account Details</h1>
+          <div class="vehicle-details-container">
+            <h2 class="slds-m-vertical_x-large header-text-medium">
+              Vehicle Details
+            </h2>
+            <div class="vehicle-details-main-section">
+              <div class="vehicle-details-section container-flex">
+                <div class="vehicle-left-section">
+                  <div class="logo-honda">
+                    <img
+                      src={hondaLogo}
+                      width="65"
+                      height="43"
+                      class="slds-m-bottom_medium"
+                    />
+                  </div>
+                  <p class="header-text-large">
+                    Jane’s 2020 Civic Si Sedan
+                    <span>
+                      <lightning-icon
+                        icon-name="utility:edit"
+                        alternative-text="Edit!"
+                        title="Edit"
+                        size="small"
+                        class="slds-m-left_medium"
+                        data-id="nickNameEdit"
+                        onclick={onModalOpen}
+                      ></lightning-icon>
+                    </span>
+                  </p>
+                </div>
+                <div class="vehicle-right-section">
+                  <img src={carImg} />
+                </div>
+              </div>
+              <hr aria-hidden="true"/>
+              <div class="vehicle-account-info container-flex">
+                <div class="account-info">
+                  <label class="label-text-medium slds-m-bottom_x-small"
+                    >ACCOUNT #
+                  </label>
+                  <p class="label-text-large">129398294</p>
+                </div>
+                <div class="account-info">
+                  <label class="label-text-medium slds-m-bottom_x-small"
+                    >VIN
+                  </label>
+                  <p class="label-text-large">189418249015-123</p>
+                </div>
+                <div class="account-info">
+                  <label class="label-text-medium slds-m-bottom_x-small"
+                    >ACCOUNT TYPE</label
+                  >
+                  <p class="label-text-large">Lease</p>
+                </div>
+              </div>
+              <hr aria-hidden="true"/>
+              <div class="owner-info">
+                <label class="label-text-medium slds-m-bottom_x-small"
+                  >PRIMARY OWNER NAME
+                </label>
+                <p class="label-text-large">Jane Appleseed</p>
+              </div>
+              <div class="product-info-section container-flex slds-m-top_x-large">
+                <div class="product-info">
+                  <label class="label-text-medium slds-m-bottom_x-small"
+                    >PRODUCT NAME
+                  </label>
+                  <p class="label-text-large">2020 Civic Si Sedan</p>
+                </div>
+                <div class="product-info">
+                  <label class="label-text-medium slds-m-bottom_x-small"
+                    >COLOR
+                  </label>
+                  <p class="label-text-large">Aegean Blue Metalic</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contract-details-container">
+            <h2 class="slds-m-vertical_x-large header-text-medium">
+              Contract Details
+            </h2>
+            <div class="contract-details-main-section">
+              <div class="contract-detail-info container-flex">
+                <div class="contract-info">
+                  <label class="label-text-medium slds-m-bottom_x-small"
+                    >TOTAL AMOUNT FINANCED
+                  </label>
+                  <p class="label-text-large">$35,000.00</p>
+                </div>
+                <div class="contract-info">
+                  <label class="label-text-medium slds-m-bottom_x-small"
+                    >TERM
+                  </label>
+                  <p class="label-text-large">36 Months</p>
+                </div>
+                <div class="contract-info">
+                  <label class="label-text-medium slds-m-bottom_x-small"
+                    >MATURITY DATE</label
+                  >
+                  <p class="label-text-large">Nov 22, 2022</p>
+                </div>
+              </div>
+              <div class="contract-detail-info container-flex slds-m-top_x-large">
+                <div class="contract-info">
+                  <label class="label-text-medium slds-m-bottom_x-small"
+                    >INTEREST RATE
+                  </label>
+                  <p class="label-text-large">6.25%</p>
+                </div>
+                <div class="contract-info">
+                  <label class="label-text-medium slds-m-bottom_x-small"
+                    >INTEREST PAID YEAR TO DATE</label
+                  >
+                  <p class="label-text-large">$1,063.50</p>
+                </div>
+                <div class="contract-info">
+                  <label class="label-text-medium slds-m-bottom_x-small"
+                    >INTEREST PAID PRIOR YEAR</label
+                  >
+                  <p class="label-text-large">$1,072.50</p>
+                </div>
+              </div>
+              <hr aria-hidden="true"/>
+              <button
+                class="slds-button slds-button_text-destructive action-btn contract-action"
+              >
+                VIEW CONTRACT
+              </button>
+            </div>
+          </div>
+          <div class="contact-details-container">
+            <h2 class="slds-m-vertical_x-large header-text-medium">
+              Contact Information
+            </h2>
+            <div class="contact-details-main-section">
+              <div class="contact-detail-info container-flex">
+                <div class="contact-info">
+                  <label class="label-text-medium slds-m-bottom_x-small"
+                    >CELL PHONE 1
+                  </label>
+                  <p class="label-text-large">
+                    {resultData.otherDemographics.cellPhone}
+                  </p>
+                </div>
+                <div class="contact-info">
+                  <label class="label-text-medium slds-m-bottom_x-small"
+                    >CELL PHONE 2
+                  </label>
+                  <p class="label-text-large">
+                    {resultData.otherDemographics.cellPhone2}
+                  </p>
+                </div>
+                <div class="contact-info">
+                  <label class="label-text-medium slds-m-bottom_x-small"
+                    >HOME PHONE</label
+                  >
+                  <p class="label-text-large">
+                    {resultData.otherDemographics.homePhone}
+                  </p>
+                </div>
+              </div>
+              <div class="contact-detail-info container-flex slds-m-top_x-large">
+                <div class="contact-info">
+                  <label class="label-text-medium slds-m-bottom_x-small"
+                    >WORK PHONE
+                  </label>
+                  <p class="label-text-large">
+                    {resultData.otherDemographics.workPhone}
+                  </p>
+                </div>
+                <div class="contact-info">
+                  <label class="label-text-medium slds-m-bottom_x-small"
+                    >EMPLOYER NAME</label
+                  >
+                  <p class="label-text-large">
+                    {resultData.otherDemographics.placeOfEmployment}
+                  </p>
+                </div>
+              </div>
+              <button
+                class="slds-button slds-m-top_xx-large action-btn contact-action"
+                data-id="contactInfoEdit"
+                onclick={onModalOpen}
+              >
+                EDIT CONTACT INFORMATION
+              </button>
+              <div class="communication-info slds-m-top_xx-large">
+                <p class="para-text-medium">
+                  Want to change where you receive your finance account updates?
+                </p>
+                <a class="para-text-medium slds-m-top_medium slds-show"
+                  >Edit your communication preferences</a
+                >
+              </div>
+              <hr aria-hidden="true"/>
+              <div class="contact-detail-info container-flex">
+                <div class="contact-info">
+                  <label class="label-text-medium slds-m-bottom_x-small"
+                    >GARAGING ADDRESS
+                  </label>
+                  <p class="para-text-medium slds-m-bottom_x-small">
+                    Where you park your vehicle
+                  </p>
+                  <p class="para-text-large slds-m-bottom_x-small address-info">
+                    {resultData.garagingAddress.addressLine1},
+                    {resultData.garagingAddress.addressLine2},
+                    {resultData.garagingAddress.city},
+                    {resultData.garagingAddress.state},
+                    {resultData.garagingAddress.zipCode}
+                  </p>
+                  <button
+                    class="slds-button action-btn contact-action slds-m-top_large"
+                    data-id="garagingAddressEdit"
+                    onclick={onModalOpen}
+                  >
+                    EDIT
+                  </button>
+                </div>
+                <div class="contact-info">
+                  <label class="label-text-medium slds-m-bottom_x-small"
+                    >BILLING ADDRESS</label
+                  >
+                  <p class="para-text-medium slds-m-bottom_x-small">
+                    Where your bill is delivered
+                  </p>
+                  <p class="para-text-large slds-m-bottom_x-small address-info">
+                    {resultData.billToAddress.addressLine1},
+                    {resultData.billToAddress.addressLine2},
+                    {resultData.billToAddress.city},
+                    {resultData.billToAddress.state},
+                    {resultData.billToAddress.zipCode}
+                  </p>
+                  <button
+                    class="slds-button action-btn contact-action slds-m-top_large"
+                    data-id="billingAddressEdit"
+                    onclick={onModalOpen}
+                  >
+                    EDIT
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="finance-action-container slds-m-top_xx-large">
+            <button class="slds-button action-btn dashboard-action">
+              RETURN TO DASHBOARD
+            </button>
+            <button
+              class="slds-button action-btn stop-action"
+              data-id="stopFinanceEdit"
+              onclick={onModalOpen}
+            >
+              STOP MANAGING THIS FINANCE ACCOUNT
+            </button>
+          </div>
+        </div>
+      </template>
+      <template if:true={boolStopFinanceAccount}>
+        <div class="account-profile-container-fluid">
+          <div class="vehicle-details-container">
+            <div class="vehicle-details-main-section">
+              <div class="success-msg-header container-flex">
+                <img
+                  class="slds-m-right_medium"
+                  src={successIcon}
+                  width="45"
+                  height="36"
+                />
+                <h1 class="header-text-large">
+                  You have successfully stopped managing your finance account.
+                </h1>
+              </div>
+              <hr aria-hidden="true"/>
+              <div class="vehicle-details-section container-flex">
+                <div class="vehicle-left-section stop-finance-left-section">
+                  <div class="logo-honda">
+                    <img
+                      src={hondaLogo}
+                      width="65"
+                      height="43"
+                      class="slds-m-bottom_medium slds-m-top_small"
+                    />
+                  </div>
+                  <p class="header-text-large">Jane’s 2020 Civic Si Sedan</p>
+                </div>
+                <div class="vehicle-right-section">
+                  <img src={carImg} />
+                </div>
+              </div>
+              <hr aria-hidden="true"/>
+              <div class="vehicle-account-info container-flex">
+                <div class="account-info">
+                  <label class="label-text-medium slds-m-bottom_x-small"
+                    >ACCOUNT #
+                  </label>
+                  <p class="label-text-large">129398294</p>
+                </div>
+                <div class="communication-info">
+                  <p class="para-text-medium">
+                    Unmanaging an account does not cancel scheduled payments or
+                    stop any activity on your account.
+                  </p>
+                </div>
+              </div>
+              <hr aria-hidden="true"/>
+            </div>
+          </div>
+          <div class="finance-action-container slds-m-top_xx-large">
+            <button class="slds-button action-btn dashboard-action">
+              RETURN TO DASHBOARD
+            </button>
+            <button
+              class="slds-button action-btn stop-action"
+              data-id="stopFinanceEdit"
+              onclick={onModalOpen}
+            >
+              ADD ANOTHER FINANCE ACCOUNT
+            </button>
+          </div>
+        </div>
+      </template>
+    </div>
+    <template if:true={isModalOpen}>
+      <c-a-h-f-c_finance-account-detail-edit
+        modal-header-text={modalHeaderText}
+        nick-name-modal={nickNameModal}
+        contact-info-modal={contactInfoModal}
+        garage-address-modal={garageAddressModal}
+        billing-address-modal={billingAddressModal}
+        stop-finance-modal={stopFinanceModal}
+        modal-save-text={modalBtnSave}
+        modal-cancel-text={modalBtnCancel}
+        result-data={resultData}
+        onmodalsave={onModalSave}
+        onmodalclose={onModalClose}
+        get-finance-account-num={getFinanceAccountNum}
+      >
+      </c-a-h-f-c_finance-account-detail-edit>
+    </template>
+  </template>

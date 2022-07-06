@@ -1,0 +1,12 @@
+<design:component>
+<!--Inputs-->
+<design:attribute name= "strRequestType" label="Request Type" /> 
+
+   <!--outputs--> 
+<design:attribute name= "strEmail" label="Email" />
+<design:attribute name= "strPhoneNumber" label="Phone" />
+<design:attribute name= "strCommunicationPref" label="CommPref" />
+<design:attribute name= "strAuthorizedUser" label="AuthorizedUser" />
+<design:attribute name="strmailaddress" label="Mailing Address" />
+
+</design:component>

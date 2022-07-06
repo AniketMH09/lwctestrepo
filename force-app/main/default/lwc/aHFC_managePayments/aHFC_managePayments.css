@@ -1,0 +1,121 @@
+@media (min-width: 992px) {
+  .ahfc-container {
+width: auto !important; 
+max-width: none !important; 
+margin: 0 130px !important;
+}
+}
+.managepayment-wrapper{
+   width:100%
+}
+.managepayment-container {
+  padding-bottom: 50px;
+}
+
+.payment-info-div .slds-tabs_default__content {
+  padding: 0;
+}
+
+.manage-payment-tabs{
+  display: inline-block;
+  padding: 40px 0 0 40px;
+}
+.paymentinfo-container-fluid .slds-tabs_default__item.slds-is-active:after,
+.slds-tabs_default__nav li.slds-is-active:after,
+.slds-tabs_default__nav li.slds-tabs_default__item:hover:after,
+.slds-tabs_default__nav li.slds-tabs_default__item:focus:after {
+  background:#CC0000;
+}
+.slds-tabs_default__item.slds-is-active .slds-tabs_default__link {
+  font-weight: 500;
+}
+.slds-tabs_default__link,
+.slds-tabs_default__link:hover,
+.slds-tabs_default__link:active,
+.slds-tabs_default__link:focus {
+  color: #000 !important;
+}
+.schedulePayTab, .transactionTab {
+    text-align: center;
+    padding: 5px 50px;
+    border-bottom: 1px solid #afafaf;
+}
+.schedulePayTab a:focus,
+.transactionTab a:focus {
+  text-decoration: none;
+}
+
+.slds-tabs_default__item.slds-is-active{
+    border: 1px solid #AFAFAF;
+}
+
+.transaction-faq .card-block {
+    padding: 40px 40px 26px;
+}
+
+.transaction-faq .section-header {
+  margin-bottom: 20px;
+}
+
+/* FAQ Transaction Accordion */
+
+.ahfc-accordion-item {
+  background: #fff;
+  border: none;
+  margin-bottom: 8px;
+}
+
+/* .ahfc-accordion-item .slds-accordion__summary {
+  padding-bottom: 0;
+} */
+
+.ahfc-accordion-item .slds-accordion__section {
+  padding: 32px 24px 28px;
+}
+
+.ahfc-accordion-item .slds-accordion__summary-action {
+  display: block;
+  color: #000;
+}
+
+.ahfc-accordion-item .slds-accordion__summary-heading .slds-button:focus {
+  text-decoration: none;
+  color: #000;
+}
+
+.sections-accordion .section-header {
+  margin-bottom: 0;
+}
+
+.sections-accordion .mobile-accordion-content {
+  margin-top: 24px;
+}
+/* FAQ Transaction Accordion */
+
+/* @media screen and (min-width: 320px) and (max-width: 540px){ */
+  /* ipad changes */
+@media screen and (min-width: 250px) and (max-width: 768px){
+  .schedulePayTab, .transactionTab{
+    font-size: 12px;
+    line-height: 18px !important;
+    padding: 5px 0;
+    width: 50%;
+  }
+  
+  .managepayment-container{
+      padding-bottom: 40px;
+  }
+
+  .payment-info-div{
+      margin: 16px 0;
+  }
+  .manage-payment-tabs{
+    display: block;
+    padding: 24px 20px 0 ;
+  }
+
+  .manage-payment-tabs ul {
+    width: 100%;
+  }
+    
+}

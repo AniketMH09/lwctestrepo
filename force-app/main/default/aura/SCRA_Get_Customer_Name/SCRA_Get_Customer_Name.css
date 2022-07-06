@@ -1,0 +1,811 @@
+/*button css */
+    
+    /*Primary button start*/
+    .THIS .AHFC_customPrimaryButton{
+      padding: 14px 24px;
+      height: 44px;
+      background: #E42525;
+      border-radius: 3px;
+      text-transform: uppercase;
+      /* border: 2px solid #e42525; */
+      border: none;
+      font-size: 14px;
+      line-height: 16px;
+      text-align: center;
+      letter-spacing: 0.06em;
+      color: #FFFFFF;
+      font-family: 'ahfc-robotomedium' ,sans-serif;
+  }
+  .THIS .AHFC_customPrimaryButton:hover{
+      background: #AA0000;
+  }
+  .THIS .AHFC_customPrimaryButton.disable{
+      background: #AFAFAF;
+      border-color: #AFAFAF;
+  }
+  /*Primary button end*/
+  
+  /*Tertiary button start*/
+  .THIS .AHFC_customTertiaryButton{
+      padding: 14px 24px;
+      height: 44px;
+      border: none;
+      border-radius: 3px;
+      text-transform: uppercase;
+      font-size: 14px;
+      line-height: 16px;
+      background:#ffffff;
+      text-align: center;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #E42525;    
+      font-family: 'ahfc-robotomedium' ,sans-serif;
+      margin-left: 1rem;
+  }
+  .THIS .AHFC_customTertiaryButton:hover{
+      background: rgba(228, 37, 37, 0.05);
+      color: #AA0000;
+  }
+  .THIS .AHFC_customTertiaryButton.disable{
+      color: #AFAFAF;
+  }
+  .THIS .AHFC_customTertiaryButton.disable, .THIS .AHFC_customTertiaryButton.disable:hover{
+      background: #FFFFFF;
+      color: #AFAFAF;
+  }
+  /*Tertiary button end*/
+  
+  /*Secondary button start*/
+  .THIS .AHFC_customSecondaryButton{
+      padding: 14px 22px;
+      height: 44px;
+      border: 2px solid #E42525;
+      border-radius: 3px;
+      text-transform: uppercase;
+      font-size: 14px;
+      line-height: 16px;
+      background:#ffffff;
+      text-align: center;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #E42525;    
+      font-family: 'ahfc-robotomedium' ,sans-serif;
+  }
+  .THIS .AHFC_customSecondaryButton:hover{
+      background: rgba(228, 37, 37, 0.05);
+      border: 2px solid #AA0000;
+      color: #AA0000;
+  }
+  .THIS .AHFC_customSecondaryButton.disable, .THIS .AHFC_customSecondaryButton.disable:hover{
+      border-color: #AFAFAF;
+      background: #FFFFFF;
+      color: #AFAFAF;
+  }
+  /*Secondary button end*/
+  
+  .THIS .AHFC_Cancle{
+      float: right;
+      margin: 0 6.5rem 0 0;
+  }
+  
+  .THIS .AHFC_Primary_Button{
+      
+      margin-left: 2.75rem;
+  }
+  
+  .THIS {
+    font-size: 16px;    
+  }
+  
+  .THIS .AHFC_Fields_Margin{
+  
+  
+      margin-bottom: 44px;
+  }
+  
+  .THIS .AHFC_Section
+  {
+      font-size: 26px;
+      line-height: 36px;
+      color: #000000;
+      font-family: 'ahfc-robotolight';
+      margin-bottom: 29px;
+  }
+  
+  .THIS .AHFC_Divider{
+      border: 1px solid #D9D9D9;
+      margin: 3.75rem 0 2.5rem;
+  }
+  
+  .THIS .AHFC_Checkbox_Text{
+      font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #5E6162;
+      margin-left: 1rem;
+      margin-bottom: 3.5rem;
+  }
+  
+  .THIS .AHFC_Bottom_TEXT{
+      display: flex;
+  
+  }
+  .THIS .center {
+    /* width: 66%;
+    margin: 0 auto; */
+   /* background: #E5E5E5;*/
+       background: #fff;
+    margin: 0 auto;
+    padding-bottom: 0.1px;
+  }
+  .THIS .aHFCEmail{
+      font-size: 14px;
+      line-height: 18px;
+  letter-spacing: 0.03em;
+  color: #5E6162;
+          margin-bottom: 18px;
+  }
+  .THIS .inputField .slds-input{
+          background: #f7f7f7!important;
+      height: 56px!important;
+      border: none !important;
+      border-bottom: 1px gray solid!important;
+      border-radius: 0rem !important;
+      
+  }
+  .THIS .aHFC_rightSpace{
+      /*margin-right: 1rem;*/
+      margin-right: 20px;
+  }
+  
+  .THIS .AHFC_Label{
+      font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #5E6162;
+  margin-bottom: 1.5rem;    
+  }
+  
+  .THIS .AHFC_Radio .slds-form-element__label
+  {
+   font-weight:400;
+   margin-right: 7rem;   
+  }
+  
+  @media (max-width: 1024px) {
+    .THIS .center {
+      width: 100%;
+      padding-bottom: 0.1px;
+    }
+  }
+  .THIS .header {
+    font-size: 28px;
+    /* margin-bottom: 30px;     */
+    /* vertical-align: inherit; */
+      align-items: center;   
+      text-align: center;
+  }
+  .THIS .info {
+    padding: 30px 30px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    background:#f7f7f7;
+  }
+  .THIS .Message_CCPA{
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: 0.02em;
+      color: #5E6162;
+  }
+  .THIS .info h3 {
+    font-weight: 600;
+    margin-bottom: 10px;
+   /* border-bottom: 1px solid #d3d3d3; */
+    padding-bottom: 10px;
+  }
+  .THIS .block {
+    margin-bottom: 30px;    
+  }
+  .THIS .action {
+    margin-bottom: 30px;    
+  }
+  .THIS label {
+    display: block;
+    font-weight: 600;    
+  }
+  .THIS .dd-picker {
+    width: 50%;
+  }
+  @media (max-width: 1024px) {
+    .THIS .dd-picker {
+      width: 100%;
+    }
+  }
+  .THIS .dd-picker input {
+      display: inline-block;
+      padding: 10px;
+      margin-top: 5px;
+      width: 100%;
+      font-size: 16px;
+      margin-left: 0px;
+      z-index: 100;
+      background: transparent;
+      border: 2px solid #ddd;
+      border-radius: 25px;
+      padding-left: 15px;
+  }
+  .THIS .dd-picker input::placeholder {
+    font-size: 16px;
+  }
+  .THIS .calendar-icon {
+      display: inline-block;
+      z-index: 0;
+      float: right;
+      margin-left: 0px;
+      margin-top: -37px;
+      padding-right: 20px;
+      height: 30px;
+  }
+  /* helper */
+  .THIS .mb-sm {
+    margin-bottom: 10px;
+  }
+  .THIS .mr-sm {
+    margin-right: 10px;
+  }
+  .THIS .pull-left {
+    float: left;
+  }
+  .THIS .pull-right {
+    float: right;
+  }
+  @media (max-width: 768px) {
+    .THIS .action .default {
+      /* width: 100%; */
+    }
+    .THIS .action .primary.pull-right {
+      float: none;
+      margin-top: 20px;
+      width: 100%;
+    }
+  }
+  .THIS .info-output .slds-col {
+    margin-bottom: 20px;
+  }
+  .THIS .btn {
+    background: #fff;
+    /* padding: 7px 30px; */
+    padding: 7px 22px;
+    /* border-radius: 29px; */
+    font-size: 16px;
+    border-width: 2px;
+    /* font-weight: 400; */
+    font-size: 14px;
+    /* line-height: 16px; */
+    font-family: 'ahfc-robotomedium';
+  }
+  /* .THIS .btn {
+    background: #fff;
+    padding: 0 30px !important;
+    border-radius: 29px;
+    font-size: 16px;
+    border-width: 2px;
+    font-weight: 400;
+    line-height: 36px;
+    height: 40px;
+    transition: .2s;
+  } */
+  .THIS .btn.default {
+    /* background: #fff;
+    border: 2px solid #0072CE;
+    color: #0072CE; */
+    background: #fff;
+    color: #E42525;
+    padding: 0.9rem;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .THIS .btn.primary {
+    /* background: #0072CE;
+    border: 2px solid #0072CE;
+    color: #fff; */
+    background: #E42525;
+    border: 2px solid #E42525;
+    color: #fff;
+       /* margin-top: 54px; */
+      font-size: 14px;
+      line-height: 16px;
+      letter-spacing: 0.84px;
+      /* padding-top: 14px;
+      padding-bottom: 14px;
+      padding-left: 28.5px;
+      padding-right: 28.5px; */
+      padding: 0.8rem;
+       width: 100% !important;
+  }
+  .THIS .btn.sec {
+    /* background: #0072CE;
+    border: 2px solid #0072CE;
+    color: #fff; */
+    background: #E42525;
+   /* border: 2px solid #E42525;*/
+      border:none;
+    color: #fff;     
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.84px;
+    /* padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 28.5px;
+    padding-right: 28.5px; */
+    padding: 0.8rem;
+    width: 100% !important;
+  }
+  .THIS .AHFC_CommunitySecHeader{padding:0rem !important;display: inline-flex;}
+  .THIS .AHFC_MobLAyout{display: block;}
+  .THIS .AHFC_CommunitySecHeader{width: 100%;
+    padding: 0 4rem;
+    height: 100px!important;
+    border-bottom: 1px solid #d9d9d9;}
+  .THIS .AHFC_LeftGridSec {
+    padding: 1rem 2rem 0.75rem 0.5rem;
+    float: left;
+    /* border-right: 1px solid black; */
+    /* height: 55px; */
+    border-right: 1px solid #d9d9d9;
+    }
+  .THIS .AHFC_SecLogostyle{
+    width: auto;
+    height: 50px;
+    }
+  .THIS .AHFC_SecLogostyle img{    object-fit: contain;
+    /* width: auto; */
+    height: 43px;}
+  
+  .THIS .AHFC_VehImg {    width: auto;
+    /* height: auto; */
+    float: left;
+    padding: 1rem 2rem .75rem 2rem;}
+  .THIS .AHFC_VehImg img{
+    height: 56px;
+    object-fit: contain;
+    width: auto;
+  }
+  
+  .THIS .AHFC_Vehdetail { float: left;
+    padding: 0.5rem 2rem .75rem 2rem;
+    line-height: 2;}
+  .THIS .AHFC_DetName{font-size: 18px;
+    font-family: 'ahfc-roboto';}
+  .THIS .AHFC_Aclabel{
+    color: #6b6e6e;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  /*desktop start*/
+  .THIS .ahfc_arrowAlign{
+    align-items: center;
+    
+  }
+  .THIS .ahfc_arrowMargin{
+    margin-top: 0rem;
+  }
+  
+  .THIS .Message_CCPA{
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: 0.02em;
+      color: #5E6162;
+  }
+  
+  .THIS .AHFC_HeaderWrap{
+    margin: 0rem 8.2rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+  /* .THIS .AHFC_HeaderWrap span, .THIS .header{ */
+  .THIS .AHFC_HeaderWrap span{
+    font-size: 38px;
+    line-height: 48px;
+    color: #000000;
+    /*padding-left: 1rem;*/
+    font-family: 'ahfc-robotolight', sans-serif;
+  }
+  .THIS .AHFC_backArrow { 
+    --lwc-colorTextIconDefault:#e42525;
+    margin-right: 1rem;
+  }
+  .THIS .AHFC_DetailWrap{
+    margin: 0 8.2rem 9rem 8.2rem;
+      padding: 3.5rem 3.2rem 3.5rem 9rem;
+      background: #fff;
+  }
+  .THIS .AHFC_DetailWrap .info p{
+    /* font-weight: 500; */
+   /* font-family: 'ahfc-robotomedium'; */
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03rem;
+    /* text-transform: uppercase; */
+    color: #000000;
+    /* color: #5E6162; */
+  } 
+  .THIS .AHFC_DetailWrap .info span, .THIS .AHFC_DetailWrap .info a{
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.02rem;
+    color: #5E6162;
+  }
+  .THIS .AHFC_DetailWrap .info a{ 
+    margin-left: 0.4rem;
+    text-decoration: underline;
+    color: #e42525;
+  }
+  .THIS .ahfc_buttons{
+    margin-top: 2.5rem;
+  }
+  .THIS .ahfc_heading{
+    /* font-family: 'ahfc-robotomedium';
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #000000; */
+    font-size: 30px;
+    line-height: 40px;
+    font-family: 'ahfc-robotolight';
+    letter-spacing: 0.03em;
+    color: #000000;
+  }
+  .THIS .ahfc_padding{
+    padding-bottom: 1.5rem;
+  }
+      
+   .THIS .ahfc_bodyText{        
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.02rem;
+    color: #5E6162;
+  }
+      
+  .THIS .AHFC_CancelBtn{
+    border: none;
+    padding: 0.6rem 0rem;
+    text-transform: uppercase;
+    margin-left: 2rem;
+    font-size: 14px;
+    line-height: 16px;
+    font-family: 'ahfc-robotomedium' ,sans-serif;
+    color: #e42525;
+  }
+  /*mobile start*/
+  @media (min-width: 320px) and (max-width: 767px) {
+          
+          .THIS .AHFC_Label{
+              font-size: 14px;
+              line-height: 18px;
+              
+           }
+          
+          .THIS .AHFC_Radio .slds-form-element__label
+          {
+           font-weight:400;
+           margin-right: 3rem;  
+          }
+          
+          .THIS .aHFCEmail{
+              font-size: 14px;
+              line-height: 20px;
+  
+          }
+          
+          .THIS .aHFC_rightSpace{
+                margin-bottom: 3.125rem;
+           }
+          
+          .THIS .AHFC_Divider{
+              margin: 3.625rem 0 2rem;
+          }
+          .THIS .AHFC_Section{
+              font-size: 20px;
+              line-height: 30px;
+              margin-bottom: 21px;
+          }
+          
+          .THIS .AHFC_Checkbox_Text
+          {
+              font-size: 14px;
+              line-height: 20px;
+              margin-bottom: 2rem;
+          }
+          
+          .THIS .ahfc_arrowMargin {
+       margin-top: 0 ; 
+  }
+          .THIS .header {
+              font-size: 0px;
+           }
+          /* mobile button css*/
+          
+          /*Primary & Secondary button start*/
+  .THIS .AHFC_customPrimaryButton, .THIS .AHFC_customSecondaryButton{
+      display: block;
+      width: 100%;
+  }
+          .THIS .AHFC_Mob_buttons
+          {
+              display: initial;
+              width: 49%;
+          }
+  /*Primary & Secondary button end*/
+  
+  /*Tertiary button start*/
+  .THIS .AHFC_customTertiaryButton{
+      display: block;
+      width: 100%;
+      margin-left: 0;
+      margin: 2rem 0 0;
+  }
+  /*Tertiary button end*/
+          
+          .THIS .ahfc_bodyText{
+    font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.03em;
+  }
+          
+    .THIS .AHFC_Vehdetail { 
+      line-height: 1;}
+    .THIS .AHFC_HeaderWrap svg {    
+      vertical-align: middle;
+    }
+    .THIS .AHFC_BtnWrap{
+      margin-top: 0rem;
+    }
+    .THIS .AHFC_HeaderWrap{
+      margin: 0rem;
+      padding: 1.5rem 1rem 1.5rem;
+    }
+    .THIS .AHFC_HeaderWrap span{
+      font-size: 20px;
+      line-height: 26px;
+    }
+    .THIS .AHFC_DetailWrap{
+      margin: 0rem;
+      padding: 2rem 1rem;
+      background: #fff;
+    }
+    .THIS .AHFC_DetailWrap .info{
+      /* padding: 1.3rem 0.5rem; */
+      padding: 1.3rem 1rem;
+      margin-top: 0;
+    }
+    .THIS .AHFC_DetailWrap .info p{
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.03em;
+    }  
+    .THIS .AHFC_CardData span{
+      font-size: 26px;
+      line-height: 36px;
+    }
+   
+    .THIS .AHFC_backArrow { 
+      margin-right: 0.5rem;
+    }
+    .THIS .ahfc_mobButtons{
+      width: 100%;
+    }
+          
+   .THIS .ahfc_ddc_btn {
+   width: 100% !important;
+      }
+          
+  .THIS .ahfc_ddc_btn {
+      font-weight: 600;
+      color: white;
+      /* margin-top: 54px; */
+      font-size: 14px;
+      line-height: 16px;
+      letter-spacing: 0.84px;
+      padding-top: 14px;
+      padding-bottom: 14px;
+      padding-left: 28.5px;
+      padding-right: 28.5px;
+      background: #E42525;
+      }
+          .THIS .ahfc_ddc_conatin {
+      background: #F7F7F7;
+          /* padding: 20px; */
+  }
+          .THIS .ahfc_ddc_contain_p {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+      letter-spacing: 0.48px;
+      color: black;
+  }
+  
+  .THIS .ahfc_ddc_contain_p_2 {
+          font-size: 18px !important;
+      line-height: 28px !important;
+      letter-spacing: 0.32px;
+      font-weight: 400;
+  }
+  .THIS .ahfc_ddc_contain_p {
+          font-size: 14px !important;
+      line-height: 20px !important;
+      letter-spacing: .02em !important;
+      color: black !important;
+      }
+  .THIS .ahfc_ddc_contain_p_2_link {
+      margin-left: 5px;
+      color: red;
+  }
+          
+      .THIS .ahfc_ddc_contain_p {
+          font-size: 14px !important;
+      line-height: 20px !important;
+      letter-spacing: .02em !important;
+      color: black !important;
+      }
+           .THIS .ahfc_ddc_btn {
+          width: 100% !important;
+      }
+          
+    .THIS .AHFC_DetailWrap .info span, .THIS .AHFC_DetailWrap .info a{
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.03em;
+    }
+    /* .THIS .ahfc_heading{
+      padding-bottom: 1rem;
+    } */
+    .THIS .AHFC_CancelBtn{
+      margin-top: 2rem;
+      margin-left: 0;    
+    }
+    .THIS .ahfc_heading{
+      font-size: 20px;
+      line-height: 26px;
+      padding-bottom: 1.5rem;
+    }
+    
+  }
+  /*mobile end*/
+      
+  /*pop up css*/
+      
+      .THIS .header-text-medium {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 26px;
+      line-height: 36px;
+      color: #000000;
+    }
+    .THIS .label-text-medium {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      display: block;
+      letter-spacing: 0.03em;
+      color: #5e6162;
+    }
+    .THIS .para-text-medium {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: 0.02em;
+      color: #5e6162;
+    }
+    .THIS .form-element-input{
+      border-width: 0px 0px 1px 0px solid #5E6162;
+      border-radius: 0;
+      background: #f7f7f7;
+      height: 56px;
+      font-family: Roboto;
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: 0.02em;
+      color: black;
+    }
+    .THIS .form-element-input:focus{
+      outline: none;
+      box-shadow: none;
+      border-color: #5E6162;
+    }
+    .THIS .check-billing p, 
+    .THIS .check-billing .slds-form-element__label{
+      font-size: 18px !important;
+      color: #000000;
+    }
+    .THIS .finance-account-edit-modal{
+      position: absolute;
+    }
+    .THIS .finance-account-edit-modal:focus{
+      outline: none;
+    }
+    .THIS .finance-account-edit-modal .slds-modal__container{
+      height: auto;
+    }
+    .THIS .action-btn {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 16px;
+      text-align: center;
+      padding: 14px 24px;
+      letter-spacing: 0.06em;
+    }
+    
+    
+    
+    .THIS .edit-modal-content{
+      padding: 80px 100px;
+      border-radius: 0px;
+         
+    }
+      
+     .THIS .ahFC_Model_Content{
+         padding: 3rem 3rem 5rem 5rem; 
+          
+      }  
+    .THIS .stop-finance-info{
+        background-color: #F7F7F7;
+        padding: 24px;
+    }
+    .THIS .save-action {
+      background-color: #e42525;
+      border: none;
+      color: #ffffff;
+      box-sizing: border-box;
+      border-radius: 3px;
+      margin-right: 16px;
+    }
+    .THIS .cancel-action{
+        color: #e42525;
+    }
+    
+    @media (min-width: 992px) {
+      .THIS .finance-account-edit-modal .slds-modal__container {
+        margin: 0 auto;
+        width: 50%;
+        max-width: inherit;
+        min-width: inherit;
+      }
+    }
+    
+    @media screen and (min-width: 320px) and (max-width: 540px) {
+      .THIS .finance-account-edit-modal .slds-modal__container{
+        width: 100%;
+        margin: 0px;
+      }
+      .THIS .edit-modal-content{
+        padding: 32px;
+      }
+    }
+  
+    .THIS .AHFC_ModTitle{
+      font-family: ahfc-robotolight;
+      font-size: 26px;
+      padding-bottom: 1rem;
+      line-height: 1;
+      letter-spacing: 0.02rem;
+      color: #000000;
+      }
+      
+      .THIS .aHFC_Close_Icon{
+          text-align: right;
+      }
+      
+      .THIS .AHFC_ASTRIC{
+         color: #E42525;
+         margin-right: 0.3rem; 
+      }

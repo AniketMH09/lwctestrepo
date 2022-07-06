@@ -1,0 +1,229 @@
+<template>
+    <div role="main" id="main-container" class="main-content">
+        <div class=" ahfc-background-lighter">
+            <div class="ahfc-container">
+                <c-a-h-f-c_page-title title="Scheduled Payments" show-icon="true"></c-a-h-f-c_page-title>
+                <div class="message-container info">
+                    <div class="message-icon">
+                        <a href="javascript:void" tabindex="-1">
+                        <lightning-icon icon-name="utility:info" alternative-text="info" title="info"
+                            class="toast-icon-color" size="small">
+                        </lightning-icon>
+                        </a>
+                    </div>
+                    <div class="message-content">
+                        <h1 class="ahfc-body-one">&nbsp;&nbsp;{paySourceNickName} will be deleted once alternate payment
+                            sources are
+                            assigned</h1>
+                    </div>
+                </div>
+                <div>
+                    <br />
+                </div>
+                <div class="ahfc-panel-card ahfc-background-lightest paymentinfo-container-fluid AHFC_CardContainer"
+                    style="padding-left: 10%;">
+                    <div>
+                        <b>
+                            <h1 class="ahfc-body-onecs AHFC_Button AHFC_PaySource" style="font-weight: bold;font-size: 150%">CURRENT
+                                PAYMENT SOURCE</h1>
+                        </b>
+                        <br />
+                        <br />
+                    </div>
+
+
+                    <!-- Row 1 -->
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-1 slds-small-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <span class="custom-box">
+                                <div
+                                    class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_6-of-12 paymentdue-info">
+                                    <label class="ahfc-info-label ahfc-text-dark"
+                                        style="font-weight: bold;">NICKNAME</label><br />
+                                    <p class="ahfc-text-medium AHFC_CardData" style="padding-top: 5%;">
+                                        {paySourceNickName}
+                                    </p>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-small-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <span class="custom-box">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-12 slds-large-size_6-of-12 duedate-info"
+                                    style="padding-left: 10% !important;">
+                                    <label class="ahfc-info-label ahfc-text-dark" style="font-weight: bold;">ACCOUNT
+                                        NUMBER</label><br />
+                                    <p class="ahfc-text-medium AHFC_CardData" style="padding-top: 5%;">
+                                        &middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;{paySourceAccNumber}
+                                    </p>
+                                </div>
+                            </span>
+                        </div>
+                    
+                    </div>
+                    
+                    <br /><br /><br />
+
+                    <div class="slds-grid slds-wrap AHFC_CardWrap">
+                        <div class="slds-col slds-size_1-of-1 slds-small-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <span class="custom-box">
+                                <div
+                                    class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_6-of-12 paymentdue-info">
+                                    <label class="ahfc-info-label ahfc-text-dark"
+                                        style="font-weight: bold;">BANK</label><br />
+                                    <p class="ahfc-text-medium AHFC_CardData" style="padding-top: 5%;">
+                                        {paySourceBank}
+                                    </p>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-small-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <span class="custom-box">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-12 slds-large-size_6-of-12 duedate-info"
+                                    style="padding-left: 10% !important;">
+                                    <label class="ahfc-info-label ahfc-text-dark" style="font-weight: bold;">ACCOUNT
+                                        TYPE</label><br />
+                                    <p class="ahfc-text-medium AHFC_CardData" style="padding-top: 5%;">{paySourceAccType}</p>
+                                </div>
+                            </span>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <br /><br />
+                <template for:each={mapPaymentDetails} for:item="keyValue">
+                    <div key={keyValue.key}>
+                        <label class="ahfc-info-label AHFC_LabelSep" style="font-size: x-large;">{keyValue.key}</label>
+
+                        <br /><br />
+                        <div class="ahfc-panel-card ahfc-background-lightest paymentinfo-container-fluid AHFC_CardContainer"
+                            style="padding-left: 10%;">
+                            <template for:each={keyValue.value} for:item="value">
+                                <div key={value.Id} class="details-body-row divaluechange">
+
+                                    <div>
+                                        <b>
+                                            <h1 class="ahfc-body-onecs AHFC_Button"
+                                                style="font-weight: bold;font-size: 150%">{value.recordType}</h1>
+                                        </b>
+                                        <br />
+                                        <br />
+                                    </div>
+
+                                    <div class="slds-grid slds-wrap">
+                                        <div
+                                            class="slds-col slds-size_1-of-1 slds-small-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                                            <span class="custom-box">
+                                                <div
+                                                    class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_6-of-12 paymentdue-info">
+                                                    <label class="ahfc-info-label ahfc-text-dark"
+                                                        style="font-weight: bold;">DATE</label><br />
+                                                    <p class="ahfc-text-medium AHFC_CardData" style="padding-top: 5%;">
+                                                        <lightning-formatted-date-time
+                                                            value={value.ChargentOrders__Payment_Start_Date__c}>
+                                                        </lightning-formatted-date-time>
+
+                                                    </p>
+                                                </div>
+                                            </span>
+                                        </div>
+                                        <div
+                                            class="slds-col slds-size_1-of-1 slds-small-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                                            <span class="custom-box">
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-12 slds-large-size_6-of-12 duedate-info"
+                                                    style="padding-left: 10% !important;">
+                                                    <label class="ahfc-info-label ahfc-text-dark"
+                                                        style="font-weight: bold;">AMOUNT</label><br />
+                                                    <p class="ahfc-text-medium AHFC_CardData" style="padding-top: 5%;">
+                                                        {value.ChargentOrders__Charge_Amount__c}
+                                                    </p>
+                                                </div>
+                                            </span>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <br /><br /><br />
+
+                                    <div class="slds-grid slds-wrap AHFC_CardWrap">
+                                        <div
+                                            class="slds-col slds-size_1-of-1 slds-small-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                                            <span class="custom-box">
+                                                <div
+                                                    class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_6-of-12 paymentdue-info">
+                                                    <label class="ahfc-info-label ahfc-text-dark"
+                                                        style="font-weight: bold;">CONFIRMATION
+                                                        #</label><br />
+                                                    <p class="ahfc-text-medium AHFC_CardData" style="padding-top: 5%;">
+                                                        {value.Confirmation_Number__c}
+                                                    </p>
+                                                </div>
+                                            </span>
+                                        </div>
+                                        <div
+                                            class="slds-col slds-size_1-of-1 lds-small-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                                            <span class="custom-box">
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_12-of-12 duedate-info AHFC_CustomCard"
+                                                    style="padding-left: 10% !important;">
+                                                    <label class="ahfc-info-label ahfc-text">Payment Source</label>
+                                                    <template if:true ={showAddNewPaymentSourceLink}>
+                                                    <a data-fid={value.fId} data-id={value.Id} href="javascript:void(0)" style="padding-left: 58%;
+                                                        color:#CC0000;
+                                                        text-decoration: underline;
+                                                        font-size: 133%;" onclick={openmodal}>Add New</a></template>
+                                                    <br />
+                                                    <p class="ahfc-text-medium" style="padding-top: 5%;">
+                                                        <a href="javascript:void" tabindex="-1">
+                                                        <lightning-combobox
+                                                            class="ahfc-combobox ahfc-input no-label data-id AHFC_InputCard" name="ps"
+                                                            label='' value='' required
+                                                            message-when-value-missing="Please select payment source"
+                                                            validity placeholder="Select payment source"
+                                                            options={options} onchange={onSourceSelection}
+                                                            data-id={value.Id} style="width: 91%;">
+                                                        </lightning-combobox>
+                                                    </a>
+                                                    </p>
+                                                </div>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <hr key={keyValue.key} style="width: 96%;" class="displayLineBreak">
+                            </template>
+                        </div>
+
+                    </div>
+                </template>
+            </div>
+            <div class='ahfc-btm-btn'>
+            <div style="text-align: right;
+            background-color: white;
+            padding-top: 1%;" class="podbar">
+                <button onclick={onConfirm} class="slds-button ahfc-btn ahfc-btn-primary">CONFIRM</button>
+
+                <button class="ahfc-btn ahfc-btn-text slds-button AHFC_NoBgButton card-action-button" onclick={onCancel}
+                    style="font-family: Roboto,sans-serif;
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 16px;
+                letter-spacing: .06em;
+                text-transform: uppercase;
+                color: #CC0000;">
+                    CANCEL
+                </button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <template if:true={isModalOpen}>
+        <c-a-h-f-c_add-new-payment-source fin-id={sacRecordId} onmodalclose={onNewPaymentModalClose} onmodalsave={savePaymentSource}>
+        </c-a-h-f-c_add-new-payment-source>
+    </template>
+    <template if:true={isDeleteModalOpen}>
+        <c-a-h-f-c_payment-source-del-confirm nickname={paySourceNickName} onmodalsave={onDeleteModalSave}
+            onmodalclose={onDeleteModalClose}>
+        </c-a-h-f-c_payment-source-del-confirm>
+    </template>
+</template>

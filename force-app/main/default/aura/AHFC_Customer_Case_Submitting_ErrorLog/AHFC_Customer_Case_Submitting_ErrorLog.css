@@ -1,0 +1,125 @@
+.THIS {
+  font-size: 16px;    
+}
+.THIS .center {
+  width: 66%;
+  background: #E5E5E5;
+  margin: 0 auto;
+}
+@media (max-width: 1024px) {
+  .THIS .center {
+    width: 100%;
+  }
+}
+.THIS .header {
+  font-size: 28px;
+  margin-bottom: 30px;    
+}
+.THIS .info {
+  padding: 30px 30px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  background: #F6F6F6;
+}
+.THIS .info h3 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #d3d3d3;
+  padding-bottom: 10px;
+}
+.THIS .block {
+  margin-top: 30px;
+  margin-bottom: 10px;    
+}
+/*
+.THIS .action {
+  margin-bottom: 30px;    
+}
+.THIS label {
+  display: block;
+  font-weight: 600;    
+}
+.THIS .mb-sm {
+  margin-bottom: 10px;
+}
+.THIS .mr-sm {
+  margin-right: 10px;
+}
+.THIS .pull-left {
+  float: left;
+}
+.THIS .pull-right {
+  float: right;
+}
+@media (max-width: 768px) {
+  .THIS .action .default {
+    width: 48%;
+  }
+  .THIS .action .default:nth-child(2) {
+    float: right;
+  }
+  .THIS .action .primary.pull-right {
+    float: none;
+    margin-top: 20px;
+    width: 100%;
+  }
+}
+.THIS .info-output .slds-col {
+  margin-bottom: 20px;
+}
+.THIS .btn {
+  background: #fff;
+  padding: 3px 30px;
+  border-radius: 29px;
+  font-size: 15px;
+  border-width: 2px;
+  font-weight: 600;
+}
+.THIS .btn.default {
+  background: #fff;
+  border: 2px solid #0072CE;
+  color: #0072CE;
+}
+.THIS .btn.primary {
+  background: #0072CE;
+  border: 2px solid #0072CE;
+  color: #fff;
+}
+.THIS .slds-col.slds-size_1-of-1.slds-medium-size_1-of-2 {
+    padding-bottom: 15px;
+}*/
+
+/*desktop start*/
+.THIS .ahfc_heading{
+  font-family: 'ahfc-robotomedium' ,sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03rem;
+    text-transform: uppercase;
+    color: #000000;
+}
+.THIS .ahfc_subHeading, .THIS .ahfc_subHeading a{
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #5E6162;
+  margin-top: 1rem;
+}
+.THIS .ahfc_subHeading a{
+  color: #CC0000;
+  padding-left: 0.5rem;
+  text-decoration: underline;
+}
+/*desktop end*/
+
+/*mobile start*/
+@media (min-width: 320px) and (max-width: 767px) {
+  .THIS .ahfc_heading, .THIS .ahfc_subHeading, .THIS .ahfc_subHeading a{
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03rem;
+  }
+
+
+}
+/*mobile end*/

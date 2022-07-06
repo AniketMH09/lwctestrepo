@@ -1,0 +1,223 @@
+<apex:page StandardStylesheets="false" sidebar="false" showHeader="false">
+<html>
+<head>
+  	<title>Payment Gateway 404 Error</title>  
+</head>  
+<body> 
+    <div style="height:75px"> </div>
+    <style>
+
+    .ahfc-text-primary
+    {
+        /* position: absolute; removed for 20449*/
+        margin-left: 2rem !important;
+        width: 1177px;
+        height: 40px;
+        left: 133px;
+        top: 160px;
+        font-family: sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 30px;
+        line-height: 40px;
+        color: #000000;
+    }
+
+    .ahfc-text-secondary
+    {
+        /* position: absolute; removed for 20449*/
+        margin-left: 2rem !important;
+        width: 200px;
+        height: 36px;
+        left: 133px;
+        top: 216px;
+        font-family: sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 26px;
+        line-height: 36px;
+        color: #5E6162;
+    }
+
+    .ahfc-border{
+        /* position: absolute; removed for 20449*/
+        margin-left: 2rem !important;
+        width: 1177px;
+        height: 46px;
+        /* left: 133px; removed for 20449*/
+        /* top: 292px;  removed for 20449*/
+        border: 1px #D9D9D9;
+
+    }   
+    
+    .ahfc-text-body{
+    
+        /* position: absolute; removed for 20449*/
+        margin-left: 2rem !important;
+        font-family: sans-serif;
+        font-style: normal;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0.02em;
+        text-align: left; 
+        width: 1177px;
+        height: 274px;
+        left: 133px;
+        top: 332px;
+       color: #5E6162;
+    }
+    .ahfc-btn-primary {
+        /* color: #fff;
+        background: #CC0000; removed for 20449*/
+        margin-left: 2rem !important;
+        color: #fff !important;
+        background: #CC0000 !important;
+        border: 1px solid #CC0000;
+        border-radius: 3px;
+         
+        border-radius: 3px;
+        padding: 14px, 24px, 14px, 24px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 14px 24px;
+        /* position: absolute; removed for 20449*/
+        width: 210px;
+        height: 44px;
+        /* left: 133px; removed for 20449*/
+        /* top:660px; removed for 20449*/
+    }
+    
+    .ahfc-btn {      
+        text-transform: uppercase;
+        padding: 14px 24px;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 10px;
+        letter-spacing: 0.06em;
+        width: 200px;
+        text-align: center;
+        display: inline-block;
+        font-family: sans-serif;              
+    }
+    
+    .ahfc-btn-secondary{
+        
+        border: 2px solid   #CC0000;
+        border-radius: 3px;
+        padding: 14px, 24px, 14px, 24px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 14px 24px;
+        position: absolute;
+        width: 210px;
+        height: 44px;
+        left: 24%;
+        top:550px;
+        color: #CC0000;
+        background-color:white;
+    }
+    
+    
+    
+     .ahfc-footer{
+        position: absolute;
+        width: 100%;
+        height: 362px;
+        left: 0px;
+        top:770px;  }
+        
+   </style>
+   
+    <div class="ahfc-text-primary">
+        The page you requested may have moved or no longer exists.
+    </div>
+    
+    <br> 
+    <div class="ahfc-text-secondary">
+        Error Code: 404
+    </div>
+    </br>    
+    
+    <div class="ahfc-border">
+        <hr/>
+    </div>
+    
+     <div class="ahfc-text-body">
+         <br/>  If you reached this page using a bookmark, it is possible the address is out of date. <br/> 
+             If you typed in an address, or selected a link from another website or from an email, it is possible the address is inaccurate. 
+           <br/>   
+         <br/>  Here are some options to assist you in finding the desired page and/or relevant content:<br/>
+				• Hit the back button on your browser and try again <br/>
+				• Check the URL for typographical errors <br/>
+				• Go to our home page and review the available options  <br/>
+				• Check our site map for a comprehensive list of available pages <br/>
+    </div>
+    
+    
+    
+    
+      <apex:form >
+            <apex:commandButton styleClass="ahfc-btn ahfc-btn-primary" value="BACK" oncomplete="doRedirect();"/>                
+          <br />
+            <script type="text/javascript">
+                function doRedirect(){
+                    window.history.back();
+                }
+
+            </script>
+     </apex:form>
+     
+    
+   
+     
+     
+     
+     
+     
+     
+ 
+    
+   
+   <!-- //<script src="https://assets.adobedtm.com/4d2629481466/43ad9a13e659/launch-cc7c99cc1de0-development.min.js" ></script> -->
+                                  <script src='{!$Label.adobeTaggingScript}' ></script>  
+
+                <script>
+                window.$Label = window.$Label || {};
+
+            $Label.Environment= '{!($Label.Environment)}'; // assigning the label to the JS variable.
+            var environment =  $Label.Environment;
+
+            var digitalData = {
+        "Metadata.version_dl": '2021.12',
+        "Metadata.property_name": "American Honda Finance",
+        "Event_Metadata.action_type": "",
+        "Event_Metadata.action_label": "",
+        "Event_Metadata.action_category": "",
+        "Model.model_brand": "",
+        "Page.content_publish_date": "12/15/2021",
+        "Page.Page_page_friendly_url": '',
+        "Page.full_url": window.location.href,
+        "Page.page_name": "Errors 404",
+        "Page.site_section": "",
+        "Page.sub_section": "",
+        "Page.sub_section2": "",
+        "Page.sub_section3": "",
+        "Page.brand_name": "",
+        "Page.referrer_type": "",
+        "Page.referrer_url": '',
+        "Page.environment": environment,
+    };
+
+    
+    window.dataLayer = digitalData;
+    _satellite.track('PageLoadReady');
+            </script>
+</body>  
+</html>
+</apex:page>

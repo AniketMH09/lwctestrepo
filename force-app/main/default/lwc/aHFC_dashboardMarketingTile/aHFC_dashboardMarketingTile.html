@@ -1,0 +1,145 @@
+<template> 
+      <div class='slds-show_large'>
+            <template if:true={isLocked}>
+                  <div if:true={isHondaAuto} class="AHFC_ImgContainerNew"> <a href="javascript:void(0);" onclick={onhonda}
+                              target="_blank">
+                              <img src={AHFC_Locked_Dashboard_Marketting_Honda}
+                                    alt="Contact your local Honda dealer or explore the latest offers online. View current offers." /></a></div>
+                  <div if:true={isAcuraAuto} class="AHFC_ImgContainerNew"> <a href="javascript:void(0);" onclick={onacura} 
+                              target="_blank">
+                              <img src={AHFC_Locked_Dashboard_Marketting_Acura}
+                                    alt="Contact your local Acura dealer or explore the latest offers online. View current offers." /></a></div>
+                  <div if:true={isMarine} class="AHFC_ImgContainerNew"> <a href="javascript:void(0);" onclick={onmarine} 
+                              target="_blank">
+                              <img src={AHFC_Locked_Dashboard_Marketting_Marine} alt="Contact your local Honda Marine dealer or explore the latest offers online. View current offers." /></a>
+                  </div>
+                  <div if:true={isPowerSports} class="AHFC_ImgContainerNew"> <a
+                        href="javascript:void(0);" onclick={onps} target="_blank"> <img
+                                    src={AHFC_Locked_Dashboard_Marketting_PS}
+                                    alt="Contact your local Honda Powersports dealer or explore the latest offers online. View current offers." /></a>
+                  </div>
+                  <div if:true={isPowerEquipment} class="AHFC_ImgContainerNew"> <a
+                        href="javascript:void(0);" onclick={onpe} target="_blank"> <img
+                                    src={AHFC_Locked_Dashboard_Marketting_PE}
+                                    alt="Make your garage a Honda garage. Explore all Honda products." /></a></div>
+                  <div if:true={isHondaEOT} class="AHFC_ImgContainerNew"> <a onclick={navigateToEndOFLeasePrelogin}> <img
+                                    src={HondaEOTContentLogoURL} alt="Your lease ends soon. The adventure continues. View end-of-term options." /></a>
+                  </div>
+                  <div if:true={isAcuraEOT} class="AHFC_ImgContainerNew"> <a onclick={navigateToEndOFLeasePrelogin}> <img
+                                    src={AHFC_Locked_Dashboard_Marketting_Acura} alt="Your lease ends soon. Your future begins today. View end-of-term options." /></a>
+                  </div>
+
+                  <!--RSS 53493-->
+                  <div if:true={isHondafourMthEOT} class="AHFC_ImgContainerNew"> <a href="javascript:void(0);" onclick={onhonda} 
+                        target="_blank">
+                        <img src={AHFC_Locked_Dashboard_Marketting_Honda} alt="Contact your local Honda dealer or explore the latest offers online. View current offers." /></a></div>
+                  <div if:true={isAcurafourMthEOT} class="AHFC_ImgContainerNew"> <a href="javascript:void(0);" onclick={onacura} 
+                        target="_blank">
+                        <img src={AHFC_Locked_Dashboard_Marketting_Acura} alt="Contact your local Acura dealer or explore the latest offers online. View current offers." /></a></div>
+                  <!--RSS 53493-->
+
+            </template>
+            <template if:false={isLocked}>
+                  <div if:true={isHondaAuto} class="AHFC_ImgContainer"> <a href="javascript:void(0);" onclick={onhonda}
+                              target="_blank">
+                              <img src={CurrentOffersHondaAutoLogoURL} alt="Contact your local Honda dealer or explore the latest offers online. View current offers." /></a></div>
+                  <div if:true={isAcuraAuto} class="AHFC_ImgContainer"> <a href="javascript:void(0);" onclick={onacura}
+                              target="_blank">
+                              <img src={CurrentOffersAcuraAutoLogoURL} alt="Contact your local Acura dealer or explore the latest offers online. View current offers." /></a></div>
+                  <div if:true={isMarine} class="AHFC_ImgContainer"> <a href="javascript:void(0);" onclick={onmarine}
+                              target="_blank">
+                              <img src={CurrentOffersMarineLogoURL} alt="Contact your local Honda Marine dealer or explore the latest offers online. View current offers." /></a></div>
+                  <div if:true={isPowerSports} class="AHFC_ImgContainer"> <a href="javascript:void(0);" onclick={onps}
+                              target="_blank"> <img src={CurrentOffersPowersportsLogoURL}
+                                    alt="Contact your local Honda Powersports dealer or explore the latest offers online. View current offers." /></a>
+                  </div>
+                  <div if:true={isPowerEquipment} class="AHFC_ImgContainer"> <a
+                        href="javascript:void(0);" onclick={onpe} target="_blank"> <img
+                                    src={CurrentOffersPowerEquipmentLogoURL}
+                                    alt="Make your garage a Honda garage. Explore all Honda products." /></a></div>
+                  <div if:true={isHondaEOT} class="AHFC_ImgContainer"> <a onclick={navigateToEndOFLeasePrelogin}> <img src={HondaEOTContentLogoURL}
+                                    alt="Your lease ends soon. The adventure continues. View end-of-term options." /></a></div>
+                  <div if:true={isAcuraEOT} class="AHFC_ImgContainer"> <a onclick={navigateToEndOFLeasePrelogin}> <img src={AcuraEOTContentLogoURL}
+                                    alt="Your lease ends soon. Your future begins today. View end-of-term options." /></a></div>
+                  
+                  <!--RSS 53493-->
+                  <div if:true={isHondafourMthEOT} class="AHFC_ImgContainer"> <a href="javascript:void(0);" onclick={onHondafourMthEOT} 
+                        target="_blank">
+                        <img src={Honda4MnthEOTContentLogoURL} alt="Time is running out. Visit your dealer now to order your next Honda. Find a Honda Dealer." /></a></div>
+                  <div if:true={isAcurafourMthEOT} class="AHFC_ImgContainer"> <a href="javascript:void(0);" onclick={onAcurafourMthEOT} 
+                        target="_blank">
+                        <img src={Acura4MnthEOTContentLogoURL} alt="Time is running out. Visit your dealer now to order your next Acura. Find an Acura dealer." /></a></div>
+                  <!--RSS 53493-->
+
+            </template>
+
+      </div>
+      <div class='slds-hide_large'>
+            <template if:false={isLocked}>
+                  <div if:true={isHondaAuto} class="AHFC_ImgContainer"> <a href="javascript:void(0);" onclick={onhonda}
+                              target="_blank">
+                              <img src={CurrentOffersHondaAutoLogoURL} alt="Contact your local Honda dealer or explore the latest offers online. View current offers." /></a></div>
+                  <div if:true={isAcuraAuto} class="AHFC_ImgContainer"> <a href="javascript:void(0);" onclick={onacura}
+                              target="_blank">
+                              <img src={CurrentOffersAcuraAutoLogoURL} alt="Contact your local Acura dealer or explore the latest offers online. View current offers." /></a></div>
+                  <div if:true={isMarine} class="AHFC_ImgContainer"> <a href="javascript:void(0);" onclick={onmarine}
+                              target="_blank"> <img src={CurrentOffersMarineLogoURL}
+                                    alt="Contact your local Honda Marine dealer or explore the latest offers online. View current offers." /></a></div>
+                  <div if:true={isPowerSports} class="AHFC_ImgContainer"> <a href="javascript:void(0);" onclick={onps}
+                              target="_blank"> <img src={CurrentOffersPowersportsLogoURL}
+                                    alt="Contact your local Honda Powersports dealer or explore the latest offers online. View current offers." /></a>
+                  </div>
+                  <div if:true={isPowerEquipment} class="AHFC_ImgContainer"> <a
+                        href="javascript:void(0);" onclick={onpe} target="_blank"> <img
+                                    src={CurrentOffersPowerEquipmentLogoURL}
+                                    alt="Make your garage a Honda garage. Explore all Honda products." /></a></div>
+                  <div if:true={isHondaEOT} class="AHFC_ImgContainer"> <a onclick={navigateToEndOFLeasePrelogin}> <img src={HondaEOTContentLogoURL}
+                                    alt="Your lease ends soon. The adventure continues. View end-of-term options." /></a></div>
+                  <div if:true={isAcuraEOT} class="AHFC_ImgContainer"> <a onclick={navigateToEndOFLeasePrelogin}> <img src={AcuraEOTContentLogoURL}
+                                    alt="Your lease ends soon. Your future begins today. View end-of-term options." /></a></div>
+                  
+                  <!--RSS 53493-->
+                  <div if:true={isHondafourMthEOT} class="AHFC_ImgContainer"> <a href="javascript:void(0);" onclick={onHondafourMthEOT} 
+                        target="_blank">
+                        <img src={Honda4MnthEOTContentLogoURL} alt="Time is running out. Visit your dealer now to order your next Honda. Find a Honda Dealer." /></a></div>
+                  <div if:true={isAcurafourMthEOT} class="AHFC_ImgContainer"> <a href="javascript:void(0);" onclick={onAcurafourMthEOT} 
+                        target="_blank">
+                        <img src={Acura4MnthEOTContentLogoURL} alt="Time is running out. Visit your dealer now to order your next Acura. Find an Acura dealer." /></a></div>
+                  <!--RSS 53493-->
+
+            </template>
+            <template if:true={isLocked}>
+                  <div if:true={isHondaAuto} class="AHFC_ImgContainer"> <a href="javascript:void(0);" onclick={onhonda}
+                              target="_blank">
+                              <img src={AHFC_Locked_Dashboard_Marketting_Honda} alt="Contact your local Honda dealer or explore the latest offers online. View current offers." /></a></div>
+                  <div if:true={isAcuraAuto} class="AHFC_ImgContainer"> <a href="javascript:void(0);" onclick={onacura}
+                              target="_blank">
+                              <img src={AHFC_Locked_Dashboard_Marketting_Acura} alt="Contact your local Acura dealer or explore the latest offers online. View current offers." /></a></div>
+                  <div if:true={isMarine} class="AHFC_ImgContainer"> <a href="javascript:void(0);" onclick={onmarine}
+                              target="_blank"> <img src={AHFC_Locked_Dashboard_Marketting_Marine}
+                                    alt="Contact your local Honda Marine dealer or explore the latest offers online. View current offers." /></a></div>
+                  <div if:true={isPowerSports} class="AHFC_ImgContainer"> <a href="javascript:void(0);" onclick={onps}
+                              target="_blank"> <img src={AHFC_Locked_Dashboard_Marketting_PS}
+                                    alt="Contact your local Honda Powersports dealer or explore the latest offers online. View current offers." /></a>
+                  </div>
+                  <div if:true={isPowerEquipment} class="AHFC_ImgContainer"> <a
+                        href="javascript:void(0);" onclick={onpe} target="_blank"> <img
+                                    src={AHFC_Locked_Dashboard_Marketting_PE}
+                                    alt="Make your garage a Honda garage. Explore all Honda products." /></a></div>
+                  <div if:true={isHondaEOT} class="AHFC_ImgContainer"> <a onclick={navigateToEndOFLeasePrelogin}> <img src={HondaEOTContentLogoURL}
+                                    alt="Your lease ends soon. The adventure continues. View end-of-term options." /></a></div>
+                  <div if:true={isAcuraEOT} class="AHFC_ImgContainer"> <a onclick={navigateToEndOFLeasePrelogin}> <img src={AHFC_Locked_Dashboard_Marketting_Acura}
+                                    alt="Your lease ends soon. Your future begins today. View end-of-term options." /></a></div>
+
+                  <!--RSS 53493-->
+                  <div if:true={isHondafourMthEOT} class="AHFC_ImgContainer"> <a href="javascript:void(0);" onclick={onhonda} 
+                        target="_blank">
+                        <img src={AHFC_Locked_Dashboard_Marketting_Honda} alt="Contact your local Honda dealer or explore the latest offers online. View current offers." /></a></div>
+                  <div if:true={isAcurafourMthEOT} class="AHFC_ImgContainer"> <a href="javascript:void(0);" onclick={onacura} 
+                        target="_blank">
+                        <img src={AHFC_Locked_Dashboard_Marketting_Acura} alt="Contact your local Acura dealer or explore the latest offers online. View current offers." /></a></div>
+                  <!--RSS 53493-->
+            </template>
+      </div>
+
+</template>

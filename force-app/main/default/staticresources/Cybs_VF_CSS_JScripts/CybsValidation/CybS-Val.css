@@ -1,0 +1,57 @@
+
+        .headerRow .TableTitle {
+            background-color: #6d87a8 !important;
+            color: #ffffff !important; 
+            text-align: center !important;
+        }
+        .ct{
+            text-align:center;
+            color: #000d1a;
+        }
+        .col1{
+            width: 80px;
+        }
+        .col2{
+            width: 50px;
+        }
+        .col3{
+            width: 500px;
+        }
+        .col4{
+            width: 100px;
+        }
+	.coln1{
+            width: 140px;
+        }
+        .coln2{
+            width: 50px;
+        }
+        .coln3{
+            width: 50px;
+        }
+        .coln4{
+            width: 50px;
+        }
+        .coln5{
+            width: 50px;
+        }
+        .coln6{
+            width: 150px;
+        }
+        .even {
+            background-color: #FFFFFF !important;
+            line-height: 5px !important;
+            border-color: #414958 !important;
+        }
+        .odd { 
+            background-color: #ecf2f9 !important;
+            line-height: 5px !important;
+            border-color: #414958 !important;
+        }
+        .error { 
+            background-color: #FF0033 !important;
+            color: #ffffff !important; 
+        }
+        .paddingclass {
+            padding: 0.1cm 0.1cm 0.1cm 0.2cm;
+        }

@@ -1,0 +1,91 @@
+<aura:component controller="AHFC_FooterController" implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    <ltng:require styles="{!$Resource.AHFC_UI_Kit}"/>
+    <aura:attribute name= "communityName" type="string" default=""/>
+    <aura:attribute name= "aboutUsURL" type="string" default=""/>
+    <aura:attribute name= "contactUsURL" type="string" default=""/>
+    <aura:attribute name= "dnsURL" type="string" default=""/>
+    <aura:attribute name= "privacyURL" type="string" default=""/>
+    <aura:attribute name= "legalTermsURL" type="string" default=""/>
+    <aura:attribute name= "FooterNotes" type="string" default=""/>
+    <aura:attribute name= "CookiePolicyURL" type="string" default=""/>
+    <aura:attribute name="DisplayNew" type="boolean" default="false"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+   
+  
+  
+  <aura:if isTrue="{!v.DisplayNew}">
+   <div class="footer-container"> 
+        <div class="slds-grid slds-gutters slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-12 footer-left">
+                <div class="slds-grid slds-gutters slds-wrap">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12">
+                        <a target="_self" href="{!v.aboutUsURL}">About Us</a>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12">
+                        <a target="_self" href="{!v.contactUsURL}">Contact Us</a>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+                        <a target="_self" href="{!v.dnsURL}">{!$Label.c.AHFC_DNS_FOOTER}</a>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12">
+                        <a target="_self" href="{!v.CookiePolicyURL}">{!$Label.c.AHFC_COOKIE_POLICY}</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 footer-right">
+                <div class="slds-grid slds-gutters slds-wrap">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_5-of-12">
+                        <a target="_self" href="{!v.privacyURL}">Privacy Policy</a>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_7-of-12">
+                        <a target="_self" href="{!v.legalTermsURL}">Legal Terms and Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 copyright">
+            
+            <span>{!v.FooterNotes}</span>	
+    
+        </div>
+    </div>
+      <aura:set attribute="else">
+       	<div class="footer-container"> 
+		<div class="slds-grid slds-gutters slds-wrap">
+		  <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 footer-left">
+		  	<div class="slds-grid slds-gutters slds-wrap">
+		  		<div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+                    <a target="_self" href="{!v.aboutUsURL}">About Us</a>
+		      </div>
+		      <div class="slds-col slds-size_1-of-1 slds-medium-size_9-of-12">
+                   <a target="_self" href="{!v.contactUsURL}">Contact Us</a>
+		      </div>
+	      </div>
+		  </div>
+		  <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 footer-right">
+		  	<div class="slds-grid slds-gutters slds-wrap">
+		  		<div class="slds-col slds-size_1-of-1 slds-medium-size_7-of-12">
+                    <a target="_self" href="{!v.privacyURL}">Privacy Policy</a>
+		      </div>
+		      <div class="slds-col slds-size_1-of-1 slds-medium-size_5-of-12">
+                   <a target="_self" href="{!v.legalTermsURL}">Legal Terms and Conditions</a>
+		      </div>
+	      </div>
+		  </div>
+		</div>
+		<div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 copyright">
+             <!--aura:if isTrue="{!v.communityName == 'hondahelp'}"-->
+				<span>{!v.FooterNotes}</span>	
+            <!--/aura:if>
+            <aura:if isTrue="{!v.communityName == 'acurahelp'}">
+				<span>{!v.FooterNotes}</span>	
+            </aura:if-->
+		</div>
+	</div>
+    </aura:set>
+  </aura:if>
+   
+  
+</aura:component>

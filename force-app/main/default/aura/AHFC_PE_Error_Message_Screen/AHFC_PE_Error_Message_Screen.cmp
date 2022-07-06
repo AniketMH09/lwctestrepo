@@ -1,0 +1,140 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    
+    <ltng:require styles="{!$Resource.AHFC_UI_Kit}"/>
+    <aura:attribute name = "instructions" type = "String"/> 
+    <aura:attribute name = "Past_Due_Instructions" type = "String"/> 
+    <aura:attribute name = "First_Payment_Instruction" type = "String"/> 
+    <aura:attribute name = "Pending_Case_Instruction" type = "String"/> 
+    <aura:attribute name = "Past_Due_Screen" type = "String"/> 
+    <aura:attribute name = "First_Payment_Screen" type = "String"/> 
+    <aura:attribute name = "Pending_Case_Screen" type = "String"/> 
+    <aura:attribute name = "Ineligible_Customer" type = "String"/>
+    <aura:attribute name = "LE_Flow" type = "String"/>
+    <aura:attribute name = "DDC_Flow" type = "String"/>
+    <aura:attribute name = "DDC_Eligibility" type="String"/>
+    <aura:attribute name = "Record_Not_Found" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name = "Invalid_User" type="String"/>
+    <aura:attribute name= "communityName" type="string" default=""/>
+    
+    <div class="contain">
+        <div class="center"> 
+            <h1 class="header">{!$Label.c.AHFC_PE_Extension_Request}</h1>
+            
+            <aura:if isTrue = "{!v.Invalid_User}">
+                 <h2 class="header">{!$Label.c.AHFC_Please_Try_Again}</h2>
+            </aura:if>
+            <aura:if isTrue = "{!v.Past_Due_Screen}">
+                <h3>{!$Label.c.AHFC_Please_Make_a_Payment}</h3>
+            </aura:if>
+          <!--  <aura:if isTrue = "{!v.First_Payment_Screen}">
+                <h3>{!$Label.c.AHFC_Please_Make_a_Payment}</h3>
+            </aura:if>-->
+            <aura:if isTrue = "{!v.Ineligible_Customer}">
+                    <h3>{!$Label.c.AHFC_Please_Contact_Us}</h3>
+                </aura:if>
+            <aura:if isTrue = "{!v.Pending_Case_Screen}">
+                    <h3>{!$Label.c.AHFC_Please_Contact_Us}</h3>
+                </aura:if>
+            <aura:if isTrue = "{!v.Record_Not_Found}">
+                    <h3>{!$Label.c.AHFC_Please_Contact_Us}</h3>
+                </aura:if>
+            
+            <div class="info">
+                <aura:if isTrue = "{!v.Invalid_User}">
+                 	<p>{!v.Invalid_User}</p>
+                </aura:if>
+                <aura:if isTrue = "{!v.Record_Not_Found}">
+                    <aura:if isTrue="{!v.communityName == 'hondahelp'}">
+                            <p>{!$Label.c.AHFC_PE_Error_Honda}</p>
+                            </aura:if>
+                            <aura:if isTrue="{!v.communityName == 'acurahelp'}">
+                            <p>{!$Label.c.AHFC_PE_Error_Acura}</p>
+                            </aura:if>
+                </aura:if>
+                <aura:if isTrue = "{!v.Pending_Case_Screen}">
+                    
+                            <aura:if isTrue="{!v.communityName == 'hondahelp'}">
+                            <p>{!$Label.c.AHFC_PE_Error_Honda}</p>
+                            </aura:if>
+                            <aura:if isTrue="{!v.communityName == 'acurahelp'}">
+                            <p>{!$Label.c.AHFC_PE_Error_Acura}</p>
+                            </aura:if>
+                        
+                  <!--  <aura:if isTrue = "{!v.Pending_Case_Instruction}"> 
+                        <p>{!v.Pending_Case_Instruction}</p> 
+                       <aura:set attribute="else">
+                            <div class="mb-sm">
+                                <c:AHFC_DueDate_ContactUs/>
+                            </div>
+                        </aura:set>
+                    </aura:if> -->
+                </aura:if>
+                <!-- Past Due Screen -->
+                <aura:if isTrue = "{!v.Past_Due_Screen}">
+                    <aura:if isTrue = "{!v.Past_Due_Instructions}">
+                        <p><aura:unescapedHtml value ="{!v.Past_Due_Instructions}"/></p>
+                        <aura:set attribute="else">
+                            <p>{!$Label.c.AHFC_Past_Due_Instructions}</p>
+                        </aura:set>
+                    </aura:if>
+                </aura:if>
+                
+                <!-- Ineligible Screen -->
+                <aura:if isTrue = "{!v.Ineligible_Customer}">
+                    <aura:if isTrue = "{!v.Past_Due_Instructions}">
+                        <p>{!v.Past_Due_Instructions}</p>
+                        <aura:set attribute="else">
+                            <aura:if isTrue="{!v.communityName == 'hondahelp'}">
+                            <p>{!$Label.c.AHFC_PE_Error_Honda}</p>
+                            </aura:if>
+                            <aura:if isTrue="{!v.communityName == 'acurahelp'}">
+                            <p>{!$Label.c.AHFC_PE_Error_Acura}</p>
+                            </aura:if>
+                        </aura:set>
+                    </aura:if>
+                </aura:if>
+                <!--  
+                <aura:if isTrue = "{!v.First_Payment_Screen}">
+                    <aura:if isTrue = "{!v.First_Payment_Instruction}">
+                        <p><aura:unescapedHtml value ="{!v.First_Payment_Instruction}" /></p>
+                        <aura:set attribute="else">
+                            <p>{!$Label.c.AHFC_First_Payment_Screen}</p>
+                        </aura:set>
+                    </aura:if>
+                </aura:if> -->
+            </div>
+            
+            
+            <div class="action">
+                <aura:if isTrue = "{!v.Past_Due_Screen}">
+                    <button class="btn default" onclick="{!c.redirectToMyAccount}">{!$Label.c.AHFC_Return_to_Account_Overview}</button>
+                    <button class="btn primary pull-right" onclick="{!c.redirectToHomeWindow}">{!$Label.c.AHFC_Make_a_Payment}</button>
+                </aura:if>
+                <aura:if isTrue = "{!v.Ineligible_Customer}">
+                    <button class="btn primary pull-right" onclick="{!c.redirectToMyAccount}">{!$Label.c.AHFC_Return_to_Account_Overview}</button>
+                    <br/>
+                </aura:if>
+                <aura:if isTrue = "{!v.Pending_Case_Screen}">
+                    <button class="btn primary pull-right" onclick="{!c.redirectToMyAccount}">{!$Label.c.AHFC_Return_to_Account_Overview}</button>
+                <br/>
+                </aura:if>
+                <aura:if isTrue = "{!v.Record_Not_Found}">
+                    <button class="btn primary pull-right" onclick="{!c.redirectToMyAccount}">{!$Label.c.AHFC_Return_to_Account_Overview}</button>
+                <br/>
+                </aura:if>
+                <aura:if isTrue = "{!v.Invalid_User}">
+                    <button class="btn primary pull-right" onclick="{!c.redirectToMyAccount}">{!$Label.c.AHFC_Return_to_Account_Overview}</button>
+                <br/>
+                </aura:if>
+                
+             <!--    <aura:if isTrue = "{!v.First_Payment_Screen}">
+                    <button class="btn default" onclick="{!c.redirectToMyAccount}">{!$Label.c.AHFC_Return_to_Account_Overview}</button>
+                    <button class="btn primary pull-right" onclick="{!c.redirectToHomeWindow}">{!$Label.c.AHFC_Make_a_Payment}</button>
+                </aura:if>-->
+                
+            </div>
+        </div>
+       
+    </div>
+</aura:component>

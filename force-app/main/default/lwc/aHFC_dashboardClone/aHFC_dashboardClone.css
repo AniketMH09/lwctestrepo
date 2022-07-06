@@ -1,0 +1,266 @@
+@import 'c/aHFC_dashboardTheme';
+
+
+.ahfc-locked {
+    opacity: 0.5;
+    pointer-events: none;
+}
+.AHFC_MaintainHt{    min-height: 635px;}
+.AHFC_SearchIcon{
+    
+    width: 3rem !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    background: #e22525 !important;
+    height: 32px !important;
+    border: none;
+}
+
+.AHFC_ViewFAQ{
+   color:#e22525;text-decoration:underline;}
+/* Page Structures */
+
+.card-block {
+    padding: 24px 20px;
+    margin: 10px 0;
+}
+
+.support-tile {
+    color: #7a7878;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+}
+
+/* Header Section Styles */
+  
+.car-header-container .card-block,
+.card-block.blank-state-block {
+    margin: 0;
+}
+
+.car-header-left-border {
+    border-left: 4px solid #1B86C3;
+    padding: 11px 0 11px 25px;
+}
+
+.car-header-logo-grid {
+    align-items: center;
+}
+
+.car-block-info {
+    margin-bottom: 22px;
+}
+
+.car-name {
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 36px;
+    word-break: break-word;
+    color: #000;
+    /* margin: 16px 0; */
+}
+
+.car-name .ahfc-icon {
+    margin-left: 10px;
+}
+
+.car-header-right {
+    padding: 18px 12px;
+}
+
+.car-styles-block {
+    flex-direction: column;
+}
+
+.car-header-options {
+    padding-top: 0;
+    margin-bottom: 12px;
+}
+
+.ahfc-info-small {    
+    letter-spacing: 0.02em;
+}
+
+.add-product span {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.car-details-mobile {
+    padding: 16px 0 20px;
+}
+
+.car-header-account-details {
+    margin-top: 28px;
+}
+
+.col-margings{
+    margin-bottom: 21px;  
+}
+
+/* Mobile Sections */
+
+.sections-accordion {
+    padding: 16px 0;
+}
+
+.ahfc-accordion-item .slds-accordion__summary {
+    padding-bottom: 0;
+}
+
+.ahfc-accordion-item .slds-accordion__section {
+    padding: 32px 24px 28px;
+}
+
+.sections-accordion .section-header {
+    margin-bottom: 0;
+}
+
+.sections-accordion .mobile-accordion-content {
+    margin-top: 24px;
+}
+
+.current-bill-mobile {
+    padding: 32px 4px 2px;
+    border-top: 1px solid #d9d9d9;
+}
+
+.made-payment-toast {
+    display: block;
+    margin: 16px 0 0;
+}
+
+    .AHFC_GridStyle{
+        padding: 1rem 0 1rem 0;
+        border-bottom: 2px solid grey;
+        margin-bottom: 1rem;
+
+    }
+    .AHFC_FrameStyle{width: 100%;
+        background: #f1eded;
+        border-radius: 0;
+        border: none;}
+        .AHFC_FrameStyle>span{
+            font-weight: bold;
+            color: grey;
+        
+        }
+        .AHFC_PaymentProgress{
+            padding-bottom: 111px !important;
+        }
+        @media (min-width: 320px) and (max-width: 767px) {
+.AHFC_GridStyle{display:block !important;}
+.AHFC_MobLayout{    margin: 0.5rem 0 0.5rem 0;}
+.AHFC_PaymentProgress{
+    padding-bottom: 0;
+}
+        }
+
+@media screen and (min-width: 1024px) {
+
+    /* Page Structures */
+
+    .card-block,
+    .card-block.blank-state-block  {
+        margin: 16px 10px;
+        padding: 40px 40px 26px;
+    }
+
+    /* Header Section Styles */
+
+    .car-header-container {
+        margin-bottom: 30px;
+    }
+
+    .car-header-container .card-block {
+        padding: 30px 0;
+        margin: 0 10px;
+    }
+
+    .carousal-card-block {
+        padding-bottom: 0 !important;
+    }
+
+    .carousal-card-item {
+        padding-bottom: 30px;
+    }
+
+    .car-header-left-border {
+        padding: 11px 0 11px 30px;
+    }
+
+    .car-header-logo-grid {
+        align-items: flex-start;
+    }
+
+    .car-logo {
+        margin-bottom: 12px;
+    }
+
+    .car-name-container {
+        min-height: 140px;
+    }
+
+    .car-name {
+        font-size: 38px;
+        font-weight: 300;
+        line-height: 48px;
+        margin: 16px 0;
+    }
+
+    .car-name .ahfc-icon {
+        margin-left: 20px;
+        bottom: 4px;
+    }
+
+    .car-header-right {
+        padding: 11px 0;
+    }
+
+    .car-styles-block {
+        flex-direction: column;
+    }
+
+    .car-header-options {
+        padding-top: 17px;
+    }
+
+    .car-image-container {
+        position: relative;
+    }
+
+    .car-image {
+        position: absolute;
+        top: 17px;
+    }
+
+    .carousal-button-desktop {
+        padding: 9px 10px;
+        background: #f0f0f0;
+        margin-left: 16px;
+        border-radius: 0;
+    }
+
+    .carousal-button-desktop .carousal-icon {
+        --sds-c-icon-color-foreground-default: #CC0000;
+    }
+
+    .carousal-button-disabled .carousal-icon {
+        --sds-c-icon-color-foreground-default: #afafaf;
+    }
+
+    .carousal-desktop {
+        position: absolute;
+        top: 280px;
+        right: 1px;
+    }
+
+    .made-payment-toast {
+        margin: 0 10px;
+    }
+}
+.dash-blank-tile{
+    width: 100%;
+    height: 270px;
+}

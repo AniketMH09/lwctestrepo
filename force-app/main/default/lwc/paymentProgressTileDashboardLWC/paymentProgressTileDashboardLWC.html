@@ -1,0 +1,271 @@
+<template>
+
+
+    <div class="AHFC_Wrapper" if:false={showGrayOffPaymentProgressTile}>
+        <div class="slds-grid slds-grid_align-center ahfc-progress-ring">
+            <div class="slds-col">
+                <div class="slds-progress-ring outer-ring">
+                    <div class="slds-progress-ring__progress">
+                        <a href="javascript:void(0);" tabindex="-1" aria-label="outer progress">
+                            <svg viewBox="-1 -1 2 2" role='img'>
+                                <path class="slds-progress-ring__path ring-start" d={dStartValue}></path>
+                            </svg></a>
+                    </div>
+                    <div class="slds-progress-ring__content outer-content">
+                        <div class="slds-progress-ring inner-ring">
+                            <div class="slds-progress-ring__progress" role="progressbar" aria-valuemin={minValue}
+                                aria-valuemax={maxValue} aria-valuenow={currentValue}>
+                                <a href="javascript:void(0);" tabindex="-1" aria-label="inner progress">
+                                    <svg viewBox="-1 -1 2 2" role='img' aria-labelledby="slds-progress-ring-path-160">
+                                        <path class="slds-progress-ring__path" id="slds-progress-ring-path-160"
+                                            d={dValue}>
+                                        </path>
+                                        <path class="slds-progress-ring__path ring-start" d={dStartValue}></path>
+                                    </svg></a>
+
+                            </div>
+                            <div class="slds-progress-ring__content">
+                                <div class="slds-progress-ring inner-most-ring">
+                                    <div class="slds-progress-ring__progress">
+                                        <a href="javascript:void(0);" tabindex="-1" aria-label="inner progress">
+                                            <svg viewBox="-1 -1 2 2" role='img'>
+                                                <path class="slds-progress-ring__path ring-start" d={dStartValue}>
+                                                </path>
+                                            </svg></a>
+                                    </div>
+                                    <div class="slds-progress-ring__content inner-most-content">
+                                        <div class="slds-progress-ring text-ring">
+                                            <div class="slds-progress-ring__progress">
+
+                                            </div>
+                                            <div class="slds-progress-ring__content">
+                                                <div
+                                                    class="slds-grid slds-grid_align-center slds-grid_vertical-align-center">
+                                                    <template if:true={showRingData}>
+                                                        <div class="slds-col">
+                                                            <p
+                                                                class="slds-text-align_center progress-ring-primary-text">
+                                                                <span>{remainingValue}</span>
+                                                                <span class="primary-text-between"> of </span>
+                                                                <span>{maxValue}</span>
+                                                            </p>
+                                                            <p
+                                                                class="slds-text-align_center progress-ring-secondary-text slds-text-title_caps">
+                                                                {labels.PaymentProgressPaymentLeft}
+                                                            </p>
+                                                        </div>
+                                                    </template>
+                                                    <template if:false={showRingData}>
+                                                        <div class="slds-col">
+                                                            <p
+                                                                class="slds-text-align_center progress-ring-primary-text">
+                                                                <span>0</span>
+                                                                <span class="primary-text-between"> of </span>
+                                                                <span>0</span>
+                                                            </p>
+                                                            <p
+                                                                class="slds-text-align_center progress-ring-secondary-text slds-text-title_caps">
+                                                                {labels.PaymentProgressPaymentLeft}
+                                                            </p>
+                                                        </div>
+                                                    </template>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class='non-clickable' href="javascript:void(0);" tabindex="-1" aria-label="ending circle">
+                    <svg class="ending-circle" role='img' viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx={circlex} cy={circley} r="3" />
+                    </svg></a>
+            </div>
+        </div>
+
+        <div class="slds-grid slds-wrap payment-progress-info">
+            <div class="slds-col slds-size_12-of-12 ahfc-col-first">
+                <p class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps" if:true={isPayoff}>
+                    TODAY'S PAYOFF AMOUNT <span class="ahfc-lgc-bg">
+                        <lightning-helptext icon-name="utility:info_alt"
+                           content="The payoff amount is calculated based on today's date. You can submit your payment online or at any Honda or Acura dealership. This quote is nontransferable and valid today only">
+                        </lightning-helptext>
+                     </span></p>
+                <p class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps" if:false={isPayoff}>
+                        TODAY'S PURCHASE AMOUNT <span class="ahfc-lgc-bg">
+                            <lightning-helptext icon-name="utility:info_alt"
+                               content="The purchase amount is calculated based on today's date and valid only for the lessee named on the lease agreement. In accordance with the lease agreement, lease purchases are only available to the lessee or authorized Honda or Acura dealers. Leased vehicles not purchased must be returned to an authorized Honda or Acura dealer. You can submit your payment online or at any Honda or Acura dealership. This quote is nontransferable and valid today only.">
+                            </lightning-helptext>
+                         </span></p>
+                <p class="ahfc-text-large ahfc-text-dark">${payOffAmount}</p>
+                <!-- <div if:true={isPayoff}><a href="javascript:void(0);" class="ahfc-links ahfc-links-secondary"
+                    onclick={navigatetoPayoffCalendar}>Estimate Future Payoff</a></div>
+                <div if:false={isPayoff}><a href="javascript:void(0);" class="ahfc-links ahfc-links-secondary"
+                        onclick={navigatetoPayoffCalendar}>Estimate Future Purchase</a></div> -->
+            </div>
+            <div class="slds-col slds-size_12-of-12 ahfc-col-first">
+                <p class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps ">
+                    {labels.PaymentProgressMaturityDate}</p>
+                <p class="ahfc-text-large ahfc-text-dark">{maturitydate}</p>
+            </div>
+            <div class="slds-col slds-size_12-of-12">
+                <p class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps ">{labels.PaymentProgressTerm}
+                </p>
+                <p class="ahfc-text-large ahfc-text-dark ">{totalTerm} Months</p>
+            </div>
+        </div>
+        <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-end extra-options AHFC_CalWrap">
+            <div class="slds-col" if:true={isPayoff}>
+                <a onclick={navigatetoPayoffCalendar}  href="javascript:void(0);"
+                    class="ahfc-links ahfc-links-primary slds-text-title_caps">EXPLORE PAYOFF</a>
+            </div>
+            <div class="slds-col" if:false={isPayoff}>
+                <a onclick={navigatetoPayoffCalendar} href="javascript:void(0);"
+                    class="ahfc-links ahfc-links-primary slds-text-title_caps">EXPLORE PURCHASE</a>
+            </div>
+            <div class="slds-col">
+                <a href="javascript:void(0);" class="ahfc-links ahfc-links-secondary"
+                    onclick={navigatetoContracts}>{labels.PaymentProgressContractDetails}</a>
+            </div>
+        </div>
+    </div>
+
+    <!--Start US 7659  grey off detail in payment progress tile,  display this section showGrayOffPaymentProgressTile is true  -->
+    <div class="AHFC_Wrapper" if:true={showGrayOffPaymentProgressTile}>
+        <div class="slds-grid slds-grid_align-center ahfc-progress-ring1">
+            <div class="slds-col">
+                <div class="slds-progress-ring outer-ring">
+                    <div class="slds-progress-ring__progress">
+                        <a href="javascript:void(0);" tabindex="-1" aria-label="outer progress">
+                            <svg viewBox="-1 -1 2 2" role='img'>
+                                <path class="slds-progress-ring__path ring-start" d={dStartValue}></path>
+                            </svg></a>
+                    </div>
+                    <div class="slds-progress-ring__content outer-content">
+                        <div class="slds-progress-ring inner-ring">
+                            <div class="slds-progress-ring__progress" role="progressbar" aria-valuemin={minValue}
+                                aria-valuemax={maxValue} aria-valuenow={currentValue}>
+                                <a href="javascript:void(0);" tabindex="-1" aria-label="inner progress">
+                                    <svg viewBox="-1 -1 2 2" role='img' aria-labelledby="slds-progress-ring-path-161">
+                                        <path class="slds-progress-ring__path" id="slds-progress-ring-path-161"
+                                            d={dValue}>
+                                        </path>
+                                        <path class="slds-progress-ring__path ring-start" d={dStartValue}></path>
+                                    </svg></a>
+
+                            </div>
+                            <div class="slds-progress-ring__content">
+                                <div class="slds-progress-ring inner-most-ring">
+                                    <div class="slds-progress-ring__progress">
+                                        <a href="javascript:void(0);" tabindex="-1" aria-label="inner progress">
+                                            <svg viewBox="-1 -1 2 2" role='img'>
+                                                <path class="slds-progress-ring__path ring-start" d={dStartValue}>
+                                                </path>
+                                            </svg></a>
+                                    </div>
+                                    <div class="slds-progress-ring__content inner-most-content">
+                                        <div class="slds-progress-ring text-ring">
+                                            <div class="slds-progress-ring__progress">
+
+                                            </div>
+                                            <div class="slds-progress-ring__content">
+                                                <div
+                                                    class="slds-grid slds-grid_align-center slds-grid_vertical-align-center">
+                                                    <template if:true={showRingData}>
+                                                        <div class="slds-col">
+                                                            <p
+                                                                class="slds-text-align_center progress-ring-primary-greytext ">
+                                                                <span class='AHFC_GrayText'>{remainingValue}</span>
+                                                                <span class="primary-text-between AHFC_GrayText"> of
+                                                                </span>
+                                                                <span class='AHFC_GrayText'>{maxValue}</span>
+                                                            </p>
+                                                            <p
+                                                                class="slds-text-align_center progress-ring-secondary-greytext slds-text-title_caps AHFC_GrayText">
+                                                                {labels.PaymentProgressPaymentLeft}
+                                                            </p>
+                                                        </div>
+                                                    </template>
+                                                    <template if:false={showRingData}>
+                                                        <div class="slds-col">
+                                                            <p
+                                                                class="slds-text-align_center progress-ring-primary-greytext ">
+                                                                <span>0</span>
+                                                                <span class="primary-text-between"> of </span>
+                                                                <span>0</span>
+                                                            </p>
+                                                            <p
+                                                                class="slds-text-align_center progress-ring-secondary-greytext slds-text-title_caps ">
+                                                                {labels.PaymentProgressPaymentLeft}
+                                                            </p>
+                                                        </div>
+                                                    </template>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="javascript:void(0);" tabindex="-1" aria-label="ending circle">
+                    <svg class="ending-circle-gray" role='img' viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx={circlex} cy={circley} r="3" />
+                    </svg></a>
+            </div>
+        </div>
+
+        <div class="slds-grid slds-wrap payment-progress-info">
+            <div class="slds-col slds-size_12-of-12 ahfc-col-first">
+                <p class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps AHFC_GrayText" if:true={isPayoff}>
+                    TODAYS'S PAYOFF AMOUNT <span class="lgc-bg">
+                        <!-- <lightning-helptext icon-name="utility:info_alt"
+                           content="The payoff amount is calculated based on today's date. You can submit your payment online or at any Honda or Acura dealership. This quote is nontransferable and valid today only">
+                        </lightning-helptext> -->
+                     </span></p>
+                <p class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps AHFC_GrayText" if:false={isPayoff}>
+                        TODAYS'S PURCHASE AMOUNT <span class="lgc-bg">
+                            <!-- <lightning-helptext icon-name="utility:info_alt"
+                               content="The purchase amount is calculated based on today's date and valid only for the lessee named on the lease agreement. In accordance with the lease agreement, lease purchases are only available to the lessee or authorized Honda or Acura dealers. Leased vehicles not purchased must be returned to an authorized Honda or Acura dealer. You can submit your payment online or at any Honda or Acura dealership. This quote is nontransferable and valid today only.">
+                            </lightning-helptext> -->
+                         </span></p>
+                <p class="ahfc-text-large ahfc-text-dark AHFC_GrayText">${payOffAmount}</p>
+                <!-- <div if:true={isPayoff}><a href="javascript:void(0);" class="ahfc-links ahfc-links-secondary"
+                    onclick={navigatetoPayoffCalendar}>Estimate Future Payoff</a></div>
+                <div if:false={isPayoff}><a href="javascript:void(0);" class="ahfc-links ahfc-links-secondary"
+                        onclick={navigatetoPayoffCalendar}>Estimate Future Purchase</a></div> -->
+            </div>
+            <div class="slds-col slds-size_12-of-12 ahfc-col-first">
+                <p class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps AHFC_GrayText">
+                    {labels.PaymentProgressMaturityDate}</p>
+                <p class="ahfc-text-large ahfc-text-dark AHFC_GrayText">{maturitydate}</p>
+            </div>
+            <div class="slds-col slds-size_12-of-12">
+                <p class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps AHFC_GrayText">
+                    {labels.PaymentProgressTerm}
+                </p>
+                <p class="ahfc-text-large ahfc-text-dark AHFC_GrayText">{totalTerm} Months</p>
+            </div>
+        </div>
+        <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-end extra-options AHFC_CalWrap">
+            <div class="slds-col" if:true={isPayoff}>
+                <a onclick={navigatetoPayoffCalendar}
+                    class="ahfc-links ahfc-links-primary slds-text-title_caps" href="javascript:void(0);">EXPLORE PAYOFF</a>
+            </div>
+            <div class="slds-col" if:false={isPayoff}>
+                <a onclick={navigatetoPayoffCalendar}
+                    class="ahfc-links ahfc-links-primary slds-text-title_caps" href="javascript:void(0);">EXPLORE PURCHASE</a>
+            </div>
+            <div class="slds-col">
+                <a href="javascript:void(0);" class="ahfc-links ahfc-links-secondary"
+                    onclick={navigatetoContracts}>{labels.PaymentProgressContractDetails}</a>
+            </div>
+        </div>
+    </div>
+
+    <!--End  US 7659  -->
+
+</template>

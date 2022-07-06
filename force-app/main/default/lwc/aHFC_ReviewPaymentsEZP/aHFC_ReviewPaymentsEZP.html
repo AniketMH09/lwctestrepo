@@ -1,0 +1,131 @@
+<template>
+    <div class="slds-grid AHFC_MobLAyout">
+        <div class="AHFC_CommunitySecHeader">
+            <div class="AHFC_LeftGridSec slds-col">
+              <p class="AHFC_SecLogostyle">
+                  <img src={hondaheadLogoUrl} alt="honda logo" width="60" height="40"
+                    class="logo1" />
+              </p>
+            </div>
+            <div class="AHFC_VehImg slds-col">
+              <img src={hondaVehImgUrl} alt="honda logo" width="60" height="40"
+                  class="logo1" />
+            </div>
+            <div class="slds-col AHFC_Vehdetail">
+              <dl class="slds-dl_inline">
+                  <dd class="slds-dl_inline__label AHFC_DetName">Jane's 2020 Civic Si Sedan <!-- strVehicleDetails--></dd>
+                  <dt class="slds-dl_inline__label AHFC_Aclabel">Account #:</dt>
+                  <dd class="slds-dl_inline__detail AHFC_Aclabel">123456789 <!--${strAccountNumber} --></dd>
+              </dl>
+            </div>
+        </div>
+      </div>
+
+    <div class="reviewpayment-container">
+        <h1 class="reviewpayment-title" if:false={isPaymentSuccess}>
+          Review Payment
+        </h1>
+        <div class="message-info" if:true={isPaymentSuccess}>
+          <c-a-h-f-c_message-toast
+            type="success"
+            label="Success"
+            message="Your have successfully enrolled in EasyPay!"
+          ></c-a-h-f-c_message-toast>
+        </div>
+      
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-12 payment-info">
+          
+          <label>AUTOMATIC PAYMENT AMOUNT</label>
+          <h1 >${strAutoPaymentAmt}</h1>
+         
+        </div>  
+    <div>
+        <label>NEXT WITHDRAWAL DATE</label>
+        <h1>
+            {strNextWithdrawlDate}
+        </h1>
+    </div>
+    <div>
+        <label>Payment Source</label>       
+            <h1>{strpaymentSource}
+              &nbsp;
+              <span class="circle"></span>
+              <span class="circle"></span>
+              <span class="circle"></span>
+              <span class="circle"></span>
+              
+               {last4accnumofselpaysource}
+            
+        </h1>
+    </div>
+
+    <div>
+        <label>Receiving Payment Confirmation AT</label>
+
+        <div>
+        <lightning-icon icon-name="utility:email" alternative-text="Connected" size="small" title="small size">
+        </lightning-icon>
+        
+        <h2 class="slds-m-top_medium mail-alignment">{strCommunicationEmail}</h2>
+        </div>
+
+        <div>
+            <lightning-icon icon-name="utility:engage" alternative-text="Connected" size="small" title="small size">
+            </lightning-icon>
+            <h3 class="slds-m-top_small mail-alignment">{strCommunicationPhone}</h3>
+        </div>
+
+    </div>
+    
+    <div class="AHFC_InnerHeadCont" if:true={isPaymentSuccess}>
+      <p>
+      Your next payment will be processed at {cutOffTime}:00 PM Pacific Time
+                on&nbsp;
+              
+                  <lightning-formatted-date-time
+                    value={paymentDate}
+                    day="2-digit"
+                    month="short"
+                    year="numeric"
+                  ></lightning-formatted-date-time
+                  >
+                  <span
+                  > You can edit or cancel this payment schedule at anytime in your dashboard under
+                  &nbsp;<a href="javascript:void(0)" onclick={navigatetoPaymentActivityPage}>'Payment Activity'</a>
+                </span>
+            </p>
+            <button
+            class=" AHFC_NoBgButton slds-m-top_xx-large slds-show"
+            title="CONTINUE TO DASHBOARD"
+            onclick={navigateToDashboard}
+          >CONTINUE TO DASHBOARD</button>
+  </div>
+
+    <div class="AHFC_InnerHeadCont" if:false={isPaymentSuccess}>
+            <p>EasyPay Payments scheduled for Sunday will process on Monday and be credited to your account as of the payment date.
+                Cancellations by 12.00 PM Pacific time on the payment date will be effective immediately </p>
+    </div>
+
+    <div if:false={isPaymentSuccess}>
+        <span>By clicking on 'Submit', you are agreeing to out EasyPay <a>Terms & Conditions</a>.</span>
+    </div>
+
+      <div class="submit-action slds-m-top_xx-large" if:false={isPaymentSuccess}>
+        <lightning-button
+          class="slds-m-right_xx-large submit-btn"
+          variant="destructive"
+          label="SUBMIT"
+          title="submit"
+          onclick={handleSubmitPayment}
+        ></lightning-button>
+        <lightning-button
+          class="edit-btn"
+          variant="base"
+          label="EDIT PAYMENT"
+          title="edit"
+          onclick={editPayment}
+        ></lightning-button>
+      </div>
+
+</div>
+</template>

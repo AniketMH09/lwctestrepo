@@ -1,0 +1,52 @@
+<template>
+    <div class={messageClass}>
+
+    <div class="message-icon">
+        <a href="javascript:void(0);" tabindex="-1">
+            <lightning-icon icon-name={iconName} alternative-text={iconTitle} title={iconTitle}
+                class="toast-icon-color"></lightning-icon> 
+         </a>
+        </div>
+        <div class={messageContent} if:false={isNotification}>
+            <h1 class="ahfc-body-one" if:true={label}>{label}</h1>
+            <p class="ahfc-body-two single-toast-message" if:true={singlemsg}>{singlemsg} 
+                <a href="javascript:void(0);"
+                    if:true={singlelink} class="single-toast-link aHFC_notification" onclick={singleToastLinkClicked}>{singlelink}</a>
+                </p>
+            <p class="ahfc-body-two single-toast-message" if:true={message}>{message}<a href="javascript:void(0);" if:true={link}
+                    class="toast-link aHFC_notification" onclick={toastLinkClicked}>{link}</a>{messageData}</p>
+                
+        </div>
+        <!--Added by Prabu for managing the text and hyperlink placement and placement of the close icon-->
+        <div class={messageNotification} if:true={isNotification}>
+            <h1 class="ahfc-body-one" if:true={label}>{label}</h1>
+            <p class="ahfc-body-two single-toast-message" if:true={singlemsg}>{singlemsg} 
+                <a href="javascript:void(0);"
+                    if:true={singlelink} class="single-toast-link aHFC_notification" onclick={singleToastLinkClicked}>{singlelink}</a>
+                </p>
+                <p class="ahfc-body-two single-toast-message" if:true={message}>{message}<a href="javascript:void(0);" if:true={link}
+                    class="toast-link aHFC_notification" onclick={toastLinkClicked}>{link}</a></p>         
+                  
+                  <p class="ahfc-body-two single-toast-message"><a href="javascript:void(0);" if:true={notifylink}
+                    class="toast-link aHFC_notification" onclick={hyperLinkClicked}>{notifylink}</a>
+                    <span class="aHFC_notification" if:true={notifyMessage}>{notifyMessage}
+                    </span></p>            
+               
+                    <!--Added by Prabu for US 8765 Start-->
+            <p class="ahfc-body-two single-toast-message" if:true={text}>{text} 
+                        <span class="aHFC_notification" if:true={date}>{date}</span>
+            </p>
+                    <!--US 8765 End-->
+        </div>
+        <!--End-->
+
+        <div class="close-icon close-icon-alignment" if:true={isIconShow}>
+            <button class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse message-content-info" title="Close"
+                onclick={closeToast}>
+                <lightning-icon size="small" class="close-icon-color" icon-name="utility:close" alternative-text="close"
+                    title="close"></lightning-icon>
+                <span class="slds-assistive-text">Close</span>
+            </button> 
+        </div>
+    </div>
+</template>

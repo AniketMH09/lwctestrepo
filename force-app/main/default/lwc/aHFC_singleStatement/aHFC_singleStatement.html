@@ -1,0 +1,148 @@
+<!--
+   @description The component aHFC_singleStatement is used to display all statements
+   @ author vishnuPlease wait while we process your request
+   @copyright L&T
+   @version 1.000
+-->
+<template>
+   <c-a-h-f-c_vehicleswitcher loading-message="Please wait while we process your request" loader-control='true'></c-a-h-f-c_vehicleswitcher>
+   <div class="AHFC_Wrapperst ahfc-background-lighter">
+       <c-a-h-f-c_page-title title='Statements' show-icon="true" class="AHFC_titleWrap"></c-a-h-f-c_page-title> 
+      <div class="AHFC_ContainerSec">
+         <div class="card-block ahfc-background-lightest AHFC_InnerAround">
+            <template if:true={showErrorPage}>
+              <h2> <span class="AHFC_InnerHeading">Statement History</span></h2>
+               <div class="AHFC_InnerHeadCont AHFC_ToastBar">
+                  <div class="AHFC_ToastLabel"> 
+                     <lightning-icon icon-name="utility:error" alternative-text="error" size="xx-small"
+                     title="xx-small size"></lightning-icon>
+                     Error
+                  </div>
+                  <div class="AHFC_ToastMsg">
+                     There was an error loading your statements. Please refresh the page or try again later.
+                  </div>
+               </div>
+            </template>
+            <template if:false={showErrorPage}>
+            <template if:true={showNoDataPage}>
+               <span class="AHFC_InnerHeading">No Statements Added</span>
+               <div class="AHFC_InnerHeadCont AHFC_BordBot">
+                  <p>You have no statements to view yet
+                  </p>
+               </div>
+            </template>
+            <template if:true={isData}>
+              <h2> <span class="AHFC_InnerHeading">Statement History </span></h2>
+               <div class="AHFC_InnerHeadCont">
+                  <p>{aHFC_singleStatementMessage} <a onclick={NavigateToContactUsPage}>Contact Us</a>
+                  </p>
+               </div>
+               <div class="AHFC_Tabborder">
+                  <table class="AHFC_Sttable">
+                     <thead class="AHFC_FamilyMed AHFC_SizeOneFour AHFC_ColorBlack">
+                        <tr>
+                           <th onclick={sortByDate}><span>Statement Date</span></th>
+                           <th id="Action"><span class="AHFC_ColRt">Actions</span></th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <template for:each={tableData} for:item="tableItem">
+                           <tr key={tableItem.key}>
+                              <td class="AHFC_FamilyReg AHFC_SizeOneEight AHFC_SpcgOTwo">{tableItem.date}</td>
+                              <td class="AHFC_ColRt AHFC_Colred AHFC_ViewHover AHFC_FamilyMed AHFC_SizeOneFour AHFC_SpcgOSix"><span
+                                    data-documentid={tableItem.documentId} onclick={viewTheDocument} >View</span></td>
+                           </tr>
+                        </template>
+                     </tbody>
+
+                  </table>
+               </div>
+               <div class="slds-grid slds-grid_align-spread AHFC_BordBot slds-wrap">
+                  <div class="slds-col  slds-show_medium">
+                     <span>
+                        <div class="slds-col  slds-size_1-of-1 statement-adobe-reader AHFC_AR">
+                           <img src={adobeLogoUrl} alt="adobe logo">
+                           <a href="https://get.adobe.com/reader/" target="_blank" rel="noopener noreferrer"
+                              class="ahfc-links ahfc-links-secondary AHFC_FamilyReg AHFC_SizeOneFour AHFC_VerticalAlign">
+                              Download Acrobat Reader
+                           </a>
+                           <lightning-helptext icon-name="utility:info_alt"
+                           content="If you need a pdf viewer, you can download one for free"
+                           ></lightning-helptext>
+                        </div>
+                     </span>
+                  </div>
+                  <div class="slds-col">
+                     <c-a-h-f-c_pagination if:false={refreshPagination} class="transaction-pagination"
+                        items={totalRecords} itemsperpage="5" onpagechanges={pageChange}>
+                     </c-a-h-f-c_pagination>
+                  </div>
+                  <div class="slds-col slds-size_1-of-1 slds-hide_medium">
+                     <span>
+                        <div class="slds-col statement-adobe-reader AHFC_AR ahfc-reader-mobile">
+                           <img src={adobeLogoUrl} alt="adobe logo">
+                           <a href="https://get.adobe.com/reader/" target="_blank" rel="noopener noreferrer"
+                              class="ahfc-links ahfc-links-secondary AHFC_FamilyReg AHFC_SizeOneFour AHFC_VerticalAlign">
+                              Download Acrobat Reader
+                           </a>
+                           <lightning-helptext icon-name="utility:info_alt"
+                              content="If you need a pdf viewer, you can download one for free"
+                              ></lightning-helptext>
+                           </div>
+                     </span>
+                  </div>                  
+               </div>
+            </template>
+            </template>
+            <div class="slds-grid slds-grid_align-spread AHFC_ContLayout " if:true={defaultDetails}>
+               <div class="slds-col AHFC_Samplest AHFC_SizeOneEight AHFC_FamilyReg">
+                  <span class="AHFC_SpcgOTwo"> Click the link below to take a tour of your finance account statement</span>
+                  <div class="AHFC_Notify AHFC_Linkwrap AHFC_SpcgOTwo"><a class="AHFC_Colred" if:false={defaultDetails.isLeaseAccount} onclick={openSampleStatment}>View Sample Statement</a> </div>
+                  <div class="AHFC_Notify AHFC_Linkwrap AHFC_SpcgOTwo"><a class="AHFC_Colred" if:true={defaultDetails.isLeaseAccount} onclick={openSampleStatment}>View Sample Lease Statement</a> </div>
+               </div>
+             <template if:false={defaultDetails.accClosed}>
+               <div class="slds-col AHFC_NotifyCustom" if:true={defaultDetails.enrollEdilivery}>
+                  <div class=" AHFC_SizeOneFour AHFC_FamilyMed AHFC_SpcgOThree">RECEIVE NOTIFICATIONS AT</div>
+                  <div class="AHFC_ContEmail AHFC_SizeTwoSix AHFC_FamilyReg" if:true={defaultDetails}>{defaultDetails.emailId} </div>
+                  <div class="AHFC_Linkwrap AHFC_Notify  AHFC_SizeOneEight AHFC_FamilyLgt AHFC_SpcgOTwo"><a class="AHFC_Colred" onclick={openComPref}>Edit your Communication Preferences</a> </div>
+               </div>
+               <div class="slds-col AHFC_NotifyCustom" if:false={defaultDetails.enrollEdilivery}>
+                  <div class=" AHFC_SizeOneFour AHFC_FamilyMed AHFC_SpcgOThree"><b>ENROLL IN E-DELIVERY</b> </div>
+                  <div class="AHFC_SpcgOTwo AHFC_SizeOneEight" if:true={defaultDetails}>Sign up to receive email notifications when your monthly statement is available</div>
+                  <div class="AHFC_Linkwrap AHFC_Notify  AHFC_SizeOneEight AHFC_FamilyLgt AHFC_SpcgOTwo"><a onclick={openComPref} class="AHFC_Colred">Enroll in E-Delivery</a> </div>
+               </div>
+         </template> 
+            </div>
+            
+            <template if:true={showErrorPage}>
+               <div class="AHFC_AmtLayout">
+                  <div>
+                     <button onclick={returnToDashBoard}
+                        class="slds-button ahfc-btn AHFC_SubmitBut ahfc-btn-primary">Return To Dashboard</button>
+                  </div>
+               </div>
+            </template>
+            <template if:true={showNoDataPage}>
+               <div class="AHFC_AmtLayout">
+                  <div>
+                     <button onclick={returnToDashBoard}
+                        class="slds-button ahfc-btn AHFC_SubmitBut ahfc-btn-primary">Return To Dashboard</button>
+                  </div>
+               </div>
+            </template>
+
+            <!--Strat  US 7638 sample Statement Popup-->
+            <template if:true={showSampleStatment}>
+               <c-a-h-f-c_sample-statment account-details={defaultDetails} onmodalclose={onSampleStatementModelClose} show-sample-statment-model={showSampleStatment}>
+               </c-a-h-f-c_sample-statment>
+            </template>
+            <!-- End US 7638-->
+
+            <div style="padding-top : 50px">
+               <c-a-h-f-c_dashboard-faq page-name={pageName}></c-a-h-f-c_dashboard-faq>
+            </div>
+               
+         </div>
+      </div>
+   </div>
+</template>

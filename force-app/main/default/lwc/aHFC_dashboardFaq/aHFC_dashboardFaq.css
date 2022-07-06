@@ -1,0 +1,70 @@
+@import 'c/aHFC_dashboardTheme';
+
+:host {
+    margin-top: 5px;
+}
+.ahfc-linkpadding{
+    margin-bottom: 0px !important;
+}
+.faq-accordion {
+    padding: 10px 0;
+}
+.ahfc-accordion-item{
+    margin-bottom: 0px !important;
+}
+.slds-accordion__section{
+    padding-bottom: 5px !important;
+}
+.ahfc-accordion-item .slds-accordion__summary-action {
+    font-size: 14px;
+    font-weight: normal; 
+    line-height: 20px;
+    letter-spacing: 0.03em;
+    background: #f0f0f0;
+}
+
+.ahfc-accordion-item .slds-accordion__content {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.dashboard-faq .extra-options {
+    border-top: 1px solid #5e6162;
+}
+
+.ahfc-accordion-item .slds-accordion__section .slds-accordion__summary-content {
+    font-weight: 600;
+    color: #5E6162;
+}
+.ahfc-accordion-item .slds-accordion__section.slds-is-open .slds-accordion__summary-content {
+    color: #CC0000;
+}
+
+.ahfc-read-more {
+    color: #CC0000;
+    float: right;
+    /* border-bottom: 1px solid; */
+    /* font-weight: 700; */
+    font-weight: 500;
+    text-decoration: underline;
+    
+}
+
+.ahfc-description {
+    padding-left: 37px;
+    padding-top: 18px;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 600px) {
+    .ahfc-description {
+        padding-left: 13px;
+        padding-top: 18px;
+        font-weight: 500;
+    }
+
+    .dashboard-faq .extra-options {
+        border-top: 1px solid #5e6162;
+        text-align: center;
+    }
+  }

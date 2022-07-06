@@ -1,0 +1,49 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    
+    <ltng:require styles="{!$Resource.AHFC_UI_Kit}"/>
+    <aura:attribute name = "instructions" type = "String"/> 
+    <aura:attribute name = "Past_Due_Instructions" type = "String"/> 
+    <aura:attribute name = "First_Payment_Instruction" type = "String"/> 
+    <aura:attribute name = "Pending_Case_Instruction" type = "String"/> 
+    <aura:attribute name = "Past_Due_Screen" type = "String"/> 
+    <aura:attribute name = "First_Payment_Screen" type = "String"/> 
+    <aura:attribute name = "Pending_Case_Screen" type = "String"/> 
+    <aura:attribute name = "Ineligible_Customer" type = "String"/>
+    <aura:attribute name = "LE_Flow" type = "String"/>
+    <aura:attribute name = "DDC_Flow" type = "String"/>
+    <aura:attribute name = "DDC_Eligibility" type="String"/>
+    <aura:attribute name = "Record_Not_Found" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name = "Invalid_User" type="String"/>
+    <aura:attribute name= "communityName" type="string" default=""/>
+    
+    <div class="contain">
+        <div class="center"> 
+            <h1 class="header">{!$Label.c.AHFC_PE_Extension_Request}</h1>
+            
+            
+            
+            
+            <div class="info">
+                <aura:if isTrue="{!v.communityName == 'hondahelp'}">
+                    <p><aura:unescapedHtml value="{!$Label.c.AHFC_PE_Pend_Msg1_honda}"/></p>
+                </aura:if>
+                <aura:if isTrue="{!v.communityName == 'acurahelp'}">
+                    <p><aura:unescapedHtml value="{!$Label.c.AHFC_PE_Pend_Msg1_honda_Acura}" /></p>
+                </aura:if>
+                
+            </div>
+            
+            
+            <div class="action">
+                
+                
+                    <button class="btn primary pull-right" onclick="{!c.redirectToMyAccount}">{!$Label.c.AHFC_Return_to_Account_Overview}</button>
+                    <br/>
+                
+                
+            </div>
+        </div>
+       
+    </div>
+</aura:component>

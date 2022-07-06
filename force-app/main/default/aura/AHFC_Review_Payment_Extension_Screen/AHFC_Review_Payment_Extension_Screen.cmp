@@ -1,0 +1,213 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    <!--Inputs -->
+    <aura:attribute name = "dueDate" type = "String" default="12/15/18"/>
+    <aura:attribute name = "nextDueDate" type = "String" default="12/15/18" />
+    <aura:attribute name = "pymtResumeDate" type = "String" default="12/15/18" />
+    <aura:attribute name = "nextPaymentAmount" type = "String" default=""/>
+    <aura:attribute name = "nextPaymentAmountDecimal" type = "Decimal" default=""/>
+    <aura:attribute name= "leaseReviewIstructions1" type="String" />
+    <aura:attribute name= "leaseReviewIstructions2" type="String" />
+    <aura:attribute name = "currentMaturityDate" type = "String"  default="12/15/18" />
+    <aura:attribute name = "noOfMonthRequested" type = "String" default="5" /> 
+    <aura:attribute name = "newMaturityDate" type = "String" default="5/15/18" />
+    <aura:attribute name= "estimatedLETax" type="String" default=""/>
+    <aura:attribute name="faNumber" type = "String" default =""/>
+    <aura:attribute name = "financeAccNumber" type = "String" />
+    <aura:attribute name = "CancelLeaseExtension" type = "string"/>
+    <aura:attribute name = "Review" type = "string"/>
+    <aura:attribute name = "LeaseExtension" type = "string"/>
+    <aura:attribute name = "AccountNumbertemplate" type = "string"/>
+    <aura:attribute name= "MonthlyPaymentAmount" type = "string"/>
+    <aura:attribute name= "CurrentMaturityDatetemplate" type = "string"/>
+    <aura:attribute name= "NumberofMonthsRequested" type = "string"/>
+    <aura:attribute name = "RequestedMaturityDate" type = "string"/>
+    <aura:attribute name = "EstimatedUpfrontTax" type="string"/>
+    
+    <!-- Others-->
+    <aura:attribute name="value" type="String" />
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+    
+    <div class="contain">
+        <div class="center"> 
+            <h1 class="header">{!$Label.c.AHFC_PE_Extension_Request}</h1>
+            
+            <!-- Path Configuration - -->       
+            <div class="slds-grid_pull-padded-sm">
+                <lightning:progressIndicator currentStep="step-2" type="path" variant="base">
+                    <lightning:progressStep label="Select Term" value="step-1"/>                  
+                    <lightning:progressStep label="Review" value="step-2"/>
+                    <lightning:progressStep label="Submit" value="step-3"/>
+                    <lightning:progressStep label="Complete" value="step-4"/>
+                </lightning:progressIndicator>
+            </div>
+            <!-- End Path Configuration - -->      
+            
+            <div class="info">
+                
+                <p>{!$Label.c.AHFC_PE_Review_info}</p> 
+                
+            </div>
+            <div class="contain-secondary">
+                <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap row-divide">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_7-of-12">
+                        <label>{!$Label.c.AHFC_Account_Number}</label>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12">
+                        <aura:if isTrue = "{!v.currentMaturityDate != ''}">
+                            <span>{!v.financeAccNumber}</span>
+                        </aura:if> 
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap row-divide">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_7-of-12">
+                        <label>{!$Label.c.AHFC_Monthly_Payment_Amount}</label>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12">
+                        <aura:if isTrue="{!v.nextPaymentAmount != ''}" >
+                            <span>${!v.nextPaymentAmountDecimal}</span>
+                        </aura:if> 
+                    </div>
+                </div>
+                
+                <!-- start 3 -->
+                 <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap row-divide">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_7-of-12">
+                        <label>{!$Label.c.AHFC_DUE_DATE}</label>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12">
+                        <aura:if isTrue="{!v.nextPaymentAmount != ''}" >
+                            <span>{!v.dueDate}</span>
+                        </aura:if> 
+                    </div>
+                </div>
+                
+                <!-- end 3 -->
+                <!-- <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap row-divide">
+                </div> -->
+                <!-- start 4 -->
+                <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap row-divide">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_7-of-12">
+                        <label>{!$Label.c.AHFC_Number_of_Months_Requested}</label>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12">
+                        <aura:if isTrue = "{!v.noOfMonthRequested != ''}">
+                            <aura:if isTrue = "{!v.noOfMonthRequested =='1'}">
+                                <span>{!v.noOfMonthRequested} month</span> 
+                                <aura:set attribute="else">
+                                    <span>{!v.noOfMonthRequested} months</span> 
+                                </aura:set>
+                            </aura:if>
+                        </aura:if> 
+                    </div>
+                </div>
+                <!-- end 4 -->
+                <!--start -->
+                <div class="slds-grid slds-wrap row-divide">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_7-of-12">
+                        <div class="tooltip-label-wrap">
+                            <div class="slds-form-element">  
+                                <label class="tooltip-label">{!$Label.c.AHFC_Pymt_Resumes_On}</label>
+                                <div class="slds-form-element__icon tooltip">
+                                    <img class="inline" src="{!$Resource.AHFC_UI_Kit + '/img/icons/tooltip.svg'}"/>
+                                    <div class="tooltiptext slds-popover slds-popover_tooltip slds-nubbin_bottom" role="dialog" id="help" style="position: absolute; top: -200px; left: -120px; width: 260px;" >
+                                        
+                                        <div class="slds-popover__body">
+                                            <aura:unescapedHtml value ="{!$Label.c.AHFC_PE_DATE_TOOLTIP}"/>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12">
+                        <aura:if isTrue = "{!v.newMaturityDate != ''}">
+                            <span>{!v.nextDueDate}</span>
+                        </aura:if>
+                    </div>                
+                </div>
+                
+                <!--end -->
+                
+                <!--start2 -->
+                <div class="slds-grid slds-wrap row-divide">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_7-of-12">
+                        <div class="tooltip-label-wrap">
+                            <div class="slds-form-element">  
+                                <label class="tooltip-label">{!$Label.c.AHFC_New_Maturity_Date}</label>
+                                <div class="slds-form-element__icon tooltip">
+                                    <img class="inline" src="{!$Resource.AHFC_UI_Kit + '/img/icons/tooltip.svg'}"/>
+                                    <div class="tooltiptext slds-popover slds-popover_tooltip slds-nubbin_bottom" role="dialog" id="help" style="position: absolute; top: -200px; left: -120px; width: 260px;" >
+                                        
+                                        <div class="slds-popover__body">
+                                            <aura:unescapedHtml value ="{!$Label.c.AHFC_PE_DATE_TOOLTIP}"/>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12">
+                        <aura:if isTrue = "{!v.newMaturityDate != ''}">
+                            <span>{!v.newMaturityDate}</span>
+                        </aura:if>
+                    </div>                
+                </div>
+                
+                <!--end2 -->
+                
+                
+              
+                
+                
+            </div>     
+            
+            <div class="action slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-12 action__prev-cancel">
+                    <!-- I-356017 | Namita | 6 Dec 18-->
+                    <lightning:button class="btn default pull-left mr-sm" aura:id="prev1" name="prev1" label="Previous" onclick="{!c.handlePrevious}"/>
+                    <lightning:button class="btn default mr-sm" aura:id="cancel1" name="cancelButton1" label="Cancel" onclick="{! c.openModel }"/>
+                    
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12">
+                    <lightning:button class="btn primary pull-right btn-continue" aura:id="cont1" name="continue1" label="Submit" onclick="{!c.handleContinue}"/>
+                </div>
+            </div>
+            
+        </div>  
+    </div>
+    <div class="confirm-modal">
+        <aura:if isTrue="{!v.isOpen}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!$Label.c.AHFC_Confirmation}</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        
+                        <aura:unescapedHtml value ="{!$Label.c.AHFC_Cancel_Payment_Extension}"/>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning:button class="btn default pull-left mr-sm" aura:id="cancel2" name="cancelButton2" label="Cancel" onclick="{! c.closeModel }"/>
+                        
+                        <lightning:button class="btn primary pull-right" aura:id="cont2" name="continue2" label="Continue" onclick="{!c.redirectToHome}"/>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    </div>
+    <div class="contain">
+        <div class="center"> 
+    <div class="info2">
+        
+        <aura:unescapedHtml value="{!$Label.c.AHFC_PE_TERMS}" /> 
+        <!-- AHFC_PE_Extension_Request AHFC_PE_TERMS -->
+        
+    </div>
+        </div>
+    </div>
+</aura:component>

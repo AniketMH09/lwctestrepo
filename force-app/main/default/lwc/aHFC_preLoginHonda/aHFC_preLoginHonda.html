@@ -1,0 +1,374 @@
+<template>
+     <!-- 2320 - Global Alert  Start -->
+<template if:true={globalAlertFlag}>
+    <template for:each={alertMessageArrayMain} for:item='item' >
+    <div class='slds-show_large aHFC_globalAlert' key={item.Name}   > 
+       <c-a-h-f-c_message-toast class="made-payment-toast" type="alert" 
+       message={item.Alert_Message__c}      
+        is-notification="true" show-icon="false">
+       </c-a-h-f-c_message-toast>
+    </div>
+ </template>
+</template>
+<!-- 2320 - Global  Alert  End -->
+
+
+
+<!-- 2320 - Global Alert for mobile view start -->
+<template if:true={globalAlertFlag}> 
+    <template for:each={alertMessageArrayMain} for:item='item' >
+    <div class='slds-hide_large aHFC_globalAlert' key={item.Name}  >
+       <c-a-h-f-c_message-toast class="made-payment-toast infosec" type="alert"
+       message={item.Alert_Message__c}   
+       is-notification="true" show-icon="false">
+       </c-a-h-f-c_message-toast>
+    </div>
+ </template>
+</template>
+<!-- 2320 - Global Alert for mobile view start -->
+<div role="main" id="main-container" class="main-content">
+<div class="AHFC_PageTitleWrap">
+    <!--  <div class="ahfc_covidBg"> 
+            <a href="javascript:void(0);" tabindex="-1">
+            <lightning-icon icon-name="utility:warning" alternative-text="warning" size="x-small"
+            class="AHFC_warning"></lightning-icon></a>
+              <div class="ahfc_covidText"><span>Covid-19:</span> A message to our customers regarding Covid-19</div>
+        </div>-->
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-1">
+            <div class="ahfc_topCard">
+                <div class="ahfc_topImage">
+                    <template if:true={isFirst}>
+                            <div class="slds-show_large">
+                                <img aria-hidden='true' src={Banner1Desktop} alt="Man and woman standing next to red honda civic">
+                            </div>
+                            <div class="slds-hide_large">
+                                <img aria-hidden='true' src={Banner1Mobile} alt="Man and woman standing next to red honda civic"
+                                     ontouchstart={touchStart} ontouchend={touchEndTopCarousel}>
+                            </div>
+                        </template>
+                    <template if:true={isSecond}>
+                            <div class="slds-show_large">
+                                <img aria-hidden='true' src={Banner2Desktop} alt="Honda side-by-side vehicle in desert sand">
+                            </div>
+                            <div class="slds-hide_large">
+                                <img aria-hidden='true' src={Banner2Mobile} alt="Honda side-by-side vehicle in desert sand"
+                                     ontouchstart={touchStart} ontouchend={touchEndTopCarousel}>
+                            </div>
+                        </template>
+                    <template if:true={isThird}>
+                            <div class="slds-show_large">
+                                <img aria-hidden='true' src={Banner3Desktop} alt="Two red honda generators">
+                            </div>
+                            <div class="slds-hide_large">
+                                <img aria-hidden='true' src={Banner3Mobile} alt="Two red honda generators"
+                                     ontouchstart={touchStart} ontouchend={touchEndTopCarousel}>
+                            </div>
+                        </template>
+                    <ul class="slds-carousel__indicators ahfc_swipeButtons ahfc_swipeDesktop" role="tablist">
+                        <template for:each={accObj} for:item="servAcc">
+                            <li key={servAcc.keyNo} data-indicator={servAcc.keyNo} class="slds-carousel__indicator"
+                            role="presentation">
+                            <a id={servAcc.indicatorId} data-indicator={servAcc.keyNo}
+                                onclick={onCarousalIndicatorClick} class={servAcc.indicatorClass}
+                                href="javascript:void(0);" role="tab" tabindex="0"
+                                aria-selected={servAcc.ariaSelected} aria-controls={servAcc.panelId}
+                                title={servAcc.name}>
+                                <span class="slds-assistive-text"
+                                    data-indicator={servAcc.keyNo}>{servAcc.name}</span>
+                            </a>
+                            </li>
+                            </template>
+                    </ul>
+                </div>
+                <div class="ahfc_top">
+                    <h1 class="ahfc_topHeading">
+                        Welcome to Honda Financial Services
+                    </h1>
+                    <div class="ahfc_topSubHeading">Log in or register for an account to make payments, view statements and manage your finance account online, at your convenience.</div>
+                    <div>
+                        <button class="AHFC_customPrimaryButton" onclick={navigateToLogin}>Log in</button>
+                        <button class="AHFC_customTertiaryButton" onclick={navigateToRegistration}>Register</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="AHFC_WrapperstWaiver">
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_4-of-12 ahfc_waiver">
+            <div class="ahfc_waiverCard">
+                <div class="ahfc_waiverContent">
+                    <h2 class="ahfc_waiverHeading">Apply for Credit Pre-Approval </h2>
+                    <div class="ahfc_waiverDescription">
+                        Securing pre-approval is the first step toward purchasing or leasing a new Honda.
+                    </div>
+                    <div class="ahfc_Links">
+                        <button class="slds-button ahfc_buttons ahfc_learnMoreButton" onclick={onPreApprovalClick}>
+                                Apply Now
+                            </button>
+                    </div>
+                </div>
+            </div>
+            <div class="ahfc_waiverIcon">
+                <img aria-hidden='true' src={preloginWaiver1LogoUrl} alt="Apply for Credit Pre-Approval">
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_4-of-12 ahfc_waiver">
+            <div class="ahfc_waiverCard ahfc_rightSpaceTurnInWaiver">
+                <div class="ahfc_waiverContent">
+                    <h2 class="ahfc_waiverHeading">Lease vs Finance</h2>
+                    <div class="ahfc_waiverDescription">
+                        Explore the benefits of leasing and financing, and choose the best option for your needs.
+                    </div>
+                    <div class="ahfc_Links ahfc_topMargin">
+                        <button class="slds-button ahfc_buttons ahfc_learnMoreButton" onclick={onLeaseVsFinanceClick}>
+                                Learn More
+                            </button>
+                    </div>
+                </div>
+            </div>
+            <div class="ahfc_waiverIcon ahfc_leftSpace">
+                <img aria-hidden='true' src={preloginWaiver2LogoUrl} alt="Lease vs Finance">
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_4-of-12 ahfc_waiver">
+            <div class="ahfc_waiverCard ahfc_rightSpace">
+                <div class="ahfc_waiverContent ahfc_waiverPadding">
+                    <h2 class="ahfc_waiverHeading">End of Lease</h2>
+                    <div class="ahfc_waiverDescription">
+                        Are there six months or less left on your lease? Learn about your options.
+                    </div>
+                    <div class="ahfc_Links ahfc_topMargin">
+                        <button class="slds-button ahfc_buttons ahfc_learnMoreButton" onclick={onEndOfLeaseClick}>
+                                Learn More
+                            </button>
+                    </div>
+                </div>
+            </div>
+            <div class="ahfc_waiverIcon ahfc_leftSpace">
+                <img aria-hidden='true' src={preloginWaiver3LogoUrl} alt="End of Lease">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="">
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-1">
+            <div class="ahfc_topCard">
+                <div class="ahfc_middleImage">
+                    <div class="slds-show_large">
+                        <img aria-hidden='true' src={middleImageDesktop} alt="Man and woman standing next to red honda civic">
+                    </div>
+                    <div class="slds-hide_large">
+                        <img aria-hidden='true' src={middleImageMobile} alt="Man and woman standing next to red honda civic">
+                    </div>
+                </div>
+                <div class="ahfc_middle">
+                    <!-- <div class="ahfc_allNew">
+                            <span class="ahfc_new">All New</span>
+                            <span class="ahfc_line"></span>
+                            <span class="ahfc_hondaAccord">The 2021 Honda Accord</span>
+                        </div> -->
+                    <h2 class="ahfc_middleHeading">
+                        Honda Loyalty Benefits
+                    </h2>
+                    <div class="ahfc_topSubHeading">Drive the latest vehicle and choose the terms and mileage that work for you. When you're ready to trade up to a new lease, Honda offers benefits for staying within the family.</div>
+                    <div>
+                        <button class="AHFC_customPrimaryButton ahfc_learnMoreBtn" onclick={onHondaLoyaltyBenefitsClick}>Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="AHFC_WrapperstOA ahfc-show_large">
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12  slds-large-size_6-of-12">
+            <div class="ahfc_offersAndApproval">
+                <div class="ahfc_offersAndApprovalImage">
+                    <img aria-hidden='true' src={protectionProductsLogoUrl} alt="fee waiver">
+                </div>
+                <div class="ahfc_offersAndApprovalContent ahfc_protectionProducts">
+                    <h2 class="ahfc_offersAndApprovalHeading">Protection Products</h2>
+                    <div class="ahfc_offersAndApprovalDescription">
+                        Explore different coverage options and plans to help you make the most of every mile.
+                    </div>
+                    <div class="ahfc_Links">
+                        <!-- <a href="https://automobiles.honda.com/tools/current-offers" class="href">LEARN MORE</a> -->
+                        <button class="slds-button ahfc_buttons ahfc_learnMoreButton" onclick={onProtectionProductsClick}>
+                            Learn More
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12  slds-large-size_6-of-12">
+            <div class="ahfc_offersAndApproval">
+                <div class="ahfc_offersAndApprovalImage">
+                    <img aria-hidden='true' src={hondaSpecialOffersLogoUrl} alt="Customer and eomployee in honda car dealership">
+                </div>
+                <div class="ahfc_offersAndApprovalContent ahfc_rightCard">
+                    <h2 class="ahfc_offersAndApprovalHeading">Honda Automobile Special Offers</h2>
+                    <div class="ahfc_offersAndApprovalDescription">
+                        Find special offers on Honda automobiles in your area.
+                    </div>
+                    <div class="ahfc_Links ahfc_findOffersLink">
+                        <a onclick={hondaAutombileSpecialOffers} href="https://automobiles.honda.com/tools/current-offers" class="href">FIND OFFERS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12  slds-large-size_6-of-12">
+            <div class="ahfc_offersAndApproval">
+                <div class="ahfc_offersAndApprovalImage">
+                    <img aria-hidden='true' src={hondaPowerSportsDesktopLogoUrl} alt="fee waiver">
+                </div>
+                <div class="ahfc_offersAndApprovalContent ahfc_protectionProducts">
+                    <h2 class="ahfc_offersAndApprovalHeading">Honda Powersports Special Offers</h2>
+                    <div class="ahfc_offersAndApprovalDescription">
+                        Ride away with a special offer on a Honda motorcycle, ATV, Side by Side, or dirt bike.
+                    </div>
+                    <div class="ahfc_Links">
+                        <a onclick={hondaPowerSportsOffers} href="https://powersports.honda.com/offers" class="href">FIND OFFERS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12  slds-large-size_6-of-12">
+            <div class="ahfc_offersAndApproval">
+                <div class="ahfc_offersAndApprovalImage">
+                    <img aria-hidden='true' src={hondaPowerEquipmentDesktopLogoUrl} alt="fee waiver">
+                </div>
+                <div class="ahfc_offersAndApprovalContent ahfc_rightCard">
+                    <h2 class="ahfc_offersAndApprovalHeading">Honda Power Equipment</h2>
+                    <div class="ahfc_offersAndApprovalDescription">
+                        Learn more about the products you need to get work done.
+                    </div>
+                    <div class="ahfc_Links ahfc_learnMoreLink">
+                        <a onclick={hondaPowerEquipmentOffers} href="https://powerequipment.honda.com/" class="href">Explore Products</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12  slds-large-size_6-of-12">
+            <div class="ahfc_offersAndApproval">
+                <div class="ahfc_offersAndApprovalImage">
+                    <img aria-hidden='true' src={hondaMarineLogoUrl} alt="fee waiver">
+                </div>
+                <div class="ahfc_offersAndApprovalContent ahfc_rightCard">
+                    <h2 class="ahfc_offersAndApprovalHeading">Honda Marine Special Offers</h2>
+                    <div class="ahfc_offersAndApprovalDescription">
+                        Nothing runs like a Honda Marine Engine. Explore special offers.
+                    </div>
+                    <div class="ahfc_Links ahfc_findOffersLink">
+                        <a href="https://marine.honda.com/finance" onclick={hondaMarineOffers} class="href">FIND OFFERS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="AHFC_WrapperstOA ahfc-hide_large"
+     ontouchstart={touchStart} ontouchend={touchEndBottomCarousel}>
+    <template if:true={isFirst_Offers}>
+            <div class="ahfc_offersAndApproval">
+                <div class="ahfc_offersAndApprovalImage">
+                    <img aria-hidden='true' src={protectionProductsMobileLogoUrl} alt="fee waiver">
+                </div>
+                <div class="ahfc_offersAndApprovalContent">
+                    <h2 class="ahfc_offersAndApprovalHeading">Protection Products</h2>
+                    <div class="ahfc_offersAndApprovalDescription">
+                        Explore different coverage options and plans to help you make the most of every mile.
+                    </div>
+                    <div class="ahfc_Links">
+                        <button class="slds-button ahfc_buttons ahfc_learnMoreButton" onclick={onProtectionProductsClick}>
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </template>
+    <template if:true={isSecond_Offers}>
+            <div class="ahfc_offersAndApproval">
+                <div class="ahfc_offersAndApprovalImage">
+                    <img aria-hidden='true' src={hondaSpecialOffersLogoUrl} alt="Customer and eomployee in honda car dealership">
+                </div>
+                <div class="ahfc_offersAndApprovalContent">
+                    <h2 class="ahfc_offersAndApprovalHeading">Honda Automobile Special Offers</h2>
+                    <div class="ahfc_offersAndApprovalDescription">
+                        Find special offers on Honda automobiles in your area.
+                    </div>
+                    <div class="ahfc_Links ahfc_findOffersLink">
+                        <a href="https://automobiles.honda.com/tools/current-offers" class="href">FIND OFFERS</a> 
+                    </div>
+                </div>
+            </div>
+        </template>
+    <template if:true={isThird_Offers}>
+            <div class="ahfc_offersAndApproval">
+                <div class="ahfc_offersAndApprovalImage">
+                    <img aria-hidden='true' src={hondaPowerSportsMobileLogoUrl} alt="fee waiver">
+                </div>
+                <div class="ahfc_offersAndApprovalContent">
+                    <h2 class="ahfc_offersAndApprovalHeading">Honda Powersports Special Offers</h2>
+                    <div class="ahfc_offersAndApprovalDescription">
+                        Ride away with a special offer on a Honda motorcycle, ATV, Side by Side, or dirt bike.
+                    </div>
+                    <div class="ahfc_Links">
+                       <a href="https://powersports.honda.com/offers" class="href">FIND OFFERS</a>
+                    </div>
+                </div>
+            </div>
+        </template>
+    <template if:true={isFourth_Offers}>
+            <div class="ahfc_offersAndApproval">
+                <div class="ahfc_offersAndApprovalImage">
+                    <img aria-hidden='true' src={hondaPowerEquipmentMobileLogoUrl} alt="fee waiver">
+                </div>
+                <div class="ahfc_offersAndApprovalContent">
+                    <h2 class="ahfc_offersAndApprovalHeading">Honda Power Equipment</h2>
+                    <div class="ahfc_offersAndApprovalDescription">
+                        Learn more about the products you need to get work done.
+                    </div>
+                    <div class="ahfc_Links ahfc_learnMoreLink">
+                        <a href="https://powerequipment.honda.com/" class="href">Explore Products</a> 
+                    </div>
+                </div>
+            </div>
+        </template>
+    <template if:true={isFifth_Offers}>
+            <div class="ahfc_offersAndApproval">
+                <div class="ahfc_offersAndApprovalImage">
+                    <img aria-hidden='true' src={hondaMarineMobileLogoUrl} alt="fee waiver">
+                </div>
+                <div class="ahfc_offersAndApprovalContent">
+                    <h2 class="ahfc_offersAndApprovalHeading">Honda Marine Special Offers</h2>
+                    <div class="ahfc_offersAndApprovalDescription">
+                        Nothing runs like a Honda Marine Engine. Explore special offers.
+                    </div>
+                    <div class="ahfc_Links ahfc_findOffersLink">
+                        <a href="https://marine.honda.com/finance" class="href">FIND OFFERS</a> 
+                    </div>
+                </div>
+            </div>
+        </template>
+    <ul class="slds-carousel__indicators ahfc_swipeButtons ahfc_swipeButtonsBottom" role="tablist">
+        <template for:each={accObj1} for:item="servAcc">
+            <li key={servAcc.keyNo} data-indicator={servAcc.keyNo} class="slds-carousel__indicator"
+            role="presentation">
+            <a id={servAcc.indicatorId} data-indicator={servAcc.keyNo}
+                onclick={onOffersCarousalIndicatorClick} class={servAcc.indicatorClass}
+                href="javascript:void(0);" role="tab" tabindex="0"
+                aria-selected={servAcc.ariaSelected} aria-controls={servAcc.panelId}
+                title={servAcc.name}>
+                <span class="slds-assistive-text"
+                    data-indicator={servAcc.keyNo}>{servAcc.name}</span>
+            </a>
+            </li>
+            </template>
+    </ul>
+</div>
+</div>
+</template>

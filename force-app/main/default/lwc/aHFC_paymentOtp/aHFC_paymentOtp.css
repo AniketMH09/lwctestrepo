@@ -1,0 +1,179 @@
+/*START - Secondary Header*/
+.AHFC_CommunitySecHeader{width: 100%;
+    padding: 0 8rem;
+    height: 100px!important;
+    border-bottom: 1px solid #d9d9d9;}
+.AHFC_LeftGridSec {
+    padding: 1rem 2rem 0.75rem 0.5rem;
+    float: left;
+    /* border-right: 1px solid black; */
+    /* height: 55px; */
+    border-right: 1px solid #d9d9d9;
+    }
+.AHFC_SecLogostyle{
+    width: auto;
+    height: 50px;
+    }
+.AHFC_SecLogostyle img{    object-fit: contain;
+    /* width: auto; */
+    height: 43px;}
+
+.AHFC_VehImg {    width: auto;
+    /* height: auto; */
+    float: left;
+    padding: 1rem 2rem .75rem 2rem;}
+.AHFC_VehImg img{
+    height: 56px;
+    object-fit: contain;
+    width: auto;
+}
+
+.AHFC_Vehdetail { float: left;
+    /* padding: 0.5rem 2rem .75rem 2rem; */
+    /* line-height: 2;*/}
+.AHFC_DetName{font-size: 30px;
+    font-family: ahfc-robotolight;
+}
+.AHFC_Aclabel{
+    color: #5E6162;
+    font-size: 14px;
+    /* font-weight: 700; */
+    font-family: 'ahfc-robotomedium';
+    letter-spacing: 0.03rem;
+
+
+
+}
+
+/*END - Secondary Header*/
+/* Form Label */
+.AHFC_LinkText{color: #CC0000;text-decoration: underline;}
+.AHFC_TotVal{font-size: 38px !important;}
+.AHFC_PaymentActtxt{font-size: 18px;
+    line-height: 1.5;
+    color: #000000;
+    letter-spacing: 0.02rem;
+}
+
+.AHFC_BadgeStyle{font-size: 14px;
+    font-family: 'ahfc-robotomedium';
+    letter-spacing: 0.06rem;
+    border-color: #d9d9d9;
+    border: 2px solid #d9d9d9;    color: #000000;
+    font-weight: normal !important;}
+.AHFC_ModFormLabel{    color: #000000;
+    font-family: 'ahfc-robotomedium';
+    font-size: 14px;
+    letter-spacing: 0.03rem;    line-height: 3;
+}
+    .AHFC_ModFormValue{
+      font-family: 'ahfc-robotolight';
+      font-size: 28px;
+      line-height: 36px;    color: #000000;
+
+    }
+    .AHFC_BgRedButton{    background-color: #CC0000;
+      border: none;
+      color: #fff;
+      box-sizing: border-box;
+      border-radius: 3px;
+      font-size: 14px;
+      line-height: 16px;
+      text-align: center;
+      padding: 14px 24px;
+      letter-spacing: .06rem;
+      text-transform: uppercase;
+  }
+  
+  
+    
+/* Main Content */
+.AHFC_ContainerSec{    padding: 2rem 8rem;}
+.AHFC_Wrapperst{    padding: 2rem 8rem 2rem 8rem;
+}
+
+
+
+.AHFC_InnerAround{padding:5rem;}
+.Dividerdashedline{border-bottom: 1px dashed #D9D9D9;
+}
+.DividerSolidline{
+    border-bottom: 1px solid #D9D9D9;
+}
+/* START - BANNER SECTION */
+.AHFC_BannerContBg{
+background-color:#F0F0F0;
+}
+.AHFC_BannerWidth{width:100%;}
+.AHFC_BannerContTitle{
+    font-family: ahfc-robotolight;
+    font-size: 26px;
+    padding-bottom: 1rem;
+    line-height: 1;
+    letter-spacing: 0.02rem;
+    color: #000000;
+  }
+  
+  .AHFC_BannerSubtxt{
+    font-size: 14px;
+    letter-spacing: .03rem;
+    margin: 1rem 0 2rem 0rem;
+    height: 36px;
+    /* border: 1px solid; */
+    color: #000000;
+  }
+  .AHFC_NoBgButton{    color: #CC0000;
+    font-size: 14px;
+    font-family: 'ahfc-robotomedium';
+    letter-spacing: 0.06rem;}
+    .AHFC_Butsecwidth{width:50%;}
+
+/* END - BANNER SECTION */
+
+/* START - MOBILE CSS */
+@media (min-width: 320px) and (max-width: 767px) {
+.AHFC_TotVal{font-size: 26px !important;}
+.AHFC_ModFormValue{font-size: 20px !important;}
+    .AHFC_BadgeStyle {margin: 1rem 0 1rem 0;}
+.AHFC_MBottom{margin-bottom: 0.5rem;}
+    .AHFC_ContainerSec,.AHFC_Wrapperst
+{
+    padding:2rem 0rem !important;
+}
+/*START - Secondary Header */
+.AHFC_DetName{font-size: 20px;}
+.AHFC_VehImg{    padding: 1rem 0.25rem 0.25rem 0.75rem !important;}
+.AHFC_LeftGridSec{display: none;}
+.AHFC_Aclabel{padding-right: 0.5rem !important;display: inline-block !important;    font-size: 14px;
+}
+.AHFC_Vehdetail{   line-height: 1.25 !important;
+     padding: .5rem 0.5rem .75rem 0.5rem !important;
+}
+.AHFC_CommunitySecHeader{padding:0rem !important;display: inline-flex;}
+
+.AHFC_MobLAyout{display: block;}
+/*END - Secondary Header */
+
+.AHFC_PaymentActtxt{font-size: 14px !important;}
+.AHFC_Wrapperst {
+/* padding: 0.5rem; */
+margin: 0rem 0 0rem 0; 
+
+display: block;
+/* padding: 1rem; */
+}
+.AHFC_InnerAround{
+padding: 1rem !important;
+}
+
+.AHFC_MobBlock{display:block;margin-top:1rem;margin-bottom: 0.5rem;}
+/* START -Banner Mobile  */
+
+.AHFC_BannerMobContLayout{padding: 1rem !important;}
+.AHFC_BannerContTitle{font-size: 18px;}
+.AHFC_BannerSubtxt{margin: 0rem 0 1rem 0rem !important;
+    height: AUTO !important;
+    }
+/* END - BANNER MOBILE */
+}
+/* END - MOBILE CSS */

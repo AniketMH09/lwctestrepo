@@ -1,0 +1,72 @@
+@import 'c/aHFC_dashboardTheme';
+
+.attention-modal-content {
+    padding: 32px 100px;
+    position: relative;
+  }
+  .attention-modal-content .cross-icon {
+    top: 32px;
+    right: 32px;
+  }
+  .attention-modal-content .cross-icon {
+    top: 32px;
+    right: 32px;
+  }
+
+  .header-text-med {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 26px;
+    line-height: 36px;
+    color: #000000;
+  }
+  .modal-action {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .continue-button {
+    background-color: #e42525;
+    border: none;
+    color: #ffffff;
+    box-sizing: border-box;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    width: auto;
+    height: 40px;
+    margin-top: 32px;
+    margin-right: 32px;
+  }
+  .cancel-action {
+    color: #e42525;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 3px;
+  }
+  .ahfc-action-btn {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 14px 24px;
+    letter-spacing: 0.06em;
+  }
+  .AHFC_TextOne{
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 0.03em;
+    color: #5E6162;
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+  }
+
+  @media (min-width: 320px) and (max-width: 767px) {
+    .attention-modal-content {
+      padding: 50px 15px;
+      position: relative;
+    }
+  }

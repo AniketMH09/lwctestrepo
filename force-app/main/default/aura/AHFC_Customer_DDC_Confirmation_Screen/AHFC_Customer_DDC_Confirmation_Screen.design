@@ -1,0 +1,9 @@
+<design:component>
+	<design:attribute name="instructions1" label="instructions1" />
+    <design:attribute name="instructions2" label="instructions2" />
+    <design:attribute name= "easyPayAmount" label="easyPayAmount" />
+    <design:attribute name = "CaseNumber" label="Case Number"/>
+    <design:attribute name = "CaseId" label="CaseId"/>
+    <design:attribute name = "instructions4" label = "instructions4"/>
+    <design:attribute name = "commPrefEmail" label = "commPrefEmail"/>
+</design:component>

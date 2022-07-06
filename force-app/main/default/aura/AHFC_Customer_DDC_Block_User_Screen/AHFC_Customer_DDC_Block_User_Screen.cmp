@@ -1,0 +1,20 @@
+<!--
+* Name: AHFC_Customer_DDC_Block_User_Screen
+* Created Date: 17-Aug-2021
+* Created By: Sagar (cloned from AHFC_DDC_Block_User_Screen)
+* Modified By: 27 Jul 2021 Prabu US 2247 - Changed UI Screen
+*-->
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">    
+    <ltng:require styles="{!$Resource.AHFC_UI_Kit}"/>    
+    <aura:attribute name= "communityName" type="string" default=""/>
+    <aura:attribute name= "caseStatus" type="string" default=""/>    
+   	<div class="contain">
+        <!-- US - 2247 - Added Prabu - Start -showing error message when website is down or case related issues-->
+        <div class="center">
+            <c:aHFC_messageToast type="error" label="Error" link="Contact US"
+              message=' Your request could not be processed at this time. Please try again later. If you require urgent
+              assistance, please' toast-type="" show-icon="false"></c:aHFC_messageToast>
+        </div> 
+        <!-- US - 2247 - End -->
+    </div>
+</aura:component>

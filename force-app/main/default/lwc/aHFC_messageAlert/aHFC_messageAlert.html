@@ -1,0 +1,36 @@
+<template>
+    <div class={className} role="alert">
+        <span class="slds-assistive-text">{type}</span>
+        <div class="container ahfc-container">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col">
+                    <span class="slds-icon_container slds-icon-utility-user slds-hide_medium" title={type}>
+                        <lightning-icon size="small" class="alert-icon" icon-name={icon} alternative-text={type}
+                            title={type}></lightning-icon>
+                    </span>
+                    <span class="slds-icon_container slds-icon-utility-user slds-show_medium" title={type}>
+                        <lightning-icon size="x-small" class="alert-icon" icon-name={icon} alternative-text={type}
+                            title={type}></lightning-icon>
+                    </span>
+                </div>
+                <div class="slds-col">
+                    <p>{content}
+                        <a if:true={link} href="javascript:void(0);" onclick={onLinkClick}>{link}</a>
+                        <span if:true={postLinkContent}>{postLinkContent}</span>
+                    </p>
+                </div>
+                <div class="slds-col">
+                    <div class="slds-float_right">
+                        <button class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse"
+                            title="Close" onclick={closeAlert}>
+                            <lightning-icon size="x-small" class="alert-icon close-icon" icon-name="utility:close"
+                                alternative-text="close" title="close"></lightning-icon>
+                            <!-- <span class="slds-assistive-text">{labels.Close}</span> -->
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

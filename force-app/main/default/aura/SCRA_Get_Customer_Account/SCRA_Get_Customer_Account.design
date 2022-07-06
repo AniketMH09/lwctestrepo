@@ -1,0 +1,20 @@
+<design:component>
+   <!--Inputs-->
+   <design:attribute name= "strRequestType" label="Request Type" />
+   <!--outputs--> 
+
+    
+<design:attribute name= "strFaAccount" label="FA Account" /> 
+<design:attribute name= "strVin" label="VIN" />   <!-- not in use -->
+<design:attribute name= "strSerialNo" label="Serial Number" />  <!-- not in use -->
+<design:attribute name= "strContractNo" label="Contract Number" />  <!-- not in use -->
+<design:attribute name= "strssn" label="SSN" /> 
+<design:attribute name= "hasaccount" label="AHFC Customer" />  <!-- not in use -->
+<design:attribute name= "strbranchofservice" label="Branch Of Service" /> 
+<design:attribute name= "activedutydate" label="Date of Active Duty" /> 
+<design:attribute name= "strdob2" label="DOB" />
+<design:attribute name= "strState" label="Service member's State" />
+<design:attribute name= "calledPrevious" label="called Previous" />
+<design:attribute name="additionalInfoSelected" label="I have additional documentation to provide with my request." />
+
+</design:component>

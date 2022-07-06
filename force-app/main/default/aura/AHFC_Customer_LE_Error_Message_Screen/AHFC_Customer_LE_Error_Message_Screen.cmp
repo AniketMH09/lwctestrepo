@@ -1,0 +1,191 @@
+<!--
+* Name: AHFC_Customer_LE_Error_Message_Screen
+* Description: Show message if customer is ineligible or customer has past due amount
+* Created Date: 13-Aug-2021
+* Created By: Sagar (cloned from AHFC_LE_Error_Message_Screen)
+* Modified By: Sagar  US-4059 - changes the UI screen. 
+*-->
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    
+    <ltng:require styles="{!$Resource.AHFC_UI_Kit}"/>
+    <aura:attribute name = "instructions" type = "String"/> 
+    <aura:attribute name = "Past_Due_Instructions" type = "String"/>
+    <aura:attribute name = "Customer_Past_Due_Instructions" type = "String"/>
+    <aura:attribute name = "First_Payment_Instruction" type = "String"/> 
+    <aura:attribute name = "Pending_Case_Instruction" type = "String"/> 
+    <aura:attribute name = "Past_Due_Screen" type = "String"/> 
+    <aura:attribute name = "First_Payment_Screen" type = "String"/> 
+    <aura:attribute name = "Pending_Case_Screen" type = "String"/> 
+    <aura:attribute name = "Ineligible_Customer" type = "String"/>
+    <aura:attribute name = "LE_Flow" type = "String"/>
+    <aura:attribute name = "DDC_Flow" type = "String"/>
+    <aura:attribute name = "DDC_Eligibility" type="String"/>
+    <aura:attribute name = "Record_Not_Found" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name = "Invalid_User" type="String"/>
+    <aura:attribute name= "communityName" type="string" default=""/>
+    <aura:attribute name=  "FCId" type="String"/>
+    <aura:attribute name=  "FlowCaseId" type="String"/>
+    <aura:attribute name = "Same_Day_Another_Lease_Request" type="String"/>
+    
+    <!--Start US-5799,5777 adding below tag for navigation purpose like Dashboard -->
+    <lightning:navigation aura:id="navService"/>
+    <!--Start US-5799,5777 adding below tag for navigation purpose like Dashboard -->
+    
+    
+    <div class="contain" id='leaseContainer'>
+        <c:aHFC_vehicleHeader/>
+        <div class="center" id='centerBody'> 
+            <!-- Start  US-5799,5777 adding screen header+ back arrow -->
+            <div class="AHFC_HeaderWrap ahfc_arrowAlign">
+                <aura:if isTrue="{!v.communityName != 'customerhelp'}">
+                   <!-- <h2 class="header"><span>{!$Label.c.AHFC_Request_Lease_Extension}</span></h2>-->
+                    <!--US-5799,5777 adding back arrow -->
+                    <aura:set attribute="else">
+                        <a href="javascript:void(0);" role="img" aria-label="back">
+                        
+                          <lightning:icon iconName="utility:back" class="AHFC_backArrow ahfc_arrowMargin" alternativeText="Connected" size="small"
+                                        title="" alternative-text="back" onclick="{!c.redirectToNeedHelp}"></lightning:icon>
+                            
+                        </a>
+                        
+                        <h2 class="header"><span>{!$Label.c.AHFC_CUST_Lease_Extension_Request}</span></h2>
+                    </aura:set>
+                </aura:if>
+            </div>
+            <!-- End  US-5799,5777 adding screen header+ back arrow -->
+            
+            <!--<aura:if isTrue = "{!v.First_Payment_Screen}">
+                <h3>{!$Label.c.AHFC_Please_Make_a_Payment}</h3>
+            </aura:if>-->
+            
+            
+            <div class="AHFC_DetailWrap">
+                <aura:if isTrue = "{!v.Ineligible_Customer}">
+                    <h3 class="ahfc_heading">{!$Label.c.AHFC_Cust_Please_Contact_Us}</h3>
+                </aura:if>
+                
+                <aura:if isTrue = "{!v.Past_Due_Screen}">
+                   <!--<h3 class="ahfc_heading">{!$Label.c.AHFC_CUST_Please_Make_a_Payment}</h3>-->
+                    <h3 class="ahfc_heading">PLEASE MAKE A PAYMENT</h3>
+                </aura:if>
+                
+                <aura:if isTrue = "{!v.Invalid_User}">
+                    <h3 class="ahfc_heading">{!$Label.c.AHFC_Cust_Please_Try_Again}</h3>
+                </aura:if>
+                
+                <aura:if isTrue = "{!v.Record_Not_Found}">
+                    <h3 class="ahfc_heading">{!$Label.c.AHFC_Cust_Please_Contact_Us}</h3>
+                </aura:if>
+                
+                <aura:if isTrue = "{!v.Same_Day_Another_Lease_Request}">
+                    <h3 class="ahfc_heading">ALREADY SUBMITTED A REQUEST</h3>
+                </aura:if>
+                
+                <aura:if isTrue = "{!v.Pending_Case_Screen}">
+                    <!--<h3 class="ahfc_heading">{!$Label.c.AHFC_CUST_Lease_Extension_Request_EXIST}</h3>-->
+                    <h3 class=" heading ">ALREADY SUBMITTED A REQUEST</h3>
+                </aura:if>
+                
+                <div class="info">
+                    <aura:if isTrue = "{!v.Invalid_User}">
+                        <p>{!v.Invalid_User}</p>
+                    </aura:if>
+                    <aura:if isTrue = "{!v.Record_Not_Found}">
+                        <aura:if isTrue="{!v.communityName == 'customerhelp'}">
+                            <aura:unescapedHtml value="{!$Label.c.AHFC_Cust_Record_Not_Found}" />
+                        </aura:if>
+                    </aura:if>
+                    <aura:if isTrue = "{!v.Pending_Case_Screen}">
+                        <!-- Start US-5777 show message for already request raised-->
+                        <aura:if isTrue="{!v.communityName == 'customerhelp'}">
+                            <!--<p>{!$Label.c.AHFC_CUST_Lease_Extension_Request_EXIST}</p>-->
+                            <p class="slds-m-vertical_small terms-conditions">
+                                <span>{!$Label.c.AHFC_CUST_Lease_Extension_Request_PENDING}</span>
+                                <a target="_blank" onclick="{!c.navigateToCaseDetails}" >Check status here.</a>
+                            </p>
+                        </aura:if>
+                        <!-- End US-5777 show message for already request raised-->
+                        
+                    </aura:if>
+                    <!-- Start US-5777 Past Due Message-->
+                    <!-- Past Due Screen -->
+                    <aura:if isTrue = "{!v.Past_Due_Screen}">
+                        <aura:if isTrue = "{!v.Customer_Past_Due_Instructions}">
+                            <p><aura:unescapedHtml value ="{!v.Customer_Past_Due_Instructions}"/></p>
+                             
+                        </aura:if>
+                    </aura:if>
+                    <!-- Start US-5777 Past Due Message-->
+                    
+                    <!-- Same Day Another Lease Extension Request -->
+                    <aura:if isTrue = "{!v.Same_Day_Another_Lease_Request}">
+                      <p class="slds-m-vertical_small terms-conditions">
+                                <span>{!$Label.c.AHFC_CUST_Lease_Extension_Request_PENDING}</span>
+                                <a target="_blank" onclick="{!c.navigateToCaseDetails}" >Check status here.</a>
+                            </p>
+                    </aura:if>
+                    
+                    <!-- Ineligible Screen -->
+                    <aura:if isTrue = "{!v.Ineligible_Customer}">
+                        <aura:if isTrue = "{!v.Past_Due_Instructions}">
+                            <aura:set attribute="else">
+                                
+                                <aura:if isTrue="{!v.communityName == 'customerhelp'}">
+                                    <aura:unescapedHtml value="{!$Label.c.AHFC_Cust_Record_Not_Found}" />
+                                </aura:if>
+                            </aura:set>
+                        </aura:if>
+                        
+                    </aura:if>
+                    
+                </div>
+                
+                
+                <div class="action ahfc_buttons">
+                    <aura:if isTrue = "{!v.Past_Due_Screen}">
+                        <!-- Start US-5799 button css change-->
+                        <div class="action slds-grid slds-wrap AHFC_BtnWrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12 ahfc_submitBtn">
+                                <button class="AHFC_customPrimaryButton"  onclick="{!c.redirectToPaymentPage}">{!$Label.c.AHFC_Make_a_Payment}</button>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 ahfc_submitBtn">
+                                <button class="AHFC_customTertiaryButton  ahfc_marginFix" onclick="{!c.redirectToDashBoard}">{!$Label.c.AHFC_CUST_RETURN_TO_DASHBOARD}</button>
+                            </div>
+                        </div>
+                        <!-- End US-5799 button css change-->
+                    </aura:if>
+                    <aura:if isTrue = "{!v.Ineligible_Customer}">
+                        <button class="AHFC_customPrimaryButton" onclick="{!c.redirectToDashBoard}">{!$Label.c.AHFC_CUST_RETURN_TO_DASHBOARD}</button>
+                        <br/>
+                    </aura:if>
+                    <aura:if isTrue = "{!v.Pending_Case_Screen}">
+                        <aura:if isTrue="{!v.communityName != 'customerhelp'}">
+                            <aura:set attribute="else">
+                                <!-- Start US-5777 button css change-->
+                                <button class="AHFC_customPrimaryButton" onclick="{!c.redirectToDashBoard}">{!$Label.c.AHFC_CUST_RETURN_TO_DASHBOARD}</button>
+                                <!-- Start US-5777 button css change-->
+                            </aura:set>
+                        </aura:if>
+                        <br/>
+                        
+                    </aura:if>
+                    <aura:if isTrue = "{!v.Record_Not_Found}">
+                        <button class="AHFC_customPrimaryButton" onclick="{!c.redirectToDashBoard}">{!$Label.c.AHFC_CUST_RETURN_TO_DASHBOARD}</button>
+                        <br/>
+                    </aura:if>
+                    <aura:if isTrue = "{!v.Invalid_User}">
+                        <button class="AHFC_customPrimaryButton" onclick="{!c.redirectToDashBoard}">{!$Label.c.AHFC_CUST_RETURN_TO_DASHBOARD}</button>
+                        <br/>
+                    </aura:if>
+                     <aura:if isTrue = "{!v.Same_Day_Another_Lease_Request}">
+                        <button class="AHFC_customPrimaryButton" onclick="{!c.redirectToDashBoard}">{!$Label.c.AHFC_CUST_RETURN_TO_DASHBOARD}</button>
+                        <br/>
+                    </aura:if>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</aura:component>

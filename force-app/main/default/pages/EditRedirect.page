@@ -1,0 +1,55 @@
+<apex:page action="{!redirPage}" standardController="ChargentOrders__ChargentOrder__c" extensions="paymentEditRedirect" lightningStyleSheets="true">
+<apex:includeScript value="/support/console/24.0/integration.js"/>
+    <script type="text/javascript">
+     window.onload=testSetTabTitle();       
+        function testSetTabTitle() {
+            sforce.console.setTabTitle('Edit Payment');     
+            testSetTabUnsavedChanges();
+        } ;
+
+    function testSetTabUnsavedChanges() {
+        sforce.console.setTabUnsavedChanges(true);
+    };
+
+ </script>
+ <script type="text/javascript">    
+        function SetTabTitle() {
+            sforce.console.setTabTitle('Details');     
+            SetTabUnsavedChanges();
+        } ;
+
+    function SetTabUnsavedChanges() {
+        sforce.console.setTabUnsavedChanges(true);
+    };
+
+ </script>
+<div class="slds-scope">
+<apex:form >
+   
+ <script type="text/javascript">
+        function testCloseTab() {
+            //First find the ID of the current tab to close it
+            sforce.console.getEnclosingTabId(closeSubtab);
+        }
+        
+        var closeSubtab = function closeSubtab(result) {
+            //Now that we have the tab ID, we can close it
+            var tabId = result.id;
+            sforce.console.closeTab(tabId);
+        };
+    </script>
+
+
+<script>
+    function goBack() {
+    window.history.back();
+}
+</script>
+<apex:pageMessages ></apex:pageMessages> 
+
+
+<apex:commandButton value="Back" action="{!goBack}" onclick="SetTabTitle()" style="Position:relative;left:95%;"/>
+
+</apex:form>
+</div>
+</apex:page>

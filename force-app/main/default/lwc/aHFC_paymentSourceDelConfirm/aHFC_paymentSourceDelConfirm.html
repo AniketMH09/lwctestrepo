@@ -1,0 +1,31 @@
+<template>
+    <section role="dialog" tabindex="-1" aria-label="Meaningful description of the modal content" aria-modal="true"
+      aria-describedby="modal-content-id-1"
+      class="slds-modal slds-fade-in-open payment-sources-delete-modal slds-backdrop slds-modal_medium">
+      <div class="slds-modal__container AHFC_DelModContainer">
+        <div class="slds-modal__content delete-modal-content" id="modal-content-id-1">
+          <lightning-button-icon class="slds-modal__close cross-icon" title="Close" variant="bare" aria-label='Close'
+            icon-name="utility:close" onclick={handleDialogClose} size="large"></lightning-button-icon>
+          <div class="modal-action slds-m-top_x-large">
+            <h1 class="payment-delete-modal-heading">Replace {nickname}?</h1>
+            
+          
+            <p class="delete-modal-subheading">
+              Are you sure you want to update the scheduled payment?
+            </p>
+            <p class="bank-details-section">
+                {nickname} will be deleted once alternate payment sources are assigned.
+            </p>
+          
+            <div class="action-buttons">
+              <button onclick={onSave} class="save-action">Yes,Replace</button>
+             
+              <button class="slds-button AHFC_NoBgButton cancel-action" onclick={onCancel}>
+                BACK
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>

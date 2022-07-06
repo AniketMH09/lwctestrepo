@@ -1,0 +1,19 @@
+<design:component>
+    <design:attribute name="instructions" label="Instructions" />
+   <design:attribute name="Past_Due_Instructions" label="Past Due Instructions" />
+    <design:attribute name="First_Payment_Instruction" label="First Payment Instruction" />
+    <design:attribute name="Pending_Case_Instruction" label="Pending Case Instruction" />
+    <design:attribute name="Past_Due_Screen" label="Past Due Screen" />
+    <design:attribute name="First_Payment_Screen" label="First Payment Screen" />
+    <design:attribute name="Pending_Case_Screen" label="Pending Case Screen" />
+    <design:attribute name="Ineligible_Customer" label="Ineligible Customer" />
+    <design:attribute name="LE_Flow" label="LE Flow" />
+    <design:attribute name="DDC_Flow" label="DDC Flow" />
+    <design:attribute name="CaseId" label="CaseId" />
+    <design:attribute name = "DDC_Eligibility" label="DDC Eligibility"/>
+    <design:attribute name = "Record_Not_Found" label="Record Not Found"/>
+    <design:attribute name = "Invalid_User" label="Invalid User"/>
+    <design:attribute name="FCId" label="FCId"/>
+    <design:attribute name = "caseStatus" label="caseStatus"/>
+    <design:attribute name = "ClosedDDCCaseId" label="ClosedDDCCaseId"/>
+</design:component>

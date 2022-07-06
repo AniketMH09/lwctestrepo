@@ -1,0 +1,103 @@
+<!--
+    Author        : Accenture
+    Date Created  :  
+    Description   : Generate PDF Summary Page for OTP and Principal
+-->
+
+<apex:page controller="PDFEasypaySummaryCont"  showHeader="false" applyHtmlTag="false" applyBodyTag="false" standardStylesheets="false" docType="html-5.0" renderAs="pdf">
+    
+   <html>   
+  <head>
+  
+  <!--Defect# 114148 - Shubham  -->
+    <style> 
+    div.mainContent {margin: 1px auto;
+    width: 60%;
+    padding: 10px;}
+    
+    
+    table.myTable {background-color: #F2F2F2;
+                    width: 460px;
+                    padding: 10px;
+                    margin: 1px;
+                    margin-top: 100px
+                    border-radius:10px;
+                    border-spacing: 10px;}
+   table.myTable td{font-size:14px;
+                    font-color:#333333}               
+    </style>
+
+  </head>   
+  <!-- Logo on pdf to print conditionally start -->
+  
+    <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda == 'true' ,true,false) }" >
+        <apex:image alt="" url="{!URLFOR($Resource.AFSHFS, 'AfsHfs/images/honda-logo.png')}"  width="25%" height="20%" style="margin-top: 50px;margin-bottom: 0px;margin-right: 0px;margin-left: 50px;"/>
+    </apex:outputpanel>
+    
+    <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda =='false' ,true,false) }">
+        <apex:image alt="" url="{!URLFOR($Resource.AFSHFS, 'AfsHfs/images/Acura.png')}"  width="25%" height="20%" style="margin-top: 50px;margin-bottom: 0px;margin-right: 0px;margin-left: 50px;"/>
+    </apex:outputpanel>  
+    
+    
+    <apex:form >
+      <div class="mainContent">
+       <div id='tobePrinted'>
+       
+       <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda == 'true' ,true,false) }">
+           <apex:stylesheet value="{!URLFOR($Resource.AFSHFS, 'AfsHfs/css/style.css')}" />
+           <div class="secondary-title" >Thank You!</div>
+       </apex:outputpanel>
+       <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda =='false' ,true,false) }">
+           <apex:stylesheet value="{!URLFOR($Resource.AFSHFS, 'AfsHfs/css/acura-style.css')}" />
+           <div class="secondary-title">Thank You!</div>
+       </apex:outputpanel>
+       
+        <p class="padding10">
+            {!SumamryMessage} <br/><br/>
+           <apex:outputtext value="{!finnumberWithoutZeroes }"> Account #:&nbsp;&nbsp; </apex:outputtext><br/><br/>
+              <table border="0" class="myTable">
+                <tr>
+                    <td align="right" >
+                        Withdraw Payment On 
+                    </td>
+                    <td align="left"  style="padding-left: 10px;">
+                         {!WithdrawDate}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="right" >
+                        Next Withdrawal Date
+                    </td>
+                    <td align="left"  style="padding-left: 10px;">
+                        {!PaymentDate}
+                    </td>
+                </tr>
+                
+                <tr>   
+                    <td align="right" >
+                        Bank Account Nickname                     
+                    </td>
+                    <td align="left"  style="padding-left: 10px;">
+                        {!BankAccNickName}
+                    </td>
+                </tr>
+                
+                <tr>   
+                    <td align="right">
+                       <b> Automatic Payment Amount </b>                    
+                    </td>
+                    <td align="left"  style="padding-left: 10px;">
+                       <b>  ${!Payment.ChargentOrders__Charge_amount__c} </b> <!--Defect# 114148 - Shubham  -->
+                    </td>
+                </tr>
+                 
+            </table>
+
+        </p>
+       </div>  
+    
+      </div>
+    </apex:form>  
+   </html>
+</apex:page>

@@ -1,0 +1,114 @@
+.ahfc_helpCenter{
+    width : 100%
+}
+
+.ahfc-btn-wht {
+    /* letter-spacing: .96px;
+     padding-top: 14px;
+    padding-bottom: 14px;
+    font-size: 14px;
+    color: #CC0000;
+    width: 100%;
+    line-height: 16px;
+    background-color: white;
+    text-align: center;
+    vertical-align: middle;
+    justify-content: center;
+    border: 3px solid #CC0000;
+    font-weight: 700; */
+    
+    padding: 14px 24px;
+    height: 44px;
+    background: #CC0000;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.06em;
+    color: #FFFFFF;
+    font-family: 'ahfc-robotomedium' ,sans-serif;
+}
+
+.ahfc-article-header{
+    /* font-size: 20px; */
+    padding-bottom: 1.5rem;
+}
+.ahfc-article-header span{
+    font-size: 26px;
+    line-height: 36px;
+    color: #000000;
+    font-family: 'ahfc-robotolight', sans-serif;
+}
+/* .ahfc-description {
+    padding-left: 37px;
+    padding-top: 18px;
+    font-weight: 500;
+} */
+
+.ahfc-useful{
+    padding-top: 1.5rem;
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+}
+
+.ahfc-download-pdf{
+    padding-top: 2.5rem;
+}
+.ahfc-download-pdf a{
+    text-decoration: none;
+}
+
+/* UI correction */
+.AHFC_ContainerWrap{
+    padding: 0rem 8rem 3rem;
+    background: #f0f0f0;
+}
+.AHFC_DetailWrap{
+    padding: 3rem 6.25rem;
+    background: #fff;
+}
+.AHFC_DetailDesc{
+    font-size: 18px;
+    line-height: 26px;
+    color: #5E6162;
+}
+.AHFC_IconWrap{
+    margin-top: 1.5rem;
+}
+.AHFC_IconWrap .my-icon{
+    padding-right: 1.5rem;
+}
+.ahfc-thumbsUp-Click{
+    fill : red !important;
+}
+
+.ahfc-thumbsDown-Click{
+    fill :green !important;
+}
+
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .AHFC_ContainerWrap{
+        padding: 0;
+    }
+    .AHFC_DetailWrap{
+        padding: 1.2rem 1.5rem;
+    }
+    .AHFC_DetailWrap .slds-col{
+        width: 100%;
+    }
+    .ahfc-article-header{
+        font-size: 20px;
+    }
+    .ahfc-article-header span{
+        font-size: 18px;
+        line-height: 21px;
+    }
+    .AHFC_DetailDesc{
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.02em;
+    }
+}

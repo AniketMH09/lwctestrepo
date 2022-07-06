@@ -1,0 +1,128 @@
+header,footer,
+article,section,
+hgroup,nav,
+figure{
+	/* Giving a display value to the HTML5 rendered elements: */
+	display:block;
+	font-family: arial;
+}
+
+article .line{
+	/* The dividing line inside of the article is darker: */
+	background-color:#15242a;
+	border-bottom-color:#204656;
+	margin:1.3em 0;
+	color: #fff;
+}
+
+
+/* Article styles: */
+
+#page{
+	width:960px;
+	margin:0 auto;
+	position:relative;
+}
+
+article{
+	background-color:#999;
+	margin:6em 0;
+	padding:20px;
+	color: #fff;
+	text-shadow:2px 0px 3px black;
+	border-radius:10px;
+}
+
+.logo {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    top: -82px;
+    left: -10px;
+    width: 164px;
+    height: 88px;
+    background: url("logo.png") no-repeat 0 0;
+    text-indent: -9999px;
+}
+
+input[type='text'] {
+	border: none;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 4px;
+	width: 50%;
+	padding: 0 4px;
+}
+
+.form-field label {
+	display: block;
+	padding: 10px 0;
+}
+
+.pdT20 { padding-top: 20px;}
+.pdB20 { padding-bottom: 20px;}
+
+#footer {
+    margin: 30px 0 0 0;
+    position: fixed;
+    bottom: 0;
+    width: 960px;
+}
+#footer .nav {
+    height: 24px;
+    background: url("footer-nav-bg.png") no-repeat 0 0;
+}
+#footer .nav ul, #header .global-nav, #header .nav ul {
+    float: none;
+    clear: both;
+}
+ul, dl {
+    list-style-type: none;
+}
+#footer .nav ul li, #footer .nav ul li a {
+    color: #D8D8D8;
+    text-decoration: none;
+    font-size: 11px;
+    line-height: 11px;
+}
+#footer .nav ul li {
+    float: left;
+    margin: 6px 0 0 0;
+    padding: 0 17px;
+    border-right: 1px solid #D8D8D8;
+}
+#footer .nav ul li, #footer .nav ul li a {
+    color: #D8D8D8;
+    text-decoration: none;
+    font-size: 11px;
+    line-height: 11px;
+}
+#footer .nav ul li.last {
+    border: 0;
+    margin-left: 162px;
+}
+#footer .nav ul:after, #header .global-nav:after, #header .nav ul:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    height: 0;
+    content: ".";
+}
+
+.regular-btn {
+	display: block;
+    width: 140px;
+    padding: 8px 10px;
+    background-color: #f68121;
+    border-bottom: solid 2px #DC6300;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    
+}
+.page-list ul { width: 100%; margin: 0; padding: 0;}
+.page-list ul li { padding: 5px; width: 47%; display: inline-block;}	
+.page-list ul li a {  color: #fff;}	

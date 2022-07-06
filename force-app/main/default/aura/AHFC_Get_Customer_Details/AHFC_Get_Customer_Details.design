@@ -1,0 +1,7 @@
+<design:component>
+   <!--Inputs-->
+   
+   <!--outputs--> 
+   <design:attribute name ="selRequestedMonths" label ="Selected months requested"/>
+   
+</design:component>

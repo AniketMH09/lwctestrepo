@@ -1,0 +1,704 @@
+@import 'c/aHFC_dashboardTheme';
+.ahfc-crda {
+    font-size: 14px !important;
+    margin-bottom: 20px !important;
+    color: #5E6162 !important;
+    line-height: 20px !important;
+}
+
+
+.ahfc-contact-header-Heading{
+    display : inline;
+}
+.ahfc-cnt-pnt {
+    cursor:pointer;
+}
+
+.made-payment-toast {
+    margin-top: 15px;
+}
+
+.ahfc-btn-clk {
+    cursor:pointer;
+}
+
+.ahfc-contact-main {
+    background: #E5E5E5;
+    padding-top: 32px;
+    }
+
+.ahfc-contact-header-title-text {
+    margin-left: 9px;
+    font-size: 20px;
+    line-height: 26px;
+    font-family: ahfc-robotolight;
+}
+
+.ahfc-contact-header-text {
+
+    font-weight: 400;
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.32px;
+    color: #5E6162;
+
+   } 
+   .ahfc-contact-header-title-png {
+    margin-bottom: 7px;
+}
+.slds-tabs_default__item {
+    width: 168px !important; 
+}
+.ahfc-tab-label {
+    font-weight: 700 !important;
+    font-size: 12px;
+    letter-spacing: 0.48px;
+    text-align: center;
+    font-family: ahfc-robotolight;
+}
+
+.ahfc-contact-tab {
+    margin-top: 24px;
+    background-color: white;
+    padding-top: 32px;
+    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+   }
+
+
+
+@media screen and (min-width: 1024px) {
+
+    .ahfc-disclaimer {
+        margin-top: 23px;
+    }
+
+    .ahfc-disclaimer-text {
+        color: #5E6162;
+        font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    letter-spacing: 0.48px;
+    margin-bottom: 24px;
+    }
+
+
+  /* pop up */
+
+  .ahfc-btn {
+    letter-spacing: 0.96px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 24px;
+    padding-right: 24px;
+    font-size: 14px;
+    color: white;
+    line-height: 16px;
+    background-color: #CC0000;
+    text-align: center;
+    vertical-align: middle;
+    justify-content: center;
+    font-weight: 600;
+    }
+  .ahfc-pop-btn {
+      margin-top: 40px;
+  }
+  .ahfc-pop-container {
+      margin-top: 80px;
+      margin-left: 100px;
+      margin-bottom: 67px;
+  }
+
+  .ahfc-pop-container-title {
+    font-size: 26px;
+    line-height: 36px;
+    font-weight: 300;
+    /* font-family: ahfc-robotolight; */
+  }
+
+  .ahfc-pop-container-title-text {
+      margin-top: 16px;
+      font-size: 26px;
+      line-height: 36px;
+      font-weight: 300;
+      font-family: ahfc-robotolight;
+      color: #CC0000;
+      text-decoration: underline;
+  }
+
+  .ahfc-pop-selection {
+      margin-top: 24px;
+  }
+
+
+    /* Know more*/
+
+    .ahfc-knw-more-col-brd {
+       border-right: 1px solid #D9D9D9;
+    }
+    .ahfc-contact-knw-more {
+        margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid #D9D9D9;
+    }
+
+    .contact-knw-more-title {
+        font-size: 26px;
+    line-height: 36px;
+    font-weight: 300;
+    /* font-family: ahfc-robotolight;  */
+    }
+
+    .contact-knw-more-text {
+        margin-top: 32px;
+    }
+
+    .contact-knw-more-text-1 {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 600;
+        /* font-family: ahfc-robotolight;  */
+        color: black;
+        letter-spacing: 0.48px;
+        height: 56px;
+    }
+    /* .ahfc-cont-marg {
+        margin-top: 35px !important;
+    } */
+
+    /* .ahfc-cont-marg-2 {
+        margin-top: 66px !important;
+    } */
+    .contact-knw-more-text-3 {
+        text-transform: uppercase;
+        margin-top: 38px;
+        font-size: 14px;
+        line-height: 26px;
+        font-weight: 700;
+        font-family: ahfc-robotolight; 
+        color: #CC0000;
+        letter-spacing: 0.96px;
+    }
+    .contact-knw-more-text-2 {
+        height: 140px;
+        /* margin-top: 16px; */
+        font-size: 18px;
+        line-height: 28px;
+        font-weight: 400;
+        /* font-family: ahfc-robotolight;  */
+        color: #5E6162;
+        letter-spacing: 0.32px;
+    }
+
+
+    /*addresss */
+    .slds-accordion__summary-action {
+       padding: 0px !important;
+       margin-top: 20px !important;
+       margin-bottom: 20px !important;
+       margin-left: 32px !important;
+    }
+
+    .ahfc-contact-arrow {
+        position: relative;
+
+    }
+
+    .ahfc-contact-arrow-img {
+        position:absolute;
+        right: 0;
+    }
+
+    .ahfc-contact-address-lines {
+        /* font-family: ahfc-robotolight;  */
+        margin-bottom: 9px;
+        color: black;
+        letter-spacing: 0.48px;
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 400;
+    }
+    .slds-is-open>.slds-accordion__content {
+        padding-left: 24px;
+        border-top: 1px solid #D9D9D9;
+        margin-left: 31px;
+        padding-top: 24px;
+        }
+   
+    .ahfc-contact-address-tab-pad {
+        margin-top: 30px;
+    }
+
+    .slds-is-open {
+        background-color: #F7F7F7 !important;
+    }
+    .AHFC_AccordTitle {
+        font-family: ahfc-robotolight; 
+        font-size: 18px;
+    line-height: 22px;
+    font-weight: 400;
+    letter-spacing: 0.32px;
+    color: black;
+    }
+
+    .ahfc-contact-acc section {
+        border: 1px solid #D9D9D9;
+    }
+    .ahfc-display {
+        display:inline-block;
+    }
+
+    .ahfc-contact-phone-number-msg {
+        display:inline-block;
+    }
+.ahfc-contact-phone-tab-data {
+    margin-top:40px
+}
+
+.ahfc-contact-hours {
+    margin-top: 16px;
+}
+
+.ahfc-contact-phone-number-msg {
+    margin-left: 9px;
+    color: #5E6162;
+    font-size: 18px;
+    letter-spacing: 0.32px;
+    line-height: 28px;
+    font-weight: 400;
+    /* font-family: ahfc-robotolight;  */
+}
+
+.ahfc-contact-hours-text-msg {
+    color: #5E6162;
+    font-size: 18px;
+    letter-spacing: 0.32px;
+    line-height: 28px;
+    font-weight: 400;
+    /* font-family: ahfc-robotolight; */
+    margin-top: 24px;
+}
+    .ahfc-contact-phone-number {
+        color: black;
+        font-size: 18px;
+        letter-spacing: 0.32px;
+        line-height: 28px;
+        font-weight: 600;
+        /* font-family: ahfc-robotolight; */
+    }
+
+    .ahfc-contact-phone-number-span {
+        color:  #CC0000;
+        margin-left: 9px;
+
+    }
+    .ahfc-tab-label {
+        font-weight: 700 !important;
+        font-size: 14px;
+        letter-spacing: 0.48px;
+        text-align: center;
+        font-family: ahfc-robotolight;
+    }
+ .slds-tabs_default__item {
+     width: 260px !important; 
+ }
+
+    .ahfc-contact-main {
+        padding-bottom: 164px;
+        background: #E5E5E5;
+        padding-top: 62px;
+        padding-left: 130px;
+        padding-right: 130px;
+    }
+
+    .ahfc-contact-header-title-png {
+        margin-bottom: 13px;
+    }
+
+    .ahfc-contact-header-title-text {
+        margin-left: 17px;
+        font-size: 38px;
+        line-height: 48px;
+        font-family: ahfc-robotolight;
+    }
+
+    .ahfc-contact-header-text {
+    font-weight: 400;
+    margin-top: 16px;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: 0.32px;
+    color: #5E6162;
+
+   } 
+
+
+   .ahfc-contact-tab {
+    margin-top: 40px;
+    background-color: white;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 100px;
+    padding-right: 100px;
+   }
+}
+
+@media screen and (max-width: 1023px)  {
+
+    .ahfc-disclaimer {
+        margin-top: 23px;
+    }
+
+    .ahfc-disclaimer-text {
+        color: #5E6162;
+        margin-bottom: 18px;
+        font-size: 12px;
+    line-height: 18px;
+    font-weight: 400;
+    letter-spacing: 0.48px;
+    }
+   
+    .ahfc-contact-header {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .ahfc-contact-phone-tab-data {
+        margin-top:34px
+    }
+    
+    .ahfc-contact-phone-number {
+        color: black;
+        font-size: 16px;
+        letter-spacing: 0.32px;
+        line-height: 24px;
+        font-weight: 600;
+        /* font-family: ahfc-robotolight; */
+    }
+    .ahfc-contact-hours {
+        margin-top: 18px;
+    }
+    .ahfc-contact-phone-number-msg {
+        
+        color: #5E6162;
+        font-size: 16px;
+        letter-spacing: 0.32px;
+        line-height: 24px;
+        font-weight: 400;
+        /* font-family: ahfc-robotolight;  */
+    }
+    .ahfc-contact-hours-text-msg {
+        color: #5E6162;
+        font-size: 16px;
+        letter-spacing: 0.32px;
+        line-height: 24px;
+        font-weight: 400;
+        /* font-family: ahfc-robotolight; */
+        margin-top: 36px;
+    
+    }
+    
+    .ahfc-contact-phone-number-span {
+        color:  #CC0000;
+        margin-left: 9px;
+    
+    }
+    .ahfc-contact-address-tab-pad {
+        margin-top: 25px;
+    }
+    .slds-accordion__summary-action {
+        padding: 0px !important;
+        margin-top: 20px !important;
+        margin-bottom: 24px !important;
+        margin-left: 20px !important;
+     }
+    
+    .slds-is-open>.slds-accordion__content {
+        border-top: 1px solid #D9D9D9;
+        margin-left: 20px;
+        padding-top: 20px;
+        }
+    
+        .ahfc-contact-address-lines {
+            /* font-family: ahfc-robotolight;  */
+            margin-bottom: 9px;
+            color: black;
+            letter-spacing: 0.48px;
+            font-size: 14px;
+            line-height: 18px;
+            font-weight: 400;
+        }
+        .ahfc-contact-arrow {
+            position: relative;
+    
+        }
+    
+        .ahfc-contact-arrow-img {
+            position:absolute;
+            right: 30px;
+        }
+    
+        .AHFC_AccordTitle {
+            font-family: ahfc-robotolight; 
+            font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+        letter-spacing: 0.32px;
+        color: black;
+        }
+    
+        .ahfc-contact-acc section {
+            border: 1px solid #D9D9D9;
+        }
+    
+        .ahfc-contact-knw-more {
+            margin-top: 52px;
+        padding-top: 32px;
+        border-top: 1px solid #D9D9D9;
+        }
+    
+        .contact-knw-more-title {
+           
+            font-size: 18px;
+            line-height: 21px;
+            font-weight: 300;
+            /* font-family: ahfc-robotolight;  */
+           
+        }
+    
+        .contact-knw-more-text {
+            margin-top: 32px;
+        }
+    
+        .contact-knw-more-text-1 {
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 600;
+            /* font-family: ahfc-robotolight;  */
+            color: black;
+            letter-spacing: 0.48px;
+        }
+        .contact-knw-more-text-3 {
+            text-transform: uppercase;
+            margin-top: 48px;
+            font-size: 14px;
+            line-height: 26px;
+            font-weight: 700;
+            font-family: ahfc-robotolight; 
+            color: #CC0000;
+            letter-spacing: 0.96px;
+            margin-bottom: 46px;
+        }
+        .ahfc-cont-add-mobile-mrg {
+            margin-top: 32px;
+        }
+        .contact-knw-more-text-2 {
+            /* height: 140px; */
+            margin-top: 16px;
+            font-size: 18px;
+            line-height: 28px;
+            font-weight: 400;
+            /* font-family: ahfc-robotolight;  */
+            color: #5E6162;
+            letter-spacing: 0.32px;
+        }
+    
+        .ahfc-knw-more-col-brd {
+            border-bottom: 1px solid #D9D9D9;
+         }
+    
+         /* pop up */
+      .ahfc-pop-container {
+        margin-top: 48px;
+        margin-left: 24px;
+        margin-bottom: 48px;
+        margin-right: 24px;
+    }
+    
+    .ahfc-pop-container-title {
+        font-size: 20px;
+        line-height: 26px;
+        font-weight: 300;
+        /* font-family: ahfc-robotolight; */
+      }
+    
+    
+      .ahfc-pop-container-title-text {
+        margin-top: 16px;
+        font-size: 20px;
+        line-height: 26px;
+        font-weight: 300;
+        /* font-family: ahfc-robotolight; */
+        color: #CC0000;
+        text-decoration: underline;
+    }
+    
+    .ahfc-pop-selection {
+        margin-top: 24px;
+    }
+    
+    .ahfc-btn {
+        letter-spacing: 0.96px;
+        padding-top: 14px;
+        padding-bottom: 14px;
+        font-size: 14px;
+        color: white;
+        line-height: 16px;
+        background-color: #CC0000;
+        text-align: center;
+        vertical-align: middle;
+        justify-content: center;
+        font-weight: 600;
+        width: 100%
+        }
+    
+        .ahfc-pop-btn {
+            margin-top: 48px;
+        }
+    
+     
+    
+    }
+
+
+
+
+
+
+
+ .managepayment-wrapper{
+    width:100%
+ }
+ .managepayment-container {
+   padding-bottom: 50px;
+ }
+ 
+ .payment-info-div .slds-tabs_default__content {
+   padding: 0;
+ }
+ 
+ .manage-payment-tabs{
+   display: inline-block;
+    }
+ .paymentinfo-container-fluid .slds-tabs_default__item.slds-is-active:after,
+ .slds-tabs_default__nav li.slds-is-active:after,
+ .slds-tabs_default__nav li.slds-tabs_default__item:hover:after,
+ .slds-tabs_default__nav li.slds-tabs_default__item:focus:after {
+   background:#CC0000;
+ }
+ .slds-tabs_default__item.slds-is-active .slds-tabs_default__link {
+   font-weight: 500;
+ }
+ .slds-tabs_default__link,
+ .slds-tabs_default__link:hover,
+ .slds-tabs_default__link:active,
+ .slds-tabs_default__link:focus {
+   color: #000 !important;
+ }
+ .schedulePayTab, .transactionTab {
+     text-align: center;
+     padding: 5px 50px;
+     border-bottom: 1px solid #afafaf;
+ }
+ .schedulePayTab a:focus,
+ .transactionTab a:focus {
+   text-decoration: none;
+ }
+ 
+ .slds-tabs_default__item.slds-is-active{
+     border: 1px solid #AFAFAF;
+ }
+ 
+ .transaction-faq .card-block {
+     padding: 40px 40px 26px;
+ }
+ 
+ .transaction-faq .section-header {
+   margin-bottom: 20px;
+ }
+ 
+ /* FAQ Transaction Accordion */
+ 
+ .ahfc-accordion-item {
+   background: #fff;
+   border: none;
+   margin-bottom: 8px;
+ } 
+ 
+  .ahfc-accordion-item .slds-accordion__summary {
+   padding-bottom: 0;
+ } 
+ 
+ .ahfc-accordion-item .slds-accordion__section {
+   padding: 32px 24px 28px;
+ }
+ 
+ .ahfc-accordion-item .slds-accordion__summary-action {
+   display: block;
+   color: #000;
+ }
+ 
+ .ahfc-accordion-item .slds-accordion__summary-heading .slds-button:focus {
+   text-decoration: none;
+   color: #000;
+ }
+ 
+ .sections-accordion .section-header {
+   margin-bottom: 0;
+ }
+ 
+ .sections-accordion .mobile-accordion-content {
+   margin-top: 24px;
+ }  
+ /* FAQ Transaction Accordion */
+ 
+  @media screen and (min-width: 320px) and (max-width: 900px){
+   .schedulePayTab, .transactionTab{
+     font-size: 12px;
+     line-height: 18px !important;
+     padding: 5px 0;
+     width: 50%;
+   }
+   
+   .managepayment-container{
+       padding-bottom: 40px;
+   }
+ 
+   .payment-info-div{
+       margin: 16px 0;
+   }
+   .manage-payment-tabs{
+     display: block;
+       }
+ 
+   .manage-payment-tabs ul {
+     width: 100%;
+   }
+     
+ }
+
+ @media screen and (min-width: 1024px) and (max-width: 1142px) {
+    
+    .contact-knw-more-text-2 {
+        height: 220px !important; 
+      
+   }
+  
+}
+
+
+a:hover,
+a:focus {
+    text-decoration: none;
+    color: none;
+}
+
+.mobile {
+    color: #CC0000;
+    font-size: 26px;
+    line-height: 36px;
+    font-weight: 300;
+    font-family: ahfc-robotolight;
+}

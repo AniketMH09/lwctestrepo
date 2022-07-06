@@ -1,0 +1,12 @@
+.AHFC_ImgContainer{
+    width:auto;
+    height:530x;
+    text-align: center; 
+}
+
+.AHFC_ImgContainer img{height:542px;}
+
+
+/* object-fit: contain; */
+
+.AHFC_ImgContainerNew img{height:265px;width:404px;}

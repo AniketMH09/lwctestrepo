@@ -1,0 +1,102 @@
+<!--
+* Name: AHFC_Customer_CCPA_DNS_Footer_Screen
+* Description: DNS Footer Screen
+* Created Date: 25-Aug-2021
+* Created By: Sagar (US 4090,US 4088,US 4090)
+*
+* Modification Log
+* MOdified By - Sagar (US 13697 - change error messages) 
+*-->
+
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens,flexipage:availableForAllPageTypes" access="global" controller= "AHFC_DatePickerUIController">
+    
+    <lightning:messageChannel type="MainContent__c" aura:id="mainContentChannel" onMessage="{!c.handleMainContentEvent}"/>
+
+    <!-- Inputs -->
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <aura:attribute name = "instructions" type = "string"/> 
+    <aura:attribute name= "strRequestType" type="string" default=""/>
+    <aura:attribute name= "strMessage" type="string" default=""/>
+    <aura:attribute name= "strCaseNumber" type="string" default=""/>
+    
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    
+    <aura:attribute name=  "value" type="String" />
+    <aura:attribute name=  "buttonDisabled" type="boolean" default="true"/>
+    
+     <lightning:navigation aura:id="navService"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <!-- Please do not change id of following Element it will cause error, this id refer in aHFC_Menu LWC-->
+    <div role="main" id="main-container" class="main-content">
+    <!-- Please do not change id of above Element it will cause error-->
+    <div class="contain">
+        <div class="center">
+            
+            <div class="AHFC_HeaderWrap ahfc_arrowAlign">
+                <a
+            href="javascript:void(0);"
+            class="AHFC_removehovereffect"
+            onclick="{!c.back}"
+            role="link"
+          >
+                <lightning:icon iconName="utility:back" class="AHFC_backArrow ahfc-icon-red1" alternativeText="Return to previous page" size="small"
+                                    title="" onclick="{!c.back}"></lightning:icon></a>
+                <h1 class="header"><span>{!v.strRequestType}</span></h1>
+            </div>
+            
+            <div class="AHFC_DetailWrap">
+                <div class="info">
+                    <span class='Message_CCPA'>
+                      {!$Label.c.CCPA_DNS_DESC_FOOTER}
+                    </span>
+                </div>
+                <div class="AHFC_Divider"></div>
+                <div class="action ahfc_buttons">
+                <div class="action slds-grid slds-wrap AHFC_BtnWrap">
+                       <lightning:button class="AHFC_customPrimaryButton" 
+                                  aura:id="cont3" name="continue3" label="CONTINUE" onclick="{!c.handleContinue}"/>
+                      <lightning:button class="AHFC_customTertiaryButton" aura:id="cancel1" name="cancelButton1" label="{!$Label.c.CCPA_Cancel}" onclick="{! c.openModel }"/>
+                </div>
+            </div>
+            </div>
+            
+        </div>
+    </div>  
+    
+     <div class="confirm-modal">
+        <aura:if isTrue="{!v.isOpen}">
+           <section
+                     role="dialog"
+                     tabindex="-1"
+                     aria-label="Meaningful description of the modal content"
+                     aria-modal="true"
+                     aria-describedby="modal-content-id-1"
+                     class="slds-modal slds-fade-in-open finance-account-edit-modal"
+                     >
+                <div class="slds-modal__container">
+                    <div class="slds-modal__content edit-modal-content ahFC_Model_Content" id="modal-content-id-1">
+                        
+                        
+                        <h1 class="AHFC_ModTitle">{!$Label.c.AHFC_Confirmation}</h1>
+                        <div class="slds-m-top_medium">
+                            <p class="para-text-medium"><aura:unescapedHtml value ="{!$Label.c.AHFC_Customer_Cancel_CCPA}"/></p>
+                        </div>
+                      
+                        <div class="action ahfc_popup_buttons">
+                            <div class="action slds-grid slds-wrap AHFC_BtnWrap">
+                               <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12 ">
+                                 <button class="slds-button slds-button_neutral AHFC_customPrimaryButton" name="continue3" onclick="{!c.redirectToHome}"  type="button"> CONTINUE </button>
+                                 <button class="slds-button slds-button_neutral AHFC_customTertiaryButton AHFC_Mob_Btn_Padding" name="cancelButton1" onclick="{!c.closeModel}" type="button"> Cancel </button>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>  
+        </aura:if>
+    </div>
+    </div>
+</aura:component>

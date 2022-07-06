@@ -1,0 +1,51 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    
+    <ltng:require styles="{!$Resource.AHFC_UI_Kit}"/>
+    <aura:attribute name= "strRequestType" type="string" default=""/>
+    <aura:attribute name= "strMessage" type="string" default=""/>
+    <aura:attribute name= "strCaseNumber" type="string" default=""/>
+    <aura:attribute name= "strstate" type="string" default=""/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="doNotSell" type="boolean" default="false"/>
+    <aura:attribute name="delteInfo" type="boolean" default="false"/>
+    <aura:attribute name="whatInfo" type="boolean" default="false"/>
+    
+    <lightning:navigation aura:id="navService"/>
+    
+    <div>
+        <div class="center"> 
+            <div class="ahfc_arrowAlign">
+                <h2 class="header">
+                    Servicemembers Civil Relief Act Request
+                </h2>
+            </div>
+            
+            
+            <div class="AHFC_DetailWrap">
+                <div class="info">
+                    
+                    
+                    <span class='Message_CCPA'>
+                        <aura:unescapedHtml value="{!v.strMessage}" />
+                    </span>
+                </div>
+                
+                <div class="action ahfc_buttons">
+                
+                <div class="action slds-grid slds-wrap AHFC_BtnWrap">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12 ahfc_submitBtn">
+                       <lightning:button class="AHFC_customPrimaryButton"
+                                  aura:id="cont3" name="continue3" label="Finish" onclick="{!c.redirectToHomeWindow}"/>
+                    </div>
+                </div>
+            
+            </div>
+            </div>
+            
+                        
+            
+           
+        </div>
+       
+    </div>
+</aura:component>

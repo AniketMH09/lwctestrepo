@@ -1,0 +1,864 @@
+@font-face {
+    font-family: ahfc-robotoregular;
+    src: url("fonts/Roboto-Regular.ttf");
+}
+@font-face {
+    font-family: ahfc-robotolight;
+    src: url("fonts/Roboto-Light.ttf");
+  
+}
+
+    .slds-checkbox_faux{​​​​​​​--lwc-colorBorderInput:#E52525;}​​​​​​​
+ 
+
+/*
+@font-face {
+    font-family: ahfc-robotoitalic;
+    src: url("fonts/Roboto-Italic.ttf");
+ 
+}
+
+@font-face {
+    font-family: ahfc-robotothin;
+    src: url("fonts/Roboto-Thin.ttf");
+
+}
+
+@font-face {
+    font-family: ahfc-robotothinitalic;
+    src: url("fonts/Roboto-ThinItalic.ttf");
+   
+}
+*/
+
+/*
+@font-face {
+    font-family: ahfc-robotolightitalic;
+    src: url("fonts/Roboto-LightItalic.ttf");
+    
+}
+
+
+@font-face {
+    font-family: ahfc-robotomediumitalic;
+    src: url("fonts/Roboto-MediumItalic.ttf");
+ 
+}
+
+
+@font-face {
+    font-family: ahfc-robotobolditalic;
+    src: url("fonts/Roboto-BoldItalic.ttf");
+  
+}
+*/
+
+@font-face {
+    font-family: ahfc-robotobold;
+    src: url("fonts/Roboto-Bold.ttf");
+   
+}
+@font-face {
+    font-family:Roboto-Black;
+    src: url("fonts/Roboto-Black.ttf");
+  
+}
+
+@font-face {
+    font-family: ahfc-robotomedium;
+    src: url("fonts/Roboto-Medium.ttf");
+  
+}
+@font-face {
+    font-family: ahfc-robotoblackitalic;
+    src: url("fonts/Roboto-BlackItalic.ttf");
+   
+}
+
+/*MODAL BOX BUTTONS*/
+
+ .AHFC_BgRedButton,.AHFC_BgRedButton:hover{    background-color: #CC0000;
+    border: none;
+    color: #fff;
+    box-sizing: border-box;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    padding: 14px 24px;
+    letter-spacing: .06em;
+  }
+  .AHFC_NoBgButton,.AHFC_NoBgButton:hover{    color: #CC0000;
+    font-size: 14px;
+ 
+    margin-left: 14px;
+    font-family: 'ahfc-robotomedium';
+    letter-spacing: 0.06rem;border:none !important;background:none !important;}
+	
+	  @media (min-width: 320px) and (max-width: 767px) {
+		   .AHFC_BgRedButton,.AHFC_NoBgButton{text-align:center;display:block;}
+		  
+	  }
+
+
+
+
+/* COLOR PALLET */
+
+/* brand-primary-white: #fff;
+brand-primary-light-gray: #f0f0f0;
+brand-primary-dark-gray: #536162;
+brand-primary-black: #000;
+brand-primary-red: #CC0000;
+
+brand-secondary-honda: #1B86C3,
+brand-secondary-acura: #000, brand-secondary-jet: #000,
+brand-secondary-powersports: #df1b21,
+brand-secondary-marine: #083F88,
+brand-secondary-engines: #CC0000, brand-secondary-racing: #CC0000, brand-secondary-power-equipment: #CC0000,
+
+background-lightest: #fff;
+backgroud-lighter: #f0f0f0;
+background-light: #d9d9d9;
+background-dark: #000;
+
+text-color-dark: #000;
+text-color-white: #fff;
+text-color-actions: #CC0000;
+
+feedback-success: #438321;
+feedback-warning: #ffa638;
+feedback-error: #C64540; */
+
+/* COLOR PALLET */
+
+/* Set Default Theme */
+
+body, 
+div, 
+p, 
+span, 
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6, 
+a, 
+nav,
+article, 
+aside, 
+header, 
+footer,
+section, 
+button, 
+caption, 
+figcaption, 
+form,
+table,
+input,
+label,
+li {
+    font-family: ahfc-robotoregular, sans-serif;
+}
+
+/* Set Default Theme */
+
+/* Typography */
+
+.ahfc-header-one {
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 56px;
+}
+.ahfc-header-two {
+    font-weight: 300;
+    font-size: 38px;
+    line-height: 48px;
+}
+.ahfc-header-three {
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 26px;
+}
+.ahfc-header-four {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+}
+.ahfc-sub-heading-one {
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.05em;
+}
+.ahfc-sub-heading-two {
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.05em;
+}
+.ahfc-sub-heading-three {
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: 0.05em;
+}
+.ahfc-body-one {
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+}
+.ahfc-body-two {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+}
+.ahfc-actions-text {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.06em;
+}
+.ahfc-caption-text {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+}
+
+/* Typography */
+
+/* Custom Typography */
+
+.ahfc-text-small-disabled{	
+    font-size: 14px;	
+    line-height: 16px;	
+    letter-spacing: 0.03em;	
+}
+.ahfc-text-medium {
+    font-weight: 300;
+    font-size: 26px;
+    line-height: 36px;
+}
+.ahfc-text-large {
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 40px;
+}
+.ahfc-sub-text-medium {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+}
+.ahfc-sub-text-large {
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: 0.02em;
+}
+.ahfc-info-label {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+}
+.ahfc-info-small {
+    font-size: 18px;
+    line-height: 26px;
+}
+.ahfc-info-large {
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 40px;
+}
+.ahfc-info-subtext {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing:  0.05em;
+}
+.ahfc-text-header {
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 24px;
+    letter-spacing: 0.04em;
+}
+
+/* Custom Typography */
+
+/* Structures */
+
+.ahfc-container {
+    width: 100%;
+    max-width: 1272px;
+    margin: 0 auto;
+}
+.ahfc-header-banner {
+    background-image: url('images/AHFCaccount_setup_banner.png');
+    background-size: cover;
+    height: 100px;
+}
+.ahfc-panel-card {
+    padding: 24px 20px;
+    margin: 10px 0;
+}
+
+/* Structures */
+
+/* Background Colors */
+
+.ahfc-background-lightest {
+    background-color: #fff;
+}
+.ahfc-background-lighter {
+    background-color: #f0f0f0;
+}
+.ahfc-background-light {
+    background-color: #d9d9d9;
+}
+.ahfc-background-dark {
+    background-color: #000; 
+
+}
+
+/* Background Colors */
+
+/* Text Colors */
+
+.ahfc-text-dark {
+    color: #000;
+}
+.ahfc-text-white {
+    color: #fff;
+}
+.ahfc-text-grey {
+    color: #5E6162;
+}
+.ahfc-text-light-grey {
+    color: #f0f0f0;
+}
+.ahfc-text-red {
+    color: #CC0000;
+}
+.ahfc-text-danger {
+    color: #AA0000;
+}
+
+/* Text Colors */
+
+/* Buttons */
+
+.ahfc-btn {
+    text-transform: uppercase;
+    padding: 14px 24px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.06em;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+} 
+.ahfc-btn-lightning {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.06em;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+} 
+.ahfc-btn-lightning button{
+    padding: 14px 24px;
+}
+.ahfc-btn-primary {
+    color: #fff;
+    background: #CC0000;
+    border: 1px solid #CC0000;
+    border-radius: 3px;
+} 
+.ahfc-btn-primary button {
+    color: #fff;
+    background: #CC0000;
+    border: none;
+    border-radius: 0;
+} 
+.ahfc-btn-primary:hover,
+.ahfc-btn-primary:focus,
+.ahfc-btn-primary:active,
+.ahfc-btn-primary button:hover,
+.ahfc-btn-primary button:focus,
+.ahfc-btn-primary button:active{
+    color: #fff;
+    background: #AA0000;
+    border: 1px solid #AA0000;
+}
+.ahfc-btn-primary.disabled,
+.ahfc-btn-primary.disabled button {
+    background: #afafaf;
+    border: 1px solid #afafaf;
+    border-radius: 3px;
+} 
+.ahfc-btn-primary.disabled:hover,
+.ahfc-btn-primary.disabled:focus,
+.ahfc-btn-primary.disabled:active,
+.ahfc-btn-primary.disabled button:hover,
+.ahfc-btn-primary.disabled button:focus,
+.ahfc-btn-primary.disabled button:active {
+    background: #afafaf;
+    color: #fff;
+}  
+.ahfc-btn-secondary {
+    color: #CC0000;
+    background: #fff;
+    border: 2px solid #CC0000;
+}
+.ahfc-btn-tertiary{
+    color: #CC0000;
+    border: 1px solid #CC0000;
+}
+.ahfc-btn-tertiary:hover,
+.ahfc-btn-tertiary:focus,
+.ahfc-btn-tertiary:active{
+    color: #AA0000;
+}
+.ahfc-btn-secondary button {
+    color: #CC0000;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+} 
+.ahfc-btn-secondary:hover,
+.ahfc-btn-secondary:focus,
+.ahfc-btn-secondary:active{
+    color: #AA0000;
+    background: rgba(228, 37, 37, 0.05);
+    border: 2px solid #AA0000;
+}
+.ahfc-btn-secondary.disabled,
+.ahfc-btn-secondary.disabled button {
+    color: #afafaf;
+    border: 2px solid #afafaf;
+}
+.ahfc-btn-secondary.disabled:hover,
+.ahfc-btn-secondary.disabled:focus,
+.ahfc-btn-secondary.disabled:active,
+.ahfc-btn-secondary.disabled button:hover,
+.ahfc-btn-secondary.disabled button:focus,
+.ahfc-btn-secondary.disabled button:active {
+    color: #afafaf;
+    background: #fff;
+}
+.ahfc-btn-text {
+    color: #CC0000;
+    background: #fff;
+    border: none;
+}
+.ahfc-btn-secondary button {
+    color: #CC0000;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+} 
+.ahfc-btn-text:hover,
+.ahfc-btn-text:focus,
+.ahfc-btn-text:active {
+    color: #AA0000;
+    background: rgba(228, 37, 37, 0.05);
+}
+.ahfc-btn-text.disabled,
+.ahfc-btn-text.disabled button {
+    color: #afafaf;
+}
+.ahfc-btn-text.disabled:hover,
+.ahfc-btn-text.disabled:focus,
+.ahfc-btn-text.disabled:active,
+.ahfc-btn-text.disabled button:hover,
+.ahfc-btn-text.disabled button:focus,
+.ahfc-btn-text.disabled button:active {
+    color: #afafaf;
+    background: #fff;
+}
+
+/* Buttons */
+
+/* Links */
+
+.ahfc-links {
+    color: #CC0000;
+} 
+.ahfc-links:hover,
+.ahfc-links:focus,
+.ahfc-links:active {
+    color: #AA0000;
+    text-decoration: none;
+}
+.ahfc-links.disabled,
+.ahfc-links.disabled:hover,
+.ahfc-links.disabled:focus,
+.ahfc-links.disabled:active {
+    color: #afafaf;
+} 
+.ahfc-links-primary {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.06em;
+} 
+.ahfc-links-secondary {
+    font-size: 14px;
+    text-decoration: underline;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+}
+.ahfc-toggle-links {
+    letter-spacing: 0.03em;
+    font-weight: normal;
+}
+.ahfc-links-text-large {
+    font-size: 18px;
+    text-decoration: underline;
+    line-height: 26px;
+    letter-spacing: 0.03em;
+}
+
+/* Buttons */
+
+/* CHECKBOX */
+
+.ahfc-checkbox .slds-checkbox__label .slds-checkbox_faux {
+    border: 2px solid #CC0000 !important;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+.ahfc-checkbox .slds-checkbox [type="checkbox"]:checked + .slds-checkbox__label .slds-checkbox_faux {
+    background-color: #CC0000 !important;
+}
+.ahfc-checkbox .slds-checkbox [type="checkbox"]:checked + .slds-checkbox__label .slds-checkbox_faux::after {
+    border-color: #ffffff !important;
+}
+
+/* CHECKBOX */
+
+/* RADIO BUTTONS */
+
+.ahfc-radio .slds-radio__label .slds-radio_faux{
+    width: 24px;
+    height: 24px;
+    border: 2px solid #CC0000 !important;
+    box-sizing: border-box;
+    border-width: 2px;
+}
+.ahfc-radio .slds-radio [type="radio"]:checked + .slds-radio__label .slds-radio_faux{
+    border-color: #CC0000;
+}
+.ahfc-radio .slds-radio [type=radio]:checked+.slds-radio__label .slds-radio_faux:after {
+    background-color: #CC0000;
+    width: 16px;
+    height: 16px;
+}
+.ahfc-radio .slds-radio__label .slds-form-element__label{
+    color: #000000;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+}
+
+/* RADIO BUTTONS */
+
+/* ICONS */
+
+.ahfc-icon {
+    position: relative;
+    bottom: 2px;
+}
+.ahfc-icon-red {
+    --sds-c-icon-color-foreground-default: #CC0000;
+}
+.ahfc-icon-gray {
+    --sds-c-icon-color-foreground-default: #5e6162;
+}
+.ahfc-icon-orange{
+    --sds-c-icon-color-foreground-default: #FFA500;
+}
+.ahfc-icon-light-gray {
+    --sds-c-icon-color-foreground-default: #afafaf;
+}
+.ahfc-icon-green {
+    --sds-c-icon-color-foreground-default: #4e9627;
+}
+.ahfc-icon-white {
+    --sds-c-icon-color-foreground-default: #fff;
+}
+.ahfc-icon-black {
+    --sds-c-icon-color-foreground-default: #000;
+}
+.ahfc-icon-warning {
+    --sds-c-icon-color-foreground-default: #664216;
+}
+.ahfc-icon-error {
+    --sds-c-icon-color-foreground-default: #762019;
+}
+
+/* ICONS */
+
+/* INPUT */
+
+.ahfc-input.slds-form-element .slds-form-element__label {
+    margin-bottom: 18px;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+    color: #5E6162;
+}
+
+
+.ahfc-input.slds-form-element .slds-input {
+    border: none;
+    border-bottom: 1px solid #5e6162;
+    background-color: #f0f0f0;
+    border-radius: 0;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: #000;
+    padding: 14px 16px;
+}
+
+
+.ahfc-input.slds-form-element .slds-input:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: #000;
+}
+.ahfc-input.slds-form-element .slds-input__icon.slds-input__icon_right {
+    right: 30px;
+    top: 24px;
+}
+.ahfc-input.slds-form-element .slds-button__icon {
+    width: 25px;
+    height: 25px;
+}
+.ahfc-input.slds-form-element .slds-datepicker .slds-datepicker__filter_month button {
+    color: #CC0000;
+}
+.ahfc-input.slds-form-element .slds-datepicker .slds-text-link {
+    color: #CC0000;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 16px 0;
+}
+.ahfc-input.slds-form-element .slds-datepicker td.slds-is-today>.slds-day {
+    background-color: #d9d9d9;
+}
+.ahfc-input.slds-form-element .slds-datepicker td.slds-is-selected>.slds-day {
+    background: #CC0000;
+    color: #fff;
+}
+.ahfc-input.slds-form-element .slds-has-error .slds-input,
+.ahfc-input.slds-form-element.slds-has-error .slds-input {
+    box-shadow: none;
+    color: #CC0000;
+    border-bottom: 1px solid #CC0000;
+}
+.ahfc-input.slds-form-element .slds-has-error .slds-button__icon {
+    color: #CC0000;
+}
+.ahfc-input.slds-form-element .slds-has-error .slds-form-element__help,
+.ahfc-input.slds-form-element.slds-has-error .slds-form-element__help {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+    color: #CC0000;
+}
+.ahfc-input.no-label.slds-form-element .slds-form-element__label {
+    display: hidden;
+    position: absolute;
+}
+.ahfc-combobox.ahfc-input.slds-form-element .slds-input__icon.slds-input__icon_right .slds-icon-text-default path {
+    d: path('M47.6 17.8L27.1 38.5c-.6.6-1.6.6-2.2 0L4.4 17.8c-.6-.6-.6-1.6 0-2.2l2.2-2.2c.6-.6 1.6-.6 2.2 0l16.1 16.3c.6.6 1.6.6 2.2 0l16.1-16.2c.6-.6 1.6-.6 2.2 0l2.2 2.2c.5.6.5 1.5 0 2.1z');
+}
+.ahfc-combobox.ahfc-input.slds-form-element .slds-input__icon.slds-input__icon_right .slds-icon-text-default {
+    width: var(--lwc-squareIconSmallBoundary,1.5rem);
+    height: var(--lwc-squareIconSmallBoundary,1.5rem);
+    line-height: var(--lwc-lineHeightReset,1);
+}
+.ahfc-combobox.ahfc-input.slds-form-element .slds-input__icon-group_right {
+    top: 8px;
+}
+.ahfc-combobox .slds-listbox {
+    background-color: #f0f0f0;
+    padding: 16px 0;
+}
+.ahfc-combobox .slds-listbox__option {
+    padding: 8px 24px;
+}
+.ahfc-combobox .slds-listbox__option .slds-media__figure {
+    display: none;
+}
+.ahfc-combobox .slds-listbox__option .slds-media__body {
+    font-size: 16px;
+    line-height: 28px;
+    color: #000;
+    letter-spacing: 0.02em;
+}
+
+/* INPUT */
+
+/* UTILITY */
+
+.ahfc-break-word {
+    word-break: break-word;
+}
+
+/* UTILITY */
+
+/* date picker css starts */
+.ahfc-datepicker .slds-button__icon {
+    width: 18px;
+    height: 18px;
+    fill: #CC0000;
+}
+/* date picker css ends */
+
+/* CAROUSAL */
+
+.ahfc-carousal .slds-carousel__panel-action {
+    border: none;
+}
+.ahfc-carousal .slds-carousel__indicators {
+    margin: 15px 0;
+}
+.ahfc-carousal .slds-carousel__indicators .slds-carousel__indicator-action {
+    background-color: #d9d9d9;
+    border-color: #fff;
+}
+.ahfc-carousal .slds-carousel__indicators .slds-carousel__indicator-action.slds-is-active {
+    background-color: #CC0000;
+    border-color: #CC0000;
+}
+.ahfc-carousal .carousal-button {
+    padding: 9px 10px;
+    margin-left: 16px;
+    border-radius: 0;
+    background: #f0f0f0;
+}
+.ahfc-carousal .carousal-button:hover,
+.ahfc-carousal .carousal-button:focus,
+.ahfc-carousal .carousal-button:active {
+    box-shadow: none;
+}
+.ahfc-carousal .ahfc-carousal-buttons {
+    position: absolute;
+    right: 0;
+    width: 140px;
+}
+
+/* CAROUSAL */
+
+/* manage-payment-sources css- starts */
+.schedule-payments-container .info-block .ahfc-combobox .slds-form-element__label {
+    display: none;
+}
+/* manage-payment-sources css- ends */
+    
+
+@media screen and (min-width: 768px) {
+
+    /* Typography */
+
+    .ahfc-header-two {
+        font-size: 30px;
+        line-height: 40px;
+    }
+    .ahfc-header-three {
+        font-size: 26px;
+        line-height: 36px;
+    }
+    .ahfc-sub-heading-one {
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: 0.04em;
+    }
+    .ahfc-body-one {
+        font-size: 18px;
+        line-height: 22px;
+    }
+    .ahfc-body-two {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    /* Typography */
+
+    /* Custom Typography */
+
+    .ahfc-info-small {
+        line-height: 22px;
+    }
+    .ahfc-info-large {
+        font-size: 38px;
+        font-weight: 300;
+        line-height: 48px;
+    }
+    .ahfc-info-subtext {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .ahfc-text-uppercase{
+        text-transform: uppercase;
+    }
+
+    /* Custom Typography */
+
+    /* Buttons */
+
+    .ahfc-btn, 
+    .ahfc-btn-lightning {
+        width: auto;
+    }
+
+    /* Buttons */
+
+    /* Structures */
+
+    .ahfc-panel-card {
+        padding: 40px 40px 26px;
+        margin: 16px 10px;
+    }
+    
+    /* Structures */
+
+    /* RADIO BUTTONS */
+
+    .ahfc-radio .slds-radio__label .slds-form-element__label {
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: 0.02em;
+    }
+
+    /* RADIO BUTTONS */
+    
+}
+
+
+/*CHECKBOX LABEL*/
+.ahfc-checkbox-two.slds-form-element .slds-form-element__label{
+    font-size: 18px;
+    vertical-align: sub;
+}
+@media (min-width: 320px) and (max-width: 767px) {
+    .ahfc-checkbox-two.slds-form-element .slds-form-element__label{
+        font-size: 16px;
+    }          
+}
+/*CHECKBOX LABEL*/
+
+
+.makeEasyPay .slds-form-element .slds-input:focus {
+    border: 2px solid black !important;
+}

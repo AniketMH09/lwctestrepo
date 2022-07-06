@@ -1,0 +1,230 @@
+.THIS {
+  font-size: 16px;    
+}
+.THIS .center {
+  width: 66%;
+  margin: 0 auto;
+}
+@media (max-width: 1024px) {
+  .THIS .center {
+    width: 100%;
+  }
+}
+.THIS .header {
+  font-size: 28px;
+  margin-bottom: 30px;    
+}
+.THIS .info {
+  padding: 30px 30px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  background:#F0F0F0;
+  /*background: #F6F6F6;*/
+}
+.THIS .info h3 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #d3d3d3;
+  padding-bottom: 10px;
+}
+.THIS .block {
+  margin-bottom: 30px;    
+}
+.THIS .action {
+  margin-bottom: 30px;    
+}
+.THIS label {
+  display: block;
+  font-weight: 600;    
+}
+
+.THIS .alignCenter{
+   text-align: center;
+}
+
+.THIS .slds-select_container::before{
+    display : none !important;
+}
+.THIS .slds-select_container::after{
+    display : none !important;
+}
+
+.THIS .selectpicker > .slds-form-element__control > .slds-select_container >.slds-select{
+   background: transparent;
+   outline: none;
+   border: 2px solid #434343;
+   height: 40px;
+   font-size: 16px;
+   width: 100%;
+   display: inline;
+   border-radius: 30px;
+   -webkit-appearance: none;
+   padding: 0 15px;
+
+}
+.THIS .select-icon{
+   display: inline-block;
+   z-index: 0;
+   float: right;
+   margin-left: 0;
+   margin-top: -33px;
+   padding-right: 10px;
+   height: 25px;
+}
+
+/* helper */
+.THIS .mb-sm {
+  margin-bottom: 10px;
+}
+.THIS .mb-md {
+  margin-bottom: 20px;
+}
+.THIS .mb-lg {
+  margin-bottom: 30px;
+}
+.THIS .mb-xl {
+  margin-bottom: 40px;
+}
+.THIS .mt-sm {
+  margin-top: 10px;
+}
+.THIS .mt-lg {
+  margin-top: 30px;
+}
+.THIS .mr-sm {
+  margin-right: 10px;
+}
+.THIS .pull-left {
+  float: left;
+}
+.THIS .pull-right {
+  float: right;
+}
+@media (max-width: 767px) {
+  .THIS .action .default {
+    width: 100%;
+  }
+  .THIS .action .primary.pull-right {
+    float: none;
+    margin-top: 20px;
+    width: 100%;
+  }
+  .THIS .action .action__prev-cancel {
+    display: flex;
+  }
+  .THIS .action .action__prev-cancel > .slds-button:first-child {
+    margin-right: 5px;
+  }
+  .THIS .action .action__prev-cancel > .slds-button:last-child {
+    margin-left: 5px;
+  }
+  .THIS .action .btn-continue {
+    margin-top: 20px;
+  }
+}
+@media (max-width: 768px) and (min-width: 768px) {
+    .THIS .action .btn.default, 
+    .THIS .action .btn.primary, 
+    .THIS .action .btn.grey {
+        width: auto;
+    }
+    .THIS .action .action__prev-cancel .btn.default {
+        margin-right: 10px;
+    }
+    .THIS .action .btn-continue {
+        margin-top: 0 !important;
+	    float: right !important;
+  	}
+}
+.THIS .info-output .slds-col {
+  margin-bottom: 20px;
+}
+/* .THIS .btn {
+  background: #fff;
+  padding: 3px 30px;
+  border-radius: 29px;
+  font-size: 15px;
+  border-width: 2px;
+  font-weight: 600;
+} */
+.THIS .btn.default {
+  background: #fff;
+  border: 2px solid #0072CE;
+  color: #0072CE;
+}
+.THIS .btn.primary {
+  background: #0072CE;
+  border: 2px solid #0072CE;
+  color: #fff;
+}
+.THIS .btn.grey {
+  background: #BFBFBD;
+  border: 2px solid #BFBFBD;
+  color: #fff;
+}
+.THIS .TermsConditionsTextBox {
+    padding: 30px;
+    background: #F6F6F6;
+    width: 100%;
+    height: 275px;
+    overflow: scroll;
+    border: 1px solid #d5d5d5;
+    border-left: 4px solid #d5d5d5;
+}
+.THIS .TermsConditionsTextBox ul li {
+    border-bottom: 1px dashed #ccc;
+    padding: 15px 0;
+    list-style: none;
+}
+.THIS .TermsConditionsTextBox ul li:first-child {
+    padding-top: 0;
+}
+.THIS .myCheckbox{
+    border: 2px solid #0072CE;
+    width: 20px;
+    height: 20px;
+  display: inline-block;
+  float: left;
+}
+.THIS a.download {
+    transition: .2s;
+}
+.THIS a.download:hover {
+    background: #fff;
+    padding: 10px 0px;
+    border-bottom: 2px solid #0e72ce;
+    transition: .2s;
+}
+.THIS a.download span {
+    /*text-transform: uppercase;*/
+    color: #0072CE;
+    font-weight: 400;
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: -webkit-baseline-middle;
+}
+
+.THIS .superscript {
+    font-size: 9px;
+}
+@media (max-width: 599px) {
+    .THIS .slds-path__track {
+	    padding-left: 0;
+    	padding-right: 0;
+	}
+    .THIS .slds-path__item {
+        min-width: auto !important;
+    }
+    .THIS .slds-path__title {
+        font-size: 12px;
+        white-space: normal;
+        line-height: normal;
+        height: 29px !important;
+        display: flex;
+        align-items: center;
+    }
+    .THIS .btn {
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+    }
+}

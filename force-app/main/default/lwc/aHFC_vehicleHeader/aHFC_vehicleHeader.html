@@ -1,0 +1,41 @@
+<template>
+    <template if:true={isLoaded}>
+        <lightning-spinner  size="large" class='AHFC_Spinnereg'>
+        </lightning-spinner>
+    </template>
+    <div class="ahfc-background-lightest sub-header">
+        <div class={containerClass}>
+            <div class="ahfc-carousal slds-carousel">
+                <div class="slds-carousel__stage">
+                    <div class="slds-carousel__panels">
+                        <template for:each={customServiceAccounts} for:item="servAcc">
+                            <div key={servAcc.keyNo} id={servAcc.panelId} class="slds-carousel__panel" role="tabpanel"
+                                aria-hidden={servAcc.ariaHidden} aria-labelledby={servAcc.indicatorId}>
+                                <div class="slds-carousel__panel-action" tabindex={servAcc.tabIndex}>
+                                    <div class="slds-grid slds-grid_vertical-align-center">
+                                        <div class="slds-col vehicle-logo slds-show_medium">
+                                            <img src={servAcc.logourl} alt="brand logo" />
+                                        </div>
+                                        <div class="slds-col vehicle-info">
+                                            <div class="slds-grid slds-grid_vertical-align-end">
+                                                <div class="slds-col vehicle-img" id={servAcc.indicatorId}>
+                                                    <img class="inputInfo-icon" src={servAcc.imageurl}
+                                                        alt="Car Image" />
+                                                </div>
+                                                <div class="slds-col vehicleaccount-info">
+                                                    <h1 class="ahfc-header-three ahfc-text-dark">{servAcc.name}</h1>
+                                                    <p class="ahfc-info-label ahfc-text-grey">
+                                                        {label.AHFC_Header_AccountNumber} {servAcc.accNoWoZeros}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

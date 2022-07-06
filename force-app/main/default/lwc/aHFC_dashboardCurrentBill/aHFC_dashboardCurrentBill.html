@@ -1,0 +1,368 @@
+<template>
+	<div
+		class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center section-header ahfc-text-header ahfc-text-dark slds-text-title_caps">
+		<div class="slds-col">
+			<h2 class="section-header ahfc-text-header ahfc-text-dark slds-text-title_caps">
+				{labels.DashboardCurrentBill} </h2>
+		</div>
+		<!-- <p class="section-header ahfc-text-header ahfc-text-dark slds-text-title_caps">
+				{labels.DashboardCurrentBill} </p> -->
+		<template if:true={boolenrolled}>
+			<div class="slds-col">
+				<p class="info-subtext ahfc-info-subtext ahfc-text-grey slds-show_large easypay-label">
+					<a href="javascript:void(0);" tabindex="-1">
+						<lightning-icon class="ahfc-icon ahfc-icon-green" icon-name="utility:record" size="x-small"
+							alternative-text="easypay enrolled" variant="success" title="easypay"></lightning-icon>
+					</a>
+					<span>{labels.CurrentBillEasypayEnrolled}</span>
+
+				</p>
+			</div>
+		</template>
+
+	</div>
+	<div class="slds-grid slds-wrap">
+		<div class="slds-col slds-size_1-of-1 slds-large-size_8-of-12 current-bill-scheduled-date">
+			<div class="slds-grid slds-wrap">
+				<div class="slds-col slds-size_1-of-1">
+					<div class="slds-grid slds-wrap">
+						<div class="slds-col slds-size_1-of-2 slds-large-size_6-of-12 total-amt-due">
+							<p class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps">
+								{labels.CurrentBillTotalAmountDue}</p>
+							<p class="info-value-large ahfc-info-large ahfc-text-dark">
+								${strRemainingAmount}</p>
+							<div>
+								<a href="javascript:void(0)" class="ahfc-links ahfc-links-primary ahfc-toggle-links"
+									onclick={openModal}>
+									<span>VIEW DETAILS</span>
+								</a>
+
+							</div>
+						</div>
+						<div class="slds-col slds-size_1-of-2 slds-large-size_6-of-12" if:true={showDueDate}>
+							<p class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps">
+								{labels.CurrentBillDueDate}</p>
+							<p class="info-value-large ahfc-info-large ahfc-text-dark ahfc-AuthorizedDate">{duedate}</p>
+							<template if:true={showremainingdays}>
+								<p class="info-subtext ahfc-info-subtext ahfc-text-grey">
+									<a href="javascript:void(0);" tabindex="-1">
+										<lightning-icon class="ahfc-icon ahfc-icon-gray" icon-name="utility:clock"
+											size="x-small" alternative-text="clock" title="clock"> </lightning-icon>
+									</a> <span class="slds-text-title_caps ahfc-text-dark">{dayRemaining}</span>
+								</p>
+							</template>
+						</div>
+					</div>
+				</div>
+				<template if:true={showamountdue}>
+					<div class="slds-col slds-size_1-of-1 slds-large-size_11-of-12 current-bill-amount-due">
+						<a href="javascript:void(0);" tabindex="-1">
+							<lightning-icon class="amount-due-icon" icon-name="utility:warning" size="x-small"
+								alternative-text="warning" title="warning"></lightning-icon>
+						</a> <span class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps">
+							{labels.CurrentBillIncludes} ${pastDueAmt} {labels.CurrentBillPastDue}
+						</span>
+					</div>
+				</template>
+			</div>
+		</div>
+		<div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12 bill-btn">
+			<template if:true={boolenrolled}>
+				<div>
+					<p
+						class="info-subtext ahfc-info-subtext ahfc-text-grey slds-text-title_caps slds-hide_large slds-text-align_center easypay-notif-mobile easypay-label">
+						<a href="javascript:void(0);" tabindex="-1">
+							<lightning-icon class="ahfc-icon ahfc-icon-green" icon-name="utility:record" size="x-small"
+								alternative-text="easypay enrolled" variant="success" title="easypay"></lightning-icon>
+						</a>
+						<span>{labels.CurrentBillEasypayEnrolled}</span>
+					</p>
+				</div>
+				<div>
+					<button class="slds-button ahfc-btn ahfc-btn-primary"
+						onclick={navigatetopayment}>{labels.CurrentBillMakeOtp}</button>
+				</div>
+				<div>
+					<button class="slds-button ahfc-btn ahfc-btn-secondary"
+						onclick={navigatetoschedulepayments}>{labels.CurrentBillManageEasypay}</button>
+				</div>
+			</template>
+			<template if:false={boolenrolled}>
+				<div>
+					<button class="slds-button ahfc-btn ahfc-btn-primary"
+						onclick={navigatetopayment}>{labels.CurrentBillMakePayment}</button>
+				</div>
+				<div>
+					<button class="slds-button ahfc-btn ahfc-btn-secondary"
+						onclick={navigateToEasypayByDefault}>{labels.CurrentBillEnrollEasypay}</button>
+				</div>
+			</template>
+			<div class="slds-grid slds-grid_align-spread AHFC_MobLInkDisp">
+
+				<div class="slds-col"> <span>
+						<template if:true={showNeedHelp}>
+							<div class="current-bill-options">
+								<a href="javascript:void(0);" class="ahfc-links ahfc-links-secondary AHFC_LinksSize"
+									onclick={navigatehelppayment}>Need Help?</a>
+							</div>
+						</template>
+					</span> </div>
+
+				<div class="slds-col"> <span>
+						<div class="current-bill-options ">
+							<a href="javascript:void(0);" class="ahfc-links ahfc-links-secondary AHFC_LinksSize AHFC_PaddOther"
+								onclick={navigatepaymentoptions}>{labels.CurrentBillOtherPayment}</a>
+						</div>
+					</span> </div>
+			</div>
+		</div>
+	</div>
+	<template if:true={isModalOpen}>
+		<!-- Modal/Popup Box LWC starts here -->
+		<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+			aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_medium">
+			<div class="slds-modal__container AHFC_MobModal">
+				<div class="slds-modal__content delete-modal-content" id="modal-content-id-1">
+					<!-- Modal/Popup Box LWC header here -->
+
+
+					<h2 id="modal-heading-01"
+						class="slds-text-heading_medium slds-hyphenate ahfc-text-dark details-header2">
+						Amount Due Details</h2>
+					<a href="javascript:void(0);" tabindex="-1" aria-label="Close">
+						<lightning-button-icon aria-label="Close" class="slds-modal__close cross-icon" title="Close"
+							variant="bare" icon-name="utility:close" onclick={closeModal} size="large">
+						</lightning-button-icon>
+					</a>
+
+					<!-- Modal/Popup Box LWC body starts here -->
+
+					<div class="slds-grid slds-wrap slds-grid_align-spread AHFC_AmtDueLayout slds-p-top_large">
+						<template if:true={showmobile}>
+
+							<div if:true={showDueDate} class="slds-col slds-size_12-of-12 slds-medium-size_12-of-12 slds-large-size_12-of-12 AHFC_Clock"
+								style="float: right;">
+								<template if:true={showremainingdays}>
+
+									<p class="info-subtext ahfc-info-subtext ahfc-text-grey" style="text-align: right;
+									"> <a href="javascript:void(0);" tabindex="-1">
+											<lightning-icon class="ahfc-icon ahfc-icon-dark" icon-name="utility:clock"
+												size="x-small" alternative-text="clock" title="clock"> </lightning-icon>
+										</a>
+										<span
+											class="slds-text-title_caps ahfc-text-dark AHFC_Remtxt">{dayRemaining}</span>
+									</p>
+
+								</template>
+							</div>
+
+						</template>
+
+						<div
+							class="slds-col slds-size_1-of-2 slds-medium-size_4-of-12 slds-large-size_3-of-12 paymentdue-info">
+							<label class="ahfc-text-dark">{Clabel.AmountDue}</label>
+							<p class="ahfc-text-medium ahfc-text-dark">
+								${strRemainingAmount}
+							</p>
+						</div>
+						<div if:true={showDueDate}
+							class="slds-col slds-size_1-of-2 slds-medium-size_8-of-12 slds-large-size_6-of-12 duedate-info">
+							<label class=" ahfc-text-dark">{Clabel.DueDate}</label>
+							<p class="info-value-large ahfc-info-large ahfc-text-dark">{duedate}</p>
+						</div>
+
+						<div if:true={showDueDate} class="slds-col slds-size_1-of-2 slds-medium-size_8-of-12 slds-large-size_3-of-12 AHFC_Clock"
+							style="float: right;">
+							<template if:true={showremainingdays}>
+
+								<template if:true={showdesktop}>
+									<p class="info-subtext ahfc-info-subtext ahfc-text-grey" style="text-align: right;
+								"> <a href="javascript:void(0);" tabindex="-1">
+											<lightning-icon class="ahfc-icon ahfc-icon-dark" icon-name="utility:clock"
+												size="x-small" alternative-text="clock" title="clock"> </lightning-icon>
+										</a>
+										<span
+											class="slds-text-title_caps ahfc-text-dark AHFC_Remtxt">{dayRemaining}</span>
+									</p>
+
+								</template>
+							</template>
+						</div>
+
+					</div>
+					<div class="details-card">
+						<div
+							class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-end  slds-p-top_large AHFC_TotRow">
+							<div class="slds-col">
+								<h3><label class="AHFC_TotAmt ahfc-text-dark">{Clabel.TotalAmountDue}</label></h3>
+							</div>
+							<div class="slds-col">
+
+								<p class="AHFC_TotAmt AHFC_AmtVal ahfc-text-dark">
+									${serviceAccountWrapper.dblTotalAmountDue}</p>
+							</div>
+						</div>
+
+
+						<div class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-center"
+							if:true={flags.showCurrentAmount}>
+							<div class="slds-col AHFC_MobCurrwidth">
+								<label class="AHFC_MonthlyDuetxt ahfc-text-dark">{Clabel.CurrentAmount}&nbsp;
+								<template  if:true={showDueDate}>{duedate}</template>	
+								</label>
+
+							</div>
+
+
+							<div class="slds-col">
+								<p class="AHFC_MonthlyDuetxt ">
+									${serviceAccountWrapper.serAccRec.Current_Amount_Due__c}</p>
+
+							</div>
+						</div>
+
+						<div class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-starts "
+							if:true={flags.showfeeDues}>
+							<div class="slds-col">
+								<label class="AHFC_MonthlyDuetxt ahfc-text-dark">Total Fees Due</label>
+							</div>
+							<div class="slds-col">
+								<p class="AHFC_MonthlyDuetxt ahfc-text-dark">
+									${serviceAccountWrapper.serAccRec.Total_Fees_Due__c}</p>
+							</div>
+						</div>
+
+						<div class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-end"
+							if:true={showamountdue}>
+							<div class="slds-col">
+								<div class="slds-grid">
+									<div class="slds-col">
+										<label class="ahfc-body-one ahfc-text-red" style="font-size: 14px;
+										line-height: 28px;">{Clabel.PastAmountDue}</label>
+									</div>
+									<div>
+
+									</div>
+									<div class="slds-col" style="padding-left: 5px;">
+										<span class="ahfc-body-one ahfc-text-red" style="font-size: 14px;
+										line-height: 28px;">{Clabel.DueToday}</span>
+									</div>
+								</div>
+							</div>
+							<div class="slds-col">
+								<p class="ahfc-sub-text-medium ahfc-text-red" style="font-size: 14px;">
+									${serviceAccountWrapper.serAccRec.Past_Amount_Due__c}</p>
+							</div>
+						</div>
+
+
+
+					</div>
+					<div class="details-card" if:true={flags.showScheduledPayments}>
+
+						<div
+							class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-end  AHFC_TotRow">
+							<div class="slds-col slds-size_8-of-12">
+								<h3><label class="AHFC_TotAmt ahfc-text-dark">{Clabel.ScheduledPayments}</label></h3>
+							</div>
+							<div class="slds-col slds-size_4-of-12">
+								<p class="AHFC_TotAmt AHFC_AmtVal  ahfc-text-dark">
+									${strTotalSchedludedAmount}</p>
+							</div>
+						</div>
+						<div>
+
+							<template for:each={OTPScheduledpayments} for:item="OTPpayment">
+								<div key={OTPpayment.Id}
+									class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-end">
+									<template if:true={OTPpayment.isOTP}>
+										<div class="slds-col">
+											<label class="AHFC_MonthlyDuetxt  ahfc-text-dark">{Clabel.OneTimePaymentOn}
+												{OTPpayment.ChargentOrders__Payment_Start_Date__c}</label>
+										</div>
+										<div class="slds-col">
+											<p class="AHFC_MonthlyDuetxt ahfc-text-dark">
+												${OTPpayment.ChargentOrders__Charge_Amount__c}</p>
+										</div>
+									</template>
+
+								</div>
+							</template>
+
+
+
+
+						</div>
+						<div>
+							<template for:each={OTPScheduledpayments} for:item="EasyPaypayment">
+								<div key={EasyPaypayment.Id}
+									class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-end">
+									<template if:true={EasyPaypayment.isEP}>
+										<div class="slds-col">
+											<label
+												class="AHFC_MonthlyDuetxt ahfc-text-dark">{Clabel.ScheduledEasyPayAmtOn}
+												{EasyPaypayment.Next_Withdrawal_Date__c}</label> <!--Added by Aswin Jose for Bug fix : 15491 . Before we were showing ChargentOrders__Payment_Start_Date__c-->
+										</div>
+										<div class="slds-col">
+											<p class="AHFC_MonthlyDuetxt ahfc-text-dark">
+												${EasyPaypayment.ChargentOrders__Charge_Amount__c}</p>
+										</div>
+									</template>
+								</div>
+							</template>
+						</div>
+
+					</div>
+					<div class="details-card" if:false={flags.showScheduledPayments}>
+						<div
+							class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-end  AHFC_TotRow">
+							<div class="slds-col slds-container_small slds-size_8-of-12 ">
+								<h3><label class="AHFC_TotAmt ahfc-text-dark">{Clabel.ScheduledPayments}</label></h3>
+							</div>
+							<div class="slds-col">
+								<p class="AHFC_TotAmt AHFC_AmtVal  ahfc-text-dark slds-size_4-of-12">
+									$0.00</p>
+							</div>
+						</div>
+						<div class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-end">
+
+							<div class="slds-col">
+								<label class="AHFC_MonthlyDuetxt ahfc-text-dark">None
+								</label>
+							</div>
+							<div class="slds-col">
+								<p class="AHFC_MonthlyDuetxt ahfc-text-dark">
+									$0.00</p>
+							</div>
+
+						</div>
+					</div>
+					<div class="details-card">
+						<div
+							class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-end details-header no-body AHFC_TotRow">
+							<div class="slds-col">
+								<h3><label class="AHFC_TotAmt ahfc-text-dark">{Clabel.RemaningAmountDue}</label></h3>
+							</div>
+							<div class="slds-col">
+								<p class="AHFC_TotAmt AHFC_AmtVal ahfc-text-dark">
+									${strRemainingAmount}</p>
+							</div>
+						</div>
+						<div class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-end">
+							<div class="slds-col" if:true={accntTypeforViewDetail}>
+								<label class="AHFC_MonthlyDuetxt ahfc-text-dark">Scheduled Purchase Payments are not reflected in the Remaining Amount Due.
+								</label>
+							</div>
+							<div class="slds-col" if:false={accntTypeforViewDetail}>
+								<label class="AHFC_MonthlyDuetxt ahfc-text-dark">Scheduled Payoff Payments are not reflected in the Remaining Amount Due.
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+		<div class="slds-backdrop slds-backdrop_open" aria-hidden="true"></div>
+	</template>
+</template>

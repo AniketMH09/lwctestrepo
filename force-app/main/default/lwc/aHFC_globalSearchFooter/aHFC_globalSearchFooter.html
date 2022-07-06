@@ -1,0 +1,62 @@
+<template>
+    <footer class="AHFC_MobMargin">
+        <div class="AHFC_FooterWrap">
+           <div class="slds-grid AHFC_FtIconlayout AHFC_TopStyle">
+              <div class="AHFC_BrandsTitle ">{labels.HondaFamilyOfBrands}</div>
+              <div class="slds-grid AHFC_MobIconWrap">
+                 <div class=" AHFC_Iconslayout   "> <a href ={labels.HondaCarLogoUrl} target="_blank"><img                
+                    src={hondacarLogoUrl}
+                    alt="Honda Car logo"
+                    class=""                 
+                    /></a></div>
+                 <div class="AHFC_Iconslayout "> <a href={labels.HondaAcuraLogoUrl} target="_blank"> <img                
+                    src={acurawhiteLogoUrl}
+                    alt="Acura White logo"
+                    /></a></div>
+                 <div class=" AHFC_Iconslayout "> <a href={labels.HondaBikeLogoUrl} target="_blank"><img                
+                    src={hondabikeLogoUrl}
+                    alt="Honda Bike logo"
+                    /></a></div>
+                 <div class=" AHFC_Iconslayout  AHFC_AddRt AHFC_Addleft "> 
+                    <a href={labels.HondaPowerEquipmentLogoUrl} target="_blank"><img                
+                       src={hondaPowerEqLogoUrl}
+                       alt="Honda Power Equipment logo"
+                       /></a>
+                 </div>
+                 <div class="AHFC_Iconslayout  AHFC_AddRt "> 
+                    <a href={labels.HondaMarineLogoUrl} target="_blank"><img                
+                       src={hondaMarineLogoUrl}
+                       alt="Honda Marine logo"
+                       /></a>
+                 </div>
+                 <div class="AHFC_Iconslayout   "> <a href={labels.HondaJetLogoUrl} target="_blank"><img                
+                    src={hondaJetLogoUrl}
+                    alt="Honda Jet logo"
+                    /></a></div>
+              </div>
+              <div class="AHFC_DividerLine"></div>
+           </div>
+           <div class="slds-grid AHFC_FtIconlayout  AHFC_BottomStyle">
+              <div class="slds-grid AHFC_Options">
+                 <div class="AHFC_MobTermOptions" onclick={navigateToAboutUs}><a data-id="" href="javascript:void(0);">{labels.Aboutus}</a></div>
+                 <div class="AHFC_MobTermOptions" onclick={navigateToTermsAndConditions}><a data-id="" href="javascript:void(0);" >{labels.TermsAndConditions}</a></div>
+                 <div class="AHFC_MobTermOptions" onclick={privacyPolicyTagging}><a href={privacyPolicyPdfUrl} target="_blank" data-id="" >{labels.Privacypolicy}</a></div>
+                 <div class="AHFC_MobTermOptions"><a href={labels.InvestorRelationsURL} target="_blank" data-id="" >{labels.InvestorRelations}</a></div>
+                 <div class="AHFC_MobTermOptions"><a href={labels.CareersUrl} target="_blank" data-id="" >{labels.Careers}</a></div>
+                 <div class="AHFC_MobTermOptions" onclick={navigateToDoNotSellPerInfo}><a  data-id="" href="javascript:void(0);" >{labels.PersonalInfo}</a></div>
+              </div>
+              <div class="slds-grid AHFC_Options">
+                 <div class="slds-col AHFC_MobTerms">
+                    <div class="AHFC_CookiesStyle" onclick={cookiePolicyTagging}>
+                       <p>{labels.Cookietext}</p>
+                       <a href={privacyPolicyPdfUrl} target="_blank">{labels.CookiePolicy}</a> 
+                    </div>
+                 </div>
+                 <div class="slds-col AHFC_StyleRt AHFC_MobTerms AHFC_RemRightStyle AHFC_NoFloat">
+                    <p>{labels.Corporation}</p>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </footer>
+</template>

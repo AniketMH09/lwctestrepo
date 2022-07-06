@@ -1,0 +1,76 @@
+/*START - DASHBOARD CSS*/
+/* Dashboard Section Title Eg: Payment Activity,Support Request */
+.AHFC_DbSecTitle{
+    /*font-family:Roboto-Black;
+font-size:18px;*/
+text-transform: uppercase;
+}
+
+/* Dashboard Each Card View Link - Eg:Track Request, View Activity Details */
+.AHFC_dbViewLink{
+    color: #e22525;
+    text-decoration: none;
+    font-family: ahfc-robotomedium;
+    font-size: 14px;
+}
+/* END - DASHBOARD CSS */
+
+/* START - DASHBOARD EXISTING CSS */
+.ahfc-toggle-link {
+    letter-spacing: 0.03em;
+    font-weight: normal;
+}
+
+.ahfc-toggle-link .dashboard-icon {
+    margin-left: 9px;
+}
+
+/* Labels & Valus */
+
+.info-label {
+    margin-bottom: 5px;
+}
+
+.info-value-large {
+    margin-bottom: 10px;
+    word-break: break-word;
+}
+
+/* Accordion */
+
+.ahfc-accordion-item {
+    border: none;
+    margin-bottom: 8px;
+}
+
+.ahfc-accordion-item .slds-accordion__summary-action {
+    display: block;
+    color: #000;
+}
+
+.ahfc-accordion-item .slds-accordion__summary-heading .slds-button:focus {
+    text-decoration: none;
+    color: #000;
+}
+
+/* Structures */
+
+.extra-options {
+    border-top: 1px solid #d9d9d9;
+    padding-top: 26px;
+}
+
+.section-header {
+    margin-bottom: 20px;
+}
+
+@media screen and (min-width: 1024px) {
+
+    /* Label & Values */
+
+    .info-value-large {
+        margin-bottom: 4px;
+    }
+
+}
+/* END - DASHBOART EXISTING CSS */

@@ -1,0 +1,51 @@
+<apex:page sidebar="false" showHeader="false">
+<html>
+<head>
+  <!---  LOAD THE CSS STYLE SHEET--->
+  <apex:stylesheet value="{!URLFOR($Resource.AFSHFS, 'AfsHfs/css/style.css')}"/>
+  <apex:includescript value="{!URLFOR($Resource.TrackingJS, 'AppMeasurement_JavaScript-1.5.2/VisitorAPI.js')}"/>
+  <apex:includescript value="{!URLFOR($Resource.TrackingJS, 'AppMeasurement_JavaScript-1.5.2/AppMeasurement.js')}"/>
+</head> 
+<body>
+<script language="JavaScript" type="text/javascript">
+            /* You may give each page an identifying name, server, and channel on
+            the next lines. */
+            s.pageName="MultiplePayoffPaymentErrorPage"
+            s.server=""
+            s.channel=""
+            s.pageType=""
+            s.prop1=""
+            s.prop2=""
+            s.prop3=""
+            s.prop4=""
+            s.prop5=""
+            /* Conversion Variables */
+            s.campaign=""
+            s.state=""
+            s.zip=""
+            s.events=""
+            s.products=""
+            s.purchaseID=""
+            s.eVar1=""
+            s.eVar2=""
+            s.eVar3=""
+            s.eVar4=""
+            s.eVar5=""
+            var s_code=s.t();if(s_code)document.write(s_code);
+</script>
+  <!--  ALIGN THE MESSAGE AND IMAGE IN CENTER OF PAGE--> 
+  <table border="2" class="security-check">
+      <tr>
+          
+          <td align="center" class="pull-left security-text" style="vertical-align:middle">
+              <p>Only one payoff payment is allowed per account. Please see the Pending Payments page for more information on the existing payoff.  </p>  
+          </td>
+      </tr>
+  </table>
+  
+  <!-- SCRIPT TO REDIRECT TO THE CUSTOMER SERVICE PAGE IN HONDA APP WEBSITE-->
+  
+  
+ </body> 
+ </html> 
+</apex:page>

@@ -1,0 +1,282 @@
+<!-- <template>
+    <section
+        role="dialog"
+        tabindex="-1"
+        aria-label="Meaningful description of the modal content"
+        aria-modal="true"
+        aria-describedby="modal-content-id-1"
+        class="slds-modal slds-fade-in-open finance-account-edit-modal"
+      >
+    <div class="ahfc_card">
+        <div class="ahfc_header slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_11-of-12">
+                <div class="ahfc_heading">Your Next Steps<span class="slds-hide_large ahfc_cross">
+                    <lightning-button-icon class="cross-icon" title="Close" variant="bare"
+                    icon-name="utility:close" onclick={onCancel} size="large"></lightning-button-icon>
+                </span>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_1-of-12 slds-show_large">
+                <div class="AHFC_PrintRt " onclick={printCurrentPage}>
+                    <lightning-icon icon-name="utility:print" alternative-text="Connected" size="x-small"
+                       title="xx-small size" class="AHFC_PrintertextIcon"></lightning-icon>
+                    <span class="outsideText">Print</span>
+                 </div>
+            </div>
+        </div>
+        <div  class="slds-grid slds-wrap">
+            <div class="slds-col ahfc_display">
+                <div class="ahfc_circleWrap">
+                    <div class="ahfc_circle"></div>
+                </div>
+                <div class="ahfc_text">
+                    <div>Download, print, and fill out an <a href={odometerPdf} class="ahfc_links" download>Odometer Disclosure Statement.</a>Your title will not be released until this form is received. </div> 
+                    <div class="ahfc_youStatement">You can submit the completed form:</div> 
+                    <div class="slds-grid slds-wrap ahfc_statements">
+                        <div class="slds-col">
+                            <div  class="ahfc_addHead">VIA EMAIL AT:</div>
+                            <div><a href="mailto:HondaDocs@dealertrack.com" class="ahfc_links">HondaDocs@dealertrack.com</a></div>
+                        </div>
+                        <div class="slds-col"></div>
+                    </div>
+                    <div class="slds-grid slds-wrap ahfc_statements">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <div class="ahfc_addHead">VIA MAIL AT:</div>
+                            <span class="ahfc_address">
+                                American Honda Finance Corp, 
+                            </span>
+                            <span class="ahfc_address">
+                                Attn: Title Processing, 
+                            </span>
+                            <span class="ahfc_address">
+                                9750 Goethe Rd., Sacramento, CA 95827
+                            </span>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 ahfc_fax">
+                            <div  class="ahfc_addHead">VIA FAX AT:</div>
+                            <span class="ahfc_address">
+                                Attn: Captive Client, 
+                            </span>
+                            <span class="ahfc_address">
+                                Fax No.: (937) 481-5307;
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        </div>
+        <div  class="slds-grid slds-wrap">
+            <div class="slds-col ahfc_display">
+                <div class="ahfc_circleWrap">
+                    <div class="ahfc_circle"></div>
+                </div>
+                <div class="ahfc_text">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12">
+                            <div class="">If you reside in Ohio, mail your original odometer statement and original notarized power of attorney to:</div>
+                            <span class="ahfc_address ahfc_headText">
+                                American Honda Finance Corp, 
+                            </span>
+                            <span class="ahfc_address ahfc_headText">
+                                Attn: Title Processing, 
+                            </span>
+                            <span class="ahfc_address ahfc_headText">
+                                9750 Goethe Rd., Sacramento, CA 95827
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        </div>
+        <div  class="slds-grid slds-wrap"> 
+            <div class="slds-col ahfc_display">
+                <div class="ahfc_circleWrap">
+                    <div class="ahfc_circle"></div>
+                </div>
+                <div class="ahfc_text">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12">
+                            <div class="">For additional help, Lease-End Specialists are available to answer your questions </div>
+                            <span class="ahfc_address ahfc_headText">
+                                Monday – Friday, 9 a.m. – 5 p.m., local time.
+                            </span>
+                            <span class="ahfc_address ahfc_headText">
+                                Call <span class="ahfc_links">(800) 708-6555</span> / <span class="ahfc_links">(866) 777-6495.</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        </div>
+        <div  class="slds-grid slds-wrap">
+            <div class="slds-col ahfc_display">
+                <div class="ahfc_circleWrap">
+                    <div class="ahfc_circle"></div>
+                </div>
+                <div class="ahfc_text">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12">
+                            <div class="">Cancel license plates or transfer them to your name at your DMV. For more info, go to your DMV’s website. </div>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        </div>
+        <div class="ahfc_button">
+            <button class="slds-button ahfc-btn ahfc-btn-secondary ahfc_dashboardButton">
+                <span class="ahfc_dashboardButtonText">Okay, Go to Dashboard</span>
+            </button>
+        </div>
+    </div>
+    </section>
+</template> -->
+
+<template>
+    <section id="nextStep" aria-describedby="nextStep" aria-labelledby="nextStep" aria-modal="true"
+            class="slds-modal slds-fade-in-open finance-account-edit-modal" role="dialog" tabindex="-1">
+            <div class="slds-modal__container">
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+    <div class="ahfc_crossDesktop slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_11-of-12">
+            <span class="slds-show_large ahfc_cross">
+                <a href="javascript:void(0);" aria-label="Close" alt="Close">
+                <lightning-button-icon alternative-text="Close" class="cross-icon" title="Close" variant="bare"
+                icon-name="utility:close" onclick={onCancel} size="large"></lightning-button-icon>
+                </a>
+            </span>
+        </div>
+    </div>
+    <div id="printContent" class="ahfc_card printContent">
+        <div class="ahfc_header slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_11-of-12">
+                <h1 class="ahfc_heading">Your Next Steps<span class="slds-hide_large ahfc_cross">
+                    <a href="javascript:void(0);" role="img" aria-label="Close" alt="Close">
+                    <lightning-button-icon class="cross-icon" title="Close" variant="bare"
+                    icon-name="utility:close" onclick={onCancel} size="large"></lightning-button-icon>
+                    </a>
+                </span>
+                </h1>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_1-of-12 slds-show_large">
+                <!-- <div class="AHFC_PrintRt " onclick={printCurrentPage}> -->
+                <div class="AHFC_PrintRt " onclick={printDoc}>
+                    <a href="javascript:void(0);" role="img" aria-label="Print" alt="Print">
+                    <lightning-icon icon-name="utility:print" alternative-text="Connected" size="x-small"
+                       title="xx-small size" class="AHFC_PrintertextIcon"></lightning-icon>
+                       </a>
+                    <span class="outsideText">Print</span>
+                 </div>
+            </div>
+        </div>
+        <div  class="slds-grid slds-wrap">
+            <div class="slds-col ahfc_display">
+                <div class="ahfc_circleWrap">
+                    <div class="ahfc_circle"></div>
+                </div>
+                <div class="ahfc_text">
+                    <div>Download, print, and fill out an <a href={odometerPdf} class="ahfc_links" download>Odometer Disclosure Statement.</a>Your title will not be released until this form is received. </div> 
+                    <div class="ahfc_youStatement">You can submit the completed form:</div> 
+                    <div class="slds-grid slds-wrap ahfc_statements">
+                        <div class="slds-col">
+                            <div  class="ahfc_addHead">VIA EMAIL AT:</div>
+                            <div><a href="mailto:HondaDocs@coxautoinc.com" class="ahfc_links">HondaDocs@coxautoinc.com</a></div>
+                        </div>
+                        <div class="slds-col"></div>
+                    </div>
+                    <div class="slds-grid slds-wrap ahfc_statements">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <div class="ahfc_addHead">VIA MAIL AT:</div>
+                            <span class="ahfc_address">
+                                American Honda Finance Corp, 
+                            </span>
+                            <span class="ahfc_address">
+                                Attn: Title Processing, 
+                            </span>
+                            <span class="ahfc_address">
+                                9750 Goethe Rd., Sacramento, CA 95827
+                            </span>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 ahfc_fax">
+                            <div  class="ahfc_addHead">VIA FAX AT:</div>
+                            <span class="ahfc_address">
+                                Attn: Captive Client, 
+                            </span>
+                            <span class="ahfc_address">
+                                Fax No.: (937) 481-5307;
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        </div>
+        <div  class="slds-grid slds-wrap">
+            <div class="slds-col ahfc_display">
+                <div class="ahfc_circleWrap">
+                    <div class="ahfc_circle"></div>
+                </div>
+                <div class="ahfc_text">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12">
+                            <div class="">If you reside in Ohio, mail your original <a href = {ohiopdf} class="ahfc_links" target="_blank">odometer statement</a> and original notarized <a href = {ohioPAPdf} class="ahfc_links" target="_blank">power of attorney</a> to:</div>
+                            <span class="ahfc_address ahfc_headText">
+                                American Honda Finance Corp, 
+                            </span>
+                            <span class="ahfc_address ahfc_headText">
+                                Attn: Title Processing, 
+                            </span>
+                            <span class="ahfc_address ahfc_headText">
+                                9750 Goethe Rd., Sacramento, CA 95827
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        </div>
+        <div  class="slds-grid slds-wrap">
+            <div class="slds-col ahfc_display">
+                <div class="ahfc_circleWrap">
+                    <div class="ahfc_circle"></div>
+                </div>
+                <div class="ahfc_text">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12">
+                            <div class="">For additional help, Lease-End Specialists are available to answer your questions </div>
+                            <span class="ahfc_address ahfc_headText">
+                                Monday – Friday, 9 a.m. – 5 p.m., local time.
+                            </span>
+                            <span class="ahfc_address ahfc_headText">
+                                <!-- Call <span class="ahfc_links">(800) 708-6555</span> / <span class="ahfc_links">(866) 777-6495.</span> -->
+                                Honda lease customers, call <span class="ahfc_links">(800) 708-6555</span>. Acura lease clients, call <span class="ahfc_links">(866) 777-6495.</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        </div>
+        <div  class="slds-grid slds-wrap">
+            <div class="slds-col ahfc_display">
+                <div class="ahfc_circleWrap">
+                    <div class="ahfc_circle"></div>
+                </div>
+                <div class="ahfc_text">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12">
+                            <div class="">Cancel license plates or transfer them to your name at your DMV. For more info, go to your DMV’s website. </div>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        </div>
+        <div class="ahfc_button">
+            <button class="slds-button ahfc-btn ahfc-btn-secondary ahfc_dashboardButton" onclick={navigateBackToDashboard}>
+                <span class="ahfc_dashboardButtonText">Okay, Go to Dashboard</span>
+            </button>
+        </div>
+    </div>
+    </div>
+    </div>
+    </section>
+   
+    <div class="slds-backdrop slds-backdrop_open" aria-hidden="true"></div>
+    
+</template>

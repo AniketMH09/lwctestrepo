@@ -1,0 +1,36 @@
+<template>
+    <section
+       role="dialog"
+       tabindex="-1"
+       data-id="stop-modal"
+       aria-label="Meaningful description of the modal content"
+       aria-modal="true"
+       aria-describedby="modal-content-id-1"
+       class="slds-modal slds-fade-in-open finance-account-edit-modal"
+       >
+       <div class="slds-modal__container">
+          <div
+             class="slds-modal__content edit-modal-content"
+             id="modal-content-id-1"
+             >
+             <h1 class="AHFC_ModTitle">Stop managing this finance account?</h1>
+                <p class="para-text-medium">Are you sure you want to stop managing this finance account?</p>
+                <div class="stop-finance-info slds-m-top_medium">
+                   <p class="para-text-medium">Unmanaging an account does not cancel scheduled payments or stop any activity on your account.</p>
+                </div>
+             <div class="modal-action slds-m-top_xx-large">
+                <button class="slds-button action-btn save-action" onclick={onSave}>
+                YES, REMOVE
+                </button>
+                <button
+                   class="slds-button action-btn cancel-action"
+                   onclick={onCancel} 
+                   >
+                BACK
+                </button>
+             </div>
+          </div>
+       </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open" aria-hidden="true"></div>
+ </template>

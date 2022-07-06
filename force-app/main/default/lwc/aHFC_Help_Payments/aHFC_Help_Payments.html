@@ -1,0 +1,146 @@
+<template> 
+  <template if:true={loadingspinner}>
+    <!-- <div class="slds-backdrop slds-backdrop_open"></div>
+          <lightning-spinner alternative-text="Loading" size="large" class="AHFC_Spinnereg ahfc_spinnerposition" ></lightning-spinner> -->
+          <c-a-h-f-c_-spinner loading-message={spinnerMessage}></c-a-h-f-c_-spinner>
+  </template>
+
+<c-a-h-f-c_vehicle-header if:false={showPage}></c-a-h-f-c_vehicle-header>
+<div role="main" id="main-container" class="main-content">
+    <div class="AHFC_Wrapperst ahfc-background-lighter" if:false={showPage}>
+        <div class="AHFC_PrimHead">
+            <a href="javascript:void(0);" class="AHFC_removehovereffect" tabindex="-1">
+                <lightning-icon icon-name="utility:back" class="AHFC_backArrow" alternative-text="Connected" size="small" title="" onclick={navigateBackToDashboard}></lightning-icon>
+            </a>
+            <h1><p>{labels.NeedHelpWithYourAccount}</p></h1>
+
+        </div>
+        <div class="AHFC_InnerHeadCont">
+            <p class="AHFC_subheading">{labels.NeedHelpWithYourAccountText}
+            </p>
+        </div>
+        <div class="slds-grid slds-wrap AHFC_IconCardLayout ">
+            <template if:true={dueDateChange}>
+            <div onclick={handleDDCflow} class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 
+            slds-large-size_4-of-12 AHFC_IconCard">
+              <span>
+                  <div class="AHFC_ImgAspLayout"> <img src={Payment_Img1}
+                    alt="Honda Financial Services logo" /></div>
+                <h2><div class="AHFC_Icontitle">
+                 {labels.DueDateChangeRequest}
+                </div></h2>
+                <div class="AHFC_InnerHeadCont">
+                    <p>{labels.DueDateChangeRequestText}
+                    </p>
+                  </div>
+                  <div class="AHFC_ForwardBut"> <a href="javascript:void(0);" class="AHFC_removehovereffect" tabindex="-1"><lightning-icon icon-name="utility:forward" alternative-text="Connected" size="small"
+                    title="" ></lightning-icon></a> </div>
+              </span>
+            </div>
+            </template>
+            <template if:true={isDisplayAlready}>
+            <div onclick={navigateToMadePayment} class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_4-of-12 AHFC_IconCard">
+                <span>
+                    <div class="AHFC_ImgAspLayout"> <img src={Payment_Img3}
+                      alt="Honda Financial Services logo" /></div>
+                    <h2><div class="AHFC_Icontitle">
+                      {labels.AlreadyMadeAPayment}
+                    </div></h2>
+                    <div class="AHFC_InnerHeadCont">
+                        <p>{labels.AlreadyMadeAPaymentText}
+                        </p>
+                      </div>
+                      <div class="AHFC_ForwardBut"> <a href="javascript:void(0);" class="AHFC_removehovereffect" tabindex="-1"><lightning-icon icon-name="utility:forward" alternative-text="Connected" size="small"
+                        title=""></lightning-icon></a> </div>
+                  </span>            </div>
+                  </template>
+            <template if:true={leaseExtension}>
+            <div onclick={handleLEFlow} class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_4-of-12 
+            AHFC_IconCard">
+                <span>
+                    <div class="AHFC_ImgAspLayout"> <img src={Payment_Img2}
+                      alt="Honda Financial Services logo" /></div>
+                    <h2><div class="AHFC_Icontitle">
+                      {labels.LeaseExtension}
+                    </div></h2>
+                    <div class="AHFC_InnerHeadCont">
+                        <p>{labels.LeaseExtensionText}
+                        </p>
+                      </div>
+                      <div class="AHFC_ForwardBut"> <a href="javascript:void(0);" class="AHFC_removehovereffect" tabindex="-1"><lightning-icon icon-name="utility:forward" alternative-text="Connected" size="small"
+                        title="" ></lightning-icon> </a></div>
+                  </span>
+              </div>
+              </template>
+        </div>
+        <!-- <div class="AHFC_ContainerSec">
+          <div class="card-block ahfc-background-lightest AHFC_InnerAround">
+            <span class="AHFC_InnerHeading"><b>FAQS</b> </span>
+            
+          
+            <div class="slds-grid slds-wrap">
+                
+                <div class="AHFC_AccFullWidth slds-col slds-size_1-of-1 slds-align-top">
+                  <span><button class="accordion"
+                    onclick={onSubmenuAccClick}>
+                    Payment-related FAQ 1 Lorem di Epsum sample Purpose
+                    <lightning-icon icon-name="utility:chevrondown"
+                          alternative-text="down" size="x-small"
+                          title="Connected" class="AHFC_DownIconAcc">
+                    </lightning-icon>
+              </button></span>
+                                  
+                          </div>    
+                          <div class="AHFC_AccFullWidth slds-col slds-size_1-of-1 slds-align-top">
+                  
+                             <span> <button class="accordion"
+                              onclick={onSubmenuAccClick}>
+                              Payment-related FAQ 1 Lorem di Epsum sample Purpose
+                              <lightning-icon icon-name="utility:chevrondown"
+                                    alternative-text="down" size="x-small"
+                                    title="Connected" class="AHFC_DownIconAcc">
+                              </lightning-icon>
+                        </button></span>
+                      </div> 
+                      <div class="AHFC_AccFullWidth slds-col slds-size_1-of-1 slds-align-top">
+                  
+                      <span>    <button class="accordion"
+                        onclick={onSubmenuAccClick}>
+                        Payment-related FAQ 1 Lorem di Epsum sample Purpose
+                        <lightning-icon icon-name="utility:chevrondown"
+                              alternative-text="down" size="x-small"
+                              title="Connected" class="AHFC_DownIconAcc">
+                        </lightning-icon>
+                  </button></span>
+                  </div> 
+                        <div class="AHFC_Linkwraphelp"><a class="AHFC_Colred">VIEW ALL FAQS</a> </div>
+
+            </div>
+
+          </div>
+      </div> -->
+    </div>
+</div>
+<!-- <div class="made-payment-container ahfc-backgroud-lighter">
+  
+    <div class="made-payment-container-fluid">
+    <div class="made-payment-heading slds-m-vertical_x-large slds-grid">
+      
+      test purpose.....
+    </div>
+  
+
+    <div class="payment-container">
+      <template if:false={isPromiseMade}>
+        <h2 class="payment-details ahfc-text-medium slds-m-bottom_xx-large">
+          {label.madePaymentSubHeading}
+        </h2>
+        </template>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+</template>

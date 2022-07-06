@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="217px" height="40px" viewBox="0 0 217 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>button/primary copy 15</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Style-Guide" transform="translate(-731.000000, -1300.000000)">
+            <g id="button/primary-copy-15" transform="translate(731.000000, 1300.000000)">
+                <rect id="Rectangle" stroke="#0072CE" stroke-width="2" fill="#0072CE" x="1" y="1" width="215" height="38" rx="19"></rect>
+                <text id="Download" font-family="HelveticaNeue-Medium, Helvetica Neue" font-size="16" font-weight="400" fill="#FFFFFF">
+                    <tspan x="83.032" y="26">DOWNLOAD</tspan>
+                </text>
+                <g id="cloud-download" transform="translate(40.000000, 8.000000)" stroke="#FFFFFF" stroke-width="2">
+                    <path d="M14,11.6160762 L14,23.4616605" id="Path"></path>
+                    <polyline id="Path" stroke-linecap="square" points="17.7017451 19.7599154 14 23.4616605 10.2982549 19.7599154"></polyline>
+                    <path d="M17.6839767,16.7985193 L23.2099418,16.7985193 C25.7887255,16.5908514 27.8149127,14.5972396 27.8149127,12.2298255 C27.8149127,9.82087784 25.7887255,7.86879958 23.1638921,7.66113168 C22.703395,3.46624008 18.7891698,0.185087255 14,0.185087255 C9.85552618,0.185087255 6.35574828,2.67710206 5.20450555,6.08285563 C2.34942359,6.49819143 0.185087255,8.69947118 0.185087255,11.3991539 C0.185087255,14.2234373 2.62572184,16.5908514 5.71105235,16.7985193 L10.3160233,16.7985193" id="Path" stroke-linecap="square"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

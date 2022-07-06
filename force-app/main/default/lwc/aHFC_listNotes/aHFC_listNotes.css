@@ -1,0 +1,50 @@
+.ahfc_sp_label{
+    font-weight: bold;
+    font-size: 15px;
+    /* margin-bottom: 15px; */
+  }
+  .AHFC_NotesWrap{
+    margin-left: 0px;
+  }
+  .AHFC_NotesWrap h3{
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-family: Roboto;
+  }
+  .AHFC_NoteName{
+    padding-top: 2rem;
+    font-family: 'ahfc-robotomedium' ,sans-serif;
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding-bottom: 0.5rem;
+  }
+  .AHFC_NoteDetail{
+    font-family: Roboto;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    color: #414141;
+  }
+  .AHFC_NoteSubDetail{
+    padding-top: 0.5rem;
+    font-family: 'ahfc-robotomedium' ,sans-serif;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #000000;
+  }
+
+  @media (min-width: 320px) and (max-width: 767px) {
+    .AHFC_NotesWrap h3{
+      font-family: 'ahfc-robotomedium' ,sans-serif;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.03em;
+    }
+  }

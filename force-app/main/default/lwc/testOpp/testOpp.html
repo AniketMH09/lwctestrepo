@@ -1,0 +1,54 @@
+<template>
+    <div class="slds-grid slds-wrap slds-gutters">
+        <div class="slds-col slds-size_1-of-2 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+            <table class="customers">
+                <thead>
+                    <tr>
+                        <th>Count of Closed Opportunities</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TODAY</td>
+                        <td>{gotData.closedToday}</td>
+
+                    </tr>
+                    <tr>
+                        <td>YESTERDAY</td>
+                        <td>{gotData.closedYesterday}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="slds-col slds-size_1-of-2 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+            <table class="customers newclass">
+                <thead>
+                    <tr>
+                        <th>Count of Open Opportunities</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TODAY</td>
+                        <td>{gotData.openToday}</td>
+
+                    </tr>
+                    <tr>
+                        <td>YESTERDAY</td>
+                        <td>{gotData.openYesterday}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+       
+    </div>
+    <div class="slds-grid slds-wrap slds-gutters">
+        <div class="slds-col slds-size_1-of-2 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+         Total Number of Opportunities Closed Today compared to Yesterday in % <span>{gotData.closedPercentage}</span>
+        </div>
+    </div>
+</template>

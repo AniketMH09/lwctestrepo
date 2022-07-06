@@ -1,0 +1,25 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    
+    <aura:attribute name = "instructions" type = "String"/> 
+    
+    <ltng:require styles="{!$Resource.AHFC_Flatpickr_css}"/>
+    <ltng:require scripts="{!$Resource.AHFC_Flatpickr}" afterScriptsLoaded="{!c.doInit}"/>
+    
+    <div class="contain center">        
+        <div class="info">
+            <aura:if isTrue = "{!v.instructions}">
+                <p>{!v.instructions}</p>
+                <aura:set attribute="else">
+                    <div class="block">
+                        <p class="mb-sm">You have a pending due date change request and cannot submit another request.Please wait until the pending request is closed before submitting another.</p>
+                    </div>                
+                </aura:set>
+            </aura:if>
+            
+            <div class="action">
+                <button class="btn default" onclick="{!c.redirectToHome}">Cancel</button>
+            </div>
+        </div>
+        
+    </div>
+</aura:component>

@@ -1,0 +1,79 @@
+<template>
+
+    <section role="dialog" tabindex="-1" aria-label="Meaningful description of the modal content" aria-modal="true"
+      aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open finance-account-edit-modal">
+      <div class="slds-modal__container">
+        <div class="slds-modal__content edit-modal-content ">
+          <h1 class="AHFC_ModTitle">Cancel Payment?</h1>
+
+          <div class="slds-grid  AHFC_Collayout">
+
+
+            <div class="slds-col ">
+              <span>
+                <div class="AHFC_ModFormLabel">{headerTextLabel}
+                </div>
+              </span>
+            </div>
+          </div>
+
+          <!-- Data part-->
+          <div>
+            <div class="review-section-info">           
+              <div class="slds-grid reviewpaymentinfo-container" >            
+                <div class="slds-col slds-size_6-of-12 slds-medium-size_6-of-12 payment-info">
+                  <h4 class="ahfc-info-label ahfc-text-dark AHFC_PaymentLabel">{paymentAmountLabel}</h4>
+                  <h1 class="AHFC_PaymentData">{financeAccData.paymentAmount}</h1>                
+                </div>
+                
+                <div>
+                  <h4 class="ahfc-info-label ahfc-text-dark AHFC_PaymentLabel">{paymentDateLabel}</h4>
+                  <!-- <h1>{nextwithdrawldate}</h1> -->
+                  <h1 class="AHFC_PaymentData">{financeAccData.paymentDate}
+                  </h1>
+                </div>
+
+              </div> 
+            </div>
+
+            <div class="slds-grid slds-wrap schedule-source-section slds-m-top_x-large">
+              <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 source-info">
+                <h4 class="ahfc-info-label ahfc-text-dark AHFC_PaymentLabel">PAYMENT SOURCE</h4>
+                <div class="sources-container ">               
+                  <h1 class="AHFC_PaymentData">{financeAccData.source}
+                  <span class="AHFC_PaySourceData">&nbsp;&nbsp;
+                    <span class="circle"></span>
+                    <span class="circle"></span>
+                    <span class="circle"></span>
+                    <span class="circle"></span>                
+                    &nbsp;{financeAccData.last4}
+                  </span>
+                </h1>
+                  </div>
+              </div>
+            </div>
+
+
+          </div>
+          <!-- Data part End-->
+          
+          
+          <div class="AHFC_ModButsec slds-grid slds-m-top_xx-large">
+            <div class="">
+              <div class="AHFC_NavBtn">
+                <button class="slds-button AHFC_BgRedButton slds-m-right_x-large" onclick={validateCancelPayment}>
+                  YES, CANCEL
+                </button></div>
+
+              <div class="AHFC_NavBtn">
+                <button class="slds-button AHFC_NoBgButton" onclick={closeModal}>BACK</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open" aria-hidden="true"></div>
+
+</template>

@@ -1,0 +1,16 @@
+<design:component>
+   <!--Inputs-->
+   <design:attribute name= "strRequestType" label="Request Type" />
+   <!--outputs--> 
+
+    
+<design:attribute name= "strFaAccount" label="FA Account" />
+<design:attribute name= "strVin" label="VIN" />
+<design:attribute name= "strSerialNo" label="Serial Number" />
+<design:attribute name= "strContractNo" label="Contract Number" />
+<design:attribute name= "strssn" label="SSN" />
+<design:attribute name= "hasaccount" label="AHFC Customer" />
+
+<design:attribute name= "strdob2" label="DOB" />
+
+</design:component>

@@ -1,0 +1,2018 @@
+.aHFC_Close_Icon{
+text-align: right;
+left: 20.84%;
+right: 20.83%;
+top: 20.83%;
+bottom: 20.83%;
+}
+
+.button_cls{
+  float:right;
+}
+
+.subText_cls{
+  margin-top: 1rem;
+}
+
+.toggle {
+  display:block;
+}
+
+.ahfc_tooltip{
+ 
+  display:none;
+}
+
+.ahfc_tooltip_model
+{
+  position:absolute;
+  top:-4px;
+  left:15px;
+}
+
+.Img_Container
+{
+  position: relative;
+  margin-top: 1rem;
+}
+
+
+/* Start power sports img tooltip css*/
+
+.powersports_image_button
+{
+ position: absolute;
+ top: 8.5rem;
+ left: 17rem;
+ 
+}
+
+.powersports_image_button1{
+
+  position: absolute;
+  left: 21.8rem;
+  top: 31.2rem;
+}
+
+
+.powersports_image_button2{
+
+  position: absolute;
+  top: 16.8rem;
+  left: 44rem;
+}
+
+
+.powersports_image_button3{
+  position: absolute;
+  top: 31.3rem;
+  left: 28.3rem;
+}
+
+
+.tooltip_content_desc{
+  position: absolute;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  width: 239px;
+
+}
+
+.powersports_tooltip_content{
+  top: 6rem;
+  left: 18.5rem;
+}
+
+.powersports_tooltip_content1{
+  left: 23.5rem;
+  top: 28.8rem;
+}
+
+.powersports_tooltip_content2{
+  top: 14.6rem;
+  left: 29rem;
+}
+
+.powersports_tooltip_content3{
+  top: 30rem;
+  left: 13rem;
+}
+
+/* End */
+
+/*@media (min-width: 1024px) {
+
+  .powersports_image_button2{
+
+    position: absolute;
+    top: 16.8rem;
+    right: 8.5rem;
+  }
+
+  .powersports_image_button3{
+    position: absolute;
+    top: 31.3rem;
+    right: 24.3rem;
+  }
+  
+ 
+  .powersports_tooltip_content2{
+    top: 14.6rem;
+    right: 14rem;
+  }
+
+  .powersports_tooltip_content3{
+    top: 30rem;
+    left: 13rem;
+  }
+
+
+}*/
+
+/* Start hfs lease  img tooltip css*/
+
+.hfslease_image_button
+{
+ position: absolute;
+ top: 6.7rem;
+ left: 16.8rem;
+ 
+}
+
+.hfslease_image_button1{
+
+  position: absolute;
+  left: 21.7rem;
+  top: 29.5rem;
+
+}
+
+.hfslease_image_button2{
+
+  position: absolute;
+  top: 14.5rem;
+   left: 44rem;
+}
+
+.hfslease_image_button3{
+  position: absolute;
+  top: 28rem;
+  left: 28rem;
+}
+
+.hfslease_tooltip_content{
+  top: 5.3rem;
+  left: 18.3rem;
+}
+
+.hfslease_tooltip_content1{
+  left: 23.3rem;
+  top: 27rem;
+}
+
+.hfslease_tooltip_content2{
+  top: 12.5rem;
+  left: 29rem;
+}
+
+.hfslease_tooltip_content3{
+  top: 26rem;
+  left: 13.3rem;
+}
+
+/* End */
+
+/*AFS Lease imag tooltip icon css */
+
+.afslease_image_button
+{
+ position: absolute;
+ top: 6.4rem;
+ left: 17rem;
+ 
+}
+
+.afslease_image_button1{
+
+  position: absolute;
+  left: 21.5rem;
+  top: 30rem;
+
+}
+
+.afslease_image_button2{
+
+  position: absolute;
+  top: 15.5rem;
+  left: 44rem;
+}
+
+.afslease_image_button3{
+  position: absolute;
+  top: 28.5rem;
+  left: 27.5rem;
+}
+
+.afslease_tooltip_content{
+  top: 5.6rem;
+  left: 18.5rem;
+}
+
+.afslease_tooltip_content1{
+  left: 23.3rem;
+  top: 28rem;
+}
+
+.afslease_tooltip_content2{
+  top: 14rem;
+  left: 28.5rem;
+}
+
+.afslease_tooltip_content3{
+top: 26.5rem;
+left: 12.6rem;
+}
+
+/* End */
+
+/*HFS retail image tooltip icon css */
+
+.hfsretail_image_button
+{
+ position: absolute;
+ top: 6.8rem;
+ left: 17rem;
+ 
+}
+
+.hfsretail_image_button1{
+  position: absolute;
+  left: 21.5rem;
+  top: 28rem;
+
+}
+
+.hfsretail_image_button2{
+
+  position: absolute;
+  top: 14.5rem;
+   left: 44rem;
+}
+
+.hfsretail_image_button3{
+  position: absolute;
+  top: 28rem;
+  left:28rem;
+}
+
+.hfsretail_tooltip_content{
+  top: 5rem;
+  left: 18.3rem;
+}
+
+.hfsretail_tooltip_content1{
+  left: 23.3rem;
+  top: 26rem;
+}
+
+.hfsretail_tooltip_content2{
+  top: 12rem;
+  left: 29rem;
+}
+
+.hfsretail_tooltip_content3{
+  top: 26.5rem;
+  left: 13rem;
+}
+
+
+/*End */
+
+/* AFS Retail sample image tooltip icon css*/
+ 
+.afsretail_image_button{
+  position: absolute;
+  top: 8.4rem;
+  left: 17rem;
+}
+
+.afsretail_tooltip_content{
+  top: 6rem;
+  left: 18.3rem;
+}
+
+.afsretail_image_button1{
+  position: absolute;
+  left: 21.5rem;
+  top: 28.5rem;
+}
+
+.afsretail_tooltip_content1{
+  left: 23.3rem;
+  top: 26rem;
+}
+
+.afsretail_image_button2{
+  position: absolute;
+  top: 15.5rem;
+  left: 44rem;
+}
+
+.afsretail_tooltip_content2{
+  top: 13rem;
+  left: 29rem;
+}
+
+.afsretail_image_button3{
+  position: absolute;
+  top: 28.5rem;
+  left: 27.5rem;
+}
+
+.afsretail_tooltip_content3{
+  top: 26.5rem;
+  left: 12.5rem;
+}
+/*End */
+
+.tooltip_body{
+  padding-top: 5px;
+}
+
+/* Modal Popup */
+.paymentsource-modalcontent {
+  font-family: 'ahfc-robotolight'; 
+    padding: 0px;
+    border-radius: 0;
+  }
+
+  
+  .paymentsource-modalcontent .modal-title
+  {
+    font-family: 'ahfc-robotolight';
+    font-size: 26px;
+    line-height: 36px;
+    color: #000000;
+  }
+  
+  .paymentsource-modal-container {
+    width: 80%;
+   /* margin: 80px auto;*/
+   margin: 40px 100px;
+
+  }
+  
+  .paymentsource-modal-container .preferred-section {
+    /*width: 45%;*/
+    width: 100%;
+  }
+  .modal-container .slds-modal {
+    position: absolute;
+  }
+  
+  .modal-container .slds-modal:focus {
+    outline: none;
+  }
+  
+  .modal-container .slds-modal__container {
+    height: auto;
+  }
+  
+  .modal-container .slds-modal__container:focus {
+    outline: none;
+  }
+  
+  
+  
+  /*End of Modal Popup */
+  @media (min-width: 992px) {
+    .modal-container .slds-modal__container {
+      margin: 0 auto;
+      width: 80%;
+      max-width: inherit;
+      min-width: inherit;
+    }
+  }
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .modal-container .slds-modal__container,
+    .modal-container .spinner-model-container {
+      width: 100%;
+      max-width: 100%;
+    }
+    .modal-container .preferred-conditions,
+    .modal-container .terms-conditions {
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.03rem;
+    }
+    .paymentsource-modal-container {
+      width: 85%;
+    }
+  }
+  @media screen and (min-width: 320px) and (max-width: 540px) {
+    /* Modal Popup media queries */
+    .modal-container .terms-conditions {
+      margin-bottom: 32px;
+    }
+    .paymentsource-modal-container .preferred-section {
+      width: 100%;
+    }
+    .paymentsource-modalcontent .modal-title {
+      font-size: 20px;
+      line-height: 30px;
+    }
+  
+    .modal-container .slds-modal__container {
+      margin: 0 auto;
+      padding: 0;
+      width: 100%;
+    }
+    .paymentsource-modal-container {
+      margin: 40px auto;
+      width: 86%;
+    }
+    .modal-container .action-container {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+ 
+
+  @media (min-width: 320px ) and (max-width:340px){
+   
+    .powersports_image_button{
+      position: absolute;
+      left: 5rem;
+      top: 2.5rem;
+    }
+    
+    .powersports_tooltip_content{
+      position: absolute;
+      top: 1rem;
+      left: 6rem;
+      width: 180px;
+    }
+    
+    .powersports_image_button1{
+      position: absolute;
+      left: 6.5rem;
+      top: 9.5rem;
+    }
+
+    .powersports_tooltip_content1{
+      position: absolute;
+      top: -0.5rem;
+      left: 1rem;
+      width: 200px;
+    }
+
+    .powersports_image_button2{
+      position: absolute;
+      top: 5rem;
+      left: 14rem;
+    }
+     
+    .powersports_tooltip_content2{
+      position: absolute;
+      top: -2.5rem;
+      left: 5rem;
+      width: 195px;
+    }
+    
+    .powersports_image_button3{
+      position: absolute;
+      top: 9.5rem;
+      left: 9rem;
+    }
+
+     
+    .powersports_tooltip_content3{
+      position: absolute;
+      top: 4rem;
+      left: 5rem;
+      width: 195px;
+    } 
+
+
+    .hfslease_image_button1{
+      position: absolute;
+      left: 7rem;
+      top: 9rem;
+     }
+    
+     .hfslease_tooltip_content1{
+      left: 3rem;
+      top: -0.5rem;
+      width: 195px;
+     }
+    
+     .hfslease_image_button2{
+      position: absolute;
+      top: 4rem;
+      left: 13.5rem;
+     }
+    
+     .hfslease_tooltip_content2{
+      position: absolute;
+        top: 0.5rem;
+        left: 1.5rem;
+        width: 195px;
+     }
+    
+     .hfslease_image_button3{
+      position: absolute;
+      top: 8.5rem;
+      left: 9rem;
+     }
+    
+     .hfslease_tooltip_content3{
+      position: absolute;
+      top: 2.5rem;
+      left: 2rem;
+      width: 195px;
+     }
+    
+     .hfslease_image_button{
+      position: absolute;
+        top: 1.5rem;
+        left: 5rem;
+     }
+    
+     .hfslease_tooltip_content{
+      top: 0rem;
+      left: 6rem;
+      width: 190px;
+     }
+
+     .afslease_image_button{
+      position: absolute;
+      top: 1.5rem;
+      left: 5rem;
+     }
+    
+     .afslease_tooltip_content{
+      top: 0rem;
+      left: 6rem;
+      width: 195px;
+     }
+    
+     
+     .afslease_image_button1{
+      position: absolute;
+      left: 6.5rem;
+      top: 9rem;
+     }
+    
+     .afslease_tooltip_content1{
+      left: 7.5rem;
+      top: 8.5rem;
+      width: 195px;
+     }
+    
+     .afslease_image_button2{
+      position: absolute;
+      top: 4.5rem;
+      left: 13.5rem;
+     }
+    
+     .afslease_tooltip_content2{
+      position: absolute;
+        top: 1.5rem;
+        left: 1.5rem;
+        width: 195px;
+     }
+    
+     .afslease_image_button3{
+      position: absolute;
+      top: 9rem;
+      left: 8.8rem;
+     }
+    
+     .afslease_tooltip_content3{
+      position: absolute;
+      top: 3rem;
+      left: 4rem;
+      width: 195px;
+     }
+    
+     .hfsretail_image_button{
+      position: absolute;
+      top: 1.5rem;
+      left: 5rem;
+     }
+    
+     .hfsretail_tooltip_content{
+      top: 0rem;
+      left: 6rem;
+      width: 195px;
+     }
+    
+     
+     .hfsretail_image_button1{
+      position: absolute;
+      left: 6.5rem;
+      top: 8.5rem;
+     }
+    
+     .hfsretail_tooltip_content1{
+      left: 2rem;
+      top: -0.5rem;
+      width: 195px;
+     }
+    
+     .hfsretail_image_button2{
+      position: absolute;
+      top: 4rem;
+      left: 14rem;
+     }
+    
+     .hfsretail_tooltip_content2{
+      position: absolute;
+        top: 2.5rem;
+        left: 1.5rem;
+        width: 195px;
+     }
+    
+     .hfsretail_image_button3{
+      position: absolute;
+      top: 9rem;
+      left: 9rem;
+     }
+    
+     .hfsretail_tooltip_content3{
+      position: absolute;
+      top: 3rem;
+      left: 3rem;
+      width: 195px;
+     }
+    
+     .afsretail_image_button{
+      position: absolute;
+      top: 2rem;
+      left: 5rem;
+     }
+    
+     .afsretail_tooltip_content{
+      top: 0rem;
+      left: 6rem;
+      width: 195px;
+     }
+    
+     
+     .afsretail_image_button1{
+      position: absolute;
+      left: 6.5rem;
+      top: 8.5rem;
+     }
+    
+     .afsretail_tooltip_content1{
+      left: 0rem;
+      top: -0.5rem;
+      width: 195px;
+     }
+    
+     .afsretail_image_button2{
+      position: absolute;
+      top: 4.5rem;
+      left: 14rem;
+     }
+    
+     .afsretail_tooltip_content2{
+      position: absolute;
+        top: 1.5rem;
+        left: 1.5rem;
+        width: 195px;
+     }
+    
+     .afsretail_image_button3{
+      position: absolute;
+      top: 9rem;
+      left: 8.8rem;
+     }
+    
+     .afsretail_tooltip_content3{
+      position: absolute;
+      top: 3rem;
+      left: 5rem;
+      width: 195px;
+     }
+
+  }
+
+  @media (min-width: 341px) and (max-width: 361px){
+    .powersports_image_button{
+      position: absolute;
+      left: 6rem;
+      top: 2.5rem;
+  }
+  
+  .powersports_tooltip_content{
+    position: absolute;
+    top: 1rem;
+    left: 7rem;
+    width: 200px;
+  }
+  
+  
+  .powersports_image_button1{
+    position: absolute;
+    left: 7.5rem;
+    top: 11rem;
+  }
+    
+  .powersports_tooltip_content1{
+    position: absolute;
+    top: 8.5rem;
+    left: 8.5rem;
+    width: 195px;
+  }
+  
+  .powersports_image_button2{
+    position: absolute;
+    top: 6rem;
+    left: 15.8rem;
+  }
+  
+  .powersports_tooltip_content2{
+    position: absolute;
+    top: 3.5rem;
+    left: 3.5rem;
+    width: 195px;
+  }
+  
+  .powersports_image_button3{
+    position: absolute;
+    top: 11rem;
+    left: 10rem;
+  }
+  
+  .powersports_tooltip_content3{
+    position: absolute;
+    top: 5rem;
+    left: 5rem;
+    width: 195px;
+  }
+
+  .hfslease_image_button1{
+    position: absolute;
+    left: 8rem;
+    top: 10.5rem;
+   }
+  
+   .hfslease_tooltip_content1{
+    left: 8.5rem;
+    top: 6.5rem;
+    width: 195px;
+   }
+  
+   .hfslease_image_button2{
+    position: absolute;
+    top: 5rem;
+    left: 15.5rem;
+   }
+  
+   .hfslease_tooltip_content2{
+    position: absolute;
+      top: 2rem;
+      left: 3.5rem;
+      width: 195px;
+   }
+  
+   .hfslease_image_button3{
+    position: absolute;
+    top: 10rem;
+    left: 10rem;
+   }
+  
+   .hfslease_tooltip_content3{
+    position: absolute;
+    top: 4.5rem;
+    left: 2rem;
+    width: 195px;
+   }
+  
+   .hfslease_image_button{
+    position: absolute;
+      top: 2rem;
+      left: 6rem;
+   }
+  
+   .hfslease_tooltip_content{
+    top: 1rem;
+    left: 7rem;
+    width: 200px;
+   }
+
+   .afslease_image_button{
+    position: absolute;
+    top: 2rem;
+    left: 6rem;
+   }
+  
+   .afslease_tooltip_content{
+    top: 1rem;
+    left: 7rem;
+    width: 195px;
+   }
+  
+   
+   .afslease_image_button1{
+    position: absolute;
+    left: 8rem;
+    top: 10.5rem;
+   }
+  
+   .afslease_tooltip_content1{
+    left: 9rem;
+    top: 8.5rem;
+    width: 195px;
+   }
+  
+   .afslease_image_button2{
+    position: absolute;
+    top: 5rem;
+    left: 15.5rem;
+   }
+  
+   .afslease_tooltip_content2{
+    position: absolute;
+      top: 2.5rem;
+      left: 3.5rem;
+      width: 195px;
+   }
+  
+   .afslease_image_button3{
+    position: absolute;
+    top: 10rem;
+    left: 9.8rem;
+   }
+  
+   .afslease_tooltip_content3{
+    position: absolute;
+    top: 4.2rem;
+    left: 4rem;
+    width: 195px;
+   }
+
+   .hfsretail_image_button{
+    position: absolute;
+    top: 2rem;
+    left: 6rem;
+   }
+  
+   .hfsretail_tooltip_content{
+    top: 1rem;
+    left: 7rem;
+    width: 195px;
+   }
+  
+   
+   .hfsretail_image_button1{
+    position: absolute;
+    left: 7.5rem;
+    top: 9.5rem;
+   }
+  
+   .hfsretail_tooltip_content1{
+    left: 8.5rem;
+    top: 7rem;
+    width: 195px;
+   }
+  
+   .hfsretail_image_button2{
+    position: absolute;
+    top: 4.5rem;
+    left: 15.5rem;
+   }
+  
+   .hfsretail_tooltip_content2{
+    position: absolute;
+      top: 2.5rem;
+      left: 3.5rem;
+      width: 195px;
+   }
+  
+   .hfsretail_image_button3{
+    position: absolute;
+    top: 10rem;
+    left: 10rem;
+   }
+  
+   .hfsretail_tooltip_content3{
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+    width: 195px;
+   }
+  
+
+  .afsretail_image_button{
+    position: absolute;
+    top: 2.5rem;
+    left: 6rem;
+   }
+  
+   .afsretail_tooltip_content{
+    top: 0rem;
+    left: 7rem;
+    width: 195px;
+   }
+  
+   
+   .afsretail_image_button1{
+    position: absolute;
+    left: 7.5rem;
+    top: 9.5rem;
+   }
+  
+   .afsretail_tooltip_content1{
+    left: 1rem;
+    top: 0.8rem;
+    width: 195px;
+   }
+  
+   .afsretail_image_button2{
+    position: absolute;
+    top: 5rem;
+    left: 15.5rem;
+   }
+  
+   .afsretail_tooltip_content2{
+    position: absolute;
+      top: 1.5rem;
+      left: 3.5rem;
+      width: 195px;
+   }
+  
+   .afsretail_image_button3{
+    position: absolute;
+    top: 10rem;
+    left: 9.8rem;
+   }
+  
+   .afsretail_tooltip_content3{
+    position: absolute;
+    top: 4.2rem;
+    left: 5rem;
+    width: 195px;
+   }
+
+  }
+
+  @media (min-width: 362px) and (max-width: 376px){
+
+  .powersports_image_button{
+      position: absolute;
+      left: 6rem;
+      top: 2.5rem;
+  }
+  
+  .powersports_tooltip_content{
+    position: absolute;
+    top: 1rem;
+    left: 7rem;
+    width: 200px;
+  }
+  
+  
+  .powersports_image_button1{
+    position: absolute;
+    left: 8rem;
+    top: 11rem;
+  }
+    
+  .powersports_tooltip_content1{
+    position: absolute;
+    top: 8.5rem;
+    left: 9.0rem;
+    width: 195px;
+  }
+  
+  .powersports_image_button2{
+    position: absolute;
+    top: 6rem;
+    left: 16.5rem;
+  }
+  
+  .powersports_tooltip_content2{
+    position: absolute;
+    top: 3.5rem;
+    left: 3.8rem;
+    width: 195px;
+  }
+  
+  .powersports_image_button3{
+    position: absolute;
+    top: 11.5rem;
+    left: 10.3rem;
+  }
+  
+  .powersports_tooltip_content3{
+    position: absolute;
+    top: 5.6rem;
+    left: 5rem;
+    width: 195px;
+  }
+
+  .hfslease_image_button1{
+    position: absolute;
+    left: 8rem;
+    top: 10.5rem;
+   }
+  
+   .hfslease_tooltip_content1{
+    left: 9rem;
+    top: 6.5rem;
+    width: 195px;
+   }
+  
+   .hfslease_image_button2{
+    position: absolute;
+    top: 5rem;
+    left: 16rem;
+   }
+  
+   .hfslease_tooltip_content2{
+    position: absolute;
+      top: 2rem;
+      left: 4rem;
+      width: 195px;
+   }
+  
+   .hfslease_image_button3{
+    position: absolute;
+    top: 10.5rem;
+    left: 10.5rem;
+   }
+  
+   .hfslease_tooltip_content3{
+    position: absolute;
+    top: 4.5rem;
+    left: 3rem;
+    width: 195px;
+   }
+  
+   .hfslease_image_button{
+    position: absolute;
+      top: 2rem;
+      left: 6rem;
+   }
+  
+   .hfslease_tooltip_content{
+    top: 0rem;
+    left: 7rem;
+    width: 200px;
+   }
+
+   .afslease_image_button{
+    position: absolute;
+    top: 2rem;
+    left: 6rem;
+   }
+  
+   .afslease_tooltip_content{
+    top: 1rem;
+    left: 7rem;
+    width: 195px;
+   }
+  
+   
+   .afslease_image_button1{
+    position: absolute;
+    left: 8rem;
+    top: 10.5rem;
+   }
+  
+   .afslease_tooltip_content1{
+    left: 9rem;
+    top: 8.5rem;
+    width: 195px;
+   }
+  
+   .afslease_image_button2{
+    position: absolute;
+    top: 5.5rem;
+    left: 16rem;
+   }
+  
+   .afslease_tooltip_content2{
+    position: absolute;
+      top: 2.5rem;
+      left: 4rem;
+      width: 195px;
+   }
+  
+   .afslease_image_button3{
+    position: absolute;
+    top: 10.5rem;
+    left: 10.3rem;
+   }
+  
+   .afslease_tooltip_content3{
+    position: absolute;
+    top: 4.6rem;
+    left: 4rem;
+    width: 195px;
+   }
+  
+   .hfsretail_image_button{
+    position: absolute;
+    top: 2rem;
+    left: 6rem;
+   }
+  
+   .hfsretail_tooltip_content{
+    top: 1rem;
+    left: 7rem;
+    width: 195px;
+   }
+  
+   
+   .hfsretail_image_button1{
+    position: absolute;
+    left: 7.5rem;
+    top: 9.5rem;
+   }
+  
+   .hfsretail_tooltip_content1{
+    left: 8.5rem;
+    top: 7rem;
+    width: 195px;
+   }
+  
+   .hfsretail_image_button2{
+    position: absolute;
+    top: 4.5rem;
+    left: 15.5rem;
+   }
+  
+   .hfsretail_tooltip_content2{
+    position: absolute;
+      top: 2.5rem;
+      left: 3.5rem;
+      width: 195px;
+   }
+  
+   .hfsretail_image_button3{
+    position: absolute;
+    top: 10rem;
+    left: 10rem;
+   }
+  
+   .hfsretail_tooltip_content3{
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+    width: 195px;
+   }
+
+   .afsretail_image_button{
+    position: absolute;
+    top: 2.5rem;
+    left: 6rem;
+   }
+  
+   .afsretail_tooltip_content{
+    top: 0rem;
+    left: 7rem;
+    width: 195px;
+   }
+  
+   
+   .afsretail_image_button1{
+    position: absolute;
+    left: 7.5rem;
+    top: 10rem;
+   }
+  
+   .afsretail_tooltip_content1{
+    left: 1rem;
+    top: 1.2rem;
+    width: 195px;
+   }
+  
+   .afsretail_image_button2{
+    position: absolute;
+    top: 5.5rem;
+    left: 16rem;
+   }
+  
+   .afsretail_tooltip_content2{
+    position: absolute;
+      top: 1.5rem;
+      left: 3.5rem;
+      width: 195px;
+   }
+  
+   .afsretail_image_button3{
+    position: absolute;
+    top: 10rem;
+    left: 9.8rem;
+   }
+  
+   .afsretail_tooltip_content3{
+    position: absolute;
+    top: 4.2rem;
+    left: 5rem;
+    width: 195px;
+   }
+
+  }
+
+  @media (min-width: 377px) and (max-width: 426px) {
+
+    .powersports_image_button{
+      position: absolute;
+      left: 6.5rem;
+      top: 3rem;
+  }
+  
+  .powersports_tooltip_content{
+    position: absolute;
+    top: 1rem;
+    left: 8rem;
+    width: 200px;
+  }
+  
+  
+  .powersports_image_button1{
+    position: absolute;
+    left: 9rem;
+    top: 12.5rem;
+  }
+    
+  .powersports_tooltip_content1{
+    position: absolute;
+    top: 8.5rem;
+    left: 10rem;
+    width: 195px;
+  }
+  
+  .powersports_image_button2{
+    position: absolute;
+    top: 6.5rem;
+    left: 18rem;
+  }
+  
+  .powersports_tooltip_content2{
+    position: absolute;
+    top: 3.5rem;
+    left: 5.5rem;
+    width: 195px;
+  }
+  
+  .powersports_image_button3{
+    position: absolute;
+    top: 12.5rem;
+    left: 11.5rem;
+  }
+  
+  .powersports_tooltip_content3{
+    position: absolute;
+    top: 7rem;
+    left: 5rem;
+    width: 195px;
+  }
+
+  .hfslease_image_button1{
+    position: absolute;
+    left: 8rem;
+    top: 10.5rem;
+   }
+  
+   .hfslease_tooltip_content1{
+    left: 9rem;
+    left: 8.8rem;
+    top: 9.5rem;
+    width: 195px;
+   }
+  
+   .hfslease_image_button2{
+    position: absolute;
+    top: 5.5rem;
+    right: 2.5rem;
+   }
+  
+   .hfslease_tooltip_content2{
+    position: absolute;
+      top: 2.5rem;
+      right: 4rem;
+      width: 195px;
+   }
+  
+   .hfslease_image_button3{
+    position: absolute;
+    top: 10rem;
+    right: 8.5rem;
+   }
+  
+   .hfslease_tooltip_content3{
+    position: absolute;
+    top: 5rem;
+    left: 3rem;
+    width: 195px;
+   }
+  
+   .hfslease_image_button{
+    position: absolute;
+      top: 2rem;
+      left: 6rem;
+   }
+  
+   .hfslease_tooltip_content{
+    top: 1rem;
+    left: 7rem;
+    width: 200px;
+   }
+
+   .afslease_image_button{
+    position: absolute;
+    top: 2.3rem;
+    left: 6.5rem;
+   }
+  
+   .afslease_tooltip_content{
+    top: 1rem;
+    left: 8rem;
+    width: 195px;
+   }
+  
+   
+   .afslease_image_button1{
+    position: absolute;
+    left: 9rem;
+    top: 12rem;
+   }
+  
+   .afslease_tooltip_content1{
+    left: 10rem;
+    top: 8.5rem;
+    width: 195px;
+   }
+  
+   .afslease_image_button2{
+    position: absolute;
+    top: 6rem;
+    left: 18.5rem;
+   }
+  
+   .afslease_tooltip_content2{
+    position: absolute;
+      top: 2.5rem;
+      left: 6.5rem;
+      width: 195px;
+   }
+  
+   .afslease_image_button3{
+    position: absolute;
+    top: 12rem;
+    left:11.5rem;
+   }
+  
+   .afslease_tooltip_content3{
+    position: absolute;
+    top: 6.2rem;
+    left: 4rem;
+    width: 195px;
+   }
+  
+   .hfsretail_image_button{
+    position: absolute;
+    top: 2rem;
+    left: 6.5rem;
+   }
+  
+   .hfsretail_tooltip_content{
+    top: 1rem;
+    left: 8rem;
+    width: 195px;
+   }
+  
+   
+   .hfsretail_image_button1{
+    position: absolute;
+    left: 8.5rem;
+    top: 11rem;
+   }
+  
+   .hfsretail_tooltip_content1{
+    left: 10rem;
+    top: 7rem;
+    width: 195px;
+   }
+  
+   .hfsretail_image_button2{
+    position: absolute;
+    top: 5.5rem;
+    left: 17.5rem;
+   }
+  
+   .hfsretail_tooltip_content2{
+    position: absolute;
+      top: 2.5rem;
+      left: 5.5rem;
+      width: 195px;
+   }
+  
+   .hfsretail_image_button3{
+    position: absolute;
+    top: 11.5rem;
+    left: 11.5rem;
+   }
+  
+   .hfsretail_tooltip_content3{
+    position: absolute;
+    top: 5.5rem;
+    left: 4rem;
+    width: 195px;
+   }
+
+   .afsretail_image_button{
+    position: absolute;
+    top: 3rem;
+    left: 6.5rem;
+   }
+  
+   .afsretail_tooltip_content{
+    top: 0rem;
+    left: 8rem;
+    width: 195px;
+   }
+  
+   
+   .afsretail_image_button1{
+    position: absolute;
+    left: 8.5rem;
+    top: 11rem;
+   }
+  
+   .afsretail_tooltip_content1{
+    left: 1rem;
+    top: 2.2rem;
+    width: 195px;
+   }
+  
+   .afsretail_image_button2{
+    position: absolute;
+    top: 6rem;
+    left: 18rem;
+   }
+  
+   .afsretail_tooltip_content2{
+    position: absolute;
+      top: 2.5rem;
+      left: 5.5rem;
+      width: 195px;
+   }
+  
+   .afsretail_image_button3{
+    position: absolute;
+    top: 11.5rem;
+    left: 11.2rem;
+   }
+  
+   .afsretail_tooltip_content3{
+    position: absolute;
+    top: 5.5rem;
+    left: 5rem;
+    width: 195px;
+   }
+
+  }
+
+/*Mobile view start*/
+
+@media (min-width: 427px) and (max-width: 541px) {
+
+  .powersports_image_button{
+    position: absolute;
+    left: 8.5rem;
+    top: 4rem;
+}
+
+.powersports_tooltip_content{
+  position: absolute;
+  top: 1rem;
+  left: 10.5rem;
+  width: 200px;
+}
+
+
+.powersports_image_button1{
+  position: absolute;
+  left: 11.5rem;
+  top: 16.5rem;
+}
+  
+.powersports_tooltip_content1{
+  position: absolute;
+  top: 12.5rem;
+  left: 13rem;
+  width: 195px;
+}
+
+.powersports_image_button2{
+  position: absolute;
+  top: 8.5rem;
+  left: 23.5rem;
+}
+
+.powersports_tooltip_content2{
+  position: absolute;
+  top: 5.5rem;
+  left: 11rem;
+  width: 195px;
+}
+
+.powersports_image_button3{
+  position: absolute;
+  top: 16.5rem;
+  left: 15rem;
+}
+
+.powersports_tooltip_content3{
+  position: absolute;
+  top: 14.6rem;
+  left: 2.5rem;
+  width: 195px;
+}
+
+
+.hfslease_image_button1{
+  position: absolute;
+  left:11.5rem;
+  top: 15.5rem;
+ }
+
+ .hfslease_tooltip_content1{
+  left: 7rem;
+  top: 6.5rem;
+  width: 195px;
+ }
+
+ .hfslease_image_button2{
+  position: absolute;
+  top: 7.5rem;
+  left: 23.5rem;
+ }
+
+ .hfslease_tooltip_content2{
+  position: absolute;
+    top: 4.5rem;
+    left:11rem;
+    width: 195px;
+ }
+
+ .hfslease_image_button3{
+  position: absolute;
+  top: 15rem;
+  left: 15rem;
+ }
+
+ .hfslease_tooltip_content3{
+  position: absolute;
+  top: 9rem;
+  left: 8rem;
+  width: 195px;
+ }
+
+ .hfslease_image_button{
+  position: absolute;
+    top: 3rem;
+    left: 9rem;
+ }
+
+ .hfslease_tooltip_content{
+  top: 1rem;
+  left: 10rem;
+  width: 200px;
+ }
+
+ .afslease_image_button{
+  position: absolute;
+  top: 3.5rem;
+  left: 8.5rem;
+ }
+
+ .afslease_tooltip_content{
+  top: 1rem;
+  left: 10rem;
+  width: 195px;
+ }
+
+ 
+ .afslease_image_button1{
+  position: absolute;
+  left: 11.5rem;
+  top: 15.5rem;
+ }
+
+ .afslease_tooltip_content1{
+  left: 13rem;
+  top: 11.5rem;
+  width: 195px;
+ }
+
+ .afslease_image_button2{
+  position: absolute;
+  top: 8rem;
+  left: 23.5rem;
+ }
+
+ .afslease_tooltip_content2{
+  position: absolute;
+    top: 4.5rem;
+    left: 11rem;
+    width: 195px;
+ }
+
+ .afslease_image_button3{
+  position: absolute;
+  top: 15.3rem;
+  left: 14.8rem;
+ }
+
+ .afslease_tooltip_content3{
+  position: absolute;
+  top: 12.2rem;
+  left: 2.5rem;
+  width: 195px;
+ }
+
+ .hfsretail_image_button{
+  position: absolute;
+  top: 3rem;
+  left: 9rem;
+ }
+
+ .hfsretail_tooltip_content{
+  top: 1rem;
+  left: 10rem;
+  width: 195px;
+ }
+
+ 
+ .hfsretail_image_button1{
+  position: absolute;
+  left: 11.5rem;
+  top: 15rem;
+ }
+
+ .hfsretail_tooltip_content1{
+  left: -1rem;
+  top: 11rem;
+  width: 195px;
+ }
+
+ .hfsretail_image_button2{
+  position: absolute;
+  top: 7.5rem;
+  left: 23.5rem;
+ }
+
+ .hfsretail_tooltip_content2{
+  position: absolute;
+    top: 4.5rem;
+    left: 11rem;
+    width: 195px;
+ }
+
+ .hfsretail_image_button3{
+  position: absolute;
+  top: 15rem;
+  left: 15rem;
+ }
+
+ .hfsretail_tooltip_content3{
+  position: absolute;
+  top: 9rem;
+  left: 9rem;
+  width: 195px;
+ }
+
+
+ .afsretail_image_button{
+  position: absolute;
+  top: 4rem;
+  left: 8.5rem;
+ }
+
+ .afsretail_tooltip_content{
+  top: 2rem;
+  left: 10.5rem;
+  width: 195px;
+ }
+
+ 
+ .afsretail_image_button1{
+  position: absolute;
+  left: 11.3rem;
+  top: 15rem;
+ }
+
+ .afsretail_tooltip_content1{
+  left: 3rem;
+  top: 5.5rem;
+  width: 195px;
+ }
+
+ .afsretail_image_button2{
+  position: absolute;
+  top: 8rem;
+  left: 23.5rem;
+ }
+
+ .afsretail_tooltip_content2{
+  position: absolute;
+    top: 5.5rem;
+    left: 11rem;
+    width: 195px;
+ }
+
+ .afsretail_image_button3{
+  position: absolute;
+  top: 15.3rem;
+  left: 14.8rem;
+ }
+
+ .afsretail_tooltip_content3{
+  position: absolute;
+  top: 13rem;
+  left: 2rem;
+  width: 195px;
+ }
+
+}
+
+@media (min-width: 542px) and (max-width: 768px) {
+
+/* Start poewer sports tooltip icon css*/
+ 
+.powersports_image_button{
+    position: absolute;
+    left: 12.5rem;
+    top: 6.5rem;
+}
+
+.powersports_tooltip_content{
+  position: absolute;
+  top: 4rem;
+  left: 14rem;
+  width: 200px;
+}
+
+
+.powersports_image_button1{
+  position: absolute;
+  left: 16.5rem;
+  top: 23.5rem;
+}
+  
+.powersports_tooltip_content1{
+  position: absolute;
+  top: 19.5rem;
+  left: 18rem;
+  width: 195px;
+}
+
+.powersports_image_button2{
+  position: absolute;
+  top: 12.5rem;
+  left: 33.5rem;
+}
+
+.powersports_tooltip_content2{
+  position: absolute;
+  top: 9.5rem;
+  left: 21rem;
+  width: 195px;
+}
+
+.powersports_image_button3{
+  position: absolute;
+  top: 23.5rem;
+  left: 21.3rem;
+}
+
+.powersports_tooltip_content3{
+  position: absolute;
+  top: 21.6rem;
+  left: 9rem;
+  width: 195px;
+}
+
+.hfslease_image_button1{
+  position: absolute;
+  left: 16.5rem;
+  top: 22rem;
+ }
+
+ .hfslease_tooltip_content1{
+  left: 10.8rem;
+  top: 13rem;
+  width: 195px;
+ }
+
+ .hfslease_image_button2{
+  position: absolute;
+  top: 10.5rem;
+  left: 33.5rem;
+ }
+
+ .hfslease_tooltip_content2{
+  position: absolute;
+    top: 7.5rem;
+    left: 21rem;
+    width: 195px;
+ }
+
+ .hfslease_image_button3{
+  position: absolute;
+  top: 21rem;
+  left: 21.3rem;
+ }
+
+ .hfslease_tooltip_content3{
+  position: absolute;
+  top: 19rem;
+  left: 9rem;
+  width: 195px;
+ }
+
+ .hfslease_image_button{
+  position: absolute;
+    top: 5rem;
+    left: 12.5rem;
+ }
+
+ .hfslease_tooltip_content{
+  top: 3rem;
+  left: 14rem;
+  width: 200px;
+ }
+
+ .afslease_image_button{
+  position: absolute;
+  top: 5rem;
+  left: 12.5rem;
+ }
+
+ .afslease_tooltip_content{
+  top: 3rem;
+  left: 14rem;
+  width: 195px;
+ }
+
+ 
+ .afslease_image_button1{
+  position: absolute;
+  left: 16rem;
+  top: 22.5rem;
+ }
+
+ .afslease_tooltip_content1{
+  left: 11rem;
+  top: 13.5rem;
+  width: 195px;
+ }
+
+ .afslease_image_button2{
+  position: absolute;
+  top: 11.5rem;
+  left:33rem;
+ }
+
+ .afslease_tooltip_content2{
+  position: absolute;
+    top: 8.5rem;
+    left: 21rem;
+    width: 195px;
+ }
+
+ .afslease_image_button3{
+  position: absolute;
+  top: 21.5rem;
+  left: 20.8rem;
+ }
+
+ .afslease_tooltip_content3{
+  position: absolute;
+  top: 19.2rem;
+  left: 8.5rem;
+  width: 195px;
+ }
+
+ .hfsretail_image_button{
+  position: absolute;
+  top: 5rem;
+  left: 12.5rem;
+ }
+
+ .hfsretail_tooltip_content{
+  top: 3rem;
+  left: 14rem;
+  width: 195px;
+ }
+
+ 
+ .hfsretail_image_button1{
+  position: absolute;
+  left: 16rem;
+  top: 21rem;
+ }
+
+ .hfsretail_tooltip_content1{
+  left: 3.8rem;
+  top: 17rem;
+  width: 195px;
+ }
+
+ .hfsretail_image_button2{
+  position: absolute;
+  top: 11rem;
+  left: 33rem;
+ }
+
+ .hfsretail_tooltip_content2{
+  position: absolute;
+    top: 7.5rem;
+    left: 20.8rem;
+    width: 195px;
+ }
+
+ .hfsretail_image_button3{
+  position: absolute;
+  top: 21rem;
+  left: 21rem;
+ }
+
+ .hfsretail_tooltip_content3{
+  position: absolute;
+  top: 15rem;
+  left: 15rem;
+  width: 195px;
+ }
+ 
+ .afsretail_image_button{
+  position: absolute;
+  top: 6.3rem;
+  left: 12.5rem;
+ }
+
+ .afsretail_tooltip_content{
+  top: 4rem;
+  left: 14.5rem;
+  width: 195px;
+ }
+
+ 
+ .afsretail_image_button1{
+  position: absolute;
+  left: 16.3rem;
+  top: 21.3rem;
+ }
+
+ .afsretail_tooltip_content1{
+  left: 18rem;
+  top: 17.5rem;
+  width: 195px;
+ }
+
+ .afsretail_image_button2{
+  position: absolute;
+  top: 11.5rem;
+  left: 33.3rem;
+ }
+
+ .afsretail_tooltip_content2{
+  position: absolute;
+    top: 7.5rem;
+    left: 20.5rem;
+    width: 195px;
+ }
+
+ .afsretail_image_button3{
+  position: absolute;
+  top: 21.5rem;
+  left: 20.8rem;
+ }
+
+ .afsretail_tooltip_content3{
+  position: absolute;
+  top: 19.3rem;
+  left: 8.3rem;
+  width: 195px;
+ }
+
+
+ .tooltip_body{
+  padding-top: 5px;
+}
+/*End */
+
+.edit-modal-content{
+  padding: 3rem 1.5rem 2rem;
+}
+
+}

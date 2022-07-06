@@ -1,0 +1,86 @@
+<template>    
+   <template if:false={IsnewPayment}>
+    <div class="slds-grid slds-wrap otp-container">
+    <div class="slds-col slds-size_1-of-1 AHFC_FirstSection">
+       <div class="slds-grid slds-gutters_direct slds-wrap">
+          <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_5-of-12 otp-data">
+             
+               <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 payment-monthly-info">
+                  <label class="AHFC_CardLabel">PAYOFF AMOUNT</label>
+                  <h1 class="AHFC_CardData">${payoffamt}</h1>
+                </div>
+                
+             </div>
+             <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_7-of-12">
+               
+                 <div class="confirmation-number"></div>
+                   <label class="AHFC_CardLabel">PAYMENT CONFIRMATION NUMBER</label>
+                   <h1 class="AHFC_CardData">{confirmationNumber}}</h1>
+                                
+               </div>
+               <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_5-of-12 otp-data">
+             
+                  <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 payment-monthly-info">
+                     <label class="AHFC_CardLabel">AUTHORIZED ON</label>
+                     <h1 class="AHFC_CardData">{authorizedOn}</h1>
+                   </div>
+                   
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_7-of-12">
+                  
+                    <div class="confirmation-number"></div>
+                      <label class="AHFC_CardLabel">SCHEDULED ON</label>
+                      <h1 class="AHFC_CardData">{scheduledOn}</h1>
+                                   
+                  </div>
+                  <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 otp-data">
+             
+                     <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 payment-monthly-info">
+                        <label class="AHFC_CardLabel">PAYMENT SOURCE</label>
+                        <h1 class="AHFC_CardData">{paymentNameWithAccNo}</h1>
+                      </div>
+                      
+                   </div>
+               
+             </div>
+             </div>
+         </div>
+         </template>
+         <template if:true= {IsnewPayment}>
+            <div class="slds-grid slds-wrap otp-container">
+               <div class="slds-col slds-size_1-of-1">
+                  <div class="slds-grid slds-gutters_direct slds-wrap">
+                     <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_4-of-12 otp-data">
+                        <div class="slds-grid slds-wrap slds-grid_align-spread label-gaps">
+                           <div class="slds-col">
+                              <label class="ahfc-body-two ahfc-text-grey AHFC_CardLabel" for="paymentAmount">
+                              Purchase Amount
+                              </label>
+                           </div>
+                           <div class="slds-p-around_medium lgc-bg">
+                              <!-- <lightning-helptext icon-name="utility:info_alt" content={label.AHFC_PayAmt_Help_Text}>
+                              </lightning-helptext> -->
+                           </div>
+                        </div>
+                        <h1 class="AHFC_CardData">${payoffamt}</h1>
+                     </div>
+                     <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_4-of-12">
+                        <div class="slds-grid slds-wrap slds-grid_align-spread label-gaps">
+                           <div class="slds-col">
+                              <label class="ahfc-body-two ahfc-text-grey AHFC_CardLabel" for="schedule">
+                                 Purchase Date 
+                              </label>
+                           </div>
+                           <div class="slds-p-around_medium lgc-bg">
+                              <!-- <lightning-helptext icon-name="utility:info_alt" content={label.AHFC_Sch_Help_Text}>
+                              </lightning-helptext> -->
+                           </div>
+                        </div>
+                        <h1 class="AHFC_CardData">{scheduledDate}</h1>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <p class="AHFC_SectionDetail">The Purchase amount is calculated based on today’s date and cannot be changed.</p>
+         </template>
+  </template>

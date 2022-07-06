@@ -1,0 +1,22 @@
+.THIS .grey {
+    /*background-color: lightgrey;*/
+}
+.THIS .mainContentArea {
+    padding: 60px;
+    background-color: #F7F7F7;
+
+}
+.THIS .newFooter {
+    background-color: white;
+}
+
+
+@media (min-width: 320px) and (max-width: 767px) {
+
+.THIS .mainContentArea {
+    padding: 5px;
+    background-color: #F7F7F7;
+
+}
+
+}

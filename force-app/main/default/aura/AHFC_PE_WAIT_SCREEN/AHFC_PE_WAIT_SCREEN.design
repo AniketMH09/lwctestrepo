@@ -1,0 +1,7 @@
+<design:component>
+   <!--Inputs-->
+    <design:attribute name = "NumberofMonthsRequested" label = "No of Months Requested template"/>
+    <design:attribute name ="faNumber" label="FaNumber"/>
+   <!--outputs--> 
+   <design:attribute name = "resultofwebsvc" label = "resultofwebsvc"/>
+</design:component>

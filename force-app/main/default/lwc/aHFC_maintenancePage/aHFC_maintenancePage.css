@@ -1,0 +1,45 @@
+section{
+  text-align: center;
+  height: 94vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+img{
+  max-width: 100%;
+}
+.AHFC_Heading{
+  font-size: 48px;
+  line-height: 56px;
+  color: #CC0000;
+  font-family: 'ahfc-robotolight', sans-serif;
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
+}
+.AHFC_DetailWrap p{
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #5E6162;
+  padding-bottom: 1rem;
+}
+@media (min-width: 320px) and (max-width: 767px) {  
+  .AHFC_Heading{
+    font-size: 20px;
+    line-height: 26px;
+    margin-top: 1.5rem;
+    margin-bottom: 1.9rem;
+  }
+  .AHFC_DetailWrap{
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+  .AHFC_DetailWrap p{    
+    font-size: 16px;
+    line-height: 24px;
+    padding-bottom: 1rem;
+  }
+}

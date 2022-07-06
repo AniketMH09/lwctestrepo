@@ -1,0 +1,16 @@
+<design:component>
+<!--Inputs-->
+<design:attribute name= "strRequestType" label="Request Type" /> 
+
+   <!--outputs--> 
+<design:attribute name= "strFirstName" label="First Name" />
+<design:attribute name= "strLastName" label="Last Name" />
+<design:attribute name= "strEmail" label="Email" />
+<design:attribute name= "strPhoneNumber" label="Phone" />
+<design:attribute name= "strCommunicationPref" label="CommPref" />
+<design:attribute name= "strAuthorizedUser" label="AuthorizedUser" />
+<design:attribute name="strmailaddress" label="Mailing Address" /> <!-- Not in use -->
+<design:attribute name="strrequestoption" label="Are you the service member this request is for?" />
+<design:attribute name= "strcomingFromPrevious" label="coming from Previous" />
+
+</design:component>

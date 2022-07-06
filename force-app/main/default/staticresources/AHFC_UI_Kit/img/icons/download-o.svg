@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="249px" height="24px" viewBox="0 0 249 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>download-o</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Style-Guide" transform="translate(-949.000000, -1358.000000)">
+            <g id="download-o" transform="translate(950.000000, 1358.000000)">
+                <text id="Download-Disclosures" font-family="HelveticaNeue-Medium, Helvetica Neue" font-size="16" font-weight="400" fill="#0072CE">
+                    <tspan x="37.36" y="20">DOWNLOAD DISCLOSURES</tspan>
+                </text>
+                <g id="file-download-copy" stroke="#0072CE" stroke-width="2">
+                    <path d="M26.6048009,16.018372 L0,16.018372" id="Path"></path>
+                    <path d="M13.2252685,0 L13.2252685,9.92085924" id="Path"></path>
+                    <polyline id="Path" stroke-linecap="square" points="20.4383161 7.44827586 21.3195956 7.44827586 26.6072729 15.8428491 26.6072729 22.7111362 0.168886382 22.7111362 0.168886382 15.8428491 5.45656369 7.44827586 6.33784324 7.44827586"></polyline>
+                    <polyline id="Path" stroke-linecap="square" points="17.1096665 6.51724138 13.2100057 9.95138496 9.31034483 6.51724138"></polyline>
+                    <path d="M21.5053703,19.7425099 L17.6896552,19.7425099" id="Path" stroke-linecap="square"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

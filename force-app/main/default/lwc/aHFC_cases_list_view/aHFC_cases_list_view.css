@@ -1,0 +1,19 @@
+.test {
+    padding: 10px;
+}
+
+
+.slds-bgm_color {
+    background-color: rgb(243, 243, 243);
+}
+
+.slds-card__header {
+    padding-bottom: 10px !important;
+    margin-bottom: 0px !important;
+}
+
+.slds-card__body {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    padding-bottom: 10px !important;
+}

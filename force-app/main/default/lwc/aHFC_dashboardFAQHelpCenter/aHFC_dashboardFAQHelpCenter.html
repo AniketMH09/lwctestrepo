@@ -1,0 +1,62 @@
+<template>       
+
+<!-- -- Desktop Section -->
+
+<div class="AHFC_Test">
+<div style="width: 93.5%;
+display: inline-block;
+">
+<lightning-input type="text" value={searchValue}
+      placeholder="Search Help Center"
+      onchange={searchKeyword}
+      class="AHFC_SearchInp"></lightning-input>
+</div>
+<div style="width:6%;display:inline-flex;">
+<button
+      class="AHFC_SearchIcon slds-button slds-button_icon "
+      title="Close">
+      <lightning-icon icon-name="utility:search"
+            alternative-text="close"
+            variant="inverse" size="x-small">
+      </lightning-icon>
+</button>
+
+
+</div>
+</div> 
+<div class="slds-grid slds-gutters AHFC_GridStyle">
+<div class="slds-col  slds-large-size_1-of-3">
+<div class="slds-grid">
+
+      <div> <img src={FAQ_Frame1}
+                  alt="Honda Financial Services logo" /></div>
+      <div class="slds-box AHFC_FrameStyle"
+            style="width:100%;">
+            <span>Payments</span> </div>
+</div>
+</div>
+<div class="slds-col  slds-large-size_1-of-3 ">
+<div class="slds-grid">
+      <div> <img src={FAQ_Frame2} /></div>
+
+      <div class="slds-box AHFC_FrameStyle"
+            style="width:100%;"> <span>End Of
+                  Term</span></div>
+</div>
+</div>
+<div class="slds-col  slds-large-size_1-of-3">
+<div class="slds-grid">
+      <div> <img src={FAQ_Frame3}
+                  alt="Honda Financial Services logo" />
+      </div>
+      <div class="slds-box AHFC_FrameStyle"
+            style="width:100%;"> <span>Account
+                  Management</span> </div>
+</div>
+</div>
+
+</div>
+<div><a class="slds-text-title_caps AHFC_ViewFAQ">View All
+faqs </a></div>
+</template>
+</template>

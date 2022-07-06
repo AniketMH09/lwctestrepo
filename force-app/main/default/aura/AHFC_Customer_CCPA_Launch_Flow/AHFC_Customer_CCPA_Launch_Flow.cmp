@@ -1,0 +1,11 @@
+<!--
+* Name: AHFC_Customer_CCPA_Launch_Flow
+* Description: Lanuch CCPA FLow
+* Created Date: 25-Aug-2021
+* Created By: Sagar (US-4090)
+*-->
+<aura:component  implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens,lightning:isUrlAddressable,force:hasRecordId" access="global">
+    
+   <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+    <lightning:flow aura:id="CCPAFlow" />
+</aura:component>

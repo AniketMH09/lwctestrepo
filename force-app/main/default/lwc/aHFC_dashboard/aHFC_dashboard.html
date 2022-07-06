@@ -1,0 +1,953 @@
+<template>
+
+	<template if:true={customerSurvey}>
+		<c-a-h-f-c_customer-survey is-customer={iscustomer} ></c-a-h-f-c_customer-survey>
+   </template>
+
+
+<template if:true={isLoaded}>
+		<c-a-h-f-c_-spinner loading-message={spinnerMessage}></c-a-h-f-c_-spinner>
+  </template>
+<!-- 2320 - Global Alert  Start -->
+<template if:true={globalAlertFlag}>
+		<template for:each={alertMessageArrayMain} for:item='item'>
+			<div class='slds-show_large' key={item.Name}>
+				<c-a-h-f-c_message-toast class="made-payment-toast" type="alert" message={item.Alert_Message__c}
+					is-notification="true" show-icon="false"> </c-a-h-f-c_message-toast>
+			</div>
+		</template>
+</template>
+<!-- 2320 - Global  Alert  End -->
+<!-- 2320 - Global Alert for mobile view start -->
+<template if:true={globalAlertFlag}>
+		<template for:each={alertMessageArrayMain} for:item='item'>
+			<div class='slds-hide_large' key={item.Name}>
+				<c-a-h-f-c_message-toast class="made-payment-toast infosec" type="alert" message={item.Alert_Message__c}
+					is-notification="true" show-icon="false"> </c-a-h-f-c_message-toast>
+			</div>
+		</template>
+</template>
+<!-- 2320 - Global Alert for mobile view start -->
+<div role="main" id="main-container" class="main-content">
+    <div class="ahfc-background-lighter">
+        <div class="car-header-container ahfc-background-lightest">
+            <template if:false={showBlankDashboard}>
+					<div class="ahfc-container">
+						<!-- Header Section -->
+						<div class="card-block ahfc-background-lightest carousal-card-block"
+							 ontouchstart={touchStart} ontouchend={touchEnd}/>
+							<div class="ahfc-carousal slds-carousel">
+								<div class="slds-carousel__stage">
+									<div class="slds-carousel__panels">
+										<template for:each={selServiceAccountWrapperForHeader} for:item="servAcc">
+											<div key={servAcc.keyNo} id={servAcc.panelId} class={servAcc.panelClass}
+												role="tabpanel" aria-hidden={servAcc.ariaHidden}
+												aria-labelledby={servAcc.indicatorId}>
+												<div class="slds-carousel__panel-action">
+													<div class="slds-grid slds-wrap carousal-card-item">
+														<div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12">
+															<div class={servAcc.cls}>
+																<div class="slds-grid slds-wrap car-header-logo-grid">
+																	<div
+																		class="slds-col slds-size_4-of-12 slds-large-size_1-of-1 car-logo">
+																		<div
+																			class="slds-grid slds-grid_align-spread slds-grid_vertical-align-end">
+																			<div class="slds-col">
+																				<!-- <img if:true={servAcc.isHonda} src={hondaLogoUrl}
+                                                         alt="honda logo" /> 
+                                                      <img if:false={servAcc.isHonda} src={acuraLogoUrl}
+                                                         alt="acura logo" /> --><img src={servAcc.logourl}
+																					alt="Honda logo" />
+																			</div>
+																			<div class="slds-col slds-show_large"> <a
+																					href="" tabindex={servAcc.tabIndex}
+																					onclick={navigatetoAccountprofile}
+																					class="ahfc-links ahfc-links-secondary">{labels.DashboardAccountDetails}</a>
+																			</div>
+																		</div>
+																	</div>
+																	<div
+																		class="slds-col slds-size_8-of-12 slds-large-size_1-of-1 car-name-container">
+																		<div class="slds-grid">
+																			<div class="slds-col slds-align-middle">
+																				<h1>
+																				<p class="car-name">
+																					<span>{servAcc.name}</span>
+																					<a href="javascript:void(0);"
+																						tabindex={servAcc.tabIndex}
+																						aria-label="Account details 2016 Honda Fit"
+																						onclick={opennicknamemodal} >
+																						<lightning-icon
+																							class="slds-show_large ahfc-icon"
+																							icon-name="utility:edit"
+																							alternative-text="edit"
+																							title="edit" size="small">
+																						</lightning-icon>
+																						<lightning-icon
+																							class="slds-hide_large ahfc-icon"
+																							icon-name="utility:edit"
+																							alternative-text="edit"
+																							title="edit" size="x-small">
+																						</lightning-icon>
+																					</a>
+																				</p>
+																			</h1>
+																			</div>
+																		</div>
+																	</div>
+																	<!-- ashok ADA fix -->
+																	<template if:true={isEditNickname}>
+																		<div aria-modal="true">
+																		<c-a-h-f-c_finance-account-edit-modal onclose={closenicknamepopup} accdata={selServiceAccountWrapper}>
+																		</c-a-h-f-c_finance-account-edit-modal>
+																		</div>
+																	</template>
+																	<div
+																		class="slds-col slds-large-size_1-of-1 slds-show_large car-block-info">
+																		<p
+																			class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps">
+																			{labels.DashboardVin} </p>
+																		<p class="ahfc-info-small ahfc-text-dark">
+																			{servAcc.vin} </p>
+																	</div>
+																	<div
+																		class="slds-col slds-large-size_1-of-2 slds-show_large">
+																		<p
+																			class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps">
+																			{labels.DashboardAccountNo} </p>
+																		<p class="ahfc-info-small ahfc-text-dark">
+																			{servAcc.accNoWoZeros} </p>
+																	</div>
+																	<div
+																		class="slds-col slds-large-size_1-of-2 slds-show_large">
+																		<p
+																			class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps">
+																			{labels.DashboardAccountType} </p>
+																		<p class="ahfc-info-small ahfc-text-dark">
+																			{servAcc.accType} </p>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div
+															class="slds-col slds-size_1-of-1 slds-large-size_8-of-12 car-header-right">
+															<div class="slds-grid car-styles-block">
+																<div class="slds-col">
+																	<div
+																		class="slds-grid slds-grid_reverse slds-grid_align-spread slds-grid_vertical-align-center slds-show_large car-header-options">
+																		<div class="slds-col">
+																			<div class="add-product">
+																				<a href="javascript:void(0);" role="button" name='Add a product'
+																					aria-label="Add a product"
+																					alt="Add a product"
+																					tabindex={servAcc.tabIndex}
+																					onclick={navigatetoaddFincanceAccount}
+																					class="ahfc-links ahfc-links-primary slds-text-title_caps">
+																					<span>{labels.DashboardAddProduct}</span>
+																					<lightning-icon
+																						class="ahfc-icon ahfc-icon-red"
+																						icon-name="utility:add"
+																						alternative-text="add"
+																						title="add" size="x-small">
+																					</lightning-icon>
+																				</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="slds-col">
+																	<div class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-bottom car-image-container">
+																		<div class="slds-col">
+																			<template if:true={servAcc.imageclass1}><img src={servAcc.imageurl} alt="honda car"
+																				class='car-image'></template>
+																			<template if:true={servAcc.imageclass2}><img src={servAcc.imageurl} alt="honda car"
+																				class='car-image-2'></template>
+																			<template if:true={servAcc.imageclass3}><img src={servAcc.imageurl} alt="honda car"
+																					class='car-image-3'></template>  
+																				<!-- <img src={servAcc.imageurl} alt="honda car"
+																				class='car-image'> -->
+																			
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</template>
+        </div>
+        <template if:true={showCarousel}>
+
+										<ul class="slds-carousel__indicators slds-hide_large" role="tablist">
+											<template for:each={selServiceAccountWrapperForHeader} for:item="servAcc">
+												<li key={servAcc.keyNo} data-indicator={servAcc.keyNo}
+													class="slds-carousel__indicator" role="presentation">
+													<a id={servAcc.indicatorId} data-indicator={servAcc.keyNo}
+														onclick={onCarousalIndicatorClick}
+														class={servAcc.indicatorClass} href="javascript:void(0);"
+														role="tab" tabindex="0" aria-selected={servAcc.ariaSelected}
+														aria-controls={servAcc.panelId} title={servAcc.name}> <span
+															class="slds-assistive-text"
+															data-indicator={servAcc.keyNo}>{servAcc.name}</span> </a>
+												</li>
+											</template>
+        </ul>
+
+        <div class="slds-show_large carousal-desktop">
+            <button class={carousalPrevButtonClass} disabled={isCarousalFirstItem} onclick={onCarousalPrevDesktop}>
+												<lightning-icon class="carousal-icon" icon-name="utility:chevronleft"
+													alternative-text="previous" title="previous" size="small">
+												</lightning-icon>
+											</button>
+            <button class={carousalNextButtonClass} disabled={isCarousalLastItem} onclick={onCarousalNextDesktop}>
+												<lightning-icon class="carousal-icon" icon-name="utility:chevronright"
+													alternative-text="next" title="next" size="small"> </lightning-icon>
+											</button>
+        </div>
+        </template>
+        <template if:false={showCarousel}>
+										
+									</template>
+    </div>
+</div>
+<!-- </div> -->
+<!-- For Mobile -->
+
+<div class="car-header-right slds-hide_large">
+    <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center car-header-options">
+        <div class="slds-col slds-hide_large">
+            <a href="javascript:void(0)" class="ahfc-links ahfc-links-primary ahfc-toggle-link" if:false={showCarDetailsMobile} onclick={onMobileCarDetailsClick}>
+                <span>{labels.DashboardMoreInfo}</span>
+                <lightning-icon class="ahfc-icon ahfc-icon-red dashboard-icon" icon-name="utility:chevrondown" size="xx-small" alternative-text="chevrondown" title="chevrondown"> </lightning-icon>
+            </a>
+            <a href="javascript:void(0)" class="ahfc-links ahfc-links-primary ahfc-toggle-link" if:true={showCarDetailsMobile} onclick={onMobileCarDetailsClick}>
+                <span>{labels.DashboardLessInfo}</span>
+                <lightning-icon class="ahfc-icon ahfc-icon-red dashboard-icon" icon-name="utility:chevronup" size="xx-small" alternative-text="chevronup" title="chevronup"> </lightning-icon>
+            </a>
+        </div>
+        <div class="slds-col">
+            <div class="add-product">
+                <a href="javascript:void(0);" onclick={navigatetoaddFincanceAccount} class="ahfc-links ahfc-links-primary slds-text-title_caps">
+                    <span>{labels.DashboardAddProduct}</span>
+                    <lightning-icon class="ahfc-icon ahfc-icon-red" icon-name="utility:add" alternative-text="add" title="add" size="x-small"> </lightning-icon>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="slds-grid">
+        <div class="slds-col">
+            <div class="slds-grid slds-wrap car-details-mobile" if:true={showCarDetailsMobile}>
+                <div class="slds-col slds-size_1-of-1 car-block-info">
+                    <p class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps">
+                        {labels.DashboardVin} </p>
+                    <p class="ahfc-info-small ahfc-text-dark">
+                        {selServiceAccountWrapperForMobile.vin} </p>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <p class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps">
+                        {labels.DashboardAccountNo} </p>
+                    <p class="ahfc-info-small ahfc-text-dark">
+                        {selServiceAccountWrapperForMobile.accNoWoZeros} </p>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <p class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps">
+                        {labels.DashboardAccountType} </p>
+                    <p class="ahfc-info-small ahfc-text-dark">
+                        {selServiceAccountWrapperForMobile.accType} </p>
+                </div>
+                <div class="slds-col car-header-account-details"> <a href="" onclick={navigatetoAccountprofile} class="ahfc-links ahfc-links-secondary">{labels.DashboardAccountDetails}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<template if:true={showmobile}>
+								<template if:true={showdashboard}>
+									<!-- Current Bill Section  -->
+									<template if:true={isLocked}>
+										<template if:true={isClosed}>
+											<div class='slds-hide_large'>
+												<c-a-h-f-c_message-toast class="made-payment-toast" type="info"
+													singlemsg='Your account is closed. Please contact us if you need assistance.'
+													show-icon="false"> </c-a-h-f-c_message-toast>
+											</div>
+										</template>
+<template if:false={isClosed}>
+											<div class='slds-hide_large'>
+												<c-a-h-f-c_message-toast class="made-payment-toast" type="error"
+													singlemsg='Your account is not available for online managment. Please contact us if you need assistance.'
+													show-icon="false"> </c-a-h-f-c_message-toast>
+											</div>
+										</template>
+</template>
+<template if:false={isLocked}>
+										<!-- comment by kanagaraj for bug_10289 -->
+										<!-- <template if:true={showMadePayment}>
+                              <div class='slds-hide_large'>
+                                 <c-a-h-f-c_message-toast class="made-payment-toast" type="warning"
+                                    singlemsg={labels.MadePaymentPastDue} singlelink={labels.MadePaymentAlreadyDone}
+                                    onsinglelinkclicked={navigateToMadePayment} show-icon="false">
+                                 </c-a-h-f-c_message-toast>
+                              </div>
+                           </template> -->
+
+<!-- RSS 53493 - 4 month EOT info section for mobile view start -->
+	<template if:true={inventoryShortage}>
+
+	<div class='slds-hide_large' if:true={is2MonthEOT}>
+		<c-a-h-f-c_message-toast class="made-payment-toast infosec" type="info" message='Your lease is almost over. Need more time?'  link='Request a lease extension.' onclosetoast={closeinfo2} onlinkclicked={navigatetoneedHelp} is-notification="true" show-icon="true">
+		</c-a-h-f-c_message-toast>
+	</div>
+
+	<div class='slds-hide_large' if:true={is4MonthEOT}>
+		<c-a-h-f-c_message-toast class="made-payment-toast infosec" type="info" message='Planning to re-lease or buy new? Visit your dealer now to order your next vehicle.'  onclosetoast={closeinfo4} onlinkclicked={navigateToEndOfTerm} is-notification="true" show-icon="true">
+		</c-a-h-f-c_message-toast>
+	</div>
+	</template>
+<!-- RSS 53493 - 4 month EOT info section end -->
+
+<!-- 4674 - EOT info section for mobile view start -->
+<div class='slds-hide_large' if:true={isEOTDashboardInfo}>
+    <c-a-h-f-c_message-toast class="made-payment-toast infosec" type="info" message='Your lease is ending soon.' link='Explore your options.' onclosetoast={closeinfo} onlinkclicked={navigateToEndOfTerm} is-notification="true" show-icon="true">
+    </c-a-h-f-c_message-toast>
+</div>
+<!-- 4674 - EOT info section end -->
+</template>
+<!--US-3827 Mobil view-->
+<div if:true={isSmsAndEmailBounced} class='slds-hide_large'>
+    <c-a-h-f-c_message-toast type="warning" class="made-payment-toast" label="Attention" onlinkclicked={navigatetocommpreff} message='We have been unable to send notifications to the email address and phone number we have on file.' link='Click here' message-data=' to update your Communication Preferences.'>
+    </c-a-h-f-c_message-toast>
+</div>
+<div if:true={isSmsBounced} class='slds-hide_large'>
+    <c-a-h-f-c_message-toast type="warning" label="Attention" onlinkclicked={navigatetocommpreff} message='We have been unable to send text notifications to the phone number we have on file.' link='Click here' message-data=' to update your Communication Preferences.'>
+    </c-a-h-f-c_message-toast>
+</div>
+<div if:true={isEmailBounced} class='slds-hide_large'>
+    <c-a-h-f-c_message-toast type="warning" label="Attention" onlinkclicked={navigatetocommpreff} message=' We have been unable to send email notifications to the email address we have on file.' link='Click here' message-data=' to update your Communication Preferences.'>
+    </c-a-h-f-c_message-toast>
+</div>
+<!--US-3827 Mobil view End-->
+<!-- 8765 - Informational Alert for mobile view start -->
+<template if:true={isCommPreff}>
+										<div class='slds-hide_large' if:true={isCommPreffInfo}>
+											<c-a-h-f-c_message-toast class="made-payment-toast infosec" type="info"
+												onhyperclicked={navigatetocommpreff}
+												notify-message='to receive email and/or text notifications.'
+												notifylink='Please set up your Communication Preferences '
+												onclosetoast={closeCommPreff} is-notification="true" show-icon="true">
+											</c-a-h-f-c_message-toast>
+										</div>
+									</template>
+<!-- 8765 - Informational Alert  end -->
+<!-- 8765 - Informational Alert for mobile view start -->
+<template if:true={isPaidAhead}>
+										<div class='slds-hide_large' if:true={isPaidAheadInfo}>
+											<c-a-h-f-c_message-toast class="made-payment-toast infosec" type="info"
+												text='You are paid ahead! Your next regular monthly payment is not due until'
+												date={paymentDueDate} onclosetoast={closePaidAhead}
+												is-notification="true" show-icon="true"> </c-a-h-f-c_message-toast>
+										</div>
+									</template>
+<!-- 8765 - Informational Alert  end -->
+<!-- 8755 - Critical Alert for mobile view start -->
+<template if:false={isShowBeforePayoff}>
+										<template if:true={showCriticalAlertPastDue}>
+											<div class='slds-hide_large' if:true={isClosePastDue}>
+												<c-a-h-f-c_message-toast class="made-payment-toast infosec"
+													type="warning" message='Your account is Past Due.'
+													link='Please make a payment.' onlinkclicked={navigatetootppayment}
+													onclosetoast={closePastDue} is-notification="true" show-icon="true">
+												</c-a-h-f-c_message-toast>
+											</div>
+										</template>
+</template>
+<!-- 8755 - Critical Alert  end -->
+<!-- 8755 - Critical Alert for mobile view start -->
+<template if:true={isStmtSuppressed}>
+										<div class='slds-hide_large' if:true={isStmtCloseInfo}>
+											<c-a-h-f-c_message-toast class="made-payment-toast infosec" type="warning"
+												message='Your billing address is invalid.'
+												link='Please update your Finance Account Details.'
+												onlinkclicked={navigatetoAccountprofile} onclosetoast={closeStmt}
+												is-notification="true" show-icon="true"> </c-a-h-f-c_message-toast>
+										</div>
+									</template>
+<!-- 8755 - Critical Alert  end -->
+<!-- Added by Prabu for the US - 4338 -->
+<template if:true={isShowBeforePayoff}>
+										<div class="slds-hide_medium" if:true={isBeforePayoffInfo}>
+											<c-a-h-f-c_message-toast class="made-payment-toast infosec" type="success"
+												label='Congratulations on submitting your 
+                              payoff payment!' message='Your payoff payment was successfully scheduled.'
+												show-icon="true" is-notification="true" onclosetoast={closeBefore}>
+											</c-a-h-f-c_message-toast>
+										</div>
+									</template>
+<template if:true={isShowAfterPayoff}>
+										<div class='slds-hide_large' if:true={isAfterPayoffInfo}>
+											<c-a-h-f-c_message-toast class="made-payment-toast infosec" type="success"
+												text="Your account is Paid off!" show-icon="true" is-notification="true"
+												onclosetoast={closeAfter}> </c-a-h-f-c_message-toast>
+										</div>
+									</template>
+<!-- 4338 End -->
+<!--Added by Prabu for the US 12186 -->
+<template if:true={isUpdateEmailCommPreff}>
+										<div class='slds-hide_large' if:true={isEmailCommPreffInfo}>
+											<c-a-h-f-c_message-toast class="made-payment-toast infosec" type="warning"
+												message='We have been unable to send email notifications to the email address we have on file.'
+												link='Please update your communication Preferences.'
+												onlinkclicked={navigateToCommPreffAndUpdateAckDate}
+												onclosetoast={closeEmail} is-notification="true" show-icon="true">
+											</c-a-h-f-c_message-toast>
+										</div>
+									</template>
+
+<template if:true={isUpdateSMSCommPreff}>
+										<div class='slds-hide_large' if:true={isSMSCommPreffInfo}>
+											<c-a-h-f-c_message-toast class="made-payment-toast infosec" type="warning"
+												message='We have been unable to send text notifications to the phone number we have on file.'
+												link='Please update your communication Preferences.'
+												onlinkclicked={navigatetocommpreff} onclosetoast={closeSMS}
+												is-notification="true" show-icon="true"> </c-a-h-f-c_message-toast>
+										</div>
+									</template>
+<!--US 12186 Ends-->
+<template if:false={isLocked}>
+										<div class="slds-col slds-size_1-of-1" if:false={showBlankDashboard}>
+											<div class="current-bill-mobile slds-hide_large">
+												<!-- <p
+													class="section-header ahfc-text-header ahfc-text-dark slds-text-title_caps">
+													{labels.DashboardCurrentBill} </p> -->
+												<c-a-h-f-c_dashboard-current-bill
+													sel-service-account-wrapper={selServiceAccountWrapper}>
+												</c-a-h-f-c_dashboard-current-bill>
+											</div>
+										</div>
+									</template>
+</template>
+</template>
+</div>
+</div>
+</template>
+<template if:true={showBlankDashboard}>
+					<div class="ahfc-header-banner"></div>
+				</template>
+</div>
+<template if:true={showdashboard}>
+				<div class="ahfc-container">
+					<div class="slds-grid slds-wrap" if:true={showBlankDashboard}>
+						<div class="slds-col">
+							<div class="card-block blank-state-block ahfc-background-lightest">
+								<c-a-h-f-c_dashboard-blank></c-a-h-f-c_dashboard-blank>
+							</div>
+						</div>
+					</div>
+					<template if:false={isLocked}>
+						<!-- comment by kanagaraj for bug_10289 -->
+						<!-- <template if:true={showMadePayment}>
+                  <div class='slds-show_large'>
+                     <c-a-h-f-c_message-toast class="made-payment-toast" type="warning"
+                        singlemsg={labels.MadePaymentPastDue} singlelink={labels.MadePaymentAlreadyDone}
+                        onsinglelinkclicked={navigateToMadePayment} show-icon="false">
+                     </c-a-h-f-c_message-toast>
+                  </div>
+               </template> -->
+
+<!-- RSS 53493 - 4month EOT info section for desktop start -->
+			   
+<template if:true={inventoryShortage}>
+
+	<div class='slds-show_large' if:true={is2MonthEOT} >
+		<c-a-h-f-c_message-toast class="made-payment-toast" type="info" message='Your lease is almost over. Need more time?' link='Request a lease extension.' onlinkclicked={navigatetoneedHelp} onclosetoast={closeinfo2} is-notification="true" show-icon="true">
+		</c-a-h-f-c_message-toast>
+	</div>
+
+	<div class='slds-show_large' if:true={is4MonthEOT} >
+		<c-a-h-f-c_message-toast class="made-payment-toast" type="info" message='Planning to re-lease or buy new? Visit your dealer now to order your next vehicle.'  onclosetoast={closeinfo4} is-notification="true" show-icon="true">
+		</c-a-h-f-c_message-toast>
+	</div>
+	</template>
+	<!-- RSS 53493 - 4month EOT info section end -->
+
+<!-- 4674 - EOT info section for desktop start -->
+<div class='slds-show_large' if:true={isEOTDashboardInfo}>
+    <c-a-h-f-c_message-toast class="made-payment-toast" type="info" message='Your lease is ending soon.' link='Explore your options.' onlinkclicked={navigateToEndOfTerm} onclosetoast={closeinfo} is-notification="true" show-icon="true">
+    </c-a-h-f-c_message-toast>
+</div>
+<!-- 4674 - EOT info section end -->
+</template>
+<!-- 8765 - Informational Alert for desktop view start -->
+<template if:true={isCommPreff}>
+						<div class='slds-show_large' if:true={isCommPreffInfo}>
+							<c-a-h-f-c_message-toast class="made-payment-toast" type="info"
+								onhyperclicked={navigatetocommpreff}
+								notify-message='to receive email and/or text notifications.'
+								notifylink='Please set up your Communication Preferences' onclosetoast={closeCommPreff}
+								is-notification="true" show-icon="true"> </c-a-h-f-c_message-toast>
+						</div>
+					</template>
+<!-- US 3827 Added-->
+<div if:true={isSmsAndEmailBounced} class='slds-show_large'>
+    <c-a-h-f-c_message-toast type="warning" class="made-payment-toast" label="Attention" onlinkclicked={navigatetocommpreff} message='We have been unable to send notifications to the email address and phone number we have on file.' link='Click here' message-data=' to update your Communication Preferences.'>
+    </c-a-h-f-c_message-toast>
+</div>
+<div if:true={isSmsBounced} class='slds-show_large'>
+    <c-a-h-f-c_message-toast type="warning" label="Attention" onlinkclicked={navigatetocommpreff} message='We have been unable to send text notifications to the phone number we have on file.' link='Click here' message-data=' to update your Communication Preferences.'>
+    </c-a-h-f-c_message-toast>
+</div>
+<div if:true={isEmailBounced} class='slds-show_large'>
+    <c-a-h-f-c_message-toast type="warning" label="Attention" onlinkclicked={navigatetocommpreff} message=' We have been unable to send email notifications to the email address we have on file.' link='Click here' message-data=' to update your Communication Preferences.'>
+    </c-a-h-f-c_message-toast>
+</div>
+<!-- US 3827 Added Ends-->
+<!-- 8765 - Informational Alert  end -->
+<!-- 8765 - Informational Alert for desktop view start -->
+<template if:true={isPaidAhead}>
+						<div class='slds-show_large' if:true={isPaidAheadInfo}>
+							<c-a-h-f-c_message-toast class="made-payment-toast" type="info"
+								text='You are paid ahead! Your next regular monthly payment is not due until'
+								date={paymentDueDate} message-data='.' onclosetoast={closePaidAhead} is-notification="true"
+								show-icon="true">
+							</c-a-h-f-c_message-toast>
+						</div>
+					</template>
+<!-- 8765 - Informational Alert  end -->
+<!-- 8755 - Critical Alert  Start -->
+<template if:false={isShowBeforePayoff}>
+
+						<template if:true={showCriticalAlertPastDue}>
+							<div class='slds-show_large' if:true={isClosePastDue}>
+								<c-a-h-f-c_message-toast class="made-payment-toast" type="warning"
+									message='Your account is Past Due.' link='Please make a payment.'
+									onlinkclicked={navigatetootppayment} onclosetoast={closePastDue}
+									is-notification="true" show-icon="true"> </c-a-h-f-c_message-toast>
+							</div>
+						</template>
+</template>
+<!-- 8755 - Critical  Alert  End -->
+<!-- 8755 - Critical Alert  Start -->
+<template if:true={isStmtSuppressed}>
+						<div class='slds-show_large' if:true={isStmtCloseInfo}>
+							<c-a-h-f-c_message-toast class="made-payment-toast" type="warning"
+								message='Your billing address is invalid.'
+								link='Please update your Finance Account Details.'
+								onlinkclicked={navigatetoAccountprofile} onclosetoast={closeStmt} is-notification="true"
+								show-icon="true"> </c-a-h-f-c_message-toast>
+						</div>
+					</template>
+<!-- Added by Prabu for the US - 4338 -->
+<template if:true={isShowBeforePayoff}>
+						<div class="slds-show_medium" if:true={isBeforePayoffInfo}>
+							<c-a-h-f-c_message-toast class="made-payment-toast" type="success"
+								label='Congratulations on submitting your payoff payment!'
+								message='Your payoff payment was successfully scheduled.' show-icon="true"
+								is-notification="true" onclosetoast={closeBefore}> </c-a-h-f-c_message-toast>
+						</div>
+					</template>
+<template if:true={isShowAfterPayoff}>
+						<div class='slds-show_large' if:true={isAfterPayoffInfo}>
+							<c-a-h-f-c_message-toast class="made-payment-toast" type="success"
+								message="Your account is Paid off!" show-icon="true" is-notification="true"
+								onclosetoast={closeAfter}> </c-a-h-f-c_message-toast>
+						</div>
+					</template>
+<!-- 4338 End-->
+<!--Added by Prabu for the US 12186 -->
+<template if:true={isUpdateEmailCommPreff}>
+						<div class='slds-show_large' if:true={isEmailCommPreffInfo}>
+							<c-a-h-f-c_message-toast class="made-payment-toast" type="warning"
+								message='We have been unable to send email notifications to the email address we have on file.'
+								link='Please update your communication Preferences.'
+								onlinkclicked={navigateToCommPreffAndUpdateAckDate} onclosetoast={closeEmail}
+								is-notification="true" show-icon="true"> </c-a-h-f-c_message-toast>
+						</div>
+					</template>
+
+<template if:true={isUpdateSMSCommPreff}>
+						<div class='slds-show_large' if:true={isSMSCommPreffInfo}>
+							<c-a-h-f-c_message-toast class="made-payment-toast" type="warning"
+								message='We have been unable to send text notifications to the phone number we have on file.'
+								link='Please update your communication Preferences.' onlinkclicked={navigatetocommpreff}
+								onclosetoast={closeSMS} is-notification="true" show-icon="true">
+							</c-a-h-f-c_message-toast>
+						</div>
+					</template>
+<!--US 12186 Ends-->
+<!-- 8755 - Critical  Alert  End -->
+<template if:true={isLocked}>
+						<template if:true={isClosed}>
+							<div class='slds-show_large'>
+								<c-a-h-f-c_message-toast class="made-payment-toast" type="info"
+									singlemsg='Your account is closed. Please contact us if you need assistance.'
+									show-icon="false"> </c-a-h-f-c_message-toast>
+							</div>
+						</template>
+<template if:false={isClosed}>
+							<div class='slds-show_large'>
+								<c-a-h-f-c_message-toast class="made-payment-toast" type="error"
+									singlemsg='Your account is not available for online managment. Please contact us if you need assistance.'
+									show-icon="false"> </c-a-h-f-c_message-toast>
+							</div>
+						</template>
+<!-- <div class='slds-show_large'>
+                  <c-a-h-f-c_message-toast class="made-payment-toast" type="error"
+                     singlemsg='Your account is not available for online managment. Please contact us if you need assistance.'
+                     show-icon="false">
+                  </c-a-h-f-c_message-toast>
+               </div> -->
+</template>
+<!-- -- Desktop Section -->
+<template if:true={showdesktop}>
+						<div class="slds-grid slds-wrap slds-grid_align-spread slds-show_large" if:false={isLocked}>
+							<div class="slds-col slds-size_1-of-1 slds-large-size_8-of-12">
+								<div class="slds-grid slds-wrap">
+									<!-- Current Bill Section  -->
+									<div class="slds-col slds-size_1-of-1" if:false={showBlankDashboard}>
+										<div class="card-block ahfc-background-lightest">
+											<!-- <p
+												class="section-header ahfc-text-header ahfc-text-dark slds-text-title_caps">
+												{labels.DashboardCurrentBill} </p> -->
+											<c-a-h-f-c_dashboard-current-bill
+												sel-service-account-wrapper={selServiceAccountWrapper}>
+											</c-a-h-f-c_dashboard-current-bill>
+										</div>
+									</div>
+									<!-- --  Payment Activity Section  -->
+									<div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2"
+										if:false={showBlankDashboard}>
+										<div class="card-block ahfc-background-lightest">
+											<h2
+												class="section-header ahfc-text-header ahfc-text-dark slds-text-title_caps ">
+												{labels.DashboardPaymentActivity}
+											</h2>
+
+
+											<c-a-h-f-c_dashboard-payment-activity
+												serviceaccdata={selServiceAccountWrapper}>
+											</c-a-h-f-c_dashboard-payment-activity>
+										</div>
+									</div>
+									<!-- --  Statements Section -->
+									<div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2"
+										if:false={showBlankDashboard}>
+										<div class="card-block ahfc-background-lightest">
+											<h2
+												class="section-header ahfc-text-header ahfc-text-dark slds-text-title_caps">
+												{labels.DashboardStatements} </h2>
+											<c-a-h-f-c_dashboard-statements finaccid={selServiceAccountWrapper}>
+											</c-a-h-f-c_dashboard-statements>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12">
+								<div class="slds-grid slds-wrap">
+									<!--  Payment Progress Section  -->
+									<div class="slds-col slds-size_1-of-1" if:false={showBlankDashboard}>
+										<div class="card-block ahfc-background-lightest AHFC_PaymentProgress">
+
+											<!--  US 7659  Show gray off label for payment progress tile conditional rensering -->
+											<h2 if:true={webDashboardPaymentProgress}
+												class="section-header ahfc-text-header ahfc-text-dark slds-text-title_caps">
+												{labels.DashboardPaymentProgress} </h2>
+
+											<!--Start  US 7659-->
+
+											<h2 if:false={webDashboardPaymentProgress}
+												class="section-header ahfc-text-header ahfc-text-dark slds-text-title_caps AHFC_PaymentProgress_Gray_Text">
+												{labels.DashboardPaymentProgress}</h2>
+
+											<!--End  US 7659-->
+
+											<c-payment-progress-tile-dashboard-l-w-c
+												dashboard-data={selServiceAccountWrapper}>
+											</c-payment-progress-tile-dashboard-l-w-c>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="slds-grid slds-wrap slds-grid_align-spread slds-show_large">
+							<div class="slds-col slds-size_1-of-1 slds-large-size_8-of-12">
+								<div class="slds-grid slds-wrap" if:false={isLocked}>
+									<div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2"
+										if:false={showBlankDashboard}>
+										<div class="card-block ahfc-background-lightest">
+											<h2
+												class="section-header ahfc-text-header ahfc-text-dark slds-text-title_caps">
+												{labels.DashboardSupportRequest} </h2>
+											<c-a-h-f-c_supportcorrespondence supportrequest
+												finaaccdata={selServiceAccountWrapper}>
+											</c-a-h-f-c_supportcorrespondence>
+										</div>
+									</div>
+									<div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2"
+										if:false={showBlankDashboard}>
+										<div class="card-block ahfc-background-lightest">
+											<h2
+												class="section-header ahfc-text-header ahfc-text-dark slds-text-title_caps">
+												{labels.DashboardCorrespondence} </h2>
+											<c-a-h-f-c_supportcorrespondence correspondence
+												finaaccdata={selServiceAccountWrapper}>
+											</c-a-h-f-c_supportcorrespondence>
+										</div>
+									</div>
+									<div class="slds-col slds-size_1-of-1 slds-large-size_1-of-1">
+										<div class="card-block ahfc-background-lightest">
+											<h2 class="section-header ahfc-text-header ahfc-text-dark AHFC_DbSecTitle">
+												HOW
+												CAN WE HELP YOU? </h2>
+											<c-a-h-f-c_dashboardfaqhelp> </c-a-h-f-c_dashboardfaqhelp>
+										</div>
+									</div>
+								</div>
+								<div class="slds-grid slds-wrap ahfc-locked" if:true={isLocked}>
+									<!-- <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2" if:false={showBlankDashboard}>
+                           <div class="card-block ahfc-background-lightest">
+                              <p class="section-header ahfc-text-header ahfc-text-dark slds-text-title_caps">
+                                 {labels.DashboardSupportRequest}
+                              </p>
+                              <c-a-h-f-c_supportcorrespondence supportrequest finaaccdata={selServiceAccountWrapper}>
+                              </c-a-h-f-c_supportcorrespondence>
+                           </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2" if:false={showBlankDashboard}>
+                           <div class="card-block ahfc-background-lightest">
+                              <p class="section-header ahfc-text-header ahfc-text-dark slds-text-title_caps">
+                                 {labels.DashboardCorrespondence}
+                              </p>
+                              <c-a-h-f-c_supportcorrespondence correspondence finaaccdata={selServiceAccountWrapper}>
+                              </c-a-h-f-c_supportcorrespondence>
+                           </div>
+                        </div> -->
+								</div>
+								<div class="slds-grid slds-wrap" if:true={isLocked}>
+									<div class="slds-col slds-size_1-of-1 slds-large-size_1-of-1">
+										<div class="card-block ahfc-background-lightest">
+											<p class="section-header ahfc-text-header ahfc-text-dark AHFC_DbSecTitle">
+												HOW
+												CAN WE HELP YOU? </p>
+											<c-a-h-f-c_dashboardfaqhelp> </c-a-h-f-c_dashboardfaqhelp>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12"
+								if:false={showBlankDashboard}>
+								<template if:true={isLocked}>
+									<div class=" ahfc-background-lightest" style="margin:0.5rem;margin-top: 1rem; ">
+										<c-a-h-f-c_dashboard-marketing-tile
+											sel-service-account-wrapper={selServiceAccountWrapper} is-locked>
+										</c-a-h-f-c_dashboard-marketing-tile>
+									</div>
+								</template>
+<template if:false={isLocked}>
+									<div class=" ahfc-background-lightest" style="margin:0.5rem; margin-top: 1rem;">
+										<c-a-h-f-c_dashboard-marketing-tile
+											sel-service-account-wrapper={selServiceAccountWrapper}>
+										</c-a-h-f-c_dashboard-marketing-tile>
+									</div>
+								</template>
+</div>
+<div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12" if:true={showBlankDashboard}>
+    <div class=" ahfc-background-lightest" style="margin:0.5rem;"> <img class="dash-blank-tile" src={blankDashboardMarketingTileURL} alt="Marketing Tile For Blank Dashboard" />
+    </div>
+</div>
+</div>
+</template>
+<!--  Mobile Section for non locked account-->
+<div class="slds-hide_large" if:false={isLocked}>
+    <ul class="slds-accordion sections-accordion">
+        <template for:each={mobileSections} for:item="sections">
+								<li class="slds-accordion__list-item ahfc-accordion-item ahfc-background-lightest"
+									key={sections.id}>
+									<section class={sections.class}>
+										<div class="slds -accordion__summary">
+											<h2 class="slds-accordion__summary-heading">
+												<button
+													class="slds-button slds-button_reset slds-accordion__summary-action section-header ahfc-text-header ahfc-text-dark slds-text-title_caps"
+													aria-controls={sections.id} data-keyno={sections.id}
+													aria-expanded={sections.isOpened} title={sections.header}
+													onclick={onMobileSectionsClick}>
+													<div class="slds-grid slds-grid_align-spread"
+														data-keyno={sections.id}>
+														<div class="slds-col" data-keyno={sections.id}>
+															<span data-keyno={sections.id}
+																class="slds-accordion__summary-content">{sections.header}</span>
+														</div>
+														<div class="slds-col" data-keyno={sections.id}>
+															<lightning-icon data-keyno={sections.id}
+																if:false={sections.isOpened}
+																icon-name="utility:chevrondown" size="small"
+																alternative-text="chevrondown" title="chevrondown">
+															</lightning-icon>
+															<lightning-icon data-keyno={sections.id}
+																if:true={sections.isOpened}
+																icon-name="utility:chevronup" size="small"
+																alternative-text="chevronup" title="chevronup">
+															</lightning-icon>
+														</div>
+													</div>
+												</button>
+											</h2>
+										</div>
+										<template if:true={showmobile}>
+											<div class={sections.contentClass} id={sections.id}>
+												<div if:true={sections.isPaymentActivity}>
+													<c-a-h-f-c_dashboard-payment-activity
+														serviceaccdata={selServiceAccountWrapper}>
+													</c-a-h-f-c_dashboard-payment-activity>
+												</div>
+												<div if:true={sections.isStatements}>
+													<c-a-h-f-c_dashboard-statements finaccid={selServiceAccountWrapper}>
+													</c-a-h-f-c_dashboard-statements>
+												</div>
+												<div if:true={sections.isSupportRequest}>
+													<c-a-h-f-c_supportcorrespondence supportrequest
+														finaaccdata={selServiceAccountWrapper}>
+													</c-a-h-f-c_supportcorrespondence>
+												</div>
+												<div if:true={sections.isCorrespondence}>
+													<c-a-h-f-c_supportcorrespondence correspondence
+														finaaccdata={selServiceAccountWrapper}>
+													</c-a-h-f-c_supportcorrespondence>
+												</div>
+												<div if:true={sections.isPaymentProgress}>
+													<c-payment-progress-tile-dashboard-l-w-c
+														dashboard-data={selServiceAccountWrapper}>
+													</c-payment-progress-tile-dashboard-l-w-c>
+												</div>
+												<div if:true={sections.isFaqs}>
+													<div class="slds-col slds-size_1-of-1 ">
+														<div class=" ahfc-background-lightest">
+															<c-a-h-f-c_dashboardfaqhelp> </c-a-h-f-c_dashboardfaqhelp>
+														</div>
+													</div>
+												</div>
+												<div if:true={sections.isMarketting}>
+													<div class="slds-col slds-size_1-of-1 ">
+														<c-a-h-f-c_dashboard-marketing-tile
+															sel-service-account-wrapper={selServiceAccountWrapper}>
+														</c-a-h-f-c_dashboard-marketing-tile>
+													</div>
+												</div>
+											</div>
+										</template>
+        </section>
+        </li>
+        </template>
+    </ul>
+    <div class="slds-col slds-size_1-of-1 ">
+        <c-a-h-f-c_dashboard-marketing-tile sel-service-account-wrapper={selServiceAccountWrapper}>
+        </c-a-h-f-c_dashboard-marketing-tile>
+    </div>
+    <template if:true={showBlankDashboard}>
+							<div class="slds-col slds-size_1-of-1">
+								<div class=" ahfc-background-lightest" style="margin:0.5rem;"> <img
+										class="dash-blank-tile" src={blankDashboardMarketingTileURL}
+										alt="Current Offers Honda Auto Logo" /> </div>
+							</div>
+						</template>
+</div>
+<!--Locked account mobile view -->
+<div class="slds-hide_large" if:true={isLocked}>
+    <ul class="slds-accordion sections-accordion">
+        <template for:each={lockedmobileSections} for:item="sections">
+								<li class="slds-accordion__list-item ahfc-accordion-item ahfc-background-lightest"
+									key={sections.id}>
+									<section class={sections.class}>
+										<div class="slds -accordion__summary" if:false={sections.isGrayedOut}>
+											<h2 class="slds-accordion__summary-heading">
+												<button
+													class="slds-button slds-button_reset slds-accordion__summary-action section-header ahfc-text-header ahfc-text-dark slds-text-title_caps"
+													aria-controls={sections.id} data-keyno={sections.id}
+													aria-expanded={sections.isOpened} title={sections.header}
+													onclick={onMobileSectionsClickForLocked}>
+													<div class="slds-grid slds-grid_align-spread"
+														data-keyno={sections.id}>
+														<div class="slds-col" data-keyno={sections.id}>
+															<span data-keyno={sections.id}
+																class="slds-accordion__summary-content">{sections.header}</span>
+														</div>
+														<div class="slds-col" data-keyno={sections.id}>
+															<lightning-icon data-keyno={sections.id}
+																if:false={sections.isOpened}
+																icon-name="utility:chevrondown" size="small"
+																alternative-text="chevrondown" title="chevrondown">
+															</lightning-icon>
+															<lightning-icon data-keyno={sections.id}
+																if:true={sections.isOpened}
+																icon-name="utility:chevronup" size="small"
+																alternative-text="chevronup" title="chevronup">
+															</lightning-icon>
+														</div>
+													</div>
+												</button>
+											</h2>
+										</div>
+										<div class="slds -accordion__summary ahfc-locked"
+											if:true={sections.isGrayedOut}>
+											<h2 class="slds-accordion__summary-heading">
+												<button
+													class="slds-button slds-button_reset slds-accordion__summary-action section-header ahfc-text-header ahfc-text-dark slds-text-title_caps"
+													aria-controls={sections.id} data-keyno={sections.id}
+													aria-expanded={sections.isOpened} title={sections.header}
+													onclick={onMobileSectionsClickForLocked}>
+													<div class="slds-grid slds-grid_align-spread"
+														data-keyno={sections.id}>
+														<div class="slds-col ahfc-locked" data-keyno={sections.id}>
+															<span data-keyno={sections.id}
+																class="slds-accordion__summary-content">{sections.header}</span>
+														</div>
+														<div class="slds-col" data-keyno={sections.id}>
+															<lightning-icon data-keyno={sections.id}
+																if:false={sections.isOpened}
+																icon-name="utility:chevrondown" size="small"
+																alternative-text="chevrondown" title="chevrondown">
+															</lightning-icon>
+															<lightning-icon data-keyno={sections.id}
+																if:true={sections.isOpened}
+																icon-name="utility:chevronup" size="small"
+																alternative-text="chevronup" title="chevronup">
+															</lightning-icon>
+														</div>
+													</div>
+												</button>
+											</h2>
+										</div>
+										<template if:true={showmobile}>
+											<div class={sections.contentClass} id={sections.id}>
+												<div if:true={sections.isFaqs}>
+													<div class="slds-col slds-size_1-of-1 ">
+														<div class=" ahfc-background-lightest">
+															<c-a-h-f-c_dashboardfaqhelp> </c-a-h-f-c_dashboardfaqhelp>
+														</div>
+													</div>
+												</div>
+												<div if:true={sections.isMarketting}>
+													<div class="slds-col slds-size_1-of-1 ">
+														<c-a-h-f-c_dashboard-marketing-tile
+															sel-service-account-wrapper={selServiceAccountWrapper}>
+														</c-a-h-f-c_dashboard-marketing-tile>
+													</div>
+												</div>
+											</div>
+										</template>
+        </section>
+        </li>
+        </template>
+    </ul>
+    <div class="slds-col slds-size_1-of-1 ">
+        <c-a-h-f-c_dashboard-marketing-tile sel-service-account-wrapper={selServiceAccountWrapper}>
+        </c-a-h-f-c_dashboard-marketing-tile>
+    </div>
+</div>
+</div>
+</template>
+</div>
+</div>
+
+</template>

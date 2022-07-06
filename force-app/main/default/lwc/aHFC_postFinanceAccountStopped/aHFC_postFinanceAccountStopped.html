@@ -1,0 +1,68 @@
+<template>
+    <div class="account-profile-container">
+        <div class="account-profile-container-fluid">
+            <div class="vehicle-details-container">
+            <div class="vehicle-details-main-section">
+                <div class="success-msg-header container-flex">
+                <div class="ahfc-img-class">
+                    <img
+                    class="slds-m-right_medium"
+                    src={successIcon}
+                    width="45"
+                    height="30"
+                />
+            </div>
+                <h1 class="header-text-large">
+                    You have successfully stopped managing your finance account.
+                </h1>
+                </div>
+                <hr />
+                <div class="vehicle-details-section container-flex">
+                <div class="vehicle-left-section stop-finance-left-section">
+                    <div class="logo-honda">
+                    <img
+                        src={hondaLogo}
+                        width="65"
+                        height="43"
+                        class="slds-m-bottom_medium slds-m-top_small"
+                    />
+                    </div>
+                    <p class="header-text-large">Jane’s 2020 Civic Si Sedan</p>
+                </div>
+                <div class="vehicle-right-section">
+                    <img src={carImg} />
+                </div>
+                </div>
+                <hr />
+                <div class="vehicle-account-info container-flex">
+                <div class="account-info">
+                    <label class="label-text-medium slds-m-bottom_x-small"
+                    >ACCOUNT #
+                    </label>
+                    <p class="label-text-large">129398294</p>
+                </div>
+                <div class="communication-info">
+                    <p class="para-text-medium">
+                    Unmanaging an account does not cancel scheduled payments or
+                    stop any activity on your account.
+                    </p>
+                </div>
+                </div>
+                <hr />
+            </div>
+            </div>
+            <div class="finance-action-container slds-m-top_xx-large">
+            <button class="slds-button action-btn dashboard-action">
+                RETURN TO DASHBOARD
+            </button>
+            <button
+                class="slds-button action-btn stop-action"
+                data-id="stopFinanceEdit"
+                onclick={onModalOpen}
+            >
+                ADD ANOTHER FINANCE ACCOUNT
+            </button>
+            </div>
+        </div>
+    </div>
+        </template>

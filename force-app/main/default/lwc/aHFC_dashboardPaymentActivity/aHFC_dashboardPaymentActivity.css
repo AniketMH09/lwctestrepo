@@ -1,0 +1,10 @@
+@import 'c/aHFC_dashboardTheme';
+
+.payment-activity-info { 
+    margin-bottom: 21px;
+}
+
+.payment-activity-info .ahfc-info-small {
+    font-weight: 300;
+    line-height: 21px;
+}

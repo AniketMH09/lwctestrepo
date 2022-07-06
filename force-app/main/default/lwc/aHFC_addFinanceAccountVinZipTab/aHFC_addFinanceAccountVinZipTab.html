@@ -1,0 +1,178 @@
+<template>
+  <template if:true={isLoaded}>
+    <c-a-h-f-c_-spinner loading-message='Please wait while we process your request'></c-a-h-f-c_-spinner>
+  </template>
+  <div class="vin-details">
+    <lightning-layout>
+      <lightning-layout-item flexibility="auto" size="12" small-device-size="12" medium-device-size="6"
+        large-device-size="6" class="vin-number">
+        <div class="slds-form-element vinnumber-input">
+          <label class="slds-form-element__label" for="vinNumber">Vehicle Identification Number (VIN)<abbr
+              class="slds-required" title="required">*
+            </abbr></label>
+          <div class="slds-form-element__icon slds-float_right">
+            <a href="javascript:void(0);" aria-label="The VIN can usually be found on the driver’s side dashboard near or under the bottom of the
+            windshield. It can also be found on your finance or lease contract." role="tooltip">
+            <img src={infoSvg} alt="info" class="slds-m-top_small info-icon" onmouseenter={onIconEnter}
+              onmouseleave={onIconLeave} /></a>
+            <template if:true={showPopover}>
+              <div class="slds-popover slds-popover_tooltip slds-nubbin_top-right popover-content" role="tooltip"
+                id="help">
+                <div class="slds-popover__body">
+                  The VIN can usually be found on the driver’s side dashboard near or under the bottom of the
+                  windshield. It can also be found on your finance or lease contract.
+                </div>
+              </div>
+            </template>
+          </div>
+          <div class="slds-form-element__control">
+            <img class="warning" src={warningSvg} alt="warning" />
+            <input type="text" id="vinNumber" data-id="vinnumber-input" class="slds-input AHFC_errorColor"  value={vinNumber}
+              pattern="[0-9a-zA-Z]{17}" maxlength="17" placeholder="Enter your 17-digit VIN" onchange={changeVinNumber}
+              onblur={onValidate} oninput={onValidateType} onkeypress={restrictSpecialChars}
+              onpaste={validateSpecialChars} required="" />
+          </div>
+          <div class="slds-form-element__help error-help">
+            {errorMessageValidationVIN}
+          </div>
+        </div>
+      </lightning-layout-item>
+      <lightning-layout-item flexibility="auto" size="12" small-device-size="12" medium-device-size="5"
+        large-device-size="5">
+        <div class="slds-form-element ssn-container ssn-input">
+          <label class="slds-form-element__label" for="tax">Last 4 digits of your SSN or Tax ID<abbr
+              class="slds-required" title="required">*
+            </abbr>
+            <br />
+            (Primary Account Holder)</label>
+          <div class="slds-form-element__control">
+            <img class="warning" src={warningSvg} alt="warning" title="google recaptcha" />
+            <input class="slds-input AHFC_errorColor" id="tax" type="text" data-id="ssn-input" placeholder="XXXX" pattern="[0-9]{4}"
+              value={last4Digits} maxlength="4" onchange={changeLast4Digits} onblur={onValidate}
+              oninput={onValidateType} onkeypress={restrictAlphabetsAndSpecialChars} onpaste={validateAlphaSpecialChars}
+              required="" />
+          </div>
+          <div class="slds-form-element__help error-help">
+            {errorMessageValidationSSN}
+          </div>
+        </div>
+      </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout>
+      <lightning-layout-item flexibility="auto" size="12" small-device-size="12" medium-device-size="6"
+        large-device-size="6" class="slds-m-top_small">
+        <div class="slds-form-element zipcode-container zipcode-input">
+          <label class="slds-form-element__label" for="zipcode">Zip Code (Primary Account Holder)<abbr
+              class="slds-required" title="required">*
+            </abbr></label>
+          <div class="slds-form-element__control">
+            <img class="warning" src={warningSvg} alt="warning" />
+            <input type="text" id="zipcode" data-id="zipcode-input"  class="slds-input AHFC_errorColor" value={zipCode}
+              pattern="[0-9]{5}" maxlength="5" onchange={changeZipCode} placeholder="Enter your 5-digit Zip Code"
+              onblur={onValidate} oninput={onValidateType} onkeypress={restrictAlphabetsAndSpecialChars}
+              onpaste={validateAlphaSpecialChars} required="" />
+          </div>
+          <div class="slds-form-element__help error-help">
+            {errorMessageValidationZIP}
+          </div>
+        </div>
+      </lightning-layout-item>
+    </lightning-layout>
+  </div>
+  <template if:true={addAccountError}>
+    <div class="message-info slds-m-top_x-large slds-m-bottom_large">
+      <c-a-h-f-c_message-toast type="error" label="Error" message={addAccountErrorMsg}></c-a-h-f-c_message-toast>
+    </div>
+  </template>
+  <p class="slds-m-top_large update-info">
+    You will receive the selected notifications at: &nbsp;
+    <span class="update-info-span">{useremail}</span>
+  </p>
+
+  <div class="slds-m-vertical_medium billing-check">
+    <lightning-layout class="slds-m-bottom_small">
+      <lightning-layout-item flexibility="auto" size="12">
+        <lightning-input type="checkbox" aria-label='Finance Account Updates and Payment Activity, checkbox checked' label="Finance Account Updates and Payment Activity" name="billing"
+          checked={billing} onchange={handleChangeBilling} data-id="billing" class="AHFC_CheckStyle billing"></lightning-input>
+      </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout class="slds-m-bottom_small">
+      <lightning-layout-item flexibility="auto" size="12">
+        <lightning-input type="checkbox" label="Paperless Statements & Correspondence" aria-label="Paperless Statements & Correspondence, checkbox checked" name="payment" checked={payment}
+          onchange={handleChangePayment} data-id="payment" class="AHFC_CheckStyle payment"></lightning-input>
+      </lightning-layout-item>
+    </lightning-layout>
+
+    <lightning-layout>
+      <lightning-layout-item flexibility="auto" size="12">
+        <lightning-input type="checkbox" label="Special Offers & Promotions" name="special Offers" aria-label="Special Offers & Promotions, checkbox checked"
+          checked={specialOffersCheck} data-id="special_offers" onchange={handleChangeSpecialOffers} class="AHFC_CheckStyle special_offers"></lightning-input>
+      </lightning-layout-item>
+    </lightning-layout>
+  </div>
+  <p class="slds-m-vertical_small comm-prefs-checks">
+    You may make changes to these preferences at any time by going to Communication Preferences in the top menu under My
+    Account.
+  </p>
+  <hr aria-hidden="true"/>
+  <p class="slds-m-vertical_small terms-conditions">
+    By clicking on 'Add Account' you're agreeing to our&nbsp;
+    <a href={eSignTnCUrl} target="_blank">E-sign Disclosure and Consent</a>.
+  </p>
+
+  <template if:true={addAccountPageError}>
+    <div class="message-info slds-m-top_x-large slds-m-bottom_large" if:true={WebOnlineError}>
+      <!--Web Online Error Message starts -->
+      <div class="message-container error">
+
+        <div class="message-icon">
+          <a href="javascript:void(0);" tabindex="-1">
+            <lightning-icon icon-name="utility:error" alternative-text="Error" title="Error" class="toast-icon-color">
+            </lightning-icon>
+          </a>
+        </div>
+        <div class="message-content">
+          <h1 class="ahfc-body-one">Error</h1>
+          <p class="ahfc-body-two">
+            {addAccountPageErrorMsg}<a href="javascript:void(0);" style="text-decoration: underline;"
+              class="single-toast-link aHFC_notification" onclick={onToastLinkClicked}>Contact Us</a>
+            {addAccountPageErrorMsg2}</p>
+
+        </div>
+      </div>
+      <!--Web Online Error Message Ends -->
+    </div>
+    <div class="message-info slds-m-top_x-large slds-m-bottom_large" if:false={WebOnlineError}>
+      <c-a-h-f-c_message-toast type="error" label="Error" message={addAccountPageErrorMsg}></c-a-h-f-c_message-toast>
+    </div>
+  </template>
+
+  <div class="action-container slds-p-top_medium">
+    <!--Code for US 10316 for google re-captcha starts-->
+    <template if:true={iframeShow}>
+      <iframe src="/apex/GoogleReCaptcha" scrolling="no" frameborder="0" width="100%"></iframe>
+    </template>
+
+    <template if:true={showButton}>
+      <lightning-button class="slds-m-right_xx-large add-btn" variant="destructive" label="ADD ACCOUNT" role="button"
+        title="Add Account" onclick={createAccount}></lightning-button>
+    </template>
+    <template if:false={showButton}>
+      <lightning-button class="slds-m-right_xx-large add-btn" variant="destructive" label="ADD ACCOUNT" disabled role="button"
+        title="Add Account" onclick={createAccount}></lightning-button>
+    </template>
+    <template if:true={finAccExists}>
+      <template if:true={showButton}>
+        <lightning-button class="skip-dashboard" variant="base" aria-label="Skip to dashboard Link"  role='link' label="SKIP TO DASHBOARD" title="Skip to dashboard"
+          onclick={navigateToDashboard}></lightning-button>
+      </template>
+    </template>
+    <template if:true={finAccExists}>
+      <template if:false={showButton}>
+        <lightning-button class="skip-dashboard" variant="base" disabled label="SKIP TO DASHBOARD"
+          title="Skip to dashboard" onclick={navigateToDashboard}></lightning-button>
+      </template>
+    </template>
+
+  </div>
+</template>

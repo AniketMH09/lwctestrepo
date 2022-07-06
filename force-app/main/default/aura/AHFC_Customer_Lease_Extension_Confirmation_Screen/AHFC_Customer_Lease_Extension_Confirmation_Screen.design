@@ -1,0 +1,13 @@
+<design:component>
+	<design:attribute name="instructions1" label="instructions1" />
+    <design:attribute name="instructions2" label="instructions2" />
+    <design:attribute name="instructions4" label="instructions4"/>
+    <design:attribute name="EasyPayAmount" label="EasyPayAmount" />
+    <design:attribute name="accountStatusUpdatesViaEamil" label="accountStatusUpdatesViaEamil"/>
+    <design:attribute name="LeaseExtension" label="LeaseExtension"/>
+    <design:attribute name="instructions3" label="instructions3"/>
+    <design:attribute name="ReturntoAccountOverview" label="Return to Account Overview"/>
+    <design:attribute name = "CaseNumber" label="Case Number"/>
+    <design:attribute name=  "FCId" label="FCId"/>
+    <design:attribute name=  "FlowCaseId" label="FlowCaseId"/>
+</design:component>

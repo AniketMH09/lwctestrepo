@@ -1,0 +1,475 @@
+.THIS {
+  font-size: 16px;    
+}
+.THIS .center {
+  /* width: 66%; */
+  background: #E5E5E5;
+  margin: 0 auto;
+  padding-bottom: 0.1px;
+}
+@media (max-width: 1024px) {
+  .THIS .center {
+    width: 100%;
+    padding-bottom: 0.1px;
+  }
+}
+.THIS .header {
+  font-size: 28px;
+  /* margin-bottom: 30px;     */
+}
+.THIS .info {
+  padding: 30px 30px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  margin-bottom: 2.5rem;
+  background:#F7F7F7;
+  /*background: #F6F6F6;*/
+}
+.THIS .info p{
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #5E6162;
+}
+.THIS .info h3 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #d3d3d3;
+  padding-bottom: 10px;
+}
+.THIS .block {
+  margin-top: 30px;
+  margin-bottom: 10px;    
+}
+.THIS .action {
+  margin-bottom: 30px;    
+}
+.THIS label {
+  display: block;
+  font-weight: 600;    
+}
+/* helper */
+.THIS .mb-sm {
+  margin-bottom: 10px;
+}
+.THIS .mr-sm {
+  margin-right: 10px;
+}
+.THIS .pull-left {
+  float: left;
+}
+.THIS .pull-right {
+  float: right;
+}
+@media (max-width: 767px) {
+  /* .THIS .action .default {
+    width: 48%;
+  } */
+  .THIS .action .default:nth-child(2) {
+    float: right;
+  }
+  .THIS .action .primary.pull-right {
+    float: none;
+    margin-top: 20px;
+    width: 100%;
+  }
+}
+@media (max-width: 768px) and (min-width: 768px) {
+    .THIS .action .btn.default, 
+    .THIS .action .btn.primary, 
+    .THIS .action .btn.grey {
+        width: auto;
+    }
+    .THIS .action .action__prev-cancel .btn.default {
+        margin-right: 10px;
+    }
+}
+/* .THIS .tooltip{
+    position: relative;
+} */
+
+.THIS .tooltip .tooltiptext {
+  background: #000;
+  visibility: hidden;
+  text-align: center;
+  border: 1px solid #000;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 20;
+  color: #ffffff;
+  font-size: 14px;
+}
+.THIS .tooltip:hover {
+    color:#000;
+}
+.THIS .tooltip:hover .tooltiptext {
+  /* position: absolute; */
+  visibility: visible;
+  /* width: 100%; */
+}
+@media (max-width: 599px) {
+    .THIS .tooltip {
+        position: unset;
+    }
+    .THIS .tooltip:hover .tooltiptext {
+        left: 10px !important;
+        top: -200px !important;
+    }
+    .THIS .slds-path__track {
+	    padding-left: 0;
+    	padding-right: 0;
+	}
+    .THIS .slds-path__item {
+        min-width: auto !important;
+    }
+    .THIS .slds-path__title {
+        font-size: 12px;
+        white-space: normal;
+        line-height: normal;
+        height: 29px !important;
+        display: flex;
+        align-items: center;
+    }
+}
+.THIS .info-output .slds-col {
+  margin-bottom: 20px;
+}
+/* .THIS .btn {
+  background: #fff;
+  padding: 3px 30px;
+  border-radius: 29px;
+  font-size: 15px;
+  border-width: 2px;
+  font-weight: 600;
+} */
+.THIS .btn.default {
+  background: #fff;
+  /* border: 2px solid #0072CE; */
+  color: #CC0000;
+}
+.THIS .btn.primary {
+  background: #CC0000;
+  border: 2px solid #CC0000;
+  color: #fff;
+}
+/* .THIS .slds-col.slds-size_1-of-1.slds-medium-size_1-of-2 {
+    padding-bottom: 15px;
+} */
+.THIS .class-label{
+    width: 240px;
+ /*background-color: powderblue;*/
+}
+.THIS .row-divide {
+    /* border-bottom: 1px solid #dedede; */
+    padding-bottom: 10px;
+    padding-top: 5px;
+    margin-bottom: 10px;
+}
+.THIS .contain-secondary .row-divide:last-child {
+    border-bottom: none;
+}
+.THIS .maturity-date {
+    border-bottom: 1px dashed #ccc;
+    margin-bottom: 15px;
+    padding: 10px 0 15px;
+}
+.THIS .maturity-date:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+}
+.THIS .tooltip-label-wrap {
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+}
+.THIS .tooltip-label {
+  display: inline;
+}
+.THIS .tooltip {
+    padding-top: 0;
+    margin-left: 10px;
+}
+.THIS .tooltip img.inline {
+    height: 20px;
+}
+.THIS .slds-popover__body {
+    padding: 10px 5px 5px;
+    line-height: 18px;
+    font-size: 14px;
+    /* color: #fff !important; */
+}
+@media (max-width: 599px) {
+    .THIS .slds-path__track {
+	    padding-left: 0;
+    	padding-right: 0;
+	}
+    .THIS .slds-path__item {
+        min-width: auto !important;
+    }
+    .THIS .slds-path__title {
+        font-size: 12px;
+        white-space: normal;
+        line-height: normal;
+        height: 29px !important;
+        display: flex;
+        align-items: center;
+    }
+
+    .THIS .TermsConditionsTextBox {
+    padding: 30px;
+    background: #F6F6F6;
+    width: 100%;
+    height: 275px;
+    overflow: scroll;
+    border: 1px solid #d5d5d5;
+    border-left: 4px solid #d5d5d5;
+}
+.THIS .TermsConditionsTextBox ul li {
+    border-bottom: 1px dashed #ccc;
+    padding: 15px 0;
+    list-style: none;
+}
+.THIS .TermsConditionsTextBox ul li:first-child {
+    padding-top: 0;
+}
+.THIS .myCheckbox{
+    border: 2px solid #0072CE;
+    width: 20px;
+    height: 20px;
+  display: inline-block;
+  float: left;
+}
+.THIS a.download {
+    transition: .2s;
+}
+.THIS a.download:hover {
+    background: #fff;
+    padding: 10px 0px;
+    border-bottom: 2px solid #0e72ce;
+    transition: .2s;
+}
+.THIS a.download span {
+    /*text-transform: uppercase;*/
+    color: #0072CE;
+    font-weight: 400;
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: -webkit-baseline-middle;
+}
+    
+}
+
+.THIS .AHFC_CommunitySecHeader{padding:0rem !important;display: inline-flex;}
+.THIS .AHFC_MobLAyout{display: block;}
+.THIS .AHFC_CommunitySecHeader{width: 100%;
+  padding: 0 4rem;
+  height: 100px!important;
+  border-bottom: 1px solid #d9d9d9;}
+.THIS .AHFC_LeftGridSec {
+  padding: 1rem 2rem 0.75rem 0.5rem;
+  float: left;
+  /* border-right: 1px solid black; */
+  /* height: 55px; */
+  border-right: 1px solid #d9d9d9;
+  }
+.THIS .AHFC_SecLogostyle{
+  width: auto;
+  height: 50px;
+  }
+.THIS .AHFC_SecLogostyle img{    object-fit: contain;
+  /* width: auto; */
+  height: 43px;}
+
+.THIS .AHFC_VehImg {    width: auto;
+  /* height: auto; */
+  float: left;
+  padding: 1rem 2rem .75rem 2rem;}
+.THIS .AHFC_VehImg img{
+  height: 56px;
+  object-fit: contain;
+  width: auto;
+}
+
+.THIS .AHFC_Vehdetail { float: left;
+  padding: 0.5rem 2rem .75rem 2rem;
+  line-height: 2;}
+.THIS .AHFC_DetName{font-size: 18px;
+  font-family: 'ahfc-roboto';}
+.THIS .AHFC_Aclabel{
+  color: #6b6e6e;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
+
+/* UI correction */
+
+.THIS .AHFC_HeaderWrap{
+  margin: 0rem 8.2rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+.THIS .AHFC_HeaderWrap span{
+  font-size: 38px;
+  line-height: 48px;
+  color: #000000;
+  padding-left: 1rem;
+  font-family: 'ahfc-robotolight', sans-serif;
+}
+.THIS .AHFC_DetailWrap{
+  margin: 0 8.2rem 9rem 8.2rem;
+  padding: 3.5rem 7.2rem;
+  background: #fff;
+}
+.THIS .AHFC_ProgressIndicator{
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.03em;
+  color: #FFFFFF;
+}
+.THIS .AHFC_Hr{
+  border-top: 1px solid #D9D9D9;
+}
+.THIS .AHFC_CardLabel{
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #000000;
+  margin-bottom: 0.5rem;
+  font-family: 'ahfc-robotomedium' ,sans-serif;
+}
+.THIS .AHFC_CardData span{
+  font-size: 30px;
+  line-height: 40px;
+  color: #000000;
+  font-family: 'ahfc-robotolight', sans-serif;
+}
+.THIS .AHFC_LabelTwo{
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.03em;
+  color: #5E6162;
+}
+.THIS .AHFC_DD .slds-select_container{
+  background: #F7F7F7;
+}
+.THIS .AHFC_DD .slds-select{  
+  height: 56px !important;
+  border: none !important;
+  border-bottom: 1px solid #5E6162 !important;
+  background-color: #f0f0f0 !important;
+  border-radius: 0 !important;
+  font-size: 18px !important;
+  line-height: 28px !important;
+  letter-spacing: 0.02em !important;
+  color: #000 !important;
+  padding: 14px 16px !important;
+}
+.THIS .AHFC_DDWrap{
+  position:relative;
+}
+.THIS .AHFC_SelectIcon{
+  right: 0;
+  position: absolute;
+  margin-top: -.5rem;
+  top: 64px;
+  pointer-events: none;
+}
+.THIS .AHFC_ToolTip{
+  /* float: right; */
+  padding-right: 12px;
+}
+.THIS .AHFC_ToolTipData{
+  top: -58px; 
+  left: 40px; 
+  width: 260px;
+} 
+.THIS .AHFC_ToolTipData:before,
+.THIS .AHFC_ToolTipData:after{
+    left: 0%;
+    bottom: 2.6rem;
+}
+.THIS .AHFC_ContinueBtn{
+  padding: 0.5rem 4rem;
+  text-transform: uppercase;  
+  font-size: 14px;
+  line-height: 16px;
+  font-family: 'ahfc-robotomedium' ,sans-serif;
+}
+.THIS .AHFC_CancelBtn{
+  border: none;
+  padding: 0.6rem 0rem;
+  text-transform: uppercase;
+  margin-left: 2rem;  
+  font-size: 14px;
+  line-height: 16px;
+  font-family: 'ahfc-robotomedium' ,sans-serif;
+}
+.THIS .AHFC_HeaderWrap svg{
+  vertical-align: top;
+}
+.THIS .AHFC_BtnWrap{
+  margin-top: 3rem;
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  .THIS .AHFC_Vehdetail { 
+    padding:0;
+    line-height: 1.5;
+  }
+  .THIS .AHFC_HeaderWrap svg {    
+    vertical-align: middle;
+  }
+  .THIS .AHFC_BtnWrap{
+    margin-top: 0rem;
+  }
+  .THIS .AHFC_HeaderWrap{
+    margin: 0rem;
+    padding: 2rem 1rem 1.5rem;
+  }
+  .THIS .AHFC_DetailWrap{
+    margin: 0rem;
+    padding: 2rem 1rem;
+    background: #fff;
+  }
+  .THIS .AHFC_DetailWrap .info{
+    padding: 1.3rem 0rem;
+  }
+  .THIS .AHFC_DetailWrap .info p{
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+  }  
+  .THIS .AHFC_CardData span{
+    font-size: 26px;
+    line-height: 36px;
+  }
+  .THIS .AHFC_ContinueBtn{
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 0.8rem 4rem;
+  }
+  .THIS .AHFC_CancelBtn{
+    width: 100%;
+    margin-left: 0rem;
+  }
+  .THIS .AHFC_HeaderWrap span{
+    font-size: 20px;
+    line-height: 26px;
+    padding-left: 0.5rem;
+  }
+  .THIS .AHFC_ToolTipData{    
+    /* top: -135px !important;  */
+    left: 0px; 
+    width: 100%;
+  } 
+  .THIS .AHFC_ToolTipData:before{
+    top: 100%;
+    left: 17rem;
+  }
+  .THIS .AHFC_ToolTipData:after{
+    top: 100%;
+    left: 17rem;
+  }
+}

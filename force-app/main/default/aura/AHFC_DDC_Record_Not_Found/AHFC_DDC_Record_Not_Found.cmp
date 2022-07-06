@@ -1,0 +1,25 @@
+<!--
+// (c) 2018 Appirio, Inc.
+// Generating Due Date Screen by luanching a flow.
+
+// 25 Oct 2018 		Jose Cabrera			Original
+// 08 Nov 2018 		Karunakar Pulkam 		Enable Contact Us Link.
+
+-->
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    
+    <aura:attribute name = "instructions" type = "String"/> 
+    
+    <div class="contain">
+      <div class="center">
+      	<h2 class="header">Record not found</h2>
+        <div class="info">
+          <p>Your finance account was not found, please contact customer support.</p>
+          <p>Please <a href="https://staging.hondafinancialservices.com/contact-us">click here</a> to contact a support representative</p>
+        </div>
+        <div class="action">
+          <button class="btn default">Return to Account Overview</button>
+        </div>
+      </div>
+    </div>
+</aura:component>

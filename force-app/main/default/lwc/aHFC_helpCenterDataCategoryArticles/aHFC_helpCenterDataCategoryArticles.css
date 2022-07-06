@@ -1,0 +1,104 @@
+.ahfc_helpCenter{
+    width : 100%
+}
+
+.ahfc-article-header{
+    font-size: 20px;
+    padding-bottom: 1.5rem;
+}
+
+.ahfc-read-more {
+    color: #CC0000;
+    float: right;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+    text-decoration-line: underline;    
+    position: absolute;
+    /* position: initial; */
+    bottom: 0;
+    right: 0px;
+}
+
+.ahfc-description {
+    /* padding-left: 37px;
+    padding-top: 18px;
+    font-weight: 500; */
+    position: relative;
+    /* margin: 1.5rem 0rem; */
+}
+
+
+/* UI correction */
+/*.AHFC_ContainerWrap{
+    padding: 0rem 8rem 3rem; 
+     
+} */
+.AHFC_DetailWrap{
+    padding: 3rem 6.25rem;
+    background: #fff;
+}
+.ahfc-article-header span{
+    font-size: 26px;
+    line-height: 36px;
+    color: #000000;
+    font-family: 'ahfc-robotolight', sans-serif;
+}
+.AHFC_DetailDesc{
+    font-size: 18px;
+    line-height: 26px;
+    color: #5E6162;
+}
+.AHFC_Hr{
+    /* border: 1px solid #D9D9D9; */
+    margin: 1.5rem 0rem;
+}
+.ahfc-article-header .slds-accordion__summary-content{
+    white-space: normal;
+}
+.AHFC_VideoIcon{
+    position: absolute;
+     bottom: 3px;
+    right: 12%; 
+   /* right: 16%; */
+    width: 21px;
+}
+
+
+/* @media (min-width: 320px) and (max-width: 768px) { */
+@media (min-width: 320px) and (max-width: 2720px) {
+    .AHFC_ContainerWrap{
+        padding: 0;
+    }
+    .AHFC_DetailWrap{
+        padding: 1.2rem 1.5rem;
+    }
+    .AHFC_DetailWrap .slds-col{
+        width: 100%;
+    }
+    .ahfc-article-header{
+        font-size: 20px;
+    }
+    .ahfc-article-header span{
+        font-size: 18px;
+        line-height: 21px;
+    }
+    .AHFC_DetailDesc{
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.02em;
+    }
+    .AHFC_VideoIcon{
+        right: 0;
+        margin-right: 1rem;
+        position: relative;
+        bottom: 0px;
+    }
+    .AHFC_ReeanMoreWrap{
+        display: block;
+        float: right;
+    }
+    .ahfc-read-more{
+        position: relative;
+    }
+}

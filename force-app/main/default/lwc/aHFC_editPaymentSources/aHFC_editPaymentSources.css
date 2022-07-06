@@ -1,0 +1,220 @@
+.edit-modal-content {
+    padding: 80px 100px;
+    border-radius: 0px;
+    position: relative;
+  }
+  .error-help {
+    color: #c64540;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 8px;
+    line-height: 18px;
+  }
+  .edit-modal-content .cross-icon {
+    top: 32px;
+    right: 32px;
+  }
+  .exampleHolder{
+    position: relative;
+    display: inline-block;
+    margin-left: 15px;
+    width: 55px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  .AHFC_Spinnereg{
+    --lwc-colorBackgroundSpinnerDot:rgb(228, 37, 37) !important;
+  }
+  .spinner-content{
+    text-align: center; 
+  }
+  .header-text-medium {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 26px;
+    line-height: 36px;
+    color: #000000;
+  }
+  .edit-modal-content .modal-action {
+    margin-top: 0;
+  }
+  .payment-modal-heading {
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    font-size: 26px;
+    line-height: 36px;
+    margin-bottom: 40px;
+  }
+  .bank-details {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .bank-details .account-number-label,
+  .bank-details .account-type-label,
+  .bank-details .bank-name-label {
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+  }
+  .bank-details .account-number,
+  .bank-details .account-type,
+  .bank-details .bank-name {
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 40px;
+    margin-top: 8px;
+  }
+  .action-btn {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    padding: 14px 24px;
+    letter-spacing: 0.06em;
+  }
+  .save-action {
+    background-color: #CC0000;
+    border: none;
+    color: #ffffff;
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin-right: 16px;
+  }
+  .cancel-action {
+    color: #CC0000;
+  }
+  .nickname-info {
+    width: 45%;
+    margin-bottom: 56px;
+  }
+  .payment-sources-edit-modal .slds-form-element input {
+    border-width: 0px 0px 1px 0px;
+    border-radius: 0;
+    background: #f0f0f0;
+  }
+  
+  .payment-sources-edit-modal .slds-form-element input:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: #000;
+  }
+  .payment-sources-edit-modal .terms-conditions {
+    font-size: 18px;
+    line-height: 28px;
+    color: #5e6162;
+    letter-spacing: 0.02rem;
+    width: 72%;
+    margin: 32px 0 40px;
+  }
+  .payment-sources-edit-modal .preferred-payment-title {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+    color: #5e6162;
+    margin-bottom: 16px;
+  }
+  
+  /* media query starts for Modal*/
+  @media (min-width: 992px) {
+    .modal-container .slds-modal__container {
+      margin: 0 auto;
+      width: 80%;
+      max-width: inherit;
+      min-width: inherit;
+    }
+    .modal-container .spinner-model-container{
+      margin: 0 auto;
+      width: 50%;
+      margin-top: 50px;
+      max-width: inherit;
+      min-width: inherit;
+    }
+  }
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .modal-container .slds-modal__container,
+    .modal-container .spinner-model-container {
+      width: 100%;
+      max-width: 100%;
+    }
+    .payment-sources-edit-modal {
+      width: 85%;
+    }
+  }
+  @media screen and (min-width: 320px) and (max-width: 540px) {
+    /* Modal Popup media queries */
+    .payment-sources-edit-modal .preferred-section {
+      width: 100%;
+    }
+    .edit-modal-content {
+      padding: 40px 20px 72px;
+      height: 100vh;
+    }
+    .edit-modal-content .modal-title {
+      font-size: 20px;
+      line-height: 30px;
+    }
+    .edit-modal-content .modal-bankdetails {
+      font-size: 18px;
+      line-height: 28px;
+    }
+    .modal-container .slds-modal__container,
+    .modal-container .spinner-model-container {
+      margin: 0 auto;
+      padding: 0;
+      width: 100%;
+    }
+    .payment-modal-heading {
+      font-size: 20px;
+      line-height: 26px;
+      margin-bottom: 36px;
+    }
+    .bank-details {
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .bank-details .account-number,
+    .bank-details .account-type,
+    .bank-details .bank-name {
+      font-size: 20px;
+      line-height: 26px;
+      margin-bottom: 24px;
+    }
+    .action-btn {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+  
+    .nickname-info {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    .payment-sources-edit-modal .terms-conditions {
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.03rem;
+      width: 100%;
+      margin: 48px 0 48px;
+    }
+    .payment-sources-edit-modal .preferred-payment-title {
+      font-size: 14px;
+      line-height: 18px;
+      margin-bottom: 24px;
+      border-top: 1px solid #D9D9D9;
+      padding-top: 8px;
+    }
+    .edit-modal-content .cross-icon {
+      right: 24px;
+    }
+    /* End of Modal Popup media queries */
+  }

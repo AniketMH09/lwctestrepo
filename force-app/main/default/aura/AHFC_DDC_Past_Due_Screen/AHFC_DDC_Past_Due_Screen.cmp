@@ -1,0 +1,174 @@
+<!--
+// (c) 2018 Appirio, Inc.
+// Generating Due Date Screen by luanching a flow.
+
+// 25 Oct 2018 		Vivek Makkar			Original
+// 08 Nov 2018 		Karunakar Pulkam 		On Make a Payment, Redirect to Payment Page.
+// 11 Nov 2018		Naveen Pilla			Consolidated screen to change the screen message accordingly.
+// 04 Jan 2019 		Naveen Pilla			Modified for I-358949
+//28 Jul 2021       Prabu					US-4024,4027,4029 - changed the UI screen.
+
+-->
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens,force:hasRecordId" access="global">
+    
+    <ltng:require styles="{!$Resource.AHFC_UI_Kit}"/>
+    <aura:attribute name = "instructions" type = "String"/> 
+    <aura:attribute name = "FCId" type = "String"/>
+    <aura:attribute name= "communityName" type="string" default=""/>
+    <aura:attribute name= "caseStatus" type="string" default=""/>
+    <lightning:navigation aura:id="navService"/>  
+    <aura:attribute name = "Past_Due_Instructions" type = "String"/> 
+    <aura:attribute name = "First_Payment_Instruction" type = "String"/> 
+    <aura:attribute name = "Pending_Case_Instruction" type = "String"/> 
+    <aura:attribute name = "Past_Due_Screen" type = "String"/> 
+    <aura:attribute name = "First_Payment_Screen" type = "String"/> 
+    <aura:attribute name = "Pending_Case_Screen" type = "String"/> 
+    <aura:attribute name = "Ineligible_Customer" type = "String"/>
+    <aura:attribute name = "LE_Flow" type = "String"/>
+    <aura:attribute name = "DDC_Flow" type = "String"/>
+    <aura:attribute name = "DDC_Eligibility" type="String"/>
+    <aura:attribute name = "Record_Not_Found" type="String"/>
+    <aura:attribute name = "fAid" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name = "Invalid_User" type="String"/>
+    
+    <div class="contain">   
+       
+        <c:aHFC_vehicleHeader/>
+        
+        <div class="center"> 
+            <aura:if isTrue = "{!v.Invalid_User}">
+                <h2 class="header">Please Try Again</h2>
+            </aura:if>
+            <aura:if isTrue = "{!v.Record_Not_Found}">
+                <h2 class="header">Request Due Date Change</h2>
+            </aura:if>
+            <aura:if isTrue = "{!v.LE_Flow}">
+                <h2 class="header">Request Lease Extension</h2>
+            </aura:if> 
+            <aura:if isTrue = "{!v.DDC_Flow}">
+                <!-- US - 4024,4027,4029 - Added Prabu - Start --> 
+                <div class="AHFC_HeaderWrap ahfc_arrowAlign">
+                    <lightning:icon iconName="utility:back" class="AHFC_backArrow ahfc_arrowMargin" alternativeText="Connected" size="small"
+                                    title="" onclick="{!c.redirectToHelpPayment}"></lightning:icon>
+                    <h2 class="header"><span>Request Due Date Change</span></h2>
+                </div>
+                <!-- US - 4024,4027,4029 - End --> 
+            </aura:if>
+            <div class="AHFC_DetailWrap">
+                <aura:if isTrue = "{!v.Past_Due_Screen}">
+                    <h3 class="ahfc_heading"><b>PLEASE MAKE A PAYMENT</b></h3>                
+                </aura:if>               
+                <aura:if isTrue = "{!v.Ineligible_Customer}">
+                    <h3>Please Contact Us</h3>
+                </aura:if>
+                
+                <div class="info">
+                    <aura:if isTrue = "{!v.Invalid_User}">
+                        <p>{!v.Invalid_User}</p>
+                    </aura:if>
+                    <!-- US - 4027 - Added Prabu - Start --> 
+                    <aura:if isTrue = "{!v.Pending_Case_Screen}">                    
+                        <div class='ahfc_ddc_conatin'>
+                            <p class='ahfc_ddc_contain_p'>{!$Label.c.AHFC_CUST_Lease_Extension_Request_EXIST}</p>
+                            <p class="slds-m-vertical_small terms-conditions ahfc_ddc_contain_p_2">
+                                <span class='ahfc_span'>{!$Label.c.AHFC_CUST_Lease_Extension_Request_PENDING}</span>
+                                <a target="_blank" class='ahfc_ddc_contain_p_2_link'>here</a>.
+                            </p>
+                        </div> 
+                    </aura:if> 
+                    <!-- US - 4027 - End -->                     
+                    <aura:if isTrue = "{!v.Record_Not_Found}">
+                        <p>We are unable to process your request online. Please <a onclick="{!c.contactUs}">Contact Us</a> to request a due date change. Our representatives 
+                            are available to assist you Monday - Friday, 9 a.m. - 5 p.m. local time. 
+                        </p>  
+                    </aura:if>
+                    <!-- US - 4024 - Added Prabu - Start -->                
+                    <aura:if isTrue = "{!v.Past_Due_Screen}">
+                        <aura:if isTrue = "{!v.Past_Due_Instructions}">
+                            <p><aura:unescapedHtml value ="{!v.Past_Due_Instructions}"/></p>
+                            <aura:set attribute="else">
+                                <p>Your account is currently past due. In order to proceed with your lease extension request, 
+                                    please make a payment, including any applicable fees, 
+                                    and then return to the Lease Extension Request page to proceed. 
+                                </p>
+                            </aura:set>
+                        </aura:if>
+                    </aura:if>
+                    <!-- US - 4024 -End -->  
+                    <!-- AHFC_DDC_Ineligible_Screen -->
+                    
+                    <aura:if isTrue = "{!v.Ineligible_Customer}">
+                        <aura:if isTrue = "{!v.Past_Due_Instructions}">
+                            <p>{!v.Past_Due_Instructions}</p>
+                            <aura:set attribute="else">
+                                <p>We are unable to process your request online. Please contact a Lease-End Specialist at 1-800-708-6555 to initiate a lease extension. 
+                                    Our representatives are available to assist you Monday - Friday, 9 a.m. - 5 p.m. local time. 
+                                </p>
+                            </aura:set>
+                        </aura:if>
+                    </aura:if>
+                    <!-- US - 4029 - Added Prabu - Start -->  
+                    <aura:if isTrue = "{!v.First_Payment_Screen}">
+                        <aura:if isTrue = "{!v.First_Payment_Instruction}">
+                            <h3 class="ahfc_heading"><b>PLEASE MAKE A PAYMENT</b></h3> 
+                            <!--<p><aura:unescapedHtml value ="{!v.First_Payment_Instruction}" /></p> -->
+                            <div class="ahfc_bodyText">
+                            <p>{!$Label.c.AHFC_DDC_Req_due}</p><br></br>
+                            <p>{!$Label.c.AHFC_DDC_Req_due1}</p><br></br>
+                            <p>{!$Label.c.AHFC_DDC_Req_due2}</p><br></br>
+                            <p>{!$Label.c.AHFC_DDC_Req_due_3}</p><br></br>
+                            </div>
+                            <aura:set attribute="else">
+                                <p>You have yet to make the first payment on your account.You must make your first payment before requesting a due date change.
+                                    Once the payment is processed, you will be able to submit a payment due date change request.
+                                </p>
+                            </aura:set>
+                        </aura:if>
+                    </aura:if>
+                    <!-- US - 4029 -End -->  
+                </div>
+                <div class="action ahfc_buttons">
+                    <!-- US - 4024 - Added Prabu - Start -->  
+                    <aura:if isTrue = "{!v.Past_Due_Screen}">
+                        <div class="action slds-grid slds-wrap AHFC_BtnWrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12 ahfc_submitBtn">
+                                <button class="btn default sec ahfc_mobButtons" onclick="{!c.redirectToDashboard}">RETURN TO DASHBOARD</button>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12 ahfc_submitBtn">
+                                <button class="btn default mr-sm AHFC_CancelBtn ahfc_mobButtons" onclick="{!c.redirectToPaymentPage}">Make a Payment</button>
+                            </div>
+                        </div>
+                    </aura:if>
+                    <!-- US - 4024 - End -->  
+                    <!-- US - 4027 - Added Prabu - Start -->  
+                    <aura:if isTrue = "{!v.Pending_Case_Screen}">   
+                        <div class="action slds-grid slds-wrap AHFC_BtnWrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 ahfc_submitBtn">
+                                <button class="btn default primary ahfc_mobButtons" onclick="{!c.redirectToDashBoard}">{!$Label.c.AHFC_CUST_RETURN_TO_DASHBOARD}</button>
+                            </div>                        
+                        </div>
+                    </aura:if>
+                    <!-- US - 4027 - End -->  
+                    
+                    <aura:if isTrue = "{!v.Ineligible_Customer}">
+                        <button class="btn primary pull-right ahfc_mobButtons" onclick="{!c.redirectToDashboard}">RETURN TO DASHBOARD</button>
+                        <br/>
+                    </aura:if> 
+                    <!-- US - 4029 - Added Prabu - Start -->  
+                    <aura:if isTrue = "{!v.First_Payment_Screen}">
+                        <div class="action slds-grid slds-wrap AHFC_BtnWrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12 ahfc_submitBtn">
+                                <button class="btn default sec ahfc_mobButtons" onclick="{!c.redirectToPaymentPage}">MAKE A PAYMENT</button>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 ahfc_submitBtn">
+                                <button class="btn default mr-sm AHFC_CancelBtn ahfc_mobButtons" onclick="{!c.redirectToDashboard}">RETURN TO DASHBOARD</button>
+                            </div>
+                        </div>              
+                    </aura:if>
+                    <!-- US - 4029 - End --> 
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

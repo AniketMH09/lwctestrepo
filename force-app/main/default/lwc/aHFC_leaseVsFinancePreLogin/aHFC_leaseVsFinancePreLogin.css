@@ -1,0 +1,278 @@
+@import 'c/aHFC_dashboardTheme';
+/* START - ATTENTION MODAL BOX */
+
+
+.AHFC_Wrapperst{
+  padding: 1rem 8rem;
+}
+.AHFC_topCard{
+    position: relative;
+    margin-bottom: 2rem;
+}
+.AHFC_PageTitleWrap{
+  margin-top: 0.7rem;
+}
+.AHFC_topHeading{
+  font-family:'ahfc-robotolight';
+  font-size: 48px;
+  line-height: 33px;
+  color: #000000;
+  background-color: #FFFFFF;
+  position: absolute;
+  padding: 1.5rem 2rem 0rem;
+  bottom: 0px;
+  margin-left: 6rem;
+}
+.AHFC_dataLabel{
+  font-size: 26px;
+  line-height: 36px;
+  color: #5E6162;  
+  font-family: 'ahfc-robotolight', sans-serif;
+  padding-top: 0.5rem;
+}
+.AHFC_SectionText{
+  font-family: 'ahfc-robotolight', sans-serif;
+  font-size: 26px;
+  line-height: 36px;
+  color: #000000;
+  padding-right: 1rem;
+}
+.AHFC_SectionLabel{
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.02em;
+  color: #000000;
+  margin: 2.5rem 0rem 1rem;
+  padding-right: 1rem;
+}
+.AHFC_CardTtile{
+  font-size: 26px;
+  line-height: 36px;  
+  color: #000000;
+  font-family: 'ahfc-robotolight', sans-serif;
+  padding:1rem 0rem;
+}
+.AHFC_CardData{
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.02em;
+  color: #000000;
+  padding-bottom: 1.5rem;
+}
+.AHFC_CardAccordText{
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.03em;
+  color: #000000;
+  margin-top: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+.AHFC_AccordTab{
+  margin-bottom: 0.5rem;
+  cursor:pointer;
+  background: #F7F7F7;
+}
+.AHFC_AccordTitle{
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.06em;
+  /* text-transform: uppercase; */
+  color: #5E6162;
+  padding: 0.5rem;
+}
+.slds-is-open .AHFC_AccordTitle{  
+  color: #CC0000;
+}
+.AHFC_ArrowIcon{
+  padding: 0.5rem;
+  float: right;
+}
+.AHFC_DownloadIcon{
+  padding-right: 0.5rem;
+}
+.AHFC_CardDetail{
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.03em;
+  color: #000000;
+  font-family: 'ahfc-robotomedium' ,sans-serif;
+  padding: 0.5rem 6rem 0rem 3rem;
+}
+.slds-accordion__content .AHFC_CardDetail:last-child{
+  padding-bottom: 2rem;
+}
+.AHFC_FinanceAccord{
+  margin-top: 2.7rem;
+}
+
+.AHFC_WrapperstOA{
+  padding: 1rem 6rem;
+  background-color: #F7F7F7;
+}
+.ahfc_sidePadding{
+  padding: 0 7rem;
+}
+.ahfc_offersAndApproval{
+  position: relative;
+}
+.ahfc_offersAndApprovalHeading{
+  font-size: 26px;
+  line-height: 36px;
+  font-family: 'ahfc-robotolight';
+  color: #000000;
+  padding-bottom: 0.5rem;
+}
+.ahfc_offersAndApprovalContent{
+  padding: 1.5rem;
+  background-color: #FFFFFF;
+  width: 85%;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+}
+.ahfc_offersAndApprovalDescription{
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.03em;
+  color: #5E6162;
+}
+.ahfc_Links a{
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #CC0000;
+  font-family: 'ahfc-robotomedium';
+}
+.ahfc_findOffersLink{
+  margin-top: 2rem;
+}
+.ahfc_learnMoreLink{
+  margin-top: 1rem;
+}
+.ahfc_offersAndApprovalImage{
+  margin: 2rem;
+  padding-bottom: 7.5rem;
+}
+
+@media (min-width: 380px) and (max-width: 479px) {
+  .slds-show_small{
+    display: block!important;
+}
+.slds-hide_small{
+  display: none!important;
+}
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .AHFC_Wrapperst{
+    padding: 1.2rem;
+  }
+  .AHFC_WrapperstOAMob{
+    padding: 1.2rem;
+    background-color: #F7F7F7;
+  }
+  .AHFC_Wrapperst .slds-grid{
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .AHFC_topHeading{
+      font-size: 26px;
+      line-height: 20px;
+      margin: 0;
+      padding: 0.5rem 2.2rem 1.2em 1.2rem;
+  }
+  .AHFC_dataLabel{
+    position:absolute;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    color: #5E6162;
+  }
+  .AHFC_SectionText{
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+  }
+  .AHFC_SectionLabel{
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+    color: #000000;
+    padding-right: 0rem;
+    margin: 1.5rem 0 2rem;
+  }
+  .AHFC_CardData{
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+  }
+  .AHFC_FinanceAccord .slds-accordion__summary-action{
+    padding-right: 0px;
+  }
+  .AHFC_CardDetail{
+    padding: 0.5rem 5rem 0rem 0.5rem;
+  }
+  .slds-accordion__content .AHFC_CardDetail:last-child{
+    padding-bottom: 2rem;
+  }
+  .AHFC_LeaseAccord ,
+  .AHFC_FinanceAccord {
+    /* margin-top: 1.5rem; */
+  }
+ 
+  .slds-carousel__panels.transform-zero{
+    transform:translateX(-0%)
+  }
+  .slds-carousel__panels.transform-one{
+    transform:translateX(-100%)
+  }
+  .slds-carousel__panels.transform-two{
+    transform:translateX(-200%)
+  }
+  .slds-carousel__panels.transform-three{
+    transform:translateX(-300%)
+  }
+  .AHFC_WrapperstOAMob .slds-carousel__content{
+    padding: 1rem;
+    text-align: left;
+    height: 12rem;
+  }
+  .AHFC_WrapperstOAMob .slds-carousel__content-title{
+    font-size: 20px;
+    line-height: 26px;
+    color: #000000;
+    padding-bottom: 1rem;
+    font-family: 'ahfc-robotolight', sans-serif;
+    font-weight: 300;
+  }
+  .AHFC_WrapperstOAMob .AHFC_SubText{
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+    color: #5E6162;
+    padding-bottom:2rem;
+  }
+  .AHFC_WrapperstOAMob .slds-carousel__indicators{
+    margin-top: 1rem;
+  }
+  .AHFC_WrapperstOAMob .slds-carousel__indicator-action{
+    background: #5E6162;
+    border: none;
+    height:10px;
+    width:10px;
+  }
+  .AHFC_WrapperstOAMob .slds-carousel__indicator-action.slds-is-active{
+    background: #CC0000;
+    border: none;
+  }
+}
+@media (min-width: 2000px) {
+
+  .AHFC_FinanceAccord {
+
+    margin-top: 0px !important;
+
+  }
+
+}

@@ -1,0 +1,11 @@
+<design:component>
+<!--Inputs-->
+<design:attribute name= "strRequestType" label="Request Type" /> 
+   <!--outputs--> 
+<design:attribute name= "strStreet" label="Street" />
+<design:attribute name= "strCity" label="City" />
+<design:attribute name= "strState" label="State" />
+<design:attribute name= "strCountry" label="Country" />
+<design:attribute name= "strPostalCode" label="PostalCode" /> 
+
+</design:component>

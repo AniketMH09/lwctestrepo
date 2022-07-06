@@ -1,0 +1,241 @@
+<!--
+* Name: SCRA_Get_Customer_Preferences
+* Description: capture customer preference
+* Created Date: 16-Sep-2021
+* Created By: Mani
+*-->
+
+<aura:component  implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    <!-- Inputs -->
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <aura:attribute name= "strRequestType" type="String"  default="SCRA Request" />
+    
+    <!-- Others-->
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <aura:attribute name= "value" type="String" />
+    <aura:attribute name=  "disabled" type="boolean" default="true"/>
+    <aura:attribute name=  "captchaokay" type="boolean" default="false"/>
+    
+    
+    <aura:attribute name=  "emailrequired" type="boolean" default="false"/>
+    <aura:attribute name=  "phonerequired" type="boolean" default="false"/>
+    <aura:attribute name= "communityName" type="string" default=""/>
+    
+    <!-- Outputs -->
+    <aura:attribute name= "strEmail" type="String" access="global" />
+    <aura:attribute name= "strPhoneNumber" type="String" />
+    <aura:attribute name= "strCommunicationPref" type="String"  default=""/>
+    <aura:attribute name= "strinfocategory" type="String"  default=""/>
+    <aura:attribute name= "strAuthorizedUser" type="boolean"  default="false"/>
+    <aura:attribute name= "strMessage1" type="String"  default=""/>
+    <aura:attribute name= "strrequestoption" type="String"  default=""/>
+    <aura:attribute name= "strFirstName" type="String" access="global" />
+    <aura:attribute name= "strLastName" type="String" />
+    <aura:attribute name=  "validFirstName" type="boolean" default="false"/>
+    <aura:attribute name=  "validLastName" type="boolean" default="false"/>
+    <aura:attribute name=  "allInValid" type="boolean" default="false"/>
+    <aura:attribute name=  "strcomingFromPrevious" type="boolean" default="false"/>
+    
+    
+    <aura:attribute name="prefoptions" type="List" default="[
+                                                            {'label': 'Email', 'value': 'Email'},
+                                                            {'label': 'Phone', 'value': 'Phone'}
+                                                            ]"/>
+    <aura:attribute name="requestoptions" type="List" default="[
+            {'label': 'Yes', 'value': 'Yes'},
+            {'label': 'No, I am submitting this request on behalf of the Service Member', 'value': 'No, I am submitting this request on behalf of the Service Member'}
+            ]"/>
+                                                            
+    
+    <aura:attribute name="infocategory" type="List"  />
+    <aura:attribute name="strPerjuryAck" type="String" />
+    
+    <aura:attribute name="test" type="String" default=""/>
+    
+    <aura:attribute name="truthy" default="true" type="boolean"/>
+    <aura:attribute name="inforequest" default="false" type="boolean"/>
+    <aura:attribute name="perjuryackreqd" default="false" type="boolean"/>
+    <aura:attribute name="strvflink" type="String" default=""/>
+    <aura:attribute name="strmailaddress" type="String" default=""/>
+    <aura:attribute name="trackpref" type="boolean" default="true"/>
+    
+    <aura:attribute name=  "validCommPref" type="boolean" default="false"/>
+    <aura:attribute name=  "validEmail" type="boolean" default="false"/>
+    <aura:attribute name=  "validPhone" type="boolean" default="false"/>
+    <aura:attribute name=  "validservice" type="boolean" default="false"/>
+    <aura:attribute name=  "comingFromPrevious" type="boolean" default="false"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.captchaokay}" action="{!c.onChange}"/>
+    <aura:handler name="change" value="{!v.trackpref}" action="{!c.onChange}"/>
+    <!--
+    <aura:handler event="c:SCRA_Navigate_event" action="{!c.handleNavigateEvent}"/>
+    -->
+    
+    <div>
+        <div class="center">
+            <div class="ahfc_arrowAlign">
+                <h2 class="header">
+                    Servicemembers Civil Relief Act Request
+                </h2>
+            </div>
+            
+            <div class="AHFC_DetailWrap">
+                <div class="info">
+                    <span class='Message_CCPA'>{!$Label.c.SCRA_CommPref_Instruction}</span>
+                </div>
+            <div class="contain-secondary">
+                
+                <div class="slds-grid slds-wrap AHFC_Fields_Margin">     
+                    
+                    <div class="slds-col slds-size_1-of-1  aHFC_rightSpace">
+                    <div class="aHFCEmail"><span class='AHFC_ASTRIC'>*</span>{!$Label.c.SCRA_FIRST_NAME}</div>
+                       <lightning:input aura:id="inputCmp1" class ="inputField"
+                                           name="firstname"
+                                           value="{!v.strFirstName}"
+                                           onchange="{!c.onChangeFirstname}"
+                                           maxlength="80"
+                                        /> 
+                    </div>
+               </div>
+               <div class="slds-grid slds-wrap AHFC_Fields_Margin">     
+                    
+                <div class="slds-col slds-size_1-of-1  aHFC_rightSpace">
+                    <div class="aHFCEmail"><span class='AHFC_ASTRIC'>*</span>{!$Label.c.SCRA_LAST_NAME}</div>
+                       <lightning:input aura:id="inputCmp2" class ="inputField"
+                                       name="lastname"
+                                       value="{!v.strLastName}"
+                                       onchange="{!c.onChangeLastname}"
+                                       maxlength="80"
+                                       /> 
+                   </div>
+               </div>
+               <div class="slds-grid slds-wrap AHFC_Fields_Margin">
+                <div class="slds-col slds-size_1-of-1  aHFC_rightSpace">
+                <div class="aHFCEmail"><span class='AHFC_ASTRIC'>*</span>{!$Label.c.SCRA_COMPREF_MSG_2}</div>
+                <lightning:radioGroup aura:id="comid" 
+                                      class="customRadioCls"  
+                                      name="radioGroupRequired"
+                                      options="{! v.prefoptions }"
+                                      value="{!v.strCommunicationPref}"
+                                      type="radio"
+                                      onchange="{!c.onPrefChange}"/>
+                </div>
+            </div> 
+                <div class="slds-grid slds-wrap AHFC_Fields_Margin">     
+                    
+                    <div class="slds-col slds-size_1-of-1  aHFC_rightSpace">
+                    <div class="aHFCEmail">Email</div>  
+                    <lightning:input aura:id="emailfield" class ="inputField"
+                                     name="Email"
+                                     type="email"
+                                     value="{!v.strEmail}"
+                                     messageWhenBadInput="Error: Enter a valid Email Address."
+                                    messageWhenPatternMismatch="Error: Enter a valid Email Address."
+                                    messageWhenTypeMismatch="Error: Enter a valid Email Address."
+                                    messageWhenValueMissing="Error: a valid Email Address."
+                                     onchange="{!c.onChangeEmail}"
+                                     />
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap AHFC_Fields_Margin">
+                    <div class="slds-col slds-size_1-of-1  aHFC_rightSpace">
+                    <div class="aHFCEmail">Phone</div>
+                    <lightning:input aura:id="phonefield" class ="inputField"
+                                     name="Phone"
+                                     value="{!v.strPhoneNumber}"
+                                     onchange="{!c.onChangePhone}"
+                        			minlength="4"
+                                    maxlength="10"
+                                 pattern="[0-9]{10}"
+                                 messageWhenBadInput="Error: Enter a 10 digit Phone Number."
+                                 messageWhenPatternMismatch="Error: Enter a 10 digit Phone Number."
+                                 messageWhenTypeMismatch="Error: Enter a 10 digit Phone Number."
+                                 messageWhenValueMissing="Error: Enter a 10 digit Phone Number."/> 
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap AHFC_Fields_Margin">
+                    <div class="slds-col slds-size_1-of-1  aHFC_rightSpace">       
+                    <div class="aHFCEmail"><span class='AHFC_ASTRIC'>*</span>{!$Label.c.SCRA_Are_you_the_service_member}</div>       
+                    <lightning:radioGroup class ="customRadioCls" aura:id="serviceid"
+                                          options="{! v.requestoptions }"
+                                          value="{!v.strrequestoption}"
+                                          type="radio" 
+                                          onchange="{!c.onChange}"/>
+                            
+                                    </div>  
+                    </div>
+                 
+                 <div class="slds-grid slds-wrap AHFC_Fields_Margin">  
+                <div class="section"> Authorized Agents Only: </div>
+
+               		<lightning:input type="checkbox" label="{!$Label.c.SCRA_AUTHORIZED_MSG}" checked="{!v.strAuthorizedUser}" name="strAuthorizedUser" />     
+                    <br/>                   
+                </div>
+            </div>
+            <br />
+            
+            
+            
+               
+    
+   
+    <iframe id="vfFrame" class="reCaptchaBig" src="/apex/GoogleReCaptcha" scrolling="no" frameborder="0"
+        allowtransparency="false" width="100%"/>
+    <br/>
+
+    <div class="action ahfc_buttons">
+        <div>
+            <lightning:button class="AHFC_customTertiaryButton AHFC_Cancle" aura:id="cancel1" name="cancelButton1" label="{!$Label.c.SCRA_Cancel}" onclick="{! c.openModel }"/>
+            <lightning:button class="{!v.disabled == true ?	'AHFC_customPrimaryButton grey AHFC_Mob_buttons':'AHFC_customPrimaryButton  AHFC_Mob_buttons'}"
+           disabled="{!v.disabled == true ? 'true':'false'}" aura:id="cont3" name="continue3" label="{!$Label.c.SCRA_CONTINUE}" onclick="{!c.handleContinue}"/>  
+            <aura:if isTrue="{!v.allInValid}">
+                               <span style="color: red; font: 10px;"> {!$Label.c.SCRA_Error_On_Continue} </span>
+                                
+            </aura:if>
+        </div>
+    </div>
+</div>
+    </div>
+     </div>           
+    <!-- <div class="confirm-modal"> -->
+        <aura:if isTrue="{!v.isOpen}">
+           <section
+                     role="dialog"
+                     tabindex="-1"
+                     aria-label="Meaningful description of the modal content"
+                     aria-modal="true"
+                     aria-describedby="modal-content-id-1"
+                     class="slds-modal slds-fade-in-open finance-account-edit-modal"
+                     >
+                <div class="slds-modal__container">
+                    <div class="slds-modal__content edit-modal-content ahFC_Model_Content" id="modal-content-id-1">
+                        
+                        <div class="close-icon close-icon-alignment aHFC_Close_Icon">
+                            <button onclick="{!c.closeModel}" class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse message-content-info" title="Close" > 
+                                <lightning:icon size="small" class="close-icon-color" iconName="utility:close" alternativeText="close"
+                                                title="close"></lightning:icon>
+                                <span class="slds-assistive-text">Close</span>
+                            </button> 
+                        </div>
+                        
+                        <h1 class="AHFC_ModTitle">{!$Label.c.AHFC_Confirmation}</h1>
+                        <div class="slds-m-top_medium">
+                            <p class="para-text-medium"><aura:unescapedHtml value ="{!$Label.c.SCRA_Customer_Cancel}"/></p>
+                        </div>
+                        <div class="modal-action slds-m-top_xx-large">
+                            <button class="slds-button action-btn save-action" onclick="{!c.redirectToHome}">
+                                CONTINUE
+                            </button>
+                            <button class="slds-button action-btn cancel-action" onclick="{!c.closeModel}">
+                                CANCEL
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>  
+        </aura:if>
+    <!-- </div> --> 
+   
+</aura:component>

@@ -1,0 +1,54 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    
+    <ltng:require styles="{!$Resource.AHFC_UI_Kit}"/>
+    <aura:attribute name = "instructions" type = "String"/> 
+    <aura:attribute name = "Past_Due_Instructions" type = "String"/> 
+    <aura:attribute name = "First_Payment_Instruction" type = "String"/> 
+    <aura:attribute name = "Pending_Case_Instruction" type = "String"/> 
+    <aura:attribute name = "Past_Due_Screen" type = "String"/> 
+    <aura:attribute name = "First_Payment_Screen" type = "String"/> 
+    <aura:attribute name = "Pending_Case_Screen" type = "String"/> 
+    <aura:attribute name = "Ineligible_Customer" type = "String"/>
+    <aura:attribute name = "LE_Flow" type = "String"/>
+    <aura:attribute name = "DDC_Flow" type = "String"/>
+    <aura:attribute name = "DDC_Eligibility" type="String"/>
+    <aura:attribute name = "Record_Not_Found" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name = "Invalid_User" type="String"/>
+    <aura:attribute name= "communityName" type="string" default=""/>
+    <aura:attribute name= "strRequestType" type="string" default=""/>
+    <aura:attribute name= "strMessage" type="string" default=""/>
+    <aura:attribute name= "strCaseNumber" type="string" default=""/>
+    <aura:attribute name= "strstate" type="string" default=""/>
+    
+    <div class="contain">
+        <div class="center"> 
+            <h2 class="header">{!v.strRequestType}</h2>
+            
+            
+            
+                        
+           <div class="info">
+                
+                 	<p>{!v.strMessage}</p>
+
+                        
+                
+                
+                
+            </div>
+            
+            
+            <div class="action">
+                
+                
+                    <button class="btn primary pull-right" onclick="{!c.redirectToHomeWindow}">Finish</button>
+                    <br/>
+                
+                
+                
+            </div>
+        </div>
+       
+    </div>
+</aura:component>

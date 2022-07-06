@@ -1,0 +1,52 @@
+<template>
+    <div class="AHFC_ContainerWrap">
+    <div class="AHFC_TitleWrap">
+        <c-a-h-f-c_page-title-help-center title={category} show-icon={showIcon}></c-a-h-f-c_page-title-help-center>
+    </div>
+    
+    <div class="slds-grid AHFC_DetailWrap">
+        <div class="slds-col">
+            <div class="ahfc-articleContent">
+            <!--Data start-->
+                <ul>
+                    <template for:each={articlesToDisplay} for:item="article">
+                        <li class="" key={article.IdValue}>
+                            <div class="ahfc-article-header">
+                                <span>{article.header}</span>
+                            </div>
+                            <div class="ahfc-description">
+                                <lightning-formatted-rich-text class="AHFC_DetailDesc" value={article.description}></lightning-formatted-rich-text>
+                            </div>
+                        </li>
+                    </template>
+                
+                </ul>
+            </div>
+             <!--Data End-->
+             <!--Download PDF start-->
+            <div class="ahfc-download-pdf">
+                <a href="" onclick={downloadData} download="Article"><button
+                    class="slds-button  ahfc-btn-wht">DOWNLOAD PDF</button></a>
+            </div>
+             <!--Download PDF End-->
+            <!--Rating start-->
+            <div class="ahfc-useful">
+                Was this Article useful?
+                <div class="AHFC_IconWrap">
+                    <lightning-icon icon-name="utility:like" onclick={thumbsUpLogic}
+                    alternative-text="like" title="like" class="my-icon ahfc-thumbsUp">
+                    </lightning-icon>
+
+                     <lightning-icon icon-name="utility:dislike"  onclick={thumbsDownLogic}
+                    alternative-text="dislike" title="dislike" class="my-icon ahfc-thumbsDown">
+                    </lightning-icon>
+                </div>
+            </div>
+             <!--Rating End-->
+            
+        </div>
+    </div>
+</div>
+
+
+</template>

@@ -1,0 +1,265 @@
+<template>
+    
+  <div class="modal-container" id="sample-statement-Modal">
+    <section if:true={showSampleStatement}
+      role="dialog"
+      tabindex="-1"
+      data-id="exampleModal"
+      aria-labelledby="sample-statement-Modal"
+      aria-modal="true"
+      aria-describedby="sample-statement-Modal"
+      class="slds-modal slds-fade-in-open"
+    >
+
+    <div class="slds-modal__container">
+        <div class="paymentsource-modalcontent slds-modal__content">
+          <div class="paymentsource-modal-container">
+                <div class="preferred-section">
+                    <span class="slds-m-bottom_medium modal-title">
+                      View  Sample Statement
+                    </span>
+                    <span class="button_cls">
+                      <button onclick={closePopup} class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse message-content-info" title="Close"> 
+                        <lightning-icon size="small" class="close-icon-color" icon-name="utility:close" alternative-text="close"
+                                        title="close"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                      </button>
+                    </span>
+                </div>
+
+                
+                <div class="preferred-section subText_cls">
+                  Rollover <span><img src={tooltipImg} alt="tooltipImg" class="logo1" /> </span> for more information
+                </div>
+
+                <div class="Img_Container" if:true={powerSportsSample}>
+                  <img src={powerSportsStatementSample} alt="tooltipImg" class="logo1"  /> 
+
+                  <button class="slds-button slds-button_icon slds-button slds-button_icon powersports_image_button" aria-describedby="tooltipIcon" aria-disabled="true"  onmouseover={showtooltip} onmouseout={hidetooltip}>
+                    <img src={transparentImg} alt="tooltipImg" class="logo1" /> 
+                  </button>
+
+                    <div  data-id="tooltip" class='tooltip_content_desc powersports_tooltip_content tooltip_content_des_mob ahfc_tooltip'>
+                      <h3>Payment Information:</h3>
+                      <p class="tooltip_body">Update to details on your account including fees and past due amounts.</p>
+                    </div>
+
+                    <button class="slds-button slds-button_icon slds-button slds-button_icon powersports_image_button1" aria-describedby="tooltipIcon" aria-disabled="true"  onmouseover={showActivitytooltip} onmouseout={hideActivitytooltip}>
+                      <img src={transparentImg} alt="tooltipImg" class="logo1" /> 
+                    </button>
+  
+                      <div data-id="activity_tooltip" class='tooltip_content_desc powersports_tooltip_content1 ahfc_tooltip'>
+                        <h3>Activity Since Last Statement:</h3>
+                        <p class="tooltip_body">Current financial transactions since your last statement including payments, assessments, waiver, and reversals.</p>
+                      </div>
+
+                      <button class="slds-button slds-button_icon slds-button slds-button_icon powersports_image_button2" aria-describedby="tooltipIcon" aria-disabled="true"  onmouseover={showACustServicetooltip} onmouseout={hideCustServicetooltip}>
+                        <img src={transparentImg} alt="tooltipImg" class="logo1" /> 
+                      </button>
+    
+                        <div data-id="custservice_tooltip" class='tooltip_content_desc powersports_tooltip_content2 ahfc_tooltip'>
+                          <h3>Customer Service:</h3>
+                          <p class="tooltip_body">Please see your statement for the customer service phone number and hours of operation.</p>
+                        </div>
+
+                        <button class="slds-button slds-button_icon slds-button slds-button_icon powersports_image_button3" aria-describedby="tooltipIcon" aria-disabled="true"  onmouseover={showoffertooltip} onmouseout={hideOffertooltip}>
+                          <img src={transparentImg} alt="tooltipImg" class="logo1" /> 
+                        </button>
+      
+                          <div data-id="offer_tooltip" class='tooltip_content_desc powersports_tooltip_content3 ahfc_tooltip'>
+                            <h3>News, Updates, and Offers:</h3>
+                            <p class="tooltip_body">Stay tuned for exciting offers and exciting information.</p>
+                          </div>
+                </div>
+
+                <!--HFS Lease Sample Statement -->
+
+                <div class="Img_Container" if:true={hfsLeaseSample}>
+
+                  <img src={hfsLeaseStatementSample} alt="tooltipImg" class="logo1"  /> 
+
+                  <button class="slds-button slds-button_icon slds-button slds-button_icon hfslease_image_button" aria-describedby="tooltipIcon" aria-disabled="true"  onmouseover={showtooltip} onmouseout={hidetooltip}>
+                    <img src={transparentImg} alt="tooltipImg" class="logo1" /> 
+                  </button>
+
+                    <div  data-id="tooltip" class='tooltip_content_desc hfslease_tooltip_content tooltip_content_des_mob ahfc_tooltip'>
+                      <h3>Payment Information:</h3>
+                      <p class="tooltip_body">Update to details on your account including fees and past due amounts.</p>
+                    </div>
+
+                    <button class="slds-button slds-button_icon slds-button slds-button_icon hfslease_image_button1" aria-describedby="tooltipIcon" aria-disabled="true"  onmouseover={showActivitytooltip} onmouseout={hideActivitytooltip}>
+                      <img src={transparentImg} alt="tooltipImg" class="logo1" /> 
+                    </button>
+  
+                      <div data-id="activity_tooltip" class='tooltip_content_desc hfslease_tooltip_content1 ahfc_tooltip'>
+                        <h3>Activity Since Last Statement:</h3>
+                        <p class="tooltip_body">Current financial transactions since your last statement including payments, assessments, waiver, and reversals.</p>
+                      </div>
+
+                      <button class="slds-button slds-button_icon slds-button slds-button_icon hfslease_image_button2" aria-describedby="tooltipIcon" aria-disabled="true"  onmouseover={showACustServicetooltip} onmouseout={hideCustServicetooltip}>
+                        <img src={transparentImg} alt="tooltipImg" class="logo1" /> 
+                      </button>
+    
+                        <div data-id="custservice_tooltip" class='tooltip_content_desc hfslease_tooltip_content2 ahfc_tooltip'>
+                          <h3>Customer Service:</h3>
+                          <p class="tooltip_body">Please see your statement for the customer service phone number and hours of operation.</p>
+                        </div>
+
+                        <button class="slds-button slds-button_icon slds-button slds-button_icon hfslease_image_button3" aria-describedby="tooltipIcon" aria-disabled="true"  onmouseover={showoffertooltip} onmouseout={hideOffertooltip}>
+                          <img src={transparentImg} alt="tooltipImg" class="logo1" /> 
+                        </button>
+      
+                          <div data-id="offer_tooltip" class='tooltip_content_desc hfslease_tooltip_content3 ahfc_tooltip'>
+                            <h3>News, Updates, and Offers:</h3>
+                            <p class="tooltip_body">Stay tuned for exciting offers and exciting information.</p>
+                          </div>
+
+                </div>
+
+                <!--AFS Lease Sample Statement -->
+
+                <div class="Img_Container" if:true={afsLeaseSample}>
+                  
+                  <img src={afsLeaseStatementSample} alt="tooltipImg" class="logo1" /> 
+
+                  <button class="slds-button slds-button_icon slds-button slds-button_icon afslease_image_button" aria-describedby="tooltipIcon" aria-disabled="true"  onmouseover={showtooltip} onmouseout={hidetooltip}>
+                    <img src={transparentImg} alt="tooltipImg" class="logo1" /> 
+                  </button>
+
+                    <div  data-id="tooltip" class='tooltip_content_desc afslease_tooltip_content tooltip_content_des_mob ahfc_tooltip'>
+                      <h3>Payment Information:</h3>
+                      <p class="tooltip_body">Update to details on your account including fees and past due amounts.</p>
+                    </div>
+
+                    <button class="slds-button slds-button_icon slds-button slds-button_icon afslease_image_button1" aria-describedby="tooltipIcon" aria-disabled="true"  onmouseover={showActivitytooltip} onmouseout={hideActivitytooltip}>
+                      <img src={transparentImg} alt="tooltipImg" class="logo1" /> 
+                    </button>
+  
+                      <div data-id="activity_tooltip" class='tooltip_content_desc afslease_tooltip_content1 ahfc_tooltip'>
+                        <h3>Activity Since Last Statement:</h3>
+                        <p class="tooltip_body">Current financial transactions since your last statement including payments, assessments, waiver, and reversals.</p>
+                      </div>
+
+                      <button class="slds-button slds-button_icon slds-button slds-button_icon afslease_image_button2" aria-describedby="tooltipIcon" aria-disabled="true"  onmouseover={showACustServicetooltip} onmouseout={hideCustServicetooltip}>
+                        <img src={transparentImg} alt="tooltipImg" class="logo1" /> 
+                      </button>
+    
+                        <div data-id="custservice_tooltip" class='tooltip_content_desc afslease_tooltip_content2 ahfc_tooltip'>
+                          <h3>Customer Service:</h3>
+                          <p class="tooltip_body">Please see your statement for the customer service phone number and hours of operation.</p>
+                        </div>
+
+                        <button class="slds-button slds-button_icon slds-button slds-button_icon afslease_image_button3" aria-describedby="tooltipIcon" aria-disabled="true"  onmouseover={showoffertooltip} onmouseout={hideOffertooltip}>
+                          <img src={transparentImg} alt="tooltipImg" class="logo1" /> 
+                        </button>
+      
+                          <div data-id="offer_tooltip" class='tooltip_content_desc afslease_tooltip_content3 ahfc_tooltip'>
+                            <h3>News, Updates, and Offers:</h3>
+                            <p class="tooltip_body">Stay tuned for exciting offers and exciting information.</p>
+                          </div>
+
+                </div>
+
+                 <!--HFS Retail Sample Statement -->
+                 <div class="Img_Container" if:true={hfsRetailSample}>
+
+                  <img src={hfsRetailStatementSample} alt="tooltipImg" class="logo1" /> 
+
+                  <button class="slds-button slds-button_icon slds-button slds-button_icon hfsretail_image_button" aria-describedby="tooltipIcon" aria-disabled="true"  onmouseover={showtooltip} onmouseout={hidetooltip}>
+                    <img src={transparentImg} alt="tooltipImg" class="logo1" /> 
+                  </button>
+
+                    <div  data-id="tooltip" class='tooltip_content_desc hfsretail_tooltip_content tooltip_content_des_mob ahfc_tooltip'>
+                      <h3>Payment Information:</h3>
+                      <p class="tooltip_body">Update to details on your account including fees and past due amounts.</p>
+                    </div>
+
+                    <button class="slds-button slds-button_icon slds-button slds-button_icon hfsretail_image_button1" aria-describedby="tooltipIcon" aria-disabled="true"  onmouseover={showActivitytooltip} onmouseout={hideActivitytooltip}>
+                      <img src={transparentImg} alt="tooltipImg" class="logo1" /> 
+                    </button>
+  
+                      <div data-id="activity_tooltip" class='tooltip_content_desc hfsretail_tooltip_content1 ahfc_tooltip'>
+                        <h3>Activity Since Last Statement:</h3>
+                        <p class="tooltip_body">Current financial transactions since your last statement including payments, assessments, waiver, and reversals.</p>
+                      </div>
+
+                      <button class="slds-button slds-button_icon slds-button slds-button_icon hfsretail_image_button2" aria-describedby="tooltipIcon" aria-disabled="true"  onmouseover={showACustServicetooltip} onmouseout={hideCustServicetooltip}>
+                        <img src={transparentImg} alt="tooltipImg" class="logo1" /> 
+                      </button>
+    
+                        <div data-id="custservice_tooltip" class='tooltip_content_desc hfsretail_tooltip_content2 ahfc_tooltip'>
+                          <h3>Customer Service:</h3>
+                          <p class="tooltip_body">Please see your statement for the customer service phone number and hours of operation.</p>
+                        </div>
+
+                        <button class="slds-button slds-button_icon slds-button slds-button_icon hfsretail_image_button3" aria-describedby="tooltipIcon" aria-disabled="true"  onmouseover={showoffertooltip} onmouseout={hideOffertooltip}>
+                          <img src={transparentImg} alt="tooltipImg" class="logo1" /> 
+                        </button>
+      
+                          <div data-id="offer_tooltip" class='tooltip_content_desc hfsretail_tooltip_content3 ahfc_tooltip'>
+                            <h3>News, Updates, and Offers:</h3>
+                            <p class="tooltip_body">Stay tuned for exciting offers and exciting information.</p>
+                          </div>
+
+
+                 </div>
+
+                 <!--AFS Retail Sample Statement  -->
+
+                 <div class="Img_Container" if:true={afsRetailSample}>
+
+                  <img src={afsRetailStatementSample} alt="tooltipImg" class="logo1" /> 
+
+                  <button class="slds-button slds-button_icon slds-button slds-button_icon afsretail_image_button" aria-describedby="tooltipIcon" aria-disabled="true"  onmouseover={showtooltip} onmouseout={hidetooltip}>
+                    <img src={transparentImg} alt="tooltipImg" class="logo1" /> 
+                  </button>
+
+                    <div  data-id="tooltip" class='tooltip_content_desc afsretail_tooltip_content tooltip_content_des_mob ahfc_tooltip'>
+                      <h3>Payment Information:</h3>
+                      <p class="tooltip_body">Update to details on your account including fees and past due amounts.</p>
+                    </div>
+
+                    <button class="slds-button slds-button_icon slds-button slds-button_icon afsretail_image_button1" aria-describedby="tooltipIcon" aria-disabled="true"  onmouseover={showActivitytooltip} onmouseout={hideActivitytooltip}>
+                      <img src={transparentImg} alt="tooltipImg" class="logo1" /> 
+                    </button>
+  
+                      <div data-id="activity_tooltip" class='tooltip_content_desc afsretail_tooltip_content1 ahfc_tooltip'>
+                        <h3>Activity Since Last Statement:</h3>
+                        <p class="tooltip_body">Current financial transactions since your last statement including payments, assessments, waiver, and reversals.</p>
+                      </div>
+
+                      <button class="slds-button slds-button_icon slds-button slds-button_icon afsretail_image_button2" aria-describedby="tooltipIcon" aria-disabled="true"  onmouseover={showACustServicetooltip} onmouseout={hideCustServicetooltip}>
+                        <img src={transparentImg} alt="tooltipImg" class="logo1" /> 
+                      </button>
+    
+                        <div data-id="custservice_tooltip" class='tooltip_content_desc afsretail_tooltip_content2 ahfc_tooltip'>
+                          <h3>Customer Service:</h3>
+                          <p class="tooltip_body">Please see your statement for the customer service phone number and hours of operation.</p>
+                        </div>
+
+                        <button class="slds-button slds-button_icon slds-button slds-button_icon afsretail_image_button3" aria-describedby="tooltipIcon" aria-disabled="true"  onmouseover={showoffertooltip} onmouseout={hideOffertooltip}>
+                          <img src={transparentImg} alt="tooltipImg" class="logo1" /> 
+                        </button>
+      
+                          <div data-id="offer_tooltip" class='tooltip_content_desc afsretail_tooltip_content3 ahfc_tooltip'>
+                            <h3>News, Updates, and Offers:</h3>
+                            <p class="tooltip_body">Stay tuned for exciting offers and exciting information.</p>
+                          </div>
+
+
+                 </div>
+            </div>
+        </div>
+
+      
+    </div>
+        
+    
+  </section>
+  <div class="slds-backdrop slds-backdrop_open" aria-hidden="true"></div>
+  </div>
+       
+
+                
+               
+</template>

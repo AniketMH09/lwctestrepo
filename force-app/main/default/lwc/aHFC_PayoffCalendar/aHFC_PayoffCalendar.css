@@ -1,0 +1,465 @@
+@import 'c/aHFC_dashboardTheme';
+/* START - ATTENTION MODAL BOX */
+
+.ahfc-action-btn {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  letter-spacing: 0.06em;
+}
+.continue-button {
+  background-color: #CC0000;
+  border: none;
+  color: #ffffff;
+  box-sizing: border-box;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+  width: auto;
+  height: 40px;
+  margin-top: 32px;
+  margin-right: 32px;
+}
+.modal-action {
+  display: flex;
+  align-items: baseline;
+}
+.attention-modal-content {
+  padding: 32px 100px;
+  position: relative;
+}
+.attention-info a {
+  text-decoration: underline;
+  color: #CC0000;
+}
+.cancel-action {
+  color: #CC0000;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+.header-text-med {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 26px;
+  line-height: 36px;
+  color: #000000;
+}
+
+.para-text-med {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #5e6162;
+}
+.attention-modal-content .cross-icon {
+  top: 32px;
+  right: 32px;
+}
+/* END - ATTENTION MODAL BOX */
+/*START - Secondary Header*/
+.AHFC_CommunitySecHeader{width: 100%;
+    padding: 0 8rem;
+    height: 100px!important;
+    border-bottom: 1px solid #d9d9d9;}
+  .AHFC_LeftGridSec {
+    padding: 1rem 2rem 0.75rem 0.5rem;
+    float: left;
+    /* border-right: 1px solid black; */
+    /* height: 55px; */
+    border-right: 1px solid #d9d9d9;
+    }
+  .AHFC_SecLogostyle{
+    width: auto;
+    height: 50px;
+    }
+  .AHFC_SecLogostyle img{    object-fit: contain;
+    /* width: auto; */
+    height: 43px;}
+  
+  .AHFC_VehImg {    width: auto;
+    /* height: auto; */
+    float: left;
+    padding: 1rem 2rem .75rem 2rem;}
+  .AHFC_VehImg img{
+    height: 56px;
+    object-fit: contain;
+    width: auto;
+  }
+  
+  .AHFC_Vehdetail { float: left;
+    padding: 0.5rem 2rem .75rem 0rem;
+    line-height: 1.5;}
+  .AHFC_DetName{font-size: 30px;
+    font-family: 'ahfc-robotolight';}
+  .AHFC_Aclabel{
+    color: #5E6162;
+    font-size: 14px;
+    /* font-weight: 700; */
+    font-family: 'ahfc-robotomedium';
+    letter-spacing: 0.03rem;line-height: 2;
+  }
+  
+  /*END - Secondary Header*/
+  /*START - CALENDAR SECTION*/
+  .AHFC_PCMsg{font-size: 18px;
+    letter-spacing: 0.02rem;
+    /* line-height: 1; */
+  color:#5E6162;}
+  .AHFC_PrintRt{    float: right;
+    padding: 1.5rem 0.5rem 0rem 2rem;
+  }
+   .insideText{
+    padding: 0.5rem .5rem 0 2rem;
+  }
+  .outsideText{
+    font-size: 15px;
+  }
+  .AHFC_PrintertextIcon{margin-right:0.5rem;}
+.AHFC_Printertext{float:right;font-size:13px;}
+  .AHFC_ContainerSec{width: 100%;margin: 0 auto;}
+  .AHFC_innerHeader{
+  font-size: 26px;
+    line-height: 36px;
+    font-family: 'ahfc-robotolight';
+    color: #000000;
+  }
+  .AHFC_InnerHeading{font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.04rem;
+    font-family: 'Roboto-Black';
+    color: #000000;
+    margin-bottom: 0.5rem;}
+  .AHFC_Wrapperst{    padding: 2rem 8rem 2rem 8rem;
+  }
+  .AHFC_InnerAround{        padding: 3rem 6rem!important;
+
+  }
+  .AHFC_Colred{color:#CC0000;
+    text-decoration: underline;
+    /* font-family: 'ahfc-robotomedium'; */
+    letter-spacing: 0.06em;
+    font-size: 14px;}
+    .AHFC_faqText{
+      font-family: 'ahfc-robotomedium';
+      text-decoration: none;
+    }
+  .AHFC_InnerHeadCont p>a{color:#e22525;text-decoration: underline;}
+  .AHFC_InnerHeadCont p{
+  color: #5E6162;    margin: 0.5rem 0 0.5rem 0rem;
+  
+  }
+  .AHFC_PrimHead{ 
+    padding-bottom: 2rem;
+  }
+
+  .AHFC_PrimHead p{
+    display: inline;
+    font-size: 38px;
+    font-family: ahfc-robotolight;
+    line-height: 1.5;
+    color: #000000;
+}
+
+/*Calendar Section Para*/
+.AHFC_bgCont{background: #f7f7f7;
+  padding: 1rem 1rem 0.75rem 1.5rem;
+  margin: 2rem 0 2rem 0;
+  border-radius: 3px;
+}
+.AHFC_estimateSubheading{
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02rem;
+  color: #5E6162;
+}
+.AHFC_SubheadStyle{margin-top:2rem;}
+.AHFC_Calwidth{width: 30%;}
+
+  /* start - Amount Layout section */
+  .AHFC_AmtLayout{    padding: 1rem 0;    font-size: 13px;
+    /* border-bottom: 3px solid #f7f7f7; */
+    border-bottom: 1px solid #D9D9D9;
+  }
+ .AHFC_Subtxt{color: #5E6162;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.03rem;
+}
+  .AHFC_AmtWrap{margin-bottom: 1.5rem;}
+  .AHFC_rightSpace{
+    padding-left: 5rem;
+  }
+  .AHFC_Callabel{ font-size: 13px;}
+  .AHFC_estimatedHeading{
+    font-size: 14px;
+    line-height: 20px;
+    font-family: 'ahfc-robotomedium';
+    letter-spacing: 0.03rem;
+    color: #000000;
+  }
+  .AHFC_labelHeading{
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    /* line-height: 20px; */
+    color: #000000;
+    font-family: 'ahfc-robotomedium'
+  }
+  .AHFC_CalVal{    font-size: 30px;
+    font-family: 'ahfc-robotolight';
+    color: #000000;
+    line-height: 2;
+  }
+  .AHFC_maturitySubhead{
+    color: #414141;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: 0.03rem;
+  }
+  .AHFC_SubmitBut{
+    padding: 0.5rem 3rem 0.5rem 3rem;
+    margin-bottom: 1rem;
+    margin-top: 4px;
+    height: 40px;
+    font-family: 'ahfc-robotomedium' !important;
+font-weight:normal !important;
+
+  }
+
+  /* End - Amount Layout section */
+  /*END - CALENDAR SECTION*/
+  /* START - FAQ Accordion */
+/* START - Search Input */
+.AHFC_Linkwraphelp{
+  /* margin-top:1rem Salesforce Scan; */
+  border-top: 0.1rem solid;
+  width: 100%;
+  color: #5E6162;
+  margin-top: 1.5rem;
+  padding-top: 22px;}
+.AHFC_InpLayout{width: 93.5%;
+  display: inline-block;}
+  .AHFC_SearchButLayout{width:6%;display:inline-flex;}
+  .AHFC_SearchIcon{
+      
+      width: 3rem !important;
+      border-top-left-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
+      background: #e22525 !important;
+      height: 32px !important;
+      border: none;
+  }
+  .AHFC_SearchInp label{display: none !important;}
+/* END - Search Input */
+/*.AHFC_PrintRt{  display: none;
+}*/
+  .AHFC_DownIconAcc{float: right;    margin-top: 3px;
+    --lwc-colorTextIconDefault: #5E6162;
+  }
+  
+  .AHFC_AccFullWidth{width: 100%;margin-top:0.5rem;}
+  .AHFC_faqSubheadings{
+    letter-spacing: 0.03rem;
+    font-size: 14px;
+  }
+.accordion {
+  background-color: #f7f7f7;
+  color:#000;
+  cursor: pointer;
+  padding: 0.5rem 1.2rem!important;
+  width: 100%;
+  text-align: left;
+  outline: none;
+  font-size: 16px;
+  transition: 0.4s;
+  border:none;
+  }
+  
+  /* .active, .accordion:hover {
+      background-color: #ccc; 
+  }*/
+  
+  .accordion:after {
+  /* content: '\002B'; */
+  color:#CC0000;
+  font-weight: bold !important;
+  float: right;
+  margin-left: 5px;
+  }
+/* END - FAQ Accordion */
+
+.AHFC_TitleWrapper{
+  display: inline-block;
+}
+.AHFC_PrinterWrap{
+  padding: 5.5rem .5rem 0 2rem;
+}
+
+/* @media (min-width: 320px) and (max-width: 768px) { */
+  /* ipad changes */
+/* @media (min-width: 320px) and (max-width: 896px) { */
+@media (min-width: 250px) and (max-width: 1179px) {
+  .AHFC_InpLayout {
+    width: 82.5% !important;
+    
+}
+  /* Calendar */
+  .AHFC_Calwidth{width: 100% !important;    margin-bottom: 2rem;
+  }
+  .AHFC_InnerAround{    padding: 1rem !important;
+  }
+  .CalLayoutMob{display: block !important;}
+  /* Calendar Ends */
+  .AHFC_InnerHeadCont{    margin: 1.5rem 0 1.5rem 0!important;
+  }
+  .AHFC_DetName{font-size: 20px !important;}
+  .AHFC_LeftGridSec{display: none;}
+  .AHFC_Aclabel{padding-right: 0.5rem !important;display: inline-block !important;}
+  .AHFC_Vehdetail{   line-height: 1.75 !important;
+       /* padding: .5rem 0.5rem .75rem 0.5rem !important; */
+       padding: 0rem 1rem 0rem 0rem!important;
+  }
+  .AHFC_CommunitySecHeader{padding:0rem !important;display: inline-flex;}
+.AHFC_MobLAyout{display: block;}
+.AHFC_Wrapperst {
+  /* padding: 0.5rem; */
+  margin: 0rem 0 0rem 0;    padding: 0rem !important;
+
+  display: block;
+  /* padding: 1rem; */
+}
+.AHFC_PrimHead{
+  padding: 0.0rem 1rem 0.0rem 1rem;
+}
+.AHFC_PrimHead p{
+  font-size: 26px;
+  color: #000000;
+  line-height: 36px;
+}
+.AHFC_innerHeader{
+  font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+    margin: 0.5rem 0rem 1rem 0rem;
+}
+/* .AHFC_PrintRt{
+ display: none;
+} */
+.AHFC_PCMsg{
+  font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+    color: #5E6162;
+}
+.AHFC_CalVal{
+  font-size: 26px;
+}
+.AHFC_maturitySubhead{
+  color: #5E6162;
+}
+.ahfc-btn{
+   line-height: 15px !important;
+}
+.AHFC_estimateSubheading{
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.03em;
+}
+.AHFC_rightSpace{
+  padding-left: 0rem;
+}
+.AHFC_faq{
+  text-align: center;
+}
+.accordion{
+  display: inline-flex;
+}
+.AHFC_DownIconAcc{
+  margin-top: 8px;
+}
+
+}
+/*popup start*/
+@media (min-width: 250px) and (max-width: 768px) {
+.attention-modal-content {
+  padding: 1rem;
+}
+.AHFC_PrinterWrap{
+  padding: 3.5rem .5rem 0 2rem;
+}
+.attention-modal-content .para-text-med{
+  font-size: 16px;
+  line-height: 24px;
+}
+.ahfc_buttons{
+  display: block;
+}
+.continue-button{
+  width: 100%;
+}
+.cancel-action{
+  text-align: center;
+  display: inline;
+  width: 100%;
+  margin-left: 0rem;
+}
+.attention-info h1{
+  font-weight: 300;
+    font-size: 20px;
+    line-height: 26px;
+    color: #000000;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+/*popup end*/
+
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .AHFC_PrinterWrap{
+    padding: 5.5rem .5rem 0 2rem;
+  }
+}
+
+@media (min-width: 250px) and (max-width: 468px) {
+  .AHFC_PrinterWrap{
+    padding: 3.5rem .5rem 0 2rem;
+  }
+  .outsideText{
+    font-size: 13px;
+  }
+}
+@media (min-width: 250px) and (max-width: 447px) {
+  .AHFC_PrinterWrap{
+    padding: 2.5rem .5rem 0 2rem;
+  }
+}
+/* mobile fold fixes start*/
+@media (min-width: 250px) and (max-width: 319px) {
+  .AHFC_PrimHead{
+    padding: 0px;
+  }
+  .AHFC_SubmitBut{
+    padding: 0.5rem 2rem 0.5rem 2rem;
+  }
+}
+
+@media (min-width: 250px) and (max-width: 480px) {
+  .insideText{
+    float: left ;
+    padding: 0rem 0rem 0 0rem;
+  }
+  }
+  @media (min-width: 480px) and (max-width: 481px) {
+    .insideText{padding: 0.5rem 0.5rem 0 2rem;
+  float: right;
+    }
+  }
+/* mobile fold fixes end*/

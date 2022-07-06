@@ -1,0 +1,89 @@
+<apex:page sidebar="false" showHeader="false">
+<html>
+<head>
+  <!--  LOAD THE CSS STYLE SHEET-->
+  <apex:stylesheet value="{!URLFOR($Resource.AFSHFS, 'AfsHfs/css/style.css')}"/>
+  <apex:includescript value="{!URLFOR($Resource.TrackingJS, 'AppMeasurement_JavaScript-1.5.2/VisitorAPI.js')}"/>
+  <apex:includescript value="{!URLFOR($Resource.TrackingJS, 'AppMeasurement_JavaScript-1.5.2/AppMeasurement.js')}"/>
+</head> 
+<body>
+<script language="JavaScript" type="text/javascript">
+            /* You may give each page an identifying name, server, and channel on
+            the next lines. */
+            s.pageName="PaymentGateway404ErrorPage"
+            s.server=""
+            s.channel=""
+            s.pageType=""
+            s.prop1=""
+            s.prop2=""
+            s.prop3=""
+            s.prop4=""
+            s.prop5=""
+            /* Conversion Variables */
+            s.campaign=""
+            s.state=""
+            s.zip=""
+            s.events=""
+            s.products=""
+            s.purchaseID=""
+            s.eVar1=""
+            s.eVar2=""
+            s.eVar3=""
+            s.eVar4=""
+            s.eVar5=""
+            var s_code=s.t();if(s_code)document.write(s_code);
+</script> 
+  <!--  LOAD THE CSS STYLE SHEET-->
+  <apex:stylesheet value="{!URLFOR($Resource.AFSHFS, 'AfsHfs/css/style.css')}"/>
+  
+  
+  <!--  ALIGN THE MESSAGE AND IMAGE IN CENTER OF PAGE--> 
+  <!--  Defect: 114112 - Modifying the Error Messages -->
+  <table border="2" class="security-check">
+      <tr>
+         <apex:outputpanel rendered="{!$CurrentPage.parameters.isHonda == 'true' }">
+         <td align="left" class="pull-left security-text" style="vertical-align:middle;color:#333333;font-size:14px;font-family:Arial;">
+              <div style="margin-bottom:20px;"> THE PAGE YOU REQUESTED MAY HAVE MOVED OR NO LONGER EXISTS. </div>
+              <div>
+               <div style="line-height:18px; margin-bottom:10px;">If you reached this page using a bookmark, it is possible the address is out of date.<br></br>
+                If you typed in an address, or selected a link from another website or from an email, it's possible the address is inaccurate.</div>
+                
+                <div style="margin-bottom:20px;"> Here are some options to assist you in finding the desired page and/or relevant content: </div>
+                        <ul>
+                            <li> Hit the Back button on your browser and try again </li> 
+                            <li> Check the URL for typographical errors </li>
+                           <li>  Go to our <a href="http://www.hondafinancialservices.com/"> home page </a> and review the available options </li>
+                            <li> Check our <a href="http://www.hondafinancialservices.com/help/site-map"> site map </a> for a comprehensive list of available pages. </li>
+                        </ul><br/>        
+                 </div>
+             
+          </td>
+          </apex:outputpanel>
+          
+             <apex:outputpanel rendered="{!$CurrentPage.parameters.isHonda != 'true' }">
+           <td align="left" class="pull-left security-text" style="vertical-align:middle;color:#333333;font-size:14px;font-family:Arial;">
+              <div style="margin-bottom:20px;"> THE PAGE YOU REQUESTED MAY HAVE MOVED OR NO LONGER EXISTS. </div>
+              <div>
+               <div style="line-height:18px; margin-bottom:10px;">If you reached this page using a bookmark, it is possible the address is out of date.<br></br>
+                If you typed in an address, or selected a link from another website or from an email, it's possible the address is inaccurate.</div>
+                
+                <div style="margin-bottom:20px;"> Here are some options to assist you in finding the desired page and/or relevant content: </div>
+                        <ul>
+                            <li> Hit the Back button on your browser and try again </li> 
+                            <li> Check the URL for typographical errors </li>
+                           <li>  Go to our <a href="http://www.Acurafinancialservices.com/"> home page </a> and review the available options </li>
+                            <li> Check our <a href="http://www.Acurafinancialservices.com/help/site-map"> site map </a> for a comprehensive list of available pages. </li>
+                        </ul><br/>        
+                 </div>
+             
+            </td>
+          </apex:outputpanel>
+      </tr>
+  </table>
+  
+  <!-- SCRIPT TO REDIRECT TO THE CUSTOMER SERVICE PAGE IN HONDA APP WEBSITE-->
+  
+ </body> 
+ </html>   
+  
+</apex:page>

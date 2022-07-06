@@ -1,0 +1,369 @@
+/*@import 'c/aHFC_dashboardTheme';*/
+.ahfc-close-title-text {
+    background-color: white;
+    padding: 40px 100px;
+   
+}
+.ahfc-close-title-text-1 {
+ 
+  color: black;
+  font-size: 26px;
+  line-height: 36px;
+  font-weight: 300;
+ 
+  
+}
+.ahfc-close-title-text-2 {
+  letter-spacing: 0.32px;
+  color: #5E6162;
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 16px;
+}
+.invisible-content{
+clip: rect(1px,1px,1px,1px);
+position: absolute!important;
+height: 1px;
+width: 1px;
+overflow: hidden;
+}
+  .attention-modal-content {
+    padding: 50px 100px;
+    position: relative;
+  }
+  .attention-modal-content .cross-icon {
+    top: 32px;
+    right: 32px;
+  }
+  .attention-info a {
+    text-decoration: underline;
+    color: #CC0000;
+  }
+  .checkBoxDropDown{
+    margin-top: 75px;
+  }
+  .aDueDatereminder{
+    text-decoration: none;
+  }
+  .header-text-med {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 26px;
+    line-height: 36px;
+    color: #000000;
+  }
+  .modal-action {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .modal-action {
+    display: flex;
+    align-items: baseline;
+  }
+  .continue-button {
+    background-color: #CC0000;
+    border: none;
+    color: #ffffff;
+    box-sizing: border-box;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    width: auto;
+    height: 40px;
+    margin-top: 32px;
+    margin-right: 32px;
+  }
+  .cancel-action {
+    color: #CC0000;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 3px;
+  }
+  .ahfc-action-btn {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 14px 24px;
+    letter-spacing: 0.06em;
+  }
+  .para-text-med {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: #5e6162;
+  }
+  
+  .paymentdue-info {
+    border-right: 1px solid #d9d9d9;
+    padding-right: 15px;
+  }
+  .ahfc-btn{
+    line-height: 15px !important;
+  }
+ .AHFC_SubmitBut{
+    padding: 0.5rem 3rem 0.5rem 3rem;
+    margin-bottom: 1rem;
+    margin-top: 4px;
+    height: 40px;
+    font-family: 'ahfc-robotomedium' !important;
+    font-weight:normal !important;
+  }
+
+  .AHFC_Wrapper{
+    padding: 0rem 6rem 3rem;    
+  }
+  .AHFC_ContainerWrap{
+    padding: 3rem 6rem;
+  }
+  .AHFC_LabelHead{
+    font-size: 26px;
+    line-height: 36px;
+    color: #000000;
+    font-family: 'ahfc-robotolight', sans-serif;
+    padding-bottom: 1rem;
+  }
+  .AHFC_LabelDetail{
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: 0.02em;
+    color: #5E6162;
+    padding-bottom: 1rem;
+  }
+  .AHFC_InputWrap{
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #D9D9D9;
+  }
+  .AHFC_InputWrapContainer{
+    padding-top: 1rem;
+    border-bottom: 1px solid #D9D9D9;
+  }
+
+  .AHFC_initialMargin{
+    padding-bottom: 2rem;
+  }
+  .AHFC_initialMarginContainer{
+    padding-top: 3rem;
+  }
+  .AHFC_LabelTwo{
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-family: 'Roboto-Black', sans-serif;
+    color: #000000;
+    padding-top: 2.5rem;
+    padding-bottom: 1rem;
+  }
+  .AHFC_AccLabel{
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: 0.02em;
+    color: #414141;
+    padding-bottom: 2rem;
+  }
+  .AHFC_AccLabelOne{
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: 0.02em;
+    color: #414141;
+    padding-bottom: 1rem;
+
+  }
+  .AHFC_AccStatusWrap{
+    padding-left: 2rem;
+  }
+  .AHFC_BorderBottom{
+    border-bottom: 1px solid #D9D9D9;
+  }
+  .AHFC_DashedHr{
+    border-bottom: 1px dashed #D9D9D9;
+    border-top: none;
+    margin-bottom: 2rem;
+    margin-top: 0;
+  }
+  .AHFC_BillGridWrap .combox_selector{
+    padding-left: 5rem;
+  }
+  .AHFC_AccGridWrap .combox_selector{
+    float: right;
+  }
+  .AHFC_LabelThree{
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #000000;
+    font-family: 'ahfc-robotomedium' ,sans-serif;
+    padding-bottom: 1rem;
+  }
+  .AHFC_AccReminder{
+    width: 75%;
+  }
+  .AHFC_SelectGrid{
+    margin-bottom: 3rem;
+  }
+  .AHFC_UnSubscrine{
+    padding-bottom: 2rem;
+  }
+  .AHFC_AccLabel a{
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    text-decoration-line: underline;
+    color: #CC0000;  
+  }
+  .AHFC_UnSubscrine a{
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    text-decoration-line: underline;
+    
+  }
+
+  .AHFC_unsubscribeLinkColor a{
+    color: #CC0000;
+  }
+  .AHFC_unsubscribeLinkColorDisabled a{
+    color: #b1b1b1;
+    cursor: no-drop;
+  }
+      
+  .combox_selectorDisabled .slds-checkbox_faux{
+    cursor: no-drop !important;
+  } 
+  .AHFC_TextOne{
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 0.03em;
+    color: #5E6162;
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+  }
+  /* @media (min-width: 320px) and (max-width: 768px) { */
+  @media (min-width: 250px) and (max-width: 1024px) {
+    .ahfc-close-title-text {
+      background-color: white;
+      padding: 20px 24px;
+    
+  }
+  .ahfc-close-title-text-1 {
+    color: black;
+    font-size: 20px;
+    line-height: 26px;
+    
+    
+    
+}
+.ahfc-close-title-text-2 {
+ 
+  color: #5E6162;
+  font-size: 18px;
+  font-weight: 500;
+    
+}
+    .attention-modal-content {
+      padding: 50px 70px;
+    }
+    .checkBoxDropDown{
+      margin-top: auto;
+    }
+    .AHFC_Wrapper{
+      padding: 0rem;    
+    }
+    .AHFC_ContainerWrap{
+      padding: 1.5rem 1.52em;
+      margin: 0px;
+    }
+    .AHFC_LabelHead{
+      font-size: 18px;
+      line-height: 21px;
+      padding-bottom: 1rem;
+    }
+    .AHFC_LabelDetail{
+      font-size: 16px;
+      line-height: 24px;
+    }
+    .AHFC_InputWrap{
+      padding-top: 2rem;
+    }    
+    .AHFC_InputWrapContainer{
+      padding-top: 2rem; 
+    }
+    .AHFC_LabelTwo{
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.05em;
+    }
+    .AHFC_AccStatusWrap{
+      padding-left: 0rem;
+    }
+    .AHFC_AccReminder{
+      width: 100%;
+    }
+    .AHFC_UnSubscrine a,
+    .AHFC_AccLabelOne,
+    .AHFC_AccLabel,
+    .AHFC_AccLabel a{
+      font-size: 16px;
+      line-height: 24px;
+    }
+    .AHFC_TextOne{
+      font-size: 14px;
+      line-height: 20px;
+    }
+    .AHFC_BillGridWrap .combox_selector{
+      padding-left: 0rem;
+    }
+
+    .AHFC_BillGridWrap .combox_selector,
+    .AHFC_AccGridWrap .combox_selector{
+      float: none;
+      margin-bottom: 2rem;
+    }
+    .AHFC_MobileWrap .combox_selector{
+      margin-top: 2rem;
+      margin-bottom: 0rem;
+    }
+    .AHFC_InputWrap .AHFC_Email{
+      margin-bottom: 3rem;
+    }
+    .AHFC_Cancel {
+      margin-left: 0 !important;
+    }
+  }
+
+  @media (min-width: 250px) and (max-width: 1024px) {
+    .cancel-action{
+      margin:auto;
+    }
+    .continue-button{
+      margin-top: 0px;
+    }
+  }
+
+  @media (min-width: 250px) and (max-width: 480px) {
+    .attention-modal-content {
+      padding: 50px 40px;
+    }
+  }
+    @media (min-width: 250px) and (max-width: 420px) {
+      .continue-button{
+        margin-right: 0px;
+      }
+      .cancel-action,.continue-button{
+      font-size: 12px;
+      }
+  }
+  @media (min-width: 250px) and (max-width: 345px) {
+    .attention-modal-content {
+      padding: 50px 20px;
+    }
+  }

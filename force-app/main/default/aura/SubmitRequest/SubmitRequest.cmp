@@ -1,0 +1,19 @@
+<aura:component controller="CheckPermission" 	implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+    <aura:attribute name= "strEmail" type="String" access="global" />
+    <aura:attribute name= "isContributor" type="Boolean" default="false" />
+    <aura:attribute name= "intWidth" type="Integer" default="100" />
+    <aura:attribute name= "strWidth" type="String" default="width: 100%" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+     
+            <aura:if isTrue="{!v.isContributor}">
+                <div class="slds-align_absolute-center" style="{!v.strWidth}">
+                <lightning:button class="slds-size_full askCommunityBtn forceCommunityAskCommunity" variant="brand"  label="Suggest a Change"  onclick="{!c.openEmail}"  />
+            </div>
+                </aura:if>   
+
+        
+        
+   
+    
+</aura:component>

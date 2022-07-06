@@ -1,0 +1,16 @@
+<!-- AHFC_CCPA_Case_Submitting_ErrorLog -->
+<aura:component implements="lightning:availableforFlowScreens">
+	 <aura:attribute name="value" type="String" />
+     <aura:attribute name="errmsg" type="String" />
+     <aura:attribute name="contactus" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+	<div class="contain">
+        <div class="center">
+            <div class="info">
+                <p><aura:unescapedHtml value="{!v.errmsg}"/></p>
+            </div>
+            
+        </div> 
+    </div>
+</aura:component>

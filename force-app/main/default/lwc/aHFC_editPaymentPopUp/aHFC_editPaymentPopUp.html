@@ -1,0 +1,113 @@
+<template>
+ 
+  <section role="dialog" tabindex="-1" aria-label="Meaningful description of the modal content" aria-modal="true"
+    aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open finance-account-edit-modal">
+    <template if:false={isLoaded}>
+      <c-a-h-f-c_-spinner loading-message={loadingMessage}></c-a-h-f-c_-spinner>
+  </template>
+    <div class="slds-modal__container">  
+      <div class="slds-modal__content edit-modal-content" id="modal-content-id-1">
+       
+        <template if:true={otp}>
+          <h1 class="header-text-medium slds-m-bottom_x-large">{modalHeaderText}</h1>
+          <template if:false ={isNotEditable}>
+          <div class="slds-form-element slds-m-bottom_xx-large">
+            <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-07">{paymentAmountLabel}</label>
+            <div class="slds-form-element__control">
+             <!-- <input type="number" id="form-element-07" data-id="payment-amount" placeholder="Payment Amount"
+                class=" ahfc-input " value={financeAccData.paymentAmount} onchange={handleInputData}/> -->
+
+                <lightning-input type="number" id="paymentAmount" data-id="payment-amount" class="ahfc-input no-label" name="paymentAmount"
+                value={otpPaymentAmount} formatter="currency" step="0.01" min="0" 
+                alternative-text ="Payment Amount" aria-label="Payment Amount" label="Payment Amount"
+                onchange={handleInputData}
+                message-when-range-underflow="Error: Please enter a valid payment amount." message-when-step-mismatch="Error: Please enter a valid payment amount."  >
+             
+             </lightning-input>
+
+            </div>
+          </div>
+          <div class="slds-form-element slds-m-bottom_xx-large">            
+            <div class="slds-form-element__control">
+              <!--<input type="text" id="form-element-08" data-id="address2-input" placeholder="Payment Date" class="slds-input form-element-input" value={responseData.garagingAddress.addressLine2} oninput={handleInputData}/>-->
+              <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-07">Payment Date</label>
+                <lightning-input label="Payment Date" class="schedule-input ahfc-input no-label" id="paymentDate" type="date" data-id="payment-date"
+                name="schedule" date-style="medium" value={paymentDate} onchange={handleInputData}>
+             </lightning-input>
+            </div>
+          </div>
+        </template>
+        <template if:true ={isNotEditable}>
+          <div class="slds-form-element slds-m-bottom_xx-large">
+            <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-07">{paymentAmountLabel}</label>
+            <div class="slds-form-element__control">
+           
+             <label class="slds-form-element__label  label-text-medium slds-m-bottom_small AHFC_FieldData" for="form-element-07">{paymentAmount}</label>
+
+            </div>
+          </div>
+          <div class="slds-form-element slds-m-bottom_xx-large">            
+            <div class="slds-form-element__control">
+              <!--<input type="text" id="form-element-08" data-id="address2-input" placeholder="Payment Date" class="slds-input form-element-input" value={responseData.garagingAddress.addressLine2} oninput={handleInputData}/>-->
+              <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-07">Payment Date</label>
+              <label class="slds-form-element__label  label-text-medium slds-m-bottom_small AHFC_FieldData" for="form-element-07">{financeAccData.paymentDate}</label>
+               
+            </div>
+          </div>
+        </template>
+          <div class="slds-form-element slds-m-bottom_xx-large">
+            <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-10">Payment
+              Source</label>
+            <div class="slds-form-element__control">
+              <!-- <input type="text" id="form-element-10" data-id="state-input" placeholder="Enter State" class="slds-input form-element-input" value={responseData.garagingAddress.state} oninput={handleInputData}/> -->
+              <a href="javascript:void(0);" tabindex="-1" aria-label ="Payment Source" style ="text-decoration: none">
+              <lightning-combobox class="ahfc-combobox ahfc-input no-label data-id AHFC_InputCard" name="ps" label=""
+                value={financeAccData.paymentSourceId} required message-when-value-missing="Please select payment source" validity
+                placeholder="Select payment source" data-id="payment-source" options={options} onchange={handleInputData}
+               >
+              </lightning-combobox>
+              </a>
+
+            </div>
+          </div>
+          <div class="slds-col slds-size_1-of-1">
+            <template if:true={flags.boolShowScheduleOnMsg}>
+               <div class="message-info slds-m-vertical_xx-large">
+                  <c-a-h-f-c_message-toast type="warning" label="Attention"
+                     message={messages.strScheduleOnMsg}>
+                  </c-a-h-f-c_message-toast>
+               </div>
+            </template>
+         </div>
+         <div class="slds-col slds-size_1-of-1">
+          <template if:true={flags.boolShowStdPaymentAmountMsg}>
+             <div class="message-info slds-m-vertical_xx-large">
+                <c-a-h-f-c_message-toast type="warning" label="Attention"
+                   message={messages.strStdPaymentAmountMsg}
+                   link = {linkonToast}
+                   onlinkclicked={onToastLinkClicked}>
+                </c-a-h-f-c_message-toast>
+             </div>
+          </template>
+       </div>
+        </template>
+       
+          <div class="modal-action slds-m-top_xx-large">
+            <button class="slds-button action-btn save-action" onclick={validateUpdatePayment}>
+            Confirm
+            </button>
+            <button class="slds-button action-btn cancel-action" onclick={onCancel}>
+              Cancel
+            </button>
+          </div>
+     
+
+      </div>
+    </div>
+  </section>
+  <div class="slds-backdrop slds-backdrop_open" aria-hidden="true"></div>
+
+
+
+
+</template>

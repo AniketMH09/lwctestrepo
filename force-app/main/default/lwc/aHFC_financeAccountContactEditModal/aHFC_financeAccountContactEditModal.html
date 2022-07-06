@@ -1,0 +1,63 @@
+<template>
+    <section
+        role="dialog"
+        tabindex="-1"
+        aria-label="Meaningful description of the modal content"
+        aria-modal="true"
+        aria-describedby="modal-content-id-1"
+        class="slds-modal slds-fade-in-open finance-account-edit-modal"
+    >
+        <div class="slds-modal__container">
+        <div
+            class="slds-modal__content edit-modal-content"
+            id="modal-content-id-1"
+        >
+            
+        <p class="Header-Text">Edit Contact Information</p></br>
+            <div class="slds-form-element slds-m-bottom_xx-large">
+                <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-02">Cell Phone 1</label>
+                <div class="slds-form-element__control">
+                <input type="text" id="form-element-02" data-id="cell1-input" placeholder="Enter Cell Phone 1" class="slds-input form-element-input" value={cellphone} onchange={handleCell1InputChange}/>
+                </div>
+            </div>
+            <div class="slds-form-element slds-m-bottom_xx-large">
+                <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-03">Cell Phone 2</label>
+                <div class="slds-form-element__control">
+                <input type="text" id="form-element-03" data-id="cell2-input" placeholder="Enter Cell Phone 2" class="slds-input form-element-input" value={cellphone2} onchange={handleCell2InputChange}/>
+                </div>
+            </div>
+            <div class="slds-form-element slds-m-bottom_xx-large">
+                <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-04">Home Phone</label>
+                <div class="slds-form-element__control">
+                <input type="text" id="form-element-04" data-id="homePhone-input" placeholder="Enter Home Phone" class="slds-input form-element-input" value={homephone} onchange={handleHomePhoneInputChange}/>
+                </div>
+            </div>
+            <div class="slds-form-element slds-m-bottom_xx-large">
+                <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-05">Work Phone</label>
+                <div class="slds-form-element__control">
+                <input type="text" id="form-element-05" data-id="workPhone-input" placeholder="Enter Work Phone" class="slds-input form-element-input" value={worklphone} onchange={handleWorkPhoneInputChange}/>
+                </div>
+            </div>
+            <div class="slds-form-element slds-m-bottom_xx-large">
+                <label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="form-element-06">Employer Name</label>
+                <div class="slds-form-element__control">
+                <input type="text" id="form-element-06" data-id="employerName-input" placeholder="Enter Employer Name" class="slds-input form-element-input" value={employername} onchange={handleEmpNameInputChange}/>
+                </div>
+            </div>
+           
+            <div class="modal-action slds-m-top_xx-large">
+            <button class="slds-button action-btn save-action" onclick={onSave}>
+                SAVE
+            </button>
+            <button
+                class="slds-button action-btn cancel-action"
+                onclick={onCancel} 
+            >
+                CANCEL
+            </button>
+            </div>
+        </div>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>

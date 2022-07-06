@@ -1,0 +1,292 @@
+<!--
+* Name: AHFC_Get_Customer_Account
+* Description: customer account screen
+* Created Date: 25-Aug-2021
+* Created By: Sagar (US 4090)
+*-->
+<aura:component    implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    <!-- Inputs -->
+    <!-- RSS 48955 Web Button Cut off Line 4 added, Line 153,178 updated in cmp and 13-22 in css -->
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <aura:attribute name= "strRequestType" type="String"  default="Do Not Sell" />
+    <!-- Outputs -->
+    <aura:attribute name="truthy" default="true" type="boolean"/>
+    <aura:attribute name="acctfieldsreqd" default="false" type="boolean"/>
+    
+    <aura:attribute name= "strFaAccount" type="string" />
+    <aura:attribute name= "hasaccount" type="string" default=""/>
+    <aura:attribute name= "strVin" type="string" />
+    <aura:attribute name= "strSerialNo" type="string" />
+    <aura:attribute name= "strContractNo" type="string" />
+    <aura:attribute name= "strssn" type="string" />
+    <aura:attribute name= "strdob" type="date" />
+    <aura:attribute name= "strdob2" type="string" />
+    <aura:attribute name="yesno" type="List" default="[
+                                                      {'label': 'Yes', 'value': 'Yes'},
+                                                      {'label': 'No', 'value': 'No'}
+                                                      ]"/>
+    
+    <!-- Others-->
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <aura:attribute name= "value" type="String" />
+    <aura:attribute name=  "disabled" type="boolean" default="true"/>
+    <aura:attribute name= "communityName" type="string" default=""/>
+    <aura:attribute name= "LeaseExtensionRequest" type ="string"/>
+    <aura:attribute name=  "hasHondaAccount" type="boolean" default="false"/>
+    
+    <aura:attribute name=  "validTaxId" type="boolean" default="false"/>
+    <aura:attribute name=  "validAccNo" type="boolean" default="false"/>
+    <aura:attribute name=  "validVIN" type="boolean" default="false"/>
+    
+    <aura:attribute name=  "trackAccOpt" type="boolean" default="true"/>
+    <aura:attribute name=  "accYes" type="boolean" default="false"/>
+    <aura:attribute name=  "accNo" type="boolean" default="false"/>
+    <aura:attribute name="otherfieldsreqd" default="false" type="boolean"/>
+    
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+   <!--<aura:handler name="change" value="{!v.trackAccOpt}" action="{!c.onChange}"/>
+    <aura:handler name="change" value="{!v.hasHondaAccount}" action="{!c.onChange}"/>-->
+    
+     <lightning:navigation aura:id="navService"/>
+    <div class="contain">
+        <div class="center">
+            
+            <div class="AHFC_HeaderWrap ahfc_arrowAlign">
+                <h2 class="header">
+                   <!-- <lightning:icon iconName="utility:back" class="AHFC_backArrow ahfc_arrowMargin" alternativeText="Connected" size="small"
+                                    title=""  ></lightning:icon>-->
+                    <span>{!v.strRequestType}</span>
+                </h2>
+            </div>
+            
+            <div class="AHFC_DetailWrap">
+                <div class="contain-secondary">
+                    
+                   <p class='AHFC_Sub_Text'>
+                       <!--<aura:unescapedHtml value="{!$Label.c.CCPA_Get_Acct_details_Instr1}" />-->
+                       To help us better fulfill your request, please provide additional information.
+                    </p>
+                    
+                    <div class="slds-grid slds-wrap AHFC_Fields_Margin">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12 aHFC_rightSpace">
+                          <div class="aHFCEmail">{!$Label.c.CCPA_LAST_4_OF_YOUR_SSN_TIN}</div>
+                          <lightning:input aura:id="ssn" class ="inputField" 
+                                 name="ssn"
+                                 value="{!v.strssn}"
+                                 required="false"
+                                 onchange="{!c.onChangeStrTaxId}"
+                                 maxlength="4"          
+                                />   
+                        </div>
+                   
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12 aHFC_rightSpace">
+                          <div class="aHFCEmail">{!$Label.c.CCPA_DATE_OF_BIRTH}</div>
+                          <lightning:input type="date" aura:id="field"  class ="inputField"
+                                 name="dob"
+                                 value="{!v.strdob2}"
+                                 required="false"
+                                 />   
+                        </div> 
+                    </div>
+                    
+                   <!-- <lightning:radioGroup name="radioGroupRequired"
+                                      label="{!$Label.c.CCPA_HAVE_AHFC_ACCOUNT}"
+                                      options="{! v.yesno }"
+                                      value="{!v.hasaccount}"
+                                      type="radio"
+                                      required="true"
+                                      onchange="{!c.onHasAccountChange}"
+                                      aura:id="field" />-->
+                    
+                    <div class="AHFC_Label">
+                      <!--<p><span class='AHFC_ASTRIC'>*</span>{!$Label.c.CCPA_HAVE_AHFC_ACCOUNT}</p>-->
+                      <span class='AHFC_ASTRIC'>*</span>{!$Label.c.CCPA_HAVE_AHFC_ACCOUNT}  
+                    </div>
+                    
+                    <div class="due-container slds-m-bottom_xx-large slds-form-element__control slds-grid">
+                        
+                        <aura:if isTrue="{!v.trackAccOpt}">
+                            
+                            <lightning:input class="ahfc-radio AHFC_Radio" type="radio" label='Yes' onclick="{!c.hasAccount}"
+                                          name="dueType"  ></lightning:input>
+                            <lightning:input class="ahfc-radio AHFC_Radio" type="radio"  label='No' onclick="{!c.noAccount}"
+                                         name="dueType"  ></lightning:input> 
+                        </aura:if>
+                         
+                        
+                         <aura:if isTrue="{!v.accYes}">
+                            
+                            <lightning:input class="ahfc-radio AHFC_Radio" type="radio" label='Yes' onclick="{!c.hasAccount}"
+                                          name="dueType"  checked='true'></lightning:input>
+                            <lightning:input class="ahfc-radio AHFC_Radio" type="radio"  label='No' onclick="{!c.noAccount}"
+                                         name="dueType"  ></lightning:input> 
+                        </aura:if>
+                        
+                        <aura:if isTrue="{!v.accNo}">
+                            
+                            <lightning:input class="ahfc-radio AHFC_Radio" type="radio" label='Yes' onclick="{!c.hasAccount}"
+                                          name="dueType"  ></lightning:input>
+                            <lightning:input class="ahfc-radio AHFC_Radio" type="radio"  label='No' onclick="{!c.noAccount}"
+                                         name="dueType"  checked='true'></lightning:input> 
+                        </aura:if>
+                        
+                    </div>
+                    
+                    
+                    
+                    
+                    <div class="slds-grid slds-wrap AHFC_Fields_Margin">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12 aHFC_rightSpace">
+                          <div class="aHFCEmail">
+                               <aura:if isTrue="{!v.hasHondaAccount}">
+                                    <abbr title="required" class="slds-required AHFC_ASTRIC" >*</abbr>
+                                </aura:if>
+                              {!$Label.c.CCPA_AHFC_ACCOUNT}
+                            </div>
+                          <lightning:input aura:id="faAcc" class ="inputField" 
+                                 name="FA"
+                                 value="{!v.strFaAccount}"
+                                 required="false"
+                                 onchange="{!c.onChangeFinanceAcc}"
+                                 maxlength="9"
+                                          
+                               />  
+                        </div>
+                        
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12 aHFC_rightSpace">
+                          <div class="aHFCEmail">
+                               <aura:if isTrue="{!v.hasHondaAccount}">
+                                    <abbr title="required" class="slds-required AHFC_ASTRIC" >*</abbr>
+                                </aura:if>
+                              {!$Label.c.CCPA_VIN}
+                            </div>
+                          <lightning:input aura:id="vin" class ="inputField"
+                                 name="VIN"
+                                 value="{!v.strVin}"
+                                 required="false"
+                                 onchange="{!c.onVinNoChange}"
+                                 maxlength="17"/>   
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="slds-grid slds-wrap AHFC_Fields_Margin">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12 aHFC_rightSpace">
+                          <div class="aHFCEmail">{!$Label.c.CCPA_PRODUCT_SERIAL}</div>
+                          <lightning:input aura:id="serNo" class ="inputField"
+                                 name="srnumber"
+                                 value="{!v.strSerialNo}"
+                                 required="false"
+                                 maxlength="20"/>  
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12 aHFC_rightSpace">
+                         <div class="aHFCEmail">{!$Label.c.CCPA_HONDA_ACURA_CARE_CONTRACT}</div>
+                         <lightning:input aura:id="contractNo" class ="inputField"
+                                 name="contractno"
+                                 value="{!v.strContractNo}"
+                                 required="false"
+                                 maxlength="20"/>    
+                        </div>
+                    </div>
+                    
+                    <div class="action ahfc_buttons">
+                       <div>
+                          <lightning:button class="AHFC_customSecondaryButton AHFC_Mob_buttons" aura:id="back1" name="backButton1" label="{!$Label.c.CCPA_PREVIOUS}" onclick="{! c.handlePrevious }"/>
+                         
+                           <aura:if isTrue="{!v.disabled}">
+                             <lightning:button class="AHFC_customPrimaryButton disable  AHFC_Mob_buttons"  aura:id="cont3" name="continue3" label="{!$Label.c.CCPA_CONTINUE}" disabled='true' onclick="{!c.handleContinue}"/>
+                               <aura:set attribute="else">
+                                 <lightning:button class="AHFC_customPrimaryButton  AHFC_Mob_buttons"   aura:id="cont3" name="continue3" label="{!$Label.c.CCPA_CONTINUE}" onclick="{!c.handleContinue}"/>
+                               </aura:set>  
+                           </aura:if>
+                           
+                          
+                        
+                         <lightning:button class="AHFC_customTertiaryButton AHFC_Cancle"  aura:id="cancel1" name="cancelButton1" label="{!$Label.c.CCPA_Cancel}" onclick="{! c.openModel }"/>            
+                      </div>
+                    </div>
+                </div>
+            </div>
+           
+            <!--<div class="slds-grid slds-grid_align-space HD_Gridlayout">
+                <div class="slds-col">
+                    <span><lightning:button class="btn default mr-sm" aura:id="cancel1" name="cancelButton1" label="{!$Label.c.CCPA_Cancel}" onclick="{! c.openModel }"/></span>
+                </div>
+                <div class="slds-col">
+                    <span><lightning:button class="btn default mr-sm" aura:id="back1" name="backButton1" label="{!$Label.c.CCPA_PREVIOUS}" onclick="{! c.handlePrevious }"/></span>
+                </div>
+                <div class="slds-col">
+                    <span><lightning:button class="{!v.disabled == true ?	'btn grey pull-right btn-continue':'btn primary pull-right btn-continue'}"
+                                      disabled="{!v.disabled == true ? 'true':'false'}" aura:id="cont3" name="continue3" label="{!$Label.c.CCPA_CONTINUE}" onclick="{!c.handleContinue}"/></span>
+                </div>
+            </div>-->
+            
+            
+            
+        </div>  
+    </div>
+    <!--<div class="confirm-modal">
+        <aura:if isTrue="{!v.isOpen}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!$Label.c.AHFC_Confirmation}</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <aura:unescapedHtml value ="{!$Label.c.AHFC_Cancel_CCPA}"/>
+                        
+                    </div>
+                    <footer class="slds-modal__footer HD_Gridlayout">
+                        <lightning:button class="btn default pull-left mr-sm" aura:id="cancel2" name="cancelButton2" label="Cancel" onclick="{! c.closeModel }"/>
+                        <lightning:button class="btn primary pull-right"
+                                          aura:id="cont3" name="continue3" label="Continue" onclick="{!c.redirectToHome}"/>
+                        
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    </div>-->
+    
+    <div class="confirm-modal">
+        <aura:if isTrue="{!v.isOpen}">
+           <section
+                     role="dialog"
+                     tabindex="-1"
+                     aria-label="Meaningful description of the modal content"
+                     aria-modal="true"
+                     aria-describedby="modal-content-id-1"
+                     class="slds-modal slds-fade-in-open finance-account-edit-modal"
+                     >
+                <div class="slds-modal__container">
+                    <div class="slds-modal__content edit-modal-content ahFC_Model_Content" id="modal-content-id-1">
+                        
+                        <div class="close-icon close-icon-alignment aHFC_Close_Icon">
+                            <button onclick="{!c.closeModel}" class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse message-content-info" title="Close" > 
+                                <lightning:icon size="small" class="close-icon-color" iconName="utility:close" alternativeText="close"
+                                                title="close"></lightning:icon>
+                                <span class="slds-assistive-text">Close</span>
+                            </button> 
+                        </div>
+                        
+                        <h1 class="AHFC_ModTitle">{!$Label.c.AHFC_Confirmation}</h1>
+                        <div class="slds-m-top_medium">
+                            <p class="para-text-medium"><aura:unescapedHtml value ="{!$Label.c.AHFC_Customer_Cancel_CCPA}"/></p>
+                        </div>
+                        <div class="modal-action slds-m-top_xx-large">
+                            <button class="slds-button action-btn save-action" onclick="{!c.redirectToHome}">
+                                CONTINUE
+                            </button>
+                            <button class="slds-button action-btn cancel-action" onclick="{!c.closeModel}">
+                                CANCEL
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>  
+        </aura:if>
+    </div>
+</aura:component>

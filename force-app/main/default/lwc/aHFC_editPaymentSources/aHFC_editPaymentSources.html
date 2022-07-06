@@ -1,0 +1,73 @@
+<template>
+  <div class="modal-container">
+    <section role="dialog" tabindex="-1" aria-label="Meaningful description of the modal content" aria-modal="true"
+      aria-describedby="modal-content-id-1"
+      class="slds-modal slds-fade-in-open payment-sources-edit-modal slds-backdrop slds-modal_medium">
+      
+        <template if:true={loaded}>
+          <!-- Added by kanagaraj for US_11044 -->
+          <c-a-h-f-c_-spinner loading-message={spinnerMessage}></c-a-h-f-c_-spinner>
+        </template>
+        <template if:false={loaded}>
+        <div class="slds-modal__container">
+          <div class="slds-modal__content edit-modal-content" id="modal-content-id-1">
+          <lightning-button-icon class="slds-modal__close cross-icon" title="Close" variant="bare"
+            icon-name="utility:close" onclick={handleDialogClose} size="large"></lightning-button-icon>
+          <div class="modal-action slds-m-top_x-large">
+            <h1 class="payment-modal-heading">Edit Payment Sources</h1>
+            <div class="bank-details">
+              <div class="account-number-section">
+                <p class="account-number-label">ACCOUNT NUMBER</p>
+                <p class="account-number">{accountnumber}</p>
+              </div>
+              <div class="account-type-section">
+                <p class="account-type-label">BANK ACCOUNT TYPE</p>
+                <p class="account-type">{bankaccounttype}</p>
+              </div>
+              <div class="bank-name-section">
+                <p class="bank-name-label">BANK NAME</p>
+                <p class="bank-name">{bankname}</p>
+              </div>
+            </div>
+            <div class="nickname-info slds-form-element slds-m-bottom_large">
+              <label class="slds-form-element__label" for="nickname">
+                Nickname (Optional)
+              </label>
+              <div class="slds-form-element__control">
+                <input type="text" id="nickname" class="slds-input nick-name" placeholder="Eg. Anne's Account" value={nickname}
+                  onchange={handlechangeAHFCBankAccountNickName} 
+                  oninput={handlechangeAHFCBankAccountNickName}/>
+              </div>
+              <div if:true = {isNickNameError} class="slds-form-element__help error-help">
+                Error: Nickname cannot be more than 21 characters.
+              </div>
+            </div>
+              <div>
+                 <!-- <p class="preferred-payment-title">
+                  Set as preferred payment source
+                </p> -->
+                <!--<lightning-checkbox-group name="Checkbox Group" options={options} value={checkboxvalue}
+                  onchange={handlepaymentchange}>
+                </lightning-checkbox-group> -->
+
+                <lightning-input class="slds-p-left_xx-large" type="checkbox" label="Set as preferred payment source" style="padding-left: 0px;"
+                  checked={checkboxvalue} onchange={handlepaymentchange}></lightning-input>
+              </div>
+              <p class="terms-conditions">
+                Selecting a preferred bank account makes that account your default payment source when you schedule a
+                new payment. Changing your preferred bank account will not change pending payments you have previously
+                set up. To update a pending payment, you must edit the payment from the Payment Activity page.
+              </p>
+            <button class="slds-button action-btn save-action" onclick={onSave}>
+              {modalSaveText}
+            </button>
+            <button class="slds-button action-btn cancel-action" onclick={onCancel}>
+              {modalCancelText}
+            </button>
+          </div>
+          </div>
+          </div>
+        </template>
+    </section>
+  </div>
+</template>

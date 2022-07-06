@@ -1,0 +1,36 @@
+<template>
+    <div>
+        <c-a-h-f-c_page-title-help-center title={CategoryDataTitle} show-icon="true"></c-a-h-f-c_page-title-help-center>
+    </div>
+
+    <div class="ahfc-search-results-header">
+        <span>Showing results for "<i class="ahfc-search-content-topic">{searchResultsContent}</i>"</span>
+    </div>
+    <div class="ahfc-related-content">
+        <span>Related Content</span>
+    </div>
+
+    <div class="slds-grid">
+        <div class="slds-col">
+            <ul>
+                <template for:each={articlesToDisplay} for:item="article">
+                    <li class="" key={article.knowledgeId}>
+                        <div class="slds-col ahfc-article-header" data-keyno={article.knowledgeId}>
+                            <span data-keyno={article.knowledgeId} class="slds-accordion__summary-content">{article.header}</span>
+                        </div>
+                        <div class="ahfc-description">
+                            <lightning-formatted-rich-text value={article.description}></lightning-formatted-rich-text>
+                            <a class="ahfc-read-more" data-id={article.knowledgeId} onclick={navigateToArticle}>Read More</a>
+                        </div>
+                        <hr>
+                    </li>
+                </template>
+            </ul>
+        </div>
+    </div>
+    <div class="ahfc-download-pdf">
+        <a href="" onclick={navigateToViewAll}><button
+            class="slds-button  ahfc-btn-wht">View All</button></a>
+    </div>
+
+</template>

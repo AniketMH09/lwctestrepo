@@ -1,0 +1,581 @@
+<template>
+
+ <div role="main" id="main-container" class="main-content">  
+<div class="AHFC_PageTitleWrap">
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-1">
+            <div class="ahfc_topCard">
+                <div class="ahfc_topImage">
+                    <div class="slds-show_small">
+                        <img src={endOfLeaseDesktop} alt="tRoad through green forest in winter">
+                    </div>
+                    <div class="slds-hide_small">
+                        <img src={endOfLeaseMobile} alt="Road through green forest in winter">
+                    </div>
+                </div>
+                <h1 class="ahfc_topHeading">
+                    End of Lease
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="AHFC_Wrapperst">
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12 ahfc_subHead">
+            As your lease comes to an end, you have an important decision to make, and we’re here to help. When you reach the final six months of your lease, we invite you to explore these three options.
+        </div>
+    </div>
+</div>
+<div class="AHFC_WrapperstTabs">
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12">
+            <div class="tabs-container">
+                <div class="slds-tabs_default">
+                    <ul class="slds-tabs_default__nav ahfc_tabBase" role="tablist">
+                        <template for:each={tabsList} for:item="tab">
+                          <li
+                            key={tab.key}
+                            class={tab.tabClass}
+                            role="presentation"
+                            data-id={tab.key}
+                            onclick={onTabChange}
+                            onkeypress={onTabChangeEnterKey} 
+                            tabindex="0"
+                          >
+                          <h2>
+                            <a
+                              class="slds-tabs_default__link"
+                              href="javascript:void(0);"
+                              role="tab"
+                              tabindex="-1"
+                              aria-selected="true"
+                              aria-controls="tab-default-1"
+                              >{tab.title}</a></h2>
+                          </li>
+                        </template>
+</ul>
+
+<template if:true={currentTabActive.returnAndLeaseNewVehicle}>
+                        <div id="tab-default-1"
+                          class="slds-tabs_default__content"
+                          role="tabpanel"
+                          aria-labelledby="tab-default-1__item">
+                        
+                          <div class="slds-grid slds-wrap ahfc_videoContent" id='tab-default-1__item'>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_8-of-12 ahfc_tabImages">
+                                <img src={returnAndLease} alt="Red Honda car in dealership with customer and sales agent" aria-hidden="true">
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_4-of-12 ahfc_content">
+                              <h2 class="ahfc_header">Return and Lease a New Vehicle</h2>
+                              <div class="ahfc_subHeader">We invite you to upgrade to a new lease vehicle and enjoy the latest model features. You may qualify for loyalty benefits when you lease another Honda or Acura vehicle.</div>
+                            </div>
+                          </div>
+                          <div class="slds-grid slds-wrap">
+                            <div class="ahfc_sideLineContainer">
+                            <!-- <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_12-of-12 ahfc_waiver">
+                                <div class="ahfc_card">
+                                    <div class="ahfc_cardContent">
+                                        <div class="ahfc_waiverHeading">Six months before your final payment:</div>
+                                        <div class="ahfc_waiverDescription">
+                                          Research the latest models on <a href="" class="ahfc_links">automobiles.Honda.com</a>and <a href="" class="ahfc_links">Acura.com</a>and explore current offers. When you're ready, schedule a test drive with your Honda or Acura dealer.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ahfc_stepIcon">
+                                    <img src={step1Url} alt="damage waiver">
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_12-of-12 ahfc_waiver">
+                              <div class="ahfc_waiverCard">
+                                  <div class="ahfc_cardContent">
+                                      <div class="ahfc_waiverHeading">Additional Damage Waiver</div>
+                                      <div class="ahfc_waiverDescription">
+                                          Honda Leadership Leasing includes a $500 Excessive Wear-and-Use or Damage Waiver. Loyal customers1 who purchase or lease their next Honda or Acura may qualify for an additional waiver2.
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="ahfc_stepIcon">
+                                  <img src={step1Url} alt="damage waiver">
+                              </div>
+                            </div> -->
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12 ahfc_waiver">
+                              <div class="ahfc_card">
+                                  <div class="ahfc_cardContent">
+                                      <h3 class="ahfc_waiverHeading">Six months before your final payment:</h3>
+                                      <div class="ahfc_waiverDescription">
+                                        Research the latest models on <a href="//automobiles.honda.com/" class="ahfc_links">automobiles.honda.com</a>and <a href="//acura.com" class="ahfc_links">acura.com</a>and explore current offers. When you're ready, schedule a test drive with your Honda or Acura dealer.
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="ahfc_stepIcon">
+                                  <img src={step1Url} alt="Step 1">
+                              </div>
+                            </div>
+                            <div class="ahfc_whitePatch"></div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12 ahfc_waiver">
+                             
+                                    <div class="ahfc_card">
+                                        <div class="ahfc_cardContent">
+                                              <h3 class="ahfc_waiverHeading">Two to three months before:</h3>
+                                              <div class="ahfc_waiverDescription slds-grid slds-wrap">
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_6-of-12 ahfc_iconAndInfo">
+                                                          <div>
+                                                            <a href="javascript:void(0);" tabindex="-1">
+                                                            <lightning-icon  class="ahfc_square" icon-name="utility:diamond" size="x-small" alternative-text="diamond" title="">
+                                                            </lightning-icon>
+                                                          </a>
+                                                          </div>
+                                                          <div class="ahfc_cardSpacing ahfc_contentSpacing">
+                                                            Contact the <a href="#leaseMaturityCenterInfo" class="ahfc_links">Lease Maturity Center</a>to discuss the process for returning your vehicle and ask if you qualify for Honda Loyalty Benefits or the Acura Loyalty Advantage.
+                                                          </div>
+                                                </div>
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_6-of-12    ahfc_iconAndInfo">
+                                                          <div>
+                                                            <a href="javascript:void(0);" tabindex="-1">
+                                                            <lightning-icon class="ahfc_square" icon-name="utility:diamond" size="x-small" alternative-text="diamond" title="">
+                                                            </lightning-icon>
+                                                            </a>
+                                                          </div>
+                                                          <div class="ahfc_cardSpacing">
+                                                            Schedule your end-of-lease vehicle inspection through a licensed inspection company <a class="ahfc_links" href={inspection_label} target="_blank">online</a> or by calling 1-800-340-4080. Please have your finance account number and VIN available.
+                                                          </div>
+                                                </div>
+                                              </div>
+                                              <div class="ahfc_subHeading">Your Honda or Acura lease includes an Excessive Wear-and-Use or Damage Waiver; however, you will be responsible for any wear or use that exceeds the waiver. You will also be responsible for any outstanding payments, excessive miles, and any other outstanding obligations specified in your lease agreement<sup>1</sup>. You will receive a Vehicle Inspection Report following the vehicle inspection. Read more about <a href={vehicleInspection} class="ahfc_pdf" target="_blank">Vehicle Inspection and Wear and Use Guidelines.</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="ahfc_stepIcon">
+                                        <img src={step2Url} alt="Step 2">
+                                    </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12 ahfc_waiver">
+                             
+                              <div class="ahfc_card">
+                                  <div class="ahfc_cardContent">
+                                        <h3 class="ahfc_waiverHeading">One week before:</h3>
+                                        <div class="ahfc_waiverDescription">
+                                          Make an appointment to return your vehicle to your <a href="https://automobiles.honda.com/tools/dealership-locator" class="ahfc_links">Honda</a>or <a href="https://www.acura.com/dealer-locator-inventory" class="ahfc_links">Acura</a>dealer.
+                                        </div>
+                                        <div class="ahfc_appointedText">AT THE APPOINTED TIME</div>
+                                        <div class="ahfc_waiverDescription slds-grid slds-wrap">
+                                          <div class="ahfc_deliverTxt">Deliver your vehicle in clean condition to your Honda or Acura dealer. Please bring the following items with you:</div>
+                                          <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 ahfc_iconAndInfo ahfc_allConditions">
+                                                    <div class="ahfc_conditions">
+                                                      <a href="javascript:void(0);" tabindex="-1">
+                                                      <lightning-icon class="ahfc_square" icon-name="utility:diamond" size="x-small" alternative-text="diamond" title="">
+                                                      </lightning-icon>
+                                                      </a>
+                                                      <div>All keys to the vehicle</div>
+                                                    </div>
+                                                    <div class="ahfc_conditions">
+                                                      <a href="javascript:void(0);" tabindex="-1">
+                                                      <lightning-icon class="ahfc_square" icon-name="utility:diamond" size="x-small" alternative-text="diamond" title="">
+                                                      </lightning-icon>
+                                                      </a>
+                                                      <div>Owner's Manual and maintenance records</div>
+                                                    </div>                                                    
+                                                    <div class="ahfc_conditions ahfc_removeMarginBottom">
+                                                      <a href="javascript:void(0);" tabindex="-1">
+                                                      <lightning-icon class="ahfc_square" icon-name="utility:diamond" size="x-small" alternative-text="diamond" title="">
+                                                      </lightning-icon>
+                                                      </a>
+                                                      <div>Vehicle Return Receipt</div>
+                                                    </div>
+                                                    
+                                          </div>
+                                          <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12    ahfc_iconAndInfo ahfc_allConditions">
+                                                  <div class="ahfc_conditions">
+                                                    <a href="javascript:void(0);" tabindex="-1">
+                                                    <lightning-icon class="ahfc_square" icon-name="utility:diamond" size="x-small" alternative-text="diamond" title="">
+                                                    </lightning-icon>
+                                                    </a>
+                                                    <div>Vehicle Inspection Report</div>
+                                                  </div>
+                                                  <div class="ahfc_conditions ahfc_lastCondition">
+                                                    <a href="javascript:void(0);" tabindex="-1">
+                                                    <lightning-icon class="ahfc_square" icon-name="utility:diamond" size="x-small" alternative-text="diamond" title="">
+                                                    </lightning-icon>
+                                                    </a>
+                                                    <div>Receipts for completed repairs</div>
+                                                  </div>
+                                          </div>
+                                        </div>
+                                        <div class="ahfc_stats">In accordance with your lease agreement, lease purchases are only available to the lessee or authorized Honda or Acura dealer. Vehicles must be returned to Honda or Acura dealers if not purchased.</div>
+                                  </div>
+                              </div>
+                              <div class="ahfc_stepIcon">
+                                  <img src={step3Url} alt="Step 3">
+                              </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12 ahfc_waiver">
+                             
+                              <div class="ahfc_card">
+                                  <div class="ahfc_cardContent">
+                                        <h3 class="ahfc_waiverHeading">After you turn in your vehicle:</h3>
+                                        <div class="ahfc_waiverDescription ahfc_marginBottom">
+                                          Contact the Lease Maturity Center at the numbers below to inform us that you have returned your vehicle.
+                                        </div>
+                                        <div class="AHFC_NaDetails ahfc_stepHondaAcura ahfc_honda">
+                                          <a href="javascript:void(0);" tabindex="-1">
+                                          <lightning-icon class="AHFC_DownloadIcon" icon-name="utility:call" size="x-small" alternative-text="Contact Number" title="Contact Number">
+                                          </lightning-icon></a> Honda <span>(800) 708-6555</span>
+                                        </div>
+                                        <div class="AHFC_NaDetails ahfc_stepHondaAcura ahfc_acura">
+                                          <a href="javascript:void(0);" tabindex="-1">
+                                                <lightning-icon class="AHFC_DownloadIcon" icon-name="utility:call" size="x-small" alternative-text="Contact Number" title="Contact Number">
+                                            </lightning-icon></a> Acura <span>(866) 777-6495</span>
+                                        </div>
+                                        <div class="ahfc_turnStatements">If all payments have been made, your call will initiate the completion process for your lease account, and you will no longer receive a regular monthly billing statement.</div>
+                                        <div class="ahfc_turnStatements"> If you have payments remaining on your account, you are responsible for making them. If your dealer has agreed to make the final payments, follow up with your dealer to ensure they are made on time.</div>
+                                        <div class="ahfc_turnStatements">If any end-of-term liabilities apply, these items will be billed at a later time.</div>
+                                        
+                                  </div>
+                              </div>
+                              <div class="ahfc_stepIcon">
+                                  <img src={step4Url} alt="Step 4">
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                      </template>
+<template if:true={currentTabActive.purchaseYourVehicle}>
+                        <div id="tab-default-2"
+                          class="slds-tabs_default__content"
+                          role="tabpanel"
+                          aria-labelledby="tab-default-2__item">
+                          <div class="slds-grid slds-wrap ahfc_videoContent" id='tab-default-2__item'>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_8-of-12 ahfc_tabImages">
+                              <img src={purchaseYourVehicle} alt="Red Acura car with person outside" aria-hidden="true">
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_4-of-12 ahfc_content">
+                              <h2 class="ahfc_header">Purchase Your Leased Vehicle</h2>
+                              <div class="ahfc_subHeader">If you love it, keep it. Obtain a purchase quote online by logging into your account or call our automated system. Make your purchase payment online, by mail or at your local dealership.</div>
+                            </div>
+                          </div>
+                          <div class="slds-grid slds-wrap">
+                            <div class="ahfc_sideLineContainer">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12 ahfc_waiver">
+                              <div class="ahfc_card">
+                                  <div class="ahfc_cardContent">
+                                    <div class="slds-grid slds-wrap">
+                                      <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_6-of-12">
+                                        <h3 class="ahfc_waiverHeading">Purchase Quote</h3>
+                                        <div class="ahfc_waiverDescription ahfc_cardSpacing ahfc_marginBottom">
+                                          Obtain a purchase quote online by logging in to your account or by calling our automated system at the numbers below:
+                                        </div>
+                                        <div class="AHFC_NaDetails ahfc_stepHondaAcura ahfc_honda">
+                                          <a href="javascript:void(0);" tabindex="-1">
+                                          <lightning-icon class="AHFC_DownloadIcon" icon-name="utility:call" size="x-small" alternative-text="Contact Number" title="Contact Number">
+                                          </lightning-icon></a> Honda <span>(800) 708-6555</span>
+                                        </div>
+                                        <div class="AHFC_NaDetails ahfc_stepHondaAcura ahfc_acura">
+                                          <a href="javascript:void(0);" tabindex="-1"> <lightning-icon class="AHFC_DownloadIcon" icon-name="utility:call" size="x-small" alternative-text="Contact Number" title="Contact Number">
+                                            </lightning-icon></a> Acura <span>(866) 777-6495</span>
+                                        </div>
+                                      </div>
+                                      <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_6-of-12 ">
+                                        <div class="ahfc_note ahfc_cardSpacing"> 
+                                          Note:If you live in IL or OH, certain conditions require that you speak with a Lease-End Specialist.
+                                         </div>
+                                         <div class="ahfc_note1 ahfc_cardSpacing">
+                                           As a reminder, lease purchases are only available to the lessee or authorized Honda or Acura dealer.
+                                         </div>
+                                       </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="ahfc_stepIcon">
+                                  <img src={step1Url} alt="Step 1">
+                              </div>
+                            </div>
+                            <div data-id="purchaseWidth" class={stepperLineHeight}></div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12 ahfc_waiver">
+                             
+                                    <div class="ahfc_card">
+                                        <div class="ahfc_cardContent">
+                                              <h3 class="ahfc_waiverHeading">Notify Us</h3>
+                                              <div class="ahfc_waiverDescription slds-grid slds-wrap">
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12 ahfc_iconAndInfo">
+                                                          <div>
+                                                            Contact the <a href="#leaseMaturityCenterInfo" class="ahfc_links">Lease Maturity Center</a>at the numbers above and notify us of your intent to purchase the vehicle.
+                                                          </div>
+                                                </div>
+                                              </div>
+                                        </div>
+                                    </div>
+                                    <div class="ahfc_stepIcon">
+                                        <img src={step2Url} alt="Step 2">
+                                    </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12 ahfc_waiver">
+                             
+                              <div class="ahfc_card">
+                                  <div class="ahfc_cardContent">
+                                        <h3 class="ahfc_waiverHeading">Submit Payment</h3>
+                                        <div class="ahfc_waiverDescription">
+                                          Make your final payment online or mail the full purchase amount (including state sales tax, if any) to the address below. If there is no outstanding balance on your account, the title will be mailed upon verification of final payment clearance. It is important to verify we have your current address on file to ensure you receive your title.
+                                        </div>
+                                        <div class="ahfc_waiverDescription">
+                                          If you would prefer to finance your lease purchase through HFS or AFS, please contact your Honda or Acura dealer to determine eligibility for financing.
+                                        </div>
+                                        <div class="ahfc_waiverDescription">
+                                          Some states require lease purchases to be made through a Honda or Acura dealer. Read our FAQ for a list of those states.
+                                        </div>
+                                        <div>
+                                          <div class="ahfc_buttons" if:true={showOrLess} onclick={onClickMore}>
+                                            <button  class="ahfc_moreLessButton" aria-expanded="false" aria-label="More">More</button>
+                                              <lightning-icon class="AHFC_ArrowIcon"                                            icon-name="utility:chevrondown" size="x-small" alternative-text="More"
+                                              title="More">
+                                              </lightning-icon>
+                                          </div>
+                                          <div class="ahfc_buttons" if:false={showOrLess} onclick={onClickMore}>
+                                            <button  class="ahfc_moreLessButton" aria-expanded="true" aria-label="Less">Less</button>
+                                              <lightning-icon class="AHFC_ArrowIcon"                                            icon-name="utility:chevronup" size="x-small" alternative-text="Less"
+                                              title="Less">
+                                              </lightning-icon>
+                                          </div>
+                                          <div if:false={showOrLess} class="ahfc_moreDetails ahfc_waiverDescription" id="myDIV">
+                                            <div>On a lease, federal law requires disclosure of the vehicle mileage in connection with the transfer of ownership. You must submit a signed and dated <a href={odometerPdf} class="ahfc_links" download> Odometer Disclosure Statement and Title Release Information form.</a>Your vehicle title cannot be released until we receive the Odometer Disclosure Statement. Make your check payable to Honda Finance Exchange, Inc. and mail the check and completed Odometer Disclosure Statement to:</div>
+                                            <div class="ahfc_spacing">
+                                              <div>Honda Finance Exchange, Inc.</div>
+                                              <div>P.O. Box 70252</div>
+                                              <div>Philadelphia, PA 19176</div>
+                                            </div>
+                                            <div class="ahfc_spacing">If your payoff is submitted online, please fax the completed Odometer Disclosure Statement to:</div>
+                                            <div class="ahfc_spacing">
+                                              <div><span>Attn: </span>Captive Client</div>
+                                              <div><span>Fax No.: </span>1-937-481-5307</div>
+                                            </div>
+                                            <div class="ahfc_spacing">Leadership Purchase Plans<sup>®</sup> do not require the Odometer Disclosure Statement.</div>
+                                            <div class="ahfc_note_spacing">Note: Ohio requires original documentation for lease payoffs. Please contact the Lease Maturity Center for more details.</div>
+                                          </div>
+                                        </div>
+                                  </div>
+                              </div>
+                              <div class="ahfc_stepIcon">
+                                  <img src={step3Url} alt="Step 3">
+                              </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12 ahfc_waiver">
+                             
+                              <div class="ahfc_card">
+                                  <div class="ahfc_cardContent">
+                                        <h3 class="ahfc_waiverHeading">Re-register Your Vehicle</h3>
+                                        <div class="ahfc_waiverDescription">
+                                          State law requires that you transfer the title and vehicle registration into your own name and pay any applicable sales tax and/or fees. This can be completed at your local Department of Motor Vehicles.
+                                        </div>
+                                  </div>
+                              </div>
+                              <div class="ahfc_stepIcon">
+                                  <img src={step4Url} alt="Step 4">
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                      </template>
+<template if:true={currentTabActive.returnYourVehicle}>
+                        <div id="tab-default-3"
+                          class="slds-tabs_default__content"
+                          role="tabpanel"
+                          aria-labelledby="tab-default-3__item">
+                          <div class="slds-grid slds-wrap ahfc_videoContent" id='tab-default-3__item'>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_8-of-12 ahfc_tabImages">
+                              <img src={returnYourVehicle} alt="Red Acura car with person outside" aria-hidden="true">
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_4-of-12 ahfc_content">
+                              <h2 class="ahfc_header">Return Your Leased Vehicle</h2>
+                              <div class="ahfc_subHeader">We'd love to keep you as a returning lease customer, and we even offer loyalty benefits if you stay in the Honda and Acura family. But if your decision is to return your vehicle and forgo your loyalty benefits, follow these steps:</div>
+                            </div>
+                          </div>
+                          <div class="slds-grid slds-wrap">
+                            <div class="ahfc_sideLineContainer">
+                            <div class="ahfc_whitePatch ahfc_returnWP"></div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12 ahfc_waiver">
+                             
+                                    <div class="ahfc_card">
+                                        <div class="ahfc_cardContent">
+                                              <h3 class="ahfc_waiverHeading">Two to three months before your final payment:</h3>
+                                              <div class="ahfc_waiverDescription slds-grid slds-wrap">
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_6-of-12 ahfc_iconAndInfo">
+                                                          <div>
+                                                            <a href="javascript:void(0);" tabindex="-1">
+                                                            <lightning-icon class="ahfc_square" icon-name="utility:diamond" size="x-small" alternative-text="diamond" title="">
+                                                            </lightning-icon>
+                                                            </a>
+                                                          </div>
+                                                          <div class="ahfc_cardSpacing ahfc_contentSpacing">
+                                                            Contact the <a href="#leaseMaturityCenterInfo" class="ahfc_links">Lease Maturity Center</a>to discuss the process for returning your vehicle.
+                                                          </div>
+                                                </div>
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_6-of-12    ahfc_iconAndInfo">
+                                                          <div>
+                                                            <a href="javascript:void(0);" tabindex="-1">
+                                                            <lightning-icon class="ahfc_square" icon-name="utility:diamond" size="x-small" alternative-text="diamond" title="">
+                                                            </lightning-icon>
+                                                            </a>
+                                                          </div>
+                                                          <div class="ahfc_cardSpacing">
+                                                            Schedule your end-of-lease vehicle inspection through a licensed inspection company <a class="ahfc_links" href={inspection_label} target="_blank">online</a> or by calling 1-800-340-4080. Please have your finance account number and VIN available.
+                                                          </div>
+                                                </div>
+                                              </div>
+                                              <div class="ahfc_subHeading">Your Honda or Acura lease includes an Excessive Wear-and-Use or Damage Waiver; however, you will be responsible for any wear or use that exceeds the waiver. You will also be responsible for any outstanding payments, excessive miles, turn-in fee, and any other outstanding end-of-term obligations specified in your lease agreement<sup>1</sup>. You will receive a Vehicle Inspection Report following the vehicle inspection. Read more about <a href={vehicleInspection} class="ahfc_pdf" target="_blank">Vehicle Inspection and Wear and Use Guidelines.</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="ahfc_stepIcon">
+                                        <img src={step1Url} alt="Step 1">
+                                    </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12 ahfc_waiver">
+                             
+                              <div class="ahfc_card">
+                                  <div class="ahfc_cardContent">
+                                        <h3 class="ahfc_waiverHeading">One week before:</h3>
+                                        <div class="ahfc_waiverDescription">
+                                          Make an appointment to return your vehicle to your <a href="https://automobiles.honda.com/tools/dealership-locator" class="ahfc_links">Honda</a>or <a href="https://www.acura.com/dealer-locator-inventory" class="ahfc_links">Acura</a>dealer.
+                                        </div>
+                                        <div class="ahfc_appointedText">AT THE APPOINTED TIME</div>
+                                        <div class="ahfc_waiverDescription slds-grid slds-wrap">
+                                          <div class="ahfc_deliverTxt">Deliver your vehicle in clean condition to your Honda or Acura dealer. Please bring the following items with you:</div>
+                                          <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 ahfc_iconAndInfo ahfc_allConditions">
+                                                    <div class="ahfc_conditions">
+                                                      <a href="javascript:void(0);" tabindex="-1">
+                                                      <lightning-icon class="ahfc_square" icon-name="utility:diamond" size="x-small" alternative-text="diamond" title="">
+                                                      </lightning-icon>
+                                                      </a>
+                                                      <div>All keys to the vehicle</div>
+                                                    </div>
+                                                    <div class="ahfc_conditions">
+                                                      <a href="javascript:void(0);" tabindex="-1">
+                                                      <lightning-icon class="ahfc_square" icon-name="utility:diamond" size="x-small" alternative-text="diamond" title="">
+                                                      </lightning-icon>
+                                                      </a>
+                                                      <div>Owner's Manual and maintenance records</div>
+                                                    </div>                                                    
+                                                    <div class="ahfc_conditions ahfc_removeMarginBottom">
+                                                      <a href="javascript:void(0);" tabindex="-1">
+                                                      <lightning-icon class="ahfc_square" icon-name="utility:diamond" size="x-small" alternative-text="diamond" title="">
+                                                      </lightning-icon>
+                                                      </a>
+                                                      <div>Vehicle Return Receipt</div>
+                                                    </div>
+                                                    
+                                          </div>
+                                          <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12    ahfc_iconAndInfo ahfc_allConditions">
+                                                  <div class="ahfc_conditions">
+                                                    <a href="javascript:void(0);" tabindex="-1">
+                                                    <lightning-icon class="ahfc_square" icon-name="utility:diamond" size="x-small" alternative-text="diamond" title="">
+                                                    </lightning-icon>
+                                                    </a>
+                                                    <div>Vehicle Inspection Report</div>
+                                                  </div>
+                                                  <div class="ahfc_conditions ahfc_lastCondition">
+                                                    <a href="javascript:void(0);" tabindex="-1">
+                                                    <lightning-icon class="ahfc_square" icon-name="utility:diamond" size="x-small" alternative-text="diamond" title="">
+                                                    </lightning-icon>
+                                                    </a>
+                                                    <div>Receipts for completed repairs</div>
+                                                  </div>
+                                          </div>
+                                        </div>
+                                        <div class="ahfc_stats">As a reminder, vehicles must be returned to an authorized Honda or Acura dealer if not purchased. </div>
+                                  </div>
+                              </div>
+                              <div class="ahfc_stepIcon">
+                                  <img src={step2Url} alt="Step 2">
+                              </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12 ahfc_waiver">
+                             
+                              <div class="ahfc_card">
+                                  <div class="ahfc_cardContent">
+                                        <h3 class="ahfc_waiverHeading">After you turn in your vehicle:</h3>
+                                        <div class="ahfc_waiverDescription ahfc_marginBottom">
+                                          Contact the <a href="#leaseMaturityCenterInfo" class="ahfc_links">Lease Maturity Center</a>at the numbers below to inform us that you have returned your vehicle.
+                                        </div>
+                                        <div class="AHFC_NaDetails ahfc_stepHondaAcura ahfc_honda">
+                                          <a href="javascript:void(0);" tabindex="-1"><lightning-icon class="AHFC_DownloadIcon" icon-name="utility:call" size="x-small" alternative-text="Contact Number" title="Contact Number">
+                                          </lightning-icon></a> Honda <span>(800) 708-6555</span>
+                                        </div>
+                                        <div class="AHFC_NaDetails ahfc_stepHondaAcura ahfc_acura">
+                                          <a href="javascript:void(0);" tabindex="-1"> 
+                                            <lightning-icon class="AHFC_DownloadIcon" icon-name="utility:call" size="x-small" alternative-text="Contact Number" title="Contact Number">
+                                            </lightning-icon></a> Acura <span>(866) 777-6495</span>
+                                        </div>
+                                        <div class="ahfc_turnStatements">If all payments have been made, your call will initiate the completion process for your lease account, and you will no longer receive a regular monthly billing statement.</div>
+                                        <div class="ahfc_turnStatements"> If you have payments remaining on your account, you are responsible for making them. If your dealer has agreed to make the final payments, follow up with your dealer to ensure they are made on time.</div>
+                                        <div class="ahfc_turnStatements">If any end-of-term liabilities apply, these items will be billed at a later time.</div>
+                                        
+                                  </div>
+                              </div>
+                              <div class="ahfc_stepIcon">
+                                  <img src={step3Url} alt="Step 3">
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                      </template>
+</div>
+</div>
+</div>
+</div>
+<div class="AHFC_ContainerSec">
+    <div class="card-block ahfc-background-lightest AHFC_InnerAround">
+        <!-- <div class="slds-grid slds-wrap"> -->
+            <div style="padding-top : 50px" class="ahfc_faq_wrap">
+                <!--End_Of_Term-->
+                <c-a-h-f-c_dashboard-faq page-name="End_Of_Term"></c-a-h-f-c_dashboard-faq>
+            </div>
+        <!-- </div> -->
+
+    </div>
+</div>
+</div>
+<div class="AHFC_WrapperstLOC" id="leaseMaturityCenterInfo">
+    <div class="slds-grid slds-wrap ahfc_locCard">
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12  slds-large-size_6-of-12 slds-show_large ahfc_leaseEndContactImage">
+            <img src={leaseEndContact} alt="Lease End Contact">
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12  slds-large-size_6-of-12 slds-hide_large ahfc_leaseEndContactImage">
+            <img src={leaseEndContactMobile} alt="Lease End Contact">
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12  slds-large-size_6-of-12 ahfc_leaseEndContent">
+            <h3 class="ahfc_leaseHead">Lease-End Contact</h3>
+            <div class="ahfc_leaseSubhead">
+                Our Lease Maturity Center is dedicated to assisting customers with the lease-end process.
+            </div>
+            <div class="ahfc_leaseQuestions">
+                LEASE-END SPECIALISTS ARE AVAILABLE TO ANSWER YOUR QUESTIONS
+            </div>
+            <div class="AHFC_NaDetails ahfc_timing">
+              <a href="javascript:void(0);" tabindex="-1">
+                <lightning-icon class="ahfc_clockIcon" icon-name="utility:clock" size="x-small" alternative-text="Time" title="Time">
+                </lightning-icon></a> FRIDAY, 9 A.M. – 5 P.M., LOCAL TIME
+            </div>
+            <div class="AHFC_NaDetails">
+              <a href="javascript:void(0);" tabindex="-1">
+                <lightning-icon class="AHFC_DownloadIcon" icon-name="utility:call" size="x-small" alternative-text="Contact Number" title="Contact Number">
+                </lightning-icon></a> Honda <span>(800) 708-6555</span>
+            </div>
+            <div class="AHFC_NaDetails">
+              <a href="javascript:void(0);" tabindex="-1">
+                <lightning-icon class="AHFC_DownloadIcon" icon-name="utility:call" size="x-small" alternative-text="Contact Number" title="Contact Number">
+                </lightning-icon></a> Acura <span>(866) 777-6495</span>
+            </div>
+            <div class="ahfc_informationText">For more information on refinancing or to schedule a test drive on a new vehicle, contact your Honda or Acura dealer.</div>
+        </div>
+    </div>
+</div>
+<div class="AHFC_WrapperstDisclaimer" if:true={currentTabActive.returnYourVehicle}>
+    <div class="slds-grid slds-wrap ahfc_disclaimerCard">
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12  slds-large-size_6-of-12">
+            <span>1</span>The turn-in fee amount depends on your state. See your lease contract for details. The turn-in fee, outstanding wear-and-use or damage charges, and excess mileage may be subject to applicable sales tax.
+        </div>
+    </div>
+</div>
+</div>
+</template>

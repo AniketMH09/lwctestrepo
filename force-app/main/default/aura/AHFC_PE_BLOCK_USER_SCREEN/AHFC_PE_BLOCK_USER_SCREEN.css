@@ -1,0 +1,126 @@
+.THIS {
+  font-size: 16px;    
+}
+.THIS .center {
+  width: 66%;
+  margin: 0 auto;
+}
+@media (max-width: 1024px) {
+  .THIS .center {
+    width: 100%;
+  }
+}
+.THIS .header {
+  font-size: 28px;
+  margin-bottom: 30px;    
+}
+.THIS .info {
+  padding: 30px 30px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  background: #F6F6F6;
+}
+.THIS .info h3 {
+  
+  margin-bottom: 10px;
+  border-bottom: 1px solid #d3d3d3;
+  padding-bottom: 10px;
+}
+.THIS .block {
+  margin-bottom: 30px;    
+}
+.THIS .action {
+  margin-bottom: 30px;    
+}
+.THIS label {
+  display: block;
+  font-weight: 600;    
+}
+.THIS .dd-picker {
+  width: 50%;
+}
+@media (max-width: 1024px) {
+  .THIS .dd-picker {
+    width: 100%;
+  }
+}
+.THIS .dd-picker input {
+    display: inline-block;
+    padding: 10px;
+    margin-top: 5px;
+    width: 100%;
+    font-size: 16px;
+    margin-left: 0px;
+    z-index: 100;
+    background: transparent;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    padding-left: 15px;
+}
+.THIS .dd-picker input::placeholder {
+  font-size: 16px;
+}
+.THIS .calendar-icon {
+    display: inline-block;
+    z-index: 0;
+    float: right;
+    margin-left: 0px;
+    margin-top: -37px;
+    padding-right: 20px;
+    height: 30px;
+}
+/* helper */
+.THIS .mb-sm {
+  margin-bottom: 10px;
+}
+.THIS .mr-sm {
+  margin-right: 10px;
+}
+.THIS .pull-left {
+  float: left;
+}
+.THIS .pull-right {
+  float: right;
+}
+@media (max-width: 768px) {
+  .THIS .action .default {
+    width: 100%;
+  }
+  .THIS .action .primary.pull-right {
+    float: none;
+    margin-top: 20px;
+    width: 100%;
+  }
+}
+.THIS .info-output .slds-col {
+  margin-bottom: 20px;
+}
+.THIS .btn {
+  background: #fff;
+  padding: 7px 30px;
+  border-radius: 29px;
+  font-size: 16px;
+  border-width: 2px;
+  font-weight: 400;
+}
+/* .THIS .btn {
+  background: #fff;
+  padding: 0 30px !important;
+  border-radius: 29px;
+  font-size: 16px;
+  border-width: 2px;
+  font-weight: 400;
+  line-height: 36px;
+  height: 40px;
+  transition: .2s;
+} */
+.THIS .btn.default {
+  background: #fff;
+  border: 2px solid #0072CE;
+  color: #0072CE;
+}
+.THIS .btn.primary {
+  background: #0072CE;
+  border: 2px solid #0072CE;
+  color: #fff;
+}

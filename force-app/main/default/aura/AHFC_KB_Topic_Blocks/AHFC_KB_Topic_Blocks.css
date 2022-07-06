@@ -1,0 +1,73 @@
+.THIS .topic-container, .cAHFC_KB_Topic_Blocks {
+	margin-top: 10px;
+}
+
+.THIS a.topic-block {
+    background-color: #ececec;
+    border: 2px solid #ececec;
+    display: block;
+    border-radius: 10px;
+    padding: 20px 10px;
+    margin-bottom: 20px;
+    transition: .2s;
+    position: relative;
+}
+
+@media only screen and (min-width: 982px) {
+  .THIS a.topic-block:hover {
+    background-color: #f2f2f2;
+    transition: .2s;
+    text-decoration: none;
+    /* border-bottom: 2px solid #176fd2; */
+    border-radius: 3px;
+  }
+  .THIS a.topic-block .hoverline:after {
+    background: 0 0;
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 4px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    transition: width .4s ease,background-color .4s ease;
+    width: 0;
+  }
+  .THIS a.topic-block:hover img {
+    transform: scale(1.1);
+    transition: .25s;
+  }
+  .THIS a.topic-block:hover .hoverline:after {
+    height: 4px;
+    width: 100%;
+    background: #0072CE;
+  }
+}
+
+.THIS a.topic-block img {
+	height: 32px;
+  width: 100%;
+}
+.THIS a.topic-block img, .THIS a.topic-block .text {
+	transition: .25s;
+}
+
+.THIS .topic-block .text {
+    margin-top: 25px;
+    font-size: 16px;
+    /*text-transform: uppercase;*/
+    color: #444;
+}
+@media only screen 
+  and (min-width: 768px) 
+  and (max-width: 982px) {
+  	.THIS .topic-block .text {
+	    font-size: 13px;
+	}
+}
+.THIS .divide {
+    border-bottom: 1px solid #e7e7e7;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

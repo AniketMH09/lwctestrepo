@@ -1,0 +1,12 @@
+<apex:page standardStylesheets="false" sidebar="false" showHeader="false">
+ <html>
+<head>
+ <apex:includescript value="{!URLFOR($Resource.Survey_Popup, 'page_popup/js/survlaunchPaymentH.js')}"/>
+</head>
+<body>
+<center><b>Please continue browsing.  When you are done browsing, your survey will start.</b><br/>
+<br/>
+<a href='#' id='Start' style='font-weight: bold;' onclick='gotosurvey();return false;'> Start your survey now </a></center><br/>
+</body>
+</html> 
+</apex:page>

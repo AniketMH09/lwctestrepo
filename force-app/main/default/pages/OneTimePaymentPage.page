@@ -1,0 +1,77 @@
+<apex:page title="One Time Payment" standardController="ChargentOrders__ChargentOrder__c" action="{!EditFunction}" extensions="VFC05_OneTimePayment" lightningStyleSheets="true">
+<apex:includeScript value="/support/console/22.0/integration.js"/>
+<div class="slds-scope">
+    <apex:form >
+       <table style="width:100%" border="0">
+            <tr>
+                 <!----Finance Account Number added for Defect# 114089 - Shubham Malik---->
+                 <td align="right" class="labelCol" width="17%" >
+                    <b> {!$ObjectType.ChargentOrders__ChargentOrder__c.fields.Finance_Account_Number__c.label} </b>
+                 </td>
+                 <td align="left" width="25%" >
+                    &nbsp;&nbsp; {!ChargentOrders__ChargentOrder__c.Finance_Account_Number__r.Name}
+                 </td>
+                 <td align="right"   >
+                    <b>{!$ObjectType.ChargentOrders__ChargentOrder__c.fields.Payment_Source_Nickname__c.label}  </b>
+                  </td>
+                  <td align="left" width="32%" >
+                    &nbsp;&nbsp; <a  onclick="redirectTo()" style="cursor:pointer;" ><u> {!ChargentOrders__ChargentOrder__c.Payment_Source_Nickname__r.Payment_Source_Nickname__c} </u></a>
+                  </td>      
+              </tr>               
+            <tr>
+                <td align="right" class="labelCol" width="17%" >
+                    <b> Payment Amount </b>
+                 </td>
+                 <td align="left" width="25%" >
+                    &nbsp;&nbsp; ${!ChargentOrders__ChargentOrder__c.ChargentOrders__Charge_Amount__c}
+                 </td>
+                <td align="right">
+                    <b> Bank Name </b>
+                 </td>
+                 <td align="left">
+                    &nbsp;&nbsp; {!ChargentOrders__ChargentOrder__c.ChargentOrders__Bank_Name__c}
+                </td>        
+                
+              </tr>
+            <tr>
+                <td align="right" width="17%" >
+                    <b> Payment Date </b>
+                 </td>
+                 <td align="left" width="25%" >
+                  &nbsp;&nbsp; <apex:outputtext value="{0, date, MM/dd/yyyy}">
+                  <apex:param value="{!ChargentOrders__ChargentOrder__c.ChargentOrders__Payment_Start_Date__c}" />
+                   </apex:outputtext>
+                 </td>
+                <td align="right">
+                    <b> Last 4 </b>
+                 </td>
+                 <td align="left" width="32%">
+                    &nbsp;&nbsp; {!ChargentOrders__ChargentOrder__c.Payment_Source_Nickname__r.Last_4__c}
+                </td>        
+                
+              </tr>  
+       </table>
+       <script>
+       		function redirectTo() {
+            //First find the ID of the current tab to close it
+              
+            if (sforce.console.isInConsole()) {
+                <!-- Changes for XSS security Vulnerabilities at line 63,70   -->
+                 var bankAccId = '{!JSENCODE(ChargentOrders__ChargentOrder__c.Payment_Source_Nickname__c)}';  
+                
+                  
+                sforce.console.getEnclosingPrimaryTabId(function(result){
+                    sforce.console.openSubtab(result.id, '/' +  bankAccId , true, '', null);
+                });
+
+            } else {
+                    window.top.location.href = '/{!JSINHTMLENCODE(ChargentOrders__ChargentOrder__c.Payment_Source_Nickname__c)}'; 
+
+
+            }
+                
+       }
+   	   </script>
+   </apex:form>
+</div>
+</apex:page>

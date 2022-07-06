@@ -1,0 +1,9 @@
+<design:component>
+	<design:attribute name="instructions1" label="instructions1" />
+    <design:attribute name="instructions2" label="instructions2" />
+    <design:attribute name="EasyPayAmount" label="EasyPayAmount" />
+    <design:attribute name="accountStatusUpdatesViaEamil" label="accountStatusUpdatesViaEamil"/>
+    <design:attribute name="LeaseExtension" label="LeaseExtension"/>
+    <design:attribute name="instructions3" label="instructions3"/>
+    <design:attribute name="ReturntoAccountOverview" label="Return to Account Overview"/>
+</design:component>

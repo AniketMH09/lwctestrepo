@@ -1,0 +1,54 @@
+<template>
+	<template if:true={showdesktop}>
+		<div class="slds-grid slds-gutters AHFC_GridStyle titleStyle123">
+			<div class="slds-col  slds-size_1-of-3 AHFC_MobMArgin">
+				<div class="slds-grid"  onclick={navigateToPaymentFAQ}>
+					<div> <img src={FAQ_Frame1} alt="honda logo" /></div>
+					<div class="slds-box AHFC_FrameStyle" style="width:100%;"> <span>{labels.FaqHelpPayments}</span> </div>
+				</div>
+			</div>
+			<div class="slds-col  slds-size_1-of-3 AHFC_MobMArgin">
+				<div class="slds-grid" onclick={navigateToAccountManagement}>
+					<div> <img src={FAQ_Frame3} alt="honda logo" /> </div>
+					<div class="slds-box AHFC_Alignment " style="width:100%;"> <span>{labels.FaqHelpAccount}<br> {labels.FaqHelpManagement}
+                  </span> </div>
+				</div>
+			</div>
+			<div class="slds-col  slds-size_1-of-3 AHFC_MobMArgin">
+				<div class="slds-grid" onclick={navigateToEOTFAQ}>
+					<div> <img src={FAQ_Frame2}  alt='End of the term' /></div>
+					<div class="slds-box AHFC_FrameStyle" style="width:100%;"> <span>{labels.FaqhelpEndOFTerm}
+                  </span> </div>
+				</div>
+			</div>
+		</div>
+		<div><a class="slds-text-title_caps AHFC_dbViewLink" href="javascript:void(0);" onclick={navigateToViewAll}>{labels.FaqHelpViewAllFaq}
+                   </a> </div>
+	</template>
+	<template if:true={showmobile}>
+		<div class="slds-grid slds-gutters AHFC_GridStyle slds-wrap">
+			<div class="slds-col  slds-max-large-size_1-of-1 slds-size_1-of-3 AHFC_MobLayout">
+				<div class="slds-grid" onclick={navigateToPaymentFAQ}>
+					<div> <img src={FAQ_Frame1} alt="honda logo" /> </div>
+					<div class="slds-box AHFC_FrameStyle" style="width:100%;"> <span>{labels.FaqHelpPayments}</span> </div>
+				</div>
+			</div>
+			<div class="slds-col  slds-max-large-size_1-of-1 slds-size_1-of-3 AHFC_MobLayout">
+				<div class="slds-grid"  onclick={navigateToAccountManagement}>
+					<div> <img src={FAQ_Frame3} alt="honda logo" /> </div>
+					<div class="slds-box AHFC_FrameStyle AHFC_FrameStyleAcc" style="width:100%;"> <span>{labels.FaqHelpAccountManagement}
+                                    </span> </div>
+				</div>
+			</div>
+			<div class="slds-col  slds-max-large-size_1-of-1 slds-size_1-of-3 AHFC_MobLayout ">
+				<div class="slds-grid" onclick={navigateToEOTFAQ}>
+					<div> <img src={FAQ_Frame2} /> </div>
+					<div class="slds-box AHFC_FrameStyle" style="width:100%;"> <span>{labels.FaqhelpEndOFTerm}
+                              </span> </div>
+				</div>
+			</div>
+		</div>
+		<div class="AHFC_VewAllFaq"><a class="slds-text-title_caps AHFC_dbViewLink" href="javascript:void(0);" onclick={navigateToViewAll}>{labels.FaqHelpViewAllFaq}
+                </a></div>
+	</template>
+</template>

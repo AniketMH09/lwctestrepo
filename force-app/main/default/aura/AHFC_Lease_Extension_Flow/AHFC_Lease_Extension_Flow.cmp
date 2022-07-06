@@ -1,0 +1,6 @@
+<aura:component controller = "AHFC_FLOW_Controller" implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens,lightning:isUrlAddressable,force:hasRecordId" access="global">
+    <aura:attribute name = "FAid" type = "String"/>
+    <aura:attribute name = "FAnumber" type = "String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <lightning:flow aura:id="LeaseFlow" />
+</aura:component>

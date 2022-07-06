@@ -1,0 +1,20 @@
+<design:component>
+    <!-- Inputs -->
+    <design:attribute name="dueDate" label="Paid To Date" />
+    <design:attribute name="nextDueDate" label="Next Due Date" />
+    <design:attribute name ="nextPaymentAmount" label ="Next Payment Amount"/>
+   <design:attribute name="currentMaturityDate" label="Current Maturity Date" />
+   <design:attribute name ="noOfMonthRequested" label ="Number of months requested"/>
+   <design:attribute name ="newMaturityDate" label ="New Maturity Date"/>
+   <design:attribute name ="estimatedLETax" label ="Estimated LE Tax"/>
+    <design:attribute name ="faNumber" label="FaNumber"/>
+    <design:attribute name ="CancelLeaseExtension" label="CancelLeaseExtension"/>
+    <design:attribute name = "Review" label="Review"/>
+    <design:attribute name ="LeaseExtension" label="Lease Extension"/>
+    <design:attribute name = "AccountNumbertemplate" label="Account Number template"/>
+    <design:attribute name = "MonthlyPaymentAmount" label="Monthly Payment Amount"/>
+    <design:attribute name = "CurrentMaturityDatetemplate" label ="Current MaturityDate template"/>
+    <design:attribute name = "NumberofMonthsRequested" label = "No of Months Requested template"/>
+    <design:attribute name = "RequestedMaturityDate" label = "Requested Maturity Date"/>
+    <design:attribute name = "EstimatedUpfrontTax" label = "Estimated Upfront Tax"/>
+ </design:component>

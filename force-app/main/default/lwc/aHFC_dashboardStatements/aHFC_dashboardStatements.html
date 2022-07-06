@@ -1,0 +1,33 @@
+<template>
+   <div class="slds-grid slds-grid_vertical">
+      <div class="slds-col">
+         <a href="javascript:void(0);" tabindex="-1" aria-label="month">
+            <lightning-combobox aria-label="month" class="ahfc-combobox ahfc-input no-label" alt='month'
+               aria-role='select' name="month" label="month" icon-name="utility:info_alt" value=""
+               placeholder="Select Month" options={options} onchange={onMonthSelection} data-id="month">
+            </lightning-combobox>
+         </a>
+      </div>
+      </br>
+      <!-- <div if:false={isLoaded} class="slds-is-relative" style="height:4rem;background-color:white">
+         <lightning-spinner alternative-text="Loading..." size="medium" style="color:#e42525">
+         </lightning-spinner>
+      </div>-->
+      <!--<div class="slds-col statement-adobe-reader">
+         <img src={adobeLogoUrl} alt="adobe logo">&nbsp;&nbsp;
+         <a href="https://get.adobe.com/reader/" target="_blank" rel="noopener noreferrer" onclick={downloadreader}
+            class="ahfc-links ahfc-links-secondary">Download
+            Acrobat Reader</a>
+      </div>-->
+   </div>
+   <hr aria-hidden="true">
+   <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-end extra-options">
+      <div class="slds-col extra-options">
+         <a class="ahfc-links ahfc-links-primary slds-text-title_caps" href="javascript:void(0);" onclick={navigateToStatementPage}>View All
+            Statements</a>
+      </div>
+      <div class="slds-col extra-options" if:true={eDeliveryFlagVisible}>
+         <a href="" class="ahfc-links ahfc-links-secondary" onclick={navigatetocommpreff}>Go Paperless</a>
+      </div>
+   </div>
+</template>

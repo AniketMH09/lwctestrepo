@@ -1,0 +1,255 @@
+.payoff-calendar-container {
+    background-color: #e5e5e5;
+  }
+  .payoff-calendar-container-fluid {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 100px;
+  }
+  .honda-financial-logo {
+    display: none;
+  }
+  .payoff-heading {
+    align-items: center;
+    margin: 40px 0;
+  }
+  .make-payoff-container {
+    background: #fff;
+    padding: 56px 100px;
+  }
+  .header-text {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 38px;
+    line-height: 48px;
+    color: #000000;
+  }
+  .estimate-header-text {
+    margin-top: 40px;
+    border-top: 1px solid #D9D9D9;
+    padding-top: 40px;
+  }
+  .payoff-info {
+    background: #f7f7f7;
+    padding: 20px;
+  }
+  .payoff-amount span {
+    color: #5e6162;
+  }
+  .ahfc-action-btn {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 14px 24px;
+    letter-spacing: 0.06em;
+  }
+  .continue-button {
+    background-color: #CC0000;
+    border: none;
+    color: #ffffff;
+    box-sizing: border-box;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    width: auto;
+    height: 40px;
+    margin-top: 32px;
+    margin-right: 32px;
+  }
+  .modal-action {
+    display: flex;
+    align-items: baseline;
+  }
+  
+  .submit-action {
+    background-color: #CC0000;
+    border: none;
+    color: #ffffff;
+    box-sizing: border-box;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    width: 240px;
+    height: 40px;
+    margin-top: 32px;
+  }
+  .payoff-date-picker {
+    margin-right: 60px;
+  }
+  .attention-modal-content {
+    padding: 32px 100px;
+    position: relative;
+  }
+  .attention-info a {
+    text-decoration: underline;
+    color: #CC0000;
+  }
+  .cancel-action {
+    color: #CC0000;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 3px;
+  }
+  .header-text-med {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 26px;
+    line-height: 36px;
+    color: #000000;
+  }
+  .label-text-med {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    display: block;
+    letter-spacing: 0.03em;
+    color: #000000;
+  }
+  .label-text-lar {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 40px;
+    color: #000000;
+  }
+  .para-text-med {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: #5e6162;
+  }
+  .attention-modal-content .cross-icon {
+    top: 32px;
+    right: 32px;
+  }
+  
+  /* media query css starts */
+  @media screen and (min-width: 320px) and (max-width: 768px) {
+    .payoff-calendar-container-fluid {
+      width: 100%;
+      padding-bottom: 0px;
+    }
+    .payoff-heading {
+      align-items: center;
+      margin: 40px 0 16px 20px;
+    }
+    .make-payoff-container {
+      background: #fff;
+      padding: 24px 20px 100px;
+    }
+    .date-container {
+      flex-direction: column;
+    }
+    .estimate-header-text {
+      margin-top: 32px;
+      border-top: 1px solid #D9D9D9;
+      padding-top: 32px;
+    }
+    .payoff-date-picker {
+      margin-right: 0px;
+      margin-bottom: 32px;
+    }
+    .header-text {
+      font-size: 26px;
+      line-height: 36px;
+    }
+    .header-text-medium {
+      font-size: 18px;
+      line-height: 21px;
+    }
+    .continue-button,
+    .submit-action {
+      width: 100%;
+    }
+    .continue-button {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+    .attention-modal-content {
+      padding: 32px 24px;
+    }
+    .modal-action {
+      display: block;
+      text-align: center;
+    }
+    .attention-modal-content .cross-icon {
+      right: 24px;
+    }
+  }
+  /* media query css ends */
+  
+  /* Css for print screen */
+  @media print{
+    .honda-financial-logo {
+      display: block;
+      width: 154px;
+      height: 104px;
+      margin-bottom: 66px;
+    }
+    .submit-action {
+      background-color: #CC0000 !important;
+      border: none !important;
+      color: #ffffff !important;
+      box-sizing: border-box !important;
+      border-radius: 3px !important;
+      display: flex;
+      justify-content: center;
+      font-weight: 500;
+      width: 240px;
+      height: 40px;
+    }
+    .payoff-calendar-container-fluid {
+      width: 80% !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      padding-bottom: 100px !important;
+      }
+      .payoff-heading {
+      align-items: center !important;
+    }
+    .estimate-header-text {
+      margin-top: 70px;
+      page-break-before: always;
+    }
+    .estimate-header-text {
+      border-top: 1px solid #D9D9D9 !important;
+    }
+    .make-payoff-container {
+      background: #fff !important;
+      padding: 54px 0px!important;
+    }
+    .payoff-info {
+      background: #f7f7f7 !important;
+      padding: 20px !important;
+    }
+    .payoff-amount span {
+      color: #5e6162 !important;
+    }
+    .ahfc-links {
+      color: #CC0000 !important;
+    }
+    a[href]::after {
+      content: none !important;
+    }
+    .header-text-med,
+    .label-text-med,
+    .label-text-lar {
+      color: #000000;
+    }
+    .para-text-med {
+      color: #5e6162 !important;
+    }
+    @page{
+      size:  auto;   
+      margin : -10px; 
+    }
+  }

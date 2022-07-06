@@ -1,0 +1,38 @@
+<template>
+  <section role="dialog" tabindex="-1" aria-label="Meaningful description of the modal content" aria-modal="true"
+    aria-describedby="modal-content-id-1"
+    class="slds-modal slds-fade-in-open payment-sources-delete-modal slds-backdrop slds-modal_medium">
+    <div class="slds-modal__container AHFC_DelModContainer">
+      <div class="slds-modal__content delete-modal-content" id="modal-content-id-1">
+        <lightning-button-icon class="slds-modal__close cross-icon" title="Close" variant="bare" aria-label='Close'
+          icon-name="utility:close" onclick={handleDialogClose} size="large"></lightning-button-icon>
+        <div class="modal-action slds-m-top_x-large">
+          <h1 class="payment-delete-modal-heading">Delete {nickname}?</h1>
+          <template if:false={displaySch}>
+          <p class="delete-modal-subheading">
+            Are you sure you want to delete this payment source?
+          </p>
+          <p class="bank-details-section">
+            Bank Account Number : <span>{bankdetails}</span>
+          </p>
+        </template>
+        <template if:true={displaySch}>
+          <p class="delete-modal-subheading">
+            This payment source is used in scheduled payments. In order to remove it, please update or cancel the scheduled payments.
+          </p>
+          <p class="bank-details-section">
+            Bank Account Number : <span>{bankdetails}</span>
+          </p>
+        </template>
+          <div class="action-buttons">
+            <button onclick={onSave} class="save-action">{modalAgreeText}</button>
+           
+            <button class="slds-button AHFC_NoBgButton cancel-action" onclick={onCancel}>
+              {modalCancelText}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>

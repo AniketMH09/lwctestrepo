@@ -1,0 +1,310 @@
+<template>
+	<a href={mainContentData} class="anchor-main">skip to main content</a> 
+	<template if:true={showdesktop}>
+		<div class=" slds-grid aHFC_Menu slds-show_medium">
+			<div class=" AHFC_Wrapper">
+				<div class="slds-grid">
+					<header class="AHFC_CommunityHeader">
+						<div class="AHFC_LeftGrid">
+							<div class="AHFC_Logostyle"> <img  onclick={onlogoclick}  src={hondaLogoUrl} alt="Honda Financial Services" width="60" height="40"
+									class="logo1" /> </div>
+						</div>
+						<div class="AHFC_MiddleGrid">
+							<nav> 
+								<ul class="mainMenu">
+									<!-- The user is Guset User - {isCheck} -->
+									<li class="AHFC_Acclabel">
+										<a onclick={navigateToPage} class="AHFC_Menubord" href="javascript:void(0);" aria-label="My Account" role="link"> <span
+												class="AHFC_HeaderMenu">{labels.MyAccountLabel}</span></a>
+									</li>
+									<li class="mainMenu2">
+										 <a  data-id="mainMenu2" href="javascript:void(0);" onkeydown={onclickAddClassFinance} onfocus={removeOtherClass}
+										 class="AHFC_Menubord mainMenu2" aria-haspopup="true" aria-expanded="false" name='Navigate to finance tool' role='link'><span
+												class="AHFC_HeaderMenu">{labels.FinanceToolsLabel}</span></a>
+										<ul class="subMenu subMenu2" data-id={subMenu2}  onfocusin={removeClass} onkeydown={onclickAddClassFinance} onmouseover={addClass} onmouseout={removeClass}>
+											<li if:true={isDisplay}><a aria-label='Apply for pre approval'
+													onclick={navigateToCreaditPreApproval} href="javascript:void(0);" role="link">{labels.ApplyforPreApprovalLabel}</a>
+											</li>
+											<li if:true={isDisplay}><a aria-label='Lease vs finance'
+													onclick={navigateToLeaseVSFinance} href="javascript:void(0);" role="link">{labels.LeaseVsFinanceLabel}</a>
+											</li>
+											<li if:true={isDisplay}><a aria-label="Honda Loylty Benifits"
+													onclick={navigateTohondaLoyaltyBenfits} href="javascript:void(0);" role="link">{labels.HondaLoyaltyBenefitsLabel}</a>
+											</li>
+											<li if:true={isDisplay}><a aria-label="Acura Loylty Benifits"
+													onclick={navigateToAcuraLoyalotyPage} href="javascript:void(0);" role="link"> {labels.AcuraLoyaltyAdvantageLabel}</a>
+											</li>
+											<li if:true={isDisplay}><a aria-label="End of the term"
+													onclick={navigateToEndOfTerm} href="javascript:void(0);" role="link">{labels.EndofTermLabel}</a></li>
+											<li if:true={isDisplay}><a aria-label="Protectionof Products"
+													onclick={navigateToProtectionProducts} href="javascript:void(0);" role="link">{labels.ProtectionofProductsLabel}</a>
+											</li>
+										</ul>
+									</li>
+									<li class="mainMenu3">
+										 <a  data-id="mainMenu3" onkeydown={onclickAddClassSupport} href="javascript:void(0);" 
+										 class="AHFC_Menubord mainMenu3" aria-haspopup="true" onfocus={removeOtherClass}
+										aria-expanded="false"  name='Navigate to support' role='link'><span
+												class="AHFC_HeaderMenu">{labels.SUPPORTLabel}</span></a>
+										<ul class="subMenu subMenu3" onmouseover={addClass} onmouseout={removeClass}
+										onfocusin={removeClass} onkeydown={onclickAddClassSupport}>
+											<li if:true={isDisplay}><a href="javascript:void(0);"
+													onclick={navigateTohelpCenter}>{labels.HelpCenterLabel}</a></li>
+											<li if:true={isDisplay}><a href="javascript:void(0);"
+													onclick={navigateToContactUsPage}>{labels.ContactUsLabel}</a></li>
+											<li if:true={isDisplay} onclick={navigateToPaymentOptions}>
+												<a href="javascript:void(0);">{labels.PaymentOptionsLabel}</a></li>
+											<li if:true={isDisplay} onclick={navigateToPrintableForms}>
+												<a href="javascript:void(0);">{labels.PrintableFormsLabel}</a></li>
+										</ul>
+									</li>
+									<li  class="mainMenu4" if:true={isDisplay} >
+										<a  href="javascript:void(0);" class="AHFC_Menubord mainMenu4" aria-haspopup="true"
+										aria-expanded="false" name='Navigate to owners' role='link'  aria-label="OWNER"
+										data-id="mainMenu4" onkeydown={onclickAddClassOwners} onfocus={removeOtherClass}><span
+												class="AHFC_HeaderMenu">{labels.OWNERSLabel}</span></a>
+										<ul class="subMenu subMenu4" onmouseover={addClass} onmouseout={removeClass} 
+										onfocusin={removeClass} onkeydown={onclickAddClassOwners}>
+											<li><a href={labels.OWNERSHondaLabelUrl} role="link" aria-label='Owner'
+													target="_blank">{labels.OWNERSHondaLabel}</a></li>
+											<li><a href={labels.OWNERSAcuraLabelUrl} role="link" aria-label='Owner'
+													target="_blank">{labels.OWNERSAcuraLabel}</a></li>
+										</ul>
+									</li>
+								</ul>
+							</nav>
+						</div>
+						<div class="AHFC_RightGrid AHFC_RightGridMob">
+							<div class="AHFC_RightSec slds-col ">
+							<template if:false={isCheck}>
+								<button onclick={navigateToLoginPage} role="button"
+									class="slds-var-m-left_medium AHFC_LgButton" onkeydown={onUserProfileClick}>
+									LOG IN
+								</button>
+							</template>
+								<template if:true={isCheck}>
+									<div if:false={isUserProfile} class="username ">
+										<div class="user-img"><img alt="Profile" src={userImgUrl} /></div>
+										<div>
+											<p class="usernamelab usernameDesktop">{userName}</p>
+										</div>
+										<a href="javascript:void(0);" role="button" aria-expanded='false' aria-label="Profile Menu" alt="Profile Menu" onkeydown={onUserProfileClick} class="usernameDropDownDesktop">
+											<lightning-icon icon-name="utility:chevrondown" alternative-text="down"
+												size="x-small" title="Connected" data-xyz='qwe' class="AHFC_DownIcon"
+												onkeydown={closeProfilePopup} onclick={onUserProfileClick}> </lightning-icon>
+										</a>
+									</div>
+									<div if:true={isUserProfile} class="username">
+										<div class="user-img"><img alt="Profile" src={userImgUrl} /></div>
+										<div>
+											<div class="AHFC_UserSelected usernamelab">{userName}</div>
+										</div>
+										<a href="javascript:void(0);" role="button" aria-expanded='true' aria-label="Profile Menu" class="usernameDropDownDesktop">
+											<lightning-icon icon-name="utility:chevronup" alternative-text="up"
+												size="x-small" title="Connected" data-xyz='qwe' class="AHFC_DownIcon"
+												tabindex="0" onclick={onUserProfileClick}> </lightning-icon>
+										</a>
+										<div class="user-menu-lst">
+											<ul class="AHFC_ProfileSubmenu">
+												<div if:true={isDisplay}>
+													<li><a href="javascript:void(0);" class="ahfc_Profile" role="img"
+															aria-label="Profile Menu" alt="Profile"
+															onclick={navigateToProfilePage}>My Profile</a></li>
+													<li onkeydown={closeProfilePopup} class="AHFC_ProfileNoBorder">														
+															<!--<a href={logoutUrl} class="ahfc_Logout" role="button"
+															aria-label="ChevronUp" alt="Logout">Log Out</a> -->
+															<a  class="ahfc_Logout" role="button" href="javascript:void(0);"
+															aria-label="ChevronUp" alt="Logout"
+															onclick={navigateToLogout}>Log Out</a>
+														</li>
+												</div>
+											</ul>
+										</div>
+									</div>
+								</template>
+								<!--<template>
+									<button onclick={handleClick} class="slds-var-m-left_medium AHFC_LgButton ">LOGIN</button>
+								</template>-->
+
+							</div>
+						</div>
+					</header>
+				</div>
+			</div>
+		</div>
+	</template>
+	<template if:true={showdesktop}>
+		<div class=" slds-grid slds-hide_medium">
+			<div class=" AHFC_Wrapper">
+				<div class="slds-grid">
+					<header class="AHFC_CommunityHeader">
+                        <template if:false={isSubMenuOpenMenu}>
+							<a href="javascript:void(0);" onclick={onHamburgerClick} role="button" aria-label="Menu Items Open">
+						<div  class="nav-icon2"> <span></span>
+							<span></span> <span></span> <span></span>
+						</div></a>
+					</template>
+					   <template if:true={isSubMenuOpenMenu}>
+						   <a href="javascript:void(0);" onclick={onHamburgerClick} role="button" aria-label="Menu Items close">
+						<div  class="AHFC_CloseHeader"> <span>
+								<lightning-icon icon-name="utility:close" alternative-text="down" size="small"
+									title="Connected" class="AHFC_CloseIcon">
+								</lightning-icon>
+							</span>
+						</div>
+					  </a>  
+					</template>
+
+						<div class="AHFC_LeftGrid">
+							<!--<p class="AHFC_Logostyle"> <img src={hondaLogoUrl} alt="honda logo" width="60" height="40"
+									class="logo1" /> </p>-->
+							<picture>
+								<source media="(max-width: 767px)" srcset={hondaMobileLogoUrl}>
+								<img src={hondaLogoUrl} height="160" alt="Workshop employee with tools">
+							</picture>
+						</div>
+						<div class="AHFC_RightGrid">
+							<div class="AHFC_RightSec slds-col ">
+									 <template if:false={isCheck}>
+									<button onclick={navigateToLoginPage}
+										class="slds-var-m-left_medium AHFC_LgButton ">LOG IN</button>
+									</template>
+									<template if:true={isCheck}>
+										
+									<div class="username userMobile">
+											<div class="userNameMobile">
+												<div class="AHFC_UserSelected usernamelab">{userName}</div>
+											</div>
+											<div class="user-img userImageMobile"><img src={userImgUrl} onclick={onUserProfileClickforMobile} />
+		
+											</div>
+										</div>	
+									</template>
+									<div if:true={isMobileUserProfile}>
+										<div class="user-menu-lst">
+											<ul class="AHFC_ProfileSubmenu">
+												<div if:true={isDisplay}>
+													<li><a href="javascript:void(0);" onclick={navigateToProfilePage}>My Profile</a></li>
+													<li class="AHFC_ProfileNoBorder">
+														<!--<a href={logoutUrl}>Log Out</a> -->
+														<a  onclick={navigateToLogout} href="javascript:void(0);">Log Out</a> 
+													</li>
+												</div>
+											</ul>
+										</div>
+									</div>
+
+
+
+
+							</div>
+						</div>
+
+						<div if:true={isSubMenuOpenMenu}>
+							<div class="menulist ">
+								<ul class="mainMenu">
+									<div>
+										<button class="accordion" onclick={navigateToPage} role="button">
+											{labels.MyAccountLabel}</button>
+									</div>
+
+									<div if:false={isSubMenuOpenFinance}>
+										<button class="accordion" onclick={onSubmenuFinanceClick} role="button">
+											{labels.FinanceToolsLabel}
+											<lightning-icon icon-name="utility:chevrondown" alternative-text="down"
+												size="x-small" title="Connected" class="AHFC_DownIconAcc" aria-label="Menu Open">
+											</lightning-icon>
+										</button>
+									</div>
+									<div if:true={isSubMenuOpenFinance}>
+										<button class="accordion" onclick={onSubmenuFinanceClick}>
+											{labels.FinanceToolsLabel}
+											<lightning-icon icon-name="utility:chevronup" alternative-text="down" aria-label="Menu Close"
+												size="x-small" title="Connected" class="AHFC_DownIconAcc">
+											</lightning-icon>
+										</button>
+										<div class="">
+											<ul class="subMenuMob">
+												<li if:true={isDisplay}><a href="javascript:void(0);" role="link" aria-label="Apply for PreApproval"
+														onclick={navigateToCreaditPreApproval}>{labels.ApplyforPreApprovalLabel}</a>
+												</li>
+												<li if:true={isDisplay}><a href="javascript:void(0);" role="link" aria-label="Lease Vs Finance"
+														onclick={navigateToLeaseVSFinance}>{labels.LeaseVsFinanceLabel
+														}</a> </li>
+												<li if:true={isDisplay}><a href="javascript:void(0);" role="link" aria-label="Honda Loyalty Benefits"
+														onclick={navigateTohondaLoyaltyBenfits}>{labels.HondaLoyaltyBenefitsLabel}</a>
+												</li>
+												<li if:true={isDisplay}><a href="javascript:void(0);" role="link" aria-label="Acura Loyalty Advantage"
+														onclick={navigateToAcuraLoyalotyPage}>{labels.AcuraLoyaltyAdvantageLabel}</a>
+												</li>
+												<li if:true={isDisplay}><a href="javascript:void(0);" role="link" aria-label="End of Term"
+														onclick={navigateToEndOfTerm}>{labels.EndofTermLabel}</a></li>
+												<li if:true={isDisplay}><a href="javascript:void(0);" role="link" aria-label="Protection of Products"
+														onclick={navigateToProtectionProducts}>{labels.ProtectionofProductsLabel}</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div if:false={isSubMenuOpenSupport}>
+										<button class="accordion" onclick={onSubmenuSupportClick} role="button"> {labels.SUPPORTLabel}
+											<lightning-icon icon-name="utility:chevrondown" alternative-text="down"
+												size="x-small" title="Connected" class="AHFC_DownIconAcc">
+											</lightning-icon>
+										</button>
+									</div>
+									<div if:true={isSubMenuOpenSupport}>
+										<button class="accordion" onclick={onSubmenuSupportClick} role="button"> {labels.SUPPORTLabel}
+											<lightning-icon icon-name="utility:chevronup" alternative-text="down"
+												size="x-small" title="Connected" class="AHFC_DownIconAcc" aria-label="Support">
+											</lightning-icon>
+										</button>
+										<div class="">
+											<ul class="subMenuMob">
+												<li if:true={isDisplay}><a href="javascript:void(0);" role="link" aria-label="Help Center"
+														onclick={navigateTohelpCenter}>{labels.HelpCenterLabel}</a></li>
+												<li if:true={isDisplay}><a href="javascript:void(0);" role="link" aria-label="Contact Us"
+														onclick={navigateToContactUsPage}>{labels.ContactUsLabel}</a>
+												</li>
+												<li if:true={isDisplay}><a href="javascript:void(0);" role="link" aria-label="Payment Options"
+														onclick={navigateToPaymentOptions}>{labels.PaymentOptionsLabel}</a>
+												</li>
+												<li if:true={isDisplay}><a href="javascript:void(0);" role="link" aria-label="Printable Forms"
+														onclick={navigateToPrintableForms}>{labels.PrintableFormsLabel}</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div if:false={isSubMenuOpenOwner}>
+										<button class="accordion" onclick={onSubmenuOwnerClick} role="button"> {labels.OWNERSLabel}
+											<lightning-icon icon-name="utility:chevrondown" alternative-text="down"
+												size="x-small" title="Connected" class="AHFC_DownIconAcc">
+											</lightning-icon>
+										</button>
+									</div>
+									<div if:true={isSubMenuOpenOwner}>
+										<button class="accordion" onclick={onSubmenuOwnerClick} role="button"> {labels.OWNERSLabel}
+											<lightning-icon icon-name="utility:chevronup" alternative-text="down"
+												size="x-small" title="Connected" class="AHFC_DownIconAcc">
+											</lightning-icon>
+										</button>
+										<div class="">
+											<ul class="subMenuMob">
+												<li><a href={labels.OWNERSHondaLabelUrl} role="link" aria-label="OWNERS Honda"
+														target="_blank">{labels.OWNERSHondaLabel}</a></li>
+												<li><a href={labels.OWNERSAcuraLabelUrl} role="link" aria-label="OWNERS Acura"
+														target="_blank">{labels.OWNERSAcuraLabel}</a></li>
+											</ul>
+										</div>
+									</div>
+								</ul>
+							</div>
+						</div>
+					</header>
+				</div>
+			</div>
+		</div>
+	</template>
+
+
+	
+</template>

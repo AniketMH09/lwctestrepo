@@ -1,0 +1,283 @@
+<template>
+  <template if:true={routingSpinner}>
+    <c-a-h-f-c_-spinner loading-message={spinnerMessage}></c-a-h-f-c_-spinner>
+</template>
+<div class="reviewpayment-container">
+    <h1 class="reviewpayment-title" if:false={isPaymentSuccess}>
+        Review Payment
+    </h1>
+    <div class="message-info" if:true={isPaymentSuccessOTP}>
+        <!--Success Completion Screen OTP starts -->
+        <div class="message-container success">
+
+            <div class="message-icon">
+                <a href="javascript:void(0);" tabindex="-1">
+                    <lightning-icon icon-name="utility:success" alternative-text="Success" title="Success" class="toast-icon-color"></lightning-icon>
+                </a>
+            </div>
+            <div class="message-content-forOTP">
+                <h1 class="ahfc-body-one-new">Success</h1>
+                <p class="ahfc-body-two">Your payment has been scheduled successfully!</p>
+            </div>
+
+            <div class="close-icon close-icon-alignment">
+                <button class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse" title="Close" onclick={onCloseModalSuccess}>
+                  <lightning-icon size="small" class="close-icon-color" icon-name="utility:close" alternative-text="close"
+                      title="close"></lightning-icon>
+                  <span class="slds-assistive-text">Close</span>
+              </button>
+            </div>
+        </div>
+        <!--Success Completion Screen OTP Ends -->
+    </div>
+    <div class="reviewinfo-container-fluid slds-m-vertical_x-large">
+        <div class="reviewinfo-container">
+            <div class="review-section-info" if:false={isPaymentSuccess}>
+                <div class="slds-grid slds-wrap reviewpaymentinfo-container" if:false={isadditionalprinicipalamount}>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-hide_medium paymenttype-info">
+                        <label>{paymentType}</label>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-12 payment-info">
+                        <label if:true={showOneTimePayment}> <!--MONTHLY PAYMENT AMOUNT--> {paymentLabel}</label>
+                        <label if:true={showPayOff}>PAYOFF AMOUNT</label>
+                        <label if:true={showEasyPay}>AUTOMATIC PAYMENT AMOUNT</label>
+                        <h1 if:true={showMonthlyAmount}>${strmonthlyamount}</h1>
+                        <h1 if:false={showMonthlyAmount}>${stradditionalprincipalamount}</h1>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-show_medium paymenttype-info">
+                        <label>{paymentType}</label>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap additionalpaymentinfo-container" if:true={isadditionalprinicipalamount}>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-hide_medium paymenttype-info slds-m-top_small">
+                        <label>{paymentType}</label>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 payment-monthly-info" if:true={showMonthlyAmount}>
+                        <label>PAYMENT AMOUNT</label>
+                        <h1>${strmonthlyamount}</h1>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 payment-principal-info" if:true={showAdditionalPrincipalAmount}>
+                        <label>ADDITIONAL PRINCIPAL AMOUNT</label>
+                        <h1>${stradditionalprincipalamount}</h1>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-show_medium paymenttype-info slds-m-top_small">
+                        <label>{paymentType}</label>
+                    </div>
+                </div>
+                <hr class="principal-border" if:true={isadditionalprinicipalamount} aria-hidden="true"/>
+                <div class="payment-total-info" if:true={isadditionalprinicipalamount}>
+                    <label>TOTAL AMOUNT</label>
+                    <h1>{monthlyPaymentAmt}</h1>
+                </div>
+                <hr if:true={isadditionalprinicipalamount} aria-hidden="true"/>
+            </div>
+            <div class="confirmation-section-info" if:true={isPaymentSuccess}>
+                <div class="slds-grid slds-wrap confirmation-paymentinfo-container">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-hide_medium paymenttype-info">
+                        <label>{paymentType}</label>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 payment-info">
+                        <label if:true={showOneTimePayment}> <!--MONTHLY PAYMENT AMOUNT--> {paymentLabel}</label>
+                        <label if:true={showPayOff}>PAYOFF AMOUNT</label>
+                        <label if:true={showEasyPay}>AUTOMATIC PAYMENT AMOUNT</label>
+                        <h1 if:true={showMonthlyAmount}>${strmonthlyamount}</h1>
+                        <h1 if:false={showMonthlyAmount}>${stradditionalprincipalamount}</h1>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12">
+                        <div if:false={showEasyPay}>
+                            <div class="confirmation-number" if:true={showMonthlyAmount}>
+                                <label>CONFIRMATION #</label>
+                                <h1>{monthlyConfirmationNumber}</h1>
+                            </div>
+                            <div class="confirmation-number" if:false={showMonthlyAmount}>
+                                <label>CONFIRMATION #</label>
+                                <h1>{pricipleConfirmationNumber}</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-show_medium paymenttype-info">
+                        <label>{paymentType}</label>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap additionalpaymentinfo-container slds-m-top_large" if:true={isadditionalprinicipalamount}>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 payment-principal-info">
+                        <label>ADDITIONAL PRINCIPAL AMOUNT</label>
+                        <h1>${stradditionalprincipalamount}</h1>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 confirmation-number onlyForMobile" if:true={showAdditionalPrincipalAmount}>
+                        <label>CONFIRMATION NUMBER</label>
+                        <h1>{pricipleConfirmationNumber}</h1>
+                    </div>
+                </div>
+                <hr class="principal-border" if:true={isadditionalprinicipalamount} aria-hidden="true"/>
+                <div class="payment-total-info" if:true={isadditionalprinicipalamount}>
+                    <label>TOTAL AMOUNT</label>
+                    <h1>{monthlyPaymentAmt}</h1>
+                </div>
+                <hr if:true={isadditionalprinicipalamount} aria-hidden="true"/>
+            </div>
+            <div class="slds-grid slds-wrap schedule-source-section slds-m-top_x-large">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_4-of-12 scheduled-info">
+                    <div if:true={showOneTimePayment}>
+                        <label>SCHEDULED ON</label>
+                        <h1>{otpDueDate}</h1>
+                    </div>
+                    <div if:true={showPayOff}>
+                        <label>SCHEDULED ON</label>
+                        <h1>{dueDate}</h1>
+                    </div>
+                    <div if:true={showEasyPay}>
+                        <label>NEXT WITHDRAWAL DATE</label>
+                        <!-- <h1>{nextwithdrawldate}</h1> -->
+                        <h1 >{strNextWithdrawlDate}</h1>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 
+            slds-large-size_8-of-12  source-info">
+                    <label>PAYMENT SOURCE</label>
+                    <div class="sources-container">
+                        <!--kanchi added a fix-->
+                        <h1>{selectedpaymentsource}</h1>
+                        <p>(
+                            <span class="circle"></span>
+                            <span class="circle"></span>
+                            <span class="circle"></span>
+                            <span class="circle"></span>
+                            <span class="circle"></span>
+                            <span class="circle"></span>
+                            <span class="circle"></span>
+                            <span class="circle"></span>
+                            <span class="circle"></span> {last4accnumofselpaysource})
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <template if:true={isPaymentSuccess}>
+            <div class="slds-m-top_x-large scheduled-info">
+              <label>PAYMENT AUTHORIZED ON</label>
+              <h1>{authorizedDate}</h1>
+            </div>
+            <p class="slds-m-top_x-large questions-link">
+              For questions, contact&nbsp;
+              <a href='' onclick={oncontactus}>Customer Service</a>
+            </p>
+          </template>
+            <hr aria-hidden="true"/>
+            <!--Added by Aakash as part of bug 7686 starts-->
+            <div class="review-section" if:true={isPaymentSuccess}>
+                <div class="confirmation-credit-section">
+                    <template if:true={isStandardOTP}>
+                <template if:true={Payment_Confirmations_via_Email}>
+                  <label>RECEIVING NOTIFICATIONS AT</label>
+                <div class = "comm-prefs-section">
+                  <a href="javascript:void(0);" tabindex="-1">
+                  <lightning-icon icon-name="utility:email" alternative-text="Connected" size="small" title="small size">
+                  </lightning-icon>
+                </a>
+                  
+                  <h2 class="slds-m-top_medium mail-alignment">{commprefemail}</h2></div>
+                </template>
+                    <template if:true={Payment_Confirmations_via_Text}>
+                <div>
+                  <a href="javascript:void(0);" tabindex="-1">
+                  <lightning-icon icon-name="utility:engage" alternative-text="Connected" size="small" title="small size">
+                  </lightning-icon>
+                </a>
+                  <h3 class="slds-m-top_small mail-alignment">{commprefphone}</h3></div>
+                  <hr aria-hidden="true"/>
+                </template>
+                    <br>
+                    </template>
+                </div>
+            </div>
+            <!--Added by Aakash as part of bug 7686 Ends-->
+
+            <div class="review-section" if:false={isPaymentSuccess}>
+                <div class="confirmation-credit-section">
+                    <template if:true={isStandardOTP}>
+              <label>RECEIVING NOTIFICATIONS AT</label>
+              <template if:true={Payment_Confirmations_via_Email}>
+               <div>
+                <a href="javascript:void(0);" tabindex="-1">
+                <lightning-icon icon-name="utility:email" alternative-text="Connected" size="small" title="small size">
+                </lightning-icon>
+                </a>
+                
+                <h2 class="slds-m-top_medium mail-alignment">{commprefemail}</h2></div>
+              </template>
+                    <template if:true={Payment_Confirmations_via_Text}>
+              <div>
+                <a href="javascript:void(0);" tabindex="-1">
+                <lightning-icon icon-name="utility:engage" alternative-text="Connected" size="small" title="small size">
+                </lightning-icon>
+                </a>
+                <h3 class="slds-m-top_small mail-alignment">{commprefphone}</h3></div>
+              </template> 
+                    </template>
+                    <div class="slds-m-vertical_xx-large paymentconfirmation-container">
+                        <div if:true={showOneTimePayment}>
+                            <span class='ahfc-msg'> {label.AHFC_One_Time_Payment_Message} {cutOffTime}</span><!-- Bug 22763-->
+                        </div>
+                        <div if:true={showPayOff}>
+                            <span class='ahfc-msg'> {confirmationMessage} </span><!-- Bug 22763-->
+                        </div>
+                        <div if:true={showEasyPay}>
+                            <span class='ahfc-msg'> {confirmationMessage} </span><!-- Bug 22763-->
+                        </div>
+                    </div>
+
+                    <div if:true={showOneTimePayment}>
+                        <span class='ahfc-msg-new'>
+                  {label.T_C_Message_1}
+                  <a href={paymentAuthTnCUrl} target="_blank"> Terms & Conditions </a>
+                  {label.T_C_Message_2}</span
+                >
+              </div>
+              <div if:true={showPayOff}>
+                <span
+                  >{label.AHFC_Payoff_T_C_Message}
+                  <a href={paymentAuthTnCUrl} target="_blank">Terms & Conditions</a> {label.T_C_Message_2}</span
+                > 
+              </div> 
+              <div if:true={showEasyPay}>
+                <span>{label.EasyPay_T_C_1} <a href={paymentAuthTnCUrl} target="_blank">Terms & Conditions</a>.</span>
+                    </div>
+                </div>
+                <div class="reviewaction-container">
+                    <button class="slds-button ahfc-btn ahfc-btn-primary" onclick={handleSubmitPayment}>SUBMIT</button>
+                    <button class="slds-button ahfc-btn ahfc-btn-text" onclick={editPayment}>EDIT PAYMENT</button>
+                </div>
+            </div>
+            <div class="paymentsubmit-section" if:true={isPaymentSuccess}>
+                <div class="submitted-info-section">
+                    <p>
+                        Your next payment will be processed at {cutOffTime} on&nbsp;{otpDueDate}
+                        <lightning-formatted-date-time value={otpDueDate} day="2-digit" month="short" year="numeric"></lightning-formatted-date-time>
+                        <template if:true={showEasyPay}>
+                <lightning-formatted-date-time
+                  value={nextwithdrawldate}
+                ></lightning-formatted-date-time
+                >
+            </template>. You can cancel this schedule at any time.
+                        <span> You can edit or cancel this payment in your dashboard under
+                  &nbsp;<a href="javascript:void(0)" onclick={navigatetoPaymentActivityPage}>'Payment Activity'</a>.
+                </span>
+                    </p>
+                    <div if:false={isboolenrolled} class="enroll-easypay-section slds-m-top_xx-large">
+                        <div class="paycontent-img"><img src={easypayImg} alt="honda logo" />
+                        </div>
+                        <div class="enroll-easypay-info">
+                            <h4 class="slds-m-bottom_large">Do you know about EasyPay?</h4>
+                            <p class="slds-m-bottom_xx-large">
+                                You can automatically make your monthly finance payments using EasyPay automatic payments.
+                            </p>
+                            <lightning-button class="enroll-btn" variant="destructive" label="ENROLL IN EASYPAY" title="ENROLL IN EASYPAY" onclick={enrollEasyPay}></lightning-button>
+                        </div>
+                    </div>
+                    <button class=" AHFC_NoBgButton slds-m-top_xx-large slds-show" title="CONTINUE TO DASHBOARD" onclick={navigateToDashboard} tabindex="0" role="button">CONTINUE TO DASHBOARD</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</template>

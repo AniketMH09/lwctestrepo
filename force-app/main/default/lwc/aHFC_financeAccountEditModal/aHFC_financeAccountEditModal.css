@@ -1,0 +1,111 @@
+.header-text-medium {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 26px;
+  line-height: 36px;
+  color: #000000;
+}
+.label-text-medium {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  display: block;
+  letter-spacing: 0.03em;
+  color: #5e6162;
+}
+.para-text-medium {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #5e6162;
+}
+.form-element-input{
+  border-width: 0px 0px 1px 0px solid #5E6162;
+  border-radius: 0;
+  background: #f7f7f7;
+  height: 56px;
+  font-family: Roboto;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: black;
+}
+.form-element-input:focus{
+  outline: none;
+  box-shadow: none;
+  border-color: #5E6162;
+}
+.check-billing p, 
+.check-billing .slds-form-element__label{
+  font-size: 18px !important;
+  color: #000000;
+}
+.finance-account-edit-modal{
+  position: absolute;
+}
+.finance-account-edit-modal:focus{
+  outline: none;
+}
+.finance-account-edit-modal .slds-modal__container{
+  height: auto;
+}
+.action-btn {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  padding: 14px 24px;
+  letter-spacing: 0.06em;
+}
+.cancel-btn:hover {
+  background-color: #ffffff;
+  border-color: #a5cef0;
+}
+
+
+.edit-modal-content{
+  padding: 80px 100px;
+  border-radius: 0px;
+}
+.stop-finance-info{
+    background-color: #F7F7F7;
+    padding: 24px;
+}
+.save-action {
+  background-color: #CC0000;
+  border: none;
+  color: #ffffff;
+  box-sizing: border-box;
+  border-radius: 3px;
+  margin-right: 16px;
+}
+.cancel-action{
+    color: #CC0000;
+}
+
+@media (min-width: 992px) {
+  .finance-account-edit-modal .slds-modal__container {
+    margin: 0 auto;
+    width: 50%;
+    max-width: inherit;
+    min-width: inherit;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 540px) {
+  .finance-account-edit-modal .slds-modal__container{
+    width: 100%;
+    margin: 0px;
+  }
+  .edit-modal-content{
+    padding: 32px;
+  }
+}

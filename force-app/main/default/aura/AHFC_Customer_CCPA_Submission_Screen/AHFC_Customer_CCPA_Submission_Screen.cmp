@@ -1,0 +1,70 @@
+<!--
+* Name: AHFC_Customer_CCPA_Submission_Screen
+* Description: submission screen
+* Created Date: 25-Aug-2021
+* Created By: Sagar (US 4090)
+*-->
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    
+    <ltng:require styles="{!$Resource.AHFC_UI_Kit}"/>
+    <aura:attribute name = "instructions" type = "String"/> 
+    <aura:attribute name = "Past_Due_Instructions" type = "String"/> 
+    <aura:attribute name = "First_Payment_Instruction" type = "String"/> 
+    <aura:attribute name = "Pending_Case_Instruction" type = "String"/> 
+    <aura:attribute name = "Past_Due_Screen" type = "String"/> 
+    <aura:attribute name = "First_Payment_Screen" type = "String"/> 
+    <aura:attribute name = "Pending_Case_Screen" type = "String"/> 
+    <aura:attribute name = "Ineligible_Customer" type = "String"/>
+    <aura:attribute name = "LE_Flow" type = "String"/>
+    <aura:attribute name = "DDC_Flow" type = "String"/>
+    <aura:attribute name = "DDC_Eligibility" type="String"/>
+    <aura:attribute name = "Record_Not_Found" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name = "Invalid_User" type="String"/>
+    <aura:attribute name= "communityName" type="string" default=""/>
+    <aura:attribute name= "strRequestType" type="string" default=""/>
+    <aura:attribute name= "strMessage" type="string" default=""/>
+    <aura:attribute name= "strCaseNumber" type="string" default=""/>
+    <aura:attribute name= "strstate" type="string" default=""/>
+    
+    <aura:attribute name="doNotSell" type="boolean" default="false"/>
+    <aura:attribute name="delteInfo" type="boolean" default="false"/>
+    <aura:attribute name="whatInfo" type="boolean" default="false"/>
+    
+    <lightning:navigation aura:id="navService"/>
+    
+    <div class="contain">
+        <div class="center"> 
+            <div class="AHFC_HeaderWrap ahfc_arrowAlign">
+                <h2 class="header"><span>{!v.strRequestType}</span></h2>
+            </div>
+            
+            
+            <div class="AHFC_DetailWrap">
+                <div class="info">
+                    <span class='Message_CCPA'>
+                      <aura:unescapedHtml value="{!v.strMessage}" />
+                    </span>
+                </div>
+                
+                <div class="AHFC_Divider"></div>
+                
+                <div class="action ahfc_buttons">
+                
+                <div class="action slds-grid slds-wrap AHFC_BtnWrap">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12 ahfc_submitBtn">
+                       <lightning:button class="AHFC_customPrimaryButton"
+                                  aura:id="cont3" name="continue3" label="Finish" onclick="{!c.redirectToHomeWindow}"/>
+                    </div>
+                </div>
+            
+            </div>
+            </div>
+            
+                        
+            
+           
+        </div>
+       
+    </div>
+</aura:component>

@@ -1,0 +1,46 @@
+<template>
+    <div if:true={isEnrolled}>
+        <div class='ahfc-comm-ref'>
+            <div class="slds-wrap">
+                <div
+                    class="slds-small-size_12-of-12 slds-medium-size_12-of-12 slds-large-size_12-of-12 ahfc-comm-header ahfc-mrg">
+                    {labels.AHFC_Communication_Ref_Receive_Notification}
+                </div>
+                <div
+                    class="slds-small-size_12-of-12 slds-medium-size_12-of-12 slds-large-size_12-of-12 ahfc-comm-email ahfc-mrg">
+                    <div class='ahfc-icon'>
+                        <a href="javascript:void(0);" tabindex="-1">
+                        <lightning-icon icon-name="utility:email" size='x-small' alternative-text="Email" title="Email">
+                        </lightning-icon></a>  {email}
+                       
+                    </div>
+                </div>
+                <div
+                    class="slds-small-size_12-of-12 slds-medium-size_12-of-12 slds-large-size_12-of-12 ahfc-reader ahfc-mrg">
+                    <span>
+                        <a onclick={onEditNot}
+                            class="ahfc-links ahfc-links-secondary">{labels.AHFC_Communication_Edit_Refer}</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div if:false={isEnrolled}>
+        <div class='ahfc-comm-ref'>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-medium-size_12-of-12 slds-large-size_12-of-12 ahfc-comm-header ahfc-mrg">
+                    {labels.AHFC_Communication_Enroll_Comm}
+                </div>
+                <div class="slds-col slds-medium-size_12-of-12 slds-large-size_12-of-12 ahfc-text ahfc-mrg">
+                    {labels.AHFC_Communication_Sign_Up}
+                </div>
+                <div class="slds-col slds-medium-size_12-of-12 slds-large-size_12-of-12 ahfc-reader ahfc-mrg">
+                    <span>
+                        <a onclick={onEditNot}
+                            class="ahfc-links ahfc-links-secondary">{labels.AHFC_Communication_Enroll_Comm}</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

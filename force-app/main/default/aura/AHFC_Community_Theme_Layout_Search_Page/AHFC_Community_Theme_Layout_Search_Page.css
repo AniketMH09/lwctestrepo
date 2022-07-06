@@ -1,0 +1,37 @@
+.THIS .mainContentArea {
+    padding: 60px;    
+
+}
+
+.THIS .customProfile{
+    width: 15%;
+}
+.THIS .notifications{
+    width: 50px;
+    padding-top: 10px;
+    padding-left: 5px;
+}
+.THIS .searchRegion{
+    width: 15%;
+    padding-top: 10px;
+}
+.THIS .menu1{
+    /*width: 65%;*/
+    width: 20%;
+    padding-top: 10px;
+}
+.THIS .blankRow{
+    width: 80% !important;
+}
+.THIS .contentRegion{
+    padding-left: 65px;
+    padding-right: 60px;
+    padding-top: 0px !important;
+}
+.THIS .footerRegion{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.THIS secondRowRightPadding{
+    padding-right: 120px;
+}

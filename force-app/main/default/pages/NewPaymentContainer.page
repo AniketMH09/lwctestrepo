@@ -1,0 +1,12 @@
+<apex:page title="New Payment" standardController="ChargentOrders__ChargentOrder__c" extensions="NewPaymentContainerControllerExt" action="{!doProcessing}" recordSetVar="myrecords" lightningStylesheets="true" showHeader="false" sidebar="false">
+
+
+<apex:includeScript value="/support/console/42.0/integration.js"/> 
+
+
+<div class="slds-scope">
+
+  <apex:pageMessages ></apex:pageMessages>
+</div>
+
+</apex:page>

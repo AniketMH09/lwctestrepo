@@ -1,0 +1,6 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens,lightning:isUrlAddressable" access="global" controller = "AHFC_FLOW_Controller">
+    <aura:attribute name="someParam" type="String" />
+    <aura:attribute name = "FAId" type = "String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <lightning:flow aura:id="DDCFlow" />
+</aura:component>

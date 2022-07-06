@@ -1,0 +1,38 @@
+<template>
+    <!-- <lightning-card title={title}>
+
+        <div style="height: 200px;">
+            <lightning-datatable key-field="id" data={data} columns={columns} hide-checkbox-column
+                show-row-number-column>
+            </lightning-datatable>
+        </div>
+
+    </lightning-card> -->
+
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid slds-bgm_color">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <lightning-icon icon-name="standard:document_reference" size="small" alternative-text="Event" title="Cases"></lightning-icon>
+                </div>
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <a href="#" class="slds-card__header-link slds-truncate" title="Cases">
+                            <span>{title}</span>
+                        </a>
+                    </h2>
+                    <!-- <lightning-button-icon  icon-name="utility:refresh" alternative-text="Refresh" class="slds-p-around_xx-small" onclick={refreshTable}></lightning-button-icon> -->
+                </div>
+               
+            </header>
+        </div>
+        <div if:true={isZero} class="slds-card__body slds-card__body_inner slds-text-body_small slds-text-body--small slds-bgm_color">{count}</div>
+        <div if:true={isZero} style="height: 200px;border-top: 1px solid rgb(229, 229, 229);">
+            <lightning-datatable key-field="id" data={data} columns={columns} hide-checkbox-column
+                show-row-number-column>
+            </lightning-datatable>
+        </div>
+        
+    </article>
+
+</template>

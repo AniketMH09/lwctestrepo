@@ -1,0 +1,64 @@
+.AHFC_DetName{font-size: 30px;
+    font-family: 'ahfc-robotolight';}
+
+.AHFC_PopUpWrap{
+    padding: 3rem 5rem 0;
+}
+.AHFC_PopUpTitle{
+    font-weight: 300;
+    font-size: 26px;
+    line-height: 36px;
+    color: #000000;
+}
+.AHFC_PopUpDesc{
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    color: #5E6162;
+    padding: 1rem 0rem;
+}
+.AHFC_ContBtn{
+    padding: 10px 20px;
+    background: #CC0000;
+    border-radius: 3px;
+    float: left;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+.AHFC_FooterWrap{
+    border: none;
+    padding: 2rem 0rem 5rem 5rem;
+}
+@media (min-width: 320px) and (max-width: 767px) {
+    .AHFC_PopUpWrap{
+        padding: 2rem 1rem 0;
+    }
+    .AHFC_PopUpTitle{
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 26px;
+        color: #000000;
+    }
+    .AHFC_PopUpDesc{
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.02em;
+        color: #5E6162;
+        padding: 1rem 0rem;
+    }
+    .AHFC_FooterWrap{
+        border: none;
+        padding: 2rem 1rem;
+    }
+    .AHFC_ContBtn{
+        width: 100%;
+    }
+    .AHFC_Container{
+        padding-bottom:2rem;
+        background: #fff;
+    }
+    
+}

@@ -1,0 +1,457 @@
+<template>
+    <div role="main" id="main-container" class="main-content">
+        <div class="AHFC_PageTitleWrap">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12">
+                    <div class="AHFC_topCard">
+                        <div class="AHFC_topImage">
+                            <picture>
+                                <source media="(max-width: 767px)" srcset={bannerMobilepUrl}>
+                                <img src={bannerDesktopUrl} height="160" alt="Workshop employee with tools">
+                            </picture>
+                        </div>
+                        <h1>
+                            <div class="AHFC_topHeading">
+                                Protection Products
+                            </div>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="AHFC_Wrapperst">
+            <div class="AHFC_CommunitySecHeader">
+                <div class="AHFC_PadeDesciption">
+                    <span class="AHFC_LightText">Whether you’re taking a trip to the store or exploring new places, you
+                        deserve to enjoy your vehicle to its fullest. Honda Financial Services and Acura Financial
+                        Services offer a variety of service contracts, maintenance plans and protection coverage so you
+                        can drive with peace of mind.</span>
+                </div>
+            </div>
+            <div class="AHFC_ContainerSec">
+                <div class="slds-grid">
+                    <div
+                        class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12 slds-large-size_3-of-12 slds-m-right_small AHFC_Col">
+                        <div class="AHFC_CardWrap AHFC_First">
+                            <div class="AHFC_CardImg">
+                                <picture>
+                                    <source media="(max-width: 767px)" srcset={vscMobileUrl}>
+                                    <img src={vscMobileUrl} height="160" alt="A woman and a man in a car">
+                                </picture>
+                                <!-- <img src={womanAndManInCarUrl} alt="A woman and a man in a car" width="auto" height="160" class="" /> -->
+                            </div>
+                            <div class="AHFC_CardInnerWrap">
+                                <div class='test'>
+                                    <h2>
+                                        <div class="AHFC_CardTitle"><span class="AHFC_LightText">Vehicle Service
+                                                Contracts</span></div>
+                                    </h2>
+
+                                    <div class="AHFC_CardDetail"><span>Vehicle service contracts are available to
+                                            provide
+                                            additional protection and coverage when you’re on the road.</span></div>
+                                    <div class="AHFC_CardAccordText"><span>Coverage for Honda, Acura, and non-Honda or
+                                            Acura
+                                            vehicles includes rental-car reimbursement, Roadside Assistance, and more.
+                                            See
+                                            our brochures linked below for more details:</span></div>
+                                </div>
+                                <div class="AHFC_CardAccordion">
+                                    <section class={PPAccord1.class}>
+                                        <div class="slds-accordion__summary-action" aria-controls={PPAccord1.id}
+                                            data-keyno={PPAccord1.id} aria-expanded={PPAccord1.isOpened} title=""
+                                            onclick={onMobileSectionsClick}>
+                                            <div class="slds-grid AHFC_AccordTab" data-keyno={PPAccord1.id}>
+                                                <div class="slds-col AHFC_AccordTitle">
+                                                    <span>Brochures</span>
+                                                </div>
+                                                <div class="slds-col">
+                                                    <a href="javascript:void(0);" class="AHFC_removehovereffect"
+                                                        tabindex="-1">
+                                                        <lightning-icon class="AHFC_ArrowIcon"
+                                                            if:false={PPAccord1.isOpened}
+                                                            icon-name="utility:chevrondown" size="small"
+                                                            alternative-text="chevrondown" title="chevrondown">
+                                                        </lightning-icon>
+                                                    </a>
+                                                    <a href="javascript:void(0);" class="AHFC_removehovereffect"
+                                                        tabindex="-1">
+                                                        <lightning-icon class="AHFC_ArrowIcon"
+                                                            if:true={PPAccord1.isOpened} icon-name="utility:chevronup"
+                                                            size="small" alternative-text="chevronup" title="chevronup">
+                                                        </lightning-icon>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slds-accordion__content" id={PPAccord1.id}>
+                                            <div class="AHFC_CardName">
+                                                Honda Care
+                                            </div>
+                                            <div class="AHFC_CardLink">
+                                                <a href={PPAccord1.pdf1} download onclick={tagging1}>
+                                                    <lightning-icon class="AHFC_DownloadIcon"
+                                                        icon-name="utility:download" size="x-small"
+                                                        alternative-text="download" title="">
+                                                    </lightning-icon>
+                                                </a>
+                                                HONDA VEHICLES
+                                            </div>
+                                            <div class="AHFC_CardLink">
+                                                <a href={PPAccord1.pdf2} download onclick={tagging2}>
+                                                    <lightning-icon class="AHFC_DownloadIcon"
+                                                        icon-name="utility:download" size="x-small"
+                                                        alternative-text="download" title="">
+                                                    </lightning-icon>
+                                                </a>
+                                                Non-Honda VEHICLES
+                                            </div>
+                                            <div class="AHFC_CardName">
+                                                Acura Care
+                                            </div>
+                                            <div class="AHFC_CardLink">
+                                                <a href={PPAccord1.pdf3} download onclick={tagging3}>
+                                                    <lightning-icon class="AHFC_DownloadIcon"
+                                                        icon-name="utility:download" size="x-small"
+                                                        alternative-text="download" title="">
+                                                    </lightning-icon>
+                                                </a>
+                                                ACURA VEHICLES
+                                            </div>
+                                            <div class="AHFC_CardLink">
+                                                <a href={PPAccord1.pdf4} download onclick={tagging4}>
+                                                    <lightning-icon class="AHFC_DownloadIcon"
+                                                        icon-name="utility:download" size="x-small"
+                                                        alternative-text="download" title="">
+                                                    </lightning-icon>
+                                                </a>
+                                                Non-Acura VEHICLES
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-size_1-of-1 slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-m-right_small AHFC_Col">
+                        <div class="AHFC_CardWrap AHFC_Second">
+                            <div class="AHFC_CardImg">
+                                <picture>
+                                    <source media="(max-width: 767px)" srcset={sentinelMobileUrl}>
+                                    <img src={sentinelMobileUrl} height="160" alt="Oil being poured out of a can">
+                                </picture>
+                            </div>
+                            <div class="AHFC_CardInnerWrap">
+                                <div class='test'>
+                                    <h2>
+                                        <div class="AHFC_CardTitle"><span class="AHFC_LightText">Sentinel Services &
+                                                Sentinel Plus</span></div>
+                                    </h2>
+
+                                    <div class="AHFC_CardDetail"><span>Oil change coverage, in addition to a wide range
+                                            of
+                                            services, make your drive go as smoothly as possible.</span></div>
+                                    <div class="AHFC_CardAccordText"><span>Plans offer oil change coverage and a variety
+                                            of
+                                            valuable services for new and pre-owned Honda and Acura automobiles. See
+                                            more
+                                            details in the brochures below.</span></div>
+                                </div>
+                                <div class="AHFC_CardAccordion">
+                                    <section class={PPAccord2.class}>
+                                        <div class="slds-accordion__summary-action" aria-controls={PPAccord2.id}
+                                            data-keyno={PPAccord2.id} aria-expanded={PPAccord2.isOpened} title=""
+                                            onclick={onMobileSectionsClick}>
+                                            <div class="slds-grid AHFC_AccordTab" data-keyno={PPAccord2.id}>
+                                                <div class="slds-col AHFC_AccordTitle">
+                                                    <span>Brochures</span>
+                                                </div>
+                                                <div class="slds-col">
+                                                    <a href="javascript:void(0);" class="AHFC_removehovereffect"
+                                                        tabindex="-1">
+                                                        <lightning-icon class="AHFC_ArrowIcon"
+                                                            if:false={PPAccord2.isOpened}
+                                                            icon-name="utility:chevrondown" size="small"
+                                                            alternative-text="chevrondown" title="chevrondown">
+                                                        </lightning-icon>
+                                                    </a>
+                                                    <a href="javascript:void(0);" class="AHFC_removehovereffect"
+                                                        tabindex="-1">
+                                                        <lightning-icon class="AHFC_ArrowIcon"
+                                                            if:true={PPAccord2.isOpened} icon-name="utility:chevronup"
+                                                            size="small" alternative-text="chevronup" title="chevronup">
+                                                        </lightning-icon>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slds-accordion__content" id={PPAccord2.id}>
+                                            <div class="AHFC_CardName">
+                                                Honda Care
+                                            </div>
+                                            <div class="AHFC_CardLink">
+                                                <a href={PPAccord2.pdf1} download onclick={tagging5}>
+                                                    <lightning-icon class="AHFC_DownloadIcon"
+                                                        icon-name="utility:download" size="x-small"
+                                                        alternative-text="download" title="">
+                                                    </lightning-icon>
+                                                </a>
+                                                SENTINEL SERVICES
+                                            </div>
+                                            <div class="AHFC_CardLink">
+                                                <a href={PPAccord2.pdf2} download onclick={tagging6}>
+                                                    <lightning-icon class="AHFC_DownloadIcon"
+                                                        icon-name="utility:download" size="x-small"
+                                                        alternative-text="download" title="">
+                                                    </lightning-icon>
+                                                </a>
+                                                SENTINEL PLUS
+                                            </div>
+                                            <div class="AHFC_CardName">
+                                                Acura Care
+                                            </div>
+                                            <div class="AHFC_CardLink">
+                                                <a href={PPAccord2.pdf3} download onclick={tagging7}>
+                                                    <lightning-icon class="AHFC_DownloadIcon"
+                                                        icon-name="utility:download" size="x-small"
+                                                        alternative-text="download" title="">
+                                                    </lightning-icon>
+                                                </a>
+                                                SENTINEL SERVICES
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-size_1-of-1 slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-m-right_small AHFC_Col">
+                        <div class="AHFC_CardWrap AHFC_Third">
+                            <div class="AHFC_CardImg">
+                                <picture>
+                                    <source media="(max-width: 767px)" srcset={maintenanceMobileUrl}>
+                                    <img src={maintenanceMobileUrl} height="160"
+                                        alt="Workshop employee servicing a vehicle">
+                                </picture>
+                            </div>
+                            <div class="AHFC_CardInnerWrap">
+                                <div class='test'>
+                                    <h2>
+                                        <div class="AHFC_CardTitle"><span class="AHFC_LightText">Maintenance
+                                                Program</span>
+                                        </div>
+                                    </h2>
+
+                                    <div class="AHFC_CardDetail"><span>Maintenance services keep your Honda or Acura in
+                                            top
+                                            condition and help maintain performance and value.</span></div>
+
+                                    <div class="AHFC_CardAccordText"><span>Coverage is prepaid and includes the basics,
+                                            from
+                                            oil and filter changes, to tire rotations and multi-point inspections. More
+                                            details are available in the brochures below.</span></div>
+                                </div>
+                                <div class="AHFC_CardAccordion">
+                                    <section class={PPAccord3.class}>
+                                        <div class="slds-accordion__summary-action" aria-controls={PPAccord3.id}
+                                            data-keyno={PPAccord3.id} aria-expanded={PPAccord3.isOpened} title=""
+                                            onclick={onMobileSectionsClick}>
+                                            <div class="slds-grid AHFC_AccordTab" data-keyno={PPAccord3.id}>
+                                                <div class="slds-col AHFC_AccordTitle">
+                                                    <span>Brochures</span>
+                                                </div>
+                                                <div class="slds-col">
+                                                    <a href="javascript:void(0);" class="AHFC_removehovereffect"
+                                                        tabindex="-1">
+                                                        <lightning-icon class="AHFC_ArrowIcon"
+                                                            if:false={PPAccord3.isOpened}
+                                                            icon-name="utility:chevrondown" size="small"
+                                                            alternative-text="chevrondown" title="chevrondown">
+                                                        </lightning-icon>
+                                                    </a>
+                                                    <a href="javascript:void(0);" class="AHFC_removehovereffect"
+                                                        tabindex="-1">
+                                                        <lightning-icon class="AHFC_ArrowIcon"
+                                                            if:true={PPAccord3.isOpened} icon-name="utility:chevronup"
+                                                            size="small" alternative-text="chevronup" title="chevronup">
+                                                        </lightning-icon>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slds-accordion__content" id={PPAccord3.id}>
+                                            <div class="AHFC_CardName">
+                                                Honda Care
+                                            </div>
+                                            <div class="AHFC_CardLink">
+                                                <a href={PPAccord3.pdf1} download onclick={tagging8}>
+                                                    <lightning-icon class="AHFC_DownloadIcon"
+                                                        icon-name="utility:download" size="x-small"
+                                                        alternative-text="download" title="">
+                                                    </lightning-icon>
+                                                </a>
+                                                MAINTENANCE
+                                            </div>
+                                            <div class="AHFC_CardName">
+                                                Acura Care
+                                            </div>
+                                            <div class="AHFC_CardLink">
+                                                <a href={PPAccord3.pdf2} download onclick={tagging9}>
+                                                    <lightning-icon class="AHFC_DownloadIcon"
+                                                        icon-name="utility:download" size="x-small"
+                                                        alternative-text="download" title="">
+                                                    </lightning-icon>
+                                                </a>
+                                                MAINTENANCE
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12 slds-large-size_3-of-12">
+                        <div class="AHFC_CardWrap AHFC_Fourth">
+                            <div class="AHFC_CardImg">
+                                <picture>
+                                    <source media="(max-width: 767px)" srcset={gapMobileUrl}>
+                                    <img src={gapMobileUrl} height="160" alt="Dark grey Acura car">
+                                </picture>
+                            </div>
+                            <div class="AHFC_CardInnerWrap">
+                                <div class='test'>
+                                    <h2>
+                                        <div class="AHFC_CardTitle"><span class="AHFC_LightText">Guaranteed Asset
+                                                Protection
+                                                (GAP)</span></div>
+                                    </h2>
+
+                                    <div class="AHFC_CardDetail"><span>Protection from unexpected expenses, unrecovered
+                                            theft, or total loss of your Honda or Acura automobile and Honda powersports
+                                            vehicles.</span></div>
+                                    <div class="AHFC_CardAccordText test2"></div>
+                                </div>
+                                <div class="AHFC_CardAccordion">
+                                    <section class={PPAccord4.class}>
+                                        <div class="slds-accordion__summary-action" aria-controls={PPAccord4.id}
+                                            data-keyno={PPAccord4.id} aria-expanded={PPAccord4.isOpened} title=""
+                                            onclick={onMobileSectionsClick}>
+                                            <div class="slds-grid AHFC_AccordTab" data-keyno={PPAccord4.id}>
+                                                <div class="slds-col AHFC_AccordTitle">
+                                                    <span>Brochures</span>
+                                                </div>
+                                                <div class="slds-col">
+                                                    <a href="javascript:void(0);" class="AHFC_removehovereffect"
+                                                        tabindex="-1">
+                                                        <lightning-icon class="AHFC_ArrowIcon"
+                                                            if:false={PPAccord4.isOpened}
+                                                            icon-name="utility:chevrondown" size="small"
+                                                            alternative-text="chevrondown" title="chevrondown">
+                                                        </lightning-icon>
+                                                    </a>
+                                                    <a href="javascript:void(0);" class="AHFC_removehovereffect"
+                                                        tabindex="-1">
+                                                        <lightning-icon class="AHFC_ArrowIcon"
+                                                            if:true={PPAccord4.isOpened} icon-name="utility:chevronup"
+                                                            size="small" alternative-text="chevronup" title="chevronup">
+                                                        </lightning-icon>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slds-accordion__content" id={PPAccord4.id}>
+                                            <div class="AHFC_CardName">
+                                                Honda Care
+                                            </div>
+                                            <div class="AHFC_CardLink">
+                                                <a href={PPAccord4.pdf1} download onclick={tagging10}>
+                                                    <lightning-icon class="AHFC_DownloadIcon"
+                                                        icon-name="utility:download" size="x-small"
+                                                        alternative-text="download" title="">
+                                                    </lightning-icon>
+                                                </a>
+                                                GAP
+                                            </div>
+                                            <div class="AHFC_CardName">
+                                                Acura Care
+                                            </div>
+                                            <div class="AHFC_CardLink">
+                                                <a href={PPAccord4.pdf2} download onclick={tagging11}>
+                                                    <lightning-icon class="AHFC_DownloadIcon"
+                                                        icon-name="utility:download" size="x-small"
+                                                        alternative-text="download" title="">
+                                                    </lightning-icon>
+                                                </a>
+                                                GAP
+                                            </div>
+                                            <div class="AHFC_CardName">
+                                                POWERSPORTS
+                                            </div>
+                                            <div class="AHFC_CardLink">
+                                                <a href={PPAccord4.pdf3} download onclick={tagging12}>
+                                                    <lightning-icon class="AHFC_DownloadIcon"
+                                                        icon-name="utility:download" size="x-small"
+                                                        alternative-text="download" title="">
+                                                    </lightning-icon>
+                                                </a>
+                                                GAP
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="AHFC_WrapperNa">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-large-size_6-of-12">
+                    <div class="AHFC_NaImg">
+                        <picture>
+                            <source media="(max-width: 767px)" srcset={phoneMobileUrl}>
+                            <img src={phoneDesktopUrl} height="160" alt="">
+                        </picture>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-large-size_6-of-12">
+                    <div class="AHFC_NeedAssistance">
+                        <h2>
+                            <div class="AHFC_NaTitle">Need Assistance?</div>
+                        </h2>
+                        <div class="AHFC_NaDesc">If you have a Honda Care or Acura Care service contract and need
+                            assistance, call us.</div>
+                        <div class="AHFC_NaDetails">
+                            <a href="javascript:void(0);" class="AHFC_removehovereffect" tabindex="-1">
+                                <lightning-icon class="AHFC_DownloadIcon" icon-name="utility:call" size="x-small"
+                                    alternative-text="download" title="">
+                                </lightning-icon>
+                            </a>Honda Care <span>(800) 999-5901</span>
+                        </div>
+                        <div class="AHFC_NaDetails">
+                            <a href="javascript:void(0);" class="AHFC_removehovereffect" tabindex="-1">
+                                <lightning-icon class="AHFC_DownloadIcon" icon-name="utility:call" size="x-small"
+                                    alternative-text="download" title="">
+                                </lightning-icon>
+                            </a> Acura Care <span>(800) 682-2872</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="AHFC_WrapperFAQ">
+            <c-a-h-f-c_dashboard-faq page-name="Service_Contracts"></c-a-h-f-c_dashboard-faq>
+        </div>
+        <div class="AHFC_WrapperDS">
+            <div class="slds-grid">
+                <div class="slds-col slds-size_1-of-1">
+                    <span class="AHFC_DsText">Actual waiver benefit may not result in the entire amount waived. Please
+                        refer to the Honda or Acura Care GAP Waiver Addendum for complete details.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

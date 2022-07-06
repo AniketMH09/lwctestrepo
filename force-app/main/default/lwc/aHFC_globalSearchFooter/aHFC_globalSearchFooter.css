@@ -1,0 +1,238 @@
+/*Footer*/ 
+
+/* Footer Icon Layout */
+
+.SubTitle a,.SubTitle a:hover{text-decoration: none;}
+.AHFC_TopStyle{
+    padding: 2rem 8rem;
+}
+.AHFC_BottomStyle
+{
+    padding: 1rem 8rem  1rem 8rem;
+
+}
+.AHFC_RemRightStyle{
+    padding-right:0rem !important;
+}
+/* .AHFC_FooterWrap{    padding: 0rem 3.5rem 1rem 3.4rem;
+} */
+.AHFC_Iconslayout{
+    /* padding: 2rem 1rem 2rem 0;
+    width: 81px;
+    height: 81px; */
+    /* padding: 0rem 2rem 0rem 0;
+    width: auto;
+    height: 70px;
+    margin: 2rem 0 2rem 0; */
+    width: auto;
+    height: 44px;
+    margin: 2rem 2rem 2rem 0;
+}
+/* 
+.AHFC_Iconslayout img{        height: 32px;
+    object-fit: contain;
+    width: auto;
+} */
+.AHFC_Options div{padding-right:2rem;}
+.AHFC_CookiesStyle{
+float: left;
+display: inline-flex;
+padding-right:0px !important; 
+}
+.AHFC_CookiesStyle a{    padding-left: 0.25rem;font-size:12px !important;letter-spacing: 0.03rem;
+    text-decoration: underline;    font-family: 'ahfc-robotomedium';}
+    .AHFC_CookiesStyle p{
+        font-size: 12px;
+    letter-spacing: 0.03rem;
+    font-family: 'ahfc-robotomedium';
+    }
+.AHFC_Addleft{
+padding-right: 0rem !important;
+}
+.AHFC_AddRt{padding-top: 0.5rem;}
+.AHFC_Options{    padding: 0rem 0rem 2rem 0;
+}
+/* .AHFC_AddRt{
+    padding-left:1rem !important;
+} */
+.AHFC_Options a{    color: white !important;    font-size: 14px;
+    letter-spacing: 0.03rem;    font-family: 'ahfc-robotoregular';
+}
+.AHFC_StyleRt p{float:right;font-size: 12px;
+    font-family: 'ahfc-robotomedium';
+    letter-spacing: 0.03rem;}
+.AHFC_DividerLine{    border-bottom: 1px solid white;
+}
+.AHFC_FtIconlayout{
+    width: 100% !important;
+    float: left;
+    display: block;
+    background: #5e6162;
+    color: white !important;
+
+}
+/* Footer Icon Layout */
+.Leftwidth{width:41%;}
+.Rightwidth{width:23%;}
+.AHFC_LastCol{width:40% !important;}
+.AHFC_Col2{float: left;
+    margin-left: 3rem;}
+    .AHFC_Col1{float: left;}
+    .AHFC_BrandsTitle {color:white !important;
+        /* font-family: 'ahfc-robotobold'; removed this for bug-12320 added font weight props */
+        font-weight: 700;
+    font-size: 14px;letter-spacing: 0.06rem;}
+    .Leftwidth,.Rightwidth,.AHFC_LastCol{display: inline-block;}
+.Titlestyle{    
+    /* font-family: 'ahfc-robotobold'; removed this for bug-12320 added font weight props */
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.06rem;
+    color: #000000;        padding-bottom: 8px;    text-transform: uppercase;
+}
+    .AHFCMainFooter{    
+    position: relative; 
+    padding: 1rem 8rem;
+
+
+}
+
+.ContentWrap{
+    padding: 0 0rem 1rem 0.5rem;
+    }
+.AHFCMainFooter a{    
+    color: #5E6162;
+}
+
+.AHFC_Highlight a{color:#000000 !important;}
+.AHFC_HighlightIcon{ --lwc-colorTextIconDefault:#000000 !important;}
+.sub2level{     margin: 0rem 0.75rem;
+    line-height: 1.75;}
+.sub2level li>a:hover{color:#e42525;text-decoration: none;}
+.sub2levelhighlight li>a{font-family: 'ahfc-robotomedium';
+    line-height: 2.2;
+    font-size: 12px;
+    letter-spacing: 0.03rem;
+}
+
+
+.SubTitle{  
+    line-height: 2.75;
+    font-size: 14px;
+    letter-spacing: 0.03rem;
+    color: #5E6162;
+
+}
+.Iconstyle {margin-right:1.5rem;}
+.AHFC_DownIconFoot{    margin-left: 0.75rem !important;cursor:pointer
+}
+/*Footer*/
+
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .AHFC_DownIconlevel2{ --lwc-colorTextIconDefault:#706e6b;float:right;}
+    .AHFC_RemBordbottom{border-bottom:none !important;}
+    .sub2level{
+    border-top: 1px solid #afafaf;
+    margin: 0.5rem 1.5rem;
+    border-bottom: 1px solid #afafaf;
+}
+    .subMenuMob{
+    background-color: #f7f7f7;    margin-bottom: 8px;
+    }
+
+    .subMenuMob li{
+        display: block;
+        padding: 1.5rem 2rem 1rem 2rem !important;
+            line-height: 0.5;
+    }
+    .subMenuMob li>a{
+        color:#000;
+                font-size: 14px;letter-spacing: 0.03rem;
+    }
+
+/* New menu check */
+
+
+.AHFC_DownIconAcc{float: right;  --lwc-colorTextIconDefault:#000; }
+    .Titlestyle{color:#000;letter-spacing: 0.06rem;}
+        /*Menus*/
+
+.accordion {
+    /* font-weight:bold; Salesforce scan*/
+    background-color:white;
+    cursor: pointer;
+    /* padding:8px; Salesforce scan*/
+    width: 100%;
+    text-align: left;
+    outline: none;
+    font-size: 14px;
+    transition: 0.6s;
+    border:none;padding: 1rem 1.2rem;
+    font-weight: bold;
+    }
+    
+    
+    
+    /* .panel {
+    padding: 0 18px;
+    background-color:red;
+    z-index: 1000;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    } */
+/*Menus End*/
+    .AHFCMainFooter
+    {display:none;}
+    
+    .AHFC_FooterWrap {
+        padding: 0rem .5rem!important;
+    }
+.AHFC_TopStyle{
+   padding: 2rem 1.25rem !important;
+
+}
+.AHFC_MobTermOptions {
+    width: 50%;
+    float: none;
+    line-height: 2;
+    display: inline-block;
+    padding-right: 0rem !important;}
+
+    .AHFC_CookiesStyle {
+        float: none;
+        display: inline-block;
+        padding-right: 0rem !important;
+    }
+.AHFC_MobTerms{
+    width: 100%;
+    text-align: center;    padding: 0rem !important;
+
+}
+.AHFC_MobIconWrap{
+    display: inline-block;
+    width: 100%;
+
+}
+.AHFC_StyleRt p{padding-top:1rem;padding-right:0rem !important;    float: none !important;
+}
+.AHFC_NoFloat{float: none;
+display: inline-block;}
+.AHFC_Iconslayout {
+   
+    width: 50%!important;
+    display: inline-grid;
+    padding: 0rem 2rem 0rem 2rem!important;
+    text-align: center;    margin: 1rem 0 1rem 0 !important;
+}
+.AHFC_BottomStyle {
+    padding: 2rem 1.25rem !Important;
+}
+.AHFC_Options {
+    padding: 0 0 1rem;
+    display: inline-block;
+}
+.AHFC_MobMargin{margin:-8px;}
+.AHFC_DividerLine{display: none;}
+}

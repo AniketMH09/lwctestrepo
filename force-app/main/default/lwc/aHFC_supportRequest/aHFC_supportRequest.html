@@ -1,0 +1,259 @@
+<template>
+   <template if:false={isLoaded}>      
+      <c-a-h-f-c_-spinner loading-message='Please wait while we process your request'></c-a-h-f-c_-spinner>
+  </template> 
+  <c-a-h-f-c_vehicle-header ></c-a-h-f-c_vehicle-header> 
+   <div class="ahfc-background-lighter">
+      <div class='ahfc-correspondence-wrapper'>
+         <div class='ahfc-container ahfc-correspondence-container'>
+            <c-a-h-f-c_page-title title='Track Support Requests' show-icon="true"></c-a-h-f-c_page-title>
+
+            <div if:false={isError} class="ahfc-background-white">
+
+               <div class="transaction-history">
+                  <div class="header">
+                     <h3 class="ahfc-sub-heading-one ahfc-header-padding AHFC_HeadingOne">
+                        ALL CASES
+                     </h3>
+                     <h4 class="ahfc-body-one ahfc-text-dark ahfc-header-padding">Track support request cases for your
+                        finance
+                        account below.</h4>
+                     <div class="transaction-table slds-show_large desktop">
+                        <div class="table-header AHFC_TableWrap">
+                           <div class="slds-grid slds-wrap">
+                              <div class="slds-col AHFC_ColOne AHFC_textAlignCenter">
+                                 <div class="slds-truncate" data-sorttype="caseNumber" title="CASE #">
+                                    <button
+                                       class="slds-button table-sort-button ahfc-info-label ahfc-text-dark slds-text-title_caps slds-text-align_center"
+                                       data-sorttype="caseNumber" onclick={onSortClick}>
+                                       <span data-sorttype="caseNumber" class='ahfc-tabel-header'>CASE #</span>
+                                       <lightning-icon data-sorttype="caseNumber"
+                                          class="ahfc-icon ahfc-icon-grey table-sort" icon-name="utility:sort"
+                                          size="xx-small" alternative-text="sort" title="sort">
+                                       </lightning-icon>
+                                    </button>
+                                 </div>
+                              </div>
+                              <div class="slds-col AHFC_ColTwo AHFC_textAlignCenter">
+                                 <div class="slds-truncate" data-sorttype="caseTitle" title="CASE TITLE">
+                                    <button
+                                       class="slds-button table-sort-button ahfc-info-label ahfc-text-dark slds-text-title_caps slds-text-align_center"
+                                       data-sorttype="caseTitle" onclick={onSortClick}>
+                                       <span data-sorttype="caseTitle" class='ahfc-tabel-header'>CASE TYPE</span>
+                                       <lightning-icon data-sorttype="caseTitle"
+                                          class="ahfc-icon ahfc-icon-grey table-sort" icon-name="utility:sort"
+                                          size="xx-small" alternative-text="sort" title="sort">
+                                       </lightning-icon>
+                                    </button>
+                                 </div>
+                              </div>
+
+                              <div class="slds-col AHFC_ColThree AHFC_textAlignCenter">
+                                 <div class="slds-truncate" data-sorttype="caseStatus" title="CASE STATUS">
+                                    <button
+                                       class="slds-button table-sort-button ahfc-info-label ahfc-text-dark slds-text-title_caps AHFC_textAlignCenter"
+                                       data-sorttype="caseStatus" onclick={onSortClick}>
+                                       <span data-sorttype="caseStatus" class='ahfc-tabel-header'>STATUS</span>
+                                       <lightning-icon data-sorttype="caseStatus"
+                                          class="ahfc-icon ahfc-icon-grey table-sort" icon-name="utility:sort"
+                                          size="xx-small" alternative-text="sort" title="sort">
+                                       </lightning-icon>
+                                    </button>
+                                 </div>
+                              </div>
+                              <div class="slds-col AHFC_ColFour AHFC_textAlignCenter">
+                                 <div class="slds-truncate" data-sorttype="lastModified" title="LAST MODIFIED">
+                                    <button
+                                       class="slds-button table-sort-button ahfc-info-label ahfc-text-dark slds-text-title_caps AHFC_textAlignCenter"
+                                       data-sorttype="lastModified" onclick={onSortClick}>
+                                       <span data-sorttype="lastModified" class='ahfc-tabel-header'>LAST
+                                          MODIFIED</span>
+                                       <lightning-icon data-sorttype="lastModified"
+                                          class="ahfc-icon ahfc-icon-grey table-sort" icon-name="utility:sort"
+                                          size="xx-small" alternative-text="sort" title="sort">
+                                       </lightning-icon>
+                                    </button>
+                                 </div>
+                              </div>
+                              <div class="slds-col AHFC_ColFive AHFC_textAlignCenter">
+                                 <div class="slds-truncate" data-sorttype="submissionDate" title="CASE SUBMISSION DATE">
+                                    <button
+                                       class="slds-button table-sort-button ahfc-info-label ahfc-text-dark slds-text-title_caps AHFC_textAlignCenter"
+                                       data-sorttype="submissionDate" onclick={onSortClick}>
+                                       <span data-sorttype="submissionDate" class='ahfc-tabel-header'>CASE SUBMISSION
+                                          DATE</span>
+                                       <lightning-icon data-sorttype="submissionDate"
+                                          class="ahfc-icon ahfc-icon-grey table-sort" icon-name="utility:sort"
+                                          size="xx-small" alternative-text="sort" title="sort">
+                                       </lightning-icon>
+                                    </button>
+                                 </div>
+                              </div>
+                              <div class="slds-col AHFC_ColSix AHFC_textAlignCenter">
+                                 <div class="slds-truncate" data-sorttype="name" title="NICKNAME">
+                                    <button
+                                       class="slds-button table-sort-button ahfc-info-label ahfc-text-dark slds-text-title_caps"
+                                       data-sorttype="name">
+                                    <span data-sorttype="name" class='ahfc-tabel-header'>NICKNAME</span>
+                                    </button>
+                                 </div>
+                              </div>
+                              <div class="slds-col AHFC_ColSeven AHFC_textAlignCenter">
+                                 <div class="slds-truncate" data-sorttype="financeAcc" title="FINANCE ACCOUNT">
+                                    <button
+                                       class="slds-button table-sort-button ahfc-info-label ahfc-text-dark slds-text-title_caps"
+                                       data-sorttype="financeAcc" onclick={onSortClick}>
+                                       <span data-sorttype="financeAcc" class='ahfc-tabel-header'>FINANCE
+                                          ACCOUNT</span>
+                                       <lightning-icon data-sorttype="financeAcc"
+                                          class="ahfc-icon ahfc-icon-grey table-sort" icon-name="utility:sort"
+                                          size="xx-small" alternative-text="sort" title="sort">
+                                       </lightning-icon>
+                                    </button>
+                                 </div>
+                              </div>
+
+                           </div>
+                        </div>
+                        <div class='ahfc-corres-info' if:true={isData}>
+                           <div class="table-body AHFC_TableDataWrap">
+                              <template for:each={tableData} for:item="tableItem">
+                                 <div key={tableItem.key} class='slds-grid slds-wrap'>
+                                    <div data-label="Case Nmber"
+                                       class="slds-col  AHFC_ColOne AHFC_textAlignCenter">
+                                       <button
+                                          class="slds-button table-sort-button ahfc-info-label ahfc-text-dark slds-text-title_caps AHFC_textAlignCenter"
+                                          data-record-id={tableItem.Id} onclick={viewSupportRequestDetails}>
+                                          <span data-record-id={tableItem.Id}
+                                             class='ahfc-red-actions'>{tableItem.CaseNumber}</span>
+
+                                       </button>
+                                    </div>
+
+                                    <div data-label="Case Title"
+                                       class="slds-col AHFC_ColTwo AHFC_textAlignCenter">
+                                       <p class="slds-truncate ahfc-body-two ahfc-text-dark table-block-m"
+                                          title={tableItem.description}>{tableItem.Type}</p>
+                                    </div>
+                                    <div data-label="Case Status"
+                                       class="slds-col  AHFC_ColThree AHFC_textAlignCenter">
+                                       <p class="slds-truncate ahfc-body-two ahfc-text-dark table-block-m "
+                                          title={tableItem.description}>{tableItem.Status}</p>
+                                    </div>
+                                    <div data-label="Date Received"
+                                       class="slds-col  AHFC_ColFour AHFC_textAlignCenter">
+                                       <p class="slds-truncate ahfc-body-two ahfc-text-dark table-block-m"
+                                          title={tableItem.description}>{tableItem.LastModifiedDate}</p>
+                                    </div>
+                                    <div data-label="Date Received"
+                                       class="slds-col AHFC_ColFive AHFC_textAlignCenter">
+                                       <p class="slds-truncate ahfc-body-two ahfc-text-dark table-block-m"
+                                          title={tableItem.description}>{tableItem.CreadtedDate_DateOnly__c}</p>
+                                    </div>
+                                    <div data-label="Date Received"
+                                       class="slds-col AHFC_ColSix AHFC_textAlignCenter">
+                                       <p class="slds-truncate ahfc-body-two ahfc-text-dark table-block-m"
+                                          title={tableItem.description}>
+                                          {tableItem.Finance_Account__r.AHFC_Product_Nickname__c}</p>
+                                    </div>
+                                    <div data-label="Date Received "
+                                       class="slds-col AHFC_ColSeven AHFC_textAlignCenter">
+                                       <p class="slds-truncate ahfc-body-two ahfc-text-dark table-block-m"
+                                          title={tableItem.description}>{tableItem.Finance_Account__r.Finance_Account_Number_Without_Zeroes__c}</p>
+                                    </div>
+
+                                 </div>
+                              </template>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="transaction-table slds-hide_large AHFC_MobView">
+                        <div class='slds-hide_large ahfc-background-lightest filter-sort-wrapper show'>
+                           <div class="main-options">
+                              <div class="sort-options">
+                                 <lightning-combobox class="ahfc-combobox ahfc-input" name="sort" label='Sort By'
+                                    value={sortSelected} placeholder="Select from options below" options={sortMethods}
+                                    onchange={onSortSelection} data-id="sortcombo">
+                                 </lightning-combobox>
+                              </div>
+                           </div>
+                        </div>
+                        <template for:each={tableData} for:item="tableItem">
+                           <div class="card-item" key={tableItem.key}>
+                              <div class="table-data-row">
+                                 <div>
+                                    <p class="slds-text-title_caps ahfc-info-label ahfc-text-dark ahfc-mobile-header">
+                                       CASE #</p>
+                                       <button
+                                       class="slds-button table-sort-button ahfc-info-label ahfc-text-dark slds-text-title_caps slds-text-align_left AHFC_label"
+                                       data-record-id={tableItem.Id} onclick={viewSupportRequestDetails}>
+                                       <span data-record-id={tableItem.Id} class='ahfc-red-actions'>{tableItem.CaseNumber}</span>
+
+                                    </button>
+                                 <!--  <p class="ahfc-header-three ahfc-text-dark">{tableItem.CaseNumber}
+                                    </p>--> 
+
+                                 </div>
+                                 <div>
+                                    <p class="slds-text-title_caps ahfc-info-label ahfc-text-dark ahfc-mobile-header">
+                                       CASE TYPE</p>
+                                    <p class="ahfc-header-three ahfc-text-dark">{tableItem.Type}
+                                    </p>
+                                 </div>
+                                 <div>
+
+                                    <div class="slds-truncate" title="VIEW">
+                                       <button
+                                          class="slds-button table-sort-button ahfc-info-label ahfc-text-dark slds-text-title_caps slds-text-align_left"
+                                          data-record-id={tableItem.Id} onclick={viewSupportRequestDetails}>
+                                          <span data-record-id={tableItem.Id} class='ahfc-red-actions'>VIEW</span>
+
+                                       </button>
+                                    </div>
+
+                                 </div>
+
+                              </div>
+                              <div>
+                              </div>
+                           </div>
+                        </template>
+                     </div>
+                  </div>
+               </div>
+               <div if:true={isData} class="slds-grid slds-wrap transaction-history ahfc-reader">
+                  <div class="slds-col slds-medium-size_12-of-12 slds-small-size_12-of-12">
+                     <c-a-h-f-c_pagination if:false={refreshPagination} class="transaction-pagination"
+                        items={totalRecords} itemsperpage="6" onpagechanges={pageChange}>
+                     </c-a-h-f-c_pagination>
+                  </div>
+
+               </div>
+               
+               <div if:false={isData}>
+                  <div class="transaction-history">
+                     <div class="header">
+
+                        <div class='ahfc-nodata'>There are no requests to display.</div>
+                     </div>
+                  </div>
+
+               </div>
+            </div>
+            <div if:true={isError}>
+               <div class="transaction-history">
+                  <div class="header">
+                     <div class='ahfc-nodata error'>Error: Your request could not be processed at this time.
+                        Please
+                        try again later.</div>
+
+
+                  </div>
+               </div>
+            </div>
+
+         </div>
+      </div>
+   </div>
+
+</template>

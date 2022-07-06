@@ -1,0 +1,35 @@
+<aura:component implements="forceCommunity:themeLayout" access="global" description="Sample Custom Theme Layout">
+    <aura:attribute name="search" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="profileMenu" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="blueBackground" type="Boolean" default="false"/> 
+    <aura:attribute name="smallLogo" type="Boolean" default="false" />
+    <aura:attribute name="navBar" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="newProfile" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="newHeader" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="newFooter" type="Aura.Component[]" required="false"/>
+    
+    <div class="slds-grid slds-grid_vertical">
+        <div class="slds-col">
+            {!v.newHeader}
+        </div>       
+        <div class="slds-col">
+            <div class="slds-grid slds-grid_reverse secondRowRightPadding">              
+              <div class="slds-col notifications">
+                  <forceCommunity:notifications/>                
+              </div>              
+              <div class="slds-col menu1">
+                {!v.search}
+              </div>
+              <div class="slds-col blankRow">
+                
+              </div>
+            </div>
+        </div>  
+        <div class="slds-col contentRegion">
+            {!v.body}
+        </div>
+        <div class="slds-col">
+            {!v.newFooter}
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>PopulateOldRegMonthlyPymtInsert</fullName>
+        <description>Updates the &apos;Old Regular Monthly Payment&apos; field with &apos;Regular Monthly Payment&apos;</description>
+        <field>Old_Regular_Monthly_Payment__c</field>
+        <formula>Regular_Monthly_Payment__c</formula>
+        <name>PopulateOldRegMonthlyPymtInsert</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>PopulateOldRegMonthlyPymtUpdate</fullName>
+        <description>Updates the &apos;Old Regular Monthly Payment&apos; field with &apos;Regular Monthly Payment&apos;</description>
+        <field>Old_Regular_Monthly_Payment__c</field>
+        <formula>PRIORVALUE( Regular_Monthly_Payment__c )</formula>
+        <name>PopulateOldRegMonthlyPymtUpdate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>PopulateOldRegMonthlyPymtInsert</fullName>
+        <actions>
+            <name>PopulateOldRegMonthlyPymtInsert</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Populate the OldRegMonthlyPayment with the value of RegMonthlyPayment while Insert.</description>
+        <formula>ISNULL( Old_Regular_Monthly_Payment__c )</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>PopulateOldRegMonthlyPymtUpdate</fullName>
+        <actions>
+            <name>PopulateOldRegMonthlyPymtUpdate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Populate the OldRegMonthlyPayment with the value of RegMonthlyPayment while Update.</description>
+        <formula>ISCHANGED( Regular_Monthly_Payment__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

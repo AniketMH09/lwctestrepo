@@ -1,0 +1,20 @@
+<template>
+    <div class="slds-grid slds-grid_vertical">
+        <div class="slds-col payment-activity-info">
+            <p class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps">
+                {labels.PaymentActivityNextPayment}</p>
+            <p if:false={boolNoDuePayments} class="ahfc-info-small ahfc-text-dark">{labels.AHFC_No_Scheduled_Payments}
+            </p>
+            <p if:true={boolNoDuePayments} class="ahfc-info-small ahfc-text-dark">${nextPayAmnt} on {dueDate}</p>
+        </div>
+        <div class="slds-col payment-activity-info">
+            <p class="info-label ahfc-info-label ahfc-text-dark slds-text-title_caps">{labels.PaymentActivityLastPayment}</p>
+            <p if:false={boolNoPayments} class="ahfc-info-small ahfc-text-dark">{labels.AHFC_No_payments_made_yet}</p>
+            <p if:true={boolNoPayments} class="ahfc-info-small ahfc-text-dark">${lastPayAmnt} on <span>{lastPayDate}</span></p>
+        </div> 
+        <div class="slds-col extra-options">
+            <a  onclick={onPaymentActivityClick}
+                class="ahfc-links ahfc-links-primary slds-text-title_caps" href="javascript:void(0);">{labels.AHFC_Dashboard_PaymentsActivityBtn}</a>
+        </div>
+    </div>
+</template>

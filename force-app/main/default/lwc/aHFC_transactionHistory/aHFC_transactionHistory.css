@@ -1,0 +1,345 @@
+@import 'c/aHFC_dashboardTheme';
+
+.AHFC_Spinnereg{
+    --lwc-colorBackgroundSpinnerDot:rgb(228, 37, 37) !important;
+  }
+
+.AHFC_SearchIcon{
+    
+    width: 3rem !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    background: #e22525 !important;
+    height: 32px !important;
+    border: none;
+}
+
+.ahfc-backgroud-lighter {
+    background-color: #f0f0f0;
+}
+
+.ahfc-trans-msg{
+    margin-bottom: 22px;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+
+.dashboard-faq .extra-options {
+    border-top: 1px solid #5e6162;
+}
+
+.faq-accordion {
+    padding: 10px 0;
+}
+
+.ahfc-accordion-item .slds-accordion__summary-action {
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 24px;
+    letter-spacing: 0.04em;
+    color:black;
+}
+
+.ahfc-accordion-item .slds-accordion__content {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.ahfc-mobile-faq {
+    width: 100%;
+}
+.ahfc-padding {
+    padding-bottom: 20px;
+}
+
+.ahfc-brd {
+    border-top: 40px solid #f0f0f0;
+}
+.ahfc-accordion-item .slds-accordion__section .slds-accordion__summary-content {
+    font-weight: 600;
+}
+.ahfc-accordion-item .slds-accordion__section.slds-is-open .slds-accordion__summary-content {
+    color: #CC0000;
+}
+
+
+.transaction-history {
+    padding: 32px 20px 0;
+}
+
+.transaction-history .header {
+    margin-bottom: 40px;
+}
+
+/* .transaction-history .header h3 {
+    margin-bottom: 8px;
+} */
+
+.transaction-content-wrapper {
+    padding-bottom: 50px;
+    border-bottom: 1px solid #D9D9D9;
+    margin-bottom: 30px;
+}
+
+.from-to-date .slds-col {
+    padding-right: 20px;
+}
+
+.from-to-button {
+    margin-top: 45px;
+}
+
+.transaction-pagination {
+    padding: 25px 0 40px;
+    border-bottom: 1px solid #d9d9d9;
+    display: block;
+    margin-bottom: 40px;
+}
+
+.statements-wrapper {
+    padding: 0;
+}
+.past-statement {
+    padding: 24px;
+    background-color: #f0f0f0;
+}
+.past-statement .ahfc-body-two {
+    margin-bottom: 24px;
+    line-height: 18px
+}
+.retun-dashboard-wrapper {
+    padding: 0 20px;
+}
+.dashboard-return-button {
+    padding: 40px 0;
+    border-top: 1px solid #D9D9D9;
+    margin-top: 40px;
+}
+
+/* Table Styles */
+
+.transaction-table,
+.no-data-error {
+    margin-top: 30px;
+}
+
+/* Table Mobile */
+.transaction-table .card-item {
+    border: 1px solid #d9d9d9;
+    margin-top: 24px;
+}
+.transaction-table .card-item:first-child {
+    margin-top: 0;
+}
+.transaction-table .card-item .table-data-row {
+    padding: 24px 20px;
+}
+.transaction-table .card-item .table-data-row p:nth-child(1) {
+    margin-bottom: 8px;
+}
+.transaction-table .card-item .table-data-row .table-date,
+.transaction-table .card-item .table-data-row p:nth-child(2) {
+    display: block;
+    margin-bottom: 24px;
+}
+
+/* Table header */
+.transaction-table .table-header .slds-col {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+.table-accor-btn,
+.table-sort-button {
+    width: 100%;
+    display: block;
+}
+.table-sort-button {
+    padding-right: 10px;
+}
+.table-accor-btn:focus,
+.table-sort-button:focus {
+    box-shadow: none;
+}
+.table-sort-button:hover {
+    color: #000;
+}
+.table-sort {
+    bottom: 1px;
+    margin-left: 5px;
+}
+.table-block-m {
+    margin: 0 10px;
+}
+
+/* Table Body */
+.transaction-table .table-body .slds-grid {
+    border-bottom: 1px solid #d9d9d9;
+}
+.transaction-table .table-body .slds-col {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.transaction-table .table-header .slds-col:first-child div,
+.transaction-table .table-body .slds-col:first-child div {
+    margin: 0 10px 0 30px;
+}
+.table-accor-btn {
+    text-decoration: none;
+}
+.table-accor-btn .table-arrow {
+    --sds-c-icon-color-foreground-default: #CC0000;
+}
+.table-accor-btn.disable-btn {
+    pointer-events: none;
+    color: white;
+}
+.table-accor-btn.disable-btn .table-arrow {
+    --sds-c-icon-color-foreground-default: white;
+}
+.table-accor-btn .ahfc-icon {
+    margin-left: 8px;
+}
+
+/* Extra Details */
+.extra-details {
+    padding: 0 !important;
+}
+.extra-details .extra-details-block-wrapper {
+    padding: 8px 15px 4px;
+}
+.extra-details .fee-structure {
+    width: 100%;
+    padding: 16px 5px;
+}
+.extra-details .slds-col {
+    padding: 0 !important;
+}
+.extra-details .slds-grid {
+    border: none !important;
+}
+.list-data {
+    padding: 13px 0 16px;
+    border-bottom: 1px dashed #d9d9d9;
+    margin-bottom: 16px;
+}
+.list-data .slds-grid {
+    margin-bottom: 16px;
+}
+.list-data .slds-grid:last-child {
+    margin-bottom: 0;
+}
+.extra-details .text-height {
+    line-height: 18px;
+}
+
+/* Filter & Sort */
+.pad-top{
+    padding-top:24px;
+}
+
+.ahfc-search-btn {
+    padding-top: 19px;
+}
+
+.filter-sort-wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    padding: 33px 20px;
+}
+.filter-sort-wrapper.hide {
+    z-index: -1;
+    display: none;
+}
+.filter-sort-wrapper.show {
+    display: block;
+    z-index: 9999;
+}
+.filter-sort-wrapper .main-options {
+    height: calc(100vh - 200px);
+    overflow-y: scroll;
+    margin-bottom: 16px;
+}
+.filter-sort-wrapper .sort-options {
+    margin-top: 40px;
+}
+.filter-sort-wrapper .sort-actions {
+    position: fixed;
+    bottom: 16px;
+    width: calc(100% - 40px);
+    text-align: center;
+}
+.filter-sort-wrapper .sort-actions button:first-child {
+    margin-bottom: 16px;
+}
+
+@media screen and (min-width: 768px) {
+
+    .ahfc_faq_wrap{
+        padding: 2rem;
+    }
+
+    .transaction-history {
+        padding: 20px 40px 0;
+    }
+    .statements-wrapper {
+        padding: 0 40px 40px;
+    }
+    .past-statement .ahfc-body-two {
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: 0.02em;
+    }
+    .retun-dashboard-wrapper {
+        padding: 0 40px;
+    }
+    .dashboard-return-button {
+        margin-top: 0;
+        padding: 40px 0;
+    }
+
+    .transaction-table {
+        border: 1px solid #d9d9d9;
+    }
+
+    .table-accor-btn .table-arrow {
+        --sds-c-icon-color-foreground-default: #5e6162;
+    }
+
+    .extra-details .extra-details-block-wrapper {
+        padding: 0;
+        margin: 0 30px;
+        border-top: 1px solid #d9d9d9;
+    }
+    .extra-details .fee-structure {
+        width: 300px;
+    }
+    
+}
+.ahfc-view-statement{
+    font-size: 14px !important;
+}
+.ahfc_statmnt{
+    margin-top: 1rem;
+}
+
+.ahfc-viewstatements{
+    text-transform: uppercase;
+    padding: 12px 56px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.06em;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    background-color: transparent;
+}
+
+@media screen and (min-width: 768px){
+.ahfc-viewstatements {
+    width: auto;
+    }
+}

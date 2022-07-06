@@ -1,0 +1,10 @@
+<apex:page title="New Bank Account" standardController="Payment_Source__c" extensions="NewBankAccountContainerControllerExt" action="{!doProcessing}" recordSetVar="myrecords" lightningStylesheets="true" showHeader="false" sidebar="false">
+
+<div class="slds-scope">
+   
+<br />
+
+<apex:pageMessages ></apex:pageMessages>
+</div>
+
+</apex:page>

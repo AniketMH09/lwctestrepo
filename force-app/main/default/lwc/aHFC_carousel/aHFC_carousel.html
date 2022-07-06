@@ -1,0 +1,17 @@
+<template>
+    <lightning-card>
+        <lightning-carousel>
+            <!-- Template for each goes here to pupulate the 6 accounts -->
+            <template for:each={selectedAccountsList} for:item="servAcc">
+                <div key={servAcc.keyNo} id={servAcc.panelId} class="slds-carousel__panel"
+                    role="tabpanel" aria-hidden={servAcc.ariaHidden}
+                    aria-labelledby={servAcc.indicatorId}>
+                </div>
+            </template>
+            <lightning-carousel-image>
+    
+            </lightning-carousel-image>
+        </lightning-carousel>
+        <lightning-slider label="User Account" value={myValue} onchange={userAccountMax} step=10></lightning-slider>
+    </lightning-card>
+</template>

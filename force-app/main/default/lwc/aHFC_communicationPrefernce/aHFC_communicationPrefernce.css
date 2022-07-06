@@ -1,0 +1,38 @@
+@import 'c/aHFC_dashboardTheme';
+
+
+.ahfc-comm-ref .ahfc-comm-header {
+    font-family: Roboto;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 20px;
+letter-spacing: 0.03em;
+text-transform: uppercase;
+
+}
+
+.ahfc-mrg {
+    margin-bottom: 12px;
+}
+
+.ahfc-comm-email{
+    font-family: Roboto;
+font-style: normal;
+font-weight: 300;
+font-size: 17px;
+line-height: 36px;
+    color: #5E6162;
+    }
+
+
+.ahfc-icon {
+    margin-right: 12px;
+}
+
+.ahfc-text {
+    color: #5E6162;
+    font-weight: normal;
+    letter-spacing: 0.02em;
+    font-size: 18px;
+}

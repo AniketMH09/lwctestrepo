@@ -1,0 +1,71 @@
+<apex:page Controller="ManualCASSCalloutRetry" >
+    <apex:form id="theForm">
+        <style>
+            .slds-truncate{
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                max-width: 100px; <!-- Decide your width -->
+            }
+        </style>
+        <script type="text/javascript">
+            function selectAllCheckboxes(obj,InputID){
+                var inputCheckBox = document.getElementsByTagName("input");    
+                for(var i=0; i<inputCheckBox.length; i++){          
+                    if(inputCheckBox[i].id.indexOf(InputID)!=-1){                                     
+                        inputCheckBox[i].checked = obj.checked;
+                    }
+                }
+            }
+            
+        </script>
+        <apex:outputPanel id="retrylayout" styleClass="width: 100%;"> 
+        <div style="font-weight: bold;margin-top: 5px;font-size: 14px;">Retry CASS Callout ({!wrapplist.size})</div>
+        <div style="text-align: end;margin-right: 5px;margin-bottom: 3px;">
+            <apex:commandButton action="{!refreshListMethod}" value="Refresh" id="Refreshbtn"  />
+            <apex:commandButton action="{!CalloutRefresh}" value="Call Out" id="CallOutbtn" reRender="theForm"/>
+        </div>
+    
+        <apex:outputPanel id="retrytable">
+        <table border="1px" style="width: 100%;">
+         <tr>
+           <th>retry Callout</th>
+           <th>Finance Account Number</th>
+           <th>Class Name</th>
+           <th>Number of Attempted</th>
+           <th style="width: 400px;">Requested Value</th>
+           <th>Created By</th>
+           <th>Created Date</th>
+           <th>Last Retried Date</th>
+             <th><apex:inputCheckbox id="selectallaction" value="{!selectall}" onclick="selectAllCheckboxes(this,'inputId')"/>
+           </th>
+         </tr>
+         <apex:repeat value="{!wrapplist}" var="rtry">
+            <tr>
+                <td>{!rtry.wrapretryObj.name}</td>
+                <td>{!rtry.wrapretryObj.Finance_Account_Number__c}</td>
+                <td>{!rtry.wrapretryObj.ClassName__c}</td>
+                <td>{!rtry.wrapretryObj.Number_of_Attempted__c}</td>
+                <td>
+                    <apex:outputText rendered="{!if(rtry.wrapretryObj.Email_Address__c != null,true,false)}" value="{!rtry.wrapretryObj.Email_Address__c}">
+                    </apex:outputText> 
+                    <apex:outputText rendered="{!if(rtry.wrapretryObj.Email_Address__c == null,true,false)}" value="{!rtry.wrapretryObj.HTTP_Request_Body__c}" >
+                    </apex:outputText>
+                </td>
+                <td>{!rtry.wrapretryObj.createdby.name}</td>
+                <td><apex:outputText value="{0,date,dd.MM.yyyy 'at' HH:mm:ss z}">
+                  <apex:param value="{!rtry.wrapretryObj.Createddate}"/>
+                </apex:outputText></td>
+                <td>
+                    <apex:outputText value="{0,date,dd.MM.yyyy 'at' HH:mm:ss z}">
+                        <apex:param value="{!rtry.wrapretryObj.Last_Retried_time__c}"/>
+                    </apex:outputText>
+                </td>
+                <td><apex:inputCheckbox value="{!rtry.selection}" onclick="selectcheckbox()" id="inputId"></apex:inputCheckbox></td>
+            </tr>   
+         </apex:repeat>
+            </table> 
+         </apex:outputPanel>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

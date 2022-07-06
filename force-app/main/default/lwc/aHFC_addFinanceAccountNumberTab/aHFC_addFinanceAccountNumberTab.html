@@ -1,0 +1,165 @@
+<template>
+  <template if:true={isLoaded}>
+    <c-a-h-f-c_-spinner loading-message='Please wait while we process your request'></c-a-h-f-c_-spinner>
+  </template>
+  <div class="account-details">
+    <lightning-layout>
+      <lightning-layout-item flexibility="auto" size="12" small-device-size="12" medium-device-size="6"
+        large-device-size="6" class="account-number">
+        <div class="slds-form-element accountnumber-input">
+          <label class="slds-form-element__label" for="accountnumber">
+            Account #
+            <abbr class="slds-required" title="required">* </abbr>
+          </label>
+          <div class="slds-form-element__icon slds-float_right">
+            <a href="javascript:void(0);" aria-label="Your Finance Account Number is located on the upper left of your monthly statement or on the front
+            inside flap of your Welcome Mailer." role="tooltip">
+            <img src={infoSvg} alt="info" class="slds-m-top_small info-icon" onmouseenter={onIconEnter}
+              onmouseleave={onIconLeave} /></a>
+            <template if:true={showPopover}>
+              
+              <div class="slds-popover slds-popover_tooltip slds-nubbin_top-right popover-content" role="tooltip"
+                id="help">
+                <div class="slds-popover__body">
+                  Your Finance Account Number is located on the upper left of your monthly statement or on the front
+                  inside flap of your Welcome Mailer.
+                </div>
+              </div>
+            </template>
+          </div>
+          <div class="slds-form-element__control">
+            <img class="warning" src={warningSvg} alt="warning" />            
+
+            <input type="text" id="accountnumber"  data-id="accountnumber-input" class="slds-input AHFC_errorColor"
+            placeholder="Enter your 9-digit account number" pattern="[0-9]{8,9}" maxlength="9"  disabled={isDisabled}
+            onchange={handlechangeAccountnumber} onblur={onValidate} value={accountNumber} oninput={onValidateType}
+            onkeypress={restrictAlphabetsAndSpecialChars} onpaste={validateAlphaSpecialChars} required="" />           
+          </div>
+          <div class="slds-form-element__help error-help">
+            {errorMessageValidationAcc}
+          </div>
+        </div>
+      </lightning-layout-item>
+
+      <lightning-layout-item flexibility="auto" size="12" small-device-size="12" medium-device-size="5"
+        large-device-size="5">
+        <div class="slds-form-element ssn-container ssn-input">
+          <label class="slds-form-element__label" for="ssn">
+            Last 4 digits of your SSN or Tax ID
+            <abbr class="slds-required" title="required">* </abbr>
+            <br />(Primary Account Holder)
+          </label>
+          <div class="slds-form-element__control">
+            <img class="warning" src={warningSvg} alt="warning" />
+            <input class="slds-input AHFC_errorColor" id="ssn" data-id="ssn-input" type="text" placeholder="XXXX"
+              value={SSN} pattern="[0-9]{4}" maxlength="4" onchange={handlechangeSSN} onblur={onValidate}
+              oninput={onValidateType} onkeypress={restrictAlphabetsAndSpecialChars} onpaste={validateAlphaSpecialChars}
+              required="" />
+          </div>
+          <div class="slds-form-element__help error-help">
+            {errorMessageValidation}
+          </div>
+        </div>
+      </lightning-layout-item>
+    </lightning-layout>
+  </div>
+  <template if:true={addAccountError}>
+    <div class="message-info slds-m-top_x-large slds-m-bottom_large">
+      <c-a-h-f-c_message-toast type="error" label="Error" message={addAccountErrorMsg}></c-a-h-f-c_message-toast>
+    </div>
+  </template>
+  <p class="slds-m-top_large update-info">
+    You will receive the selected email notifications at: &nbsp;
+    <span class="update-info-span">{useremail}</span>
+  </p>
+
+  <div class="slds-m-vertical_medium billing-check">
+    <lightning-layout class="slds-m-bottom_small">
+      <lightning-layout-item flexibility="auto" size="12">
+        <lightning-input type="checkbox"  label="Finance Account Updates and Payment Activity" name="billing" aria-label='Finance Account Updates and Payment Activity, checkbox checked'
+          checked={billing} onchange={handleChangeBilling} onkeydown={handleChangeBilling} role="checkbox" aria-checked="true"  class="AHFC_CheckStyle"></lightning-input>
+
+      </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout class="slds-m-bottom_small">
+      <lightning-layout-item flexibility="auto" size="12">
+        <lightning-input type="checkbox" label="Paperless Statements & Correspondence" name="payment" checked={payment} aria-label="Paperless Statements & Correspondence, checkbox checked"
+          onchange={handleChangePayment} class="AHFC_CheckStyle"></lightning-input>
+      </lightning-layout-item>
+    </lightning-layout>
+
+    <lightning-layout>
+      <lightning-layout-item flexibility="auto" size="12">
+        <lightning-input type="checkbox" label="Special Offers & Promotions" name="special Offers" aria-label="Special Offers & Promotions, checkbox checked"
+          checked={specialOffersCheck} onchange={handleChangeSpecialOffers} onkeydown={handleChangeSpecialOffers} class="AHFC_CheckStyle"></lightning-input>
+      </lightning-layout-item>
+    </lightning-layout>
+  </div>
+  <p class="slds-m-vertical_small comm-prefs-checks">
+    You may make changes to these preferences at any time by going to Communication Preferences in the top menu under My
+    Account.
+  </p>
+  <hr aria-hidden="true"/>
+  <p class="slds-m-vertical_small terms-conditions">
+    By clicking on 'Add Account' you're agreeing to our&nbsp;
+    <a href={eSignTnCUrl} target="_blank">E-sign Disclosure and Consent</a>.
+  </p>
+
+  <template if:true={addAccountPageError}>
+    <div class="message-info slds-m-top_x-large slds-m-bottom_large" if:true={WebOnlineError}>
+
+      <!--Web Online Error Message starts -->
+      <div class="message-container error">
+
+        <div class="message-icon">
+          <a href="javascript:void(0);" tabindex="-1">
+            <lightning-icon icon-name="utility:error" alternative-text="Error" title="Error" class="toast-icon-color">
+            </lightning-icon>
+          </a>
+        </div>
+        <div class="message-content">
+          <h1 class="ahfc-body-one">Error</h1>
+          <p class="ahfc-body-two">
+            {addAccountPageErrorMsg}<a href="javascript:void(0);" style="text-decoration: underline;"
+              class="single-toast-link aHFC_notification" onclick={onToastLinkClicked}>Contact Us</a>
+            {addAccountPageErrorMsg2}</p>
+
+        </div>
+      </div>
+      <!--Web Online Error Message Ends -->
+    </div>
+
+    <div class="message-info slds-m-top_x-large slds-m-bottom_large" if:false={WebOnlineError}>
+     <!-- <c-a-h-f-c_message-toast type="error" label="Error" message={addAccountPageErrorMsg}></c-a-h-f-c_message-toast>-->
+      <c-a-h-f-c_message-toast type="error" class="made-payment-toast" label="Error" onlinkclicked={onToastLinkClicked} message='There was an issue registering this account. Please' link='Contact Us' message-data=' for assistance.'>
+      </c-a-h-f-c_message-toast>
+    </div>
+  </template>
+
+  <div class="action-container slds-p-top_medium">
+    <!--Code for US 10316 for google re-captcha starts-->
+    <template if:true={iframeShow}>
+      <iframe src="/apex/GoogleReCaptcha" scrolling="no" title="google recaptcha" frameborder="0" width="100%"></iframe>
+    </template>
+    <template if:true={showButton}>
+      <lightning-button class="slds-m-right_xx-large add-btn" variant="destructive" role="button" label="ADD ACCOUNT"
+        title="Add Account" onclick={handleaddAccount}></lightning-button>
+    </template>
+    <template if:false={showButton}>
+      <lightning-button class="slds-m-right_xx-large add-btn" variant="destructive" role="button" label="ADD ACCOUNT" disabled
+        title="Add Account" onclick={handleaddAccount}></lightning-button>
+    </template>
+    <template if:true={finAccExists}>
+      <template if:true={showButton}>
+        <lightning-button class="skip-dashboard" variant="base" aria-label="Skip to dashboard Link"  role='link' label="SKIP TO DASHBOARD" title="Skip to dashboard"
+          onclick={navigateToDashboard}></lightning-button>
+      </template>
+    </template>
+    <template if:true={finAccExists}>
+      <template if:false={showButton}>
+        <lightning-button class="skip-dashboard"  variant="base" disabled label="SKIP TO DASHBOARD"
+          title="Skip to dashboard" onclick={navigateToDashboard}></lightning-button>
+      </template>
+    </template>
+  </div>
+</template>

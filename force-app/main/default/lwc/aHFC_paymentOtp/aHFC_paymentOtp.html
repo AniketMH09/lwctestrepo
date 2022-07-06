@@ -1,0 +1,164 @@
+<template>
+            <div class="slds-grid AHFC_MobLAyout">
+               <div class="AHFC_CommunitySecHeader">
+                  <div class="AHFC_LeftGridSec slds-col">
+                     <p class="AHFC_SecLogostyle">
+                        <img src={hondaheadLogoUrl} alt="honda logo" width="60" height="40"
+                           class="logo1" />
+                     </p>
+                  </div>
+                  <div class="AHFC_VehImg slds-col">
+                     <img src={hondaVehImgUrl} alt="honda logo" width="60" height="40"
+                        class="logo1" />
+                  </div>
+                  <div class="slds-col AHFC_Vehdetail">
+                     <dl class="slds-dl_inline">
+                        <dd class="slds-dl_inline__label AHFC_DetName">Jane's 2020 Civic Si Sedan</dd>
+                        <dt class="slds-dl_inline__label AHFC_Aclabel">Account #:</dt>
+                        <dd class="slds-dl_inline__detail AHFC_Aclabel">123456789</dd>
+                     </dl>
+                  </div>
+               </div>
+            </div>
+            <div class=" ahfc-background-lighter">
+               <div class="AHFC_ContainerSec">
+                  <div class="card-block ahfc-background-lightest ">
+                     <div class="AHFC_InnerAround"   >
+                        <div class="slds-grid  slds-wrap slds-gutters slds-p-bottom_large ">
+                                    <template if:true={showmobile}>
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_4-of-12">
+                                                            <span>
+                                                               <lightning-badge label="ONE TIME PAYMENT" class="slds-badge_lightest AHFC_BadgeStyle"></lightning-badge>
+                                                            </span>
+                                                         </div>
+                                                         <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_4-of-12 AHFC_MBottom">
+                                                                  <span>
+                                                                     <div class="AHFC_ModFormLabel">MONTHLY PAYMENT AMOUNT</div>
+                                                                     <div class="AHFC_ModFormValue">$454.00</div>
+                                                                  </span>
+                                                               </div>
+                                                               <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_4-of-12">
+                                                                  <span>
+                                                                     <div class="AHFC_ModFormLabel">CONFIRMATION NUMBER</div>
+                                                                     <div class="AHFC_ModFormValue">754415454</div>
+                                                                  </span>
+                                                               </div>
+                                          </template>
+                                          <template if:true={showdesktop}>
+                              <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_4-of-12 AHFC_MBottom">
+                              <span>
+                                 <div class="AHFC_ModFormLabel">MONTHLY PAYMENT AMOUNT</div>
+                                 <div class="AHFC_ModFormValue">$454.00</div>
+                              </span>
+                           </div>
+                           <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_4-of-12">
+                              <span>
+                                 <div class="AHFC_ModFormLabel">CONFIRMATION NUMBER</div>
+                                 <div class="AHFC_ModFormValue">754415454</div>
+                              </span>
+                           </div>
+                           
+                           <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_4-of-12">
+                              <span>
+                                 <lightning-badge label="ONE TIME PAYMENT" class="slds-badge_lightest AHFC_BadgeStyle"></lightning-badge>
+                              </span>
+                           </div>
+                           </template>
+                        </div>
+                        <!--   -->
+                        <div class="slds-grid slds-wrap slds-gutters slds-p-bottom_large">
+                           <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_4-of-12 AHFC_MBottom">
+                              <span>
+                                 <div class="AHFC_ModFormLabel">ADDITIONAL PRINCIPAL AMOUNT</div>
+                                 <div class="AHFC_ModFormValue">$3,502.00</div>
+                              </span>
+                           </div>
+                           <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_4-of-12 AHFC_MBottom">
+                              <span>
+                                 <div class="AHFC_ModFormLabel">CONFIRMATION NUMBER</div>
+                                 <div class="AHFC_ModFormValue">754415454</div>
+                              </span>
+                           </div>
+                        </div>
+                        <div class="Dividerdashedline"></div>
+                    
+                     <!-- START - Second Section -->
+                     <div class="slds-grid  slds-wrap slds-gutters slds-p-bottom_large slds-p-top_large">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12">
+                           <span>
+                              <div class="AHFC_ModFormLabel">TOTAL AMOUNT</div>
+                              <div class="AHFC_ModFormValue AHFC_TotVal">$5700.00</div>
+                           </span>
+                        </div>
+                       
+                     </div>
+                     <!-- END - Second Section -->
+                     <div class="DividerSolidline"></div>
+                     <!-- START - THIRD SEC -->
+                     <div class="slds-grid  slds-wrap slds-gutters slds-p-bottom_large slds-p-top_large">
+                              <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_4-of-12 AHFC_MBottom">
+                                 <span>
+                                    <div class="AHFC_ModFormLabel">SCHEDULED ON</div>
+                                    <div class="AHFC_ModFormValue">JUN 14, 2021</div>
+                                 </span>
+                              </div>
+                              <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_4-of-12">
+                                          <span>
+                                             <div class="AHFC_ModFormLabel">PAYMENT SOURCE </div>
+                                             <div class="AHFC_ModFormValue">Jane's Chase Account </div>
+                                          </span>
+                                       </div>
+                           </div>
+                     <!-- END - THIRD SEC -->
+                     <div class="DividerSolidline"></div>
+                        <!-- Text to Notify  -->
+                           <div class="slds-p-bottom_large slds-p-top_large AHFC_PaymentActtxt">
+                                 Your next payment will be processed at 12:00 PM Pacific Time on Nov 15, 2020. 
+                                 You can cancel this schedule at any time.<span class="AHFC_MobBlock"> You can edit or cancel this payment 
+                                 in your dashboard under <span class="AHFC_LinkText">‘Payment Activity’</span></span> </div>
+               
+
+                <div class="slds-grid slds-wrap AHFC_BannerContBg">
+                            <span>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12 AHFC_BannerWidth">
+
+                               
+                                                            <div class="imageContainer" >
+                                                          
+                                                            
+                                       <img src={easypayImg} alt="honda logo"
+                                           />
+                                 </div>
+                              </div></span>
+                                         
+                           
+                       
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_8-of-12 AHFC_BannerContBg">
+                        <span>
+                              <div  class="slds-p-around_xx-large AHFC_BannerMobContLayout">
+                                    <h1 class="AHFC_BannerContTitle">Do you know about EasyPay?</h1>
+                                    <p class="AHFC_BannerSubtxt">You can automatically make your monthly finance payments using EasyPay automatic payments.</p>
+                              <div>
+                                          <button class="slds-button AHFC_BgRedButton">
+                                                      Enroll in easypay
+                                                     </button>
+                              </div>
+                        </div>
+
+                              </span>
+                        </div>
+                       
+
+
+
+                  </div>
+                  <div class="slds-p-bottom_large slds-p-top_large slds-p-left_large">   <button class="slds-button AHFC_NoBgButton ">
+                              CONTINUE TO DASHBOARD
+                              </button></div>
+                   </div>
+                        </div>
+               </div>
+            </div>
+
+            
+         </template>

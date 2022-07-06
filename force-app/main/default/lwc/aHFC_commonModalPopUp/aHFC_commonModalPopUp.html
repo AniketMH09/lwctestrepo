@@ -1,0 +1,23 @@
+<template>
+    <template if:true={ismodalopen}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <div class="AHFC_Container">
+                    <!-- Modal/Popup Box LWC body starts here -->
+                    <div class="slds-modal__content slds-p-around_medium AHFC_PopUpWrap" id="modal-content-id-1">
+                        <div class="AHFC_PopUpTitle">Attention: </div>
+                        <div class="AHFC_PopUpDesc">Your first EasyPay payment will withdraw on {nextwithdrawaldate}, which falls after your Payment Due Date. Please select a different date, or make a payment by {nextpaymentduedate} to avoid any additional fees and/ or interest.</div>
+                    </div>                
+
+                    <!-- Modal/Popup Box LWC footer starts here -->
+                    <footer class="slds-modal__footer AHFC_FooterWrap">
+                        <button class="slds-button slds-button_neutral AHFC_ContBtn" onclick={closeModel} title="Continue">Continue</button>
+                        
+                    </footer>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

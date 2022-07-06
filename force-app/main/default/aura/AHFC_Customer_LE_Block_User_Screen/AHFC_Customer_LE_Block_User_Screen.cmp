@@ -1,0 +1,21 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    
+    <ltng:require styles="{!$Resource.AHFC_UI_Kit}"/>
+    
+    <aura:attribute name= "communityName" type="string" default=""/>
+    
+    <div class="contain">
+        <div class="center"> 
+            <h1 class="header">Lease Extension Request</h1>
+            
+            
+            <h2 class="h3">{!$Label.c.AHFC_PE_BLOCK_MSG1}</h2>
+        </div>
+        
+            <div class="info center">
+                <h3><aura:unescapedHtml value="{!$Label.c.AHFC_PE_BLOCK_MSG2}"/></h3>
+           </div> 
+            
+       
+    </div>
+</aura:component>

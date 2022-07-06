@@ -1,0 +1,14 @@
+<!--
+// Component Name       :    aHFC_Due_date_Flow_LWC_Aura
+// Description          :    This Component is used to trigger either DDC or LE flow.
+// ****************************************************************************************
+// Developer                   Date                   Description
+// Prabu                     22/07/2021                Created  
+// ****************************************************************************************
+-->
+<aura:component controller = "AHFC_DDC_LE_Flow_Controller" implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens,lightning:isUrlAddressable" access="global">
+    <aura:attribute name = "FAid" type = "String"/>
+    <aura:attribute name = "fNumber" type = "String"/>    
+    <lightning:flow aura:id="flowData" />
+    <c:aHFC_Help_Payments onneedHelpEvt="{!c.handleEvent}" /> 
+</aura:component>

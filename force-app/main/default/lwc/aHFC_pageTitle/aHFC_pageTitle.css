@@ -1,0 +1,50 @@
+.page-title {
+    margin: 32px 0 28px;
+}
+.page-title h1 {
+    padding-left: 20px;
+}
+.title-back {
+    margin-right: 10px;
+}
+.icon-space{
+    padding-right:10px;
+}
+.title-padding{
+    padding-top: 20px;
+}
+@media screen and (min-width: 768px) {
+    .page-title {
+        margin: 48px 0 32px;
+    }
+    .page-title h1 {
+        font-size: 38px!important;
+        line-height: 48px;
+        padding-left: 0;
+    }
+    .title-back {
+        margin-right: 15px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .page-title {
+        margin: 48px 0 32px;
+    }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    
+    .page-title {
+        margin: 48px 20px 32px;
+    }
+  
+}
+@media screen and (min-width: 250px) and (max-width: 767px) {
+    
+    .page-title {
+        margin: 0px 20px 20px;
+    }
+  
+}

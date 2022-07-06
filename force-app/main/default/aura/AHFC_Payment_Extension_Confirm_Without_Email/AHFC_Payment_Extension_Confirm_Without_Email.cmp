@@ -1,0 +1,57 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    
+    <aura:attribute name = "instructions" type = "String"/> 
+    <aura:attribute name = "instructions2" type = "String"/>
+    <aura:attribute name = "LeaseExtensionRequestCompleted" type = "string"/>
+    <aura:attribute name = "instructions3" type = "string"/>
+    <aura:attribute name = "instructions4" type = "string"/>
+    <aura:attribute name = "ReturntoAccountOverview" type = "string"/>
+    <aura:attribute name = "EnrollinAccountStatusUpdates" type="string"/>
+    <ltng:require styles="{!$Resource.AHFC_Flatpickr_css}"/>
+    <ltng:require scripts="{!$Resource.AHFC_Flatpickr}" afterScriptsLoaded="{!c.doInit}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="contain"> 
+        <div class="center">
+            <h1 class="header">{!$Label.c.AHFC_PE_Extension_Request}</h1>
+            
+            <!-- Path Configuration - -->       
+            <div class="slds-grid_pull-padded-sm">
+                <lightning:progressIndicator currentStep="step-4" type="path" variant="base">
+                    <lightning:progressStep label="Select Term" value="step-1"/>                  
+                    <lightning:progressStep label="Review" value="step-2"/>
+                    <lightning:progressStep label="Processing" value="step-3"/>
+                    <lightning:progressStep label="Complete" value="step-4"/>
+                </lightning:progressIndicator>
+            </div>
+            <!-- End Path Configuration - -->      
+            
+            
+            <div class="info">
+                <aura:if isTrue = "{!v.instructions}">
+                   <aura:unescapedHtml value="{!v.instructions}"/>
+                    <aura:set attribute="else">
+                        <p></p>
+                    </aura:set>
+                </aura:if>
+           <br/>
+            
+                 </div>
+            <div>
+                <aura:if isTrue = "{!v.instructions2}">
+                    <aura:unescapedHtml value="{!v.instructions2}" />
+                     <aura:set attribute="else">
+                         <p></p>
+                     </aura:set>
+                </aura:if>
+                
+            </div>
+            
+            <div class="action">
+                <button class="btn default mr-sm" onclick="{!c.redirectToMyAccount}">{!$Label.c.AHFC_Return_to_Account_Overview}</button>
+                <button class="btn primary pull-right" onclick="{!c.enrollAccount}">{!$Label.c.Enroll_in_Account_Status_Updates_Button}</button>
+            </div>
+            
+        </div>  
+    </div>
+</aura:component>

@@ -1,0 +1,45 @@
+.ahfc-article-header{
+    font-size: 20px;
+    }
+    
+    .ahfc-read-more {
+        color: #CC0000;
+        float: right;
+        border-bottom: 1px solid;
+        font-weight: 700;
+        
+    }
+    
+    .ahfc-description {
+        padding-left: 37px;
+        padding-top: 18px;
+        font-weight: 500;
+    }
+    .ahfc-download-pdf{
+        padding-top: 40px
+    }
+
+    .ahfc-btn-wht {
+        letter-spacing: .96px;
+         padding-top: 14px;
+        padding-bottom: 14px;
+        font-size: 14px;
+        color: #CC0000;
+        width: 100%;
+        line-height: 16px;
+        background-color: white;
+        text-align: center;
+        vertical-align: middle;
+        justify-content: center;
+        border: 3px solid #CC0000;
+        font-weight: 700;
+    
+    }
+
+    .ahfc-search-results-header{
+        padding-top: 40px
+    }
+
+    .ahfc-related-content{
+        padding-top: 40px
+    }

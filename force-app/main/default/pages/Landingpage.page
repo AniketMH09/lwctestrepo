@@ -1,0 +1,96 @@
+<apex:page docType="html-5.0" showHeader="false" standardStylesheets="false" sidebar="false">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Honda Finance Service</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <apex:stylesheet value="{!$Resource.Testlandingcss}"/> 
+    <apex:includeScript value="{!$Resource.Testlandingjs}"/>
+    
+    
+    
+    <script type="text/javascript">
+     function prepare_link() {
+        var radioValue = $("input[name='radio_name']:checked").val();
+          var url_param = document.getElementById('fannum');
+          var target_link1 = document.getElementById('target_link1');
+          var target_link2 = document.getElementById('target_link2');
+          var target_link3 = document.getElementById('target_link3');
+          var target_link4 = document.getElementById('target_link4');
+
+          if ( ! url_param.value ) {
+               return false;  
+          }
+
+          target_link1.href = target_link1.href + '?finnumber=' + escape(url_param.value) + '&isReadOnly=' + radioValue;
+          target_link2.href = target_link2.href + '?finnumber=' + escape(url_param.value) + '&isReadOnly=' + radioValue;
+          target_link3.href = target_link3.href + '?finnumber=' + escape(url_param.value) + '&isReadOnly=' + radioValue;
+          target_link4.href = target_link4.href + '?finnumber=' + escape(url_param.value) + '&isReadOnly=' + radioValue;
+
+     }
+</script>
+    
+</head>
+<body>
+<section id="page"> <!-- Defining the #page section with the section tag -->
+    <header> <!-- Defining the header section of the page with the appropriate tag -->
+        <a class="logo" href="/"><span>
+                Honda Financial Services: Financing, Lease and Warranty Options</span></a>
+    </header>
+    <div class="line"></div>  <!-- Dividing line -->
+
+    <article id="article1"> <!-- The new article tag. The id is supplied so it can be scrolled into view. -->
+        <h2>Please enter the details and submit it to see further.</h2>
+        <div class="line"></div>
+        <div class="articleBody clear">
+            <form id="form1" method="GET" action="">
+                <div class="form-field">
+                    <div>
+                        <label>Finance Account Number</label>
+                        <input type="text" placeholder="Enter the Finance Account Name"  name="fannum" id="fannum"/>
+                    </div>
+                    <div class="pdT20">
+                        <label>CSAT</label>
+                        <input type="radio" name="radio_name" value="true"> Yes </input>
+                        <input type="radio" name="radio_name" value="false"> No </input>
+                    </div>
+                    <div class="pdT20">
+                        <button type="button" id="btnsubmit" onclick="prepare_link();" class="regular-btn">Submit</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </article>
+
+    <article id="article2" style="display:block;">
+        <h2>List of Pages</h2>
+        <div class="page-list">
+            <ul>
+                <li><a id="target_link1" class="baseUrl" href="https://hondafinance.force.com/apex/BankAccountsLandingPage" target="_blank">Bank Account Landing Page</a></li>
+                <li><a id="target_link2" class="baseUrl" href="https://hondafinance.force.com/apex/MakeAPaymentLandingPage" target="_blank">Make a Payment Landing Page</a></li>
+                <li><a id="target_link3" class="baseUrl" href="https://hondafinance.force.com/apex/Pendingpayment" target="_blank">Pending Payment Page</a></li>
+                <li><a id="target_link4" class="baseUrl" href="https://hondafinance.force.com/apex/CommunicationPreferences" target="_blank">Communication Preference Page</a></li>
+            </ul>
+        </div>
+    </article>
+    <!-- Article 1 end -->
+    <div id="footer">
+        <div class="nav">
+            <ul>
+                <li><a href="#"><span>About Us</span></a></li>
+                <li class="first"><a href="#" class=""><span>Site Map</span></a></li>
+                <li><a href="#"><span>FAQs</span></a></li>
+                <li><a href="#"><span>Privacy Policy</span></a></li>
+                <li><a href="#"><span>Legal Terms and
+                    Conditions</span></a></li>
+                <li class="last"><span>©2015
+                    American Honda Finance Corporation</span></li>
+            </ul>
+        </div>
+    </div>
+</section> <!-- Closing the #page section -->
+</body>
+</html>
+</apex:page>

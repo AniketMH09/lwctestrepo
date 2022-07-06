@@ -1,0 +1,63 @@
+<!--
+   @description The component aHFC_printableForms is used to display printable forms
+   @ author ziya
+   @copyright L&T
+   @version 1.000
+-->
+<template>
+    
+<div class="AHFC_Wrapperst ahfc-background-lighter">
+    <div class="AHFC_page-title">
+        <a href="javascript:void(0);">
+        <lightning-icon
+            class="ahfc-icon-red AHFC_icon-space"
+            icon-name="utility:back"
+            size="small"
+            alternative-text="back"
+            title="back"
+            onclick={returnToDashBoard}
+            >
+            </lightning-icon>
+            </a>
+        <span class="AHFC_FamilyLgt">Printable Forms</span>
+    </div>
+    <div class="AHFC_HeadSubtxt">
+        <p>For your convenience, we provide electronic copies of our forms. Simply download, complete, print and sign. Completed forms can be mailed with your next payment.
+        </p>
+    </div>
+    <div class="AHFC_ContainerSec">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 AHFC_CardHead slds-border_bottom">
+                <div class="AHFC_title AHFC_FamilyLgt">Credit Pre-Approval</div>
+                <div class="AHFC_text">Click the button below to apply for credit pre-approval online.</div>
+                <div class="AHFC_SubmitBut">
+                    <button class="slds-button ahfc-btn ahfc-btn-secondary" onclick={navigateToCreditPreApproval}>Apply Now</button>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-1">
+                <template for:each={pdfData} for:item="sections">
+                        <div class="slds-grid slds-wrap AHFC_CardWrap" key={sections.id}>
+                            <div class="slds-col slds-size_1-of-1 AHFC_CardTitle">{sections.cardTitle}</div>
+                            <template for:each={sections.cardList} for:item="item" >
+                                <div class="slds-grid slds-wrap slds-size_1-of-1 AHFC_CardDetailWrap" key={item.id}>
+                                    <div class="slds-col slds-small-size_12-of-12 slds-medium-size_12-of-12 AHFC_CardDetail slds-large-size_9-of-12">{item.cardData}</div>
+                                    <div class="slds-col slds-small-size_12-of-12 slds-medium-size_12-of-12 slds-float_right slds-large-size_3-of-12 AHFC_CardBtnWrap">
+                                        <a href={item.viewSouce} class="AHFC_CardBtn" target="_blank" rel="noopener noreferrer">View</a>
+                                        <a href={item.downloadSource} class="AHFC_CardBtn" download>Download</a>
+                                    </div>
+                                </div>
+                            </template>
+</div>
+</template>
+</div>
+<div class="slds-col slds-small-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_4-of-12 AHFC_AdobeWrap">
+    <span class="slds-col statement-adobe-reader">
+                        <img src={adobeLogoUrl} alt="adobe logo">&nbsp;&nbsp;
+                        <a href="https://get.adobe.com/reader/" target="_blank" rel="noopener noreferrer"
+                            class="ahfc-links ahfc-links-secondary">Download Acrobat Reader</a>
+                    </span>
+</div>
+</div>
+</div>
+</div>
+</template>

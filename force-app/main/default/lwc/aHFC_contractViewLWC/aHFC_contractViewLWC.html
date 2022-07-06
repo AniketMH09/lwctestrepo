@@ -1,0 +1,82 @@
+<template>
+    <div class=" ahfc-background-lighter">
+
+
+        <c-a-h-f-c_vehicleswitcher loading-message='Please wait while we process your request'>
+        </c-a-h-f-c_vehicleswitcher>
+
+        <div class="ahfc-container">
+            <div class="AHFC_contractTitle">
+                <c-a-h-f-c_page-title title="Contract" show-icon="true"></c-a-h-f-c_page-title>
+            </div>
+            <template if:false={isDataPresent}>
+                <template if:false={isCalloutError}>
+                    <div class="ahfc-panel-card ahfc-background-lightest paymentinfo-container-fluid details-body">
+                        <div>
+                            <h1 class="ahfc-body-onecs">Your contract is not viewable online.</h1>
+                        </div>
+                        <div>
+                            <p class="ahfc-info-label ahfc-text-grey AHFC_subText">
+                                Please <a class="ahfc-text-red" href=''  onclick={navigatetoContactUs} >contact
+                                    us</a> to request
+                                a copy of your contract.
+                            </p>
+                        </div>
+                        <div style="padding-top: 8px;">
+                            <p class="ahfc-info-label ahfc-text-grey">Message code: R100</p>
+                        </div>
+                    </div>
+                </template>
+</template>
+<template if:true={isDataPresent}>
+                <div class="ahfc-panel-card ahfc-background-lightest paymentinfo-container-fluid details-body">
+                    <div class="slds-grid slds-wrap details-header" style="align-items: center;">
+                        <div class="slds-col slds-small-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_8-of-12">
+                            <span>
+                                <h1 class="ahfc-body-onecs ">Click <a href="javascript:void(0);" class="ahfc-text-red"
+                                        onclick={navigatetoGetContracts}>here</a> to view
+                                    your
+                                    contract</h1>
+                            </span>
+                        </div>
+                        <div
+                            class="slds-col slds-small-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_4-of-12 AHFC_statementAdobeReaderMobile">
+                            <span class="slds-col statement-adobe-reader">
+                                <img src={adobeLogoUrl} alt="adobe logo">&nbsp;&nbsp;
+                                <a href="https://get.adobe.com/reader/" target="_blank" rel="noopener noreferrer"
+                                    class="ahfc-links ahfc-links-secondary">Download Acrobat Reader</a>
+
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+
+                    </div>
+                    <div>
+                        <p class="ahfc-info-labels ahfc-text-grey">Protect your privacy. Use caution when viewing
+                            personal
+                            data on a public computer or network.</p>
+                    </div>
+                </div>
+            </template>
+<div>
+    <template if:true={isCalloutError}>
+                    <div class="transaction-content-wrapper">
+                        <c-a-h-f-c_message-toast type="error" label="Error"
+                            message='Your contract is not viewable online at this time.
+                            Please try again later or contact us for a copy of your contract.'
+                            toast-type="" show-icon="false"></c-a-h-f-c_message-toast>
+                    </div>
+                </template>
+</div>
+</div>
+<div class="ahfc-panel-card ahfc-background-lightest paymentoptions-container-fluid">
+
+</div>
+
+</div>
+<template if:true={isloading}>
+
+        <c-a-h-f-c_-spinner loading-message='Please wait while we process your request'></c-a-h-f-c_-spinner>
+    </template>
+</template>

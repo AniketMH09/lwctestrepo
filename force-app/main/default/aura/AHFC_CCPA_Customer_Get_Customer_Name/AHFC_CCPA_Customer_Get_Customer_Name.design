@@ -1,0 +1,11 @@
+<design:component>
+   <!--Inputs-->
+   <design:attribute name= "strRequestType" label="Request Type" />
+   <!--outputs--> 
+   <design:attribute name= "strFirstName" label="First Name" />
+<design:attribute name= "strLastName" label="Last Name" />
+<design:attribute name= "strMiddleName" label="Middle Name" />
+<design:attribute name= "strSalutation" label="Salutation" />
+<design:attribute name= "strSuffix" label="Suffix" />
+
+</design:component>

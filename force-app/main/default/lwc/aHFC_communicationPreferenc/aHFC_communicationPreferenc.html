@@ -1,0 +1,240 @@
+<!--
+   @description The component aHFC_communicationPreferenc is used to display all statements
+   @ author vishnu
+   @copyright L&T
+   @version 1.000
+-->
+<template>
+ <!--<lightning-spinner  alternative-text="Loading" size="large" class="AHFC_Spinnereg ahfc_spinnerposition" ></lightning-spinner>-->
+   <div class=" ahfc-background-lighter" >
+      
+      <c-a-h-f-c_vehicleswitcher loading-message="Please wait while we process your request" loader-control='true'></c-a-h-f-c_vehicleswitcher> 
+    <div role="main" id="main-container" class="main-content"  >
+      <div class="ahfc-container AHFC_Wrapper"   if:true={communicationPrefData} >
+         <c-a-h-f-c_page-title title="Communication Preferences" show-icon="true" show-notification-on-change=true></c-a-h-f-c_page-title>
+         <div if:true={isClosed} class="ahfc-panel-card ahfc-background-lightest paymentinfo-container-fluid AHFC_ContainerWrap">
+            <div if:true={showToast} class="showToast">  <c-a-h-f-c_message-toast onclosetoast={closeToast} message={toastMessage} show-icon="true" type={toastType} label={toastLabel} toast-type={toastType}></c-a-h-f-c_message-toast></div>
+            <h3><div class="AHFC_LabelHead">
+               {label.AHFC_CommunicationPreferenceHeading}
+            </div></h3>
+            <div class="AHFC_LabelDetail">
+               {label.AHFC_CommunicationPreferenceSectionNote1}
+            </div>
+            <div class="AHFC_LabelDetail">
+               {label.AHFC_CommunicationPreferenceSectionNote2}
+            </div>
+            
+            <div class="AHFC_InputWrapContainer">
+            <div class="slds-grid slds-gutters_direct slds-wrap " data-id="redDiv" >
+               <!-- <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 AHFC_Email"> -->
+                  <!-- ipad changes -->
+               <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2  AHFC_Email">
+                  <lightning-input type="email" class="schedule-input ahfc-input  email" label="Email Address" aria-role ='email-id'   
+                     name="Email_Address__c"  value={communicationPrefData.Email_Address__c} message-when-type-mismatch="Error: Use format email@domain.com"  onchange={onChangeValues} placeholder='Enter an Email Address' ></lightning-input>
+               </div>
+               <!-- <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2"> -->
+                  <!-- ipad changes -->         
+               <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                  <lightning-input type="text" label="Mobile Number" class="schedule-input ahfc-input telNum" aria-role ='mobile-number'
+                     name="Text_Number__c" pattern={reg}  value={telphoneValue} maxlength="14" minlength="14" onchange={onChangeValues}
+                     message-when-too-short="Error: Enter a 10-digit Mobile Number." placeholder="Type Number"></lightning-input>
+               </div>
+              
+            </div >
+            
+            <div class="AHFC_initialMarginContainer">
+               <div class='AHFC_initialMargin' if:true={fieldsDisabled}>
+                  <c-a-h-f-c_message-toast type="error" label="Error"  onlinkclicked={navigatetoContactUS}
+                  message='Your Communication Preferences cannot be changed due to your account status. Please' link='Contact Us'  message-data =' if you need assistance.'>
+               </c-a-h-f-c_message-toast>
+                </div>
+               <!-- US 3827 Added-->
+               <div if:true={isSmsAndEmailBounced} class="AHFC_initialMargin">
+                  <c-a-h-f-c_message-toast type="warning" label="Attention" 
+                                       message='Please update your Email Address and Mobile Number to receive notifications.'>
+                                    </c-a-h-f-c_message-toast>
+                  </div>
+                  <!--.combox_selectorDisabled-->
+               <div if:true={isSmsBounced} class="AHFC_initialMargin"> <c-a-h-f-c_message-toast type="warning" label="Attention"
+                  message='Please update your Mobile Number to receive notifications.'></c-a-h-f-c_message-toast>
+               
+                  </div>
+               <div if:true={isEmailBounced} class="AHFC_initialMargin"><c-a-h-f-c_message-toast type="warning" label="Attention"
+                  message='Please update your Email Address to receive notifications.'></c-a-h-f-c_message-toast>
+               </div>
+            </div>
+            </div>
+            <h3><div class="AHFC_LabelTwo">
+               ACCOUNT STATUS UPDATES
+            </div></h3>
+            <div class="AHFC_BorderBottom ">
+            <div class=" slds-grid slds-wrap AHFC_AccGridWrap ">
+               <div class="slds-col slds-size_1-of-1 slds-large-size_8-of-12 AHFC_AccLabel">
+                  Receive important updates and information regarding your account.
+               </div>
+               <div if:false={fieldsDisabled}  class="slds-col slds-small-size_6-of-12 slds-medium-size_6-of-12 slds-large-size_2-of-12 ">
+                  <lightning-input aria-label="Account Status Update Email"  type="checkbox" aria-described-by="Email of Account Status" class="combox_selector combox_checkbox combox_selectorEnabled" label="Email" name="Account_Status_Updates_via_Email__c" onchange={onChangeValues} checked={communicationPrefData.Account_Status_Updates_via_Email__c}></lightning-input>
+               </div>
+               <div if:true={fieldsDisabled} class="slds-col slds-small-size_6-of-12 slds-medium-size_6-of-12 slds-large-size_2-of-12 ">
+                  <lightning-input aria-label="Account Status Update Email" disabled={fieldsDisabled} type="checkbox"  class="combox_selector combox_selectorDisabled" label="Email" name="Account_Status_Updates_via_Email__c" checked={communicationPrefData.Account_Status_Updates_via_Email__c}></lightning-input>
+               </div>
+               <div if:false={fieldsDisabled} class="slds-col slds-small-size_6-of-12 slds-medium-size_6-of-12 slds-large-size_2-of-12">
+                  <lightning-input aria-label="Account Status Update Text" type="checkbox" class="combox_selector combox_checkbox combox_selectorEnabled" label="Text" name="Account_Status_Updates_via_Text__c" onchange={onChangeValues} checked={communicationPrefData.Account_Status_Updates_via_Text__c}></lightning-input>
+               </div>
+               <div if:true={fieldsDisabled} class="slds-col slds-small-size_6-of-12 slds-medium-size_6-of-12 slds-large-size_2-of-12">
+                  <lightning-input aria-label="Account Status Update Text" disabled={fieldsDisabled} type="checkbox" class="combox_selector combox_selectorDisabled" label="Text" name="Account_Status_Updates_via_Text__c" checked={communicationPrefData.Account_Status_Updates_via_Text__c}></lightning-input>
+               </div>
+            </div>
+            </div>
+            <h3><div class="AHFC_LabelTwo">
+               PAYMENT NOTIFICATIONS
+            </div></h3>
+            <div class=" AHFC_BorderBottom">
+               
+               <h3><div class="AHFC_LabelThree">PAYMENT REMINDERS</div></h3>
+               <div class="AHFC_AccLabel AHFC_AccReminder">Receive a reminder before your payment is due based on the number of days you have selected.</div>        
+          
+               <div class="slds-grid slds-wrap AHFC_SelectGrid AHFC_MobileWrap">
+                  <div class="slds-col slds-size_1-of-1 slds-large-size_8-of-12"  if:false={dueReminderPickerDisabled}>
+                     <a href="javascript:void" tabindex="-1" class="aDueDatereminder"> <lightning-combobox id="combox-dropdown-1"  alt='comboxDropDown' aria-role ='select' name="dueReminderPicker"  class="automatic-input ahfc-combobox ahfc-input slds-size_1-of-1 slds-large-size_5-of-12" value={dueRemindervalue} 
+                        options={dueReminderDateValues}  icon-name="utility:info_alt"
+                        label="Days Prior Reminder" onchange={onChangeValues} >
+                     </lightning-combobox></a>
+                  </div>
+                  <div class="slds-col slds-size_1-of-1 slds-large-size_8-of-12 "  if:true={dueReminderPickerDisabled}>
+                     <a href="javascript:void" tabindex="-1" class="aDueDatereminder"><lightning-combobox id="combox-dropdown-2"  alt='comboxDropDown' aria-role ='select' name="dueReminderPicker"  class="automatic-input commPredDueDateReminder ahfc-combobox due-date-reminder-disabled ahfc-input slds-size_1-of-1 slds-large-size_5-of-12" value={dueRemindervalue} 
+                        options={dueReminderDateValues}  icon-name="utility:info_alt"
+                        label="Days Prior Reminder" onchange={onChangeValues} disabled={dueReminderPickerDisabled}>
+                     </lightning-combobox></a>
+                  </div>
+                  <div if:false={fieldsDisabled} class="slds-col slds-small-size_6-of-12 slds-medium-size_6-of-12 slds-large-size_2-of-12 AHFC_AccGridWrap">
+                     <lightning-input aria-label="Payment Reminder Email" type="checkbox" class ="combox_selector combox_selectorEnabled checkBoxDropDown" onchange={onChangeValues} label="Email" name="Payment_Reminders_via_Email__c"  checked={communicationPrefData.Payment_Reminders_via_Email__c}></lightning-input>
+                  </div>
+                  <div if:true={fieldsDisabled} class="slds-col slds-small-size_6-of-12 slds-medium-size_6-of-12 slds-large-size_2-of-12 AHFC_AccGridWrap">
+                     <lightning-input  type="checkbox" aria-label="Payment Reminder Email" class ="combox_selector combox_selectorDisabled checkBoxDropDown" label="Email" name="Payment_Reminders_via_Email__c" disabled={fieldsDisabled} checked={communicationPrefData.Payment_Reminders_via_Email__c}></lightning-input>
+                  </div>
+                  <div if:false={fieldsDisabled} class="slds-col slds-small-size_6-of-12 slds-medium-size_6-of-12 slds-large-size_2-of-12 AHFC_AccGridWrap">
+                     <lightning-input  type="checkbox" aria-label="Payment Reminder Text" class ="combox_selector combox_selectorEnabled checkBoxDropDown" onchange={onChangeValues} label="Text" name="Payment_Reminders_via_Text__c"  checked={communicationPrefData.Payment_Reminders_via_Text__c}></lightning-input>
+                  </div>
+                  <div if:true={fieldsDisabled} class="slds-col slds-small-size_6-of-12 slds-medium-size_6-of-12 slds-large-size_2-of-12 AHFC_AccGridWrap">
+                     <lightning-input  type="checkbox" aria-label="Payment Reminder Text" class ="combox_selector combox_selectorDisabled checkBoxDropDown" label="Text" name="Payment_Reminders_via_Text__c" disabled={fieldsDisabled} checked={communicationPrefData.Payment_Reminders_via_Text__c}></lightning-input>
+                  </div>
+               </div>
+               <hr class="AHFC_DashedHr" aria-hidden="true" />
+               <h3><div class="AHFC_LabelThree">PAYMENT CONFIRMATIONS</div></h3>
+               <div class="slds-grid slds-wrap ">
+                  <div class="slds-col slds-size_1-of-1 slds-large-size_8-of-12 AHFC_AccLabel">
+                     Receive a confirmation every time you schedule, modify or cancel a payment.
+                  </div>
+                  <div if:false={fieldsDisabled} class="slds-col slds-small-size_6-of-12 slds-medium-size_6-of-12 slds-large-size_2-of-12 AHFC_AccGridWrap">
+                     <lightning-input  type="checkbox" aria-label="Payment Confirmation Email" class ="combox_selector combox_selectorEnabled" onchange={onChangeValues} label="Email" name="Payment_Confirmations_via_Email__c" checked={communicationPrefData.Payment_Confirmations_via_Email__c}></lightning-input>
+                  </div>
+                  <div if:true={fieldsDisabled} class="slds-col slds-small-size_6-of-12 slds-medium-size_6-of-12 slds-large-size_2-of-12 AHFC_AccGridWrap">
+                     <lightning-input  type="checkbox" aria-label="Payment Confirmation Email" class ="combox_selector combox_selectorDisabled" label="Email" name="Payment_Confirmations_via_Email__c" disabled={fieldsDisabled} checked={communicationPrefData.Payment_Confirmations_via_Email__c}></lightning-input>
+                  </div>
+                  <div if:false={fieldsDisabled} class="slds-col slds-small-size_6-of-12 slds-medium-size_6-of-12 slds-large-size_2-of-12 AHFC_AccGridWrap">
+                     <lightning-input  type="checkbox" aria-label="Payment Confirmation Text" class ="combox_selector combox_selectorEnabled" onchange={onChangeValues} label="Text" name="Payment_Confirmations_via_Text__c" checked={communicationPrefData.Payment_Confirmations_via_Text__c}></lightning-input>
+                  </div>
+                  <div if:true={fieldsDisabled} class="slds-col slds-small-size_6-of-12 slds-medium-size_6-of-12 slds-large-size_2-of-12 AHFC_AccGridWrap">
+                     <lightning-input  type="checkbox" aria-label="Payment Confirmation Text" class ="combox_selector combox_selectorDisabled" label="Text" name="Payment_Confirmations_via_Text__c" disabled={fieldsDisabled} checked={communicationPrefData.Payment_Confirmations_via_Text__c}></lightning-input>
+                  </div>
+               </div>
+               <hr class="AHFC_DashedHr" aria-hidden="true" />
+               <h3><div class="AHFC_LabelThree">EASYPAY COMMUNICATIONS</div></h3>
+               <div class="slds-grid slds-wrap ">
+                  <div class="slds-col slds-size_1-of-1 slds-large-size_8-of-12 AHFC_AccLabel">
+                     Receive communications about your automatic payments.
+                  </div>
+                  <div if:false={fieldsDisabled} class="slds-col slds-small-size_6-of-12 slds-medium-size_6-of-12 slds-large-size_2-of-12 AHFC_AccGridWrap">
+                     <lightning-input  type="checkbox" aria-label="EASYPAY COMMUNICATIONS Email" class ="combox_selector combox_selectorEnabled" onchange={onChangeValues} label="Email" name="EasyPay_Communications_via_Email__c"  checked={communicationPrefData.EasyPay_Communications_via_Email__c}></lightning-input>
+                  </div>
+                  <div if:true={fieldsDisabled} class="slds-col slds-small-size_6-of-12 slds-medium-size_6-of-12 slds-large-size_2-of-12 AHFC_AccGridWrap">
+                     <lightning-input  type="checkbox" aria-label="EASYPAY COMMUNICATIONS Email" class ="combox_selector combox_selectorDisabled" label="Email" name="EasyPay_Communications_via_Email__c" disabled={fieldsDisabled} checked={communicationPrefData.EasyPay_Communications_via_Email__c}></lightning-input>
+                  </div>
+                  <div if:false={fieldsDisabled} class="slds-col slds-small-size_6-of-12 slds-medium-size_6-of-12 slds-large-size_2-of-12 AHFC_AccGridWrap">
+                     <lightning-input  type="checkbox" aria-label="EASYPAY COMMUNICATIONS Text" class ="combox_selector combox_selectorEnabled" onchange={onChangeValues} label="Text" name="EasyPay_Communications_via_Text__c"  checked={communicationPrefData.EasyPay_Communications_via_Text__c}></lightning-input>
+                  </div>
+                  <div if:true={fieldsDisabled} class="slds-col slds-small-size_6-of-12 slds-medium-size_6-of-12 slds-large-size_2-of-12 AHFC_AccGridWrap">
+                     <lightning-input  type="checkbox" aria-label="EASYPAY COMMUNICATIONS Text" class ="combox_selector combox_selectorDisabled" label="Text" name="EasyPay_Communications_via_Text__c" disabled={fieldsDisabled} checked={communicationPrefData.EasyPay_Communications_via_Text__c}></lightning-input>
+                  </div>
+               </div>
+            </div>
+
+            <h3><div class="AHFC_LabelTwo">BILLING STATEMENTS & CORRESPONDENCE</div></h3>
+            <div class="slds-grid slds-wrap AHFC_BillGridWrap AHFC_BorderBottom">
+               <div class="slds-col slds-size_1-of-1 slds-large-size_8-of-12 AHFC_AccLabel">Receive emails to notify you when your monthly statement and correspondence are available on our secure website.</div>
+            <div class="slds-col slds-size_4-of-12" if:false={fieldsDisabled}>
+               <lightning-input  type="checkbox" aria-label="BILLING STATEMENTS Email" class ="combox_selector combox_selectorEnabled" label="Email" onchange={onChangeValues} name="Paperless_Statements_Letters__c" checked={communicationPrefData.Paperless_Statements_Letters__c}></lightning-input>
+            </div>
+            <div class="slds-col slds-size_4-of-12" if:true={fieldsDisabled}>
+               <lightning-input  type="checkbox" aria-label="BILLING STATEMENTS Email" class ="combox_selector combox_selectorDisabled" label="Email" name="Paperless_Statements_Letters__c" disabled={fieldsDisabled} checked={communicationPrefData.Paperless_Statements_Letters__c}></lightning-input>
+            </div>
+           </div>
+            <h3><div class="AHFC_LabelTwo">SPECIAL OFFERS & PROMOTIONS</div></h3>
+            <div class="slds-grid slds-wrap AHFC_BillGridWrap AHFC_BorderBottom">
+            <div class="slds-col slds-size_1-of-1 slds-large-size_8-of-12 AHFC_AccLabel">Receive email notifications of special programs, leasing and financing offers.</div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12" if:false={fieldsDisabled}>
+               <lightning-input  type="checkbox" aria-label="SPECIAL OFFERS Email" class ="combox_selector combox_selectorEnabled" label="Email" onchange={onChangeValues} name="Marketing_Communications_Via_Email__c" checked={communicationPrefData.Marketing_Communications_Via_Email__c}></lightning-input>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12" if:true={fieldsDisabled}>
+               <lightning-input  type="checkbox"  aria-label="SPECIAL OFFERS Email" class ="combox_selector combox_selectorDisabled" label="Email" name="Marketing_Communications_Via_Email__c" disabled={fieldsDisabled} checked={communicationPrefData.Marketing_Communications_Via_Email__c}></lightning-input>
+            </div>
+           </div>
+            <h3><div class="AHFC_LabelTwo">UNSUBSCRIBE FROM ALL EMAIL & TEXT COMMUNICATIONS</div></h3>
+            <div class="AHFC_AccLabelOne">Click the link below to unsubscribe from all email and/or text communications sent to the email address and phone number registered for this finance account.</div>
+            <div if:false={fieldsDisabled} class="AHFC_BorderBottom AHFC_UnSubscrine AHFC_unsubscribeLinkColor"><a onclick={unSubscribe} href="javascript:void(0);">Unsubscribe</a></div>
+            <div if:true={fieldsDisabled} class="AHFC_BorderBottom AHFC_UnSubscrine AHFC_unsubscribeLinkColorDisabled"><a href="javascript:void(0);">Unsubscribe</a></div>
+            <div if:true={unsubscribeShowToast} class="showToast">  <c-a-h-f-c_message-toast onclosetoast={closeToastUnsubscribe} message={toastMessageUnsbscribe} show-icon="true" type={toastTypeUnsbscribe} label={toastLabelUnsbscribe} toast-type={toastTypeUnsbscribe}></c-a-h-f-c_message-toast></div>
+           <div class="AHFC_TextOne">By clicking “Save” below, I confirm the communication preference selections above. The communications will be sent to the email address and/or phone number on my account. I understand I may incur charges for text messages from my phone carrier. I understand I can make changes to these preferences or opt out by checking the boxes at any time.</div>
+           <div class="AHFC_AccLabel">By clicking on ‘Save’ you are agreeing to our <a href={eSignTnCUrl} target="_blank">E-sign Disclosure and Consent</a>.</div>
+           <div class="AHFC_AmtLayout" >
+               <div>
+                   <button onclick={SaveData}
+                      class="slds-button ahfc-btn AHFC_SubmitBut ahfc-btn-primary">Save</button>
+           
+               </div>
+            </div>
+            
+      </div>
+      <div if:false={isClosed} class='ahfc-close-title-text'>
+         <h3 class='ahfc-close-title-text-1'>
+            Your account is closed.
+         </h3>
+         <div class='ahfc-close-title-text-2'>
+             You will no longer receive communications regarding this account.
+         </div>
+         </div>
+      
+   </div></div>
+   <template if:true={showPopUp}>
+     <section role="dialog" tabindex="-1"  aria-label="unsubscription popup modal" aria-modal="true"
+        aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open attention-modal ">
+        <div class="slds-modal__container ">
+           <div class="slds-modal__content attention-modal-content" id="modal-content-id-1">
+              <lightning-button-icon class="slds-modal__close cross-icon" title="Close" variant="bare"
+                 icon-name="utility:close" onclick={onCancel} size="large"></lightning-button-icon>
+              <div class="attention-info" if:true={showTextEmailMessage}>
+                 <h1 class="header-text-med slds-m-bottom_small">Unsubscribe?</h1>
+                 <p class="AHFC_TextOne" >{label.AHFC_CommunicationPreferenceunSubscribeWarningMessage1} {finData.AHFC_Product_Nickname__c} at <b>{communicationPrefData.Email_Address__c}</b> and <b>{telphoneValue}</b> {label.AHFC_CommunicationPreferenceunSubscribeWarningMessage2}</p>
+              </div>
+              <div class="attention-info" if:false={showTextEmailMessage}>
+               <h1 class="header-text-med slds-m-bottom_small">Unsubscribe?</h1>
+               <p class="AHFC_TextOne" if:true={showEmailMessage}>{label.AHFC_CommunicationPreferenceunSubscribeWarningMessage1} {finData.AHFC_Product_Nickname__c} at <b>{communicationPrefData.Email_Address__c}</b> {label.AHFC_CommunicationPreferenceunSubscribeWarningMessage2}</p>
+               <p class="AHFC_TextOne" if:true={showTextMessage}>{label.AHFC_CommunicationPreferenceunSubscribeWarningMessage1} {finData.AHFC_Product_Nickname__c} at <b>{telphoneValue}</b> {label.AHFC_CommunicationPreferenceunSubscribeWarningMessage2}</p>
+            </div>
+              <div class="modal-action ">
+                 <button class="slds-button continue-button ahfc-action-btn" onclick={acceptContinue}>
+                  YES, UNSUBSCRIBE
+                 </button>
+                 <button class="slds-button ahfc-action-btn cancel-action" onclick={onCancel}>
+                    Cancel
+                 </button>
+              </div>
+           </div>
+        </div>
+     </section>
+     <div class="slds-backdrop slds-backdrop_open" aria-hidden='true'></div>
+  </template>
+   </div>
+  
+</template>

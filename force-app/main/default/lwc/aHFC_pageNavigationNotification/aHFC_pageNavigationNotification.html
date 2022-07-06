@@ -1,0 +1,25 @@
+<template>
+    <section role="dialog" tabindex="0" aria-label="page navigation confirmation popUp" aria-modal="true"
+         aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open attention-modal">
+         <div class="slds-modal__container">
+            <div class="slds-modal__content attention-modal-content" id="modal-content-id-1">
+               <a href="javascript:void" tabindex="-1" >
+               <lightning-button-icon class="slds-modal__close cross-icon" title="Close" variant="bare"
+                  icon-name="utility:close" onclick={onCancel} size="large" aria-label="close Navigation Popup"></lightning-button-icon></a>
+               <div class="attention-info">
+                  <h1 class="header-text-med slds-m-bottom_small">Leave Page?</h1>
+                 <p class='AHFC_TextOne'> Are you sure you want to navigate away from this page? All progress will be lost.</p>
+               </div>
+               <div class="modal-action">
+                  <button class="slds-button continue-button ahfc-action-btn" onclick={acceptContinue}>
+                     Continue
+                  </button>
+                  <button class="slds-button ahfc-action-btn cancel-action" onclick={onCancel}>
+                     Cancel
+                  </button>
+               </div>
+            </div>
+         </div>
+      </section>
+      <div class="slds-backdrop slds-backdrop_open" aria-hidden='true'></div>
+</template>

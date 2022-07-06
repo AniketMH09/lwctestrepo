@@ -1,0 +1,22 @@
+<!--
+// (c) 2018 Appirio, Inc.
+// Generating Appropriate message for without Email by launching a flow.
+
+// 09 Nov 2018 		Naveen Pilla		Original
+// 01 Jan 2019 		Naveen Pilla		Modified for I-358949
+// 27 Jul 2021      Prabu               US 2247 - Changed UI Screen-->
+
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">    
+    <ltng:require styles="{!$Resource.AHFC_UI_Kit}"/>    
+    <aura:attribute name= "communityName" type="string" default=""/>
+    <aura:attribute name= "caseStatus" type="string" default=""/>    
+   	<div class="contain">
+        <!-- US - 2247 - Added Prabu - Start -showing error message when website is down or case related issues-->
+        <div class="center">
+            <c:aHFC_messageToast type="error" label="Error" link="Contact US"
+              message=' Your request could not be processed at this time. Please try again later. If you require urgent
+              assistance, please' toast-type="" show-icon="false"></c:aHFC_messageToast>
+        </div> 
+        <!-- US - 2247 - End -->
+    </div>
+</aura:component>

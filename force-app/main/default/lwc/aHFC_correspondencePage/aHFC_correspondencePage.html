@@ -1,0 +1,230 @@
+<template>
+    <template if:true={isLoaded}>
+        <!-- <lightning-spinner  size="large" class='AHFC_Spinnereg' alternative-text="Please wait while we process your request">
+        </lightning-spinner> -->
+        <c-a-h-f-c_-spinner loading-message='Please wait while we process your request'></c-a-h-f-c_-spinner>
+    </template>
+    <div class="ahfc-background-lighter">
+        <c-a-h-f-c_vehicleswitcher loading-message='Please wait while we process your request'>
+        </c-a-h-f-c_vehicleswitcher>
+        
+        <!-- <c-a-h-f-c_vehicle-header></c-a-h-f-c_vehicle-header>  -->
+        <div role="main" id="main-container" class="main-content">
+            <div class='ahfc-correspondence-wrapper'>
+                <div class='ahfc-container ahfc-correspondence-container'>
+                    <c-a-h-f-c_page-title title='Correspondence' show-icon="true"></c-a-h-f-c_page-title>
+                    <div class='ahfc-background-lightest' if:true={isCalloutDone}>
+                        <div if:false={isError}>
+                            <div class='ahfc-corres-info' if:true={isData}>
+                                <div class="transaction-history">
+                                    <div class="header">
+                                        <h3 class="ahfc-header-three ahfc-text-dark">
+                                            {labels.AHFC_Correspondence_Document}
+                                        </h3>
+                                        <div class="transaction-table slds-show_medium">
+                                            <div class="table-header ahfc-backgroud-lighter">
+                                                <div class="slds-grid slds-wrap">
+                                                    <div
+                                                        class="slds-col slds-medium-size_7-of-12 slds-large-size_7-of-12">
+                                                        <div class="slds-truncate" data-sorttype="name"
+                                                            title="DOCUMENT NAME">
+                                                            <button
+                                                                class="slds-button table-sort-button ahfc-info-label ahfc-text-dark slds-text-title_caps slds-text-align_left"
+                                                                data-sorttype="name" onclick={onSortClick}>
+                                                                <span data-sorttype="name"
+                                                                    class='ahfc-tabel-header'>{labels.AHFC_Correspondence_Document_Name}</span>
+                                                                <lightning-icon data-sorttype="name"
+                                                                    class="ahfc-icon ahfc-icon-black table-sort"
+                                                                    icon-name="utility:sort" size="xx-small"
+                                                                    alternative-text="sort" title="sort">
+                                                                </lightning-icon>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="slds-col slds-medium-size_3-of-12 slds-large-size_4-of-12">
+                                                        <div class="slds-truncate" data-sorttype="date"
+                                                            title="DATE RECEIVED">
+                                                            <button
+                                                                class="slds-button table-sort-button ahfc-info-label ahfc-text-dark slds-text-title_caps slds-text-align_left"
+                                                                data-sorttype="date" onclick={onSortClick}>
+                                                                <span data-sorttype="date"
+                                                                    class='ahfc-tabel-header'>{labels.AHFC_Correspondence_DATE_RECEIVED}</span>
+                                                                <lightning-icon data-sorttype="date"
+                                                                    class="ahfc-icon ahfc-icon-black table-sort"
+                                                                    icon-name="utility:sort" size="xx-small"
+                                                                    alternative-text="sort" title="sort">
+                                                                </lightning-icon>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="slds-col slds-medium-size_2-of-12 slds-large-size_1-of-12">
+                                                        <div class="slds-truncate" data-sorttype="total" title="Total">
+                                                            <p class="slds-truncate ahfc-info-label ahfc-text-dark slds-text-title_caps slds-text-align_left table-block-m ahfc-tabel-header"
+                                                                title="ACTIONS">{labels.AHFC_Correspondence_ACTIONS}</p>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="table-body">
+                                                <template for:each={tableData} for:item="tableItem">
+                                                    <div key={tableItem.key} class='slds-grid slds-wrap'>
+                                                        <div data-label="Document Name"
+                                                            class="slds-col slds-medium-size_7-of-12 slds-large-size_7-of-12 slds-text-align_left">
+                                                            <div class="slds-truncate ahfc-body-two ahfc-text-dark"
+                                                                title='title'>
+                                                                {tableItem.name}
+                                                            </div>
+                                                        </div>
+                                                        <div data-label="Date Received" 
+                                                            class="slds-col slds-medium-size_3-of-12  slds-large-size_4-of-12 slds-text-align_left">
+                                                            <p class="slds-truncate ahfc-body-two ahfc-text-dark table-block-m"
+                                                                title={tableItem.description}>{tableItem.newDate}</p>
+                                                        </div>
+                                                        <div data-label="Actions"
+                                                            class="slds-col slds-medium-size_2-of-12 slds-large-size_1-of-12 slds-text-align_center">
+                                                            <div class="slds-truncate" title="VIEW">
+                                                                <a
+                                                                    href="javascript:void(0);"
+                                                                    aria-label={tableItem.aria}
+                                                                    role="link"
+                                                                    class="ahfc-info-label ahfc-text-dark slds-text-title_caps slds-text-align_left"
+                                                                    data-documentid={tableItem.documentId}
+                                                                    onclick={onViewClick}>
+                                                                    <span data-documentid={tableItem.documentId}
+                                                                        class='ahfc-red-actions'>{labels.AHFC_Correspondence_VIEW}</span>
+
+                                                            </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </template>
+                                            </div>
+                                        </div>
+                                        <div class="transaction-table slds-hide_medium">
+                                            <div
+                                                class='slds-hide_medium ahfc-background-lightest filter-sort-wrapper show'>
+                                                <div class="main-options">
+                                                    <div class="sort-options">
+                                                        <lightning-combobox class="ahfc-combobox ahfc-input" name="sort"
+                                                            label='Sort By' value={sortSelected}
+                                                            placeholder="Select from options below"
+                                                            options={sortMethods} onchange={onSortSelection}
+                                                            data-id="sortcombo">
+                                                        </lightning-combobox>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <template for:each={tableData} for:item="tableItem">
+                                                <div class="card-item" key={tableItem.key}>
+                                                    <div class="table-data-row">
+                                                        <div>
+                                                            <p
+                                                                class="slds-text-title_caps ahfc-info-label ahfc-text-dark ahfc-mobile-header">
+                                                                {labels.AHFC_Correspondence_Document_Name}</p>
+                                                            <p class="ahfc-header-three ahfc-text-dark">{tableItem.name}
+                                                            </p>
+
+                                                        </div>
+                                                        <div>
+                                                            <p
+                                                                class="slds-text-title_caps ahfc-info-label ahfc-text-dark ahfc-mobile-header">
+                                                                {labels.AHFC_Correspondence_DATE_RECEIVED}</p>
+                                                            <p class="ahfc-header-three ahfc-text-dark">
+                                                                {tableItem.newDate}
+                                                            </p>
+                                                        </div>
+                                                        <div>
+
+                                                            <div class="slds-truncate" title="VIEW">
+                                                                <button
+                                                                    class="slds-button table-sort-button ahfc-info-label ahfc-text-dark slds-text-title_caps slds-text-align_left"
+                                                                    data-documentid={tableItem.documentId}
+                                                                    onclick={onViewClick}>
+                                                                    <span data-documentid={tableItem.documentId}
+                                                                        class='ahfc-red-actions'>{labels.AHFC_Correspondence_VIEW}</span>
+
+                                                                </button>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div>
+                                                    </div>
+                                                </div>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-grid slds-wrap transaction-history ahfc-reader">
+                                    <div
+                                        class="slds-col slds-medium-size_5-of-12 slds-large-size_7-of-12 slds-small-size_12-of-12 slds-show_medium">
+                                        <img src={adobeLogoUrl} alt="adobe logo">
+                                        <a href="https://get.adobe.com/reader/" target="_blank" rel="noopener noreferrer" onclick={downloadadobe}
+                                            class="ahfc-links ahfc-links-secondary">{labels.AHFC_Correspondence_Download_reader}</a>
+                                            <lightning-helptext icon-name="utility:info_alt"
+                                            content="If you need a pdf viewer, you can download one for free"
+                                            ></lightning-helptext>
+                                    </div>
+                                    <div
+                                        class="slds-col slds-medium-size_7-of-12 slds-large-size_5-of-12 slds-small-size_12-of-12">
+                                        <c-a-h-f-c_pagination if:false={refreshPagination}
+                                            class="transaction-pagination" items={totalRecords}
+                                            itemsperpage={labels.Correspondance_Iterator_Number}
+                                            onpagechanges={pageChange}>
+                                        </c-a-h-f-c_pagination>
+                                    </div>
+                                    <div
+                                        class="slds-col slds-medium-size_7-of-12 slds-large-size_7-of-12 slds-small-size_12-of-12 slds-hide_medium ahfc-reader-mobile">
+                                        <img src={adobeLogoUrl} alt="adobe logo">
+                                        <a href="https://get.adobe.com/reader/" target="_blank" rel="noopener noreferrer"
+                                            class="ahfc-links ahfc-links-secondary">{labels.AHFC_Correspondence_Download_reader}</a>
+                                            <lightning-helptext icon-name="utility:info_alt"
+                                            content="If you need a pdf viewer, you can download one for free"
+                                            ></lightning-helptext>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="transaction-history">
+                                <div if:false={isData}>
+                                    <div class="header">
+                                        <h3 class="ahfc-header-three ahfc-text-dark">
+                                            {labels.AHFC_Correspondence_No_Documents}
+                                        </h3>
+                                        <div class='ahfc-nodata'>{labels.AHFC_Correspondence_No_data}</div>
+                                    </div>
+                                </div>
+                                <template if:false={accClosed}>
+                                <div if:true={isPageLoaded}>
+                                    <c-a-h-f-c_communication-prefernce finid={finid}>
+                                    </c-a-h-f-c_communication-prefernce>
+                                </div>
+                                </template>
+                            </div>
+                        </div>
+                        <div if:true={isError}>
+                            <div class="transaction-history">
+                                <div class="header">
+                                    <div class='ahfc-nodata error'>
+                                        <c-a-h-f-c_message-toast type="error" label="Error"
+                                            message='Your request could not be processed at this time. Please refresh the page or try again later.'
+                                            toast-type="" show-icon="false"></c-a-h-f-c_message-toast>
+                                    </div>
+                                    <template if:false={accClosed}>
+                                    <div if:true={isPageLoaded}>
+                                        <c-a-h-f-c_communication-prefernce finid={finid}>
+                                        </c-a-h-f-c_communication-prefernce>
+                                    </div></template>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>

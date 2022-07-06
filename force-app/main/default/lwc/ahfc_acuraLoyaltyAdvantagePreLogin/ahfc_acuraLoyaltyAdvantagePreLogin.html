@@ -1,0 +1,265 @@
+<template>
+    <div class="AHFC_PageTitleWrap">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1">
+                <div class="ahfc_topCard">
+                    <div class="ahfc_topImage">
+                        <div class="slds-show_small">
+                            <img src={topAcuraImageLogoUrl} alt="Modern cityscape">
+                        </div>
+                        <div class="slds-hide_small">
+                            <img src={mobileTopAcuraImageLogoUrl} alt="Modern cityscape">
+                        </div>
+                    </div>
+                    <div class="ahfc_topHeading">
+                        Acura Loyalty Advantage
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="AHFC_Wrapperst">
+        <div class="slds-grid slds-wrap">
+            <!-- <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12"> -->
+                <!-- ipad changes -->
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_6-of-12">
+                <div class="AHFC_PrimHead">
+                    <p>The Perks Go On For Miles</p>
+                </div>
+                <div class="AHFC_description">
+                    <p>
+                        When you lease an Acura vehicle, you’ll turn heads everywhere you go. But your exclusive perks go far beyond showstopping style. Your Acura Luxury Lease comes with the exclusive benefits of the Acura Loyalty Advantage<sup class="ahfc_superScript">1</sup>. Enjoy the flexibility to drive over or under your contracted miles. 
+                    </p>
+                </div>
+                <div>
+                    <button class="slds-button ahfc-btn ahfc-btn-secondary AHFC_customPrimaryButton ahfc_findDealerButton">
+                        <a href="https://www.acura.com/dealer-locator-inventory" class="ahfc_findDealerButtonText">Find a dealer</a>
+                    </button>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                <ul class="slds-accordion sections-accordion">
+                    <template for:each={mobileSections} for:item="sections">
+                       <!-- <li class="slds-accordion__list-item ahfc-accordion-item ahfc-background-lightest" -->
+                       <li class={sections.parentClass} key={sections.id}>
+                          <section class={sections.class}>
+                             <div class="slds-accordion__summary">
+                                <h2 class="slds-accordion__summary-heading">
+                                   <button
+                                      class="slds-button slds-button_reset slds-accordion__summary-action section-header ahfc-text-header ahfc-text-dark slds-text-title_caps"
+                                      aria-controls={sections.id} data-keyno={sections.id} aria-expanded={sections.isOpened}
+                                      title={sections.header} onclick={onMobileSectionsClick}>
+                                      <div class="slds-grid slds-grid_align-spread" data-keyno={sections.id}>
+                                         <div class="slds-col" data-keyno={sections.id}>
+                                            <span data-keyno={sections.id}
+                                               class="slds-accordion__summary-content">{sections.header}</span>
+                                         </div>
+                                         <div class="slds-col ahfc_arrows" data-keyno={sections.id}>
+                                            <lightning-icon data-keyno={sections.id} if:false={sections.isOpened}
+                                               icon-name="utility:chevrondown" size="small" alternative-text="chevrondown"
+                                               title="chevrondown">
+                                            </lightning-icon>
+                                            <lightning-icon data-keyno={sections.id} if:true={sections.isOpened}
+                                               icon-name="utility:chevronup" size="small" alternative-text="chevronup"
+                                               title="chevronup">
+                                            </lightning-icon>
+                                         </div>
+                                      </div>
+                                   </button>
+                                </h2>
+                             </div>
+     
+                             <div class={sections.contentClass} id={sections.id}>
+                                <template for:each={sections.accordionData} for:item="accSections">
+                                   <div if:false={accSections.divOrSpan}  key={accSections.id} class="AHFC_contentStyle">
+                                         <div if:false={accSections.divOrSpan} class={accSections.customClass}> {accSections.item}</div>
+                                  </div>
+                                   <span if:true={accSections.divOrSpan}  key={accSections.id} class="AHFC_contentStyle">
+                                         <span if:true={accSections.divOrSpan} class={accSections.customClass}> {accSections.item}</span>
+                                   </span>
+                                </template>
+                             </div>
+     
+                          </section>
+                       </li>
+                    </template>
+                 </ul>
+            </div>
+        </div>
+    </div>
+    <div class="AHFC_WrapperstVideo">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_12-of-12">
+                <div class="ahfc_topImage">
+                    <div class="slds-show_large">
+                        <img src={middleAcuraImageLogoUrl} alt="silver car in a dealership with customers">
+                    </div>
+                    <div class="slds-hide_large">
+                        <img src={mobileMiddleAcuraImageLogoUrl} alt="silver car in a dealership with customers">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="AHFC_WrapperstWaiver">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_4-of-12 ahfc_waiver">
+                <div class="ahfc_waiverCard">
+                    <div class="ahfc_waiverContent">
+                        <div class="ahfc_waiverHeading">Damage Waiver</div>
+                        <div class="ahfc_waiverDescription">
+                            The Acura Luxury Lease includes a $750 Excessive Wear-and-Use or Damage Waiver. Loyal clients<sup>4</sup> who purchase or lease their next Acura or Honda may qualify for an additional waiver<sup>5</sup>.
+                        </div>
+                    </div>
+                    <!-- <div class="ahfc_waiverIcon">
+                        <img src={damageWaiverLogoUrl} alt="damage waiver">
+                    </div> -->
+                </div>
+                <div class="ahfc_waiverIcon">
+                    <img src={damageWaiverLogoUrl} alt="damage waiver">
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_4-of-12 ahfc_waiver">
+                <div class="ahfc_waiverCard ahfc_rightSpace">
+                    <div class="ahfc_waiverContent ahfc_waiverPadding">
+                        <div class="ahfc_waiverHeading">Turn in Fee Waiver</div>
+                        <div class="ahfc_waiverDescription">
+                            Loyal clients who purchase or lease their next Acura or Honda may be eligible to get their turn-in fee waived.
+                        </div>
+                    </div>
+                </div>
+                <div class="ahfc_waiverIcon ahfc_leftSpace">
+                    <img src={feeWaiverLogoUrl} alt="fee waiver">
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_4-of-12 ahfc_waiver">
+                <div class="ahfc_waiverCard ahfc_rightSpace">
+                <div class="ahfc_waiverContent ahfc_waiverPadding">
+                        <div class="ahfc_waiverHeading">Excess Miles Waiver</div>
+                        <div class="ahfc_waiverDescription">
+                            Receive 1,000 additional miles applied to your next lease from AFS if you were over your contracted miles on your previous lease.
+                        </div>
+                    </div>
+                </div>
+                <div class="ahfc_waiverIcon ahfc_leftSpace">
+                    <img src={excessWaiverLogoUrl} alt="fee waiver">
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="AHFC_WrapperstOA slds-show_large">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12  slds-large-size_6-of-12">
+                <div class="ahfc_offersAndApproval">
+                    <div class="ahfc_offersAndApprovalImage">
+                        <img src={acuraSpecialOffersLogoUrl} alt="Acura gray car outdoors with woman">
+                    </div>
+                    <div class="ahfc_offersAndApprovalContent ahfc_rightCard">
+                        <div class="ahfc_offersAndApprovalHeading">Acura Special Offers</div>
+                        <div class="ahfc_offersAndApprovalDescription">
+                            Visit Acura.com to see current offers on the Acura family of precision crafted vehicles.
+                        </div>
+                        <div class="ahfc_Links ahfc_learnMoreLink">
+                           <a href="https://www.acura.com/tools/current-luxury-car-suv-offers-leasing" class="href">Find Offers</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12  slds-large-size_6-of-12">
+                <div class="ahfc_offersAndApproval">
+                    <div class="ahfc_offersAndApprovalImage">
+                        <img src={applyCreditDesktopImageLogoUrl} alt="Person using computer">
+                    </div>
+                    <div class="ahfc_offersAndApprovalContent ahfc_rightCard">
+                        <div class="ahfc_offersAndApprovalHeading">Apply for Credit-Pre-Approval</div>
+                        <div class="ahfc_offersAndApprovalDescription">
+                            Securing pre-approval is the first step toward purchasing or leasing a new Acura.
+                        </div>
+                        <div class="ahfc_Links ahfc_learnMoreLink">
+                            <button class="slds-button ahfc-btn ahfc-btn-secondary ahfc_learnMoreButton" onclick={onLearnMoreClick}>
+                                Learn More
+                             </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <div class="AHFC_WrapperstOA slds-hide_large">  
+        <template if:true={isFirst}>
+            <div class="ahfc_offersAndApproval">
+                <div class="ahfc_offersAndApprovalImage">
+                    <img src={acuraSpecialOffersLogoUrl} alt="Acura gray car outdoors with woman">
+                </div>
+                <div class="ahfc_offersAndApprovalContent">
+                    <div class="ahfc_offersAndApprovalHeading">Acura Special Offers</div>
+                    <div class="ahfc_offersAndApprovalDescription">
+                        Visit Acura.com to see current offers on the Acura family of precision crafted vehicles.
+                    </div>
+                    <div class="ahfc_Links ahfc_findOffersLink">
+                       <a href="https://www.acura.com/tools/current-luxury-car-suv-offers-leasing" class="href">Find Offers</a>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template if:true={isSecond}>
+            <div class="ahfc_offersAndApproval">
+                <div class="ahfc_offersAndApprovalImage">
+                    <img src={applyCreditMobileImageLogoUrl} alt="Person using computer">
+                </div>
+                <div class="ahfc_offersAndApprovalContent ahfc_rightCard">
+                    <div class="ahfc_offersAndApprovalHeading">Apply for Credit-Pre-Approval</div>
+                    <div class="ahfc_offersAndApprovalDescription">
+                        Securing pre-approval is the first step toward purchasing or leasing a new Acura.
+                    </div>
+                    <div class="ahfc_Links ahfc_learnMoreLink">
+                        <a onclick={onLearnMoreClick} class="href">LEARN MORE</a> 
+                       
+                    </div>
+                </div>
+            </div>
+        </template>
+        <ul class="slds-carousel__indicators slds-hide_large ahfc_swipeButtons" role="tablist">
+            <template for:each={accObj} for:item="servAcc">
+            <li key={servAcc.keyNo} data-indicator={servAcc.keyNo} class="slds-carousel__indicator"
+            role="presentation">
+            <a id={servAcc.indicatorId} data-indicator={servAcc.keyNo}
+                onclick={onCarousalIndicatorClick} class={servAcc.indicatorClass}
+                href="javascript:void(0);" role="tab" tabindex="0"
+                aria-selected={servAcc.ariaSelected} aria-controls={servAcc.panelId}
+                title={servAcc.name}>
+                <span class="slds-assistive-text"
+                    data-indicator={servAcc.keyNo}>{servAcc.name}</span>
+            </a>
+            </li>
+            </template>
+        </ul>
+     </div>
+    <div class="AHFC_WrapperstStatements">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 ahfc_statements">
+               <div class="ahfc_statementPadding">
+                <sup>1</sup>Acura Loyalty Advantage (ALA) eligibility is subject to verification and credit approval by Acura Financial Services (AFS). To obtain ALA benefits, clients must lease a new vehicle from AFS and undergo standard AFS verification and credit approval requirements. ALA benefits are only available within 180 days of the scheduled maturity date and 180 days after lease termination. AFS may terminate ALA benefits at any time, without notice.
+               </div>
+               <div>
+                <sup>2</sup>If you are over your contracted lease miles, one-half of all your excess miles, up to 7,500 miles, are eligible for waiver if you finance a lease or retail purchase of a new Acura from a participating Acura dealer through Acura Financial Services.
+               </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 ahfc_statements">
+                <div class="ahfc_statementTopPadding ahfc_statementPadding">
+                    <sup>3</sup>If you are under your contracted mileage, up to 15,000 unused lease miles (round up to the nearest 1,000) can be rolled over to your next Acura Luxury Lease.
+                </div>
+                <div class="ahfc_statementPadding">
+                    <sup>4</sup>A loyal client is one who purchases or leases another new Acura or Honda automobile within 30 days prior to or after the turn-in date.
+                </div>
+                <div class="ahfc_statementPadding">
+                    <sup>5</sup>An Acura Luxury Lease includes a $750 Excessive Wear-and-Use or Damage Waiver. Loyal clients may qualify for an additional waiver and may be eligible for a turn-in fee waiver. Total Excessive Wear-and-Use or Damage Waiver amount not to exceed $1,500.
+                </div>
+                <div class="ahfc_statementPadding">
+                    <sup>6</sup>The turn-in fee amount depends on your state. See your lease contract for details.
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

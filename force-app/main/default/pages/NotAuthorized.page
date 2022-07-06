@@ -1,0 +1,6 @@
+<apex:page showHeader="false" sidebar="false">
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>You are not Authorized</h1>
+    To view this page
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

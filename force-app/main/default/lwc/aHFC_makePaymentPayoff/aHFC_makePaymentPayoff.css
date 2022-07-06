@@ -1,0 +1,341 @@
+.reviewpayment-container {
+  width: 80%;
+  margin: auto;
+  padding: 50px 0px;
+}
+.reviewpayment-container .reviewpayment-title {
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  font-size: 38px;
+  line-height: 48px;
+  color: #000000;
+}
+.reviewinfo-container-fluid {
+  background: #fff;
+}
+
+.success-message {
+  margin-bottom: 56px;
+}
+.mail-alignment{
+  display: inline !important;
+  margin-left: 1.5rem;
+  vertical-align:sub;
+}
+
+.success-message p {
+  font-size: 38px;
+  line-height: 48px;
+  font-weight: 300;
+  font-family: Roboto, sans-serif;
+}
+
+.reviewinfo-container {
+  margin: auto;
+  width: 85%;
+  padding: 48px 0px;
+}
+
+.sources-container{
+  display: flex;
+  width: 100%;
+  /* justify-content: space-between; */
+}
+.sources-container p {
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  color: #767676;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-left: 15px;
+}
+.schedule-source-section p > .circle:before {
+  content: " \25CF";
+}
+
+.payment-info label,
+.additionalpaymentinfo-container label,
+.payment-total-info label,
+.confirmation-number label,
+.scheduled-info label,
+.source-info label,
+.confirmation-credit-section label {
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+  letter-spacing: 0.03rem;
+}
+.payment-info h1,
+.additionalpaymentinfo-container h1,
+.payment-total-info h1,
+.confirmation-number h1,
+.scheduled-info h1,
+.source-info h1 {
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 40px;
+  margin-top: 8px;
+}
+.paymenttype-info label {
+  font-family: Roboto, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  border: 2px solid #d9d9d9;
+  padding: 10px 16px;
+  border-radius: 30px;
+  color: #000000;
+  letter-spacing: 0.06em;
+  float: right;
+}
+
+.principal-border{
+  border-block-style: dashed;
+}
+.confirmation-credit-section h2,
+.confirmation-credit-section h3,
+.enroll-easypay-section .enroll-easypay-info h4 {
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  font-size: 26px;
+  line-height: 36px;
+}
+.confirmation-credit-section p,
+.submitted-info-section p,
+.enroll-easypay-info p,
+.questions-link {
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+}
+.enroll-easypay-info p {
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.03rem;
+}
+
+.confirmation-credit-section span {
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.03em;
+  color: #5e6162;
+}
+.questions-link a,
+.confirmation-credit-section span a,
+.submitted-info-section p span a {
+  color: #e42525;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.paymentconfirmation-container span {
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  color: #000000;
+  letter-spacing: 0.03em;
+  display: inline-block;
+}
+.enroll-easypay-section {
+  display: flex;
+}
+.enroll-easypay-section .paycontent-img {
+  height: 260px;
+  background: #d7d7d7;
+  flex: 0 0 35%;
+}
+.enroll-easypay-section .enroll-easypay-info {
+  background: #f0f0f0;
+  padding: 32px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  
+  .enroll-easypay-section{
+    flex-direction: column;
+  }
+  .enroll-easypay-section .paycontent-img{
+    flex: auto;
+    height: 150px;
+  }
+  .paymenttype-info {
+    display: flex;
+    float: left;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 540px) {
+  
+  .onlyForMobile{
+    margin-top:24px;
+  }
+  .reviewpayment-container {
+    width: 100%;
+  }
+  .reviewpayment-container .reviewpayment-title {
+    font-size: 26px;
+    color: #000000;
+    line-height: 36px;
+    padding: 0px 12px;
+  }
+  .reviewinfo-container {
+    width: 90%;
+    padding: 32px 0px;
+  }
+  /* .reviewpaymentinfo-container, .confirmation-paymentinfo-container {
+    /* flex-direction: column-reverse;
+    align-items: inherit; 
+  } */
+  .reviewpaymentinfo-container .payment-info, 
+  .review-section-info .payment-monthly-info, 
+  .confirmation-paymentinfo-container .payment-info,
+  .confirmation-paymentinfo-container .confirmation-number {
+    margin-top: 24px;
+  }
+  .payment-info h1,
+  .additionalpaymentinfo-container h1,
+  .confirmation-number h1,
+  .scheduled-info h1,
+  .source-info h1 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .paymenttype-info {
+    display: flex;
+    float: left;
+  }
+  /* .additionalpaymentinfo-container, .schedule-source-section {
+    /* width: 100%;
+    flex-direction: column; 
+  } */
+  .additionalpaymentinfo-container .payment-monthly-info,
+  .schedule-source-section .scheduled-info {
+    margin-bottom: 24px;
+  }
+  .confirmation-credit-section h2,
+  .confirmation-credit-section h3,
+  .enroll-easypay-section .enroll-easypay-info h4 {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  .paymentconfirmation-container span, .submitted-info-section p, .enroll-easypay-info p {
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .submit-action {
+    display: flex;
+    flex-direction: column;
+  }
+  .submitted-info-section p span{
+    display: inline-block;
+    margin-top: 16px;
+  }
+  .enroll-easypay-section{
+    flex-direction: column;
+  }
+  .enroll-easypay-section .paycontent-img{
+    flex: auto;
+    height: 100px;
+  } 
+  .enroll-easypay-section .enroll-easypay-info{
+    padding: 24px;
+  }
+  .success-message {
+    margin-bottom: 32px;
+  }
+  .success-message p {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 300;
+  }
+}
+
+.AHFC_ModFormLabel{    color: #000000;
+  font-family: 'ahfc-robotomedium';
+  font-size: 14px;
+  letter-spacing: 0.03rem;
+}
+.AHFC_ModFormValue{
+    font-family: 'ahfc-robotolight';
+    font-size: 28px;
+    line-height: 36px;
+  }
+.AHFC_CardLabel{
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #5E6162;
+  font-family: 'ahfc-robotomedium' ,sans-serif;
+}
+.AHFC_CardData{
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 40px;
+  color: #000000;
+  font-family: 'ahfc-robotolight', sans-serif;
+}
+.AHFC_SectionDetail{
+  background: #F7F7F7;
+  border-radius: 3px;
+  padding: 1.5rem 2rem;
+  margin-top: 2rem;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #5E6162;
+}
+.AHFC_FirstSection .AHFC_CardLabel{
+  margin-bottom: 0.5rem;
+}
+.AHFC_FirstSection .AHFC_CardData{
+  margin-bottom: 3rem;
+}
+@media screen and (min-width: 320px) and (max-width: 540px) {
+  .AHFC_CardLabel{
+    color: #5E6162;
+    font-family: 'ahfc-robotomedium' ,sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #000000;
+  }
+  .AHFC_CardData{
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 26px;
+    color: #000000;
+    font-family: 'ahfc-robotolight', sans-serif;
+  }
+  .AHFC_SectionDetail{
+    background: #F7F7F7;
+    border-radius: 3px;
+    padding: 1.2rem;
+    margin-top: 0rem;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+    color: #5E6162;
+  }
+  .AHFC_FirstSection .AHFC_CardLabel{
+    margin-bottom: 0.6rem;
+  }
+  .AHFC_CardData{
+    margin-bottom: 2rem !important;
+  }
+}

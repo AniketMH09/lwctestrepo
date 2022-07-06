@@ -1,0 +1,22 @@
+<template>  
+    <template if:true={isRecordsAvaialable}>
+    <div class="slds-m-around_medium AHFC_NotesWrap">    
+        
+         <div if:true={records}>    
+            <h3 class="ahfc_sp_label">NOTES({recordCount})</h3>
+          <template for:each={records} for:item="rec">   
+                <div class="AHFC_NoteName" key={rec.Id}>{rec.strTitle}</div>
+                <!-- <br key={rec.Id}/>   -->
+                <div key={rec.Id} class="AHFC_NoteDetail">{rec.strNotes}</div>
+                <!-- <br key={rec.Id}/>  -->
+                <div key={rec.Id} class ="AHFC_NoteSubDetail"> {rec.strCreatedDate}</div>
+                <!-- <br key={rec.Id}/>  -->
+                <!-- <br key={rec.Id}/>  -->
+            </template>  
+            <hr/>
+        </div>   
+  
+    </div> 
+    </template> 
+  
+</template>

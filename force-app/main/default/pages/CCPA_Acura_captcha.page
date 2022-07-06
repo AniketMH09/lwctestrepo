@@ -1,0 +1,55 @@
+<apex:page showHeader="false" sidebar="false">
+    <html>
+    <head>
+        <script type="text/javascript">
+            var verifyCallback = function (response) {
+                
+                
+                    recaptchaResponse = document.getElementById('g-recaptcha-response').value;
+                parent.postMessage({
+                    action: 'unlock',
+                    response: recaptchaResponse
+                }, '*');
+            };
+            var onloadCallback = function () {
+                var sitekey = '{!$Label.CCPA_SiteKey_Acura}';
+                grecaptcha.render('html_element', {
+                    'sitekey': sitekey,
+                    'callback': verifyCallback
+                });
+            };
+
+            // this function checks if captcha is active and send post message to parent to increse heigh of iframe
+            var observer = new MutationObserver(function (mutations) {
+                
+                if (document.getElementById('captcha') && document.getElementById('captcha').nextSibling && document.getElementById('captcha').nextSibling.nextSibling) {
+                    const isCaptchaVisible = document.getElementById('captcha').nextSibling.nextSibling.style.visibility;
+                    if (isCaptchaVisible) {
+                        parent.postMessage({ 'captchaVisible': isCaptchaVisible }, '*');
+                    }
+                }
+            });
+            var config = { attributes: true, childList: true, subtree: true };
+            observer.observe(document.body, config);
+
+        </script>
+        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async="" defer="" >
+    </script>
+        </head>
+
+    <body style="background: #f9f9f9;margin: 0 auto;display: table">
+        <form action="?" method="POST" >
+           
+            <div id="html_element" style="position:absolute transform: scale(0.74);transform-origin: 0 0;-webkit-transform:scale(0.74);-webkit-transform-origin: 0 0">
+            </div> 
+            
+                
+                
+           
+            <br/>
+            <input type="submit" value="Submit" style="display:none" />
+        </form>
+        <div id="captcha" />
+    </body>
+    </html>
+</apex:page>

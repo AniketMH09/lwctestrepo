@@ -1,0 +1,21 @@
+<template>
+  <div>
+  <picture class="aHFC_image">
+    <source media="(max-width: 767px)" srcset={hondaLogoMobileUrl}>
+    <img src={hondaLogoUrl}  alt="honda financial sevices" width="143px" height="98px">
+</picture>
+
+  <div class="login_flow_class">
+    <div role="status" class="slds-spinner slds-spinner_large slds-spinner_color AHFC_SpinnerTop">
+        <span class="slds-assistive-text">Loading</span>
+        <div class="slds-spinner__dot-a"></div>
+        <div class="slds-spinner__dot-b"></div>
+    </div>
+    <div class="slds-spinner-message">
+        <div class="slds-spinner-message-possition AHFC_LabelDetail">
+          <span class="">{label.spinnerWheelMessage}</span>
+        </div>
+    </div>
+</div>
+</div>
+</template>

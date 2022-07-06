@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Payment</label>
+    <protected>false</protected>
+    <values>
+        <field>Added_Bank_Account__c</field>
+        <value xsi:type="xsd:string">SMS: PAYMENT PROFILE UPDATED</value>
+    </values>
+    <values>
+        <field>Deleted_Bank_Account__c</field>
+        <value xsi:type="xsd:string">SMS: PAYMENT PROFILE UPDATED</value>
+    </values>
+    <values>
+        <field>EasyPay_Cancelled__c</field>
+        <value xsi:type="xsd:string">SMS: EASYPAY CANCELLED</value>
+    </values>
+    <values>
+        <field>EasyPay_Created__c</field>
+        <value xsi:type="xsd:string">SMS: EASYPAY ENROLLMENT CONFIRMATION</value>
+    </values>
+    <values>
+        <field>EasyPay_Suspended__c</field>
+        <value xsi:type="xsd:string">SMS: EASYPAY SUSPENDED</value>
+    </values>
+    <values>
+        <field>EasyPay_Updated__c</field>
+        <value xsi:type="xsd:string">SMS: EASYPAY REINSTATED</value>
+    </values>
+    <values>
+        <field>PayOff_Cancelled__c</field>
+        <value xsi:type="xsd:string">SMS: PAYMENT CANCELLED</value>
+    </values>
+    <values>
+        <field>PayOff_Created__c</field>
+        <value xsi:type="xsd:string">SMS: PAYMENT CONFIRMATION</value>
+    </values>
+    <values>
+        <field>PayOff_Updated__c</field>
+        <value xsi:type="xsd:string">SMS: PAYMENT UPDATED</value>
+    </values>
+    <values>
+        <field>Payment_Cancelled__c</field>
+        <value xsi:type="xsd:string">SMS: PAYMENT CANCELLED</value>
+    </values>
+    <values>
+        <field>Payment_Confirmation__c</field>
+        <value xsi:type="xsd:string">SMS: PAYMENT CONFIRMATION</value>
+    </values>
+    <values>
+        <field>Payment_Subject_Type__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Payment_Updated__c</field>
+        <value xsi:type="xsd:string">SMS: PAYMENT UPDATED</value>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,309 @@
+.THIS {
+  font-size: 16px;    
+}
+.THIS .center {
+  /* width: 66%;
+  margin: 0 auto; */
+  background: #E5E5E5;
+  margin: 0 auto;
+  padding-bottom: 0.1px;
+}
+@media (max-width: 1024px) {
+  .THIS .center {
+    width: 100%;
+  }
+}
+.THIS .header {
+  font-size: 28px;
+  /* margin-bottom: 30px;     */
+}
+.THIS .info {
+  padding: 30px 30px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+ background:#F0F0F0;
+  /*background: #F6F6F6;*/
+}
+.THIS .info h3 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #d3d3d3;
+  padding-bottom: 10px;
+}
+  
+.THIS .block {
+  margin-top: 30px;
+  margin-bottom: 10px;    
+}
+.THIS .action {
+  margin-top: 30px;
+  margin-bottom: 30px;    
+}
+.THIS label {
+  display: block;
+  font-weight: 600;    
+}
+/* helper */
+.THIS .mb-sm {
+  margin-bottom: 10px;
+}
+.THIS .mr-sm {
+  margin-right: 10px;
+}
+.THIS .pull-right {
+  float: right;
+}
+/* .THIS .btn {
+  background: #fff;
+  padding: 7px 30px;
+  border-radius: 29px;
+  font-size: 15px;
+  border-width: 2px;
+  font-weight: 600;
+} */
+.THIS .btn.default {
+  /* background: #fff;
+  border: 2px solid #0072CE;
+  color: #0072CE; */
+  background: #fff;
+  color: #CC0000;
+}
+.THIS .btn.primary {
+ /* background: #CC0000;
+  border: 2px solid #CC0000;
+  color: #fff; */
+  background: #CC0000;
+  border: 2px solid #CC0000;
+  color: #fff;
+}
+@media (max-width: 599px) {
+    .THIS .slds-path__track {
+	    padding-left: 0;
+    	padding-right: 0;
+	}
+    .THIS .slds-path__item {
+        min-width: auto !important;
+    }
+    .THIS .slds-path__title {
+        font-size: 12px;
+        white-space: normal;
+        line-height: normal;
+        height: 29px !important;
+        display: flex;
+        align-items: center;
+    }
+}
+@media (max-width: 768px) and (min-width: 768px) {
+    .THIS .action .btn.default, 
+    .THIS .action .btn.primary, 
+    .THIS .action .btn.grey {
+        width: auto;
+    }
+    .THIS .action .action__prev-cancel .btn.default {
+        margin-right: 10px;
+    }
+    .THIS .action .btn-continue {
+        margin-top: 0 !important;
+	    float: right !important;
+  	}
+}
+
+.THIS .AHFC_CommunitySecHeader{padding:0rem !important;display: inline-flex;}
+.THIS .AHFC_MobLAyout{display: block;}
+.THIS .AHFC_CommunitySecHeader{width: 100%;
+  padding: 0 4rem;
+  height: 100px!important;
+  border-bottom: 1px solid #d9d9d9;}
+.THIS .AHFC_LeftGridSec {
+  padding: 1rem 2rem 0.75rem 0.5rem;
+  float: left;
+  /* border-right: 1px solid black; */
+  /* height: 55px; */
+  border-right: 1px solid #d9d9d9;
+  }
+.THIS .AHFC_SecLogostyle{
+  width: auto;
+  height: 50px;
+  }
+.THIS .AHFC_SecLogostyle img{    object-fit: contain;
+  /* width: auto; */
+  height: 43px;}
+
+.THIS .AHFC_VehImg {    width: auto;
+  /* height: auto; */
+  float: left;
+  padding: 1rem 2rem .75rem 2rem;}
+.THIS .AHFC_VehImg img{
+  height: 56px;
+  object-fit: contain;
+  width: auto;
+}
+
+.THIS .AHFC_Vehdetail { float: left;
+  padding: 0.5rem 2rem .75rem 2rem;
+  line-height: 2;}
+.THIS .AHFC_DetName{font-size: 18px;
+  font-family: 'ahfc-roboto';}
+.THIS .AHFC_Aclabel{
+  color: #6b6e6e;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
+/*desktop start*/
+.THIS .AHFC_HeaderWrap{
+  margin: 0rem 8.2rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+.THIS .AHFC_HeaderWrap span{
+  font-size: 38px;
+  line-height: 48px;
+  color: #000000;
+  padding-left: 1rem;
+  font-family: 'ahfc-robotolight', sans-serif;
+}
+.THIS .AHFC_DetailWrap{
+  margin: 0 8.2rem 9rem 8.2rem;
+  padding: 3.5rem 7.2rem;
+  background: #fff;
+}
+.THIS .AHFC_backArrow { 
+  --lwc-colorTextIconDefault:#CC0000;
+  margin-right: 1rem;
+}
+.THIS .AHFC_ContinueBtn{
+  padding: 0.5rem 4rem;
+  text-transform: uppercase;  
+  font-size: 14px;
+  line-height: 16px;
+  font-family: 'ahfc-robotomedium' ,sans-serif;
+}
+.THIS .AHFC_DetailWrap .info{
+  padding: 1.3rem 0.5rem;
+}
+.THIS .AHFC_DetailWrap .info p, .THIS .ahfc_message, .THIS .ahfc_message a{
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #5E6162;
+}
+.THIS .ahfc_message a{
+  color: #CC0000;
+  font-family: 'ahfc-robotomedium';
+  text-decoration: underline;
+}
+.THIS .AHFC_Hr{
+  border-top: 1px solid #D9D9D9;
+}
+/*Primary button start*/
+.THIS .AHFC_customPrimaryButton{
+  padding: 14px 24px;
+  height: 44px;
+  background: #CC0000;
+  border-radius: 3px;
+  text-transform: uppercase;
+  /* border: 2px solid #CC0000; */
+  border: none;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.06em;
+  color: #FFFFFF;
+  font-family: 'ahfc-robotomedium' ,sans-serif;
+}
+.THIS .AHFC_customPrimaryButton:hover{
+  background: #AA0000;
+}
+.THIS .AHFC_customPrimaryButton.disable{
+  background: #AFAFAF;
+  border-color: #AFAFAF;
+}
+/*Primary button end*/
+
+/*desktop end*/
+/*mobile start*/
+@media (min-width: 320px) and (max-width: 767px) {
+  .THIS .AHFC_HeaderWrap svg {    
+    vertical-align: middle;
+  }
+  .THIS .AHFC_BtnWrap{
+    margin-top: 0rem;
+  }
+  .THIS .AHFC_HeaderWrap{
+    margin: 0rem;
+    padding: 1.5rem 1rem 1.5rem;
+  }
+  .THIS .AHFC_DetailWrap{
+    margin: 0rem;
+    padding: 2rem 1rem;
+    background: #fff;
+  }
+  .THIS .AHFC_DetailWrap .info{
+    padding: 1.3rem 0.5rem;
+  }
+  .THIS .AHFC_DetailWrap .info p{
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+    word-break: break-word;
+  }  
+
+  .THIS .AHFC_ContinueBtn{
+    width: 100%;
+    margin-bottom: 2rem;
+    /* padding: 0.8rem 4rem; */
+    padding: 0.8rem 2rem;
+  }
+
+  .THIS .AHFC_HeaderWrap span{
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .THIS .AHFC_backArrow { 
+    margin-right: 0rem;
+  }
+  .THIS .ahfc_submitBtn{
+    width: -webkit-fill-available;
+  }
+  .THIS .ahfc_message, .THIS .ahfc_message a{
+    font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.02rem;
+  }
+/*Primary & Secondary button start*/
+.THIS .AHFC_customPrimaryButton,.THIS .AHFC_customSecondaryButton{
+  display: block;
+  width: 100%;
+}
+/*Primary & Secondary button end*/
+
+.THIS .ahfc_thankyou{
+    font-size: 20px !important;
+    line-height: 26px !important;
+  }
+  .THIS .ahfc_subtext, .THIS .ahfc_subtext a{
+    font-size: 16px !important;
+    line-height: 24px !important;
+    letter-spacing: 0.02rem;
+  }        
+}
+/*mobile end*/
+.THIS .ahfc_thankyou{
+  font-size: 38px;
+  line-height: 48px;
+  color: #000000;
+  font-family: 'ahfc-robotolight';
+  padding-bottom: 1rem;
+}
+.THIS .ahfc_subtext, .THIS .ahfc_subtext a{
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02rem;
+  color: #000000;
+} 
+
+.THIS .ahfc_subtext a{
+       color: #CC0000; 
+    }

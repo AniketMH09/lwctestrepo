@@ -1,0 +1,460 @@
+@import 'c/aHFC_dashboardTheme';
+
+/*Desktop view start*/
+.AHFC_PageTitleWrap{
+    margin-top: 0.7rem;
+}
+.ahfc_topCard{
+    position: relative;
+    margin-bottom: 2rem;
+}
+.ahfc_topHeading{
+    font-family:'ahfc-robotolight';
+    font-size: 48px;
+    line-height: 33px;
+    color: #000000;
+    background-color: #FFFFFF;
+    position: absolute;
+    /* top: 0; */
+    /* margin: 11.5rem; */
+    padding: 1.5rem 2rem 0rem;
+    /* margin: 11.5rem 6rem 0; */
+    bottom: 0px;
+    /* height: fit-content; */
+    margin-left: 6rem;
+}
+.AHFC_Wrapperst{    
+    padding: 2rem 8rem 2rem 8rem;
+}
+.AHFC_PrimHead p{
+    display: inline;
+    font-size: 38px;
+    font-family: 'ahfc-robotolight';
+    line-height: 1.5;
+    color: #000000;
+}
+.AHFC_PrimHead{
+    margin-bottom: 1rem;
+}
+.AHFC_description{
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    color: #000000;
+    margin-bottom: 1rem;
+    padding-right: 1rem;
+}
+.ahfc_findDealerButton{
+    /* --sds-c-button-radius-border: 0rem;
+    background-color: #CC0000;
+    margin-top: 1.3rem; */
+    margin-top: 1.5rem;
+}
+.ahfc_findDealerButtonText{
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    /* color: #F7F7F7; */
+    color: #FFFFFF;
+    font-family: 'ahfc-robotomedium';
+    font-weight: 500;
+}
+.ahfc_findDealerButtonText:hover {
+    text-decoration: none;
+}
+/*accordian css start*/
+.slds-accordion__summary-content{
+    text-transform: initial;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+    color: #5E6162;
+  }
+.sections-accordion .section-header {
+    margin-bottom: 0;
+    background-color: #F7F7F7;
+}
+.ahfc-accordion-item{
+    margin-bottom: 0px;
+}
+.ahfc_accordianSection{
+    padding-bottom: 0.5rem;
+}
+/*accordian css end*/
+
+/*video css start*/
+.AHFC_WrapperstVideo{
+    padding: 0rem 8rem;
+}
+/*video css end*/
+
+/*waiver css start*/
+.AHFC_WrapperstWaiver{
+    padding: 1rem 8rem;
+}
+.ahfc_waiver{
+    position: relative;
+}
+.ahfc_waiverCard{
+    /* background-color: #F7F7F7; */
+    /* padding: 1rem 2rem; */
+    /* padding: 2.5rem 2rem 2rem 4.5rem; */
+    /* position: relative; */
+    margin: 0 0.5rem 0rem 0rem;
+}
+.ahfc_waiverContent{
+    background-color: #F7F7F7;
+    margin: 2rem 0rem 2rem 2rem;
+    /* padding: 3rem 1rem 2.5rem 3rem; */
+    padding: 2rem 1.5rem 2.5rem 4rem;
+    /* position: absolute; */
+}
+.ahfc_staticWidth{
+    padding-bottom: 4.5rem;
+}
+.ahfc_waiverCard1{
+    position: relative;
+    margin: 0 0.5rem 0rem 0rem;
+}
+.ahfc_waiverContent1{
+    background-color: #F7F7F7;
+    margin: 2rem 0rem 2rem 2rem;
+    padding: 3rem 1.5rem 2.5rem 4rem;
+    position: absolute;
+}
+.ahfc_waiverHeading{
+    font-size: 26px;
+    line-height: 36px;
+    color: #000000;
+    font-family: 'ahfc-robotolight';
+}
+.ahfc_rightSpace{
+    margin-right: 0rem;
+    margin-left: 0.5rem;
+}
+.ahfc_waiverIcon{
+    /* background-color: #000000;
+    height: 50px;
+    width: 50px; */
+    position: absolute;
+    top:13px;
+}
+.ahfc_leftSpace{
+    left: 0.5rem;
+}
+.ahfc_waiverDescription{
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+    color: #5E6162;
+    margin-top: 1rem;
+}
+.ahfc_superScript{
+    vertical-align: super;
+}
+.ahfc_marginRight{
+    margin-right: 0.2rem;
+}
+/*waiver css end*/
+/*offers & apporval start*/
+.AHFC_WrapperstOA{
+    /* padding: 1rem; */
+    padding: 1rem 6rem;
+    background-color: #F7F7F7;
+}
+.ahfc_sidePadding{
+    padding: 0 7rem;
+}
+.ahfc_offersAndApproval{
+    /* background-color: red; */
+    position: relative;
+}
+.ahfc_offersAndApprovalHeading{
+    font-size: 26px;
+    line-height: 36px;
+    font-family: 'ahfc-robotolight';
+    color: #000000;
+    padding-bottom: 0.5rem;
+}
+.ahfc_offersAndApprovalContent{
+    padding: 2rem;
+    background-color: #FFFFFF;
+
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    padding-right: 14rem;
+}
+.ahfc_offersAndApprovalDescription{
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+    color: #5E6162;
+}
+.ahfc_Links a{
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #CC0000;
+    font-family: 'ahfc-robotomedium';
+    /* margin-top: 2rem; */
+}
+.ahfc_findOffersLink{
+    margin-top: 2rem;
+}
+.ahfc_learnMoreLink{
+    margin-top: 1rem;
+}
+.ahfc_offersAndApprovalImage{
+    /* background-color: black; */
+
+    margin: 2rem;
+    padding-bottom: 7.5rem;
+}
+.ahfc_rightCard{
+    padding-right: 4rem;
+    margin-right: 5rem;
+}
+/*offers & apporval end*/
+
+/*statments start*/
+.AHFC_WrapperstStatements{
+    background-color: #D9D9D9;
+    padding: 3rem 8rem;
+}
+.ahfc_statements{
+    /* color: red; */
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.02em;
+    color: #000000;
+    padding: 0 1rem 0 0;
+}
+.ahfc_statementPadding{
+    margin-bottom: 1rem;
+}
+/*statments end*/
+/*Primary button start*/
+.AHFC_customPrimaryButton{
+    padding: 14px 24px;
+    height: 44px;
+    background: #CC0000;
+    border-radius: 3px;
+    text-transform: uppercase;
+    /* border: 2px solid #e42525; */
+    border: none;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.06em;
+    color: #FFFFFF;
+    font-family: 'ahfc-robotomedium' ,sans-serif;
+}
+.AHFC_customPrimaryButton:hover{
+    background: #AA0000;
+}
+.AHFC_customPrimaryButton.disable{
+    background: #AFAFAF;
+    border-color: #AFAFAF;
+}
+/*Primary button end*/
+/*Desktop view end*/
+
+
+
+/*Mobile view start*/
+@media (min-width: 376px) and (max-width: 480px) {
+    .ahfc_topImage .slds-hide_small img{
+        width: 100%;
+    }
+}
+@media (min-width: 320px) and (max-width: 768px) {
+.AHFC_PrimHead p{
+    font-size: 20px;
+}
+.AHFC_Wrapperst{
+    padding: 1rem !important;
+}
+.AHFC_description{
+    font-size: 16px;
+    line-height: 24px;
+    padding-right: 0px;
+}
+.ahfc_findDealerButton{
+    margin-top: 0.5rem;
+    margin-bottom: 3rem;
+}
+.AHFC_WrapperstWaiver{
+    /* padding: 1rem;
+    padding: 2.5rem 1rem; */
+    padding: 1.5rem 1rem 2.5rem;
+}
+.ahfc_waiverCard{
+    margin-right: 0rem;
+}
+.ahfc_waiverHeading{
+    font-size: 20px;
+    line-height: 26px;
+}
+.ahfc_waiverContent {
+    margin-bottom: 0rem;
+}
+.ahfc_staticWidth{
+    padding-bottom: 2.5rem;
+}
+.AHFC_WrapperstStatements{
+    padding: 3rem 1rem;
+}
+.ahfc_statementTopPadding{
+    padding-top: 1rem;
+}
+.ahfc_topHeading{
+    font-size: 26px;
+    line-height: 20px;
+    margin: 0;
+    padding: 0.75rem 1rem 0;
+}
+
+.ahfc_offersAndApproval{
+    padding: 1rem;
+}
+.ahfc_offersAndApprovalImage{
+    margin: 0rem;
+    padding-bottom: 0rem;
+    position: initial;
+    padding-right: 0rem;
+}
+.AHFC_WrapperstOA{
+    padding: 1rem;
+}
+.ahfc_rightCard{
+    padding-right: 0rem;
+    margin-right: 0rem;
+}
+.ahfc_offersAndApprovalContent{
+    position: initial;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+.ahfc_offersAndApprovalHeading{
+    font-size: 20px;
+    line-height: 26px;
+}
+
+/*slider start*/
+.carousal-button-desktop {
+    padding: 9px 10px;
+    background: #f0f0f0;
+    margin-left: 16px;
+    border-radius: 0;
+}
+
+.carousal-button-desktop .carousal-icon {
+    --sds-c-icon-color-foreground-default: #CC0000;
+}
+
+.carousal-button-disabled .carousal-icon {
+    --sds-c-icon-color-foreground-default: #afafaf;
+}
+
+.carousal-desktop {
+    position: absolute;
+    top: 280px;
+    right: 1px;
+}
+.ahfc_corouselButton{
+    /* background-color: #d9d9d9;
+    border-color: #fff; */
+    --lwc-carouselIndicatorColorBackground: #5E6162;
+}
+.ahfc_isActive{
+    --lwc-carouselIndicatorColorBackgroundActive: #CC0000;
+}
+/* .slds-carousel__indicator-action .ahfc_isActive{
+    --lwc-carouselIndicatorColorBackgroundActive: #CC0000;
+} */
+.ahfc_swipeButtons{
+    text-align: center;
+}
+
+/*slider end*/
+/*video start*/
+.AHFC_WrapperstVideo{
+    padding: 0rem 1rem;
+}
+/*video end*/
+
+/*Primary & Secondary button start*/
+.AHFC_customPrimaryButton, .AHFC_customSecondaryButton{
+    display: block;
+    width: 100%;
+}
+/*Primary & Secondary button end*/
+
+}
+
+/*Mobile view end*/
+
+
+@media (min-width: 320px) and (max-width: 1023px) {
+    .ahfc_swipeButtons {
+        text-align:center;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1300px) {
+    .ahfc_offersAndApprovalContent {
+        padding-right: 7rem;
+    }
+    .ahfc_rightCard {
+        padding-right: 4rem !important;
+    }
+}
+
+
+@media (min-width: 320px) and (max-width: 1023px) {
+    .ahfc_swipeButtons {
+        text-align:center;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1300px) {
+    .ahfc_offersAndApprovalContent {
+        padding-right: 7rem;
+    }
+    .ahfc_rightCard {
+        padding-right: 4rem !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .ahfc_waiverContent {
+        height: 241px;
+    }
+}
+
+@media (min-width: 888px) and (max-width: 1023px) { 
+    .ahfc_waiverContent {
+        height: 280px;
+    }
+}
+
+@media (min-width: 814px) and (max-width: 887px) { 
+    .ahfc_waiverContent {
+        height: 346px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 813px) { 
+    .ahfc_waiverContent {
+        height: 362px;
+    }
+}
+@media (min-width: 2000px){
+    .ahfc_topImage .slds-show_small img{
+     width: 100%;
+ } 
+ }

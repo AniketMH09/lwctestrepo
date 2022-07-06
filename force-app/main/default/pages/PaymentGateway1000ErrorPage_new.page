@@ -1,0 +1,148 @@
+<apex:page StandardStylesheets="false" sidebar="false" showHeader="false">
+<html>
+<head>
+  	<title>Payment Gateway 1000 Error</title>  
+</head>  
+<body>    
+        <div style="height:75px"> </div>
+    
+         <style>
+    
+        .ahfc-text-primary
+        {
+            /* position: absolute; */
+            margin-left: 2rem !important;
+            width: 1177px;
+            height: 40px;
+            left: 133px;
+            top: 160px;
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 30px;
+            line-height: 40px;
+            color: #000000;
+        }
+    
+        .ahfc-text-secondary
+        {
+            /* position: absolute; */
+            margin-left: 2rem !important;
+            width: 200px;
+            height: 36px;
+            left: 133px;
+            top: 216px;
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 26px;
+            line-height: 36px;
+            color: #5E6162;
+        }
+    
+        .ahfc-btn-primary {
+            margin-left: 2rem !important;
+            color: #fff !important;
+            background: #CC0000 !important;
+            border: 1px solid #CC0000;
+            border-radius: 3px;
+            height: 44px;
+            width: 180px;
+            left: 130px;
+            top: 292px;
+            border-radius: 3px;
+            padding: 14px, 24px, 14px, 24px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 14px 24px;
+            /* position: absolute; */
+            width: 180px;
+            height: 44px;
+            left: 130px;
+            top: 292px;
+        }
+        
+        .ahfc-btn {
+            text-transform: uppercase;
+            padding: 14px 24px;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 10px;
+            letter-spacing: 0.06em;
+            width: 11.6%;
+            text-align: center;
+            display: inline-block;
+            font-family: sans-serif;
+        }
+    
+        .ahfc-footer{
+            position: absolute;
+            width: 100%;
+            height: 362px; 
+            left: 0px;
+            top: 642px; 
+        }
+       </style>
+       
+        <div class="ahfc-text-primary">
+            Sorry, we’re unable to process this request. Please try again later.
+        </div>
+        
+    	<br/> 
+        <div class="ahfc-text-secondary">
+            Error Code: 1000
+        </div>
+    	<br/>    
+        
+        <apex:form >
+                <apex:commandButton styleClass="ahfc-btn ahfc-btn-primary" value="BACK" oncomplete="doRedirect();"/>                
+    
+                <script type="text/javascript">
+                    function doRedirect(){
+                        window.history.back();
+                    }
+    
+                </script>
+         </apex:form>
+     
+        
+                
+              <!--    <script src="https://assets.adobedtm.com/4d2629481466/43ad9a13e659/launch-cc7c99cc1de0-development.min.js" ></script>  -->
+                                      <script src='{!$Label.adobeTaggingScript}' ></script>  
+    
+                    <script>
+                    window.$Label = window.$Label || {};
+    
+                $Label.Environment= '{!($Label.Environment)}'; // assigning the label to the JS variable.
+                var environment =  $Label.Environment;
+    
+                var digitalData = {
+            "Metadata.version_dl": '2021.12',
+            "Metadata.property_name": "American Honda Finance",
+            "Event_Metadata.action_type": "",
+            "Event_Metadata.action_label": "",
+            "Event_Metadata.action_category": "",
+            "Model.model_brand": "",
+            "Page.content_publish_date": "12/15/2021",
+            "Page.Page_page_friendly_url": '',
+            "Page.full_url": window.location.href,
+            "Page.page_name": "Errors 1000",
+            "Page.site_section": "",
+            "Page.sub_section": "",
+            "Page.sub_section2": "",
+            "Page.sub_section3": "",
+            "Page.brand_name": "",
+            "Page.referrer_type": "",
+            "Page.referrer_url": '',
+            "Page.environment": environment,
+        };
+    
+        
+        window.dataLayer = digitalData;
+        _satellite.track('PageLoadReady');
+                </script>
+</body>  
+</html>
+</apex:page>

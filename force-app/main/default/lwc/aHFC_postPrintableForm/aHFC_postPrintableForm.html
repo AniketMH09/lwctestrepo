@@ -1,0 +1,42 @@
+<!--
+   @description The component aHFC_postPrintableForm is used to display all statements
+   @ author ziya
+   @copyright L&T
+   @version 1.000
+-->
+<template>
+    <div class="slds-grid AHFC_MobLAyout">
+       <div class="AHFC_CommunitySecHeader">
+          <div class="AHFC_LeftGridSec slds-col">
+             <p class="AHFC_SecLogostyle">
+                <img src={hondaheadLogoUrl} alt="honda logo" width="65" height="40" class="logo1" />
+             </p>
+          </div>
+          <div class="AHFC_VehImg slds-col">
+             <img src={hondaVehImgUrl} alt="honda logo" width="60" height="40" class="logo1" />
+          </div>
+          <div class="slds-col AHFC_Vehdetail">
+             <dl class="slds-dl_inline">
+                <dd class="slds-dl_inline__label AHFC_DetName">defaultDetails.accName</dd>
+                <dt class="slds-dl_inline__label AHFC_Aclabel">Account #:</dt>
+                <dd class="slds-dl_inline__detail AHFC_Aclabel">defaultDetails.accNo</dd>
+             </dl>
+          </div>
+       </div>
+    </div>
+    <div class="AHFC_Wrapperst ahfc-background-lighter">
+        <div class="AHFC_page-title">
+                <lightning-icon
+                class="ahfc-icon-red AHFC_icon-space"
+                icon-name="utility:back"
+                size="small"
+                alternative-text="back"
+                title="back"
+                onclick={returnToDashBoard}
+                >
+                </lightning-icon>
+                <span class="AHFC_FamilyLgt">Printable Forms</span>
+        </div>
+        <div class="AHFC_ContainerSec"></div> 
+    </div>
+</template>

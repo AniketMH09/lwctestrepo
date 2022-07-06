@@ -1,0 +1,103 @@
+<template>
+   <div class="slds-grid slds-gutters_direct slds-wrap">
+       <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+          <div class="slds-grid slds-wrap slds-grid_align-spread label-gaps slds-m-bottom_x-small">
+             <div class="slds-col">
+                <label class="ahfc-body-two ahfc-text-grey AHFC_FirstSection AHFC_CardLabel" >
+                {labels.AutomaticPaymentAmount}
+                </label>
+             </div>
+             <div class="lgc-bg">
+                <lightning-helptext icon-name="utility:info_alt"
+                   content={labels.AutomaticPaymentAmountHelpText} class="infoIconHelpText"></lightning-helptext>
+             </div>
+          </div>
+          <lightning-input type="number" variant="label-hidden" label="Monthly payment amount" class="schedule-input ahfc-input no-label" if:true={financeAccountData.isPayOff}
+             name="automaticPaymentAmount"  formatter="currency" step="0.01" value={financeAccountData.Regular_Monthly_Payment__c} min="0"
+             message-when-range-underflow="Error: please enter a valid payment amount." 
+             message-when-step-mismatch="Error: please enter a valid payment amount." 
+             onchange={validateAutomaticPaymentAmount} ></lightning-input>
+          <div data-id={validateZeroAmountLeaseType} if:false={financeAccountData.isPayOff} class="schedule-inputReadonly ahfc-input-monthlyPament AHFC_CardData">
+             ${financeAccountData.Regular_Monthly_Payment__c} <br/>
+             <div class= "leaseZeroError" if:true={boolLeaseError}>{errorMessageLeaseZero}</div>
+          </div>
+       </div>
+       <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+          <div class="slds-grid slds-wrap slds-grid_align-spread label-gaps slds-m-bottom_x-small">
+             <div class="slds-col">
+                <label class="ahfc-body-two ahfc-text-grey AHFC_CardLabel" for="principalAmount">
+                {labels.WithdrawalPaymentOn}
+                </label>
+             </div>
+             <div class="lgc-bg infoIcon">
+                <lightning-helptext icon-name="utility:info_alt"
+                   content={labels.WithdrawalPaymentOnHelpText} class="infoIconHelpText"></lightning-helptext>
+             </div>
+          </div>
+          <div class="AHFC_SelectGrid AHFC_MobileWrap">
+          <template if:true={dateValues}>
+               <div class="dateloader" if:false={dateValueLoaded}>
+                  <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+              </div>
+            <a href="javascript:void" tabindex="-1" class="makeEasyPay">
+               
+             <lightning-combobox aria-label="drop Down" alternative-text="drop Down" name="progress" class="withDrawDate automatic-input ahfc-combobox ahfc-input no-label" value={value} 
+                 options={dateValues} onchange={handleDateValueChange} label="withdraw payment on" placeholder="Select an Option" data-id="state-input">
+             </lightning-combobox>
+             </a>
+             
+             <span if:true={isEasyPayDateChanged}>Next withdrawal date is {nextWithDrawalDate}</span>
+         </template></div>
+       </div>
+    </div>
+
+    <div class="slds-col slds-size_1-of-1">
+      <template if:true={boolShowAttentionMsg}>
+         <div class="message-info slds-m-top_xx-large">
+            <c-a-h-f-c_message-toast type="warning" label="Attention"
+               message={attentionMessage}>
+            </c-a-h-f-c_message-toast>
+         </div>
+      </template>
+   </div>
+
+
+    <div class="slds-col slds-size_1-of-1">
+       <template if:true={boolShowStdPaymentAmountMsg}>
+          <div class="message-info slds-m-top_xx-large">
+             <c-a-h-f-c_message-toast type="warning" label="Attention"
+                message={strStdPaymentAmountMsg}
+                link = {linkonToast}
+                onlinkclicked={onToastLinkClicked}>
+             </c-a-h-f-c_message-toast>
+          </div>
+       </template>
+    </div>
+    <div class="slds-grid  easypay-container" if:false={financeAccountData.isPayOff}>
+      <div class="slds-col slds-size_1-of-1 ahfc-background-lighter easypay-info">
+         <p class="ahfc-text-grey ahfc-body-two">
+            {labels.EasyPayInstruction1}
+         </p>
+      </div>
+   </div>
+   <div class="slds-grid  easypay-container" if:true={financeAccountData.isPayOff}>
+     <div class="slds-col slds-size_1-of-1 ahfc-background-lighter easypay-info">
+        <p class="ahfc-text-grey ahfc-body-two">
+           {labels.EasyPayInstruction}
+        </p>
+     </div>
+  </div>
+    <!--US:4988 by edwin-->
+    <div class="slds-col slds-size_1-of-1">
+      <template if:true={boolShowAttentionModal}>
+         <div class="message-info slds-m-top_xx-large">
+            <c-a-h-f-c_common-modal-pop-up 
+            nextwithdrawaldate={nextWithDrawalDate}   
+            nextpaymentduedate ={nextPaymentDueDate}          
+            oncloseattentionmodal={oncloseAttentionModal}
+            ismodalopen = true>
+            </c-a-h-f-c_common-modal-pop-up>
+         </div>
+      </template>
+   </div>
+</template>

@@ -1,0 +1,12 @@
+<design:component>
+    <!-- Inputs -->
+    <design:attribute name="accountN" label="accountN" />
+    <design:attribute name="currentDueDate" label="currentDueDate" />
+    <design:attribute name="requestedDueDate" label="requestedDueDate" />
+    <design:attribute name="DDC_Review_Instructions" label="DDC Review Instructions" />
+    <design:attribute name="monthlyPaymentAmount" label="Monthly Payment Amount" />
+    <design:attribute name="resultofwebsvc" label="DDC Call Result" />
+    <design:attribute name="financeAccId" Label="Finance Account Id" />
+    <design:attribute name="instructions" label="instructions" /><!-- No Use -->
+    <design:attribute name="FCId" label="FCId"/>
+</design:component>

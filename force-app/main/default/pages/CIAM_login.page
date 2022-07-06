@@ -1,0 +1,32 @@
+<apex:page controller="CIAMRegistration" sidebar="false">
+    <apex:slds />
+    <style type="text/css">
+.body { background-image: url("https://imgd.aeplcdn.com/0x0/n/cw/ec/27074/civic-exterior-right-front-three-quarter-148156.jpeg") }
+
+
+.login-box{
+width:100vw;
+height:420vh;
+color:#bd8f8c;
+Position:absolute;
+border-width:2px;
+}
+
+</style>
+            
+    <apex:form >
+    <div class="login-box body" >   
+    <div class="slds-grid slds-grid_align-center">
+    <apex:pageBlock title="SalesForce_TO_Ciam POC" >
+    <apex:pageBlockSection title="Login/registration" >
+    <div>
+        Email: <apex:inputText value="{!Email}"/>
+        Account Number: <apex:inputText value="{!AccountN}"/>
+        <apex:commandButton value="Login" action="{!login}"/>
+      </div>  
+     </apex:pageBlockSection>
+     </apex:pageBlock>
+     </div>
+     </div>
+    </apex:form>
+</apex:page>

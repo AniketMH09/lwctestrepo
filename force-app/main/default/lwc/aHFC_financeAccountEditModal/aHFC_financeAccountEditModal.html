@@ -1,0 +1,22 @@
+<template>
+	<section role="dialog" tabindex="-1" aria-labelledby="modal-heading" aria-label="Edit Nick Name" aria-modal="true" aria-describedby="dialog_title" class="slds-modal slds-fade-in-open finance-account-edit-modal" data-id="InfoEdit">
+		<div class="slds-modal__container">
+			<div class="slds-modal__content edit-modal-content" id="modal-content-id-1">
+				<h1 id="modal-heading" class="header-text-medium slds-m-bottom_x-large">{labels.EditNickname}</h1>
+				<div class="slds-form-element">
+					<label class="slds-form-element__label  label-text-medium slds-m-bottom_small" for="nickName">{labels.NickName}</label>
+					<div class="slds-form-element__control">
+						<input type="text" id="nickName" data-id="NickName-input" value={updatenickname} onchange={handleChange} placeholder="Enter Nickname" class="slds-input form-element-input" /> </div>
+					<template if:true={boolErr}>
+						<p style="color:#CC0000;font-size:16px">{errorMessage}</p>
+					</template>
+				</div>				
+				<div class="modal-action slds-m-top_xx-large reviewaction-container">
+					<button class="slds-button ahfc-btn ahfc-btn-primary" onclick={onSave}>{labels.EditSave}</button>
+					<button class="slds-button ahfc-btn ahfc-btn-text cancel-btn" onclick={onCancel}>{labels.Editcancel}</button>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="slds-backdrop slds-backdrop_open" aria-hidden="true"></div>
+</template>

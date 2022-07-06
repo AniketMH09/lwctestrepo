@@ -1,0 +1,100 @@
+@import 'c/aHFC_dashboardTheme';
+
+/* START - ATTENTION MODAL BOX */
+
+.AHFC_Wrapperst {
+    padding: 1rem 9rem 3rem;
+    margin-top: 0.7rem;
+}
+
+.AHFC_ContainerSec {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0rem 6rem 2rem 6rem;
+    background: #fff;
+}
+
+.AHFC_page-title {
+    margin: 2rem 0rem;
+    font-size: 38px;
+}
+
+.AHFC_icon-space {
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.AHFC_FamilyLgt {
+    font-family: 'ahfc-robotolight' !important;
+}
+
+.AHFC_CardWrap {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+.AHFC_CardWrap:last-child {
+    padding-top: 2.5rem;
+    padding-bottom: 0rem;
+    border-bottom: none;
+}
+
+.AHFC_CardTitle {
+    font-size: 26px;
+    line-height: 36px;
+    color: #000000;
+    font-family: 'ahfc-robotolight', sans-serif;
+    padding-bottom: 1.5rem;
+}
+
+.AHFC_CardDetail {
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    color: #5E6162;
+    padding-bottom: 1rem;
+}
+
+.AHFC_CardDetail a {
+    color: #CC0000;
+    text-decoration: underline
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .AHFC_Wrapperst {
+        padding: 0rem;
+    }
+    .AHFC_ContainerSec {
+        padding: 1rem;
+        background-color: white;
+    }
+    .AHFC_page-title {
+        margin: 0rem;
+        padding: 1rem 0rem 1rem 1rem;
+    }
+    .AHFC_page-title span {
+        vertical-align: middle;
+        font-size: 20px;
+        line-height: 26px;
+    }
+    .AHFC_CardWrap {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid #D9D9D9;
+    }
+    .AHFC_CardWrap:last-child {
+        padding-top: 1.5rem;
+        padding-bottom: 0rem;
+        border-bottom: none;
+    }
+    .AHFC_CardTitle {
+        font-size: 18px;
+        line-height: 21px;
+    }
+    .AHFC_CardDetail {
+        font-size: 14px;
+        line-height: 21px;
+        letter-spacing: 0.03em;
+    }
+}

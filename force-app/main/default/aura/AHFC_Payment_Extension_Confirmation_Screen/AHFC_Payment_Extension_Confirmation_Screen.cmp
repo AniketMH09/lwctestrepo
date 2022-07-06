@@ -1,0 +1,66 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    
+    <aura:attribute name = "instructions1" type = "String" /> 
+    <aura:attribute name= "instructions2" type="String" />
+    <aura:attribute name="EasyPayAmount" type="String" />
+    <aura:attribute name="accountStatusUpdatesViaEamil" type="Boolean" />
+    <aura:attribute name="LeaseExtension" type="string"/>
+    <aura:attribute name="instructions3" type="string"/>
+    <aura:attribute name="ReturntoAccountOverview" type="string"/>
+    <aura:attribute name="hasEzPay" type="boolean" default="true"/>
+    
+    <ltng:require styles="{!$Resource.AHFC_Flatpickr_css}"/>
+    <ltng:require scripts="{!$Resource.AHFC_Flatpickr}" afterScriptsLoaded="{!c.doInit}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="contain"> 
+        <div class="center">
+            <h1 class="header">{!$Label.c.AHFC_PE_Extension_Request}</h1>
+            
+            <!-- Path Configuration - -->       
+            <div class="slds-grid_pull-padded-sm">
+                <lightning:progressIndicator currentStep="step-4" type="path" variant="base">
+                    <lightning:progressStep label="Select Term" value="step-1"/>                  
+                    <lightning:progressStep label="Review" value="step-2"/>
+                    <lightning:progressStep label="Submit" value="step-3"/>
+                    <lightning:progressStep label="Complete" value="step-4"/>
+                </lightning:progressIndicator>
+            </div>
+            <!-- End Path Configuration - -->      
+            
+            <div class="info">
+                
+                <p><aura:unescapedHtml value="{!$Label.c.AHFC_PE_Submission_Msg1}"/></p>
+                
+            </div>
+            <div class="secondary">
+                <aura:if isTrue="{!v.hasEzPay}">
+                    <p><aura:unescapedHtml value="{!$Label.c.AHFC_PE_Submission_Msg2}"/></p>
+                    
+                    
+                </aura:if>
+                
+                
+            </div> 
+            
+            <!--   <div class="action">
+            <button class="btn default" onclick="{!c.redirectToHome}">{!$Label.c.AHFC_Return_to_Account_Overview}</button> 
+        </div> -->
+            
+            <aura:if isTrue="{!v.hasEzPay}">
+                <div class="action slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">  
+                        <lightning:button class="btn default mr-sm" label="{!$Label.c.AHFC_Return_to_Account_Overview}" onclick="{!c.redirectToHome}"/>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">  
+                        <lightning:button class="btn primary pull-right btn-continue" label="{!$Label.c.AHFC_Return_to_EzPay}" onclick="{!c.redirectToEzpay}"/>
+                    </div>
+                </div>
+                <aura:set attribute="else">
+                    <button class="btn default" onclick="{!c.redirectToHome}">{!$Label.c.AHFC_Return_to_Account_Overview}</button> 
+                </aura:set>
+            </aura:if>
+            
+        </div>  
+    </div>
+</aura:component>

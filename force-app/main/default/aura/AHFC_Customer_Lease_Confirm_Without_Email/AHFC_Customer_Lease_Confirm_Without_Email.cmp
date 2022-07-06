@@ -1,0 +1,111 @@
+<!--
+* Name: AHFC_Customer_Lease_Extension_Confirm_Without_Email
+* Description: confirmation screen if customer not enrolled in communication preference
+* Created Date: 13-Aug-2021
+* Created By: Sagar (cloned from AHFC_Customer_Lease_Extension_Confirm_Without_Email)
+* Modified By: Sagar  US-4059 - changes the UI screen. 
+*-->
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    
+    <aura:attribute name = "instructions" type = "String"/> 
+    <aura:attribute name = "instructions2" type = "String"/>
+    <aura:attribute name = "LeaseExtensionRequestCompleted" type = "string"/>
+    <aura:attribute name = "instructions3" type = "string"/>
+    <aura:attribute name = "instructions4" type = "string"/>
+    <aura:attribute name = "ReturntoAccountOverview" type = "string"/>
+    <aura:attribute name = "EnrollinAccountStatusUpdates" type="string"/>
+    <aura:attribute name = "CaseNumber" type="string"/>
+    <aura:attribute name=  "FCId" type="String"/>
+    <aura:attribute name=  "FlowCaseId" type="String"/>
+    
+    <ltng:require styles="{!$Resource.AHFC_Flatpickr_css}"/>
+    <ltng:require scripts="{!$Resource.AHFC_Flatpickr}" afterScriptsLoaded="{!c.doInit}"/>
+    
+    <!--Start US-4059 adding below tag for navigation purpose like Dashboard -->
+    <lightning:navigation aura:id="navService"/>
+    <!--End US-4059 adding below tag for navigation purpose like Dashboard -->
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <!-- End US-4059 adding static header -->
+    <div class="contain"> 
+       <c:aHFC_vehicleHeader/>
+        <div class="center">
+            <div class="AHFC_HeaderWrap">
+                <h2 class="header">
+                   <!-- <lightning:icon iconName="utility:back" class="AHFC_backArrow" alternativeText="Connected" size="small"
+                                    title="" onclick="{!c.redirectToDashboard}"></lightning:icon>-->
+                    <span>{!$Label.c.Lease_Request_Complete_Header}</span>
+                </h2>
+            </div>
+            <div class="AHFC_DetailWrap">
+                <div class="slds-grid_pull-padded-sm">
+                    <lightning:progressIndicator currentStep="step-4" type="path" variant="base">
+                        <lightning:progressStep label="Select Term" value="step-1"/>
+                        <!--Start US-4059 remove progress bar trems and condition -->
+                        <!--<aura:if isTrue="{!or($Browser.isPhone, $Browser.isTablet)}">
+                        <lightning:progressStep label="T&amp;Cs" value="step-2"/>
+                        <aura:set attribute="else">
+                            <lightning:progressStep label="Terms &amp; Conditions" value="step-2"/>
+                        </aura:set>
+                    </aura:if>-->
+                        <!--End US-4059 remove progress bar trems and condition -->
+                        <lightning:progressStep label="Review" value="step-3"/>
+                        <lightning:progressStep label="Complete" value="step-4"/>
+                    </lightning:progressIndicator>
+                </div> 
+                
+                <!--Start US-4059 show confirmation screen messages -->    
+                <hr class="AHFC_Hr" />
+                <!--<div class="ahfc_message">
+                    <aura:if isTrue = "{!v.instructions}">
+                        <aura:unescapedHtml value="{!v.instructions}"/><a href="" target="_blank" >{!v.CaseNumber}</a>.
+                    </aura:if>
+                </div>-->
+                
+                <div>
+                  <p class="ahfc_thankyou">{!$Label.c.AHFC_DDC_Thank_You}</p>
+                  <p class="ahfc_subtext">{!$Label.c.AHFC_Lease_Case_Submission}<a href="" onclick="{!c.navigateToCaseDetails}" target="_blank" >&nbsp;{!v.CaseNumber}</a>.</p>
+                </div>
+                
+                
+                <div class="info">
+                    <aura:if isTrue = "{!v.instructions4}">
+                        <p><aura:unescapedHtml value="{!v.instructions4}"/></p>
+                    </aura:if>
+                </div>
+                <!--End US-4059 show confirmation screen messages -->    
+                
+               
+                <!--Start US-4059 show commnunication preference screen messages -->    
+                <div>
+                    <aura:if isTrue = "{!v.instructions2}">
+                        <!--<p class="ahfc_message ahfc_bottomMargin"><aura:unescapedHtml value="{!v.instructions2}" /></p>-->
+                        <div class="AHFC_Notified"> {!$Label.c.AHFC_DDC_Want_to_Notified}</div><br/>                        
+                        <div class="ahfc_bodyText">{!$Label.c.AHFC_DDC_Enroll_in_Account_Status}</div>
+                        <aura:set attribute="else">
+                            <p></p>
+                        </aura:set>
+                    </aura:if>
+                    
+                    <div class="AHFC_Link">
+                      <a href="" class="ahfc_enrollButton" onclick="{!c.redirectToCommuicationPage}">{!$Label.c.Enroll_in_Account_Status_Updates_Button}</a>
+                    </div>
+                    
+                    
+                </div>
+                <!--End US-4059 show commnunication preference screen messages -->
+                
+                
+                <hr class="AHFC_Hr" />
+                <!--Start US-4059 button css changes -->
+                <div class="action">
+                    <!-- <button class="btn default mr-sm primary AHFC_ContinueBtn" onclick="{!c.redirectToDashboard}">{!$Label.c.AHFC_Return_to_Customer_Dashboard}</button> -->
+                    <button class="AHFC_customPrimaryButton" onclick="{!c.redirectToDashboard}">{!$Label.c.AHFC_Return_to_Customer_Dashboard}</button>
+                
+                </div>
+                <!--End US-4059 button css changes -->
+            </div>
+        </div>  
+    </div>
+</aura:component>

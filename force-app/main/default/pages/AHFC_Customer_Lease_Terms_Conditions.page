@@ -1,0 +1,84 @@
+<apex:page controller="AHFC_Lease_Terms_Conditions_Controller" renderAs="pdf">
+    
+    
+    <apex:stylesheet value="{!$Resource.AHFC_Pdf_Footer_css}"/>
+    
+    <div class="header" style="padding-top: 20px;" >
+        <div style="float: left;" >
+            <apex:image id="theImage12" value="{!$Resource.HondaImageForPDF}" rendered="{!IF(communityName =="hondahelp",true,false)}" width="112px" height="82px"/>
+            <apex:image id="theImage21" value="{!$Resource.AcuraImageForPDF}" rendered="{!IF(communityName =="acurahelp",true,false)}" width="111px" height="81px"/>
+            
+        </div>
+        <div style="font-fam
+                    
+                    
+                    
+                    y: 'Helvetica Neue', 'SansSerif', Helvetica; float: right;padding-top: 35px; " >
+            {!MONTH(TODAY())}/{!DAY(TODAY())}/{!YEAR(TODAY())}
+        </div>
+        
+    </div>
+    
+    <div class="footer">
+        <div style="font-family: 'Helvetica Neue', 'SansSerif', Helvetica;">
+            
+            <apex:outputLabel value="{!$Label.HondaPDFFooterURL}" />
+            <apex:outputLabel value="{!$Label.AcuraPDFFooterURL}"/>
+            
+        </div>
+    </div>
+    
+    <br/><br/><br/>
+    <h3>
+        <apex:outputText value="{!$Label.LE_TemsCons_Sub_Heading}" escape="false"/>
+    </h3>
+    
+    <ul style="list-style-type:disc">
+        
+        <li>
+            The lease extension is month-to-month and can be terminated at any time during the extension
+            period. If you decide to end your lease before your extended maturity date, you must contact us
+            one month prior to returning your vehicle.
+        </li>
+        
+        <li>
+            If you reside in any of these states, please note that your state requires us to charge upfront taxes
+            for the full term of your lease extension: IA, IL, ME, MN, ND, NJ, OH and SD. Upfront taxes
+            are non-refundable if the extension is terminated early.
+        </li>
+        
+        <li>
+            Your monthly payment amount and payment due date will remain the same. If you are using
+            EasyPay, this service will automatically continue through the lease extension period. Your
+            account must be in good standing at the time we process your request for EasyPay to
+            automatically continue. As a reminder, EasyPay will only withdraw your upcoming monthly
+            payment amount. Past due monthly payments or any additional fees charged to your account
+            must be paid separately.
+        </li>
+        
+        <li>
+            Please note that your payment may have included additional service or maintenance plan
+            products purchased, and those products may expire on the original maturity date. Refer to your
+            original Lease Agreement and any applicable ancillary product agreement for details.
+        </li>
+        
+        <li>
+            Your mileage allowance will be extended at a prorated monthly rate based on the allowed
+            mileage in your original agreement. Refer to your original Lease Agreement for those terms.
+        </li>
+        
+        <li>
+            As a reminder, the Acura Limited Warranty on your lease vehicle covers 4 years/50,000 miles
+            non-powertrain and 6 years/70,000 miles on powertrain. The Honda Limited Warranty on your
+            lease vehicle covers 3 years/36,000 miles non-powertrain and 5 years/60,000 miles on
+            powertrain.
+        </li>
+    </ul>
+    
+    <p>
+        All of the terms and conditions contained in the current Lease Agreement will remain in full
+        force and effect, except as modified by the Extension Agreement.
+        By submitting this Lease Extension Request, you agree to the Terms and Conditions above.
+        LAST UPDATED: December 15, 2021  
+    </p>
+</apex:page>

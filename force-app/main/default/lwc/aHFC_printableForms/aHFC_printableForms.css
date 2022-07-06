@@ -1,0 +1,314 @@
+@import 'c/aHFC_dashboardTheme';
+/* START - ATTENTION MODAL BOX */
+
+
+.AHFC_CommunitySecHeader{
+  width: 100%;
+   padding: 0 8rem;
+   height: 100px!important;
+   border-bottom: 1px solid #d9d9d9;
+}
+.AHFC_LeftGridSec {
+    padding: 1rem 2rem 0.75rem 1.5rem;
+    float: left;
+    border-right: 1px solid #d9d9d9;
+}
+.AHFC_SecLogostyle{
+    width: auto;
+    height: 50px;
+}
+.AHFC_SecLogostyle img{
+    object-fit: contain;
+   /* width: auto;
+    */
+    height: 43px;
+}
+.AHFC_VehImg {
+    width: auto;
+    float: left;
+    padding: 1rem 2rem .75rem 2rem;
+}
+.AHFC_VehImg img{
+    height: 56px;
+    object-fit: contain;
+    width: auto;
+}
+.AHFC_Vehdetail {
+    float: left;
+    line-height: 1.5;
+    padding: 0.5rem 2rem .75rem 2rem;
+}
+.AHFC_DetName{
+  font-size: 30px;
+  font-family: 'ahfc-robotolight';
+  line-height: 40px;
+}
+.AHFC_Aclabel{
+  color: #5E6162;
+  font-size: 14px;
+  font-family: ahfc-robotoMedium;
+  line-height: 20px;
+}
+.AHFC_Wrapperst{
+    padding: 1rem 9rem;
+}
+.AHFC_page-title{
+    margin: 2rem 0 1rem;
+    font-size: 38px;
+}
+.AHFC_ContainerSec{
+   width: 100%;
+   margin: 2rem auto;
+   padding: 2rem 6rem;
+   background-color: white;
+}
+.AHFC_icon-space{
+    padding-right:10px;
+    cursor:pointer;
+}
+.AHFC_FamilyLgt{
+   font-family: 'ahfc-robotolight', sans-serif;
+}
+.AHFC_HeadSubtxt{
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    color: #5E6162;
+}
+.AHFC_CardHead{
+    padding-bottom: 2rem;
+}
+.AHFC_CardHead .AHFC_title{
+    font-size: 26px;
+    line-height: 36px;
+    color: #000000;
+}
+.AHFC_CardHead .AHFC_text{
+    padding-top: 1rem;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    color: #5E6162;
+}
+.AHFC_SubmitBut{
+    margin-top: 1.8rem;
+}
+.AHFC_CardWrap{
+    background: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    margin-top: 2rem;
+}
+.AHFC_CardDetailWrap{
+    border-bottom: 1px solid #D9D9D9;
+}
+.AHFC_CardTitle{
+    background: #F7F7F7;
+    padding: 1rem 3rem;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #000000;
+    font-family: 'ahfc-robotomedium', sans-serif;
+}
+.AHFC_CardDetail{
+    padding: 1.5rem 3rem;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    color: #000000;
+}
+.AHFC_CardBtnWrap{
+    text-align: right;
+}
+.AHFC_CardBtn{
+    font-family: 'ahfc-robotomedium', sans-serif;
+    padding: 0.5rem;
+    margin: 1rem;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: center;
+    background: #fff;
+    border: none;
+    color: #CC0000;    
+    display: inline-block;
+}
+.AHFC_AdobeWrap{
+    margin-top: 2rem;
+}
+
+/*   ---MOBILE VIEW---   */
+@media (min-width: 320px) and (max-width: 767px) {
+    .AHFC_MobLAyout{
+     display: block;
+    }
+    .AHFC_CommunitySecHeader{
+        padding:0rem !important;
+        display: inline-flex;
+    }
+    .AHFC_LeftGridSec{
+      display: none;
+    }
+    .AHFC_Vehdetail{
+        line-height: 1.75 !important;
+        padding: .5rem 0.5rem .75rem 0.5rem !important;
+    }
+    .AHFC_DetName{
+      font-size: 20px !important;
+    }
+    .AHFC_Aclabel{
+      padding-right: 0.5rem !important;
+      display: inline-block !important;
+    }
+    .AHFC_Wrapperst {
+        margin: 0rem 0 0rem 0;
+        padding: 0rem !important;
+        display: block;
+    }
+    .AHFC_page-title{
+        margin: 0rem;
+        padding: 1rem 0rem 1rem 1rem;
+    }
+    .AHFC_page-title span{
+      vertical-align: middle;
+      font-size: 20px;
+      line-height: 26px;
+    }
+    .AHFC_ContainerSec{
+        padding: 1rem;
+        background-color: white;
+    }
+  
+    .AHFC_HeadSubtxt{
+        padding: 0rem 1rem;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.03em;
+        color: #5E6162;
+    }
+    .AHFC_CardHead .AHFC_title{
+        font-size: 18px;
+        line-height: 21px;        
+        color: #000000;
+    }
+    .AHFC_CardHead .AHFC_text{
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 0.03em;
+        color: #5E6162;
+    }
+    .AHFC_SubmitBut{
+        margin-top: 1rem;
+    }
+    .AHFC_CardTitle{
+        padding: 1rem;
+    }
+    .AHFC_CardDetail{
+        padding: 1rem 1rem 0rem 1rem;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.02em;
+        color: #000000;
+        width: 100%;
+    }
+    .AHFC_CardBtnWrap{
+        text-align: left;
+    }
+    .AHFC_CardBtn{
+        margin: 0.5rem;
+    }
+    .AHFC_CardBtnWrap a:nth-child(2){
+        float: right;
+    }
+    
+}
+
+/*   ---TABLET VIEW---   */
+/* @media (min-width: 768px) and (max-width: 1024.98px) { */
+@media (min-width: 768px) and (max-width: 1345px) {
+    .AHFC_MobLAyout{
+     display: block;
+    }
+    .AHFC_CommunitySecHeader{
+        padding:0rem !important;
+        display: inline-flex;
+    }
+    .AHFC_LeftGridSec{
+      display: none;
+    }
+    .AHFC_Vehdetail{
+        line-height: 1.75 !important;
+        padding: .5rem 0.5rem .75rem 0.5rem !important;
+    }
+    .AHFC_DetName{
+      font-size: 20px !important;
+    }
+    .AHFC_Aclabel{
+      padding-right: 0.5rem !important;
+      display: inline-block !important;
+    }
+    .AHFC_Wrapperst {
+        margin: 0rem 0 0rem 0;
+        padding: 0rem !important;
+        display: block;
+    }
+    .AHFC_page-title{
+        margin: 0rem;
+        padding: 1rem 0rem 1rem 1rem;
+    }
+    .AHFC_page-title span{
+      vertical-align: middle;
+      font-size: 20px;
+      line-height: 26px;
+    }
+    .AHFC_ContainerSec{
+        padding: 1rem;
+        background-color: white;
+    }
+  
+    .AHFC_HeadSubtxt{
+        padding: 0rem 1rem;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.03em;
+        color: #5E6162;
+    }
+    .AHFC_CardHead .AHFC_title{
+        font-size: 18px;
+        line-height: 21px;        
+        color: #000000;
+    }
+    .AHFC_CardHead .AHFC_text{
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 0.03em;
+        color: #5E6162;
+    }
+    .AHFC_SubmitBut{
+        margin-top: 1rem;
+    }
+    .AHFC_CardTitle{
+        padding: 1rem;
+    }
+    .AHFC_CardDetail{
+        padding: 1rem 1rem 0rem 1rem;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.02em;
+        color: #000000;
+        width: 100%;
+    }
+    .AHFC_CardBtnWrap{
+        text-align: left;
+    }
+    .AHFC_CardBtn{
+        margin: 0.5rem;
+    }
+    /*
+    .AHFC_CardBtnWrap a:nth-child(2){
+        float: right;
+    }
+    */
+    
+}

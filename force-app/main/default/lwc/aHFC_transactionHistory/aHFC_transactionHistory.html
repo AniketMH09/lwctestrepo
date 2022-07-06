@@ -1,0 +1,351 @@
+<template>
+    <template if:true={isLoaded}>
+        <!-- <lightning-spinner  size="large" class='AHFC_Spinnereg'>
+        </lightning-spinner> -->
+        <c-a-h-f-c_-spinner loading-message='Please wait while we process your request'></c-a-h-f-c_-spinner>
+    </template>
+    <div class="transaction-history">
+        <template if:false={isCalloutError}>
+            <div class="header">
+                <h3 class="ahfc-header-three ahfc-text-dark" if:false={isCalloutError}>{labels.TransactionHistory_Title}
+                </h3>
+            </div>
+            <div class='ahfc-trans-msg'>Transactions may take 1-2 business days to appear in the Transaction History.
+            </div>
+        </template>
+        <div class="slds-grid slds-wrap slds-grid_vertical-align-start transaction-content-wrapper slds-show_medium"
+            if:false={isCalloutError}>
+            <div class="slds-col slds-size_7-of-12">
+                <div class="slds-grid slds-wrap from-to-date">
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input class="ahfc-input" type="date" data-id="fromdate" name="fromdate"
+                            date-style="medium" label={labels.FROM} value={dtfromdate} onchange={handleDateChange}>
+                        </lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input class="ahfc-input" type="date" data-id="todate" name="todate"
+                            date-style="medium" label={labels.TO} value={dttodate} onchange={handleDateChange}>
+                        </lightning-input>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col slds-size_5-of-12">
+                <button class="slds-button ahfc-btn ahfc-btn-secondary from-to-button"
+                    onclick={ondatechange}>{labels.GO}</button>
+            </div>
+            <!--US 6931 starts by Aakash-->
+            <div class="ahfc_statmnt" >
+                <a href="javascript:void(0);" class=" ahfc-view-statement ahfc-links ahfc-links-primary slds-text-title_caps" onclick={showViewAllStatements}>VIEW ALL TRANSACTIONS</a>
+            </div>
+            <!--US 6931 Ends by Aakash-->
+        </div>
+        
+        
+
+        <div class="slds-grid slds-grid_vertical-align-center slds-grid_align-spread" if:false={isCalloutError}>
+            <div class="slds-col">
+                <a class="ahfc-links ahfc-links-primary slds-text-title_caps slds-hide_medium"
+                    href="javascript:void(0);" onclick={onOverlayShowClick}>{labels.Filter}</a>
+            </div>
+            <div class="slds-col">
+                <a if:true={isDataPresent} class="ahfc-links ahfc-links-primary slds-text-title_caps"
+                    href="javascript:void(0);" onclick={exportlist}>{labels.ExportList}</a>
+            </div>
+        </div>
+
+        <template if:true={isDataPresent}>
+            <div class="transaction-table slds-show_medium">
+                <div class="table-header ahfc-backgroud-lighter">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-medium-size_3-of-12 slds-large-size_2-of-12">
+                            <div class="slds-truncate" data-sorttype="date" title="Date">
+                                <button
+                                    class="slds-button table-sort-button ahfc-info-label ahfc-text-dark slds-text-title_caps slds-text-align_left"
+                                    data-sorttype="date" onclick={onSortClick}>
+                                    <span data-sorttype="date">{labels.DATE}</span>
+                                    <lightning-icon data-sorttype="date" class="ahfc-icon ahfc-icon-black table-sort"
+                                        icon-name="utility:sort" size="xx-small" alternative-text="sort" title="sort">
+                                    </lightning-icon>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-medium-size_6-of-12 slds-large-size_7-of-12">
+                            <p class="slds-truncate ahfc-info-label ahfc-text-dark slds-text-title_caps slds-text-align_left table-block-m"
+                                title="Description">{labels.Description}</p>
+                        </div>
+                        <div class="slds-col slds-medium-size_2-of-12 slds-large-size_2-of-12">
+                            <div class="slds-truncate" data-sorttype="total" title="Total">
+                                <button
+                                    class="slds-button table-sort-button ahfc-info-label ahfc-text-dark slds-text-title_caps slds-text-align_right"
+                                    data-sorttype="total" onclick={onSortClick}>
+                                    <span data-sorttype="total">{labels.Total}</span>
+                                    <lightning-icon data-sorttype="total" class="ahfc-icon ahfc-icon-black table-sort"
+                                        icon-name="utility:sort" size="xx-small" alternative-text="sort" title="sort">
+                                    </lightning-icon>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-medium-size_1-of-12 slds-large-size_1-of-12">
+                            <p class="slds-truncate slds-assistive-text slds-text-align_center" title="Actions">
+                                {labels.Actions}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-body">
+                    <template for:each={tableData} for:item="tableItem">
+                        <div key={tableItem.key} class={tableItem.sectionClass}>
+                            <div data-label="Date"
+                                class="slds-col slds-medium-size_3-of-12 slds-large-size_2-of-12 slds-text-align_left">
+                                <div class="slds-truncate ahfc-body-two ahfc-text-dark"
+                                    title={tableItem.dateInTimestamp}>
+                                    <lightning-formatted-date-time value={tableItem.dateInTimestamp} day="2-digit"
+                                        year="numeric" month="short"></lightning-formatted-date-time>
+                                </div>
+                            </div>
+                            <div data-label="Description"
+                                class="slds-col slds-medium-size_6-of-12  slds-large-size_7-of-12 slds-text-align_left">
+                                <p class="slds-truncate ahfc-body-two ahfc-text-dark table-block-m"
+                                    title={tableItem.description}>{tableItem.description}</p>
+                            </div>
+                            <div data-label="Total"
+                                class="slds-col slds-medium-size_2-of-12 slds-large-size_2-of-12 slds-text-align_right">
+                                <p class="slds-truncate ahfc-body-two ahfc-text-dark table-block-m"
+                                    title={tableItem.amount}>
+                                    <lightning-formatted-number value={tableItem.amount} format-style="currency"
+                                        currency-code="USD" currency-display-as="symbol" minimum-fraction-digits="2">
+                                    </lightning-formatted-number>
+                                </p>
+                            </div>
+                            <div data-label="Actions" data-keyno={tableItem.key}
+                                class="slds-col slds-medium-size_1-of-12 slds-large-size_1-of-12 slds-text-align_center">
+                                <div class="slds-truncate" data-keyno={tableItem.key} title="Actions">
+
+                                    <button class={tableItem.btnClass} data-keyno={tableItem.key}
+                                        aria-expanded={tableItem.isOpened} onclick={onTableItemClick}>
+                                        <lightning-icon data-keyno={tableItem.key} class="table-arrow" role='button' name='chevrondown'
+                                            if:false={tableItem.isOpened} icon-name="utility:chevrondown" size="x-small" aria-expanded="false"
+                                            alternative-text="Account Detail" title="account detail"></lightning-icon>
+                                        <lightning-icon data-keyno={tableItem.key} class="table-arrow" role='button' name='chevronup'
+                                            if:true={tableItem.isOpened} icon-name="utility:chevronup" size="x-small" aria-expanded="true"
+                                            alternative-text="Account Detail" title="account detail"></lightning-icon>
+                                    </button>
+
+                                </div>
+                            </div>
+                            <div data-label="Extras" class={tableItem.extrasClass}>
+                                <div class="extra-details-block-wrapper">
+                                    <div class="fee-structure">
+                                        <h4 class="ahfc-info-label ahfc-text-dark slds-text-title_caps">{labels.Details}
+                                        </h4>
+                                        <div class="list-data">
+                                            <template for:each={tableItem.subEntries} for:item="subItem">
+                                                <div class="slds-grid slds-wrap" key={subItem.description}>
+                                                    <div
+                                                        class="slds-col slds-size_7-of-12 slds-text-align_left ahfc-body-two ahfc-text-grey">
+                                                        {subItem.description}
+                                                    </div>
+                                                    <div
+                                                        class="slds-col slds-size_5-of-12 slds-text-align_right ahfc-body-two ahfc-text-dark">
+                                                        <lightning-formatted-number value={subItem.amount}
+                                                            format-style="currency" currency-code="USD"
+                                                            currency-display-as="symbol" minimum-fraction-digits="2">
+                                                        </lightning-formatted-number>
+                                                    </div>
+                                                </div>
+                                            </template>
+                                        </div>
+                                        <div class="slds-grid slds-wrap">
+                                            <div
+                                                class="slds-col slds-size_7-of-12 slds-text-align_left ahfc-info-label ahfc-text-dark">
+                                                {labels.Total}
+                                            </div>
+                                            <div
+                                                class="slds-col slds-size_5-of-12 slds-text-align_right ahfc-info-label ahfc-text-dark">
+                                                <lightning-formatted-number value={tableItem.amount}
+                                                    format-style="currency" currency-code="USD"
+                                                    currency-display-as="symbol" minimum-fraction-digits="2">
+                                                </lightning-formatted-number>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+            <div class="transaction-table slds-hide_medium">
+                <template for:each={tableData} for:item="tableItem">
+                    <div class="card-item" key={tableItem.key}>
+                        <div class="table-data-row">
+                            <div>
+                                <p class="slds-text-title_caps ahfc-info-label ahfc-text-dark">{labels.DATE}</p>
+                                <lightning-formatted-date-time class="ahfc-header-three ahfc-text-dark table-date"
+                                    value={tableItem.dateInTimestamp} day="2-digit" year="numeric" month="short">
+                                </lightning-formatted-date-time>
+                            </div>
+                            <div>
+                                <p class="slds-text-title_caps ahfc-info-label ahfc-text-dark">{labels.Description}</p>
+                                <p class="ahfc-header-three ahfc-text-dark">{tableItem.description}</p>
+                            </div>
+                            <div>
+                                <p class="slds-text-title_caps ahfc-info-label ahfc-text-dark">{labels.Total}</p>
+                                <p class="ahfc-header-three ahfc-text-dark">
+                                    <lightning-formatted-number value={tableItem.amount} format-style="currency"
+                                        currency-code="USD" currency-display-as="symbol" minimum-fraction-digits="2">
+                                    </lightning-formatted-number>
+                                </p>
+                            </div>
+                            <div>
+                                <a class={tableItem.linkClass} href="javascript:void(0);"
+                                    aria-expanded={tableItem.isOpened} data-keyno={tableItem.key}
+                                    onclick={onTableItemClick}>
+                                    <span data-keyno={tableItem.key}>{labels.ViewDetails}</span>
+                                    <lightning-icon data-keyno={tableItem.key} class="ahfc-icon table-arrow" role='button' name='chevrondown'
+                                        if:false={tableItem.isOpened} icon-name="utility:chevrondown" size="x-small" aria-expanded="false"
+                                        alternative-text="Account Detail" title="account detail"></lightning-icon>
+                                    <lightning-icon data-keyno={tableItem.key} class="ahfc-icon table-arrow" role='button' name='chevronup'
+                                        if:true={tableItem.isOpened} icon-name="utility:chevronup" size="x-small" aria-expanded="true"
+                                        alternative-text="Account Detail" title="account detail"></lightning-icon>
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <div data-label="Extras" class={tableItem.extrasClass}>
+                                <div class="extra-details-block-wrapper ahfc-backgroud-lighter">
+                                    <div class="fee-structure">
+                                        <h4 class="ahfc-info-label ahfc-text-dark slds-text-title_caps">{labels.Details}
+                                        </h4>
+                                        <div class="list-data">
+                                            <template for:each={tableItem.subEntries} for:item="subItem">
+                                                <div class="slds-grid slds-wrap" key={subItem.description}>
+                                                    <div
+                                                        class="slds-col slds-size_7-of-12 slds-text-align_left ahfc-body-two text-height ahfc-text-grey">
+                                                        {subItem.description}
+                                                    </div>
+                                                    <div
+                                                        class="slds-col slds-size_5-of-12 slds-text-align_right ahfc-body-two text-height ahfc-text-dark">
+                                                        <lightning-formatted-number value={subItem.amount}
+                                                            format-style="currency" currency-code="USD"
+                                                            currency-display-as="symbol" minimum-fraction-digits="2">
+                                                        </lightning-formatted-number>
+                                                    </div>
+                                                </div>
+                                            </template>
+                                        </div>
+                                        <div class="slds-grid slds-wrap">
+                                            <div
+                                                class="slds-col slds-size_7-of-12 slds-text-align_left ahfc-info-label text-height ahfc-text-dark">
+                                                {labels.Total}
+                                            </div>
+                                            <div
+                                                class="slds-col slds-size_5-of-12 slds-text-align_right ahfc-info-label ahfc-text-dark">
+                                                <lightning-formatted-number value={tableItem.amount}
+                                                    format-style="currency" currency-code="USD"
+                                                    currency-display-as="symbol" minimum-fraction-digits="2">
+                                                </lightning-formatted-number>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+    <!--Added by Akash as part of US 6931 starts-->
+        <template if:false={isViewAllStmts}>
+            <c-a-h-f-c_pagination if:false={refreshPagination} class="transaction-pagination" items={totalItems}
+                itemsperpage="10" onpagechanges={pageChange}></c-a-h-f-c_pagination>
+        </template>
+        <template if:true={isViewAllStmts}>
+            <c-a-h-f-c_pagination if:false={refreshPagination} class="transaction-pagination" items={totalItems}
+                itemsperpage="10" onpagechanges={pageChange}></c-a-h-f-c_pagination>
+        </template>
+    <!--Added by Akash as part of US 6931 Ends-->
+        </template>
+        <template if:false={isDataPresent}>
+            <template if:false={isCalloutError}>
+                <p class="ahfc-body-one ahfc-text-grey transaction-content-wrapper no-data-error">{label.AHFC_NoData}
+                </p>
+            </template>
+            <template if:true={isCalloutError}>
+                <div class="transaction-content-wrapper">
+                    <c-a-h-f-c_message-toast type="error" label="Error"
+                        message='There was an error loading your transactions. Please refresh the page or try again later.'
+                        toast-type="" show-icon="false"></c-a-h-f-c_message-toast>
+                </div>
+            </template>
+        </template>
+    </div>
+    <!-- Added by Aakash as part of US 7781 starts-->
+    <div class="statements-wrapper ahfc-background-lightest">
+        <div class="past-statement ahfc-backgroud-lighter">
+            <p class="ahfc-body-two ahfc-text-grey">
+                {labels.PastStatements}
+            </p>
+            <button class="slds-button ahfc-viewstatements ahfc-btn-secondary"
+                onclick={navigatetostatements}>{labels.ViewStatements}</button>
+        </div>
+    </div>
+    <!-- Added by Aakash as part of US 7781 Ends-->
+    <div class="retun-dashboard-wrapper ahfc-background-lightest">
+        <div class="dashboard-return-button" if:false={isDataPresent}>
+            <button class="slds-button ahfc-btn ahfc-btn-primary"
+                onclick={navigatetodashboard}>{labels.Returntodashboard}</button>
+        </div>
+    </div>
+
+    <div class={overlayClass}>
+        <div class="slds-grid slds-grid_vertical-align-center slds-grid_align-spread">
+            <div class="slds-col">
+                <h4 class="ahfc-header-three ahfc-text-dark">
+                    {labels.Filter}
+                </h4>
+            </div>
+            <div>
+                <a href="javascript:void(0);" onclick={onOverlayCloseClick}>
+                    <lightning-icon class="ahfc-icon ahfc-icon-gray" icon-name="utility:close" size="small"
+                        alternative-text="close" title="close"></lightning-icon>
+                </a>
+            </div>
+        </div>
+        <div class="main-options">
+            <div class="sort-options">
+                <lightning-input class="ahfc-input" type="date" data-id="fromdatemob" name="fromdatemob"
+                    date-style="medium" label={labels.FROM} value={dtfromdate} onchange={handleDateChangeMob}>
+                </lightning-input>
+            </div>
+            <div class="sort-options">
+                <lightning-input class="ahfc-input" type="date" data-id="todatemob" name="todatemob" date-style="medium"
+                    label={labels.TO} value={dttodate} onchange={handleDateChangeMob}></lightning-input>
+            </div>
+            <div class="sort-options">
+                <lightning-combobox class="ahfc-combobox ahfc-input" name="sort" label={labels.SORTBY}
+                    value={sortSelected} placeholder="Select from options below" options={sortMethods}
+                    onchange={onSortSelection} data-id="sortcombo"></lightning-combobox>
+            </div>
+        </div>
+        <div class="sort-actions">
+            <button class="slds-button ahfc-btn ahfc-btn-primary" onclick={ondatechangemobile}>{labels.GO}</button>
+            <button class="slds-button ahfc-btn ahfc-btn-text"
+                onclick={onOverlayCloseClick}>{labels.CancelLabel}</button>
+                 <!--US 6931 starts by Aakash-->
+                <a href="javascript:void(0);" class=" ahfc-view-statement ahfc-links ahfc-links-primary slds-text-title_caps" onclick={showViewAllStatements}>VIEW ALL TRANSACTIONS</a>
+                <!--US 6931 Ends by Aakash-->
+        </div>
+    </div>
+    <div class='slds-show_large ahfc-brd ahfc-padding'>
+        <div class="slds-grid slds-wrap slds-grid_align-spread transaction-history">
+            <div style="padding-top : 50px">
+                <c-a-h-f-c_dashboard-faq page-name="Statements"></c-a-h-f-c_dashboard-faq>
+             </div>      
+        </div>
+    </div>
+    <div class='slds-hide_large ahfc-brd'>
+        <div class="slds-grid slds-grid_vertical dashboard-faq ahfc_faq_wrap" style="padding : 2rem">
+            <c-a-h-f-c_dashboard-faq page-name="Statements"></c-a-h-f-c_dashboard-faq>
+        </div>
+    </div>
+
+</template>

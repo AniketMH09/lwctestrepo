@@ -1,0 +1,209 @@
+/* Generic Styles */
+.header-text-large {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 38px;
+    line-height: 48px;
+    color: #000000;
+  }
+  .header-text-medium {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 26px;
+    line-height: 36px;
+    color: #000000;
+  }
+  .label-text-medium {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    display: block;
+    letter-spacing: 0.03em;
+    color: #000000;
+  }
+  .label-text-large {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 40px;
+    color: #000000;
+  }
+  .para-text-medium {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: #5e6162;
+  }
+  .para-text-large {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 36px;
+    letter-spacing: 0.02em;
+    color: #000000;
+  }
+  .container-flex {
+    display: flex;
+  }
+  .action-btn {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    padding: 14px 24px;
+    letter-spacing: 0.06em;
+  }
+  /* End Generic Styles */
+  .account-profile-container {
+    background: #e5e5e5;
+  }
+  .account-profile-container-fluid {
+    width: 80%;
+    padding: 56px 0px;
+    margin: auto;
+  }
+  .vehicle-details-main-section,
+  .contract-details-main-section,
+  .contact-details-main-section {
+    background: #ffffff;
+    padding: 42px 100px;
+  }
+  .vehicle-details-section{
+    align-items: center;
+  }
+  .vehicle-left-section {
+    flex: 0 0 50%;
+    display: flex;
+    flex-direction: column;
+  }
+  .account-info,
+  .product-info,
+  .contract-info,
+  .contact-info {
+    flex: 0 0 33.3%;
+  }
+  .address-info{
+    word-break: break-word;
+  }
+  .contract-action {
+    color: #CC0000;
+    border: 2px solid #CC0000;
+    box-sizing: border-box;
+    border-radius: 3px;
+  }
+  .contact-action,
+  .stop-action {
+    color: #CC0000;
+    padding: 0px;
+  }
+  .communication-info {
+    background-color: #f7f7f7;
+    padding: 24px;
+  }
+  .communication-info a {
+    color: #CC0000;
+    text-decoration: underline;
+  }
+  .dashboard-action {
+    background-color: #CC0000;
+    border: none;
+    color: #ffffff;
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin-right: 16px;
+  }
+  @media screen and (min-width: 320px) and (max-width: 540px) {
+    .account-profile-container-fluid {
+      width: 100%;
+    }
+    .account-profile-container-fluid h1 {
+      font-size: 20px;
+      line-height: 26px;
+      padding: 0px 20px;
+    }
+    .account-profile-container-fluid h2{
+      font-size: 18px;
+      line-height: 26px;
+      padding: 0px 20px;
+    }
+    .vehicle-details-main-section,
+    .contract-details-main-section,
+    .contact-details-main-section{
+      padding: 32px 20px;
+    }
+    .vehicle-details-section,
+    .vehicle-account-info,
+    .product-info-section,
+    .contract-detail-info,
+    .contact-detail-info{
+      flex-direction: column;
+      align-items: self-start;
+    }
+    .vehicle-left-section{
+      display: flex;
+    }
+    .vehicle-left-section p {
+      font-size: 26px;
+      line-height: 36px;
+    }
+    .vehicle-account-info .account-info, 
+    .product-info-section .product-info,
+    .contract-info,
+    .contact-info{
+      margin-bottom: 24px;
+    }
+    .account-info p,
+    .owner-info p,
+    .product-info p,
+    .contract-info p,
+    .contact-info p{
+      font-size: 20px;
+      line-height: 26px;
+    }
+    .contact-detail-info,
+    .contract-detail-info{
+      margin-top: 0px;
+    }
+    .communication-info p,
+    .communication-info a {
+      font-size: 14px;
+      line-height: 28px;
+    }
+    .finance-action-container{
+      padding: 0px 20px;
+    }
+    .contract-action{
+      width: 100%;
+    }
+    .dashboard-action,
+    .stop-action {
+      text-align: center;
+      display: block;
+      width: 100%;
+    }
+    .stop-action{
+      margin-top: 32px;
+    }
+    .stop-finance-left-section{
+      flex-direction: row;
+    }
+    .stop-finance-left-section .logo-honda{
+      flex: 0 0 30%;
+    }
+  }
+  .ahfc-img-class{
+      width: auto;
+      height:auto;
+      padding: 2rem;
+  }

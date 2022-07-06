@@ -1,0 +1,95 @@
+<template>
+    <template if:true={isLoaded}>
+        <c-a-h-f-c_-spinner loading-message={loadingMessage}></c-a-h-f-c_-spinner>
+    </template>
+    <div class="ahfc-background-lightest sub-header">
+        <div class={containerClass}>
+            <div class="ahfc-carousal slds-carousel">
+                <div class="slds-carousel__stage">
+                    <div class="slds-carousel__panels">
+                        <template for:each={customServiceAccounts} for:item="servAcc">
+                            <div key={servAcc.keyNo} id={servAcc.panelId} class="slds-carousel__panel" role="tabpanel"
+                                aria-hidden={servAcc.ariaHidden} aria-labelledby={servAcc.indicatorId}
+                                ontouchstart={touchStart} ontouchend={touchEnd}>
+                                <div class="slds-carousel__panel-action" tabindex={servAcc.tabIndex}>
+                                    <div class="slds-grid slds-grid_vertical-align-center">
+                                        <div class="slds-col vehicle-logo slds-show_medium">
+                                            <img src={servAcc.logourl} alt="Honda logo" />
+                                        </div>
+                                        <div class="slds-col vehicle-info">
+                                            <div class ={servAcc.cls}>
+                                                <div class="slds-grid slds-grid_vertical-align-end">
+                                                    <div class="slds-col vehicle-img">
+                                                        <img class="inputInfo-icon" src={servAcc.imageurl}
+                                                            alt="Car Image" />
+                                                    </div>
+                                                    <div class="slds-col vehicleaccount-info">
+                                                        <h1 class="ahfc-header-three ahfc-text-dark">{servAcc.name}</h1>
+                                                        <p class="ahfc-info-label ahfc-text-grey">
+                                                        {label.AHFC_Header_AccountNumber} {servAcc.accNoWoZeros}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                    <template if:true={showCarousel}>
+                        <ul class="slds-carousel__indicators slds-hide_medium" role="tablist">
+                            <template for:each={customServiceAccounts} for:item="servAcc">
+                                <li key={servAcc.keyNo} data-indicator={servAcc.keyNo} class="slds-carousel__indicator AHFC_CarouselIndicator"
+                                    role="presentation">
+                                    <a id={servAcc.indicatorId} data-indicator={servAcc.keyNo}
+                                        onclick={onCarousalIndicatorClick} class={servAcc.indicatorClass}
+                                        href="javascript:void(0);" role="tab" tabindex={servAcc.tabIndex}
+                                        aria-selected={servAcc.ariaSelected} aria-controls={servAcc.panelId}
+                                        title={servAcc.name}>
+                                        <span class="slds-assistive-text"
+                                            data-indicator={servAcc.keyNo}>{servAcc.name}</span>
+                                    </a>
+                                </li>
+                            </template>
+                        </ul>
+                        <div class="slds-show_medium ahfc-carousal-buttons AHFC_CarousalButtons">
+                            <button class="slds-button carousal-button ahfc-backgroud-lighter"
+                                onclick={onCarousalPrevDesktop}>
+                                <lightning-icon class={carousalPrevIconClass} icon-name="utility:chevronleft"
+                                    alternative-text="previous" title="previous" size="small">
+                                </lightning-icon>
+                            </button>
+                            <button class="slds-button carousal-button ahfc-backgroud-lighter"
+                                onclick={onCarousalNextDesktop}>
+                                <lightning-icon class={carousalNextIconClass} icon-name="utility:chevronright"
+                                    alternative-text="next" title="next" size="small">
+                                </lightning-icon>
+                            </button>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+    <template if:true={isLocked}>
+        <section role="dialog" tabindex="-1" aria-label="Meaningful description of the modal content" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open finance-account-edit-modal">
+            <div class="slds-modal__container">
+                <div class="slds-modal__content edit-modal-content" id="modal-content-id-1">
+                    <h1 class="header-text-medium slds-m-bottom_x-large">Attention</h1>
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label  label-text-medium slds-m-bottom_small ahfc-text-size"
+                            for="form-element-01">{popuptext}</label>
+
+                    </div>
+                    <div class="modal-action slds-m-top_xx-large">
+                        <button class="slds-button action-btn save-action" onclick={onContinue}> CONTINUE </button>
+                        <button class="slds-button action-btn cancel-action" onclick={onCancel}> CANCEL
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

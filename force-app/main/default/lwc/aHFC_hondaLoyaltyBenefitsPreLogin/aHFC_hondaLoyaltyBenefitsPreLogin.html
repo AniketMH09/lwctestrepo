@@ -1,0 +1,288 @@
+<template>
+    <div role="main" id="main-container" class="main-content">
+    <div class="AHFC_PageTitleWrap">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-small-size_12-of-12 slds-medium-size_12-of-12 slds-large-size_12-of-12">
+                <div class="ahfc_topCard">
+                    <div class="ahfc_topImage">
+                        <!-- <div class="slds-show_large">
+                            <img src={topHondaImageLogoUrl} alt="Cliffside coastal bridge">
+                        </div>
+                        <div class="slds-hide_large slds-show_medium">
+                            <img src={topHondaImageLogoUrl} alt="Cliffside coastal bridge">
+                        </div>
+                        <div class="slds-hide_large slds-hide_medium slds-hide_small">
+                            <img src={mobileTopHondaImageLogoUrl} alt="Cliffside coastal bridge">
+                        </div>
+                        <div class="slds-hide_large slds-hide_medium slds-show_small">
+                            <img src={topHondaImageLogoUrl} alt="Cliffside coastal bridge">
+                        </div> -->
+                        <div class="slds-show_small">
+                            <img src={topHondaImageLogoUrl} alt="Cliffside coastal bridge">
+                        </div>
+                        <div class="slds-hide_small">
+                            <img src={mobileTopHondaImageLogoUrl} alt="Cliffside coastal bridge">
+                        </div>
+                    </div>
+                    <h1>
+                    <div class="ahfc_topHeading">
+                        Honda Loyalty Benefits
+                    </div></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="AHFC_Wrapperst">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                <div class="AHFC_PrimHead">
+                    <p>Greater Options, Fewer Worries. That’s the beauty of leasing.</p>
+                </div>
+                <div class="AHFC_description">
+                    <p>
+                        Not only can you get a brand-new Honda vehicle, but the terms and
+                        your mileage allowance are both flexible – giving you plenty of
+                        options on making sure every part of the lease fits you best.
+                    </p>
+                </div>
+                <div class="AHFC_description">
+                    <p>
+                        Plus, you can feel secure knowing that your investment is protected
+                        with Guaranteed Asset Protection (GAP) coverage and an Excessive
+                        Wear-and-Use or Damage Waiver. Your Honda dealer will happily work
+                        with you to find the best lease for your needs.
+                    </p>
+                </div>
+                <div>
+                    <!-- <button class="slds-button ahfc-btn ahfc-btn-secondary ahfc_findDealerButton" onclick={onFindAlocal}>
+                        <a href="https://automobiles.honda.com/tools/dealership-locator" class="ahfc_findDealerButtonText">Find a dealer</a>
+                    </button> -->
+                    <button class="AHFC_customPrimaryButton ahfc_findDealerButton" onclick={onFindAlocal}>
+                        <a href="https://automobiles.honda.com/tools/dealership-locator" class="ahfc_findDealerButtonText">Find a dealer</a>
+                    </button>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                <ul class="slds-accordion sections-accordion">
+                    <template for:each={mobileSections} for:item="sections">
+                       <!-- <li class="slds-accordion__list-item ahfc-accordion-item ahfc-background-lightest" -->
+                       <li class={sections.parentClass} key={sections.id}>
+                          <section class={sections.class}>
+                             <div class="slds-accordion__summary">
+                                <h2 class="slds-accordion__summary-heading">
+                                   <button
+                                      class="slds-button slds-button_reset slds-accordion__summary-action section-header ahfc-text-header ahfc-text-dark slds-text-title_caps"
+                                      aria-controls={sections.id} data-keyno={sections.id} aria-expanded={sections.isOpened}
+                                      title={sections.header} onclick={onMobileSectionsClick}>
+                                      <div class="slds-grid slds-grid_align-spread" data-keyno={sections.id}>
+                                         <div class="slds-col" data-keyno={sections.id}>
+                                            <span data-keyno={sections.id}
+                                               class="slds-accordion__summary-content">{sections.header}</span>
+                                         </div>
+                                         <div class="slds-col ahfc_arrows" data-keyno={sections.id}>
+                                            <lightning-icon data-keyno={sections.id} if:false={sections.isOpened}
+                                               icon-name="utility:chevrondown" size="small" alternative-text="chevrondown"
+                                               title="chevrondown">
+                                            </lightning-icon>
+                                            <lightning-icon data-keyno={sections.id} if:true={sections.isOpened}
+                                               icon-name="utility:chevronup" size="small" alternative-text="chevronup"
+                                               title="chevronup">
+                                            </lightning-icon>
+                                         </div>
+                                      </div>
+                                   </button>
+                                </h2>
+                             </div>
+     
+                             <div class={sections.contentClass} id={sections.id}>
+                                <template for:each={sections.accordionData} for:item="accSections">
+                                   <div if:false={accSections.divOrSpan}  key={accSections.id} class="AHFC_contentStyle">
+                                         <div if:false={accSections.divOrSpan} class={accSections.customClass}> {accSections.item}</div>
+                                  </div>
+                                   <span if:true={accSections.divOrSpan}  key={accSections.id} class="AHFC_contentStyle">
+                                         <span if:true={accSections.divOrSpan} class={accSections.customClass}> {accSections.item}</span>
+                                   </span>
+                                </template>
+                             </div>
+     
+                          </section>
+                       </li>
+                    </template>
+                 </ul>
+            </div>
+        </div>
+    </div>
+    <div class="AHFC_WrapperstVideo">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12">
+                <img src={middleImageLogoUrl} alt="Red cars in a delaership with the customers">
+            </div>
+        </div>
+    </div>
+    <!-- <div class="AHFC_WrapperstWaiver">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                <div class="ahfc_waiverCard">
+                    <div class="ahfc_waiverIcon">
+                        <img src={damageWaiverLogoUrl} alt="damage waiver">
+                    </div>
+                    <div class="ahfc_waiverContent">
+                        <div class="ahfc_waiverHeading">Additional Damage Waiver</div>
+                        <div class="ahfc_waiverDescription">
+                            Honda Leadership Leasing includes a $500 Excessive Wear-and-Use or Damage Waiver. Loyal customers1 who purchase or lease their next Honda or Acura may qualify for an additional waiver2.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                <div class="ahfc_waiverCard ahfc_rightSpace">
+                    <div class="ahfc_waiverIcon">
+                        <img src={feeWaiverLogoUrl} alt="fee waiver">
+                    </div>
+                    <div class="ahfc_waiverContent">
+                        <div class="ahfc_waiverHeading">Turn in Fee Waiver</div>
+                        <div class="ahfc_waiverDescription">
+                            Loyal customers2 who purchase or lease their next Honda vehicle may be eligible to get their turn-in fee waived3.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="AHFC_WrapperstWaiver">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 ahfc_waiver">
+                <div class="ahfc_waiverCard">
+                    <div class="ahfc_waiverContent">
+                      <h2>  <div class="ahfc_waiverHeading">Additional Damage Waiver</div></h2>
+                        <div class="ahfc_waiverDescription">
+                            Honda Leadership Leasing includes a $500 Excessive Wear-and-Use or Damage Waiver. Loyal customers<sup>1</sup> who purchase or lease their next Honda or Acura may qualify for an additional waiver<sup>2</sup>.
+                        </div>
+                    </div>
+                    <!-- <div class="ahfc_waiverIcon">
+                        <img src={damageWaiverLogoUrl} alt="damage waiver">
+                    </div> -->
+                </div>
+                <div class="ahfc_waiverIcon">
+                    <img src={damageWaiverLogoUrl} alt="damage waiver">
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 ahfc_waiver">
+                <div class="ahfc_waiverCard ahfc_rightSpace">
+                    <div class="ahfc_waiverContent ahfc_staticWidth">
+                        <h2>  <div class="ahfc_waiverHeading">Turn in Fee Waiver</div></h2>
+                        <div class="ahfc_waiverDescription">
+                            Loyal customers<sup>2</sup> who purchase or lease their next Honda vehicle may be eligible to get their turn-in fee waived<sup>3</sup>.
+                        </div>
+                    </div>
+                </div>
+                <div class="ahfc_waiverIcon ahfc_leftSpace">
+                    <img src={feeWaiverLogoUrl} alt="fee waiver">
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="AHFC_WrapperstOA slds-show_large">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12  slds-large-size_6-of-12">
+                <div class="ahfc_offersAndApproval">
+                    <div class="ahfc_offersAndApprovalImage">
+                        <img src={hondaSpecialOffersLogoUrl} alt="fee waiver">
+                    </div>
+                    <div class="ahfc_offersAndApprovalContent ahfc_rightCard">
+                        <h2> <div class="ahfc_offersAndApprovalHeading">Honda Special Offers</div></h2>
+                        <div class="ahfc_offersAndApprovalDescription">
+                            Find special offers on Honda automobiles in your area.
+                        </div>
+                        <div class="ahfc_Links ahfc_findOffersLink">
+                           <a href="https://automobiles.honda.com/tools/current-offers" class="href"  onclick={onClickOffer}>Find Offers</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12  slds-large-size_6-of-12">
+                <div class="ahfc_offersAndApproval">
+                    <div class="ahfc_offersAndApprovalImage">
+                        <img src={hondaPreApprovalLogoUrl} alt="fee waiver">
+                    </div>
+                    <div class="ahfc_offersAndApprovalContent ahfc_rightCard">
+                        <h2><div class="ahfc_offersAndApprovalHeading">Apply for Credit-Pre-Approval</div></h2>
+                        <div class="ahfc_offersAndApprovalDescription">
+                            Securing pre-approval is the first step toward purchasing or leasing a new Honda.
+                        </div>
+                        <div class="ahfc_Links ahfc_learnMoreLink">
+                            <a href="javascript:void(0);" class="href" onclick={onLearnMore}>LEARN MORE</a> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <div class="AHFC_WrapperstOA slds-hide_large">  
+        <template if:true={isFirst}>
+            <div class="ahfc_offersAndApproval">
+                <div class="ahfc_offersAndApprovalImage">
+                    <img src={hondaSpecialOffersLogoUrl} alt="fee waiver">
+                </div>
+                <div class="ahfc_offersAndApprovalContent ahfc_rightCard">
+                    <h2>  <div class="ahfc_offersAndApprovalHeading">Honda Special Offers</div></h2>
+                    <div class="ahfc_offersAndApprovalDescription">
+                        Find special offers on Honda automobiles in your area.
+                    </div>
+                    <div class="ahfc_Links ahfc_findOffersLink">
+                       <a href="https://automobiles.honda.com/tools/current-offers" class="href">Find Offers</a>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template if:true={isSecond}>
+            <div class="ahfc_offersAndApproval">
+                <div class="ahfc_offersAndApprovalImage">
+                    <img src={hondaPreApprovalLogoUrl} alt="fee waiver">
+                </div>
+                <div class="ahfc_offersAndApprovalContent ahfc_rightCard">
+                    <h2>  <div class="ahfc_offersAndApprovalHeading">Apply for Credit-Pre-Approval</div></h2>
+                    <div class="ahfc_offersAndApprovalDescription">
+                        Securing pre-approval is the first step toward purchasing or leasing a new Honda.
+                    </div>
+                    <div class="ahfc_Links ahfc_learnMoreLink">
+                        <a href="" class="href">LEARN MORE</a> 
+                    </div>
+                </div>
+            </div>
+        </template>
+        <ul class="slds-carousel__indicators slds-hide_large ahfc_swipeButtons" role="tablist">
+            <template for:each={accObj} for:item="servAcc">
+            <li key={servAcc.keyNo} data-indicator={servAcc.keyNo} class="slds-carousel__indicator"
+            role="presentation">
+            <a id={servAcc.indicatorId} data-indicator={servAcc.keyNo}
+                onclick={onCarousalIndicatorClick} class={servAcc.indicatorClass}
+                href="javascript:void(0);" role="tab" tabindex="0"
+                aria-selected={servAcc.ariaSelected} aria-controls={servAcc.panelId}
+                title={servAcc.name}>
+                <span class="slds-assistive-text"
+                    data-indicator={servAcc.keyNo}>{servAcc.name}</span>
+            </a>
+            </li>
+            </template>
+        </ul>
+     </div>
+    <div class="AHFC_WrapperstStatements">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 ahfc_statements">
+               <div class="ahfc_statementPadding">
+                <span class="ahfc_superScript ahfc_marginRight">1</span>A loyal customer is one who purchases or leases another new Honda or Acura automobile within 30 days prior to or after the turn-in date.
+               </div>
+               <div>
+                <span class="ahfc_superScript ahfc_marginRight">2</span>Total amount waived not to exceed $1,000.
+               </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 ahfc_statements">
+                <div class="ahfc_statementTopPadding">
+                <span class="ahfc_superScript ahfc_marginRight">3</span>The turn-in fee amount depends on your state. See your lease contract for details.
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</template>

@@ -1,0 +1,106 @@
+<!--
+* Name: AHFC_Customer_Confirmation_without_Email
+* Created Date: 17-Aug-2021
+* Created By: Sagar (cloned from AHFC_Confirmation_without_Email)
+* Modified By: Prabu US 2247 - Changed UI Screen
+*-->
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    
+    <aura:attribute name = "instructions" type = "String"/> 
+    <aura:attribute name = "instructions1" type = "String"/> 
+    <aura:attribute name = "fAid" type="String"/>
+    <aura:attribute name = "instructions2" type = "String"/> 
+    <aura:attribute name = "CaseNumber" type="string"/>
+    <lightning:navigation aura:id="navService"/>  
+    <aura:attribute name = "CaseId" type="string"/>
+    <aura:attribute name = "instructions4" type = "string"/>
+    <aura:attribute name = "easyPayAmount" type = "Integer"/>
+    <ltng:require styles="{!$Resource.AHFC_Flatpickr_css}"/>
+    <ltng:require scripts="{!$Resource.AHFC_Flatpickr}" afterScriptsLoaded="{!c.doInit}"/>
+    
+    <div class="contain"> 
+        <c:aHFC_vehicleHeader/>
+        <div class="center">
+            <!-- US - 2247 - Added Prabu - Start -->
+            <div class="AHFC_HeaderWrap">
+                <h1 class="header"><span>Due Date Change Request Completed</span></h1>
+            </div>
+            <!-- US - 2247 - End -->
+            <div class="AHFC_DetailWrap">
+                <div class="slds-grid_pull-padded-sm">
+                    <lightning:progressIndicator currentStep="step-3" type="path" variant="base">
+                        <lightning:progressStep label="Select Date" value="step-1"/>
+                        <lightning:progressStep label="Review" value="step-2"/>
+                        <lightning:progressStep label="Complete" value="step-3"/>
+                    </lightning:progressIndicator>
+                </div>
+                <hr class="AHFC_Hr" />
+                <div class="info ahfc_mobile">
+                    <!-- US - 2247 - Added Prabu - Start -->
+                    <aura:if isTrue = "{!v.instructions}">
+                        <!--<aura:unescapedHtml value="{!v.instructions}"/><a class="AHFC_Number" href="" target="_blank" >{!v.CaseNumber}</a>.-->
+                       <p class="ahfc_thankyou">{!$Label.c.AHFC_DDC_Thank_You}</p>
+                    <p class="ahfc_subtext">{!$Label.c.AHFC_DDC_Case_Submission}<a href="" onclick="{!c.navigateToCaseDetails}" target="_blank" >{!v.CaseNumber}</a>.</p>
+                        <!-- US - 2247 - End -->
+                        <aura:set attribute="else">
+                            <p class="AHFC_InfoOne">Thank you!</p>
+                            <p class="AHFC_InfoTwo">You have successfully submitted your due date change request. Please allow 1-2 business days for your request to be processed. 
+                            Please continue to make your payment on or before your current due date until we confirm your new due date.</p>
+                        </aura:set>
+                    </aura:if> <br/>
+                    <div class="ahfc_greyBg">
+                    <div class="slds-col AHFC_MsgDetail ahfc_bodyText">
+                        
+                        <aura:if isTrue = "{!and(v.instructions4, v.easyPayAmount gt 0)}">                            
+                       <!-- <aura:unescapedHtml value="{!v.instructions4}"/> -->
+                            <p>{!$Label.c.AHFC_DDC_Ins_4}</p>
+                            <aura:set attribute="else">
+                               <p>{!$Label.c.AHFC_DDC_No_EZP_No_CommPreff}</p>               
+                            </aura:set>
+                        </aura:if>
+                    </div>
+                
+                    <aura:if isTrue = "{!v.easyPayAmount gt 0}">
+                        <aura:if isTrue = "{!v.instructions2}">
+                           <!-- <p class="mb-sm slds-m-top_small"><aura:unescapedHtml value ="{!v.instructions2}"/></p> -->
+                            <p class="ahfc_bodyText ahfc_spacing">{!$Label.c.AHFC_DDC_EasyPay}</p>
+                            <aura:set attribute="else">
+                                <div class="block">
+                                    <p class="mb-sm">You are enrolled in EasyPay<sup>SM</sup>. Changing your payment Due Date will not affect your EasyPay schedule. If you selected an earlier Due Date, be sure to update your EasyPay schedule to prevent late payments. We will notify once your request is processed.</p>
+                                </div>                
+                            </aura:set>
+                        </aura:if>
+                    </aura:if>
+                </div>
+                </div>
+                <div class="contain-secondary">
+                    <aura:if isTrue = "{!v.instructions1}">
+                       <!-- <aura:unescapedHtml value="{!v.instructions1}"/> -->
+                        <div class="AHFC_Notified"> {!$Label.c.AHFC_DDC_Want_to_Notified}</div><br/>                        
+                        <div class="ahfc_bodyText">{!$Label.c.AHFC_DDC_Enroll_in_Account_Status}</div>
+                        <aura:set attribute="else">
+                            <div class="AHFC_Notified">
+                                Want to be notified by email?
+                            </div>
+                            <!-- US - 2247 - Added Prabu - Start -->
+                            <div class="AHFC_Enroll">Enroll in Account Status Updates and we will notify you once your request has been processed.                                
+                            </div>
+                            <!-- US - 2247 - End -->
+                        </aura:set>
+                    </aura:if>
+                </div>
+                <!-- US - 2247 - Added Prabu - Start -->
+                <div class="AHFC_Link">
+                    <a href="" onclick="{!c.redirectToCommuicationPage}">{!$Label.c.Enroll_in_Account_Status_Updates_Button}</a>
+                </div>
+                <hr class="AHFC_Hr" />
+                
+                <div class="action AHFC_BtnWrap">
+                    <!-- <button class="btn default mr-sm" onclick="{!c.redirectToDashboard}">RETURN TO DASHBOARD</button> -->
+                    <button class="AHFC_customPrimaryButton" onclick="{!c.redirectToDashboard}">RETURN TO DASHBOARD</button>
+                </div>
+                <!-- US - 2247 - End -->
+            </div>
+        </div>  
+    </div>
+</aura:component>

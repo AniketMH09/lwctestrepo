@@ -1,0 +1,109 @@
+/*Desktop view start*/
+.ahfc_button{
+    margin-bottom: 2rem;
+}
+/*Primary button start*/
+.AHFC_customPrimaryButton{
+    padding: 14px 24px;
+    height: 44px;
+    background: #CC0000;
+    border-radius: 3px;
+    text-transform: uppercase;
+    /* border: 2px solid #CC0000; */
+    border: none;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.06em;
+    color: #FFFFFF;
+    font-family: 'ahfc-robotomedium' ,sans-serif;
+}
+.AHFC_customPrimaryButton:hover{
+    background: #AA0000;
+}
+.AHFC_customPrimaryButton.disable{
+    background: #AFAFAF;
+    border-color: #AFAFAF;
+}
+/*Primary button end*/
+/*Secondary button start*/
+.AHFC_customSecondaryButton{
+    padding: 14px 22px;
+    height: 44px;
+    border: 2px solid #CC0000;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 16px;
+    background:#ffffff;
+    text-align: center;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #CC0000;    
+    font-family: 'ahfc-robotomedium' ,sans-serif;
+}
+.AHFC_customSecondaryButton:hover{
+    background: rgba(228, 37, 37, 0.05);
+    border: 2px solid #AA0000;
+    color: #AA0000;
+}
+.AHFC_customSecondaryButton.disable, .AHFC_customSecondaryButton.disable:hover{
+    border-color: #AFAFAF;
+    background: #FFFFFF;
+    color: #AFAFAF;
+}
+/*Secondary button end*/
+/*Tertiary button start*/
+.AHFC_customTertiaryButton{
+    padding: 14px 24px;
+    height: 44px;
+    border: none;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 16px;
+    background:#ffffff;
+    text-align: center;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #CC0000;    
+    font-family: 'ahfc-robotomedium' ,sans-serif;
+    margin-left: 1rem;
+}
+.AHFC_customTertiaryButton:hover{
+    background: rgba(228, 37, 37, 0.05);
+    color: #AA0000;
+}
+.AHFC_customTertiaryButton.disable{
+    color: #AFAFAF;
+}
+.AHFC_customTertiaryButton.disable, .AHFC_customTertiaryButton.disable:hover{
+    background: #FFFFFF;
+    color: #AFAFAF;
+}
+/*Tertiary button end*/
+/*Desktop view end*/
+
+
+/*Mobile view start*/
+@media (min-width: 320px) and (max-width: 767px) {
+
+/*Primary & Secondary button start*/
+.AHFC_customPrimaryButton, .AHFC_customSecondaryButton{
+    display: block;
+    width: 100%;
+}
+/*Primary & Secondary button end*/
+
+/*Tertiary button start*/
+.AHFC_customTertiaryButton{
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    margin: 2rem 0 0;
+}
+/*Tertiary button end*/
+
+
+}
+/*Mobile view end*/

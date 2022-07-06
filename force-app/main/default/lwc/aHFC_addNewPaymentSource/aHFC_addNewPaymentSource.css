@@ -1,0 +1,570 @@
+/* START - CANCEL MODAL BOX */
+/*radio buttons start*/
+.savings-radio{
+  margin-right: 2rem;
+}
+/*radio buttons end*/
+.error-help {
+  color: #c64540;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 8px;
+  line-height: 18px;
+}
+.edit-modal-content{
+  padding: 5rem 6rem 5rem 6rem;
+
+
+  border-radius: 0px;
+}
+
+.AHFC_Collayout{    padding: 1rem 0 0 0;
+}
+.AHFC_ModTitle{
+  font-family: ahfc-robotolight;
+  font-size: 26px;
+  padding-bottom: 1rem;
+  line-height: 1;
+  letter-spacing: 0.02rem;
+  color: #000000;
+}
+.exampleHolder{
+  position: relative;
+  display: inline-block;
+  margin-left: 15px;
+  width: 55px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.modal-container .spinner-model-container{
+  margin: 0 auto;
+  width: 50%;
+  margin-top: 50px;
+  max-width: inherit;
+  min-width: inherit;
+}
+.AHFC_ModSubtxt{
+    font-size: 18px;
+  letter-spacing: 0.02rem;
+  
+  padding: 1rem 0 1rem 0;
+}
+
+.AHFC_ModFormLabel{     color: #5E6162;
+  
+ 
+  font-size: 18px;
+  letter-spacing: 0.02rem;}
+ 
+  .AHFC_BgRedButton{    background-color: #CC0000;
+    border: none;
+    color: #fff;
+    box-sizing: border-box;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    padding: 14px 24px;
+    letter-spacing: .06em;
+  }
+  .AHFC_NoBgButton{    color: #CC0000;
+    font-size: 14px;
+    border-top-width: 10px;
+    margin-left: 14px;
+    font-family: 'ahfc-robotomedium';
+    letter-spacing: 0.06rem;}
+
+/* END - CANCEL MODAL BOX */
+
+/* Modal Popup */
+.paymentsource-modalcontent {
+    font-family: Roboto, sans-serif;
+    padding: 0px;
+    border-radius: 0;
+  }
+
+ /* .spins::after {
+    position: absolute;
+    content: 'Please wait while we process your request';
+    width: 100%;
+    text-align: center;
+    top: calc(50% + 3em);
+    font-weight: bold;
+    
+
+} */
+
+.AHFC_Spinnereg{
+  --lwc-colorBackgroundSpinnerDot:rgb(228, 37, 37) !important;
+}
+
+.exampleHolder{
+  position: relative;
+  display: inline-block;
+  margin-left: 15px;
+  width: 55px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.spins::after {
+  --lwc-colorBackgroundSpinnerDot:rgb(228, 37, 37) !important;  
+  content: 'Please wait while we process your request'; 
+}
+
+.mySpinner { 
+  position: relative;
+  height: 5rem;
+  width: 5rem; 
+}
+
+.slds-spinner_container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: calc(9000 + 2);
+  background-color: rgba(255,255,255,.75);
+  visibility: visible;
+  opacity: 1;
+  transition: opacity .2s ease,visibility 0s;
+  transition-delay: 0s,.3s;
+}
+
+.preferredbankaccount{
+  position: static;
+  width: 20px;
+  height: 20px;
+  left: 8px;
+  top: calc(50% - 20px/ 2);
+
+  /* Primary / Red */
+
+  background: #CC0000;
+  /* Primary / Red */
+
+  border: 2px solid #CC0000;
+  box-sizing: border-box;
+  border-radius: 2px;
+
+  /* Inside Auto Layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 16px;
+}
+  
+  .paymentsource-modalcontent .modal-title,
+  .paymentsource-modalcontent .modal-bankdetails {
+    font-family: Roboto, sans-serif;
+    font-size: 26px;
+    line-height: 36px;
+    color: #000000;
+  }
+  
+  .paymentsource-modal-container {
+    width: 80%;
+    margin: 80px auto;
+  }
+  .paymentsource-modalcontent .bank-name-prefilled-text {
+    display: block;
+    font-family: Roboto, sans-serif;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+  }
+  .paymentsource-modalcontent .bank-name-color {
+    color: #AFAFAF;
+  }
+  
+  .paymentsource-modal-container .preferred-section {
+    width: 45%;
+  }
+  .paymentsource-modal-container .slds-form-element .popover-content {
+    position: absolute;
+    top: 42px;
+    right: -15px;
+    width: 170px;
+    background: black;
+  }
+  
+  .modal-container .account-type {
+    display: flex;
+  }
+  
+  .modal-container .slds-modal {
+    position: absolute;
+  }
+  
+  .modal-container .slds-modal:focus {
+    outline: none;
+  }
+  
+  .modal-container .slds-modal__container {
+    height: auto;
+  }
+  
+  .modal-container .slds-modal__container:focus {
+    outline: none;
+  }
+  
+  .modal-container .slds-form-element label {
+    font-family: Roboto, sans-serif;
+    /* font-size: 14px; */
+    /* line-height: 20px; */
+    /* color: #5e6162; removed for bug-12323*/
+    padding: 0px;
+    margin-bottom: 16px;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    color: #000000;
+  }
+  
+  .modal-container .slds-form-element input {
+    border-width: 0px 0px 1px 0px;
+    border-radius: 0;
+    background: #f0f0f0;
+  }
+  
+  .modal-container .slds-form-element input:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: #000;
+  }
+  
+  .modal-container .inputInfo-icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .bankname-input .warning-icon,
+  .routing-input .warning-icon,
+  .bankaccount-input .warning-icon,
+  .accountnumbervalidate-input .warning-icon,
+  .bankname-input .error-help,
+  .routing-input .error-help,
+  .bankaccount-input .error-help,
+  .accountnumbervalidate-input .error-help {
+    visibility: hidden;
+  }
+  
+  .slds-has-error .warning-icon,
+  .slds-has-error .error-help {
+    visibility: visible;
+  }
+  
+  .bankname-input .warning-icon,
+  .routing-input .warning-icon,
+  .bankaccount-input .warning-icon,
+  .accountnumbervalidate-input .warning-icon {
+    position: absolute;
+    right: 5px;
+    top: 20%;
+    width: 23px;
+    height: 20px;
+  }
+  
+  .slds-has-error .slds-input::placeholder {
+    color: #c64540;
+    opacity: 1;
+    /* Firefox */
+  }
+  
+  .slds-has-error .slds-input:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #c64540;
+  }
+  
+  .slds-has-error .slds-input::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #c64540;
+  }
+  
+  .slds-has-error .slds-input {
+    box-shadow: 0px 0px;
+  }
+  
+  .modal-container .accountdetails-container {
+    display: flex;
+    font-family: Roboto, sans-serif;
+    justify-content: space-between;
+  }
+  
+  .modal-container .accountdetails-container .paymentsource-info {
+    flex: 0 0 45%;
+    font-family: Roboto, sans-serif;
+  }
+  
+  .modal-container .accountdetails-container .bank-info {
+    flex: 0 0 40%;
+    margin-top: 100px;
+  }
+  
+  .modal-container .accountdetails-container .bank-info p {
+    font-size: 14px;
+    line-height: 20px;
+    color: #CC0000;
+    text-decoration: underline;
+    display: none;
+  }
+  
+  .modal-container .accountdetails-container .bank-info hr {
+    display: none;
+  }
+  
+  .modal-container .accountdetails-container .paymentsource-info p {
+    /* font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03em; */
+    /* color: #5e6162; removed for bug-12323*/
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    color: #000000;
+  }
+  
+  /* .modal-container .preferred-conditions {
+    margin-top: 32px;
+  } Salesforce Scan duplicate selector*/
+  .modal-container .terms-conditions {
+    font-size: 18px;
+    line-height: 22px;
+    color: #5e6162;
+    display: block;
+    letter-spacing: 0.02rem;
+    margin-bottom: 44px;
+  }
+  .modal-container .preferred-conditions {
+    margin-top: 32px;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000;
+    display: block;
+    letter-spacing: 0.02rem;
+    margin-bottom: 44px;
+  }
+  /* CR 12323 start*/
+  /* .modal-container .preferred-conditions {
+    color: #000;
+  } Salesforce Scan duplicate selector*/
+  /* CR 12323 end*/
+  
+  .withdraw-info {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+    color: #5e6162;
+  }
+  
+  .modal-container .terms-conditions a {
+    color: #CC0000;
+  }
+  
+  .enroll-easypay-radio .popover-content {
+    position: absolute;
+    top: 35px;
+    right: -14px;
+    width: 170px;
+    background: black;
+  }
+  
+  .bankaccount-input .popover-content {
+    position: absolute;
+    top: 35px;
+    right: -14px;
+    width: 170px;
+    background: black;
+  }
+  
+  /*End of Modal Popup */
+  @media (min-width: 992px) {
+    .modal-container .slds-modal__container {
+      margin: 0 auto;
+      width: 80%;
+      max-width: inherit;
+      min-width: inherit;
+    }
+  }
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .modal-container .slds-modal__container,
+    .modal-container .spinner-model-container {
+      width: 100%;
+      max-width: 100%;
+    }
+    .modal-container .preferred-conditions,
+    .modal-container .terms-conditions {
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.03rem;
+    }
+    .paymentsource-modal-container {
+      width: 85%;
+    }
+  }
+  @media screen and (min-width: 320px) and (max-width: 1184px) {
+    .AHFC_customPrimaryButton{
+      margin-bottom: 2rem;
+      margin-right: 0rem;
+    }
+    .AHFC_NoBgButton{
+      text-align: center;
+      display: block;
+    }
+    /* Modal Popup media queries */
+    .modal-container .terms-conditions {
+      margin-bottom: 32px;
+    }
+    .paymentsource-modal-container .preferred-section {
+      width: 100%;
+    }
+    .paymentsource-modalcontent .modal-title {
+      font-size: 20px;
+      line-height: 30px;
+    }
+    .paymentsource-modalcontent .modal-bankdetails {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  
+    .modal-container .slds-modal__container {
+      margin: 0 auto;
+      padding: 0;
+      width: 100%;
+    }
+    .paymentsource-modal-container {
+      margin: 40px auto;
+      width: 86%;
+    }
+    .modal-container .accountdetails-container {
+      flex-direction: column-reverse;
+    }
+    .modal-container .accountdetails-container .bank-info {
+      margin-top: 0px;
+    }
+    .modal-container .accountdetails-container .bank-info p {
+      display: block;
+    }
+    .modal-container .accountdetails-container .bank-info img {
+      width: 80%;
+      margin: auto;
+    }
+    .modal-container .accountdetails-container .bank-info img,
+    .accountdetails-container .modal-container .bank-info hr {
+      display: none;
+    }
+    .modal-container .action-container {
+      display: flex;
+      flex-direction: column;
+    }
+    .paymentsource-modalcontent .bank-name-prefilled-text {
+      font-size: 16px;
+      line-height: 28px;
+    }
+  
+    /* End of Modal Popup media queries */
+  }
+  .cancel-btn .slds-button{
+    color:red !important
+  }
+  .AHFC_customPrimaryButton{
+    padding: 14px 24px;
+    height: 44px;
+    background: #CC0000;
+    border-radius: 3px;
+    text-transform: uppercase;
+    border: none;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.06em;
+    color: #FFFFFF;
+    font-family: 'ahfc-robotomedium' ,sans-serif;
+    margin-right: 3rem;
+}
+.AHFC_customPrimaryButton:hover{
+    background: #AA0000;
+}
+.AHFC_customTertiaryButton{
+  padding: 14px 24px;
+  height: 44px;
+  border: none;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 16px;
+  background:#ffffff;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #CC0000;    
+  font-family: 'ahfc-robotomedium' ,sans-serif;
+}
+.AHFC_customTertiaryButton:hover{
+  background: rgba(228, 37, 37, 0.05);
+  color: #AA0000;
+}
+
+/* CR 12323 start*/
+.slds-form-element__control .slds-input{
+  font-size: 18px;
+}
+/* CR 12323 end*/
+
+/*Mobile view start*/
+@media (min-width: 320px) and (max-width: 767px) {
+.AHFC_customPrimaryButton{
+  margin-bottom: 2rem;
+  margin-right: 0rem;
+}
+.edit-modal-content{
+  padding: 3rem 1.5rem 2rem;
+}
+.AHFC_ModTitle{
+  font-size: 20px;
+  line-height: 26px;
+}
+.AHFC_ModFormLabel{
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+}
+.ahfc_cancelBtn{
+  width: 100%;
+}
+.AHFC_customTertiaryButton{
+  width: -webkit-fill-available;
+  margin-top: 1rem;
+}
+.ahfc_canPopup{
+  margin: 1rem;
+}
+.modal-container .spinner-model-container {
+  width: 100%;
+  max-width: 100%;
+}
+/*radio buttons start*/
+.savings-radio{
+  margin-right: 4rem;
+}
+/*radio buttons end*/
+
+/* CR 12323 start*/
+.slds-form-element__control .slds-input{
+  font-size: 16px;
+}
+.modal-container .slds-form-element label {
+  font-size: 16px;
+}
+.modal-container .accountdetails-container .paymentsource-info p {
+  font-size: 16px;
+}
+/* CR 12323 end*/
+
+}

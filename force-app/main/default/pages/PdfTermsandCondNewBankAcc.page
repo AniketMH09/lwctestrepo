@@ -1,0 +1,55 @@
+<apex:page renderAs="pdf"  >
+   
+  <!-- Bank Account Terms and condition --------------------- -->
+    <div id='TermstobeprintedPF'>
+        <apex:outputpanel id="TermsConditionPF" style="display:none">
+        <div>
+    
+            <div class="print-pdf-section"> 
+                <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda == 'true' ,true,false) }">
+ 
+                <p class="tc-head" style="font-weight:bold;">Payment Withdrawal Authorization</p>
+                <p class="tc-content" style="line-height:23px;">When you provide your bank account information to us, you authorize Honda Financial Services to 
+                                        withdraw funds by electronic transfer from the account identified by you each time you request 
+                                        a payment using our online or telephone payment services (and to make credits to correct errors). 
+                                        You will select the amount of the payment and the payment date when you request a payment. 
+                                        This authorization will remain in effect until you cancel it. You may cancel your authorization at 
+                                        any time online by accessing this website and removing the bank account information, but the cancellation 
+                                        will not apply to any payments you have already requested and are already in process. If you cancel your authorization, 
+                                        you will no longer be able to request payments using our online or telephone payment services. This method of cancellation 
+                                        (and other methods of cancellation we may make available from time to time) is the only way that you can cancel this 
+                                        authorization.</p>
+                <p class="tc-content">If any payment is rejected due to insufficient funds, Honda Financial Services may charge you a fee and your bank may also charge you a fee.</p>
+                <p class="tc-content">You agree that the payments authorized by you must comply with the terms of U.S. law.</p>
+                <p class="tc-content">Please print or save a copy of this authorization for your records.</p>
+                
+            </apex:outputpanel>
+        </div>
+    
+    
+        <div class="print-pdf-section">
+            <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda =='false' ,true,false) }">
+            <p class="tc-head" style="font-weight:bold;">Payment Withdrawal Authorization</p>
+            <p class="tc-content" style="line-height:23px;">When you provide your bank account information to us, you authorize Acura Financial Services to withdraw funds 
+                                  by electronic transfer from the account identified by you each time you request a payment using our online or 
+                                  telephone payment services (and to make credits to correct errors). You will select the amount of the payment 
+                                  and the payment date when you request a payment. This authorization will remain in effect until you cancel it. 
+                                  You may cancel your authorization at any time online by accessing this website and removing the bank account 
+                                  information, but the cancellation will not apply to any payments you have already requested and are already in process. 
+                                  If you cancel your authorization, you will no longer be able to request payments using our online or telephone payment 
+                                  services. This method of cancellation (and other methods of cancellation we may make available from time to time) is 
+                                  the only way that you can cancel this authorization.</p>
+            <p class="tc-content">If any payment is rejected due to insufficient funds, Acura Financial Services may charge you a fee and your bank may also charge you a fee.</p>
+            <p class="tc-content">You agree that the payments authorized by you must comply with the terms of U.S. law.</p>
+            <p class="tc-content">Please print or save a copy of this authorization for your records.</p>
+            
+        </apex:outputpanel>
+    </div>
+    </div>
+    
+    </apex:outputpanel>
+    </div>
+    
+    
+    <!--------------------End of Terms and Conditions ----------------- -->
+</apex:page>

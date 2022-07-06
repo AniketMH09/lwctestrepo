@@ -1,0 +1,166 @@
+<template> 
+   <div role="main" id="main-container" class="main-content">
+<div class="AHFC_PageTitleWrap">
+    <div class="slds-grid slds-wrap">
+        <!-- <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_12-of-12"> -->
+        <!-- Ipad medium changes  -->
+         <div class="slds-col slds-size_1-of-1">
+            <div class="AHFC_Wrapperst ahfc-background-lighter">
+                <div class="AHFC_PrimHead">
+                    <a href="javascript:void(0);" class="AHFC_removehovereffect" onclick={navigateBackToDashboard}> 
+                        <lightning-icon icon-name="utility:back" alternative-text="Return to previous page" title="back" size="small" class="AHFC_backArrow" role="button"></lightning-icon>
+                    </a>
+                    <p>Legal Terms and Conditions</p>
+                </div>
+
+                <div class="AHFC_SecHead">
+                  <p>LAST UPDATED : December 15, 2021</p>
+                </div>
+
+                <!-- <div class="AHFC_AccFullWidth slds-col slds-size_1-of-1 slds-align-top AHFC_accordianWrap">
+                               <button class="accordion"  data-id="firstBar" onclick={handleToggle}>
+                               <span class="AHFC_faqSubheadings"> Payment-related FAQ 1 Lorem di Epsum sample Purpose </span>
+                                  <lightning-icon data-id="firstBar" if:false={firstBar}
+                                     icon-name="utility:chevrondown" alternative-text="down" size="small" title="Connected"
+                                     class="AHFC_DownIconAcc">
+                                  </lightning-icon>
+                                  <lightning-icon  data-id="firstBar" if:true={firstBar}
+                                     icon-name="utility:chevronup" alternative-text="up" size="x-small" title="Connected"
+                                     class="AHFC_DownIconAcc">
+                                  </lightning-icon>
+                               </button>
+                               <div if:true={firstBar} class="AHFC_accText">Payment-related FAQ 1111111111111111111 Lorem di Epsum sample Purpose</div>
+                         </div>
+                         <div class="AHFC_AccFullWidth slds-col slds-size_1-of-1 slds-align-top AHFC_accordianWrap">
+                               <button class="accordion"  data-id="firstBar" onclick={handleToggle}>
+                               <span class="AHFC_faqSubheadings"> Payment-related FAQ 1 Lorem di Epsum sample Purpose </span>
+                                  <lightning-icon data-id="firstBar"  if:false={firstBar}
+                                     icon-name="utility:chevrondown" alternative-text="down" size="small" title="Connected"
+                                     class="AHFC_DownIconAcc">
+                                  </lightning-icon>
+                                  <lightning-icon  data-id="firstBar" if:true={firstBar}
+                                     icon-name="utility:chevronup" alternative-text="up" size="x-small" title="Connected"
+                                     class="AHFC_DownIconAcc">
+                                  </lightning-icon>
+                               </button>
+                               <div if:true={firstBar} class="AHFC_accText">Payment-related FAQ 1111111111111111111 Lorem di Epsum sample Purpose</div>
+                         </div>
+                         -->
+
+                <ul class="slds-accordion sections-accordion">
+                    <template for:each={mobileSections} for:item="sections">
+                      <!-- <li class="slds-accordion__list-item ahfc-accordion-item ahfc-background-lightest" -->
+                      <li class={sections.parentClass} key={sections.id}>
+                         <section class={sections.class}>
+                            <div class="slds -accordion__summary">
+                               <h2 class="slds-accordion__summary-heading">
+                                  <a href="javascript:void(0);" tabindex="0"
+                                     class="slds-accordion__summary-action section-header ahfc-text-header ahfc-text-dark slds-text-title_caps"
+                                     aria-controls={sections.id} data-keyno={sections.id} aria-expanded={sections.isOpened}
+                                     title={sections.header} onclick={onMobileSectionsClick} aria-label={sections.header} name={sections.header}>
+                                     <div class="slds-grid slds-grid_align-spread" data-keyno={sections.id} >
+                                        <div class="slds-col" data-keyno={sections.id}>
+                                           <span data-keyno={sections.id}
+                                              class="slds-accordion__summary-content">{sections.header}</span>
+                                        </div>
+                                        <div class="slds-col ahfc_arrows" data-keyno={sections.id}>
+                                           <lightning-icon data-keyno={sections.id} if:false={sections.isOpened}
+                                              icon-name="utility:chevrondown" size="small" alternative-text="chevrondown"
+                                              title="chevrondown">
+                                           </lightning-icon>
+                                           <lightning-icon data-keyno={sections.id} if:true={sections.isOpened}
+                                              icon-name="utility:chevronup" size="small" alternative-text="chevronup"
+                                              title="chevronup">
+                                           </lightning-icon>
+                                        </div>
+                                     </div>
+                                  
+                                  </a>
+                               </h2>
+                            </div>
+ 
+                            <div class={sections.contentClass} id={sections.id}>
+                               <template for:each={sections.accordionData} for:item="accSections">
+                                  <!-- <div key={accSections.id} class="AHFC_contentStyle">
+                                     <div class="AHFC_contentStyle">{accSections.item}</div>
+                                        <div if:false={accSections.divOrSpan} class={accSections.customClass}> {accSections.item}</div>
+                                        <span if:true={accSections.divOrSpan} class={accSections.customClass}> {accSections.item}</span>
+                                  </div> -->
+                                  <div if:false={accSections.divOrSpan}  key={accSections.id} class="AHFC_contentStyle">
+                                    <div if:false={accSections.containsLink}  class={accSections.customClass}>{accSections.item}</div>
+                                    <div if:true={accSections.containsLink}  class={accSections.customClass}><lightning-formatted-rich-text class='ahfc_link' value='{accSections.item}'></lightning-formatted-rich-text></div>
+
+                                 </div>
+                                 <span if:true={accSections.divOrSpan}  key={accSections.id} class="AHFC_contentStyle">
+                                       <span if:false={accSections.containsLink} class={accSections.customClass}>{accSections.item}</span>
+                                       <span if:true={accSections.containsLink} class={accSections.customClass}><lightning-formatted-rich-text class='ahfc_link' value='{accSections.item}'></lightning-formatted-rich-text></span>
+                                 </span>
+
+                               </template>
+</div>
+
+</section>
+</li>
+</template>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- <p class="slds-text-heading_small">{activeSectionMessage}</p> -->
+<!--     
+         <lightning-button onclick={handleSetActiveSectionC} label="Open Section C"></lightning-button>
+     
+         <lightning-accordion class="example-accordion ahfc_accordion"
+                              onsectiontoggle={handleToggleSection}
+                              active-section-name="B">
+             <lightning-accordion-section name="A" label="Accordion Title A">
+                
+                 <lightning-button-menu slot="actions"
+                                       alternative-text="Show menu"
+                                       icon-size="x-small"
+                                       menu-alignment="right">
+                     <lightning-menu-item value="New" label="Menu Item One"></lightning-menu-item>
+                     <lightning-menu-item value="Edit" label="Menu Item Two"></lightning-menu-item>
+                 </lightning-button-menu>
+                 <p>This is the content area for section A.</p>
+                 <p>.</p>
+                 <p>.</p>
+                 <p>.</p>
+                 <p>The section height expands to fit your content.</p>
+             </lightning-accordion-section>
+     
+             <lightning-accordion-section name="B" label="Accordion Title B">
+                 <p>This is the content area for section B.</p>
+                 <p>.</p>
+                 <p>.</p>
+                 <p>.</p>
+                 <p>The section height expands to fit your content.</p>
+             </lightning-accordion-section>
+     
+             <lightning-accordion-section name="C" label="Accordion Title C">
+                 <p>This is the content area for section C.</p>
+                 <p>.</p>
+                 <p>.</p>
+                 <p>.</p>
+                 <p>The section height expands to fit your content.</p>
+             </lightning-accordion-section>
+         </lightning-accordion>
+ 
+     
+ 
+ 
+         <div>
+             <button class="ahfc-accordion" data-id="accordian1" onclick={accordianClick}>Section 1</button>
+             <div class="ahfc-panel">
+             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+             </div>
+             
+             <button class="ahfc-accordion" data-id="accordian2" onclick={accordianClick}>Section 2</button>
+             <div class="ahfc-panel">
+             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+             </div>
+         </div> -->
+
+</template>

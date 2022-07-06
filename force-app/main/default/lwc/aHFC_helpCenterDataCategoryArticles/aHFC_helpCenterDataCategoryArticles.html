@@ -1,0 +1,42 @@
+<template>
+    <div class="AHFC_ContainerWrap" if:true={articleFlag}>
+        <div class="AHFC_TitleWrap">
+            <c-a-h-f-c_page-title-help-center title={backButtonLabel} show-icon="true"></c-a-h-f-c_page-title-help-center>
+        </div>
+
+        <div class="slds-grid AHFC_DetailWrap">
+            <div class="slds-col">
+                <ul>
+                    <template for:each={templateViewList} for:item="article">
+                        <li class="" key={article.knowledgeId}>
+                            <div class="slds-col ahfc-article-header" data-keyno={article.knowledgeId}>
+                                <span data-keyno={article.knowledgeId} class="slds-accordion__summary-content">{article.header}</span>
+                            </div>
+                            <div class="ahfc-description">
+                                <div>
+                                    <lightning-formatted-rich-text value={article.description} class="AHFC_DetailDesc"></lightning-formatted-rich-text>
+                                </div>
+                                <div class="AHFC_ReeanMoreWrap">
+                                    <img if:true={article.isVideoContentAvailable} alt="video Available" class="AHFC_VideoIcon" src = "{videoIconImage}" height = "50" width = "40" />
+                                    <a class="ahfc-read-more" data-id={article.urlName} onclick={navigateToArticle1}>Read More</a>
+                                </div>
+                            </div>
+                            <hr class="AHFC_Hr">
+                        </li>
+                    </template>
+
+                     <div class="slds-col">
+                       <c-a-h-f-c_pagination class="transaction-pagination" if:false={refreshPagination}
+                            items={totalRecords} itemsperpage="3" onpagechanges={pageChange}>
+                         </c-a-h-f-c_pagination>
+                    </div> 
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div if:true={knowledgeFlag}>
+        <c-a-h-f-c_help-center-single-article category-data-title={backButtonLabel} knowledge-id={knowledgeId}></c-a-h-f-c_help-center-single-article>
+    </div> -->
+
+</template>

@@ -1,0 +1,121 @@
+<!--
+    Author        : Accenture
+    Date Created  :  
+    Description   : Generate PDF Summary Page for OTP and Principal
+-->
+
+<apex:page controller="PdfPAYOFFSummaryCont" showHeader="false" applyHtmlTag="false" applyBodyTag="false" standardStylesheets="false" docType="html-5.0" renderAs="pdf" >
+        <apex:stylesheet value="{!URLFOR($Resource.AFSHFS, 'AfsHfs/css/style.css')}" />
+ <html>   
+  <head>
+<!-- Defect# 114148 -Shubham -->
+    <style> 
+    div.mainContent {margin: 1px auto;
+    width: 60%;
+    padding: 10px;}
+    table.myTable {background-color: #F2F2F2;
+                    width: 460px;
+                    padding: 10px;
+                    margin: 1px;
+                    margin-top: 100px
+                    border-radius: 10px;
+                    border-spacing: 10px;
+    table.myTable td{font-size:14px;
+                     font-color:#333333}
+
+
+}
+  </style>
+
+  </head> 
+
+<!-- Logo on pdf to print conditionally start -->
+    <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda == 'true' ,true,false) }" >
+       <apex:image alt="" url="{!URLFOR($Resource.AFSHFS, 'AfsHfs/images/honda-logo.png')}"  width="25%" height="20%" style="margin-top: 50px;margin-bottom: 0px;margin-right: 0px;margin-left: 50px;"/>
+    </apex:outputpanel>
+    
+    <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda =='false' ,true,false) }">
+        <apex:image alt="" url="{!URLFOR($Resource.AFSHFS, 'AfsHfs/images/Acura.png')}"  width="25%" height="20%" style="margin-top: 50px;margin-bottom: 0px;margin-right: 0px;margin-left: 50px;"/>
+    </apex:outputpanel>              
+                                     
+  
+  <body>  
+  
+    <div class = "mainContent">               
+       <div id='tobePrinted'>
+         <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda == 'true' ,true,false) }">
+           <apex:stylesheet value="{!URLFOR($Resource.AFSHFS, 'AfsHfs/css/style.css')}" />
+           <div class="secondary-title" >Congratulations!</div>
+       </apex:outputpanel>
+       <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda =='false' ,true,false) }">
+           <apex:stylesheet value="{!URLFOR($Resource.AFSHFS, 'AfsHfs/css/acura-style.css')}" />
+           <div class="secondary-title">Congratulations!</div>
+       </apex:outputpanel>
+        <p class="padding10">
+            {!SumamryMessage} <br/><br/>
+
+
+            <apex:outputtext value="{!finnumberWithoutZeroes}"> Account #:&nbsp;&nbsp; </apex:outputtext><br/><br/>
+            <apex:outputText value="{!Payment.Confirmation_Number__c}"> Payoff Payment Confirmation #:&nbsp;&nbsp; </apex:outputText><br/><br/>
+            <table border="0" class="myTable">
+                <!--Added as part of July 2018 release RSS 43709   -->
+                <tr>
+                    <td align="right"  width="300">
+                        Payment Authorized On
+                    </td>
+                    <td align="left" width="300" style="padding-left: 10px;">
+                        {! PaymentAuthDate }
+                    </td>
+                </tr>
+
+                
+                <tr>
+                    <td align="right"  width="300">
+                        Payoff Date
+                    </td>
+                    <td align="left" width="300" style="padding-left: 10px;">
+                        {!PaymentDate}
+                    </td>
+                </tr>
+                 
+                
+                <tr>    
+                    <td align="right"  width="300">
+                        Bank Account Nickname
+                    </td>
+                    <td align="left" width="300" style="padding-left: 10px;">
+                    <!-- Added xxxx-last4 for 114271 -->
+                        {!Payment.Payment_Source_Nickname__r.Payment_Source_Nickname__c}(XXXX-{!Payment.Payment_Source_Nickname__r.Last_4__c})
+                    </td>
+                </tr>
+                <tr>
+                 <td align="right"  width="300">
+                       <b> Payoff Amount </b>                   
+                    </td>
+                    <td align="left" width="300" style="padding-left: 10px;">
+                        <b> ${!Payment.ChargentOrders__Charge_amount__c} </b> <!-- Defect# 114148 -Shubham -->
+                    </td>
+                </tr>
+          
+            <!-- Added on July 2018 As part of RSS 43709-->
+            <tr>
+            <td colspan="2" align="center">
+            <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda == 'true' ,true,false) }" >
+            <div class="pL10 pR10">For questions,&nbsp;<a href="{!$Label.HondaCSEP}" target="_blank" styleclass="clkhere" >contact Customer Service</a> </div>
+            </apex:outputpanel>
+
+            <apex:outputpanel rendered="{! If($CurrentPage.parameters.ishonda =='false' ,true,false) }">
+            <div class="pL10 pR10">For questions,&nbsp;<a href="{!$Label.AcuraCSEP}" target="_blank" styleclass="clkhere" >contact Customer Service</a> </div>
+            </apex:outputpanel>    
+            </td>
+            </tr>
+            <!--RSS 43709 changes end -->
+            </table>
+            
+            
+          </p>
+        </div> 
+       </div>  
+     </body>
+    </html>
+</apex:page>

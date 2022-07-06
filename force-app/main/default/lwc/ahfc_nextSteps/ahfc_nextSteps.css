@@ -1,0 +1,257 @@
+@import 'c/aHFC_dashboardTheme';
+/*desktop view start*/
+.ahfc_card{
+    background-color: #ffffff;
+    padding: 5rem;
+}
+.ahfc_head{
+    margin-bottom: 2rem;
+}
+.ahfc_header{
+    border-bottom: 1px solid #D9D9D9;
+    padding-bottom: 2rem;
+}
+
+.ahfc_heading{
+    font-weight: 300;
+    font-size: 26px;
+    line-height: 36px;
+    color: #000000;
+    font-family: ahfc-robotolight;
+}
+.ahfc_circle{
+    /* width: 7rem; */
+    border-radius: 100%;
+    width: 15px;
+    height: 15px;
+    background: #d9d9d9;
+    margin-right: 1rem;
+    margin-top: .4rem;
+}
+.ahfc_square{
+    transform: rotate(45deg);
+    --sds-c-icon-color-foreground-default:#CC0000;
+    margin-right: 1rem;
+}
+.ahfc_iconAndInfo{
+    display: flex;
+    /* margin-top: 2.5rem; */
+    border-top: 1px #D9D9D9 solid;
+    padding-top: 2.5rem;
+}
+.ahfc_links{
+    color: #CC0000;
+    margin-right: 0.4rem;
+}
+.ahfc_text{
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.02rem;
+    color: #000000;
+}
+.ahfc_display{
+    display:flex;
+    margin-top: 2rem;
+}
+.ahfc_youStatement{
+    margin-top: 1rem;
+}
+.ahfc_statements{
+    margin-top: 1.5rem;
+}
+.ahfc_address{
+    display: block;
+}
+.ahfc_addHead{
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #000000;
+    font-family: 'ahfc-robotomedium';
+}
+.ahfc_dashboardButton{
+    --sds-c-button-radius-border: 0rem;
+    background-color: #CC0000;
+    margin-top: 1.3rem;
+}
+.ahfc_dashboardButtonText{
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #FFFFFF;;
+    font-family: 'ahfc-robotomedium';
+    font-weight: 500;
+}
+.ahfc_button{
+    border-top: 1px solid #D9D9D9;
+    padding-top: 2rem;
+    margin-top: 3rem;
+}
+.AHFC_PrintRt{    
+    float: right;
+    /* padding: 1.5rem 0.5rem 0rem 2rem; */
+}
+.outsideText{
+    color: #CC0000;
+    font-size: 18px;
+    border-bottom: 1px solid #CC0000;
+}
+.AHFC_PrintertextIcon{
+    margin-right:0.5rem;
+    --sds-c-icon-color-foreground-default:#CC0000;
+}
+.cross-icon {
+    top: 32px;
+    right: 32px;
+  }
+
+.finance-account-edit-modal{
+    position: absolute;
+}
+.finance-account-edit-modal .ahfc_card {
+    margin: 0 auto;
+    width: 100%;
+    max-width: inherit;
+    min-width: inherit;
+  }
+.slds-modal__container{
+    /* width: 1180px !important;
+    height: 1100px !important; */
+    width: 1180px;
+    /* height: 1111px; */
+    min-width: inherit;
+    max-width: inherit;
+    justify-content: flex-start;
+}
+
+.ahfc_crossDesktop{
+    float: right;
+    padding: 1.5rem;
+}
+
+/*desktop view end*/
+
+
+/*Mobile view start*/
+@media (min-width: 320px) and (max-width: 767px) {
+.ahfc_card{
+    padding: 3rem 1rem;
+}
+.ahfc_text{
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.03rem;
+}
+.ahfc_circle{
+    width: 12px;
+    height: 12px;
+    margin-top: 0.2rem;
+}
+.ahfc_circleWrap{
+    width: 5%;
+    margin-right: 1rem;
+}
+.ahfc_fax{
+    margin-top: 1rem;
+}
+.ahfc_headText{
+    margin-top: 0.5rem;
+}
+.ahfc_button{
+    border-top: 0px;
+    margin-top: 1rem;
+}
+.ahfc_header{
+    border-bottom: 0px;
+    padding-bottom: 0rem;
+}
+.ahfc_dashboardButton{
+    margin-top: 0rem;
+}
+
+.ahfc_withCross{
+    display:flex;
+}
+.ahfc_cross{
+    float:right;
+}
+.ahfc_heading{
+    font-size: 20px;
+    line-height: 26px;
+}
+.slds-modal__container{
+    width: auto;
+    --lwc-squareIconLargeBoundary: 0rem;
+    --lwc-spacingXLarge:0rem;
+}
+
+}
+
+/*mobile view end*/
+
+/*Tablet view start*/
+@media (min-width: 768px) and (max-width: 1024px) {
+    .ahfc_card{
+        padding: 3rem 1rem;
+    }
+    .ahfc_text{
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.03rem;
+    }
+    .ahfc_circle{
+        width: 12px;
+        height: 12px;
+        margin-top: 0.2rem;
+    }
+    .ahfc_circleWrap{
+        width: 5%;
+        margin-right: 1rem;
+    }
+    .ahfc_fax{
+        margin-top: 1rem;
+    }
+    .ahfc_headText{
+        margin-top: 0.5rem;
+    }
+    .ahfc_button{
+        border-top: 0px;
+        margin-top: 1rem;
+    }
+    .ahfc_header{
+        border-bottom: 0px;
+        padding-bottom: 0rem;
+    }
+    .ahfc_dashboardButton{
+        margin-top: 0rem;
+    }
+    
+    .ahfc_withCross{
+        display:flex;
+    }
+    .ahfc_cross{
+        float:right;
+    }
+    .ahfc_heading{
+        font-size: 20px;
+        line-height: 26px;
+    }
+    .slds-modal__container{
+        width: auto;
+        --lwc-squareIconLargeBoundary: 0rem;
+        --lwc-spacingXLarge:0rem;
+    }
+    
+    }
+    
+/*tablet view end*/
+/*21860 start*/
+@media (min-width: 768px) and (max-width: 1200px) {
+    .slds-modal__container{
+        width: 90%;
+    }
+}
+/*21860 end  */

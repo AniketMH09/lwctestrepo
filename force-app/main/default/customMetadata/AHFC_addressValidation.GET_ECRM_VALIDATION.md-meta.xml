@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>GET_ECRM_VALIDATION</label>
+    <protected>false</protected>
+    <values>
+        <field>Content_Type__c</field>
+        <value xsi:type="xsd:string">application/xml</value>
+    </values>
+    <values>
+        <field>Method__c</field>
+        <value xsi:type="xsd:string">POST</value>
+    </values>
+    <values>
+        <field>Url_sei__c</field>
+        <value xsi:type="xsd:string">http://sei.ejb.ecrm.honda.com</value>
+    </values>
+    <values>
+        <field>Url_soapNS__c</field>
+        <value xsi:type="xsd:string">http://schemas.xmlsoap.org/soap/envelope/</value>
+    </values>
+    <values>
+        <field>Url_vo__c</field>
+        <value xsi:type="xsd:string">http://vo.ecrm.honda.com</value>
+    </values>
+    <values>
+        <field>password__c</field>
+        <value xsi:type="xsd:string">ahfc@123</value>
+    </values>
+    <values>
+        <field>userName__c</field>
+        <value xsi:type="xsd:string">AHFCuser</value>
+    </values>
+</CustomMetadata>

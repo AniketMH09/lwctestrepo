@@ -1,0 +1,20 @@
+<!-- AHFC_User_Not_Logged_In_ErrorLog -->
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableforFlowScreens">
+    <aura:attribute name="value" type="String" />
+    
+	<div class="contain">
+        <div class="center">
+            <div class="info">
+                <p class="center"><p class="ahfc_subHeading">
+                    <aura:unescapedHtml value="{!$Label.c.AHFC_User_Not_Logged_In_ErrorMessage}"/></p>
+                </p>
+            </div>
+            <!--div class="action slds-grid slds-wrap">
+              <div class="slds-col slds-size_1-of-1">
+                  <lightning:button class="btn default pull-left" aura:id="pause" name="pause" label="Pause" onclick="{!c.handlePause}"/>
+                  <lightning:button class="btn default pull-right" aura:id="finish" name="finish" label="Finish" onclick="{! c.handleFinish }"/>
+              </div>
+            </div-->
+        </div> 
+    </div>
+</aura:component>

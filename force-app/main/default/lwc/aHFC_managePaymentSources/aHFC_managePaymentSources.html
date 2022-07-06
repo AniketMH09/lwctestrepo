@@ -1,0 +1,111 @@
+<template>
+  <div role="main" id="main-container" class="main-content">
+  <div class=" ahfc-background-lighter">
+    <!-- loading-message added by kanagaraj for US_11044 -->
+    <c-a-h-f-c_vehicleswitcher loading-message={spinnerMessage} loader-control='true'></c-a-h-f-c_vehicleswitcher>
+    <div class="manage-payment-sources-container-fluid">
+      <div class="manage-payment-sources-container">
+        <template if:true={showErrorMessage}>
+          <div class="made-payment-source-toast">
+          <c-a-h-f-c_message-toast type="error"
+                        singlemsg={errMsgLabel}
+                        show-icon="true" is-notification="true" onclosetoast={closeErrorToast}>
+                     </c-a-h-f-c_message-toast>
+          </div>
+        </template>
+        <template if:true={renderWithPaymentList}>
+          <div class="payment-block">
+            <div class="payment-info">
+              <!-- Added by Kanagaraj for US_9353 -->
+              <c-a-h-f-c_page-title title="Payment Sources" show-icon="true"></c-a-h-f-c_page-title>
+              <p class="payment-subtitle slds-m-top_medium ahfc_subheading">
+                You can add a maximum of 4 payment sources.
+              </p>
+            </div>
+              <button class="AHFC_customPrimaryButton addpaymentbtn ahfc_paymentBtn"  onclick={openmodal} label="ADD NEW PAYMENT SOURCE"
+              title="Add New Payment Source">Add New Payment Source</button>
+          </div>
+        </template>
+        <!--ashok-->
+        <template if:true={isModalOpen}>
+          <c-a-h-f-c_add-new-payment-source options={options} renderwithpreferredpaymentoptions=true
+            onmodalclose={onNewPaymentModalClose} onmodalsave={savePaymentSource}
+            showreenterbankaccnum={showReEnterBankAccNum} fin-id={sacRecordId} userprofiletype={userprofiletype}>
+          </c-a-h-f-c_add-new-payment-source>
+        </template>
+        <!--ashok-->
+        <template if:true={renderWithPaymentList}>
+          <div class="payment-source-list">
+            <template iterator:it={paymentSourcesList}>
+              <div key={it.value.key} class="payment-list">
+                <c-a-h-f-c_payment-card title={it.value.name} paymentid={it.value.paymentID} iconname="utility:edit"
+                  cardsubtitle={it.value.cardsubtitle} cardsubtitle1={it.value.cardsubtitle1} cardsubtitle2={it.value.cardsubtitle2} descriptiontext={it.value.descriptiontext} label={it.value.label}
+                  errortext={it.value.errortext} buttontext="delete" oneditpayment={handleEditClick} preferredpaymentsource={it.value.Preferred_Payment_Source__c} 
+                  ondeletepayment={handleDeleteClick}></c-a-h-f-c_payment-card>
+              </div>
+            </template>
+          </div>
+
+        <!-- ashok ADA fix -->
+        <template if:true={isEditModalOpen}>
+          <div aria-modal="true">
+        <c-a-h-f-c_edit-payment-sources paymentcardid={selectedPaymentCard.paymentID}
+        accountnumber={selectedPaymentCard.accnumber} bankaccounttype={selectedPaymentCard.type}
+        bankname={selectedPaymentCard.descriptiontext} nickname={selectedPaymentCard.name} modal-save-text="SAVE"
+        modal-cancel-text="CANCEL" onmodalclose={onEditModalClose} onmodalsave={onEditModalSave}
+        options={selectedPaymentCard.label} onpaymentcheckboxclick={handlePaymentSourceClick}
+        checkboxvalue={selectedPaymentCard.Preferred_Payment_Source__c}>
+        </c-a-h-f-c_edit-payment-sources>
+        </div>
+        </template>
+        <!--Added for US 7027 -start-->
+        <template if:true={isDeleteModalOpen}>
+          <div aria-modal="true">
+        <c-a-h-f-c_payment-sources-delete-modal bankdetails={selectedDeletePaymentCard.cardsubtitle}
+        pay-sources={paymentSourcesList} paymentcard={selectedDeletePaymentCard} nickname={selectedDeletePaymentCard.name}
+        banktype={selectedDeletePaymentCard.type} modal-agree-text={popDisplayDelete} modal-cancel-text={popDisplayBack}
+        display-sch={displaySchPayments} onmodalsave={onDeleteModalSave} onmodalclose={onDeleteModalClose}>
+        </c-a-h-f-c_payment-sources-delete-modal>
+        </div>
+        </template>
+          
+        <!-- ashok ADA fix -->
+          <template if:true={boolShowSuccessMsg}>
+            <div class="message-info slds-m-top_xx-large">
+              <c-a-h-f-c_message-toast type={toastType} label={toastLabel} message={successSaveMsg}
+                toast-type="snack-bar" show-icon="true" onclosetoast={onCloseToast}></c-a-h-f-c_message-toast>
+            </div>
+          </template>
+        </template>
+        
+        <!--Added for US 7027 -END-->
+        <template if:false={renderWithPaymentList}>
+          <div class="AHFC_NoplaymentCntr">
+          <div class="payment-block">
+          <div class="payment-info">
+            <!-- Added by Kanagaraj for US_9353 -->
+            <c-a-h-f-c_page-title title="Payment Sources" show-icon="true"></c-a-h-f-c_page-title>
+            </div></div>
+          <div class="no-payment-block AHFC_NoplaymentWrap">
+            <p class="no-payment-label">No payment sources added.</p>
+            <p class="no-payment-subtitle slds-m-top_medium">
+              Add a bank account to start making payments on your vehicle.
+            </p>
+            <hr />
+            <div class="ahfc_button">
+              <button class="AHFC_customPrimaryButton" onclick={openmodal}>ADD NEW PAYMENT SOURCE</button>
+            </div>
+          </div>
+          </div>
+          <template if:true={boolShowSuccessMsg}>
+            <div class="message-info slds-m-top_xx-large">
+              <c-a-h-f-c_message-toast type={toastType} label={toastLabel} message={successSaveMsg}
+                toast-type="snack-bar" show-icon="true" onclosetoast={onCloseToast}></c-a-h-f-c_message-toast>
+            </div>
+          </template>
+        </template>
+      </div>
+    </div>
+  </div>
+</div>  
+</template>

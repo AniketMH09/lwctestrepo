@@ -1,0 +1,296 @@
+@import 'c/aHFC_dashboardTheme';
+/* START - AMOUNT DUE MODAL DESKTOP */
+/* .AHFC_AmtDueLayout{
+PADDING:1rem 1rem 1rem 1rem;} */
+/*.icon_class
+{
+  margin-left: 43rem;
+}*/
+.ahfc-AuthorizedDate{
+  text-transform: uppercase;
+}
+.AHFC_MobModal{max-width: 52rem !important;}
+.delete-modal-content {
+  padding: 5rem;
+  border-radius: 0px;
+  position: relative;
+}
+/* .delete-modal-content{
+  font-family: Roboto, sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: #5e6162;
+  margin-bottom: 8px;
+} */
+.details-header2 {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #d9d9d9;
+  font-family: 'ahfc-robotomedium';
+  font-size: 26px;
+}
+.paymentdue-info label,.duedate-info label{
+  font-family: 'ahfc-robotomedium';
+  letter-spacing: 0.03rem;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.paymentdue-info p,
+.duedate-info p {
+    font-size: 30px;
+    line-height: 44px;
+    font-family: ahfc-robotolight;
+}
+.duedate-info,.AHFC_Clock p{line-height: 3;}
+.paymentdue-info {
+    border-right: 1px solid #d9d9d9;
+    padding-right: 15px;line-height: 3;
+}
+.AHFC_TotRow{
+    padding: 2.5rem 0 1rem 0;
+
+}
+.AHFC_AmtVal{
+    font-family: 'Roboto-Black' !important;
+    font-size: 18px;
+    letter-spacing: 0.04rem;
+}
+
+.AHFC_MonthlyDuetxt{    color: #000000;
+    font-size: 14px;letter-spacing: 0.03rem;    line-height: 2;
+}
+.AHFC_TotAmt{       font-size: 18px;
+    font-family: 'ahfc-robotomedium';
+    letter-spacing: 0.04rem;}
+
+.AHFC_Remtxt{font-size: 12px;letter-spacing: 0.03rem;}
+/* END - AMOUNT DUE MODAL - DESKTOP */
+
+
+
+
+
+.AHFC_LinksSize{font-size:12px !important;text-align: left !important;}
+.AHFC_PaddOther{padding-left:1rem !important;}
+.current-bill-scheduled-date {
+margin-top: 6px;
+margin-bottom: 18px;
+}
+/*Added by satish -US# 6069 -Start */
+.ahfc-toggle-links {
+    margin-left: 10px;
+    bottom: 1px;
+}
+
+
+.duedate-info{
+    padding-left: 20px;
+}
+/* .details-card {
+    padding: 20px 16px;
+    margin: 8px 0;
+} */
+
+/* .details-header {
+    padding-bottom: 8px;
+    border-bottom: 1px solid #d9d9d9;
+} 
+*/
+.details-header.no-body {
+    border: none;
+}
+
+/*.details-body .details-body-row {
+    padding: 16px 0 8px;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.details-body .details-body-row:last-child {
+    border: none;
+}*/
+
+.details-body-subtext {
+    flex-direction: column;
+}
+
+.delete-modal-content .cross-icon {
+  top: -7rem;
+  /*right: 32px;*/
+  left: 103%;
+}
+.delete-modal-content{
+  margin-top: 0;
+}
+
+
+.delete-modal-content{
+  margin-bottom: 32px;
+}
+  
+  
+  
+/*Added by satish -US# 6069 -END*/
+.current-bill-amount-due {
+border-top: 1px solid #afafaf;
+padding: 13px 0;
+margin-top: 18px;
+}
+
+.current-bill-amount-due .amount-due-icon {
+margin-right: 10px;
+--sds-c-icon-color-foreground-default: #664216;
+}
+
+.current-bill-amount-due .info-label {
+letter-spacing: 0.05em;
+}
+
+.current-bill-options {
+    padding: 27px 0 6px;
+text-align: left;
+}
+
+.easypay-notif-mobile {
+margin: 16px 0;
+}
+
+.easypay-label {
+line-height: 20px;
+font-weight: 400;
+letter-spacing:  0.03em;
+}
+
+.info-subtext .ahfc-icon {
+margin-right: 8px;
+bottom: 1px;
+}
+
+.total-amt-due {
+padding-right: 10px;
+}
+
+.bill-btn .ahfc-btn {
+width: 100%;
+padding: 14px 10px;
+}
+.bill-btn .ahfc-btn:first-child {
+margin-bottom: 16px;
+}
+@media screen and (min-width: 250px) and (max-width: 540px) {
+    .delete-modal-content {
+      padding: 64px 24px;
+    }
+    
+    .delete-modal-content {
+      font-size: 16px;
+      line-height: 28px;
+      margin-bottom: 16px;
+    }
+    .delete-modal-content {
+      margin-bottom: 32px;
+    }
+    
+    .delete-modal-content .cross-icon {
+      /*right: 24px;*/
+      left: 93%;
+      top: -22% !important;
+    }
+    .ahfc-info-large {
+      /* font-size: 30px; */
+      font-size: 20px !important;
+      font-weight: 300;
+      line-height: 40px;
+  }
+  .section-header {
+    margin-bottom: 5px !important;
+  }
+  }
+  @media (min-width: 767px) and (max-width: 1025px) {
+    .delete-modal-content .cross-icon {
+     /* top: 32px;
+      right: 32px;*/
+      left: 98%;
+      bottom: 22% !important;
+    }
+  }
+
+@media screen and (min-width: 1024px) {
+.current-bill-scheduled-date {
+    margin-top: 12px;
+    margin-bottom: 0;
+}
+
+.current-bill-amount-due {
+    margin-top: 28px;
+    padding: 13px 0 0;
+}
+
+/* .current-bill-options {
+    padding: 27px 0 6px;
+    text-align: right;
+} */
+
+.easypay-label {
+    line-height: 16px;
+}
+}
+/*START -  For Large Desktop  */
+@media (min-width: 1024px) and (max-width: 1200px) {
+    .AHFC_LinksSize{
+        font-size: 10px !important;
+        text-align: left!important;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 1024px) {
+  .slds-modal__content{
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+/* END - For Large Desktop */
+
+/*START - MOBILE  */
+@media (min-width: 320px) and (max-width: 767px) {
+    .AHFC_LinksSize{
+        font-size: 13px!important;
+    }
+    .AHFC_MobLInkDisp{display: block !important;}
+    .current-bill-options{text-align: center !important;}
+
+/* START - AMOUNT DUE MODAL */
+.AHFC_AmtDueLayout{padding:1rem 0 1rem 0 !important;}
+.AHFC_AmtDueLayout label{font-family: 'ahfc-robotomedium';
+  font-size: 12px;
+  letter-spacing: 0.03rem;
+  line-height: 3;}
+
+.AHFC_MobModal{margin: 0 1rem !important;}
+.details-card{padding:0rem !important;}
+.paymentdue-info{border:none;padding:0rem;}
+.paymentdue-info p,.duedate-info p{font-size: 20px;
+  line-height: 30px;
+  text-transform: uppercase;
+  font-family: 'ahfc-robotolight';
+  color: #000000;}
+  .AHFC_TotAmt{    font-family: 'Roboto-Black';
+    font-size: 13px;
+    letter-spacing: 0.04rem;}
+    .AHFC_MonthlyDuetxt{
+        font-size: 12px;
+    letter-spacing: 0.03rem;
+    color: #000000;
+    line-height: 2;
+    }
+.AHFC_MobModal h2{font-size: 20px;
+  
+    font-family: 'ahfc-robotolight';}
+    .details-header2{padding-bottom: 1rem;}
+    .AHFC_TotRow{    padding: 0.5rem 0 1rem !important;
+    }
+    .AHFC_MobCurrwidth{width:68% !important;}
+/* END - AMOUNT DUE MODAL */
+  }
+
+/* END - MOBILE */

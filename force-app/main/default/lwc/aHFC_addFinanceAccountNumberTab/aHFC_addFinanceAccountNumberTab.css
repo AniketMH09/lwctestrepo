@@ -1,0 +1,443 @@
+.AHFC_CheckStyle .slds-form-element__label{
+  font-family: ahfc-robotoregular, sans-serif !important;
+}
+.account-details .slds-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .accountnumber-input .warning,
+  .ssn-input .warning,
+  .accountnumber-input .error-help,
+  .ssn-input .error-help {
+    visibility: hidden;
+  }
+  .slds-has-error .warning,
+  .slds-has-error .error-help {
+    visibility: visible;
+  }
+  .accountnumber-input .warning,
+  .ssn-input .warning {
+    position: absolute;
+    right: 5px;
+    top: 45%;
+    width: 23px;
+    height: 20px;
+  }
+  .slds-has-error .slds-input::placeholder {
+    color: #c64540;
+    opacity: 1; /* Firefox */
+  }
+  
+  .slds-has-error .slds-input:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #c64540;
+  }
+  
+  .slds-has-error .slds-input::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #c64540;
+  }
+  .slds-has-error .slds-input {
+    box-shadow: 0px 0px;
+  }
+  .account-details .account-number .slds-form-element label {
+    margin-top: 20px;
+  }
+  .account-details .slds-form-element label {
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #5e6162;
+    padding: 0;
+  }
+  .account-details .slds-form-element input {
+    border-width: 0px 0px 1px 0px;
+    border-radius: 0;
+    background: #f7f7f7;
+  }
+  .account-details .slds-form-element input:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: black;
+  }
+  
+  .account-details .slds-form-element .popover-content {
+    position: absolute;
+    top: 53px;
+    right: -12px;
+    width: 170px;
+    background: black;
+  }
+  
+  .account-details .slds-form-element .slds-input {
+    margin-top: 14px;
+    height: 56px;
+  }
+  .update-info {
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.03em;
+    color: #5e6162;
+  }
+  .update-info-span{
+    position:absolute;
+  }
+  .terms-conditions{
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+    color: #5e6162;
+    font-style: normal;
+    font-weight: normal;
+  }
+  .comm-prefs-checks{
+    font-family: Roboto;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: #5e6162;
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  .update-info span {
+    color: #000;
+    font-weight: 700;
+  }
+  .terms-conditions a {
+    color: #CC0000;
+    text-decoration: underline;
+  }
+  
+  /* @media screen and (min-width: 320px) and (max-width: 540px) { */
+    /* ipad changess */
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+  /* @media screen and (min-width: 320px) and (max-width: 540px) { */
+    .account-details .slds-grid {
+      flex-direction: column;
+    }
+    .account-details .ssn-container {
+      margin-top: 25px;
+    }
+    .terms-conditions{ 
+      line-height: 24px;
+    }
+    .update-info span {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 20px;
+      display: block;
+      color: #5e6162;
+      margin-top: 8px;
+    }
+  }
+
+
+  /*  @media screen and (min-width: 320px) and (max-width: 414px) {
+      .action-container .slds-button {
+          width: 100%;
+          justify-content: center;
+      }
+    }  */
+
+    .skip-dashboard{
+      --sds-c-button-text-color: #E52525 !important;
+      font-weight: bold !important;
+      font-size: 14px;
+      --sds-c-button-text-color-hover: #E52525 !important;
+      font-family: roboto;
+    }
+
+    .add-btn{
+    --sds-c-button-destructive-color-background: #E52525 !important;
+    font-family: roboto;
+    border-radius: 3px;
+    font-weight: bold;
+    }
+    .slds-has-error .AHFC_errorColor{
+      color: #E52525;
+    }
+    .reCaptchaBig{
+        height: 500px;
+    }
+    .reCaptchaSmall{
+      height: auto;
+    }
+    @media screen and (min-width: 320px) and (max-width: 540px) {
+      .update-info-span{
+        position:relative;
+      }
+      .update-info span {
+        color: #000;
+        font-weight: 700;
+      }
+      .account-container .action-container .add-btn button{
+        width: 100%;
+        justify-content: center;
+      }
+      .action-container .add-btn button{
+        background-color: #CC0000;
+        border-radius: 3px;
+        font-family: Roboto;
+        font-weight: bold;
+        font-size: 14px;
+        padding: 14px 24px;
+        line-height: 16px;
+        border: none;
+      }
+    }
+
+
+    /**/
+
+    .message-container {
+      display: flex;
+      flex-direction: row;
+      padding: 12px 16px;
+      border-radius: 3px;
+      border: 1px solid rgba(118, 32, 25, 0.16);
+      flex-wrap: wrap;
+  }
+  
+  
+  /* bug fix 12261 start */
+  
+  .message-container.success {
+      flex-wrap: nowrap;
+      background: #e0ebe3;
+  }
+  
+  
+  /* bug fix 12261 end */
+  
+  .aHFC_leftAlignment p {
+      padding-left: 0.5rem;
+  }
+  
+  .message-container.snack-bar {
+      position: fixed;
+      bottom: 5px;
+      right: 70px;
+      min-width: 300px;
+      max-width: 470px;
+      width: 90%;
+  }
+  
+  .message-content {
+      margin-left: 10px;
+      /* width: 92%; */
+      /* width: 94%; */
+      width: 84%;
+  }
+  
+  .message-content-forReviewEasyPay {
+      margin-left: 8px;
+      width: 92%;
+  }
+  
+  .aHFC_notification {
+      padding-left: 0.3rem;
+      text-decoration: none;
+  }
+  
+  .message-content-forOTP {
+      width: 93%;
+  }
+  
+  .message-content-info {
+      width: 93%;
+  }
+  
+  .message-content-with-cross {
+      /* width: calc(100% - 65px); */
+  }
+  
+  .message-content p a {
+      text-decoration-line: underline;
+  }
+  
+  .single-toast-message {
+      font-weight: 500;
+  }
+  
+  .single-toast-link {
+      font-weight: normal;
+      display: inline-block;
+      /* margin-left: 20px; */
+  }
+  
+  .info .message-content h1,
+  .info .message-content p,
+  .info .message-content a,
+  .info .message-content a:hover,
+  .info .message-content a:focus,
+  .info .message-content a:active {
+      color: #214757;
+  }
+  
+  .error .message-content h1,
+  .error .message-content p,
+  .error .message-content a,
+  .error .message-content a:hover,
+  .error .message-content a:focus,
+  .error .message-content a:active {
+      color: #762019;
+  }
+  
+  .warning .message-content h1,
+  .warning .message-content p,
+  .warning .message-content a,
+  .warning .message-content a:hover,
+  .warning .message-content a:focus,
+  .warning .message-content a:active {
+      color: #664216;
+  }
+  
+  .success .message-content h1,
+  .success .message-content p,
+  .success .message-content a,
+  .success .message-content a:hover,
+  .success .message-content a:focus,
+  .success .message-content a:active {
+      color: #273c2c;
+  }
+  
+  .alert .message-content h1,
+  .alert .message-content p,
+  .alert .message-content a,
+  .alert .message-content a:hover,
+  .alert .message-content a:focus,
+  .alert .message-content a:active {
+      color: #000000;
+      font-weight: 400;
+      position: static;
+      font-style: normal;
+      display: flex;
+      align-items: center;
+      text-align: left;
+  }
+  
+  .message-container.info {
+      background: #daeef6;
+  }
+  
+  .message-container.warning {
+      background: #ffedd7;
+  }
+  
+  .message-container.error {
+      background: #f6d5d4;
+  }
+  
+  /* .message-container.success {
+    background: #e0ebe3;
+  } Salesforce Scan duplicate selector*/
+  
+  .message-container.alert {
+      background: #FFA638;
+      padding-left: 6rem;
+  }
+  
+  .close-icon-alignment {
+      padding-top: 0.3rem;
+  }
+  
+  .close-icon,
+  .message-icon {
+      width: auto;
+  }
+  
+  .info .close-icon-color,
+  .info .toast-icon-color {
+      --sds-c-icon-color-foreground-default: #214757;
+  }
+  
+  .warning .close-icon-color,
+  .warning .toast-icon-color {
+      --sds-c-icon-color-foreground-default: #664216;
+  }
+  
+  .error .close-icon-color,
+  .error .toast-icon-color {
+      --sds-c-icon-color-foreground-default: #762019;
+  }
+  
+  .success .close-icon-color,
+  .success .toast-icon-color {
+      --sds-c-icon-color-foreground-default: #273c2c;
+  }
+  
+  .alert .close-icon-color,
+  .alert .toast-icon-color {
+      --sds-c-icon-color-foreground-default: #000000;
+  }
+  
+  @media screen and (min-width: 320px) and (max-width: 540px) {
+      .message-container.snack-bar {
+          bottom: 10px;
+          right: 20px;
+          left: 20px;
+          min-width: 300px;
+          max-width: 100%;
+          width: 90%;
+      }
+  }
+  
+  /* @media (min-width: 320px) and (max-width: 767px) { */
+    /* ipad changes */
+  @media (min-width: 320px) and (max-width: 768px) {
+      .message-content {
+          width: 80%;
+      }
+      .aHFC_leftAlignment {
+          padding-left: 0.5rem;
+      }
+      .message-content-with-cross {
+          width: 76%;
+      }
+      .message-content-forReviewEasyPay {
+          margin-left: 8px;
+          width: 80%;
+      }
+      .message-container.alert {
+          padding-left: 1.25rem;
+      }
+  }
+  
+  @media screen and (min-width: 600px) {
+      .single-toast-message {
+          margin-top: 7px
+      }
+      .message-container.alert .single-toast-message {
+          margin-top: 10px
+      }
+  }
+
+  /* ipad changes start */
+  @media screen and (min-width: 320px) and (max-width: 768px) {
+    
+    .update-info span {
+      display: block;
+      word-break: break-word;
+    }
+    .update-info {
+      padding-bottom: 2rem;
+   }
+
+}
+  /* ipad changes end */
+  /* ipad landscape view start*/
+  /* @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and          (orientation:landscape) { */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1250px) {
+    .update-info-span{
+      display: block;
+    }
+    
+    .update-info{
+      padding-bottom: 2rem;
+    }
+  }
+/* ipad landscape view end */

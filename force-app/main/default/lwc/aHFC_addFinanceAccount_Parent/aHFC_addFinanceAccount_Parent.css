@@ -1,0 +1,148 @@
+.banner-container {
+    background-size: cover;
+    height: 100px;
+    margin-top: 0.7rem;
+  }
+  .account-container {
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+    margin: 50px auto;
+  }
+  .user-info {
+    flex: 0 0 35%;
+    margin-top: 95px;
+  }
+  .user-info .user-title {
+    color: #CC0000;
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 56px;
+    text-align: left;
+  }
+  .user-info .setup-info {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 26px;
+    line-height: 36px;
+    color: #414141;
+    text-align: left;
+  }
+  .tabs-container {
+    flex: 0 0 58%;
+  }
+  
+  .slds-tabs_default__nav {
+    display: flex;
+  }
+  .slds-tabs_default__nav li {
+    flex: 1 1 0px;
+    text-align: center;
+    padding: 0px 25px;
+  }
+  
+  .slds-tabs_default__nav li a {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: bold !important;
+    font-size: 14px;
+    color: #000;
+  }
+  
+  .slds-tabs_default__nav li a:focus {
+    text-decoration: none;
+  }
+  
+  .slds-tabs_default__nav li.slds-is-active {
+    border: 1px solid #afafaf;
+    border-width: 1px 1px 0 1px;
+  }
+  .slds-tabs_default__nav li.slds-is-active:after {
+    background-color: #CC0000;
+  }
+  
+  .slds-tabs_default__nav li.slds-tabs_default__item:hover:after {
+    background-color: #CC0000;
+  }
+  .slds-tabs_default__nav li.slds-tabs_default__item:focus:after {
+    background-color: #CC0000;
+  }
+  @media screen and (min-width: 992px) and (max-width: 1074px) {
+    .account-container {
+      width: 93%;
+    }
+  }
+  @media only screen and (max-width: 991px) {
+    .account-container {
+      flex-direction: column;
+    }
+    .user-info{
+      margin-top: 0px;
+    }
+    .user-info .user-title {
+      font-size: 30px;
+      line-height: 30px;
+      text-align: center;
+    }
+    .user-info .setup-info {
+      font-size: 18px;
+      line-height: 24px;
+      margin-top: 16px;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+  }
+  
+  @media screen and (min-width: 320px) and (max-width: 768px) {
+    .account-container {
+      width: 90%;
+    }
+    .banner-container {
+      background-position: -200px;
+    }
+    .user-info .user-title {
+      font-size: 20px;
+    }
+    .account-container .slds-tabs_default__nav li {
+      padding: 0px 10px;
+    }
+    .account-container .slds-grid {
+      flex-direction: column;
+    }
+    .account-container .ssn-container {
+      margin-top: 24px;
+    }
+  }
+
+  /* Add a black background color to the top navigation */
+.topnav {
+    overflow: hidden;
+    position:fixed;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    display: block;
+    color: #CC0000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+  }
+  
+  
+  
+  /* Hide the link that should open and close the topnav on small screens */
+  .topnav .icon {
+    display: none;
+  }

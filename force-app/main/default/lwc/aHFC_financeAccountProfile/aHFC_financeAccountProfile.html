@@ -1,0 +1,438 @@
+<template>
+    <template if:true={loadingspinner}>
+        <!-- <div class="slds-backdrop slds-backdrop_open"></div>
+              <lightning-spinner alternative-text="Loading" size="large" class="AHFC_Spinnereg ahfc_spinnerposition" ></lightning-spinner> -->
+              <c-a-h-f-c_-spinner loading-message={spinnerMessage}></c-a-h-f-c_-spinner>
+      </template>
+<template if:true={isVehicleSwitch}>
+            <c-a-h-f-c_vehicleswitcher></c-a-h-f-c_vehicleswitcher>
+        </template>
+<div role="main" id="main-container" class="main-content">
+    <div class="account-profile-container">
+        <template if:false={boolStopFinanceAccount}>
+        
+          <div class="account-profile-container-fluid">
+            <template if:true={isArchived}>
+                <div >
+                   <c-a-h-f-c_message-toast class="made-payment-toast" type="info"
+                      singlemsg={Archived_Message} show-icon="false">
+                   </c-a-h-f-c_message-toast>
+                </div>
+             </template>
+        <template if:true={isLocked}>
+                <div >
+                   <c-a-h-f-c_message-toast class="made-payment-toast" type="error"
+                      singlemsg={Locked_Message}
+                      show-icon="false">
+                   </c-a-h-f-c_message-toast>
+                </div>
+             </template>
+        <div class="AHFC_PrimHead">
+            <c-a-h-f-c_page-title title="Finance Account Details" show-icon="true"></c-a-h-f-c_page-title>
+            <!-- <lightning-icon icon-name="utility:back" alternative-text="Connected" size="small"
+                   title="Return to dashboard" onclick={navigateToDashboard}></lightning-icon> 
+                <p>Finance Account Details</p>-->
+        </div>
+        <!-- <h1 class="header-text-large">Finance Account Details</h1> -->
+        <div class="vehicle-details-container">
+            <h3 class="slds-m-vertical_x-large header-text-medium">
+                Vehicle Details
+            </h3>
+            <div class="vehicle-details-main-section">
+                <div class="vehicle-details-section container-flex slds-grid">
+
+                    <div class="vehicle-left-section slds-col">
+                        <div class="logo-honda">
+                            <template if:true={isHonda}>
+                               <img src={hondaLogo} alt="Honda Logo" width="65" height="43" class="slds-m-bottom_medium" />
+                            </template>
+                            <template if:true={isAcura}>
+                                 <img src={acuraLogo} alt="Honda Logo" width="65" height="43" class="slds-m-bottom_medium" />
+                             </template>
+                            <template if:true={isHondaMarine}>
+                                <img src={marineLogo} alt="Honda Logo" width="65" height="43" class="slds-m-bottom_medium" />
+                            </template>
+                            <template if:true={isPowerSports}>
+                                <img src={powersportsLogo} alt="Honda Logo" width="65" height="43" class="slds-m-bottom_medium" />
+                            </template>
+                            <template if:true={isPowerEquipment}>
+                                <img src={powerEquipmentLogo} alt="Honda Logo" width="65" height="43" class="slds-m-bottom_medium" />
+                            </template>
+                            <template if:true={isNoImage}>
+                                <img src={noLogo} alt="Honda Logo" width="65" height="43" class="slds-m-bottom_medium" />
+                            </template>
+
+                            <p class="header-text-large">
+                                {nickname}
+                                <span>
+                                            <a href="#" onclick={onModalOpen} data-id="nickNameEdit">
+                                            <lightning-icon icon-name="utility:edit"  alternative-text="Edit!" title="Edit" size="small" class="slds-m-left_medium" data-id="nickNameEdit" ></lightning-icon>
+                                            </a>
+                                        </span>
+                            </p>
+
+                        </div>
+                    </div>
+
+
+                    <!-- commented by Kanagaraj for US_9056 -->
+                    <!-- <div class="vehicle-right-section">
+                              <img src={carImg} />
+                          </div> -->
+                </div>
+                <hr aria-hidden="true"/>
+                <div class="vehicle-account-info container-flex AHFC_AccInfo">
+                    <div class="account-info">
+                        <label class="label-text-medium slds-m-bottom_x-small">ACCOUNT #
+                              </label>
+                        <p class="label-text-large">{accNoWithoutZeroes}</p>
+                    </div>
+                    <div class="owner-info">
+                        <label class="label-text-medium slds-m-bottom_x-small">VIN
+                              </label>
+                        <p class="label-text-large">{VIN}&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    </div>
+                    <div class="account-info">
+                        <label class="label-text-medium slds-m-bottom_x-small">ACCOUNT TYPE</label>
+                        <p class="label-text-large">{AccountType}</p>
+                    </div>
+                </div>
+                <hr aria-hidden="true"/>
+                <div class="vehicle-account-info container-flex">
+                    <div class="owner-info">
+                        <label class="label-text-medium slds-m-bottom_x-small">PRIMARY OWNER NAME
+                          </label>
+                        <p class="label-text-large">{primaryOwner}</p>
+                    </div>
+                    <div if:false={isCharLimitExceeded} class="owner-info-new">
+                        <label class="label-text-medium slds-m-bottom_x-small">PRODUCT NAME
+                            </label>
+                        <p class="label-text-large">{productName}</p>
+                    </div>
+                </div>
+                <div if:true={isCharLimitExceeded} class="product-info-section container-flex slds-m-top_x-large">
+                    <div class="owner-info">
+                        <label class="label-text-medium slds-m-bottom_x-small">PRODUCT NAME
+                              </label>
+                        <p class="label-text-large">{productName}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contract-details-container">
+            <h3 class="slds-m-vertical_x-large header-text-medium">
+                Contract Details
+            </h3>
+            <div class="contract-details-main-section">
+                <div class="contract-detail-info container-flex">
+                    <div class="contract-info" if:false={RTFinAcc}>
+                        <label class="label-text-medium slds-m-bottom_x-small">TOTAL AMOUNT FINANCED
+                              </label>
+                        <p class="label-text-large">{totalAmountFinanced}</p>
+                    </div>
+                    <div class="contract-info" if:false={RTFinAcc}>
+                        <label class="label-text-medium slds-m-bottom_x-small">TERM
+                              </label>
+                        <p class="label-text-large">{term} Months</p>
+                    </div>
+                    <div class="contract-info" if:false={RTFinAcc}>
+                        <label class="label-text-medium slds-m-bottom_x-small">MATURITY DATE</label>
+                        <p class="label-text-large">{marturityDate}</p>
+                    </div>
+                    <div class="contract-info" if:true={RTFinAcc}>
+                        <label class="label-text-medium slds-m-bottom_x-small">ADJUSTED CAPITALIZED COST</label>
+                        <p class="label-text-large">{totalAmountFinanced}</p>
+                    </div>
+                    <div class="contract-info" if:true={RTFinAcc}>
+                        <label class="label-text-medium slds-m-bottom_x-small">TERM</label>
+                        <p class="label-text-large">{term} months</p>
+                    </div>
+                    <!--START - Placed the div tag from down to here for resolving the alignment for the bug - 21477-->
+                    <div class="contract-info" if:true={RTFinAcc}>
+                        <label class="label-text-medium slds-m-bottom_x-small">MATURITY DATE</label>
+                        <p class="label-text-large">{marturityDate}</p>
+                    </div>
+                    <!--END - Placed the div tag from down to here for resolving the alignment for the bug - 21477-->
+                </div>
+                <div class="contract-detail-info container-flex slds-m-top_x-large">
+                    <div class="contract-info" if:false={RTFinAcc}>
+                        <label class="label-text-medium slds-m-bottom_x-small">INTEREST RATE
+                              </label>
+                        <p class="label-text-large">{interestRate}%</p>
+                    </div>
+                    <div class="contract-info" if:false={RTFinAcc}>
+                        <label class="label-text-medium slds-m-bottom_x-small">INTEREST PAID YEAR-TO-DATE</label>
+                        <p class="label-text-large">{interestPaidYear}</p>
+                    </div>
+                    <div class="contract-info" if:false={RTFinAcc}>
+                        <label class="label-text-medium slds-m-bottom_x-small">INTEREST PAID PRIOR YEAR</label>
+                        <p class="label-text-large">{interestPaidPriorYear}</p>
+                    </div>                  
+                </div>
+                <template if:true={isViewContractBtn}>
+                      <hr aria-hidden="true"/>
+                      <button class="slds-button slds-button_text-destructive action-btn contract-action" onclick={navigatetoContracts}>
+                          VIEW CONTRACT
+                      </button>
+                      </template>
+            </div>
+        </div>
+        <div class="contact-details-container">
+            <h3 class="slds-m-vertical_x-large header-text-medium">
+                Contact Information
+            </h3>
+
+            <div class="contact-details-main-section">
+                <template if:true={contactPresent}>
+                          <div class="contact-detail-info container-flex">
+                              <div class="contact-info">
+                                  <label class="label-text-medium slds-m-bottom_x-small">MOBILE NUMBER 1
+                                  </label>
+                                  <p class="label-text-large">
+                                    <lightning-formatted-phone value={resultData.otherDemographics.cellPhone} disabled></lightning-formatted-phone>
+                                  </p>
+                              </div>
+                              <div class="contact-info">
+                                  <label class="label-text-medium slds-m-bottom_x-small">MOBILE NUMBER 2
+                                  </label>
+                                  <p class="label-text-large">
+                                    <lightning-formatted-phone value={resultData.otherDemographics.cellPhone2} disabled></lightning-formatted-phone>
+                                  </p>
+                              </div>
+                              <div class="contact-info">
+                                  <label class="label-text-medium slds-m-bottom_x-small">HOME NUMBER</label>
+                                  <p class="label-text-large">
+                                    <lightning-formatted-phone value={resultData.otherDemographics.homePhone} disabled></lightning-formatted-phone>
+                                  </p>
+                              </div>
+                          </div>
+                          <div class="contact-detail-info container-flex slds-m-top_x-large">
+                              <div class="contact-info">
+                                  <label class="label-text-medium slds-m-bottom_x-small">WORK NUMBER
+                                  </label>
+                                  <p class="label-text-large">
+                                    <lightning-formatted-phone value={resultData.otherDemographics.workPhone} disabled></lightning-formatted-phone>
+                                  </p>
+                              </div>
+                              <div class="contact-info">
+                                  <label class="label-text-medium slds-m-bottom_x-small">EMPLOYER NAME</label>
+                                  <p class="label-text-large">
+                                      {resultData.otherDemographics.placeOfEmployment}
+                                  </p>
+                              </div>
+                          </div>
+                        <template if:true={isEditPhoneNumber}>
+                          <button  class="slds-button slds-m-top_xx-large action-btn contact-action" data-id="contactInfoEdit" onclick={onModalOpen}>
+                              EDIT CONTACT INFORMATION
+                          </button>
+                        </template>
+                <template if:true={contactUpdated}>
+                              <div class="message-info slds-m-top_x-large slds-m-bottom_large">
+                                  <c-a-h-f-c_message-toast type="success" label="Success" message={contactUpdateMessage} is-notification="true" show-icon="true" onclosetoast={closecontactSuccesstoast}></c-a-h-f-c_message-toast>
+                              </div>
+                          </template>
+                <template if:true={contactUpdateFails}>
+                            <div class="message-info slds-m-top_x-large slds-m-bottom_large">
+                                <c-a-h-f-c_message-toast type="warning" label="Attention" message={addressUpdateMessage}  is-notification="true" show-icon="true" onclosetoast={closecontactwarningtoast}></c-a-h-f-c_message-toast>
+                            </div>
+                        </template>
+                <template if:true={isViewContractBtn}>
+                          <div class="communication-info slds-m-top_xx-large">
+                              <p class="para-text-medium">
+                                  Want to change where you receive your finance account updates?
+                              </p>
+                              <a class="para-text-medium slds-m-top_medium slds-show" href="javascript:void(0);" onclick={navigateToCommunicationPage}>Edit your communication preferences</a>
+                          </div>
+                        </template>
+                <hr aria-hidden="true"/>
+                <div class="contact-detail-info container-flex" data-id="contactInfoEdit1">
+                    <div class="contact-info">
+                        <label class="label-text-medium slds-m-bottom_x-small">GARAGING ADDRESS
+                                  </label>
+                        <p class="para-text-medium ahfc_label slds-m-bottom_x-small">
+                            Where you park your vehicle
+                        </p>
+                        <p class="para-text-large slds-m-bottom_x-small address-info">
+                            <span class="ahfc_address" if:true={resultData.garagingAddress.addressLine1}>{resultData.garagingAddress.addressLine1}</span>
+                            <span class="ahfc_address" if:true={resultData.garagingAddress.addressLine2}>{resultData.garagingAddress.addressLine2}</span>
+                            <span if:true={resultData.garagingAddress.city} class="ahfc_statespace">{resultData.garagingAddress.city},</span>
+                            <span if:true={resultData.garagingAddress.state}>{resultData.garagingAddress.state}</span>
+                            <span class="ahfc_address" if:true={resultData.garagingAddress.zipCode}>{resultData.garagingAddress.zipCode}</span>
+                        </p>
+                        <template if:true={isEditGaragingAddress}>
+                                    <button class="slds-button action-btn contact-action ahfc_editButton slds-m-top_large" aria-label="Edit Garaging Address" data-id="garagingAddressEdit" onclick={onModalOpen}>
+                                        EDIT
+                                    </button>
+                                </template>
+                    </div>
+                    <div class="contact-info">
+                        <label class="label-text-medium slds-m-bottom_x-small">BILLING ADDRESS</label>
+                        <p class="para-text-medium ahfc_label slds-m-bottom_x-small">
+                            Where your bill is delivered
+                        </p>
+                        <p class="para-text-large slds-m-bottom_x-small address-info">
+                            <span class="ahfc_address" if:true={resultData.billToAddress.addressLine1}>{resultData.billToAddress.addressLine1}</span>
+                            <span class="ahfc_address" if:true={resultData.billToAddress.addressLine2}>{resultData.billToAddress.addressLine2}</span>
+                            <span if:true={resultData.billToAddress.city} class="ahfc_statespace">{resultData.billToAddress.city},</span>
+                            <span if:true={resultData.billToAddress.state}>{resultData.billToAddress.state}</span>
+                            <span class="ahfc_address" if:true={resultData.billToAddress.zipCode}>{resultData.billToAddress.zipCode}</span>
+                        </p>
+                        <template if:true={isEditBillingAddress}>
+                                    <button class="slds-button action-btn contact-action ahfc_editButton slds-m-top_large" aria-label="Edit Billing Address" data-id="billingAddressEdit" onclick={onModalOpen}>
+                                        EDIT
+                                    </button>
+                                  </template>
+                    </div>
+                </div>
+                <!--removed for bug 22446 <div class="contact-detail-info container-flex slds-show_large">
+                    <div class="contact-info">
+                        <template if:true={isEditGaragingAddress}>
+                                    <button class="slds-button action-btn contact-action slds-m-top_large" data-id="garagingAddressEdit" aria-label="Edit Garaging Address" onclick={onModalOpen}>
+                                        EDIT
+                                    </button>
+                                </template>
+                    </div>
+                    <div class="contact-info">
+                        <template if:true={isEditBillingAddress}>
+                                    <button class="slds-button action-btn contact-action slds-m-top_large" data-id="billingAddressEdit" aria-label="Edit Billing Address" onclick={onModalOpen}>
+                                        EDIT
+                                    </button>
+                                </template>
+                    </div>
+                </div> -->
+                </template>
+                <template if:true={addressUpdated}>
+                        <div class="message-info slds-m-top_x-large slds-m-bottom_large">
+                            <c-a-h-f-c_message-toast type="success" label="Success" message={addressUpdateMessage} is-notification="true" show-icon="true" onclosetoast={closeAddressSuccesstoast}></c-a-h-f-c_message-toast>
+                        </div>
+                    </template>
+                <template if:true={addressUpdateFails}>
+                        <div class="message-info slds-m-top_x-large slds-m-bottom_large">
+                            <c-a-h-f-c_message-toast type="warning" label="Attention" message={addressUpdateMessage} is-notification="true" show-icon="true" onclosetoast={closeAddresswarningtoast}></c-a-h-f-c_message-toast>
+                        </div>
+                    </template>
+                <template if:false={contactPresent}>
+                          <div class="message-info slds-m-top_x-large slds-m-bottom_large">
+                              <c-a-h-f-c_message-toast type="error" label="Error" message={errorMsg}></c-a-h-f-c_message-toast>
+                          </div>
+                      </template>
+            </div>
+        </div>
+
+
+        <div class="finance-action-container finance-btn-container">
+            <button class="slds-button action-btn dashboard-action" onclick={navigateToDashboard}>
+                      RETURN TO DASHBOARD
+                  </button>
+            <button class="slds-button action-btn stop-action" data-id="stopFinanceEdit" onclick={onModalStopFinAcctOpen}>
+                      STOP MANAGING THIS FINANCE ACCOUNT
+                  </button>
+        </div>
+    </div> 
+    </template>
+    <!--Section which will come when finance account has been stopped successfully-->
+    <template if:true={boolStopFinanceAccount}>
+          <div class="account-profile-container-fluid">
+              <div class="vehicle-details-container">
+                  <div class="vehicle-details-main-section">
+                      <div class="success-msg-header container-flex">
+                          <div class="ahfc-img-class">
+                              <img class="slds-m-right_medium" alt="Success" src={successIcon} width="45" height="30" />
+                          </div>
+                          <h1 class="header-text-large">
+                              You have successfully stopped managing your finance account.
+                          </h1>
+                      </div>
+                      <hr aria-hidden="true"/>
+                      <div class="vehicle-details-section container-flex">
+                          <div class="vehicle-left-section stop-finance-left-section">
+                              <div class="logo-honda">
+                                <!-- START - Added the code for the bug - 21522 -->
+                                <template if:true={isHonda}>
+                                    <img src={hondaLogo} alt="Honda Logo" width="65" height="43" class="slds-m-bottom_medium" />
+                                 </template>
+                                 <template if:true={isAcura}>
+                                      <img src={acuraLogo} alt="Honda Logo" width="65" height="43" class="slds-m-bottom_medium" />
+                                  </template>
+                                 <template if:true={isHondaMarine}>
+                                     <img src={marineLogo} alt="Honda Logo" width="65" height="43" class="slds-m-bottom_medium" />
+                                 </template>
+                                 <template if:true={isPowerSports}>
+                                     <img src={powersportsLogo} alt="Honda Logo" width="65" height="43" class="slds-m-bottom_medium" />
+                                 </template>
+                                 <template if:true={isPowerEquipment}>
+                                     <img src={powerEquipmentLogo} alt="Honda Logo" width="65" height="43" class="slds-m-bottom_medium" />
+                                 </template>
+                                 <template if:true={isNoImage}>
+                                     <img src={noLogo} alt="Honda Logo" width="65" height="43" class="slds-m-bottom_medium" />
+                                 </template>
+                                 <!-- END - Added the code for the bug - 21522 -->
+                              </div>
+                              <p class="header-text-large">{nickname}</p>
+                          </div>
+                           <!-- commented by Kanagaraj for US_8878 -->
+                           
+                          <div class="vehicle-right-section">
+                            <template for:each={customServiceAccounts} for:item="servAcc">
+                                <div key={servAcc.keyNo}>
+                              <img src={servAcc.imageurl}  alt="Car Image" />
+                              </div>
+                            </template>
+</div>
+</div>
+<hr aria-hidden="true"/>
+<!-- <div class="vehicle-account-info container-flex"> -->
+<div class="vehicle-account-info">
+    <div class="account-info">
+        <label class="label-text-medium slds-m-bottom_x-small">ACCOUNT #
+                              </label>
+        <p class="label-text-large">{accNoWithoutZeroes}</p>
+    </div>
+    <div class="communication-info">
+        <p class="para-text-medium">
+            Unmanaging an account does not cancel scheduled payments or stop any activity on your account.
+        </p>
+    </div>
+</div>
+<hr aria-hidden="true"/>
+</div>
+</div>
+<div class="finance-action-container slds-m-top_xx-large">
+    <button class="slds-button action-btn dashboard-action" onclick={navigateToDashboard}>
+                      RETURN TO DASHBOARD
+                  </button>
+    <button class="slds-button action-btn stop-action ahfc-bt" data-id="stopFinanceEdit" onclick={navigatetoaddFincanceAccount}><!--/* 21971 */-->
+                      ADD ANOTHER FINANCE ACCOUNT
+                  </button>
+</div>
+</div>
+</template>
+<!--Section which will come when finance account has been stopped successfully-->
+</div>
+</div>
+<template if:true={isStopFinAcctModal}>
+      <c-a-h-f-c_stop-finance-account-edit-modal onclose={onStopModalClose} finaccdata={sacRecordId} onsave={onStopModalSave}>
+      </c-a-h-f-c_stop-finance-account-edit-modal>
+  </template>
+
+<template if:true={isModalOpen}>
+      <c-a-h-f-c_finance-account-detail-edit modal-header-text={modalHeaderText} 
+        nick-name-modal={nickNameModal} 
+        contact-info-modal={contactInfoModal} 
+        garage-address-modal={garageAddressModal}
+        billing-address-modal={billingAddressModal}
+        isupdatable-garaging-address={isEditGaragingAddress}
+        isupdatable-billing-address={isEditBillingAddress}
+        stop-finance-modal={stopFinanceModal} 
+        modal-save-text={modalBtnSave} 
+        modal-cancel-text={modalBtnCancel} 
+        result-data={resultData} 
+        onmodalsave={onModalSave} 
+        onmodalsave1={onModalSave}
+        onmodalclose={onModalClose} 
+        get-finance-account-num={accno} 
+        updatenicknamefinaccdetail={nickname}
+        finacc={finaccId}>
+      </c-a-h-f-c_finance-account-detail-edit>
+  </template>
+</template>

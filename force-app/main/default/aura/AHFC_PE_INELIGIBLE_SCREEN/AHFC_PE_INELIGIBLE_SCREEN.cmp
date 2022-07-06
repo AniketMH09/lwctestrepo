@@ -1,0 +1,42 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    
+    <ltng:require styles="{!$Resource.AHFC_UI_Kit}"/>
+    <aura:attribute name = "instructions" type = "String"/> 
+    
+    <aura:attribute name= "communityName" type="string" default=""/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="contain">
+        <div class="center"> 
+            <h1 class="header">{!$Label.c.AHFC_PE_Extension_Request}</h1>
+            
+            <div class="info">
+                Please Contact Us
+            </div>
+            
+            
+            
+            <div class="info2">
+                <aura:if isTrue="{!v.communityName == 'hondahelp'}">
+                    <p><aura:unescapedHtml value="{!$Label.c.AHFC_PE_Ineligible_Msg1_honda}"/></p>
+                </aura:if>
+                <aura:if isTrue="{!v.communityName == 'acurahelp'}">
+                    <p><aura:unescapedHtml value="{!$Label.c.AHFC_PE_Ineligible_Msg1_acura}" /></p>
+                </aura:if>
+                
+            </div>
+            
+            
+            <div class="action">
+                
+                
+                    <button class="btn primary pull-right" onclick="{!c.redirectToMyAccount}">{!$Label.c.AHFC_Return_to_Account_Overview}</button>
+                    <br/>
+                
+                
+            </div>
+        </div>
+       
+    </div>
+</aura:component>
